@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 29072</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29068.html">29068</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29072">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29088.html">29088</a></span></td>
+</tr>
+</table>
+<div class="description">29072: Set a character's destination to Sam's current location</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="29088.html">29088</a> and <a class="link" href="31362.html">31362</a>. Copies Sam's coordinates and location identifier into bytes 10, 11 and 12 of the character's buffer.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-229)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29072"></a>29072</td>
+<td class="instruction">CALL <a class="link" href="25944.html">25944</a></td>
+<td class="comment-11" rowspan="1">Get Sam's x-, y- and z-coordinates in <span class="register">E</span>, <span class="register">D</span> and <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29075"></a>29075</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=Sam's z-coordinate</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="29076"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a class="link" href="29100.html">29100</a> and <a class="link" href="29361.html">29361</a> with <span class="register">H</span>=222 or 223 (a policeman) and <span class="register">E</span>, <span class="register">D</span> and <span class="register">C</span> holding the destination x-, y- and z-coordinates.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29076"></a>29076</td>
+<td class="instruction">LD L,10</td>
+<td class="comment-11" rowspan="4">Copy the coordinates into bytes 10 and 11 of the character's buffer, thus making it his destination</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29078"></a>29078</td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29079"></a>29079</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29080"></a>29080</td>
+<td class="instruction">LD (HL),D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="29081"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="31944.html">31944</a> with <span class="register">DE</span> holding the character's destination y- and x-coordinates (copied from his command list) and <span class="register">C</span>=1.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29081"></a>29081</td>
+<td class="instruction">CALL <a class="link" href="60726.html#60734">60734</a></td>
+<td class="comment-11" rowspan="1">Obtain an identifier for the location whose coordinates are in <span class="register">D</span>, <span class="register">E</span> and <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29084"></a>29084</td>
+<td class="instruction">LD L,12</td>
+<td class="comment-11" rowspan="2">Copy the location identifier into byte 12 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29086"></a>29086</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29087"></a>29087</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29068.html">29068</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29072">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29088.html">29088</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

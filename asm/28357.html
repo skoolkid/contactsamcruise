@@ -1,0 +1,1104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 28357</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28355.html">28355</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28357">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28611.html">28611</a></span></td>
+</tr>
+</table>
+<div class="description">28357: Add a message to the message queue</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="30154.html">30154</a>, <a class="link" href="30211.html">30211</a>, <a class="link" href="30989.html">30989</a>, <a class="link" href="31126.html">31126</a>, <a class="link" href="31594.html">31594</a> and <a class="link" href="64338.html">64338</a>. Adds a message to the message queue, and updates the message line (by clearing it or displaying the next message or message portion) if necessary.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Message number</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28357"></a>28357</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=number of the message to be queued</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28358"></a>28358</td>
+<td class="instruction">LD HL,32695</td>
+<td class="comment-11" rowspan="1"><a class="link" href="32695.html">32695</a> holds the index of the current message in the message queue at <a class="link" href="32696.html">32696</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28361"></a>28361</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the index of the current message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28362"></a>28362</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=index of the last message in the queue</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28363"></a>28363</td>
+<td class="instruction">AND 7</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28365"></a>28365</td>
+<td class="instruction">ADD A,184</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the corresponding slot in the message queue at <a class="link" href="32696.html">32696</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28367"></a>28367</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28368"></a>28368</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the message number from this slot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28369"></a>28369</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is the slot empty?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28370"></a>28370</td>
+<td class="instruction">JR Z,28386</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28372"></a>
+<div class="comments">
+<div class="paragraph">
+The message queue is full. To make space for the new message, we remove the second message from the queue, and move the following messages up a slot, thus leaving the final slot free.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28372"></a>28372</td>
+<td class="instruction">LD B,7</td>
+<td class="comment-11" rowspan="1">There are six messages to move up a slot, and one to remove completely</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28374"></a>28374</td>
+<td class="instruction">LD C,0</td>
+<td class="comment-11" rowspan="1">The final slot will be made empty</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28376"></a>28376</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the message number from this slot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28377"></a>28377</td>
+<td class="instruction">LD (HL),C</td>
+<td class="comment-11" rowspan="1">Replace it with 0 or the message number from the previous slot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28378"></a>28378</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">Save the old contents of this slot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28379"></a>28379</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="4">Point <span class="register">HL</span> at the previous slot in the message queue</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28380"></a>28380</td>
+<td class="instruction">DEC A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28381"></a>28381</td>
+<td class="instruction">OR 8</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28383"></a>28383</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28384"></a>28384</td>
+<td class="instruction">DJNZ 28376</td>
+<td class="comment-11" rowspan="1">Jump back to deal with the remaining slots</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28386"></a>
+<div class="comments">
+<div class="paragraph">
+The following loop looks for the first empty slot in the message queue, and stores the message number there.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28386"></a>28386</td>
+<td class="instruction">LD L,183</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32695.html">32695</a> (which holds the index of the current message in the message queue at <a class="link" href="32696.html">32696</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28388"></a>28388</td>
+<td class="instruction">LD L,(HL)</td>
+<td class="comment-11" rowspan="1">Copy the index to <span class="register">L</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28389"></a>28389</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=index of the next message in the queue</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28390"></a>28390</td>
+<td class="instruction">INC A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28391"></a>28391</td>
+<td class="instruction">AND 7</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28393"></a>28393</td>
+<td class="instruction">ADD A,184</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the corresponding slot in the queue</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28395"></a>28395</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28396"></a>28396</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the message number from this slot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28397"></a>28397</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is the slot empty?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28398"></a>28398</td>
+<td class="instruction">JR NZ,28389</td>
+<td class="comment-11" rowspan="1">Jump back if not to check the next slot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28400"></a>28400</td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-11" rowspan="1">Store the message number in this slot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28401"></a>28401</td>
+<td class="instruction">NOP</td>
+<td class="comment-11" rowspan="3"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28402"></a>28402</td>
+<td class="instruction">NOP</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28403"></a>28403</td>
+<td class="instruction">NOP</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28404"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a class="link" href="30972.html">30972</a>, <a class="link" href="30989.html">30989</a> and <a class="link" href="61440.html">61440</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28404"></a>28404</td>
+<td class="instruction">LD HL,32695</td>
+<td class="comment-11" rowspan="1"><a class="link" href="32695.html">32695</a> holds the index of the current message in the message queue at <a class="link" href="32696.html">32696</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28407"></a>28407</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the index of the current message (0-7)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28408"></a>28408</td>
+<td class="instruction">AND 7</td>
+<td class="comment-11" rowspan="3">Point <span class="register">HL</span> at the corresponding slot in the message queue</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28410"></a>28410</td>
+<td class="instruction">ADD A,184</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28412"></a>28412</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28413"></a>28413</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the number of the current message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28414"></a>28414</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is there a message being displayed at the moment?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28415"></a>28415</td>
+<td class="instruction">JR NZ,28426</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28417"></a>28417</td>
+<td class="instruction">CALL <a class="link" href="64121.html">64121</a></td>
+<td class="comment-11" rowspan="1">Check whether there are any messages remaining in the message queue</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28420"></a>28420</td>
+<td class="instruction">LD HL,(23672)</td>
+<td class="comment-11" rowspan="1">Collect the two least significant bytes of the system variable FRAMES in <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28423"></a>28423</td>
+<td class="instruction">JR NZ,28454</td>
+<td class="comment-11" rowspan="1">Jump if there is another message waiting in the queue</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28425"></a>28425</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">This return always happens</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28426"></a>
+<div class="comments">
+<div class="paragraph">
+There is a message being displayed at the moment.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28426"></a>28426</td>
+<td class="instruction">CALL <a class="link" href="30160.html">30160</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=minimum number of subintervals of 0.64s that the current message (or message portion) should be displayed for before being replaced</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28429"></a>28429</td>
+<td class="instruction">LD HL,0</td>
+<td class="comment-11" rowspan="6"><span class="register">DE</span>=32*<span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28432"></a>28432</td>
+<td class="instruction">LD DE,32</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28435"></a>28435</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28436"></a>28436</td>
+<td class="instruction">DEC A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28437"></a>28437</td>
+<td class="instruction">JR NZ,28435</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28439"></a>28439</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28440"></a>28440</td>
+<td class="instruction">LD HL,(23672)</td>
+<td class="comment-11" rowspan="1">Collect the two least significant bytes of the system variable FRAMES in <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28443"></a>28443</td>
+<td class="instruction">LD BC,(32672)</td>
+<td class="comment-11" rowspan="1"><span class="register">BC</span>=two least significant bytes of the system variable FRAMES as they were when the last message was displayed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28447"></a>28447</td>
+<td class="instruction">SBC HL,BC</td>
+<td class="comment-11" rowspan="2">Is it time to display the next message (or next portion of the current message) yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28449"></a>28449</td>
+<td class="instruction">SBC HL,DE</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28451"></a>28451</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28452"></a>28452</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-11" rowspan="2">Restore the current value of the two least significant bytes of the system variable FRAMES to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28453"></a>28453</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28454"></a>28454</td>
+<td class="instruction">LD (32672),HL</td>
+<td class="comment-11" rowspan="1">Update the message display timer at <a class="link" href="32672.html">32672</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28457"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="29716.html">29716</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28457"></a>28457</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28458"></a>28458</td>
+<td class="instruction">LD HL,32639</td>
+<td class="comment-11" rowspan="5">Fill the message buffer at <a class="link" href="32608.html">32608</a> with spaces</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28461"></a>28461</td>
+<td class="instruction">LD BC,8224</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28464"></a>28464</td>
+<td class="instruction">LD (HL),C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28465"></a>28465</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28466"></a>28466</td>
+<td class="instruction">DJNZ 28464</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28468"></a>28468</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28469"></a>28469</td>
+<td class="instruction">LD HL,32641</td>
+<td class="comment-11" rowspan="1"><a class="link" href="32641.html">32641</a> holds the submessage indicator (0, 2, 4, 6 or 8)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28472"></a>28472</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick it up in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28473"></a>28473</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Are we in the middle of a message at the moment?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28474"></a>28474</td>
+<td class="instruction">JR NZ,28512</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28476"></a>
+<div class="comments">
+<div class="paragraph">
+We've reached the end of the current message. Time to display the next message, or clear the message line if there are no messages waiting in the queue.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28476"></a>28476</td>
+<td class="instruction">LD L,183</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32695.html">32695</a> (which holds the index of the current message in the message queue at <a class="link" href="32696.html">32696</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28478"></a>28478</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up this index</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28479"></a>28479</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="1">Increment the index</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28480"></a>28480</td>
+<td class="instruction">AND 7</td>
+<td class="comment-11" rowspan="3">Point <span class="register">HL</span> at the current message in the queue</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28482"></a>28482</td>
+<td class="instruction">ADD A,184</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28484"></a>28484</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28485"></a>28485</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-11" rowspan="1">Set the current message number to 0 (no message)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28487"></a>28487</td>
+<td class="instruction">SUB 7</td>
+<td class="comment-11" rowspan="3">Point <span class="register">HL</span> at the next message in the queue</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28489"></a>28489</td>
+<td class="instruction">OR 8</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28491"></a>28491</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28492"></a>28492</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the message number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28493"></a>28493</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is there another message waiting in the queue?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28494"></a>28494</td>
+<td class="instruction">JR Z,28534</td>
+<td class="comment-11" rowspan="1">Jump if not to clear the message line</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28496"></a>
+<div class="comments">
+<div class="paragraph">
+Here we transition from no message to top-level message, or from one message level to a submessage. <span class="register">A</span> holds the (sub)message number.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28496"></a>28496</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="2">Point <span class="register">BC</span> at the LSB of the message address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28497"></a>28497</td>
+<td class="instruction">LD B,108</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28499"></a>28499</td>
+<td class="instruction">LD L,129</td>
+<td class="comment-11" rowspan="3">Increase the submessage indicator at <a class="link" href="32641.html">32641</a> by 2 (to 2, 4, 6 or 8)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28501"></a>28501</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28502"></a>28502</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28503"></a>28503</td>
+<td class="instruction">LD L,(HL)</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at where the LSB of the message address will be stored</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28504"></a>28504</td>
+<td class="instruction">SET 7,L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28506"></a>28506</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-11" rowspan="2">Copy the LSB of the message address here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28507"></a>28507</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28508"></a>28508</td>
+<td class="instruction">INC B</td>
+<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at the MSB of the message address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28509"></a>28509</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at where the MSB of the message address will be stored</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28510"></a>28510</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-11" rowspan="2">Copy the MSB of the message address here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28511"></a>28511</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28512"></a>28512</td>
+<td class="instruction">LD L,129</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32641.html">32641</a> (submessage indicator)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28514"></a>28514</td>
+<td class="instruction">LD L,(HL)</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the LSB of the address of the next character in the message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28515"></a>28515</td>
+<td class="instruction">SET 7,L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28517"></a>28517</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the LSB in <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28518"></a>28518</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="1">Increment the LSB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28519"></a>28519</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the MSB of the address of the next character in the message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28520"></a>28520</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the MSB in <span class="register">D</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28521"></a>28521</td>
+<td class="instruction">JR NZ,28524</td>
+<td class="comment-11" rowspan="1">Jump unless the LSB rolled over to 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28523"></a>28523</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="1">Increment the MSB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28524"></a>28524</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ASCII code of the next character in the message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28525"></a>28525</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is it the end marker?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28526"></a>28526</td>
+<td class="instruction">JR NZ,28543</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28528"></a>
+<div class="comments">
+<div class="paragraph">
+We've reached the end of the top-level message or a submessage.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28528"></a>28528</td>
+<td class="instruction">LD L,129</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32641.html">32641</a> (submessage indicator)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28530"></a>28530</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="2">Reduce the submessage indicator by 2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28531"></a>28531</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28532"></a>28532</td>
+<td class="instruction">JR NZ,28474</td>
+<td class="comment-11" rowspan="1">Jump unless we've reached the end of the top-level message</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28534"></a>
+<div class="comments">
+<div class="paragraph">
+It's time to print the contents of the message buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28534"></a>28534</td>
+<td class="instruction">LD HL,32608</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first byte of the message buffer at <a class="link" href="32608.html">32608</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28537"></a>28537</td>
+<td class="instruction">LD DE,20608</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=display file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28540"></a>28540</td>
+<td class="instruction">JP <a class="link" href="28160.html">28160</a></td>
+<td class="comment-11" rowspan="1">Print the contents of the message buffer</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28543"></a>
+<div class="comments">
+<div class="paragraph">
+At this point <span class="register">A</span> holds the ASCII code of the next character in the message.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28543"></a>28543</td>
+<td class="instruction">CP 32</td>
+<td class="comment-11" rowspan="1">Is the ASCII code of the character &lt; 32?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28545"></a>28545</td>
+<td class="instruction">JR C,28496</td>
+<td class="comment-11" rowspan="1">Jump if so to deal with a submessage</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28547"></a>28547</td>
+<td class="instruction">JR NZ,28560</td>
+<td class="comment-11" rowspan="1">Jump if the ASCII code of the character is &gt; 32</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28549"></a>
+<div class="comments">
+<div class="paragraph">
+The next character in the message is a space. In case there's not enough room left in the message buffer for the word that follows, we now save the submessage indicator and submessage addresses.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28549"></a>28549</td>
+<td class="instruction">LD HL,32641</td>
+<td class="comment-11" rowspan="4">Copy the submessage indicator and submessage addresses from <a class="link" href="32641.html">32641</a> to 32512-32527</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28552"></a>28552</td>
+<td class="instruction">LD BC,16</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28555"></a>28555</td>
+<td class="instruction">LD DE,32512</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28558"></a>28558</td>
+<td class="instruction">LDIR</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28560"></a>28560</td>
+<td class="instruction">CP 96</td>
+<td class="comment-11" rowspan="1">Is the ASCII code of the character &lt; 96?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28562"></a>28562</td>
+<td class="instruction">JR C,28572</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28564"></a>28564</td>
+<td class="instruction">JR Z,28534</td>
+<td class="comment-11" rowspan="1">Jump if the ASCII code of the character is 96 (newline)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28566"></a>28566</td>
+<td class="instruction">CP 100</td>
+<td class="comment-11" rowspan="1">Is the ASCII code of the character &gt;= 100?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28568"></a>28568</td>
+<td class="instruction">JR NC,28496</td>
+<td class="comment-11" rowspan="1">Jump if so to deal with a submessage</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28570"></a>28570</td>
+<td class="instruction">JR 28604</td>
+<td class="comment-11" rowspan="1">Jump forward to deal with ASCII code 97 or 98 (99 is not used)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28572"></a>28572</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28573"></a>28573</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at the next free byte in the message buffer at <a class="link" href="32608.html">32608</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28574"></a>28574</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="1">Store the ASCII code of the message character there</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28575"></a>28575</td>
+<td class="instruction">BIT 7,L</td>
+<td class="comment-11" rowspan="1">Reset the zero flag if we've reached the end of the message buffer (<span class="register">HL'</span>=32640)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28577"></a>28577</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28578"></a>28578</td>
+<td class="instruction">JR Z,28512</td>
+<td class="comment-11" rowspan="1">Jump if there's still space left in the message buffer</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28580"></a>
+<div class="comments">
+<div class="paragraph">
+The message buffer at <a class="link" href="32608.html">32608</a> is full.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28580"></a>28580</td>
+<td class="instruction">LD HL,32512</td>
+<td class="comment-11" rowspan="4">Restore the submessage indicator and message addresses to <a class="link" href="32641.html">32641</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28583"></a>28583</td>
+<td class="instruction">LD DE,32641</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28586"></a>28586</td>
+<td class="instruction">LD BC,16</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28589"></a>28589</td>
+<td class="instruction">LDIR</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28591"></a>28591</td>
+<td class="instruction">LD L,128</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=32640 (message buffer overflow byte)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28593"></a>28593</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="6">Remove all characters from the end of the message buffer back to the last space</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28594"></a>28594</td>
+<td class="instruction">LD (HL),C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28595"></a>28595</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28596"></a>28596</td>
+<td class="instruction">LD C,32</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28598"></a>28598</td>
+<td class="instruction">CP 32</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28600"></a>28600</td>
+<td class="instruction">JR NZ,28593</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28602"></a>28602</td>
+<td class="instruction">JR 28534</td>
+<td class="comment-11" rowspan="1">Print the contents of the message buffer</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28604"></a>
+<div class="comments">
+<div class="paragraph">
+The ASCII code of the next character in the message is 97 (person or group of people) or 98 (verb).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28604"></a>28604</td>
+<td class="instruction">ADD A,100</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=197 or 198</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28606"></a>28606</td>
+<td class="instruction">CALL <a class="link" href="28616.html">28616</a></td>
+<td class="comment-11" rowspan="1">Randomly select a message number for either a verb or a person or group of people</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28609"></a>28609</td>
+<td class="instruction">JR 28496</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28355.html">28355</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28357">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28611.html">28611</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

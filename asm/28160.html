@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 28160</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28159.html">28159</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28160">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28186.html">28186</a></span></td>
+</tr>
+</table>
+<div class="description">28160: Print a message</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="28186.html">28186</a> and <a class="link" href="28357.html">28357</a>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Display file address</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Message address</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28160"></a>28160</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the ASCII code of the next character to print</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28161"></a>28161</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="1">Have we reached the end of the message?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28162"></a>28162</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28163"></a>28163</td>
+<td class="instruction">NOP</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28164"></a>28164</td>
+<td class="instruction">NOP</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28165"></a>28165</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next character in the message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28166"></a>28166</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save this pointer for now</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28167"></a>28167</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the display file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28168"></a>28168</td>
+<td class="instruction">LD H,15</td>
+<td class="comment-11" rowspan="4">Point <span class="register">HL</span> at the base address of the graphic data for the font character (in the ROM)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28170"></a>28170</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28171"></a>28171</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28172"></a>28172</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28173"></a>28173</td>
+<td class="instruction">LD B,8</td>
+<td class="comment-11" rowspan="6">Print the character on the screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28175"></a>28175</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28176"></a>28176</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28177"></a>28177</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28178"></a>28178</td>
+<td class="instruction">INC D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28179"></a>28179</td>
+<td class="instruction">DJNZ 28175</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28181"></a>28181</td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1">Restore the display file address to <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28182"></a>28182</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the pointer to the next character in the message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28183"></a>28183</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the next display file location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28184"></a>28184</td>
+<td class="instruction">JR 28160</td>
+<td class="comment-11" rowspan="1">Jump back to print the next character</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28159.html">28159</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28160">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28186.html">28186</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

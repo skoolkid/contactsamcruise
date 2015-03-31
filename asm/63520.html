@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 63520</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="63519.html">63519</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#63520">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="63530.html">63530</a></span></td>
+</tr>
+</table>
+<div class="description">63520: Make a character walk up and down for a while</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the command lists at <a class="link" href="64928.html">64928</a>, <a class="link" href="64948.html">64948</a>, <a class="link" href="64964.html">64964</a>, <a class="link" href="64976.html">64976</a>, <a class="link" href="65002.html">65002</a>, <a class="link" href="65016.html">65016</a>, <a class="link" href="65044.html">65044</a>, <a class="link" href="65076.html">65076</a>, <a class="link" href="65097.html">65097</a>, <a class="link" href="65178.html">65178</a> and <a class="link" href="65184.html">65184</a>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-229)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63520"></a>63520</td>
+<td class="instruction">LD L,11</td>
+<td class="comment-11" rowspan="2">Set the door identifier in byte 11 of the character's buffer to 168 (which corresponds to no door, meaning the character will not be on door duty)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63522"></a>63522</td>
+<td class="instruction">LD (HL),168</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63524"></a>63524</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Set the walkabout duration counter in byte 12 of the character's buffer to 255 (meaning the character will walk up and down for a finite period instead of indefinitely)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63525"></a>63525</td>
+<td class="instruction">LD (HL),255</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63527"></a>63527</td>
+<td class="instruction">JP <a class="link" href="63304.html#63309">63309</a></td>
+<td class="comment-11" rowspan="1">Make the character begin walking up and down</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="63519.html">63519</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#63520">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="63530.html">63530</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

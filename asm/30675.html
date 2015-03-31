@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 30675</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30627.html">30627</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30675">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30822.html">30822</a></span></td>
+</tr>
+</table>
+<div class="description">30675: Deal with Sam when he's on the phone</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="29912.html">29912</a> when bit 4 at <a class="link" href="32764.html">32764</a> is set (by the routine at <a class="link" href="30458.html">30458</a>), indicating that Sam is on the phone.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30675"></a>30675</td>
+<td class="instruction">LD HL,32667</td>
+<td class="comment-11" rowspan="1">The telephone call status flags are stored at <a class="link" href="32667.html">32667</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30678"></a>30678</td>
+<td class="instruction">BIT 6,(HL)</td>
+<td class="comment-11" rowspan="1">Has someone asked Sam 'WHO'S THERE?'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30680"></a>30680</td>
+<td class="instruction">JP NZ,<a class="link" href="30575.html">30575</a></td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30683"></a>30683</td>
+<td class="instruction">BIT 1,(HL)</td>
+<td class="comment-11" rowspan="1">Is the telephone call still in progress?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30685"></a>30685</td>
+<td class="instruction">JR Z,30691</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30687"></a>30687</td>
+<td class="instruction">CALL <a class="link" href="61923.html">61923</a></td>
+<td class="comment-11" rowspan="1">Hang up if 'h' was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30690"></a>30690</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30691"></a>
+<div class="comments">
+<div class="paragraph">
+The telephone call is still in progress.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30691"></a>30691</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Has Sam picked up a telephone that was ringing?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30693"></a>30693</td>
+<td class="instruction">JR Z,30707</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30695"></a>30695</td>
+<td class="instruction">CALL <a class="link" href="61923.html">61923</a></td>
+<td class="comment-11" rowspan="1">Hang up if 'h' was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30698"></a>30698</td>
+<td class="instruction">LD A,(32723)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ID of the telephone that Sam is holding</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30701"></a>30701</td>
+<td class="instruction">LD HL,27467</td>
+<td class="comment-11" rowspan="1">The ringing phone location table is at <a class="link" href="27467.html">27467</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30704"></a>30704</td>
+<td class="instruction">JP <a class="link" href="30627.html">30627</a></td>
+<td class="comment-11" rowspan="1">Check whether there is a message for Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30707"></a>30707</td>
+<td class="instruction">BIT 5,(HL)</td>
+<td class="comment-11" rowspan="1">Is the destination telephone ringing?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30709"></a>30709</td>
+<td class="instruction">JR Z,30726</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30711"></a>30711</td>
+<td class="instruction">CALL <a class="link" href="61923.html">61923</a></td>
+<td class="comment-11" rowspan="1">Hang up if 'h' was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30714"></a>30714</td>
+<td class="instruction">CALL <a class="link" href="30511.html">30511</a></td>
+<td class="comment-11" rowspan="1">Is the telephone that Sam is calling either off-screen or close enough to a character that can pick it up?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30717"></a>30717</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30718"></a>30718</td>
+<td class="instruction">LD A,(32666)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ID of the telephone that Sam is calling</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30721"></a>30721</td>
+<td class="instruction">LD HL,27506</td>
+<td class="comment-11" rowspan="1">The phone message table is at <a class="link" href="27506.html">27506</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30724"></a>30724</td>
+<td class="instruction">JR 30704</td>
+<td class="comment-11" rowspan="1">Check whether Sam has called someone who has a message for him</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30726"></a>
+<div class="comments">
+<div class="paragraph">
+Sam is still dialling the telephone number.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30726"></a>30726</td>
+<td class="instruction">BIT 4,(HL)</td>
+<td class="comment-11" rowspan="1">Are we currently making the sound effect of a digit being dialled?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30728"></a>30728</td>
+<td class="instruction">JR NZ,30768</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30730"></a>30730</td>
+<td class="instruction">CALL <a class="link" href="61923.html">61923</a></td>
+<td class="comment-11" rowspan="1">Check for keypresses and hang up if 'h' was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30733"></a>30733</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if no key with an ASCII code in the range 48-127 was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30734"></a>30734</td>
+<td class="instruction">CP 58</td>
+<td class="comment-11" rowspan="1">Was the ASCII code of the keypress greater than 57 ('9')?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30736"></a>30736</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30737"></a>30737</td>
+<td class="instruction">CP 48</td>
+<td class="comment-11" rowspan="1">Was the ASCII code less than 48 ('0')?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30739"></a>30739</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30740"></a>30740</td>
+<td class="instruction">LD HL,32657</td>
+<td class="comment-11" rowspan="5">Store the ASCII code of the digit in the first available space at <a class="link" href="32658.html">32658</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30743"></a>30743</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30744"></a>30744</td>
+<td class="instruction">BIT 5,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30746"></a>30746</td>
+<td class="instruction">JR NZ,30743</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30748"></a>30748</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30749"></a>30749</td>
+<td class="instruction">SUB 48</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=digit that was dialled (0-9)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30751"></a>30751</td>
+<td class="instruction">JR NZ,30755</td>
+<td class="comment-11" rowspan="1">Jump unless '0' was dialled</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30753"></a>30753</td>
+<td class="instruction">LD A,10</td>
+<td class="comment-11" rowspan="1">The digit '0' will give 10 clicks</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30755"></a>30755</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=1-11</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30756"></a>30756</td>
+<td class="instruction">LD (58900),A</td>
+<td class="comment-11" rowspan="1">Store this in byte 20 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30759"></a>30759</td>
+<td class="instruction">LD L,155</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32667.html">32667</a> (telephone call status flags)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30761"></a>30761</td>
+<td class="instruction">LD (HL),16</td>
+<td class="comment-11" rowspan="1">Set bit 4</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30763"></a>30763</td>
+<td class="instruction">LD A,42</td>
+<td class="comment-11" rowspan="1">Message <a class="link" href="27141.html">42</a>: 'I DIALLED {number}'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30765"></a>30765</td>
+<td class="instruction">JP <a class="link" href="30154.html">30154</a></td>
+<td class="comment-11" rowspan="1">Queue this message urgently</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30768"></a>
+<div class="comments">
+<div class="paragraph">
+The sound effect of a digit being dialled is currently in progress.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30768"></a>30768</td>
+<td class="instruction">LD HL,58888</td>
+<td class="comment-11" rowspan="2">Set Sam's main action timer (in byte 8 of his buffer) to 3</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30771"></a>30771</td>
+<td class="instruction">LD (HL),3</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30773"></a>30773</td>
+<td class="instruction">LD L,20</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 20 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30775"></a>30775</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Are there any more clicks to make?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30776"></a>30776</td>
+<td class="instruction">JP NZ,<a class="link" href="60521.html">60521</a></td>
+<td class="comment-11" rowspan="1">Make a click if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30779"></a>
+<div class="comments">
+<div class="paragraph">
+Sam has finished dialling a digit of the telephone number. Check whether the number dialled so far is valid.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30779"></a>30779</td>
+<td class="instruction">LD HL,32667</td>
+<td class="comment-11" rowspan="2">Clear all the telephone call status flags at <a class="link" href="32667.html">32667</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30782"></a>30782</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30784"></a>30784</td>
+<td class="instruction">LD L,146</td>
+<td class="comment-11" rowspan="2">Collect the ASCII code of the first digit that was dialled from <a class="link" href="32658.html">32658</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30786"></a>30786</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30787"></a>30787</td>
+<td class="instruction">CP 48</td>
+<td class="comment-11" rowspan="1">Was it '0'?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30789"></a>30789</td>
+<td class="instruction">JR Z,30817</td>
+<td class="comment-11" rowspan="1">Jump if so (no telephone numbers start with 0)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30791"></a>30791</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="4">Add the ASCII codes of the second and third digits to the first</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30792"></a>30792</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30793"></a>30793</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30794"></a>30794</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30795"></a>30795</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the fourth digit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30796"></a>30796</td>
+<td class="instruction">CP 171</td>
+<td class="comment-11" rowspan="1">Set the zero flag if '999' was dialled</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30798"></a>30798</td>
+<td class="instruction">LD A,112</td>
+<td class="comment-11" rowspan="1">112 is the ID of the telephone in the police station</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30800"></a>30800</td>
+<td class="instruction">JR Z,30810</td>
+<td class="comment-11" rowspan="1">Jump if Sam has dialled the police</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30802"></a>30802</td>
+<td class="instruction">BIT 5,(HL)</td>
+<td class="comment-11" rowspan="1">Has Sam dialled four digits yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30804"></a>30804</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30805"></a>30805</td>
+<td class="instruction">CALL <a class="link" href="31255.html">31255</a></td>
+<td class="comment-11" rowspan="1">Has Sam dialled a valid telephone number?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30808"></a>30808</td>
+<td class="instruction">JR NZ,30817</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30810"></a>30810</td>
+<td class="instruction">LD HL,32723</td>
+<td class="comment-11" rowspan="1"><a class="link" href="32723.html">32723</a> holds the ID of the telephone Sam is holding</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30813"></a>30813</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Does it match the ID of the telephone Sam is calling?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30814"></a>30814</td>
+<td class="instruction">JP NZ,<a class="link" href="31244.html">31244</a></td>
+<td class="comment-11" rowspan="1">Jump if not to place the call</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30817"></a>30817</td>
+<td class="instruction">LD A,47</td>
+<td class="comment-11" rowspan="1">Message <a class="link" href="27214.html">47</a>: ' THE NUMBER WAS UNOBTAINABLE'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30819"></a>30819</td>
+<td class="instruction">JP <a class="link" href="30575.html#30617">30617</a></td>
+<td class="comment-11" rowspan="1">Disconnect the call and queue this message urgently</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30627.html">30627</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30675">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30822.html">30822</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

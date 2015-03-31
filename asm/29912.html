@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 29912</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29896.html">29896</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29912">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29952.html">29952</a></span></td>
+</tr>
+</table>
+<div class="description">29912: Deal with Sam</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Called from the main loop at <a class="link" href="61483.html">61483</a> when one of Sam's status flags at <a class="link" href="32764.html">32764</a> is set, indicating that he is in the middle of an action. Returns with the zero flag set if Sam has finished the action by the end of the routine.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29912"></a>29912</td>
+<td class="instruction">LD HL,58888</td>
+<td class="comment-11" rowspan="2">Decrement Sam's main action timer in  byte 8 of his buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29915"></a>29915</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29916"></a>29916</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return unless it's time to deal with Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29917"></a>29917</td>
+<td class="instruction">LD HL,29939</td>
+<td class="comment-11" rowspan="2">We will continue at <a class="link" href="29912.html#29939">29939</a> (below) after calling the routine to handle Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29920"></a>29920</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29921"></a>29921</td>
+<td class="instruction">LD L,198</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=29894</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29923"></a>29923</td>
+<td class="instruction">LD A,(32764)</td>
+<td class="comment-11" rowspan="1">Pick up Sam's status flags from <a class="link" href="32764.html">32764</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29926"></a>29926</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="4">Point <span class="register">HL</span> at one of the entries in the table of Sam-handling routine addresses at <a class="link" href="29896.html">29896</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29927"></a>29927</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29928"></a>29928</td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29929"></a>29929</td>
+<td class="instruction">JR NC,29926</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29931"></a>29931</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-11" rowspan="3">Collect the routine address into <span class="register">BC</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29932"></a>29932</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29933"></a>29933</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29934"></a>29934</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Push it onto the stack, ready for an indirect jump</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29935"></a>29935</td>
+<td class="instruction">LD HL,58880</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29938"></a>29938</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Make an indirect jump to the Sam-handling routine</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="29939"></a>
+<div class="comments">
+<div class="paragraph">
+We come here after the Sam-handling routine has returned.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29939"></a>29939</td>
+<td class="instruction">LD HL,32764</td>
+<td class="comment-11" rowspan="1"><a class="link" href="32764.html">32764</a> holds Sam's status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29942"></a>29942</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick them up in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29943"></a>29943</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Has Sam finished the action yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29944"></a>29944</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29945"></a>29945</td>
+<td class="instruction">LD A,(58888)</td>
+<td class="comment-11" rowspan="1">Collect Sam's main action timer from byte 8 of his buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29948"></a>29948</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Did the Sam-handling routine set the action timer to a non-zero value (meaning that the action is still in progress)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29949"></a>29949</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return with the zero flag reset if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29950"></a>29950</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="1">Otherwise clear all of Sam's status flags at <a class="link" href="32764.html">32764</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29951"></a>29951</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the zero flag set</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29896.html">29896</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29912">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29952.html">29952</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

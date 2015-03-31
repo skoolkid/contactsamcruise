@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 31713</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="31670.html">31670</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#31713">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="31807.html">31807</a></span></td>
+</tr>
+</table>
+<div class="description">31713: 'C' pressed - use hook</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this routine is found in the table of keypress handling routines at <a class="link" href="60672.html">60672</a>. It is called from the main loop at <a class="link" href="61483.html">61483</a> when 'C' is pressed.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="31713"></a>31713</td>
+<td class="instruction">LD A,(32745)</td>
+<td class="comment-11" rowspan="1">Collect the object inventory flags from <a class="link" href="32745.html">32745</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31716"></a>31716</td>
+<td class="instruction">BIT 6,A</td>
+<td class="comment-11" rowspan="1">Has Sam got the hook?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31718"></a>31718</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31719"></a>31719</td>
+<td class="instruction">LD A,(58884)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's z-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31722"></a>31722</td>
+<td class="instruction">LD HL,(58881)</td>
+<td class="comment-11" rowspan="1">Collect Sam's x- and y-coordinates in <span class="register">L</span> and <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31725"></a>31725</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="1">Is Sam's z-coordinate 1 (indoors)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31726"></a>31726</td>
+<td class="instruction">JR NC,31755</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31728"></a>31728</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x (Sam's x-coordinate)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31729"></a>31729</td>
+<td class="instruction">CP 222</td>
+<td class="comment-11" rowspan="1">Is Sam in no. 17 or no. 15 (x&gt;=222)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31731"></a>31731</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31732"></a>31732</td>
+<td class="instruction">CP 207</td>
+<td class="comment-11" rowspan="1">Is Sam in no. 19 (207&lt;=x&lt;222)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31734"></a>31734</td>
+<td class="instruction">JR NC,31751</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31736"></a>31736</td>
+<td class="instruction">CP 122</td>
+<td class="comment-11" rowspan="1">Is Sam in the police station, no. 27, or the apartments next to no. 19 (122&lt;=x&lt;207)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31738"></a>31738</td>
+<td class="instruction">JR NC,31747</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31740"></a>31740</td>
+<td class="instruction">CP 103</td>
+<td class="comment-11" rowspan="1">Is Sam in no. 31 (103&lt;=x&lt;122)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31742"></a>31742</td>
+<td class="instruction">JR NC,31751</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31744"></a>31744</td>
+<td class="instruction">CP 25</td>
+<td class="comment-11" rowspan="1">Is Sam in no. 74 or the hotel (25&lt;=x&lt;103)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31746"></a>31746</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="31747"></a>31747</td>
+<td class="instruction">LD A,7</td>
+<td class="comment-11" rowspan="1">7 is the y-coordinate of the roof of the police station, no. 27, and the apartment building next to no. 19</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31749"></a>31749</td>
+<td class="instruction">JR 31753</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="31751"></a>31751</td>
+<td class="instruction">LD A,13</td>
+<td class="comment-11" rowspan="1">13 is the y-coordinate of the roofs of no. 19 and no. 31</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="31753"></a>31753</td>
+<td class="instruction">CP H</td>
+<td class="comment-11" rowspan="1">Is Sam on the roof of a building?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31754"></a>31754</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="31755"></a>
+<div class="comments">
+<div class="paragraph">
+Sam is in a location that is amenable to hook-throwing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="31755"></a>31755</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=1+Sam's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31756"></a>31756</td>
+<td class="instruction">LD A,(58880)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31759"></a>31759</td>
+<td class="instruction">AND 128</td>
+<td class="comment-11" rowspan="1">Keep only the direction bit (bit 7)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31761"></a>31761</td>
+<td class="instruction">JR Z,31764</td>
+<td class="comment-11" rowspan="1">Jump if Sam is facing left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31763"></a>31763</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=1+Sam's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="31764"></a>31764</td>
+<td class="instruction">ADD A,121</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a class="link" href="../graphics/as.html#121">121/249</a> (hook)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31766"></a>31766</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=hook's initial coordinates</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31767"></a>31767</td>
+<td class="instruction">LD HL,58643</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 19 of character buffer 229</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31770"></a>31770</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="2">Is the current owner of character buffer 229 (the hook or a banknote) under the control of an uninterruptible subcommand routine?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31771"></a>31771</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31772"></a>31772</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if so (the hook must currently be in flight, which is unlikely)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="31773"></a>
+<div class="comments">
+<div class="paragraph">
+The hook will be thrown. Prepare it for launch now.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31773"></a>31773</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Initialise the distance remaining for the hook to fly (stored in byte 20 of the hook's buffer)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31774"></a>31774</td>
+<td class="instruction">LD (HL),20</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31776"></a>31776</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a class="link" href="31670.html">31670</a> into bytes 18 and 19 of the hook's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31777"></a>31777</td>
+<td class="instruction">LD (HL),123</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31779"></a>31779</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31780"></a>31780</td>
+<td class="instruction">LD (HL),182</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31782"></a>31782</td>
+<td class="instruction">LD L,4</td>
+<td class="comment-11" rowspan="2">Set the hook's z-coordinate to 4</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31784"></a>31784</td>
+<td class="instruction">LD (HL),L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31785"></a>31785</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="2">Set bit 7 of byte 3 of the hook's buffer, thus making the hook fly as fast as possible</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31786"></a>31786</td>
+<td class="instruction">LD (HL),128</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31788"></a>31788</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="4">Initialise the hook's x- and y-coordinates</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31789"></a>31789</td>
+<td class="instruction">LD (HL),D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31790"></a>31790</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31791"></a>31791</td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31792"></a>31792</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="2">Initialise the hook's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31793"></a>31793</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31794"></a>31794</td>
+<td class="instruction">CALL <a class="link" href="59861.html">59861</a></td>
+<td class="comment-11" rowspan="1">Update the hook's animatory state and location and update the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31797"></a>31797</td>
+<td class="instruction">LD HL,32745</td>
+<td class="comment-11" rowspan="1">The object inventory flags are stored at <a class="link" href="32745.html">32745</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31800"></a>31800</td>
+<td class="instruction">RES 6,(HL)</td>
+<td class="comment-11" rowspan="1">Clear bit 6, thus removing the hook from Sam's possession</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31802"></a>31802</td>
+<td class="instruction">LD H,230</td>
+<td class="comment-11" rowspan="1">230=Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="31804"></a>31804</td>
+<td class="instruction">JP <a class="link" href="62212.html">62212</a></td>
+<td class="comment-11" rowspan="1">Raise Sam's arm and make a sound effect</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="31670.html">31670</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#31713">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="31807.html">31807</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

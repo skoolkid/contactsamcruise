@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 62278</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62264.html">62264</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62278">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62297.html">62297</a></span></td>
+</tr>
+</table>
+<div class="description">62278: Control a character who is knocking on or opening a door (1)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this interruptible subcommand routine is placed into bytes 14 and 15 of a character's buffer by the routine at <a class="link" href="62264.html">62264</a>. It makes the character open the door if he can, or knock and begin waiting for an answer.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-229)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62278"></a>62278</td>
+<td class="instruction">CALL <a class="link" href="62120.html">62120</a></td>
+<td class="comment-11" rowspan="1">Check whether the character can open the door, and open it if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62281"></a>62281</td>
+<td class="instruction">LD L,16</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 16 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62283"></a>62283</td>
+<td class="instruction">JR NC,<a class="link" href="62325.html">62325</a></td>
+<td class="comment-11" rowspan="1">Jump if the character has opened the door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62285"></a>62285</td>
+<td class="instruction">JR Z,<a class="link" href="62325.html">62325</a></td>
+<td class="comment-11" rowspan="1">Jump if the character has no keys (only policemen have no keys)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="62287"></a>
+<div class="comments">
+<div class="paragraph">
+This character (who is not a policeman) has knocked on the door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62287"></a>62287</td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-11" rowspan="1">Store the LSB of the address of the door knock status flags (see <a class="link" href="32682.html">32682</a>) for the door in byte 16 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62288"></a>62288</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Initialise the counter in byte 17 of the character's buffer to 30; this determines how long the character will wait for someone to open the door before giving up</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62289"></a>62289</td>
+<td class="instruction">LD (HL),30</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62291"></a>62291</td>
+<td class="instruction">LD L,14</td>
+<td class="comment-11" rowspan="2">Change the address of the interruptible subcommand routine in bytes 14 and 15 of the character's buffer to <a class="link" href="62297.html">62297</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62293"></a>62293</td>
+<td class="instruction">LD (HL),89</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62295"></a>62295</td>
+<td class="instruction">JR <a class="link" href="62325.html#62331">62331</a></td>
+<td class="comment-11" rowspan="1">Lower the character's arm</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62264.html">62264</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62278">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62297.html">62297</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

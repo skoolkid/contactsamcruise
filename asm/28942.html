@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 28942</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28940.html">28940</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28942">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29003.html">29003</a></span></td>
+</tr>
+</table>
+<div class="description">28942: Check whether a character is close enough to Sam to pick him up</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="25074.html">25074</a> and <a class="link" href="29361.html">29361</a>. Returns with the carry flag set if the character is facing Sam and close enough to him to pick him up, and Sam is not already being carried.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-229)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28942"></a>28942</td>
+<td class="instruction">LD A,(32764)</td>
+<td class="comment-11" rowspan="1">Collect Sam's status flags from <a class="link" href="32764.html">32764</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28945"></a>28945</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=0 if Sam's being carried at the moment</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28946"></a>28946</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Clear the carry flag, and set the zero flag if Sam's being carried</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28947"></a>28947</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return with the carry flag reset if Sam's being carried</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28948"></a>
+<div class="comments">
+<div class="paragraph">
+Sam is not being carried at the moment. Compare his x- and y-coordinates with those of the character chasing him.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28948"></a>28948</td>
+<td class="instruction">LD L,2</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28950"></a>28950</td>
+<td class="instruction">CALL <a class="link" href="25944.html">25944</a></td>
+<td class="comment-11" rowspan="1">Collect Sam's x- and y-coordinates in <span class="register">E</span> and <span class="register">D</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28953"></a>28953</td>
+<td class="instruction">NOP</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28954"></a>28954</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28955"></a>28955</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="3">Is the character more than one y-coordinate above or below Sam?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28956"></a>28956</td>
+<td class="instruction">SUB D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28957"></a>28957</td>
+<td class="instruction">CP 3</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28959"></a>28959</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28960"></a>28960</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28961"></a>28961</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28962"></a>28962</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28963"></a>28963</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Is the character facing left?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28965"></a>28965</td>
+<td class="instruction">JR Z,28969</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28967"></a>28967</td>
+<td class="instruction">ADD A,2</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=2+character's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28969"></a>28969</td>
+<td class="instruction">SUB E</td>
+<td class="comment-11" rowspan="2">Is the character facing Sam and no more than two x-coordinates away from him?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28970"></a>28970</td>
+<td class="instruction">CP 3</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28972"></a>28972</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28973"></a>
+<div class="comments">
+<div class="paragraph">
+The character is facing Sam, no more than one y-coordinate above or below him, and no more than two x-coordinates to the left or right of him. Now we compare the z-coordinates.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28973"></a>28973</td>
+<td class="instruction">LD A,(58884)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's z-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28976"></a>28976</td>
+<td class="instruction">LD L,4</td>
+<td class="comment-11" rowspan="2">Set the zero flag if the character's z-coordinate matches Sam's</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28978"></a>28978</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28979"></a>28979</td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="2">Return with the carry flag set if the character can pick up Sam at his current location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28980"></a>28980</td>
+<td class="instruction">RET Z</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28981"></a>
+<div class="comments">
+<div class="paragraph">
+The z-coordinates don't match. However, the character will still be able to pick up Sam if they are both standing at or near the open entrance to a building (one inside and the other outside).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28981"></a>28981</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the character number briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28982"></a>28982</td>
+<td class="instruction">LD H,230</td>
+<td class="comment-11" rowspan="1">230=Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28984"></a>28984</td>
+<td class="instruction">CALL <a class="link" href="60179.html">60179</a></td>
+<td class="comment-11" rowspan="1">Obtain descriptors for Sam's current location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28987"></a>28987</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28988"></a>28988</td>
+<td class="instruction">CP 3</td>
+<td class="comment-11" rowspan="1">Is Sam standing at the open entrance to a building?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28990"></a>28990</td>
+<td class="instruction">JR Z,28979</td>
+<td class="comment-11" rowspan="1">Jump if so (Sam can be picked up here)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28992"></a>28992</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the character number briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28993"></a>28993</td>
+<td class="instruction">CALL <a class="link" href="60179.html">60179</a></td>
+<td class="comment-11" rowspan="1">Obtain descriptors for the character's current location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28996"></a>28996</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28997"></a>28997</td>
+<td class="instruction">CP 3</td>
+<td class="comment-11" rowspan="1">Is the character standing at the open entrance to a building?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28999"></a>28999</td>
+<td class="instruction">JR Z,28979</td>
+<td class="comment-11" rowspan="1">Jump if so (the character can pick Sam up here)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29001"></a>29001</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Clear the carry flag (Sam cannot be picked up)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29002"></a>29002</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28940.html">28940</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28942">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29003.html">29003</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

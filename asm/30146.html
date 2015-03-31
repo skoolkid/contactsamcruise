@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 30146</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30116.html">30116</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30146">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30153.html">30153</a></span></td>
+</tr>
+</table>
+<div class="description">30146: Deal with Sam when his arm is raised or his knees are bent</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="29912.html">29912</a> when bit 5 at <a class="link" href="32764.html">32764</a> is set (by the routine at <a class="link" href="29866.html">29866</a>, <a class="link" href="30070.html">30070</a>, <a class="link" href="30092.html">30092</a>, <a class="link" href="31204.html">31204</a> or <a class="link" href="31713.html">31713</a>), indicating that Sam is blowing a fuse, switching a light on or off, raising or lowering a blind, or throwing the hook (and therefore has his arm raised), or is picking up an object (and therefore has his knees bent).
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30146"></a>30146</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="2">Clear all of Sam's status flags at <a class="link" href="32764.html">32764</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30147"></a>30147</td>
+<td class="instruction">LD (32764),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30150"></a>30150</td>
+<td class="instruction">JP <a class="link" href="60539.html">60539</a></td>
+<td class="comment-11" rowspan="1">Make a sound effect and lower Sam's arm or unbend his knees</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30116.html">30116</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30146">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30153.html">30153</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

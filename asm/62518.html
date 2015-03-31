@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 62518</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62468.html">62468</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62518">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62597.html">62597</a></span></td>
+</tr>
+</table>
+<div class="description">62518: Check whether a character is standing next to a light switch</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="29052.html">29052</a>, <a class="link" href="29218.html">29218</a>, <a class="link" href="29733.html">29733</a>, <a class="link" href="30070.html">30070</a>, <a class="link" href="62597.html">62597</a>, <a class="link" href="62694.html">62694</a> and <a class="link" href="62880.html">62880</a>. Returns with the zero flag reset if the character is standing next to a light switch.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-230)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62518"></a>62518</td>
+<td class="instruction">LD L,4</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 4 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62520"></a>62520</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Is the character indoors?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62522"></a>62522</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62523"></a>62523</td>
+<td class="instruction">LD L,0</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62525"></a>62525</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62526"></a>62526</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="2">Set the carry flag if the character is facing left, reset it if he's facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62527"></a>62527</td>
+<td class="instruction">CCF</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62528"></a>62528</td>
+<td class="instruction">SBC A,A</td>
+<td class="comment-11" rowspan="3">Now <span class="register">A</span>=0 if the character is facing left, or 2 if he's facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62529"></a>62529</td>
+<td class="instruction">INC A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62530"></a>62530</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62531"></a>62531</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62532"></a>62532</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-11" rowspan="1">Add the character's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62533"></a>62533</td>
+<td class="instruction">LD B,128</td>
+<td class="comment-11" rowspan="1">Bit 7 set: check for a light switch at the left side of the room</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62535"></a>62535</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=x-coordinate of the front column of the character's sprite</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62536"></a>62536</td>
+<td class="instruction">AND 7</td>
+<td class="comment-11" rowspan="1">Is <span class="register">C</span>=0 mod 8?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62538"></a>62538</td>
+<td class="instruction">JR Z,62548</td>
+<td class="comment-11" rowspan="1">Jump if so (left-hand light switches are at such coordinates)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62540"></a>62540</td>
+<td class="instruction">LD B,64</td>
+<td class="comment-11" rowspan="1">Bit 6 set: check for a light switch at the right side of the room</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62542"></a>62542</td>
+<td class="instruction">SUB 7</td>
+<td class="comment-11" rowspan="1">Is <span class="register">C</span>=7 mod 8?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62544"></a>62544</td>
+<td class="instruction">JR Z,62548</td>
+<td class="comment-11" rowspan="1">Jump if so (right-hand light switches are at such coordinates)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62546"></a>62546</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="1">Set the zero flag (no target object here)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62547"></a>62547</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="62548"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a class="link" href="29854.html">29854</a> (with <span class="register">B</span>=2 to check for the presence of a telephone), <a class="link" href="30822.html">30822</a> (with <span class="register">B</span>=192 to check for a light switch) and <a class="link" href="63152.html">63152</a> (with <span class="register">B</span>=4, 8, 16, 64 or 128 to check for a light switch or window blind).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62548"></a>62548</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the front column of the character's sprite</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62549"></a>62549</td>
+<td class="instruction">AND 248</td>
+<td class="comment-11" rowspan="5"><span class="register">C</span>=INT(<span class="register">C</span>/8)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62551"></a>62551</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62552"></a>62552</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62553"></a>62553</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62554"></a>62554</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62555"></a>62555</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62556"></a>62556</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62557"></a>62557</td>
+<td class="instruction">CP 33</td>
+<td class="comment-11" rowspan="1">33 is the y-coordinate of a character who's in a shop</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62559"></a>62559</td>
+<td class="instruction">JR NZ,62563</td>
+<td class="comment-11" rowspan="1">Jump if the character's not in a shop</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62561"></a>62561</td>
+<td class="instruction">SUB 2</td>
+<td class="comment-11" rowspan="1">Adjust a y-coordinate of 33 down to 31</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62563"></a>62563</td>
+<td class="instruction">LD L,254</td>
+<td class="comment-11" rowspan="4"><span class="register">L</span>=INT(<span class="register">A</span>/6)-1 (0-4)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62565"></a>62565</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62566"></a>62566</td>
+<td class="instruction">SUB 6</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62568"></a>62568</td>
+<td class="instruction">JR NC,62565</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62570"></a>62570</td>
+<td class="instruction">CP 251</td>
+<td class="comment-11" rowspan="1">Is the character's y-coordinate 7, 13, 19, 25, 31 or 33?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62572"></a>62572</td>
+<td class="instruction">JR NZ,62546</td>
+<td class="comment-11" rowspan="1">Jump if not (he's not on a floor)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62574"></a>62574</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0-4</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62575"></a>62575</td>
+<td class="instruction">CP 5</td>
+<td class="comment-11" rowspan="1">Is the character's y-coordinate &gt;= 36?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62577"></a>62577</td>
+<td class="instruction">JR NC,62546</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62579"></a>62579</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=0 (5th floor), 32 (4th floor), 64, 96 or 128 (1st floor)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62580"></a>62580</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62581"></a>62581</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62582"></a>62582</td>
+<td class="instruction">ADD A,C</td>
+<td class="comment-11" rowspan="1">Add INT(x/8) (where x is the x-coordinate of the front column of the character's sprite)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62583"></a>62583</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1">Transfer this to <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62584"></a>62584</td>
+<td class="instruction">LD D,245</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at an entry in the fixture location table at <a class="link" href="62720.html">62720</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62586"></a>62586</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1">Pick up the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62587"></a>62587</td>
+<td class="instruction">AND B</td>
+<td class="comment-11" rowspan="1">Is there an object of the desired type here?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62588"></a>62588</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62589"></a>62589</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0-4</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62590"></a>62590</td>
+<td class="instruction">ADD A,185</td>
+<td class="comment-11" rowspan="2"><span class="register">B</span>=185-189</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62592"></a>62592</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62593"></a>62593</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1">Pick up the entry from the fixture location table at <a class="link" href="62720.html">62720</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62594"></a>62594</td>
+<td class="instruction">SET 6,C</td>
+<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at the window flags for the character's location (in one of the data blocks at <a class="link" href="47424.html">47424</a>, <a class="link" href="47680.html">47680</a>, <a class="link" href="47936.html">47936</a>, <a class="link" href="48192.html">48192</a>, or <a class="link" href="48448.html">48448</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62596"></a>62596</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the zero flag reset</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62468.html">62468</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62518">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62597.html">62597</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

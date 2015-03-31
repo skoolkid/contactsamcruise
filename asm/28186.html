@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 28186</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28160.html">28160</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28186">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28292.html">28292</a></span></td>
+</tr>
+</table>
+<div class="description">28186: Print a number</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="28295.html">28295</a>, <a class="link" href="28337.html">28337</a> and <a class="link" href="28760.html">28760</a>. Computes the ASCII codes for the digits of the number in <span class="register">HL</span>, stores them in the buffer at <a class="link" href="32714.html">32714</a>, and then prints them.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Display file address</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Number to print</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28186"></a>28186</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the display file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28187"></a>28187</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Transfer the number to print to <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28188"></a>28188</td>
+<td class="instruction">LD HL,32719</td>
+<td class="comment-11" rowspan="5">Fill the number string buffer at <a class="link" href="32714.html">32714</a> with space characters</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28191"></a>28191</td>
+<td class="instruction">LD B,5</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28193"></a>28193</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28194"></a>28194</td>
+<td class="instruction">LD (HL),32</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28196"></a>28196</td>
+<td class="instruction">DJNZ 28193</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28198"></a>28198</td>
+<td class="instruction">LD A,48</td>
+<td class="comment-11" rowspan="1">48 is the ASCII code for the digit '0'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28200"></a>28200</td>
+<td class="instruction">LD BC,55536</td>
+<td class="comment-11" rowspan="1"><span class="register">BC</span>=-10000</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28203"></a>28203</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Transfer the number to print to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28204"></a>28204</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-11" rowspan="1">Is <span class="register">HL</span>&gt;=10000?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28205"></a>28205</td>
+<td class="instruction">JR C,28235</td>
+<td class="comment-11" rowspan="1">Jump if so to compute and store the 10000s digit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28207"></a>28207</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the slot for the 1000s digit in the number string buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28208"></a>28208</td>
+<td class="instruction">SBC HL,BC</td>
+<td class="comment-11" rowspan="1">Add the 10000 back</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28210"></a>28210</td>
+<td class="instruction">LD BC,64536</td>
+<td class="comment-11" rowspan="1"><span class="register">BC</span>=-1000</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28213"></a>28213</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-11" rowspan="1">Is <span class="register">HL</span>&gt;=1000?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28214"></a>28214</td>
+<td class="instruction">JR C,28248</td>
+<td class="comment-11" rowspan="1">Jump if so to compute and store the 1000s digit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28216"></a>28216</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the slot for the 100s digit in the number string buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28217"></a>28217</td>
+<td class="instruction">SBC HL,BC</td>
+<td class="comment-11" rowspan="1">Add the 1000 back</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28219"></a>28219</td>
+<td class="instruction">LD BC,65436</td>
+<td class="comment-11" rowspan="1"><span class="register">BC</span>=-100</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28222"></a>28222</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-11" rowspan="1">Is <span class="register">HL</span>&gt;=100?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28223"></a>28223</td>
+<td class="instruction">JR C,28261</td>
+<td class="comment-11" rowspan="1">Jump if so to compute and store the 100s digit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28225"></a>28225</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the slot for the 10s digit in the number string buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28226"></a>28226</td>
+<td class="instruction">SBC HL,BC</td>
+<td class="comment-11" rowspan="1">Add the 100 back</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28228"></a>28228</td>
+<td class="instruction">LD C,246</td>
+<td class="comment-11" rowspan="1"><span class="register">BC</span>=-10</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28230"></a>28230</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-11" rowspan="1">Is <span class="register">HL</span>&gt;=10?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28231"></a>28231</td>
+<td class="instruction">JR C,28273</td>
+<td class="comment-11" rowspan="1">Jump if so to compute and store the 10s digit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28233"></a>28233</td>
+<td class="instruction">JR 28280</td>
+<td class="comment-11" rowspan="1">Jump forward to compute and store the units digit</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28235"></a>
+<div class="comments">
+<div class="paragraph">
+Compute and store the 10000s digit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28235"></a>28235</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="3">Get the ASCII code for the 10000s digit in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28236"></a>28236</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28237"></a>28237</td>
+<td class="instruction">JR C,28235</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28239"></a>28239</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-11" rowspan="1">Place the 10000s digit into the number string buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28240"></a>28240</td>
+<td class="instruction">SBC HL,BC</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28242"></a>28242</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the slot for the 1000s digit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28243"></a>28243</td>
+<td class="instruction">LD A,47</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28245"></a>28245</td>
+<td class="instruction">LD BC,64536</td>
+<td class="comment-11" rowspan="1"><span class="register">BC</span>=-1000</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28248"></a>
+<div class="comments">
+<div class="paragraph">
+Compute and store the 1000s digit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28248"></a>28248</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="3">Get the ASCII code for the 1000s digit in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28249"></a>28249</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28250"></a>28250</td>
+<td class="instruction">JR C,28248</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28252"></a>28252</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-11" rowspan="1">Place the 1000s digit into the number string buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28253"></a>28253</td>
+<td class="instruction">LD A,47</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28255"></a>28255</td>
+<td class="instruction">SBC HL,BC</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28257"></a>28257</td>
+<td class="instruction">LD BC,65436</td>
+<td class="comment-11" rowspan="1"><span class="register">BC</span>=-100</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28260"></a>28260</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the slot for the 100s digit</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28261"></a>
+<div class="comments">
+<div class="paragraph">
+Compute and store the 100s digit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28261"></a>28261</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="3">Get the ASCII code for the 100s digit in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28262"></a>28262</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28263"></a>28263</td>
+<td class="instruction">JR C,28261</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28265"></a>28265</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-11" rowspan="1">Place the 100s digit into the number string buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28266"></a>28266</td>
+<td class="instruction">LD A,47</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28268"></a>28268</td>
+<td class="instruction">SBC HL,BC</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28270"></a>28270</td>
+<td class="instruction">LD C,246</td>
+<td class="comment-11" rowspan="1"><span class="register">BC</span>=-10</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28272"></a>28272</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the slot for the 10s digit</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28273"></a>
+<div class="comments">
+<div class="paragraph">
+Compute and store the 10s digit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28273"></a>28273</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="3">Get the ASCII code for the 10s digit in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28274"></a>28274</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28275"></a>28275</td>
+<td class="instruction">JR C,28273</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28277"></a>28277</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-11" rowspan="1">Place the 10s digit into the number string buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28278"></a>28278</td>
+<td class="instruction">LD A,48</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28280"></a>
+<div class="comments">
+<div class="paragraph">
+Compute and store the units digit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28280"></a>28280</td>
+<td class="instruction">SBC HL,BC</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28282"></a>28282</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the slot for the units digit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28283"></a>28283</td>
+<td class="instruction">ADD A,L</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ASCII code for the units digit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28284"></a>28284</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-11" rowspan="1">Place it into the number string buffer</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28285"></a>
+<div class="comments">
+<div class="paragraph">
+The number string buffer is now ready.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28285"></a>28285</td>
+<td class="instruction">LD E,202</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=<a class="link" href="32714.html">32714</a> (start of the number string buffer)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28287"></a>28287</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the display file address to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28288"></a>28288</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Transfer it to <span class="register">DE</span>, and point <span class="register">HL</span> at the number string buffer at <a class="link" href="32714.html">32714</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28289"></a>28289</td>
+<td class="instruction">JP <a class="link" href="28160.html">28160</a></td>
+<td class="comment-11" rowspan="1">Print the number</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28160.html">28160</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28186">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28292.html">28292</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

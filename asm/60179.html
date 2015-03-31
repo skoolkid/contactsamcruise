@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 60179</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="60152.html">60152</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#60179">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="60291.html">60291</a></span></td>
+</tr>
+</table>
+<div class="description">60179: Obtain descriptors for a character's current location</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="28942.html">28942</a>, <a class="link" href="60347.html">60347</a>, <a class="link" href="60812.html">60812</a>, <a class="link" href="62216.html">62216</a> and <a class="link" href="64005.html">64005</a>. Looks for a location descriptor that corresponds to the character's current location and returns with <span class="register">A</span> and <span class="register">C</span> (and possibly also <span class="register">B</span>) holding values derived from that descriptor.
+</div>
+<div class="paragraph">
+A location descriptor is a single byte (Q) if the location is on the sidewalk or road, or a sequence of two bytes ((Q,Q'), where bit 7 of Q is reset), or a sequence of three bytes ((Q,Q',Q''), where bit 7 of Q is set). For the location it corresponds to, a descriptor indicates the directions in which a character may move, and the directions that would require a change of z-coordinate; it may also indicate whether there is a door that can close at the location, and whether any movement from the location requires special handling by a separate routine (e.g. on the edge of a roof, or just behind the jail cell door).
+</div>
+<div class="paragraph">
+The single-byte location descriptors (Q) that correspond to locations on the sidewalk or road can be found in the table at <a class="link" href="50176.html">50176</a>. The blocks of two- and three-byte location descriptors for locations not on the sidewalk or road are organised by x-coordinate; the LSBs and MSBs of their addresses can be found in the tables at <a class="link" href="50432.html">50432</a> and <a class="link" href="50688.html">50688</a>.
+</div>
+<div class="paragraph">
+The first byte, Q, of a multi-byte location descriptor indicates the y-coordinate (y) and z-coordinate(s) (z) of the location to which the descriptor corresponds. In a two-byte descriptor (bit 7 of Q reset), bits 1-5 of Q hold y-4, and z is 2 if bit 6 is set, or 1 otherwise. In a three-byte descriptor (bit 7 of Q set), bits 0-4 of Q hold y-4, and z is determined by bits 5 and 6: if bit 6 is set, z=1 or 2 (meaning that the location is next to the entrance to a building); otherwise, z=2 if bit 5 is set or 1 if it's reset.
+</div>
+<div class="paragraph">
+This routine returns with <span class="register">A</span> holding the location type indicator (1-5), and <span class="register">C</span> and <span class="register">B</span> holding the values derived from the relevant location descriptor:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th><span class="register">A</span></th>
+<th><span class="register">C</span></th>
+<th><span class="register">B</span></th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td class="centre">1</td>
+<td class="centre">Q</td>
+<td class="centre">-</td>
+<td>The sidewalk or the road</td>
+</tr>
+<tr>
+<td class="centre">3</td>
+<td class="centre">Q'</td>
+<td class="centre">Q''</td>
+<td>At the (open) entrance to a building</td>
+</tr>
+<tr>
+<td class="centre">4</td>
+<td class="centre">Q'</td>
+<td class="centre">Q''</td>
+<td>Behind or in front of a closed door</td>
+</tr>
+<tr>
+<td class="centre">5</td>
+<td class="centre">Q'</td>
+<td class="centre">Q''</td>
+<td>Location requires special handling</td>
+</tr>
+<tr>
+<td class="centre">2</td>
+<td class="centre">Q'</td>
+<td class="centre">-</td>
+<td>Regular location (none of the above)</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The value in <span class="register">C</span> (Q or Q') is the direction descriptor, which indicates the directions that are available, and (when <span class="register">A</span>=1 or 5) the directions that require special handling:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th>Bit</th>
+<th>Meaning if set</th>
+</tr>
+<tr>
+<td class="centre">7</td>
+<td>Access to the left is granted</td>
+</tr>
+<tr>
+<td class="centre">6</td>
+<td>Access to the right is granted</td>
+</tr>
+<tr>
+<td class="centre">5</td>
+<td>There is a step going up to the left</td>
+</tr>
+<tr>
+<td class="centre">4</td>
+<td>There is a step going up to the right</td>
+</tr>
+<tr>
+<td class="centre">3</td>
+<td>There is a step going down to the left</td>
+</tr>
+<tr>
+<td class="centre">2</td>
+<td>There is a step going down to the right</td>
+</tr>
+<tr>
+<td class="centre">1</td>
+<td>Character's z-coordinate will be 2 after going up to the left (when <span class="register">A</span>=1), or moving left requires special handling (when <span class="register">A</span>=5; see <a class="link" href="60347.html#60485">60485</a>)</td>
+</tr>
+<tr>
+<td class="centre">0</td>
+<td>Character's z-coordinate will be 2 after going up to the right (when <span class="register">A</span>=1), or moving right requires special handling (when <span class="register">A</span>=5; see <a class="link" href="60347.html#60485">60485</a>)</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+When <span class="register">A</span>=3, <span class="register">B</span> returns holding Q'', the third byte of the location descriptor. Bit 0 of this byte is set if there is a door that can close at the given location; bits 2-7 indicate whether the adjacent location in the corresponding direction is inside (set) or outside (reset) the building, and therefore may require a transition of the character's z-coordinate between 1 and 2 (see <a class="link" href="30396.html">30396</a>):
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th>Bit</th>
+<th>Direction</th>
+</tr>
+<tr>
+<td class="centre">7</td>
+<td>Left</td>
+</tr>
+<tr>
+<td class="centre">6</td>
+<td>Right</td>
+</tr>
+<tr>
+<td class="centre">5</td>
+<td>Up/left</td>
+</tr>
+<tr>
+<td class="centre">4</td>
+<td>Up/right</td>
+</tr>
+<tr>
+<td class="centre">3</td>
+<td>Down/left</td>
+</tr>
+<tr>
+<td class="centre">2</td>
+<td>Down/right</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+When <span class="register">A</span>=5, <span class="register">B</span> returns holding Q'', the third byte of the location descriptor; this byte determines the address of the routine to handle movement to the left or right at a special location (see <a class="link" href="60347.html#60485">60485</a>).
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-230)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60179"></a>60179</td>
+<td class="instruction">CALL <a class="link" href="60152.html">60152</a></td>
+<td class="comment-11" rowspan="1">Is the character on the sidewalk or the road?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60182"></a>60182</td>
+<td class="instruction">JR C,60192</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60184"></a>60184</td>
+<td class="instruction">LD (HL),L</td>
+<td class="comment-11" rowspan="1">Set the character's z-coordinate to 4 (on the sidewalk or road)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60185"></a>60185</td>
+<td class="instruction">LD D,196</td>
+<td class="comment-11" rowspan="2">Collect a location descriptor from the table at <a class="link" href="50176.html">50176</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60187"></a>60187</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60188"></a>60188</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">Copy the location descriptor to <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60189"></a>60189</td>
+<td class="instruction">LD A,1</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (character is on the sidewalk or the road)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60191"></a>60191</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="60192"></a>
+<div class="comments">
+<div class="paragraph">
+The character is not on the sidewalk or the road.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60192"></a>60192</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's z-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60193"></a>60193</td>
+<td class="instruction">CP 4</td>
+<td class="comment-11" rowspan="1">Is the character outside?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60195"></a>60195</td>
+<td class="instruction">JR NZ,60199</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60197"></a>60197</td>
+<td class="instruction">LD (HL),2</td>
+<td class="comment-11" rowspan="1">Set the character's z-coordinate to 2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60199"></a>60199</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=y, the character's y-coordinate (6-35)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60200"></a>60200</td>
+<td class="instruction">SUB 4</td>
+<td class="comment-11" rowspan="4"><span class="register">B</span>=4*(y-4)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60202"></a>60202</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60203"></a>60203</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60204"></a>60204</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60205"></a>60205</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Is the character indoors?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60207"></a>60207</td>
+<td class="instruction">JR NZ,60211</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60209"></a>60209</td>
+<td class="instruction">SET 7,B</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=128+4*(y-4) if the character's z-coordinate is 2</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="60211"></a>
+<div class="comments">
+<div class="paragraph">
+Now <span class="register">B</span> holds a value indicating the character's y-coordinate (bits 2-6: y-4) and z-coordinate (bit 7: z-1).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60211"></a>60211</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=character's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60212"></a>60212</td>
+<td class="instruction">LD H,197</td>
+<td class="comment-11" rowspan="2">Collect an LSB from the table at <a class="link" href="50432.html">50432</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60214"></a>60214</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60215"></a>60215</td>
+<td class="instruction">SUB 2</td>
+<td class="comment-11" rowspan="1">Subtract 2 from this LSB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60217"></a>60217</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at an MSB in the table at <a class="link" href="50688.html">50688</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60218"></a>60218</td>
+<td class="instruction">LD H,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the MSB in <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60219"></a>60219</td>
+<td class="instruction">LD E,L</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=character's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60220"></a>60220</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1">Now <span class="register">HL</span> holds 2 less than the address formed by the LSB and MSB just collected from the tables at <a class="link" href="50432.html">50432</a> and <a class="link" href="50688.html">50688</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="60221"></a>
+<div class="comments">
+<div class="paragraph">
+The loop that iterates over the location descriptors for the character's x-coordinate begins here.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60221"></a>60221</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Move <span class="register">HL</span> along the location descriptor table</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="60222"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="60720.html">60720</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60222"></a>60222</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first byte of a location descriptor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60223"></a>60223</td>
+<td class="instruction">JR Z,60229</td>
+<td class="comment-11" rowspan="1">Jump if we reached a page boundary</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60225"></a>60225</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the first byte (Q) of the location descriptor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60226"></a>60226</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1">Have we reached the end of the location descriptors for the character's x-coordinate?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60227"></a>60227</td>
+<td class="instruction">JR NZ,60234</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="60229"></a>
+<div class="comments">
+<div class="paragraph">
+The character is not at any of the locations to which the location descriptors for his x-coordinate correspond.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60229"></a>60229</td>
+<td class="instruction">LD C,192</td>
+<td class="comment-11" rowspan="1">Bits 7 and 6 set: the character can move left or right only</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60231"></a>60231</td>
+<td class="instruction">LD A,2</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=2: regular location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60233"></a>60233</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="60234"></a>
+<div class="comments">
+<div class="paragraph">
+Here we examine a location descriptor and check whether the character is at the location to which it corresponds.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60234"></a>60234</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Q (first byte of the location descriptor)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60235"></a>60235</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the second byte of the location descriptor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60236"></a>60236</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="1">Is bit 7 of Q set (meaning this location is next to the entrance to a building or requires special handling)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60237"></a>60237</td>
+<td class="instruction">JR C,60246</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60239"></a>60239</td>
+<td class="instruction">CP B</td>
+<td class="comment-11" rowspan="1">Is the character at the location to which the location descriptor corresponds?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60240"></a>60240</td>
+<td class="instruction">JR NZ,60222</td>
+<td class="comment-11" rowspan="1">Move along to the next location descriptor if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60242"></a>60242</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=Q' (second byte of the location descriptor)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60243"></a>60243</td>
+<td class="instruction">LD A,2</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=2: regular location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60245"></a>60245</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="60246"></a>
+<div class="comments">
+<div class="paragraph">
+The location descriptor being examined has bit 7 of its first byte set, which means that it corresponds to a location that is next to the entrance to a building, or a location that requires special handling.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60246"></a>60246</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="1">Is bit 6 of Q set (meaning this location is next to the entrance to a building)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60247"></a>60247</td>
+<td class="instruction">JR C,60258</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60249"></a>60249</td>
+<td class="instruction">CP B</td>
+<td class="comment-11" rowspan="1">Is the character at the location to which the location descriptor corresponds?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60250"></a>60250</td>
+<td class="instruction">JR NZ,60221</td>
+<td class="comment-11" rowspan="1">Move along to the next location descriptor if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60252"></a>60252</td>
+<td class="instruction">LD A,5</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=5: this location requires special handling</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60254"></a>60254</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-11" rowspan="3">Collect the second and third bytes of the location descriptor (Q' and Q'') in <span class="register">C</span> and <span class="register">B</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60255"></a>60255</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60256"></a>60256</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60257"></a>60257</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="60258"></a>
+<div class="comments">
+<div class="paragraph">
+The location descriptor being examined has bits 7 and 6 of its first byte set, which means that it corresponds to a location that is next to the entrance to a building (where a character's z-coordinate may be 1 or 2).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60258"></a>60258</td>
+<td class="instruction">LD C,B</td>
+<td class="comment-11" rowspan="2"><span class="register">C</span>=4*(y-4) (where y is the character's y-coordinate)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60259"></a>60259</td>
+<td class="instruction">RES 7,C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60261"></a>60261</td>
+<td class="instruction">CP C</td>
+<td class="comment-11" rowspan="1">Is the character at the location to which the location descriptor corresponds?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60262"></a>60262</td>
+<td class="instruction">JR NZ,60221</td>
+<td class="comment-11" rowspan="1">Move along to the next location descriptor if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="60264"></a>
+<div class="comments">
+<div class="paragraph">
+The character is standing next to the entrance to a building. Check whether a closed door is in his way.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60264"></a>60264</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the third byte of the location descriptor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60265"></a>60265</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Is there a door at this location?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60267"></a>60267</td>
+<td class="instruction">JR Z,60286</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60269"></a>60269</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x, the character's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60270"></a>60270</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="5"><span class="register">A</span>=INT((x+1)/8)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60271"></a>60271</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60272"></a>60272</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60273"></a>60273</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60274"></a>60274</td>
+<td class="instruction">AND 31</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60276"></a>60276</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the location descriptor pointer briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60277"></a>60277</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the entry in the table of Z values at <a class="link" href="48384.html">48384</a> that corresponds to the door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60278"></a>60278</td>
+<td class="instruction">LD H,189</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60280"></a>60280</td>
+<td class="instruction">BIT 2,(HL)</td>
+<td class="comment-11" rowspan="1">Set the zero flag if the door is open</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60282"></a>60282</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the location descriptor pointer to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60283"></a>60283</td>
+<td class="instruction">JP NZ,<a class="link" href="60720.html">60720</a></td>
+<td class="comment-11" rowspan="1">Jump if the door is closed to find the location descriptor that corresponds to the character's z-coordinate (1=behind the door, 2=in front of it)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60286"></a>60286</td>
+<td class="instruction">LD A,3</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=3: the character is standing next to the open entrance to a building</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60288"></a>60288</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the second byte of the location descriptor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60289"></a>60289</td>
+<td class="instruction">JR 60254</td>
+<td class="comment-11" rowspan="1">Jump back to collect the second and third bytes (Q' and Q'') in <span class="register">C</span> and <span class="register">B</span></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="60152.html">60152</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#60179">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="60291.html">60291</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 26002</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="25999.html">25999</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#26002">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="26075.html">26075</a></span></td>
+</tr>
+</table>
+<div class="description">26002: Check whether Sam has been hit by a bullet</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="26075.html">26075</a>. Returns with the carry flag set if Sam has been hit by a bullet.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">D</td>
+<td class="register-desc">Bullet's next screen y-coordinate (1-20)</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">Bullet's next screen x-coordinate (0-31)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="26002"></a>26002</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26003"></a>26003</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="2">Initialise <span class="register">E'</span> to 0; <span class="register">E'</span> may be updated by the call to <a class="link" href="59635.html#59648">59648</a> below</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26004"></a>26004</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26005"></a>26005</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26006"></a>26006</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26007"></a>26007</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the bullet's screen coordinates</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26008"></a>26008</td>
+<td class="instruction">LD HL,(32766)</td>
+<td class="comment-11" rowspan="1">Collect the x- and y-coordinates of the top-left tile of the play area on screen in <span class="register">L</span> and <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26011"></a>26011</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-11" rowspan="1">Add the bullet's screen coordinates</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26012"></a>26012</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Now <span class="register">DE</span> holds the bullet's play area coordinates</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26013"></a>26013</td>
+<td class="instruction">LD HL,58884</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 4 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26016"></a>26016</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's z-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26017"></a>26017</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="1">Set the zero flag if Sam's indoors</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26018"></a>26018</td>
+<td class="instruction">CALL <a class="link" href="59635.html#59648">59648</a></td>
+<td class="comment-11" rowspan="1">Print the play area tile where the bullet will be next (if Sam's not indoors)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26021"></a>26021</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=reference of the sprite tile (of Sam's) that was printed, or 0 if none was printed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26022"></a>26022</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Was a sprite tile printed?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26023"></a>26023</td>
+<td class="instruction">JR Z,26072</td>
+<td class="comment-11" rowspan="1">Jump if not (Sam was not hit)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26025"></a>26025</td>
+<td class="instruction">CP 16</td>
+<td class="comment-11" rowspan="1">Was the sprite tile reference in the range 1-15?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26027"></a>26027</td>
+<td class="instruction">JR C,26033</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26029"></a>26029</td>
+<td class="instruction">CP 26</td>
+<td class="comment-11" rowspan="1">Was the sprite tile reference in the range 16-25?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26031"></a>26031</td>
+<td class="instruction">JR C,26047</td>
+<td class="comment-11" rowspan="1">Jump if so (Sam was hit by the bullet)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="26033"></a>
+<div class="comments">
+<div class="paragraph">
+The reference of the sprite tile upon which the bullet impinged was in the range 1-15 or greater than 25. Closer examination is required to determine whether Sam was hit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="26033"></a>26033</td>
+<td class="instruction">LD HL,25990</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the table of sprite tile references at <a class="link" href="25990.html">25990</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26036"></a>26036</td>
+<td class="instruction">LD B,9</td>
+<td class="comment-11" rowspan="1">There are 9 sprite tile references in the table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="26038"></a>26038</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Compare the reference of the sprite tile that was printed with a reference from the table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26039"></a>26039</td>
+<td class="instruction">JR Z,26047</td>
+<td class="comment-11" rowspan="1">Jump if they match (Sam was hit)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26041"></a>26041</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next sprite tile reference in the table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26042"></a>26042</td>
+<td class="instruction">DJNZ 26038</td>
+<td class="comment-11" rowspan="1">Jump back to compare it with the sprite tile that was printed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26044"></a>26044</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Reset the carry flag: Sam was not hit by the bullet</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26045"></a>26045</td>
+<td class="instruction">JR 26072</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="26047"></a>
+<div class="comments">
+<div class="paragraph">
+Sam was hit by the bullet.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="26047"></a>26047</td>
+<td class="instruction">CALL <a class="link" href="26352.html">26352</a></td>
+<td class="comment-11" rowspan="1">Make the sound effect of Sam being hit by a bullet</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26050"></a>26050</td>
+<td class="instruction">LD HL,32751</td>
+<td class="comment-11" rowspan="1"><a class="link" href="32751.html">32751</a> holds the number of remaining first aid kits</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26053"></a>26053</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26054"></a>26054</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="2">Discard a first aid kit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26055"></a>26055</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26056"></a>26056</td>
+<td class="instruction">JR C,26068</td>
+<td class="comment-11" rowspan="1">Jump if there was a first aid kit left to discard</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="26058"></a>
+<div class="comments">
+<div class="paragraph">
+Sam has already used all his first aid kits. Game over.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26058"></a>26058</td>
+<td class="instruction">LD L,158</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32670.html">32670</a> (bucks)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26060"></a>26060</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="3">Reduce Sam's cash supply to 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26061"></a>26061</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26062"></a>26062</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26063"></a>26063</td>
+<td class="instruction">LD A,99</td>
+<td class="comment-11" rowspan="1">Message <a class="link" href="27339.html">99</a>: 'I HAD TO GO TO HOSPITAL...'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26065"></a>26065</td>
+<td class="instruction">JP <a class="link" href="31414.html#31445">31445</a></td>
+<td class="comment-11" rowspan="1">Display the ending cutscene with this message</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="26068"></a>
+<div class="comments">
+<div class="paragraph">
+Sam had a first aid kit left.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="26068"></a>26068</td>
+<td class="instruction">CALL <a class="link" href="29716.html#29719">29719</a></td>
+<td class="comment-11" rowspan="1">Display any remaining first aid kits</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26071"></a>26071</td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Set the carry flag: Sam was hit by the bullet</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="26072"></a>26072</td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1">Restore the bullet's screen coordinates to <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26073"></a>26073</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26074"></a>26074</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="25999.html">25999</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#26002">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="26075.html">26075</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

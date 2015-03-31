@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 30458</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30457.html">30457</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30458">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30511.html">30511</a></span></td>
+</tr>
+</table>
+<div class="description">30458: 'T' pressed - telephone</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this routine is found in the table of keypress handling routines at <a class="link" href="60672.html">60672</a>. It is called from the main loop at <a class="link" href="61483.html">61483</a> when 'T' is pressed.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">230 (Sam)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30458"></a>30458</td>
+<td class="instruction">CALL <a class="link" href="29854.html">29854</a></td>
+<td class="comment-11" rowspan="1">Is Sam standing next to a telephone?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30461"></a>30461</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30462"></a>30462</td>
+<td class="instruction">LD HL,32658</td>
+<td class="comment-11" rowspan="1">The buffer at <a class="link" href="32658.html">32658</a> will hold the digits dialled by Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30465"></a>30465</td>
+<td class="instruction">LD BC,1280</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=5, <span class="register">C</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30468"></a>30468</td>
+<td class="instruction">LD (HL),C</td>
+<td class="comment-11" rowspan="3">Initialise the digit buffer at <a class="link" href="32658.html">32658</a> by filling it with zeroes</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30469"></a>30469</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30470"></a>30470</td>
+<td class="instruction">DJNZ 30468</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30472"></a>30472</td>
+<td class="instruction">LD L,155</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32667.html">32667</a> (telephone call status flags)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30474"></a>30474</td>
+<td class="instruction">CCF</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=128 if the phone is ringing, 0 otherwise</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30475"></a>30475</td>
+<td class="instruction">SBC A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30476"></a>30476</td>
+<td class="instruction">AND 128</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30478"></a>30478</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="1">Set bit 7 at <a class="link" href="32667.html">32667</a> if Sam has picked up a ringing telephone</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30479"></a>30479</td>
+<td class="instruction">LD L,252</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32764.html">32764</a> (Sam's status flags)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30481"></a>30481</td>
+<td class="instruction">LD (HL),16</td>
+<td class="comment-11" rowspan="1">Set bit 4: Sam is on the phone</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30483"></a>30483</td>
+<td class="instruction">LD L,211</td>
+<td class="comment-11" rowspan="2">Store the phone's identifier at <a class="link" href="32723.html">32723</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30485"></a>30485</td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30486"></a>30486</td>
+<td class="instruction">JR NZ,30495</td>
+<td class="comment-11" rowspan="1">Jump if the phone is ringing</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30488"></a>30488</td>
+<td class="instruction">LD A,2</td>
+<td class="comment-11" rowspan="2">Subtract $2 from Sam's cash supply</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30490"></a>30490</td>
+<td class="instruction">CALL <a class="link" href="28295.html#28300">28300</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30493"></a>30493</td>
+<td class="instruction">JR 30501</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30495"></a>
+<div class="comments">
+<div class="paragraph">
+Sam has picked up a telephone that is ringing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30495"></a>30495</td>
+<td class="instruction">LD A,(23673)</td>
+<td class="comment-11" rowspan="1">Collect the second byte of the FRAMES system variable, which is incremented every 5.12s</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30498"></a>30498</td>
+<td class="instruction">LD L,153</td>
+<td class="comment-11" rowspan="2">Copy this byte to <a class="link" href="32665.html">32665</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30500"></a>30500</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30501"></a>30501</td>
+<td class="instruction">LD A,41</td>
+<td class="comment-11" rowspan="1">Message <a class="link" href="27129.html">41</a>: 'I LIFTED THE PHONE '</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30503"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the unused routine at <a class="link" href="31284.html">31284</a> with <span class="register">A</span>=<a class="link" href="27113.html">39</a>: 'I HUNG UP'.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30503"></a>30503</td>
+<td class="instruction">CALL <a class="link" href="30154.html">30154</a></td>
+<td class="comment-11" rowspan="1">Queue the message urgently</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30506"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="61923.html">61923</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30506"></a>30506</td>
+<td class="instruction">LD H,230</td>
+<td class="comment-11" rowspan="1">230=Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30508"></a>30508</td>
+<td class="instruction">JP <a class="link" href="60641.html#60654">60654</a></td>
+<td class="comment-11" rowspan="1">Make a sound effect</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30457.html">30457</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30458">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30511.html">30511</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

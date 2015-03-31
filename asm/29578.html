@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 29578</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29559.html">29559</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29578">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29597.html">29597</a></span></td>
+</tr>
+</table>
+<div class="description">29578: Check whether Sam or a gangster is inside a region</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="29597.html">29597</a> and <a class="link" href="31362.html">31362</a>. On entry, <span class="register">HL</span> points at the first or second entry in a table of region definitions (at <a class="link" href="64780.html">64780</a>, <a class="link" href="64806.html">64806</a>, <a class="link" href="64836.html">64836</a>, <a class="link" href="64868.html">64868</a> or <a class="link" href="64892.html">64892</a>) used by a gangster who is on the lookout for Sam. On exit, the carry flag is set if Sam or the gangster is outside the region.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">D</td>
+<td class="register-desc">Gangster's character number (215-224), or 230 (Sam)</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Address of a region definition</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29578"></a>29578</td>
+<td class="instruction">LD E,1</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=Sam's or the gangster's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29580"></a>29580</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29581"></a>29581</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is Sam or the gangster to the left of the region?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29582"></a>29582</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return with the carry flag set if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29583"></a>29583</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the upper x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29584"></a>29584</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is Sam or the gangster to the right of the region?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29585"></a>29585</td>
+<td class="instruction">CCF</td>
+<td class="comment-11" rowspan="2">Return with the carry flag set if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29586"></a>29586</td>
+<td class="instruction">RET C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29587"></a>29587</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the lower y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29588"></a>29588</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=Sam's or the gangster's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29589"></a>29589</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29590"></a>29590</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is Sam or the gangster above the region?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29591"></a>29591</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return with the carry flag set if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29592"></a>29592</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the upper y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29593"></a>29593</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Compare it with Sam's or the gangster's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29594"></a>29594</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at either the disguise ID, or the first byte of the second entry in the table of region definitions</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29595"></a>29595</td>
+<td class="instruction">CCF</td>
+<td class="comment-11" rowspan="1">Set the carry flag if Sam or the gangster is below the region</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29596"></a>29596</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29559.html">29559</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29578">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29597.html">29597</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

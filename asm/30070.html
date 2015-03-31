@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 30070</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30053.html">30053</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30070">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30092.html">30092</a></span></td>
+</tr>
+</table>
+<div class="description">30070: 'L' pressed - light on/off</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this routine is found in the table of keypress handling routines at <a class="link" href="60672.html">60672</a>. It is called from the main loop at <a class="link" href="61483.html">61483</a> when 'L' is pressed.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">230 (Sam)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30070"></a>30070</td>
+<td class="instruction">CALL <a class="link" href="62518.html">62518</a></td>
+<td class="comment-11" rowspan="1">Is Sam standing next to a light switch?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30073"></a>30073</td>
+<td class="instruction">JR Z,30089</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30075"></a>30075</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-11" rowspan="1">Does the light switch affect the light in only one window or window-pair?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30077"></a>30077</td>
+<td class="instruction">JR Z,30084</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30079"></a>30079</td>
+<td class="instruction">CALL <a class="link" href="62597.html#62630">62630</a></td>
+<td class="comment-11" rowspan="1">Switch the lights on or off</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30082"></a>30082</td>
+<td class="instruction">JR 30087</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30084"></a>30084</td>
+<td class="instruction">CALL <a class="link" href="62597.html#62615">62615</a></td>
+<td class="comment-11" rowspan="1">Switch the light on or off</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30087"></a>30087</td>
+<td class="instruction">LD H,230</td>
+<td class="comment-11" rowspan="1">230=Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30089"></a>30089</td>
+<td class="instruction">JP <a class="link" href="62212.html">62212</a></td>
+<td class="comment-11" rowspan="1">Raise Sam's arm and make a sound effect</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30053.html">30053</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30070">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30092.html">30092</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

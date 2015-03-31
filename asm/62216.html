@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 62216</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62212.html">62212</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62216">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62262.html">62262</a></span></td>
+</tr>
+</table>
+<div class="description">62216: Deal with Sam when he has knocked on or is opening a door</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="29912.html">29912</a> when bit 6 at <a class="link" href="32764.html">32764</a> is set (by the routine at <a class="link" href="62192.html">62192</a>), indicating that Sam has knocked on or is opening a door.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">230 (Sam)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62216"></a>62216</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="2">Clear Sam's status flags at <a class="link" href="32764.html">32764</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62217"></a>62217</td>
+<td class="instruction">LD (32764),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62220"></a>62220</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save Sam's character number (in <span class="register">H</span>) briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62221"></a>62221</td>
+<td class="instruction">CALL <a class="link" href="60179.html">60179</a></td>
+<td class="comment-11" rowspan="1">Obtain descriptors for Sam's current location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62224"></a>62224</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore Sam's character number to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62225"></a>62225</td>
+<td class="instruction">CP 4</td>
+<td class="comment-11" rowspan="1">Is Sam standing behind or in front of a closed door?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62227"></a>62227</td>
+<td class="instruction">JR NZ,62244</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62229"></a>62229</td>
+<td class="instruction">LD L,4</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 4 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62231"></a>62231</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Is Sam indoors?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62233"></a>62233</td>
+<td class="instruction">JR NZ,62247</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62235"></a>62235</td>
+<td class="instruction">CALL <a class="link" href="62120.html">62120</a></td>
+<td class="comment-11" rowspan="1">Open the door if Sam has the key, or signal that he has knocked on the door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62238"></a>62238</td>
+<td class="instruction">JR 62244</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62240"></a>62240</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="3">These three instructions are never executed; but if the relative jump above were made only when the carry flag is reset (meaning Sam has opened the door), these instructions would set bit 5 of the door knock status flags for the door (see <a class="link" href="32682.html">32682</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62241"></a>62241</td>
+<td class="instruction">SET 5,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62243"></a>62243</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62244"></a>62244</td>
+<td class="instruction">JP <a class="link" href="60539.html">60539</a></td>
+<td class="comment-11" rowspan="1">Lower Sam's arm and make a sound effect</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="62247"></a>
+<div class="comments">
+<div class="paragraph">
+Sam is standing behind a closed door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62247"></a>62247</td>
+<td class="instruction">CALL <a class="link" href="60539.html">60539</a></td>
+<td class="comment-11" rowspan="1">Lower Sam's arm and make a sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62250"></a>62250</td>
+<td class="instruction">LD H,230</td>
+<td class="comment-11" rowspan="1">230=Sam</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="62252"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a class="link" href="62976.html">62976</a> and <a class="link" href="63423.html">63423</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62252"></a>62252</td>
+<td class="instruction">LD D,H</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62253"></a>62253</td>
+<td class="instruction">CALL <a class="link" href="62099.html">62099</a></td>
+<td class="comment-11" rowspan="1">Check whether the door is open</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62256"></a>62256</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62257"></a>62257</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if the door is open</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62258"></a>62258</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the door status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62259"></a>62259</td>
+<td class="instruction">JP <a class="link" href="62120.html#62131">62131</a></td>
+<td class="comment-11" rowspan="1">Open the door</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62212.html">62212</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62216">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62262.html">62262</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 62880</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62720.html">62720</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62880">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62892.html">62892</a></span></td>
+</tr>
+</table>
+<div class="description">62880: Make a character flip a light switch off occasionally</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the unused routine at <a class="link" href="62966.html">62966</a> and the routine at <a class="link" href="62976.html">62976</a>. If the character is standing next to a light switch, this routine makes him flip the switch off (if it's on and affects the lights in more than one window or window-pair), or consider flipping the switch off (if it's on and affects the lights in only one window or window-pair).
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-229)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62880"></a>62880</td>
+<td class="instruction">CALL <a class="link" href="62518.html">62518</a></td>
+<td class="comment-11" rowspan="1">Is the character standing next to a light switch?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62883"></a>62883</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62884"></a>62884</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-11" rowspan="1">Does the light switch affect the lights in more than one window or window pair?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62886"></a>62886</td>
+<td class="instruction">JP Z,<a class="link" href="62597.html#62605">62605</a></td>
+<td class="comment-11" rowspan="1">If not, flip the light switch off 109 times out of 256</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62889"></a>62889</td>
+<td class="instruction">JP <a class="link" href="62694.html#62700">62700</a></td>
+<td class="comment-11" rowspan="1">Flip the light switch off</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62720.html">62720</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62880">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62892.html">62892</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 30116</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30115.html">30115</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30116">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30146.html">30146</a></span></td>
+</tr>
+</table>
+<div class="description">30116: Check whether Sam is standing next to a fuse that has not been blown yet</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="29733.html">29733</a> and <a class="link" href="29866.html">29866</a>. Returns with the zero flag set if Sam is standing next to a fuse that has not been blown yet.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">230 (Sam)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30116"></a>30116</td>
+<td class="instruction">LD DE,29635</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the fuse location table at <a class="link" href="29635.html">29635</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30119"></a>30119</td>
+<td class="instruction">LD L,2</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30121"></a>30121</td>
+<td class="instruction">LD BC,1537</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=6 (there are six fuses), <span class="register">C</span>=1 (fuse identifier)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30124"></a>30124</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of a fuse</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30125"></a>30125</td>
+<td class="instruction">INC DE</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the x-coordinate of the fuse</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30126"></a>30126</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Does the fuse's y-coordinate match Sam's y-coordinate?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30127"></a>30127</td>
+<td class="instruction">JR NZ,30140</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30129"></a>30129</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30130"></a>30130</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the fuse</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30131"></a>30131</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Compare it with Sam's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30132"></a>30132</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> back at byte 2 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30133"></a>30133</td>
+<td class="instruction">JR NZ,30140</td>
+<td class="comment-11" rowspan="1">Jump unless Sam is standing next to the fuse</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30135"></a>30135</td>
+<td class="instruction">LD A,(32694)</td>
+<td class="comment-11" rowspan="1">Collect the fuse flags from <a class="link" href="32694.html">32694</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30138"></a>30138</td>
+<td class="instruction">AND C</td>
+<td class="comment-11" rowspan="1">Set the zero flag if the fuse has not been blown yet</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30139"></a>30139</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30140"></a>30140</td>
+<td class="instruction">RLC C</td>
+<td class="comment-11" rowspan="1">Move the fuse identifier bit in <span class="register">C</span> leftwards</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30142"></a>30142</td>
+<td class="instruction">INC DE</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the next entry in the fuse location table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30143"></a>30143</td>
+<td class="instruction">DJNZ 30124</td>
+<td class="comment-11" rowspan="1">Jump back until all fuse locations have been checked</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30145"></a>30145</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30115.html">30115</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30116">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30146.html">30146</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

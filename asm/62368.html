@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 62368</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62363.html">62363</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62368">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62465.html">62465</a></span></td>
+</tr>
+</table>
+<div class="description">62368: Update the SRB for a window</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="62468.html">62468</a> and <a class="link" href="62597.html">62597</a>. Updates the <a class="link" href="32512.html">screen refresh buffer</a> (SRB) for a window (or window-pair) after a light switch has been flipped or a blind has been raised or lowered.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">185-189 (corresponding to the 5th, 4th, 3rd, 2nd or 1st floor)</td>
+</tr>
+<tr>
+<td class="register">L</td>
+<td class="register-desc">0-31 or 64-95 (corresponding to the x-coordinate of the window)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62368"></a>62368</td>
+<td class="instruction">RES 6,L</td>
+<td class="comment-11" rowspan="1">Now <span class="register">L</span>=X'/8 (where X' is the x-coordinate of the left edge of the window), and <span class="register">HL</span> points at the Z value corresponding to the window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62370"></a>62370</td>
+<td class="instruction">LD BC,(32766)</td>
+<td class="comment-11" rowspan="1">The play area coordinates of the top-left corner of the screen are stored at <a class="link" href="32766.html">32766</a> and <a class="link" href="32767.html">32767</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62374"></a>62374</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=X (the x-coordinate of the leftmost column of the play area on screen)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62375"></a>62375</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=X/8</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62376"></a>62376</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62377"></a>62377</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62378"></a>62378</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=X/8 (0-31)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62379"></a>62379</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=X'/8 (0-31)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62380"></a>62380</td>
+<td class="instruction">SUB E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=X'/8-X/8</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62381"></a>62381</td>
+<td class="instruction">CP 4</td>
+<td class="comment-11" rowspan="1">Is the window off screen to the right or left?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62383"></a>62383</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62384"></a>62384</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=0-3 (index of the 8-tile wide column containing the window)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62385"></a>62385</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=1 (5th floor), 2, 3, 4 or 5 (1st floor)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62386"></a>62386</td>
+<td class="instruction">SUB 184</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62388"></a>62388</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-11" rowspan="5"><span class="register">D</span>=6 (5th floor), 12, 18, 24 or 30 (1st floor)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62389"></a>62389</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62390"></a>62390</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62391"></a>62391</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62392"></a>62392</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62393"></a>62393</td>
+<td class="instruction">SUB B</td>
+<td class="comment-11" rowspan="1">Subtract Y, the y-coordinate of the topmost row of the play area on screen (2, 8, 14 or 20)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62394"></a>62394</td>
+<td class="instruction">ADD A,4</td>
+<td class="comment-11" rowspan="2">Is the window off screen?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62396"></a>62396</td>
+<td class="instruction">CP 21</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62398"></a>62398</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62399"></a>62399</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=4*(<span class="register">D</span>-Y+4)+<span class="register">E</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62400"></a>62400</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62401"></a>62401</td>
+<td class="instruction">ADD A,E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62402"></a>62402</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="2">Point <span class="register">DE</span> at the SRB byte corresponding to the top row of the window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62403"></a>62403</td>
+<td class="instruction">LD D,127</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62405"></a>62405</td>
+<td class="instruction">LD C,128</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=128 (10000000)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62407"></a>62407</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the Z value for the window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62408"></a>62408</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="3">Point <span class="register">HL</span> at the Z'' value for the leftmost column of tiles in the 8-tile wide segment that contains the window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62409"></a>62409</td>
+<td class="instruction">SET 7,L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62411"></a>62411</td>
+<td class="instruction">LD H,184</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62413"></a>62413</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62414"></a>62414</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL'</span> at the <a class="link" href="48896.html">Z' value</a> for the 8x6 block of tiles that contains the window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62415"></a>62415</td>
+<td class="instruction">LD H,191</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62417"></a>62417</td>
+<td class="instruction">LD C,1</td>
+<td class="comment-11" rowspan="1"><span class="register">C'</span>=1 (00000001)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62419"></a>62419</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="62420"></a>
+<div class="comments">
+<div class="paragraph">
+The following loop examines the 8x6 block of tiles that contains the window and updates the relevant SRB bytes for the affected window tiles.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62420"></a>62420</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62421"></a>62421</td>
+<td class="instruction">RRC C</td>
+<td class="comment-11" rowspan="1">Rotate the set bit in <span class="register">C'</span> one place to the right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62423"></a>62423</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Z' value</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62424"></a>62424</td>
+<td class="instruction">AND C</td>
+<td class="comment-11" rowspan="1">Set the zero flag if we should use the T values in pages 160, 162, 164, 166, 168 and 170</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62425"></a>62425</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62426"></a>62426</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the pointer to the Z'' value</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62427"></a>62427</td>
+<td class="instruction">LD L,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=Z'' value</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62428"></a>62428</td>
+<td class="instruction">LD H,160</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the T value in page 160</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62430"></a>62430</td>
+<td class="instruction">JR Z,62434</td>
+<td class="comment-11" rowspan="1">Jump unless we should use the T values in pages 172, 174, 176, 178, 180 and 182</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62432"></a>62432</td>
+<td class="instruction">LD H,172</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the T value in page 172</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62434"></a>62434</td>
+<td class="instruction">LD B,6</td>
+<td class="comment-11" rowspan="1">There are 6 rows of tiles to consider</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62436"></a>62436</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=T</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62437"></a>62437</td>
+<td class="instruction">AND 192</td>
+<td class="comment-11" rowspan="1">Keep only bits 6 and 7</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62439"></a>62439</td>
+<td class="instruction">CP 128</td>
+<td class="comment-11" rowspan="1">Is there a window tile here?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62441"></a>62441</td>
+<td class="instruction">JR NZ,62446</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62443"></a>62443</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="3">Set the appropriate bit in the SRB byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62444"></a>62444</td>
+<td class="instruction">OR C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62445"></a>62445</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62446"></a>62446</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the next T value (in page 162, 164, 166, 168, 170, 174, 176, 178, 180 or 182)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62447"></a>62447</td>
+<td class="instruction">INC H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62448"></a>62448</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="3">Point <span class="register">DE</span> at the SRB byte for the next row down</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62449"></a>62449</td>
+<td class="instruction">ADD A,4</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62451"></a>62451</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62452"></a>62452</td>
+<td class="instruction">DJNZ 62436</td>
+<td class="comment-11" rowspan="1">Jump back to consider the tile in the next row down</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62454"></a>62454</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="3">Point <span class="register">DE</span> back at the SRB byte corresponding to the top row of the window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62455"></a>62455</td>
+<td class="instruction">SUB 24</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62457"></a>62457</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62458"></a>62458</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the Z'' value pointer to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62459"></a>62459</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the Z'' value for the next column of tiles to the right (in page 185-191)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62460"></a>62460</td>
+<td class="instruction">RRC C</td>
+<td class="comment-11" rowspan="1">Rotate the set bit in <span class="register">C</span> one place to the right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62462"></a>62462</td>
+<td class="instruction">JR NC,62420</td>
+<td class="comment-11" rowspan="1">Jump back until 8 tile columns have been checked</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62464"></a>62464</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62363.html">62363</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62368">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62465.html">62465</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

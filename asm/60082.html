@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 60082</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="60032.html">60032</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#60082">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="60120.html">60120</a></span></td>
+</tr>
+</table>
+<div class="description">60082: Get the keypress offset of the last key pressed (1)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="31126.html">31126</a>. Returns with the zero flag set if no game keys were pressed. Otherwise returns with <span class="register">A</span> holding the value from the <a class="link" href="49968.html">keypress offset table</a> corresponding to the last key pressed or joystick movement made. This offset (an odd number from 1 to 39) points at an entry in the table of keypress handling routines at <a class="link" href="60672.html">60672</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="60082"></a>60082</td>
+<td class="instruction">CALL <a class="link" href="60121.html">60121</a></td>
+<td class="comment-11" rowspan="1">Collect the ASCII code of the last key pressed in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60085"></a>60085</td>
+<td class="instruction">JR NZ,<a class="link" href="60146.html">60146</a></td>
+<td class="comment-11" rowspan="1">Jump if a key was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60087"></a>60087</td>
+<td class="instruction">LD A,(32762)</td>
+<td class="comment-11" rowspan="1">Collect the input device indicator from <a class="link" href="32762.html">32762</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60090"></a>60090</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Are we using the Kempston joystick?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60091"></a>60091</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return with the zero flag set if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="60092"></a>
+<div class="comments">
+<div class="paragraph">
+We are using the Kempston joystick.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60092"></a>60092</td>
+<td class="instruction">IN A,(31)</td>
+<td class="comment-11" rowspan="1">Take a reading from the joystick port</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60094"></a>60094</td>
+<td class="instruction">AND 31</td>
+<td class="comment-11" rowspan="1">Any input from the joystick?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60096"></a>60096</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60097"></a>60097</td>
+<td class="instruction">LD L,80</td>
+<td class="comment-11" rowspan="1">80='P' (RIGHT)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60099"></a>60099</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="1">Was the joystick moved right?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60100"></a>60100</td>
+<td class="instruction">JR C,<a class="link" href="60146.html#60147">60147</a></td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60102"></a>60102</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=79='O' (LEFT)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60103"></a>60103</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="1">Was the joystick moved left?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60104"></a>60104</td>
+<td class="instruction">JR C,<a class="link" href="60146.html#60147">60147</a></td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60106"></a>60106</td>
+<td class="instruction">LD L,65</td>
+<td class="comment-11" rowspan="1">65='A' (DOWN)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60108"></a>60108</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="1">Was the joystick moved down?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60109"></a>60109</td>
+<td class="instruction">JR C,<a class="link" href="60146.html#60147">60147</a></td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60111"></a>60111</td>
+<td class="instruction">LD L,81</td>
+<td class="comment-11" rowspan="1">81='Q' (UP)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60113"></a>60113</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="1">Was the joystick moved up?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60114"></a>60114</td>
+<td class="instruction">JR C,<a class="link" href="60146.html#60147">60147</a></td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60116"></a>60116</td>
+<td class="instruction">LD L,107</td>
+<td class="comment-11" rowspan="1">107='k' (knock on or open a door)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="60118"></a>60118</td>
+<td class="instruction">JR <a class="link" href="60146.html#60147">60147</a></td>
+<td class="comment-11" rowspan="1">Collect and return the keypress offset that corresponds to the joystick movement</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="60032.html">60032</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#60082">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="60120.html">60120</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

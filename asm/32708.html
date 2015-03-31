@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Game status buffer entry at 32708</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-g">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Game status buffer</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="32704.html">32704</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#32708">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="32712.html">32712</a></span></td>
+</tr>
+</table>
+<div class="description">32708: Bullet buffer 2</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="25118.html">25118</a>, <a class="link" href="26075.html">26075</a> and <a class="link" href="26224.html">26224</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="32708"></a>32708</td>
+<td class="instruction">DEFB 0</td>
+<td class="comment-11" rowspan="1">x-coordinate of the leftmost column of the play area on screen the last time the bullet was drawn</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="32709"></a>32709</td>
+<td class="instruction">DEFB 0</td>
+<td class="comment-11" rowspan="1">Bullet's screen x-coordinate: x</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="32710"></a>32710</td>
+<td class="instruction">DEFB 0</td>
+<td class="comment-11" rowspan="1">Bullet's screen y-coordinate: y (0 if the bullet is not in flight)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="32711"></a>
+<div class="comments">
+<div class="paragraph">
+The bits in the fourth byte of the bullet buffer have the following significance:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th>Bit(s)</th>
+<th>Description</th>
+</tr>
+<tr>
+<td class="centre">7</td>
+<td>Reset if the bullet is flying leftwards, set otherwise</td>
+</tr>
+<tr>
+<td class="centre">6</td>
+<td>Reset if the bullet is flying perfectly horizontally, set otherwise (in which case bit 4 is also used)</td>
+</tr>
+<tr>
+<td class="centre">5</td>
+<td>Unused</td>
+</tr>
+<tr>
+<td class="centre">4</td>
+<td>Reset if the bullet is flying towards the ground, set if it's flying towards the sky</td>
+</tr>
+<tr>
+<td class="centre">3</td>
+<td>Unused</td>
+</tr>
+<tr>
+<td class="centre">0-2</td>
+<td>Pixel row at which the bullet should be drawn in the screen cell at (x,y)</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="32711"></a>32711</td>
+<td class="instruction">DEFB 0</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="32704.html">32704</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#32708">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="32712.html">32712</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Sam Cruise: Routine at 63662</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../csc.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="63614.html">63614</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#63662">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="63749.html">63749</a></span></td>
+</tr>
+</table>
+<div class="description">63662: Prepare for demo mode or a new game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="61630.html">61630</a>. Prepares everything for demo mode or a new game and then displays the introductory cutscene.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63662"></a>63662</td>
+<td class="instruction">CALL <a class="link" href="64582.html">64582</a></td>
+<td class="comment-11" rowspan="1">Generate the table of mirrored values of 0-255 at <a class="link" href="32256.html">32256</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="63665"></a>
+<div class="comments">
+<div class="paragraph">
+Now we initialise the game status buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63665"></a>63665</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=32512</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63666"></a>63666</td>
+<td class="instruction">LD (HL),B</td>
+<td class="comment-11" rowspan="4">Zero out the first 222 bytes of the game status buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63667"></a>63667</td>
+<td class="instruction">LD C,221</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63669"></a>63669</td>
+<td class="instruction">LD DE,32513</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63672"></a>63672</td>
+<td class="instruction">LDIR</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63674"></a>63674</td>
+<td class="instruction">LD E,224</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=32736</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63676"></a>63676</td>
+<td class="instruction">LD HL,65504</td>
+<td class="comment-11" rowspan="3">Copy the data at <a class="link" href="65504.html">65504</a> into the last 32 bytes of the game status buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63679"></a>63679</td>
+<td class="instruction">LD C,32</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63681"></a>63681</td>
+<td class="instruction">LDIR</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="63683"></a>
+<div class="comments">
+<div class="paragraph">
+Next we ensure that all the shop and house doors are closed.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63683"></a>63683</td>
+<td class="instruction">LD B,32</td>
+<td class="comment-11" rowspan="1">There are 32 Z values to check (one for each 8-tile wide segment of the play area)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63685"></a>63685</td>
+<td class="instruction">LD HL,48384</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first Z value for y-coordinates 30-35 at <a class="link" href="48384.html">48384</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63688"></a>63688</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the Z value</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63689"></a>63689</td>
+<td class="instruction">CP 83</td>
+<td class="comment-11" rowspan="4">Jump unless the Z value corresponds to the open door of a shop (80) or house (81 or 82)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63691"></a>63691</td>
+<td class="instruction">JR NC,63705</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63693"></a>63693</td>
+<td class="instruction">CP 80</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63695"></a>63695</td>
+<td class="instruction">JR C,63705</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63697"></a>63697</td>
+<td class="instruction">SET 2,(HL)</td>
+<td class="comment-11" rowspan="1">Set bit 2 of the Z value, thus closing the door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63699"></a>63699</td>
+<td class="instruction">JR NZ,63705</td>
+<td class="comment-11" rowspan="1">Jump unless we are dealing with a shop door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63701"></a>63701</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="2">Update the Z value in the block at <a class="link" href="48640.html">48640</a> if we are dealing with a shop door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63702"></a>63702</td>
+<td class="instruction">LD (HL),83</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63704"></a>63704</td>
+<td class="instruction">DEC H</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> back at the block of Z values at <a class="link" href="48384.html">48384</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63705"></a>63705</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next Z value</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63706"></a>63706</td>
+<td class="instruction">DJNZ 63688</td>
+<td class="comment-11" rowspan="1">Jump back until we've checked every Z value</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="63708"></a>
+<div class="comments">
+<div class="paragraph">
+Next we initialise characters 215-221, the icon panel, the score box, the message line, the phone messages, the event table at <a class="link" href="24544.html">24544</a> and the object table at <a class="link" href="32028.html">32028</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63708"></a>63708</td>
+<td class="instruction">CALL <a class="link" href="63472.html">63472</a></td>
+<td class="comment-11" rowspan="1">Initialise the character buffers for character groups 215-221</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63711"></a>63711</td>
+<td class="instruction">CALL <a class="link" href="28760.html">28760</a></td>
+<td class="comment-11" rowspan="1">Initialise the icon panel, score box and message line</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63714"></a>63714</td>
+<td class="instruction">CALL <a class="link" href="31458.html">31458</a></td>
+<td class="comment-11" rowspan="1">Prepare the phone messages, events and objects</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="63717"></a>
+<div class="comments">
+<div class="paragraph">
+Let's not forget about the rope that may be above the roof of no. 19.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63717"></a>63717</td>
+<td class="instruction">LD HL,2827</td>
+<td class="comment-11" rowspan="2">Set the appropriate Z values in the block at <a class="link" href="47360.html">47360</a> to 11, thus removing the rope (if any) from above the roof of no. 19</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63720"></a>63720</td>
+<td class="instruction">LD (47386),HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="63723"></a>
+<div class="comments">
+<div class="paragraph">
+And finally we initialise the main characters (222-230) before displaying the introductory cutscene.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63723"></a>63723</td>
+<td class="instruction">LD A,(32750)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=current game mode (0 or 1)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63726"></a>63726</td>
+<td class="instruction">JR 63733</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="63728"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="24832.html">24832</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63728"></a>63728</td>
+<td class="instruction">LD HL,32750</td>
+<td class="comment-11" rowspan="1"><a class="link" href="32750.html">32750</a> holds the current game mode (0-4)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63731"></a>63731</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="1">Move to the next game mode</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63732"></a>63732</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=next game mode</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63733"></a>63733</td>
+<td class="instruction">CALL <a class="link" href="63614.html">63614</a></td>
+<td class="comment-11" rowspan="1">Initialise the character buffers for characters 222-230</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63736"></a>63736</td>
+<td class="instruction">DEC H</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the message number in the set of initialisation parameters for the current game mode for Sam (see <a class="link" href="58912.html">58912</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63737"></a>63737</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63738"></a>63738</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the message number in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63739"></a>63739</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63740"></a>63740</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="2">Pick up the new y-coordinate for the topmost row of the play area on screen in <span class="register">D</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63741"></a>63741</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63742"></a>63742</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="2">Pick up the new x-coordinate for the topmost row of the play area on screen in <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63743"></a>63743</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63744"></a>63744</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="2">Pick up the LSB of the address of the screen refresh buffer byte that corresponds to the top row of the cutscene window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63745"></a>63745</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63746"></a>63746</td>
+<td class="instruction">JP <a class="link" href="31414.html#31451">31451</a></td>
+<td class="comment-11" rowspan="1">Display the cutscene</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="63614.html">63614</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#63662">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="63749.html">63749</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>
