@@ -1,0 +1,12 @@
+# rc file for disassembly-diff, skooldiff and write-files
+
+OLD_VERSION=20140614
+SK_OLD_VERSION=4.0
+SKOOL=$CONTACTSAMCRUISE_HOME/sources/csc.skool
+SNAPSHOT=$CONTACTSAMCRUISE_HOME/build/contact_sam_cruise.z80
+MODULES=$(echo $CONTACTSAMCRUISE_HOME/skoolkit/{microsphere,samcruise}.py)
+SKOOLFILES=$(echo $CONTACTSAMCRUISE_HOME/sources/*.skool)
+REFFILES=$(echo $CONTACTSAMCRUISE_HOME/sources/*.ref)
+CSSFILES=$(echo $CONTACTSAMCRUISE_HOME/resources/*.css)
+JSFILES=$CONTACTSAMCRUISE_HOME/resources/microsphere.js
+DIFFS=$CONTACTSAMCRUISE_HOME/diffs

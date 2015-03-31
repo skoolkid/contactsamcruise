@@ -1,0 +1,241 @@
+; Copyright 2010-2014 Richard Dymond (rjdymond@gmail.com)
+
+[GraphicGlitch:samsCoat:Sam's coat]
+There is a misplaced transparent pixel at the base of Sam's coat when he's midstride:
+
+#UDGTABLE(gallery)
+{ #CALL:as_img(1,4) | #CALL:as_img(3,4) }
+TABLE#
+
+To fix these pixels:
+
+#PUSHSsc
+#POKES51223,247;51225,247
+#UDGTABLE(gallery)
+{ #CALL:as_img(1,4) | #CALL:as_img(3,4) }
+{ POKE 51223,247 | POKE 51225,247 }
+TABLE#
+#POPS
+
+[GraphicGlitch:mensShoes:Men's shoes]
+There is a transparent pixel that should be blank at the bottom front edge of the shoe in various animatory states of the policeman, the Fat Man, the man in a bowler hat, and the man in a baseball cap:
+
+#UDGTABLE(gallery)
+{ #CALL:as_img(16,4) | #CALL:as_img(56,4) | #CALL:as_img(104,4) | #CALL:as_img(112,4) | #CALL:as_img(19,4) | #CALL:as_img(107,4) | #CALL:as_img(115,4) }
+TABLE#
+
+To make these pixels blank:
+
+#PUSHSms
+#POKES54830,253;54859,223
+#UDGTABLE(gallery)
+{ #CALL:as_img(16,4) | #CALL:as_img(56,4) | #CALL:as_img(104,4) | #CALL:as_img(112,4) | #CALL:as_img(19,4) | #CALL:as_img(107,4) | #CALL:as_img(115,4) }
+{ =c4 POKE 54830,253 | =c3 POKE 54859,223 }
+TABLE#
+#POPS
+
+[GraphicGlitch:gangstersKnee:Gangster's knee]
+There are erroneous transparent pixels and a misplaced blank pixel in and near the gangster's knee when he's midstride:
+
+#UDGTABLE(gallery)
+{ #CALL:as_img(35,4) }
+TABLE#
+
+To fix these pixels:
+
+#PUSHSgk
+#POKES51819,233
+#UDGTABLE(gallery)
+{ #CALL:as_img(35,4) }
+{ POKE 51819,233 }
+TABLE#
+#POPS
+
+[GraphicGlitch:lanasWaist:Lana's waist]
+There are erroneous transparent pixels and extraneous blank pixels across and near Lana's waist when she has her arm raised:
+
+#UDGTABLE(gallery)
+{ #CALL:as_img(52,4) }
+TABLE#
+
+To fix these pixels:
+
+#PUSHSlw
+#POKES54144,124;55988,0
+#UDGTABLE(gallery)
+{ #CALL:as_img(52,4) }
+{ <div>POKE 54144,124</div><div>POKE 55988,0</div> }
+TABLE#
+#POPS
+
+[GraphicGlitch:fatMansWaist:Fat Man's waist]
+There is a misplaced blank pixel near the Fat Man's waist when he's midstride:
+
+#UDGTABLE(gallery)
+{ #CALL:as_img(57,4) }
+TABLE#
+
+To move this pixel to the right spot:
+
+#PUSHSfmw
+#POKES53300,211
+#UDGTABLE(gallery)
+{ #CALL:as_img(57,4) }
+{ POKE 53300,211 }
+TABLE#
+#POPS
+
+[GraphicGlitch:daisysHead:Daisy's head]
+There is a transparent pixel that should be blank on top of Daisy's head:
+
+#UDGTABLE(gallery)
+{ #CALL:as_img(72,4) | #CALL:as_img(76,4) }
+TABLE#
+
+To make this pixel blank:
+
+#PUSHSdh
+#POKES51789,131
+#UDGTABLE(gallery)
+{ #CALL:as_img(72,4) | #CALL:as_img(76,4) }
+{ =c2 POKE 51789,131 }
+TABLE#
+#POPS
+
+[GraphicGlitch:daisysHand:Daisy's hand]
+There are transparent pixels that should be blank and also a misplaced blank pixel on and near Daisy's hand when she's midstride:
+
+#UDGTABLE(gallery)
+{ #CALL:as_img(73,4) | #CALL:as_img(75,4) }
+TABLE#
+
+To fix these pixels:
+
+#PUSHSdh2
+#POKES51284,233;51287,233
+#UDGTABLE(gallery)
+{ #CALL:as_img(73,4) | #CALL:as_img(75,4) }
+{ POKE 51284,233 | POKE 51287,233 }
+TABLE#
+#POPS
+
+[GraphicGlitch:ladiesArms:Ladies' arms]
+When Daisy and the girl with a pony tail have their arms raised, there is a transparent pixel that should be blank under their hands, and another near their armpits:
+
+#UDGTABLE(gallery)
+{ #CALL:as_img(76,4) | #CALL:as_img(100,4) }
+TABLE#
+
+To make these pixels blank:
+
+#PUSHSla
+#POKES52871,203;54408,37
+#UDGTABLE(gallery)
+{ #CALL:as_img(76,4) | #CALL:as_img(100,4) }
+{ =c2 <div>POKE 52871,203</div><div>POKE 54408,37</div> }
+TABLE#
+#POPS
+
+[GraphicGlitch:ladiesWaists:Ladies' waists]
+There are extraneous blank pixels near both Daisy's waist and the waist of the girl with a pony tail when they are midstride:
+
+#UDGTABLE(gallery)
+{ #CALL:as_img(73,4) | #CALL:as_img(75,4) | #CALL:as_img(97,4) | #CALL:as_img(99,4) }
+TABLE#
+
+To remove these blank pixels:
+
+#PUSHSlw
+#POKES54354,250
+#UDGTABLE(gallery)
+{ #CALL:as_img(73,4) | #CALL:as_img(75,4) | #CALL:as_img(97,4) | #CALL:as_img(99,4) }
+{ =c4 POKE 54354,250 }
+TABLE#
+#POPS
+
+[GraphicGlitch:baseballCapMansFace:Baseball cap man's face]
+There are extraneous blank pixels and transparent pixels that should be blank in front of and on the face of the man in a baseball cap when he's midstride:
+
+#UDGTABLE(gallery)
+{ #CALL:as_img(113,4) | #CALL:as_img(115,4) }
+TABLE#
+
+To fix these pixels:
+
+#PUSHSbcmf
+#POKES53444,241;53956,233
+#UDGTABLE(gallery)
+{ #CALL:as_img(113,4) | #CALL:as_img(115,4) }
+{ =c2 <div>POKE 53444,241</div><div>POKE 53956,233</div> }
+TABLE#
+#POPS
+
+[GraphicGlitch:brokenBanister:Broken banister]
+In the open doorways of no. 74, no. 31 and no. 19, a line of blank pixels can be seen running through the banister at the bottom of the staircase:
+
+#PUSHS
+#POKES48389,82
+#POKES48398,82
+#POKES48410,82
+#UDGTABLE(gallery)
+{ #CALL:play_area(banister_74,40,29,7,8,4) | #CALL:play_area(banister_31,112,29,7,8,4) | #CALL:play_area(banister_19,208,29,7,8,4) }
+TABLE#
+
+To fix these pixels:
+
+#POKES39254,137
+#UDGTABLE(gallery)
+{ #CALL:play_area(banister_74_fixed,40,29,7,8,4) | #CALL:play_area(banister_31_fixed,112,29,7,8,4) | #CALL:play_area(banister_19_fixed,208,29,7,8,4) }
+{ =c3 POKE 39254,137 }
+TABLE#
+#POPS
+
+[PageContent:Graphics]
+<h3>Icon panel and score box</h3>
+<table cellpadding="5">
+<tr><td>#SCR2,8,21,12,3(icon_panel)</td><td>Icon panel</td></tr>
+<tr>
+<td>
+#PUSHS
+#POKES20654,129;20655,194
+#POKES20910,71;20911,180
+#POKES21166,11;21167,112
+#POKES21422,11;21423,176
+#POKES21678,93;21679,196
+#POKES21934,156;21935,194
+#POKES22190,8
+#POKES22446,12
+#POKES20686,10
+#POKES20942,9
+#POKES21198,28
+#SCR2,14,21,2,2(ringing_phone)
+#POPS
+</td>
+<td>Ringing telephone</td>
+</tr>
+<tr><td>#SCR2,20,21,9,3(score_box)</td><td>Score box</td></tr>
+</table>
+<h3>Sam's disguises</h3>
+<table cellpadding="5">
+<tr><td>#DISGUISE0,2(disguise0)</td><td>No disguise</td></tr>
+<tr><td>#DISGUISE1,2(disguise1)</td><td>Disguise 1</td></tr>
+<tr><td>#DISGUISE2,2(disguise2)</td><td>Disguise 2</td></tr>
+<tr><td>#DISGUISE3,2(disguise3)</td><td>Disguise 3</td></tr>
+<tr><td>#DISGUISE4,2(disguise4)</td><td>Disguise 4</td></tr>
+<tr><td>#DISGUISE5,2(disguise5)</td><td>Disguise 5</td></tr>
+<tr><td>#DISGUISE6,2(disguise6)</td><td>Disguise 6</td></tr>
+<tr><td>#DISGUISE7,2(disguise7)</td><td>Disguise 7</td></tr>
+</table>
+<h3>Doors</h3>
+<table cellpadding="5">
+<tr><td>#CALL:play_area(shop1_shut,0,31,3,8)</td><td>#PUSHS #POKES48384,80;48640,79 #CALL:play_area(shop1_open,0,31,3,8) #POPS</td><td>Left-hand shop under the apartments next to no. 74</td></tr>
+<tr><td>#CALL:play_area(shop2_shut,15,31,4,8)</td><td>#PUSHS #POKES48386,80;48642,79 #CALL:play_area(shop2_open,15,31,4,8) #POPS</td><td>Right-hand shop under the apartments next to no. 74</td></tr>
+<tr><td>#CALL:play_area(shop3_shut,223,31,4,8)</td><td>#PUSHS #POKES48412,80;48668,79 #CALL:play_area(shop3_open,223,31,4,8) #POPS</td><td>Shop under no. 17</td></tr>
+<tr><td>#CALL:play_area(shop4_shut,239,31,4,8)</td><td>#PUSHS #POKES48414,80;48670,79 #CALL:play_area(shop4_open,239,31,4,8) #POPS</td><td>Shop under no. 15</td></tr>
+<tr><td>#CALL:play_area(no74_shut,40,29,8,8)</td><td>#PUSHS #POKES48389,82 #CALL:play_area(no74_open,40,29,8,8) #POPS</td><td>No. 74</td></tr>
+<tr><td>#CALL:play_area(no31_shut,112,29,8,8)</td><td>#PUSHS #POKES48398,82 #CALL:play_area(no31_open,112,29,8,8) #POPS</td><td>No. 31</td></tr>
+<tr><td>#CALL:play_area(no27_shut,152,29,8,8)</td><td>#PUSHS #POKES48403,81 #CALL:play_area(no27_open,152,29,8,8) #POPS</td><td>No. 27</td></tr>
+<tr><td>#CALL:play_area(no19_shut,208,29,8,8)</td><td>#PUSHS #POKES48410,82 #CALL:play_area(no19_open,208,29,8,8) #POPS</td><td>No. 19</td></tr>
+<tr><td>#CALL:play_area(no17_shut,232,29,8,8)</td><td>#PUSHS #POKES48413,81 #CALL:play_area(no17_open,232,29,8,8) #POPS</td><td>No. 17</td></tr>
+<tr><td>#CALL:play_area(no15_shut,248,29,8,8)</td><td>#PUSHS #POKES48415,81 #CALL:play_area(no15_open,248,29,8,8) #POPS</td><td>No. 15</td></tr>
+</table>

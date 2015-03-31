@@ -1,0 +1,257 @@
+; Copyright 2010-2013, 2015 Richard Dymond (rjdymond@gmail.com)
+
+; Display file
+d16642 DEFB 24,60,0,60,64,126,60,124,0,60,8,8,24,8
+ 16658 DEFB 64,60,60,120,0,36,36,60,60,120,126
+ 16672 DEFB 64,60,60,120,0,36,36,60,60,120,126,0,24,60,60,60
+ 16688 DEFB 8,0,0,126,60,124,0,0,0,24,0,254,60,0,60,60
+ 16706 DEFB 124,126,126,124,0,0,24,0,60,0,0,124,60,66
+ 16720 DEFB 60,126,0,126,60,0,0,66,126,66,254,0,0,0,0,124
+ 16736 DEFB 60,66,60,126,0,60,126,60,0,0,124,60,66,120,60,66
+ 16752 DEFB 62,126,126,0,66,60,124,0,60,60,60,24,60
+ 16898 DEFB 40,70,0,66,64,64,66,66,0,66,24,24,40,24
+ 16914 DEFB 64,66,66,68,0,36,36,66,66,68,64
+ 16928 DEFB 64,66,66,68,0,36,36,66,66,68,64,0,40,64,66,66
+ 16944 DEFB 24,0,0,64,66,66,0,56,0,40,0,16,66,0,66,70
+ 16962 DEFB 66,64,64,66,0,0,40,0,70,0,0,66,66,66
+ 16976 DEFB 64,64,0,64,70,0,0,98,64,36,16,0,56,0,0,66
+ 16992 DEFB 66,66,64,64,0,66,64,70,0,0,66,66,98,68,66,102
+ 17008 DEFB 8,4,64,0,66,64,66,0,66,66,70,40,70
+ 17154 DEFB 8,74,0,64,64,124,66,66,0,2,40,40,8,40
+ 17168 DEFB 16,0,64,66,66,66,0,0,0,64,66,66,124,0,16
+ 17184 DEFB 64,66,66,66,0,0,0,64,66,66,124,0,8,124,12,60
+ 17200 DEFB 40,16,0,124,66,66,0,4,62,8,0,16,66,0,2,74
+ 17216 DEFB 16,0,124,124,124,66,0,0,8,0,74,16,0,66,66,66
+ 17232 DEFB 60,124,0,124,74,16,0,82,124,24,16,0,4,16,0,66
+ 17248 DEFB 66,66,60,124,0,2,124,74,16,0,66,66,82,66,66,90
+ 17264 DEFB 8,8,124,0,66,60,66,0,12,12,74,8,74
+ 17410 DEFB 8,82,0,64,64,64,126,124,0,60,72,72,8,72
+ 17426 DEFB 64,66,126,66,0,0,0,64,66,66,64
+ 17440 DEFB 64,66,126,66,0,0,0,64,66,66,64,0,8,66,2,66
+ 17456 DEFB 72,0,0,64,66,124,0,60,0,8,0,16,66,0,60,82
+ 17474 DEFB 66,64,64,124,0,0,8,0,82,0,0,124,126,66
+ 17488 DEFB 2,64,0,2,82,0,0,74,64,24,16,0,60,0,0,124
+ 17504 DEFB 126,66,2,64,0,60,2,82,0,0,124,126,74,66,66,66
+ 17520 DEFB 8,16,64,0,66,2,124,0,2,2,82,8,82
+ 17666 DEFB 8,98,0,66,64,64,66,68,0,64,126,126,8,126
+ 17682 DEFB 64,66,66,68,0,0,0,66,66,68,64
+ 17696 DEFB 64,66,66,68,0,0,0,66,66,68,64,0,8,66,66,66
+ 17712 DEFB 126,0,0,64,66,68,0,68,62,8,0,16,66,0,64,98
+ 17730 DEFB 66,64,64,64,0,24,8,8,98,0,0,64,66,66
+ 17744 DEFB 66,64,0,66,98,0,0,70,64,36,16,0,68,0,0,64
+ 17760 DEFB 66,66,66,64,0,64,66,98,0,0,68,66,70,68,66,66
+ 17776 DEFB 8,32,64,0,66,66,68,0,66,66,98,8,98
+ 17922 DEFB 62,60,0,60,126,126,66,66,0,126,8,8,62,8
+ 17936 DEFB 16,0,126,60,66,120,0,0,0,60,60,120,126,0,16
+ 17952 DEFB 126,60,66,120,0,0,0,60,60,120,126,0,62,60,60,60
+ 17968 DEFB 8,16,0,64,60,66,0,60,0,62,0,16,60,0,126,60
+ 17984 DEFB 16,0,124,126,126,64,0,24,62,8,60,16,0,64,66,60
+ 18000 DEFB 60,126,0,60,60,16,0,66,126,66,16,0,60,16,0,64
+ 18016 DEFB 66,60,60,126,0,126,60,60,16,0,66,66,66,120,60,66
+ 18032 DEFB 62,126,126,0,60,60,66,0,60,60,60,62,60
+ 18249 DEFB 16
+; K
+ 20704 DEFB 255
+ 20960 DEFB 187
+ 21216 DEFB 183
+ 21472 DEFB 143
+ 21728 DEFB 183
+ 21984 DEFB 187
+ 22240 DEFB 189
+ 22496 DEFB 255
+; Attribute file
+ 22528 DEFS 768,56
+ 23264 DEFB 184
+ 23265 DEFS 31,56
+
+@start
+; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
+; Copyright 2010-2013, 2015 Richard Dymond (this disassembly)
+@org=33010
+
+; Save Contact Sam Cruise to tape
+;
+@ignoreua
+; #UDGTABLE
+; { #SCR(saver.gif) | This is the program used to save the standard speed code
+; block for Contact Sam Cruise. }
+; TABLE#
+; .
+; The standard speed code block consists of two sections of data. The first
+; section contains the 16572 bytes of data for addresses 16384-32955. The
+; second section contains 32892 bytes of data starting at address 32976, moving
+; forward in steps of 247 bytes (rolling back to page 127 every time the 64K
+; boundary is reached), and ending at 33149.
+; .
+; Note that the second section does not contain data for addresses 33396-65506
+; (step 247); these addresses are filled in by the routine at #R33046@load
+; after the fast code block has loaded. Also note that although the byte for
+; address 33149 is saved to tape, it is not loaded by the
+; #R32815@load(load routine); instead, it is also filled in by the routine at
+; #R33046@load.
+c33010 LD SP,23806   ;
+@nowarn
+ 33013 LD HL,33224   ; #R33224@start is where the game starts after loading
+ 33016 LD (23835),HL ; Store this address where it will be popped off the stack
+                     ; by the #R32815@load(load routine)
+ 33019 EXX           ; {Prepare #REGbc' for saving the second section of data
+ 33020 LD BC,247     ;
+ 33023 EXX           ; }
+ 33024 LD IX,16384   ; {16384 to 32955 will be saved first
+ 33028 LD DE,16571   ; }
+ 33031 LD A,255      ; A flag byte of 255 (the first byte saved) indicates a
+                     ; data block
+ 33033 LD HL,3224    ; This constant will give a leader tone of about 2 seconds
+ 33036 EX AF,AF'     ;
+ 33037 INC DE        ; {Adjust the length and start address to allow for the
+ 33038 DEC IX        ; flag byte}
+ 33040 DI            ; Disable interrupts
+ 33041 LD A,2        ; MIC on, border red
+ 33043 LD B,A        ;
+; First create the 2-second leader tone.
+@label=LEADER
+*33044 DJNZ 33044    ;
+ 33046 OUT (254),A   ;
+ 33048 XOR 15        ;
+ 33050 LD B,164      ;
+ 33052 DEC L         ;
+ 33053 JR NZ,33044   ;
+ 33055 DEC B         ;
+ 33056 DEC H         ;
+ 33057 JP P,33044    ;
+; Then create the sync pulse.
+ 33060 LD B,47       ;
+@label=SYNC1
+*33062 DJNZ 33062    ;
+ 33064 OUT (254),A   ;
+ 33066 LD A,13       ;
+ 33068 LD B,55       ;
+@label=SYNC2
+*33070 DJNZ 33070    ;
+ 33072 OUT (254),A   ;
+; It's time to save the first byte, which will be the flag byte (255).
+ 33074 LD BC,15118   ; #REGb=59 (timing constant), #REGc=14 (MIC off, border
+                     ; yellow)
+ 33077 EX AF,AF'     ; #REGa=255
+ 33078 LD L,A        ; #REGl=255
+ 33079 JP 33091      ; Jump forward to save the flag byte
+; This is the main byte-saving loop.
+@label=B1_LOOP
+*33082 LD A,D        ; {In the analagous ROM routine, the second instruction
+ 33083 LD A,D        ; here is 'OR E', to check whether it's time to save the
+                     ; last byte (the parity byte)}
+ 33084 JR Z,33098    ; This jump (to save the parity byte) is never made
+ 33086 LD L,(IX+0)   ; Fetch the next byte to be saved
+@label=B1_LOOP_P
+*33089 LD A,H        ; #REGa=current parity byte
+ 33090 XOR L         ; Update this for the next byte to be saved
+@label=B1_START
+*33091 LD H,A        ; #REGh=new parity byte
+ 33092 LD A,1        ; #REGa=1 (MIC on, border blue)
+ 33094 SCF           ; Set the carry flag (which will act as the marker bit)
+ 33095 JP 33121      ; Jump forward to save the byte
+; This section of code, if it were used, would save the parity byte.
+@label=B1_PARITY
+*33098 LD L,H        ; Pick up the parity byte in #REGl
+ 33099 JR 33089      ; Save it
+; This is the bit-saving loop for the first section of data (16384-32955).
+@label=B1_BIT2
+*33101 LD A,C        ; #REGa=14 (MIC off, border yellow) for the second pass
+ 33102 BIT 7,B       ; Set the zero flag to indicate that this is the second
+                     ; pass through the loop
+@label=B1_BIT1
+*33104 DJNZ 33104    ;
+ 33106 JR NC,33112   ; Jump if we are saving a '0'
+ 33108 LD B,66       ;
+@label=B1_SET
+*33110 DJNZ 33110    ;
+@label=B1_OUT
+*33112 OUT (254),A   ;
+ 33114 LD B,62       ; Set the timing constant for the second pass
+ 33116 JR NZ,33101   ; Jump back for the second pass if we've just done the
+                     ; first
+ 33118 DEC B         ;
+ 33119 XOR A         ; Clear the carry flag
+ 33120 INC A         ; #REGa=1 (MIC on, border blue)
+@label=B1_8BITS
+*33121 RL L          ; Move the bit to be saved into the carry flag, and the
+                     ; marker bit leftwards
+ 33123 JP NZ,33104   ; Jump unless we've saved all 8 bits of the byte
+; A byte from the first section (16384-32955) has just been saved. Are there
+; any more left?
+ 33126 DEC DE        ; Decrease the length counter
+ 33127 INC IX        ; Move to the next byte to be saved
+ 33129 LD B,49       ; Set the timing constant for the first bit of the next
+                     ; byte
+ 33131 LD A,127      ; {Return if the BREAK key is being pressed
+ 33133 IN A,(254)    ;
+ 33135 RRA           ;
+ 33136 RET NC        ; }
+ 33137 LD A,D        ; {Have we saved 16384 to 32955 yet?
+ 33138 INC A         ; }
+ 33139 JP NZ,33082   ; Jump back if not
+@ignoreua
+; Now a further 32892 bytes are saved: starting at 32976, moving forward in
+; steps of 247 bytes, rolling back to page 127 whenever the 64K boundary is
+; hit, and ending at 33149.
+ 33142 RET NZ        ; This return does not happen
+ 33143 LD DE,32892   ; We need to save a further 32892 bytes
+ 33146 LD A,49       ; {Change the instruction at 32902 (in the
+ 33148 LD (32902),A  ; #R32815@load(load routine)) to LD SP,23835}
+ 33151 LD B,46       ;
+@label=B2_LOOP
+*33153 LD A,D        ; {Have we saved every byte of the second section yet?
+ 33154 OR E          ; }
+ 33155 JR Z,33169    ; Jump if so
+ 33157 LD L,(IX+20)  ; Otherwise pick up the next byte to save
+ 33160 LD A,H        ; #REGa=current parity byte
+ 33161 XOR L         ; Update this for the next byte to be saved
+ 33162 LD H,A        ; #REGh=new parity byte
+ 33163 LD A,1        ; #REGa=1 (MIC on, border blue)
+ 33165 SCF           ; Set the carry flag (which will act as the marker bit)
+ 33166 JP 33192      ; Jump forward to save the byte
+; This is where we come when all 49464 bytes have been saved.
+@label=DONE
+*33169 LD L,0        ;
+ 33171 RET           ;
+; This is the bit-saving loop for the second section of data.
+@label=B2_BIT2
+*33172 LD A,C        ; #REGa=14 (MIC off, border yellow) for the second pass
+ 33173 BIT 7,B       ; Set the zero flag to indicate that this is the second
+                     ; pass through the loop
+@label=B2_BIT1
+*33175 DJNZ 33175    ;
+ 33177 JR NC,33183   ; Jump if we are saving a '0'
+ 33179 LD B,66       ;
+@label=B2_SET
+*33181 DJNZ 33181    ;
+@label=B2_OUT
+*33183 OUT (254),A   ;
+ 33185 LD B,62       ; Set the timing constant for the second pass
+ 33187 JR NZ,33172   ; Jump back for the second pass if we've just done the
+                     ; first
+ 33189 DEC B         ;
+ 33190 XOR A         ; Clear the carry flag
+ 33191 INC A         ; #REGa=1 (MIC on, border blue)
+@label=B2_8BITS
+*33192 RL L          ; Move the bit to be saved into the carry flag, and the
+                     ; marker bit leftwards
+ 33194 JP NZ,33175   ; Jump unless we've saved all 8 bits of the byte
+; A byte from the second section has just been saved. Are there any more left?
+ 33197 DEC DE        ; Decrease the length counter
+ 33198 EXX           ; {Move forward 247 bytes to the next byte to be saved
+ 33199 ADD IX,BC     ;
+ 33201 EXX           ; }
+ 33202 LD B,47       ; Set the timing constant for the first bit of the next
+                     ; byte
+@nowarn
+ 33204 JR NC,33208   ; Jump unless #REGix was incremented beyond the 64K
+                     ; boundary
+ 33206 LD IXh,127    ; Reset the high byte of the #REGix register
+ 33209 LD A,127      ; {These instructions check the BREAK key but do not act
+ 33211 IN A,(254)    ; on the result
+ 33213 RRA           ; }
+ 33214 NOP           ;
+ 33215 NOP           ;
+ 33216 NOP           ;
+ 33217 JP 33153      ; Save the next byte

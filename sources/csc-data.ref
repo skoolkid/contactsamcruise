@@ -1,0 +1,303 @@
+; Copyright 2010-2012 Richard Dymond (rjdymond@gmail.com)
+
+[AnimatoryStates]
+0=Sam standing/walking (phase 1)
+1=Sam standing/walking (phase 2)
+2=Sam standing/walking (phase 3)
+3=Sam standing/walking (phase 4)
+4=Sam with his arm up
+5=Sam standing (used when Sam is being carried)
+6=Sam bending his knees, or rolling/somersaulting (phase 1)
+7=Sam lying on his back
+8=Unused
+9=Sam rolling (phase 3) or somersaulting (phase 4)
+10=Sam rolling (phase 5) somersaulting (phase 6)
+11=Unused
+12=Unused
+13=Unused
+14=Unused
+15=Sam rolling (phase 2) or somersaulting (phase 3)
+16=Policeman standing/walking (phase 1)
+17=Policeman standing/walking (phase 2)
+18=Policeman standing/walking (phase 3)
+19=Policeman standing/walking (phase 4)
+20=Policeman with his arm up
+21=Unused
+22=Unused
+23=Policeman lying on his back
+24=Policeman standing/walking while carrying Sam (phase 1)
+25=Policeman standing/walking while carrying Sam (phase 2)
+26=Policeman standing/walking while carrying Sam (phase 3)
+27=Policeman standing/walking while carrying Sam (phase 4)
+28=Unused
+29=Unused
+30=Unused
+31=Sam rolling (phase 4) or somersaulting (phase 5)
+32=Gangster standing/walking (phase 1)
+33=Gangster standing/walking (phase 2)
+34=Gangster standing/walking (phase 3)
+35=Gangster standing/walking (phase 4)
+36=Gangster with his arm up
+37=Unused
+38=Unused
+39=Gangster lying on his back
+40=Gangster standing/walking while carrying Sam (phase 1)
+41=Gangster standing/walking while carrying Sam (phase 2)
+42=Gangster standing/walking while carrying Sam (phase 3)
+43=Gangster standing/walking while carrying Sam (phase 4)
+44=Gangster opening a door while carrying Sam
+45=Unused
+46=Unused
+47=Unused
+48=Lana standing/walking (phase 1)
+49=Lana standing/walking (phase 2)
+50=Lana standing/walking (phase 3)
+51=Lana standing/walking (phase 4)
+52=Lana with her arm up
+53=Unused
+54=Sniper (out of sight)
+55=Lana lying on her back
+56=Fat man standing/walking (phase 1)
+57=Fat man standing/walking (phase 2)
+58=Fat man standing/walking (phase 3)
+59=Fat man standing/walking (phase 4)
+60=Fat man with his arm up
+61=Unused
+62=Banknote (phase 1)
+63=Fat man lying on his back
+64=Skinny man standing/walking (phase 1) (unused)
+65=Skinny man standing/walking (phase 2) (unused)
+66=Skinny man standing/walking (phase 3) (unused)
+67=Skinny man standing/walking (phase 4) (unused)
+68=Skinny man with his arm up (unused)
+69=Unused
+70=Banknote (phase 2)
+71=Skinny man lying on his back (unused)
+72=Daisy standing/walking (phase 1)
+73=Daisy standing/walking (phase 2)
+74=Daisy standing/walking (phase 3)
+75=Daisy standing/walking (phase 4)
+76=Daisy with her arm up
+77=Unused
+78=Unused
+79=Daisy lying on her back
+80=Lady in a hat standing/walking (phase 1)
+81=Lady in a hat standing/walking (phase 2)
+82=Lady in a hat standing/walking (phase 3)
+83=Lady in a hat standing/walking (phase 4)
+84=Lady in a hat with her arm up
+85=Unused
+86=Unused
+87=Lady in a hat lying on her back
+88=Lady with big hair standing/walking (phase 1)
+89=Lady with big hair standing/walking (phase 2)
+90=Lady with big hair standing/walking (phase 3)
+91=Lady with big hair standing/walking (phase 4)
+92=Lady with big hair with her arm up
+93=Unused
+94=Unused
+95=Lady with big hair lying on her back
+96=Girl with a pony tail standing/walking (phase 1)
+97=Girl with a pony tail standing/walking (phase 2)
+98=Girl with a pony tail standing/walking (phase 3)
+99=Girl with a pony tail standing/walking (phase 4)
+100=Girl with a pony tail with her arm up
+101=Unused
+102=Unused
+103=Girl with a pony tail lying on her back
+104=Man in a bowler hat standing/walking (phase 1)
+105=Man in a bowler hat standing/walking (phase 2)
+106=Man in a bowler hat standing/walking (phase 3)
+107=Man in a bowler hat standing/walking (phase 4)
+108=Man in a bowler hat with his arm up
+109=Unused
+110=Unused
+111=Man in a bowler hat lying on his back
+112=Man in a baseball cap standing/walking (phase 1)
+113=Man in a baseball cap standing/walking (phase 2)
+114=Man in a baseball cap standing/walking (phase 3)
+115=Man in a baseball cap standing/walking (phase 4)
+116=Man in a baseball cap with his arm up
+117=Cat running (phase 1)
+118=Cat running (phase 2)
+119=Man in a baseball cap lying on his back
+120=Unused
+121=Hook
+122=Unused
+123=Unused
+124=Unused
+125=Unused
+126=Unused
+127=Unused
+
+[Characters]
+215=Various
+216=Various
+217=Various
+218=Various
+219=Various
+220=Various
+221=Various
+222=Policeman (modes 0-3)
+223=Policeman (modes 1-3)
+224=Gangster
+225=Fat Man (mode 2); Lana (mode 3)
+226=Daisy (modes 0-3)
+227=Sniper (modes 1-4)
+228=Banknote
+229=Banknote; hook
+230=Sam
+
+[KeypressRoutines]
+60626=Up
+60631=Down
+60636=Right
+60641=Left
+64218=Change disguise
+62192=Knock on or open a door
+30070=Light on/off
+30092=Raise/lower blind
+29866=Fuse
+28635=Toggle message speed
+24951=Joystick
+30458=Telephone
+31204=Get object
+31713=Use hook
+25784=Forward roll
+25789=Somersault
+
+[CharBuf:0]
+Animatory state
+
+[CharBuf:1,2]
+Location (x, y)
+
+[CharBuf:3]
+Various flags:
+#TABLE(default,centre)
+{ =h Bit(s) | =h Meaning if set }
+{ 0-3       | Unused }
+{ 4         | Unused (always reset, but checked by #R61948) }
+{ 5         | Unused }
+{ 6         | Character should be moved (see #R61948) }
+{ 7         | Character is running (see #R61948) }
+TABLE#
+
+[CharBuf:4]
+z-coordinate: 1=indoors; 2=outside, behind people on the sidewalk; 4=on the sidewalk or road; 8=invisible
+
+[CharBuf:5]
+Post-midstride animatory state (see #R60347, #R60506)
+
+[CharBuf:6]
+Post-midstride x-coordinate  (see #R60347, #R60506)
+
+[CharBuf:7]
+Post-midstride y-coordinate  (see #R60347, #R60506, #R60641, #R64338)
+
+[CharBuf:8]
+LSB of the primary command routine address (see #R61948)
+
+Sam's main action timer (see #R24832, #R25789, #R29149, #R29912, #R30675, #R60641, #R61483, #R64338)
+
+[CharBuf:9]
+MSB of the primary command routine address (see #R61948)
+
+Sam's midstride/mid-action timer (see #R29149, #R60641, #R61483)
+
+[CharBuf:10]
+Destination x-coordinate (see #R28803, #R29072, #R29361, #R31126, #R31808, #R31944, #R60812, #R62976)
+
+Walkabout origin x-coordinate (see #R63304, #R63530)
+
+Counter used by the sniper to decide when to appear (see #R25307)
+
+1 if the banknote has just been landed on by Sam, 0 otherwise (see #R25420, #R25539)
+
+[CharBuf:11]
+Destination y-coordinate (see #R29072, #R29361, #R31126, #R31944, #R60812, #R62976)
+
+Walkabout destination x-coordinate for a cat (see #R63530)
+
+LSB of the address of the door knock status flags for the door (if any) that the character is on duty for (see #R31338, #R63304, #R63520)
+
+[CharBuf:12]
+Roll/somersault animation phase table entry address LSB (see #R25789)
+
+Destination location identifier (see #R28803, #R29072, #R29361, #R31126, #R31808, #R31944, #R60812, #R62976)
+
+Walkabout duration indicator (0=indefinite, 255=finite) (see #R31338, #R63304, #R63520)
+
+[CharBuf:13]
+Roll/somersault animation phase table entry address MSB (see #R25789)
+
+0 if Sam has only just met Lana, 1 otherwise (see #R24832)
+
+Pre-knockout animatory state (see #R64005, #R64131)
+
+Number of mini-walkabouts remaining (see #R31338, #R63304)
+
+Location/destination indicator: 2 if the character is not on the sidewalk or the road, and is not in the same region as his destination; 1 if the character is not on the sidewalk or the road, and is in the same region as his destination; 0 if the character is on the sidewalk or the road, or on the front steps of the hotel but heading somewhere other than the hotel (see #R31808, #R60812, #R62976)
+
+1 if Sam has stepped off or been dropped off the the roof of a building to the ground from a great enough height that he could be knocked out when he lands; 0 otherwise (see #R64227, #R64338)
+
+[CharBuf:14,15]
+Interruptible subcommand routine address (see #R61948)
+
+[CharBuf:16]
+Walkabout destination x-coordinate (see #R63209, #R63304)
+
+Intermediate destination x-coordinate (see #R62926, #R62976)
+
+Intermediate destination y-coordinate (see #R62892, #R62976)
+
+Counter used by the sniper to decide when to duck and when to shoot (see #R25118, #R25307)
+
+LSB of the address of the door knock status flags (see #R32682) for the door the character has knocked on (see #R62278, #R62297)
+
+Counter that determines how much longer a policeman will keep knocking on a door before busting it open (see #R62325, #R62339)
+
+[CharBuf:17]
+Delay counter used by the sniper after firing a bullet (see #R25118, #R25307)
+
+Counter that determines how much longer the character will wait for a door to be opened before giving up (see #R62278, #R62297)
+
+Counter that determines the delay until the character will consider flipping a light switch or raising or lowering a window blind (see #R63209)
+
+[CharBuf:18,19]
+Uninterruptible subcommand routine address (see #R61948)
+
+[CharBuf:20]
+Telephone dialling sound effect counter (see #R30675)
+
+Distance remaining for the hook to fly (see #R31713)
+
+Knockout and recovery delay counter (see #R64005)
+
+Animation phase counter used when a character has just stepped off the roof of a building (see #R64227, #R64338)
+
+[CharBuf:21]
+Pre-knockout x-coordinate (see #R64005, #R64131)
+
+Landing y-coordinate (see #R64338)
+
+[CharBuf:22]
+Offset of the point reached in the current command list (relative to the start) (see #R61791)
+
+[CharBuf:23,24]
+Start address of the command list (see #R61791, #R61948)
+
+[CharBuf:25,26]
+Unused (but see #R61948)
+
+[CharBuf:27,28]
+Unused (but checked by #R61948 for a continual subcommand routine address)
+
+[CharBuf:29]
+ID of Sam's disguise (bits 5-7) when he was last spotted (but not recognised) by the policeman, and the corresponding disguise timeout counter (bits 0-4) (see #R29100, #R29218, #R29361, #R29559)
+
+[CharBuf:30]
+Sam's x-coordinate when he was last spotted by the policeman while wearing a disguise unknown to the police (see #R29100, #R29218)
+
+[CharBuf:31]
+Sam's y-coordinate (bits 0-5) and z-coordinate (bits 6-7) when he was last spotted by the policeman while wearing a disguise unknown to the police (see #R29100, #R29218)

@@ -1,0 +1,124 @@
+; Copyright 2010-2014 Richard Dymond (rjdymond@gmail.com)
+
+[Config]
+SkoolFile=csc.skool
+HtmlWriterClass=:samcruise.ContactSamCruiseHtmlWriter
+GameDir=contact_sam_cruise
+
+[Game]
+Game=Contact Sam Cruise
+Logo=#SCR2,0,21,8,3(/images/logo|Contact Sam Cruise)
+GameStatusBufferIncludes=32658,32720
+StyleSheet=skoolkit.css;microsphere.css;csc.css
+Release=The complete Contact Sam Cruise RAM disassembly 20140614
+Copyright=&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).
+
+[Links]
+DataMap=[Data] (just the data)
+Graphics=Other graphics
+MemoryMap=[Everything] (routines, data, text and unused addresses)
+MessagesMap=[Messages] (just the text)
+RoutinesMap=[Routines] (just the routines)
+CommandLists=Command lists
+load-Index=Loading code
+save-Index=Save code
+start-Index=Startup code
+PlayArea=Play area
+PlayAreaObjects=Play area objects
+InitialAnimatoryStates0=Initial animatory states and locations
+InitialAnimatoryStates1=Initial animatory states and locations (mode 1)
+InitialAnimatoryStates2=Initial animatory states and locations (mode 2)
+InitialAnimatoryStates3=Initial animatory states and locations (mode 3)
+InitialAnimatoryStates4=Initial animatory states and locations (mode 4)
+AnimatoryStates=Animatory states
+AnimatoryStateTiles=Animatory state tiles
+CharacterBuffers=Character buffers
+CommandLists=Command lists
+Keys=Keypress table
+Walkthrough=Walkthrough
+
+[Titles]
+load-Index=Loading code
+save-Index=Save code
+start-Index=Startup code
+PlayArea=Play area
+PlayAreaObjects=Play area objects
+InitialAnimatoryStates0=Initial animatory states and locations (demo mode)
+InitialAnimatoryStates1=Initial animatory states and locations (mode 1)
+InitialAnimatoryStates2=Initial animatory states and locations (mode 2)
+InitialAnimatoryStates3=Initial animatory states and locations (mode 3)
+InitialAnimatoryStates4=Initial animatory states and locations (mode 4)
+AnimatoryStates=Animatory states
+AnimatoryStateTiles=Animatory state tiles
+CharacterBuffers=Character buffers
+CommandLists=Command lists
+Keys=Keypress table
+Walkthrough=Walkthrough
+
+[PageHeaders]
+load-Index=Loading code
+load-Asm-b=Loading data
+load-Asm-c=Load routines
+save-Index=Save code
+save-Asm-c=Save routine
+start-Index=Startup code
+start-Asm-b=Startup data
+start-Asm-c=Startup routines
+
+[Paths]
+PlayAreaImagePath=images/play_area
+AnimatoryStateImagePath=images/animatory_states
+LocationDescriptorImagePath=images/location_descriptors
+Graphics=graphics/graphics.html
+PlayArea=graphics/playarea.html
+PlayAreaTiles=graphics/patiles/patiles.html
+PlayAreaObjects=graphics/playarea_objects.html
+InitialAnimatoryStates0=graphics/asstart0.html
+InitialAnimatoryStates1=graphics/asstart1.html
+InitialAnimatoryStates2=graphics/asstart2.html
+InitialAnimatoryStates3=graphics/asstart3.html
+InitialAnimatoryStates4=graphics/asstart4.html
+AnimatoryStates=graphics/as.html
+AnimatoryStateTiles=graphics/astiles/astiles.html
+CharacterBuffers=buffers/cbuffer.html
+Keys=tables/keys.html
+CommandLists=maps/command_lists.html
+Walkthrough=reference/walkthrough.html
+
+[OtherCode:load]
+Source=csc-load.skool
+
+[OtherCode:save]
+Source=csc-save.skool
+
+[OtherCode:start]
+Source=csc-start.skool
+
+[Index:Graphics:Graphics]
+PlayArea
+PlayAreaObjects
+InitialAnimatoryStates0
+AnimatoryStates
+AnimatoryStateTiles
+Graphics
+GraphicGlitches
+
+[Index:DataTables:Data tables and buffers]
+GameStatusBuffer
+CharacterBuffers
+CommandLists
+Keys
+
+[Index:Reference:Reference]
+Changelog
+Glossary
+Facts
+Bugs
+Pokes
+Walkthrough
+
+[MemoryMap:MessagesMap]
+Intro=The LSB and MSB of the address of message number N can be found at (N+#R27649(27648)) and (N+#R27905(27904)) respectively.
+
+[MemoryMap:UnusedMap]
+Write=0

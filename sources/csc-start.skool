@@ -1,0 +1,218 @@
+; Copyright 2010-2013, 2015 Richard Dymond (rjdymond@gmail.com)
+
+@start
+; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
+; Copyright 2010-2013, 2015 Richard Dymond (this disassembly)
+@org=32972
+
+; Copy data from a row of the screen
+;
+; Used by the routine at #R33224. Copies 256 bytes of data from a row of the
+; screen to its destination, in eight 32-byte blocks.
+;
+; HL Source (16384 or 20704)
+; DE Destination (23904 or 24160)
+@label=COPYROW
+c32972 PUSH HL       ;
+ 32973 LD BC,32      ; There are 32 bytes per block (row of pixels)
+ 32976 LDIR          ; Copy 32 bytes to the destination
+ 32978 POP HL        ;
+ 32979 INC H         ; Point #REGhl at the next block of 32 bytes to copy
+ 32980 BIT 3,H       ; Have we copied 8 blocks yet?
+ 32982 JR Z,32972    ; Jump back if not
+ 32984 RET           ;
+
+@org=33224
+
+; Start
+;
+; We jump here from the load routine at #R32815@load. Before the game starts,
+; the 512 bytes of data in the top and bottom rows of the display file must be
+; copied to addresses 23904-24415, the 512 bytes of data in addresses
+; 32256-32767 must be copied to 32768-33279, and the bottom 4 lines of the
+; screen must be prepared.
+@label=START
+c33224 LD SP,23898   ; Put the stack somewhere safe
+ 33227 LD HL,16384   ; {Copy the data in the top row of the display file to
+ 33230 LD DE,23904   ; addresses 23904-24159
+ 33233 CALL 32972    ; }
+ 33236 LD HL,20704   ; {Copy the data in the bottom row of the display file to
+ 33239 CALL 32972    ; addresses 24160-24415}
+@nowarn
+ 33242 LD HL,61668   ; {We will eventually jump to #R61668@main to enter demo
+ 33245 PUSH HL       ; mode; push this address onto the stack}
+ 33246 LD HL,32256   ; {Prepare #REGhl, #REGde and #REGbc to copy 32256-32767
+ 33249 LD DE,32768   ; into 32768-33279 (overwriting this routine)
+ 33252 LD B,2        ; }
+ 33254 EI            ; Enable interrupts
+@nowarn
+ 33255 JP 61600      ; Jump to perform the LDIR
+
+@org=55040
+
+; Logo, icon panel and score box graphic data (segment 1/5)
+;
+; The graphic data here is copied to the screen by the routine at #R56576.
+@label=PANEL1
+b55040 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ 55056 DEFB 2,5,53,69,66,72,48,0,0,0,0,0,0,0,0,0
+ 55072 DEFB 0,1,2,6,10,18,18,112,112,64,64,0,0,0,0,0
+ 55088 DEFB 0,0,0,0,0,3,4,4,100,83,104,64,64,30,16,28
+ 55104 DEFB 2,2,30,0,0,0,0,0,0,16,32,96,160,32,32,0
+ 55120 DEFB 128,0,0,0,0,246,150,150,245,148,148,0,0,0,0,0
+ 55136 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,195,196,196
+ 55152 DEFB 68,68,67,0,0,0,0,0,0,0,0,0,0,0
+
+@org=55296
+
+; Logo, icon panel and score box graphic data (segment 2/5)
+;
+; The graphic data here is copied to the screen by the routine at #R56576.
+@label=PANEL2
+b55296 DEFB 0,0,0,0,0,0,0,189,37,37,57,37,37,0,0,0
+ 55312 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,43
+ 55328 DEFB 42,43,40,40,235,0,0,0,0,0,0,0,0,0,0,0
+ 55344 DEFB 0,0,0,0,0,0,0,222,16,144,92,80,222,0,0,0
+ 55360 DEFB 0,0,8,53,66,0,117,69,101,69,69,71,0,66,53,8
+ 55376 DEFB 0,0,0,24,24,126,126,24,24,0,136,86,33,0,119,68
+ 55392 DEFB 118,20,20,119,0,33,86,136,0,0,0,24,24,126,126,24
+ 55408 DEFB 24,0,31,16,23,21,21,23,16,16,23,21,21,21
+
+@org=55552
+
+; Logo, icon panel and score box graphic data (segment 3/5)
+;
+; The graphic data here is copied to the screen by the routine at #R56576.
+@label=PANEL3
+b55552 DEFB 23,16,31,0,0,24,24,126,126,24,24,0,252,4,116,84
+ 55568 DEFB 80,116,4,4,116,84,80,84,116,4,252,0,0,24,24,126
+ 55584 DEFB 126,24,24,0,3,12,16,16,32,32,19,18,9,5,5,5
+ 55600 DEFB 7,7,7,3,0,24,24,126,126,24,24,0,128,96,16,16
+ 55616 DEFB 8,8,144,144,32,64,64,64,192,224,192,128,0,24,24,126
+ 55632 DEFB 126,24,24,0,1,7,15,15,9,28,28,12,10,9,8,28
+ 55648 DEFB 28,1,3,3,0,24,24,126,126,24,24,0,192,176,112,176
+ 55664 DEFB 192,192,192,192,192,192,192,192,192,224,240,240,0,24
+
+@org=55808
+
+; Logo, icon panel and score box graphic data (segment 4/5)
+;
+; The graphic data here is copied to the screen by the routine at #R56576.
+@label=PANEL4
+b55808 DEFB 24,126,126,24,24,0,0,48,72,76,35,41,8,8,24,36
+ 55824 DEFB 67,66,132,152,96,0,96,160,224,16,8,5,2,1,12,50
+ 55840 DEFB 66,130,4,8,8,112,8,6,193,34,20,8,0,0,96,160
+ 55856 DEFB 224,16,8,5,2,1,0,0,0,0,0,0,3,3,4,8
+ 55872 DEFB 8,6,113,129,126,0,96,160,224,16,8,5,2,1,8,72
+ 55888 DEFB 36,20,18,14,6,252,14,14,18,20,36,72,8,0,96,160
+ 55904 DEFB 224,16,8,5,2,1,144,144,148,244,148,148,148,0,240,128
+ 55920 DEFB 135,244,20,20,247,0,240,144,149,229,149,149,247,0
+
+@org=56064
+
+; Logo, icon panel and score box graphic data (segment 5/5)
+;
+; The graphic data here is copied to the screen by the routine at #R56576.
+@label=PANEL5
+b56064 DEFB 0,0,119,68,116,20,119,0,0,0,119,84,84,84,116,0
+ 56080 DEFB 4,4,117,69,70,69,117,0,0,0,119,84,84,84,116,0
+ 56096 DEFB 0,0,112,80,112,64,112,0,0,0,112,64,112,16,112,0
+ 56112 DEFB 0,0,112,80,112,64,112,0,0,0,0,0,0,0,0,0
+ 56128 DEFB 0,0,0,0,0,0,0,0
+
+@org=56576
+
+; Prepare the bottom 4 lines of the screen
+;
+; Used by the routine at #R61630@main.
+@label=PREPSCREEN
+c56576 NOP           ;
+ 56577 NOP           ;
+ 56578 NOP           ;
+ 56579 LD H,80       ; {Clear the bottom 4 lines (32 pixel rows) of the display
+*56581 LD L,128      ; file
+ 56583 XOR A         ;
+*56584 LD (HL),A     ;
+ 56585 INC L         ;
+ 56586 JR NZ,56584   ;
+ 56588 INC H         ;
+ 56589 BIT 3,H       ;
+ 56591 JR Z,56581    ; }
+; Now the first 24 character squares on each of the bottom 3 lines (24 pixel
+; rows) of the screen are filled with graphic data. The 576 bytes of graphic
+; data are copied to the screen from the following 5 segments:
+; .
+; #TABLE(default,centre)
+; { =h Address | =h Length }
+; { #R55040 | 126 bytes }
+; { #R55296 | 126 bytes }
+; { #R55552 | 126 bytes }
+; { #R55808 | 126 bytes }
+; { #R56064 | 72 bytes }
+; TABLE#
+ 56593 LD HL,55040   ; Point #REGhl at the first byte to be copied to the
+                     ; screen
+ 56596 LD DE,20640   ; Point #REGde at the first display file location to be
+                     ; written
+ 56599 LD C,24       ; There are 24 bytes per row of pixels
+*56601 PUSH DE       ; Save the display file pointer
+ 56602 LD B,24       ; There are 24 rows of pixels to be drawn
+*56604 LD A,(HL)     ; Pick up a byte to copy
+ 56605 LD (DE),A     ; Copy the byte to the screen
+ 56606 INC L         ; Move #REGhl along to the next byte to copy
+ 56607 LD A,L        ; {Have we reached the end of a segment?
+ 56608 SUB 126       ; }
+ 56610 JR NZ,56614   ; Jump if not
+ 56612 LD L,A        ; {Point #REGhl at the first byte in the next segment
+ 56613 INC H         ; }
+*56614 INC D         ; Point #REGde at the next pixel row down on the screen
+ 56615 BIT 3,D       ; Have we just copied a byte to the 8th or 16th row of
+                     ; pixels?
+ 56617 JR Z,56625    ; Jump if not
+ 56619 LD D,80       ; {Otherwise point #REGde at the 9th or 17th row of pixels
+ 56621 LD A,E        ;
+ 56622 ADD A,32      ;
+ 56624 LD E,A        ; }
+*56625 DJNZ 56604    ; Jump back until a column of 24 bytes has been copied
+ 56627 POP DE        ; Restore the display file pointer
+ 56628 INC E         ; Point #REGde at the top byte in the next column along
+ 56629 DEC C         ; Have we finished all 24 columns?
+ 56630 JR NZ,56601   ; Jump back if not
+; Now that the bottom 4 lines of the display file are ready, it's time to
+; prepare the bottom 4 lines of the attribute file.
+ 56632 LD HL,23168   ; Point #REGhl at the first attribute byte of the line
+                     ; where on-screen messages will be displayed
+ 56635 LD B,32       ; There are 32 attribute bytes in this line
+*56637 LD (HL),15    ; {Set each attribute byte to 15 (INK 7: PAPER 1)
+ 56639 INC L         ;
+ 56640 DJNZ 56637    ; }
+ 56642 LD C,3        ; There are 3 lines at the bottom of the screen that still
+                     ; need their attribute bytes set
+*56644 LD B,8        ; The first 8 bytes in each line correspond to the Contact
+                     ; Sam Cruise logo
+*56646 LD (HL),23    ; {Set these attribute bytes to 23 (INK 7: PAPER 2)
+ 56648 INC L         ;
+ 56649 DJNZ 56646    ; }
+ 56651 LD B,12       ; The next 12 bytes in each line correspond to the icon
+                     ; panel
+*56653 LD (HL),54    ; {Set these attribute bytes to 54 (INK 6: PAPER 6)
+ 56655 INC L         ;
+ 56656 DJNZ 56653    ; }
+ 56658 LD B,9        ; The next 9 bytes in each line correspond to the score
+                     ; box
+*56660 LD (HL),32    ; {Set these attribute bytes to 32 (INK 0: PAPER 4)
+ 56662 INC L         ;
+ 56663 DJNZ 56660    ; }
+ 56665 LD B,3        ; The last 3 bytes in each line correspond to the disguise
+                     ; box
+*56667 LD (HL),23    ; {Set these attribute bytes to 23 (INK 7: PAPER 2)
+ 56669 INC L         ;
+ 56670 DJNZ 56667    ; }
+ 56672 DEC C         ; Have we done all 3 lines at the bottom of the screen?
+ 56673 JR NZ,56644   ; Jump back to do the next line if not
+ 56675 RET           ;
+
+r61600 main
+
+r61630 main
+ 61668
