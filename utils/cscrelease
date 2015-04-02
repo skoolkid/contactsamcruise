@@ -25,13 +25,11 @@ GAMENAME="Contact Sam Cruise"
 SKOOLDIR=$CONTACTSAMCRUISE_HOME/sources
 SKOOLFILES=$(echo csc{,-load,-save,-start}.skool)
 REFFILE=$CONTACTSAMCRUISE_HOME/sources/$GAME.ref
-MKDTARBALL="$CONTACTSAMCRUISE_HOME/utils/mkdtarball"
 SRCDIR=sources
 SRCFILES=$(echo COPYING samcruise.py csc{{,-bugs,-changelog,-data,-facts,-glossary,-graphics,-pages,-pokes}.ref,{,-load,-save,-start}.skool,.css} microsphere{,-dark,-green,-plum}.css microsphere.{js,py})
 DHOME=$CONTACTSAMCRUISE_HOME
 GHREPO=contactsamcruise
 GHHTMLOPTS=""
-GHGAMEDIR=.
 
 . $SKOOLKIT_HOME/tools/drelease-functions
 
