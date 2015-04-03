@@ -22,9 +22,7 @@ fi
 GAME=csc
 GAMEDIR=contact_sam_cruise
 GAMENAME="Contact Sam Cruise"
-SKOOLDIR=$CONTACTSAMCRUISE_HOME/sources
 SKOOLFILES=$(echo csc{,-load,-save,-start}.skool)
-REFFILE=$CONTACTSAMCRUISE_HOME/sources/$GAME.ref
 SRCDIR=sources
 SRCFILES=$(echo COPYING samcruise.py csc{{,-bugs,-changelog,-data,-facts,-glossary,-graphics,-pages,-pokes}.ref,{,-load,-save,-start}.skool,.css} microsphere{,-dark,-green,-plum}.css microsphere.{js,py})
 DHOME=$CONTACTSAMCRUISE_HOME
