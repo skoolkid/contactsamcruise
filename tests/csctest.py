@@ -37,7 +37,6 @@ Using ref files: {srcdir}/csc.ref, {srcdir}/csc-bugs.ref, {srcdir}/csc-changelog
 Parsing {srcdir}/csc.skool
 Creating directory {odir}/contact_sam_cruise
 Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to {odir}/contact_sam_cruise/skoolkit.css
-Copying ../resources/microsphere.css to {odir}/contact_sam_cruise/microsphere.css
 Copying ../resources/csc.css to {odir}/contact_sam_cruise/csc.css
   Writing disassembly files in contact_sam_cruise/asm
   Writing contact_sam_cruise/maps/all.html

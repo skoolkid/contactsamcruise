@@ -9,7 +9,7 @@ GameDir=contact_sam_cruise
 Game=Contact Sam Cruise
 Logo=#SCR2,0,21,8,3(/images/logo|Contact Sam Cruise)
 GameStatusBufferIncludes=32658,32720
-StyleSheet=skoolkit.css;microsphere.css;csc.css
+StyleSheet=skoolkit.css;csc.css
 Release=The complete Contact Sam Cruise RAM disassembly 20140614
 Copyright=&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).
 
