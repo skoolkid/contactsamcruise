@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2008-2012, 2014, 2015 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -15,22 +15,26 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-try:
-    from microsphere import MicrosphereHtmlWriter, MicrosphereAsmWriter, Udg
-except ImportError:
-    from .microsphere import MicrosphereHtmlWriter, MicrosphereAsmWriter, Udg
+import cgi
 
 try:
-    from .skoolmacro import MacroParsingError, UnsupportedMacroError
+    from .skoolhtml import Udg as BaseUdg, HtmlWriter, join
+    from .skoolasm import AsmWriter
+    from .skoolmacro import parse_ints, parse_params, MacroParsingError, UnsupportedMacroError
 except (ValueError, SystemError, ImportError):
-    from skoolkit.skoolmacro import MacroParsingError, UnsupportedMacroError
+    from skoolkit.skoolhtml import Udg as BaseUdg, HtmlWriter, join
+    from skoolkit.skoolasm import AsmWriter
+    from skoolkit.skoolmacro import parse_ints, parse_params, MacroParsingError, UnsupportedMacroError
 
 # Sniper's animatory state
 SNIPER_AS = 54
 
-class ContactSamCruiseHtmlWriter(MicrosphereHtmlWriter):
+class ContactSamCruiseHtmlWriter(HtmlWriter):
     def init(self):
-        MicrosphereHtmlWriter.init(self)
+        self.char_buf_descs = self._get_char_buf_descs()
+        self.keypress_routines = self.get_dictionary('KeypressRoutines')
+        self.as_descs = self.get_dictionary('AnimatoryStates')
+        self.characters = self.get_dictionary('Characters')
         self.font = {
             48: (124, 138, 146, 124),
             49: (66, 254, 2),
@@ -70,6 +74,153 @@ class ContactSamCruiseHtmlWriter(MicrosphereHtmlWriter):
             246: 55229,
             247: 55237
         }
+
+    def _get_sprite_udg(self, state, attr, ref_page, udg_page):
+        ref_addr = state + 256 * ref_page
+        ref = self.snapshot[ref_addr]
+        if ref == 0:
+            # These must be lists so that the UDG can be flipped or rotated
+            # in-place
+            udg = [0, 0, 0, 0, 0, 0, 0, 0]
+            mask = [255, 255, 255, 255, 255, 255, 255, 255]
+        else:
+            udg_addr = ref + 256 * udg_page
+            udg = self.snapshot[udg_addr:udg_addr + 4096:512]
+            mask = self.snapshot[udg_addr + 256:udg_addr + 4352:512]
+        return Udg(attr, udg, mask, ref_addr=ref_addr, ref=ref, udg_page=udg_page)
+
+    def get_chr(self, code):
+        if code == 127:
+            return '&#169;'
+        if code == 94:
+            return '&#8593;'
+        if code == 96:
+            return '&#163;'
+        return cgi.escape(chr(code))
+
+    def build_sprite(self, state, attr=None, udg_page=None):
+        width, height = self._get_sprite_size(state)
+        udg_array = []
+        for row in range(height):
+            udg_array.append([self.get_sprite_udg(state, attr, row, col, udg_page) for col in range(width)])
+        return udg_array
+
+    def get_text(self, words):
+        columns = []
+        for character in words:
+            columns.append(0)
+            columns.extend(self.get_font_bitmap(character))
+        udg_array = []
+        for col in range(len(columns)):
+            col_byte = columns[col]
+            udg_index = col // 8
+            bit = 2**(7 - (col - 8 * udg_index))
+            if udg_index == len(udg_array):
+                udg_array.append([0] * 8)
+            udg = udg_array[udg_index]
+            for b in range(8):
+                udg[7 - b] |= bit * (col_byte & 1)
+                col_byte //= 2
+        return udg_array
+
+    def _draw_text(self, udgs, words, x, y):
+        text_udgs = self.get_text(words)
+        for col in range(len(text_udgs)):
+            udg = udgs[y][col + x].data
+            for index in range(8):
+                udg[index] |= text_udgs[col][index]
+
+    def get_skool_udgs(self, x, y, w, h, show_chars=False, show_x=0):
+        skool_udgs = []
+        for row in range(y, y + h):
+            skool_udgs.append([])
+            for col in range(x, x + w):
+                skool_udgs[-1].append(self.get_skool_udg(row, col, show_chars))
+        if show_chars:
+            self._superimpose_sprite_udgs(skool_udgs, x, y, w, h)
+        if show_x is not None and show_x > 0:
+            line = [Udg(8 * (7 - skool_x % 2), [0] * 8) for skool_x in range(x, x + w)]
+            for skool_x in range(x, x + w):
+                if skool_x % show_x == 0:
+                    self._draw_text([line], str(skool_x), skool_x - x, 0)
+            skool_udgs.insert(0, line)
+            skool_udgs.append(line)
+        return skool_udgs
+
+    def _get_char_buf_descs(self):
+        char_buf_descs = []
+        for byte_nums, descs in self.get_sections('CharBuf', True):
+            char_buf_descs.append((byte_nums, descs))
+        return char_buf_descs
+
+    def as_img(self, cwd, num, scale=2, mask=1, attr=120, udg_page=None, fname_suffix=''):
+        mask_infix = 'm' if mask else 'u'
+        udg_page_infix = udg_page if udg_page is not None else ''
+        snapshot_name = self.get_snapshot_name()
+        snapshot_infix = '_{0}'.format(snapshot_name) if snapshot_name else ''
+        fname = 'as{0:03d}_{1}x{2}{3}{4}{5}{6}'.format(num & 255, attr, scale, mask_infix, udg_page_infix, snapshot_infix, fname_suffix)
+        asimg_path = self.image_path(fname, 'AnimatoryStateImagePath')
+        if self.need_image(asimg_path):
+            self.write_image(asimg_path, self.build_sprite(num, attr, udg_page), scale=scale, mask=mask)
+        return self.img_element(cwd, asimg_path, "Animatory state {0}".format(num & 255))
+
+    def animatory_states(self, cwd):
+        return '\n'.join([self._animatory_state_row(cwd, n) for n in range(128)])
+
+    def astiles(self, cwd):
+        rows = []
+        attr = 120
+        for n in range(128):
+            for state_specs, states_desc in self._get_animatory_state_tiles_row(n):
+                frames = []
+                for state, udg_page in state_specs:
+                    tiles = []
+                    sprite = self.build_sprite(state, attr, udg_page)
+                    num_rows = len(sprite)
+                    for row_num in range(num_rows):
+                        row = sprite[row_num]
+                        for col_num in range(len(row)):
+                            tile = row[col_num]
+                            bubble_id_suffix = '{0:02x}'.format(udg_page) if udg_page is not None else ''
+                            bubble_id = 'B{0:02x}{1:x}{2}'.format(state, row_num + num_rows * col_num, bubble_id_suffix)
+                            img_fname = self._get_sprite_tile_img_fname(tile, state)
+                            img_path = join(cwd, img_fname)
+                            if self.need_image(img_path):
+                                self.write_image(img_path, [[tile]], scale=4, mask=1)
+                            template_name = 'astile' if tile.ref else 'astile_null'
+                            astile_subs = {
+                                'bubble_id': bubble_id,
+                                'state': state,
+                                'row': row_num,
+                                'column': col_num,
+                                'img_fname': img_fname,
+                                'lsb': tile.ref_addr % 256,
+                                'ref_page': tile.ref_addr // 256,
+                                'tile': tile
+                            }
+                            tiles.append(self.format_template(template_name, astile_subs))
+                    template_name = 'astiles_frame_{}x{}'.format(num_rows, len(row))
+                    frames.append(self.format_template(template_name, {'tiles': tiles}))
+                astiles_row_subs = {'frames': '\n'.join(frames), 'desc': states_desc}
+                rows.append(self.format_template('astiles_row', astiles_row_subs))
+        return '\n'.join(rows)
+
+    def cast(self, cwd):
+        return self.format_template('cast', {'characters': self.characters})
+
+    def cbuffer(self, cwd):
+        cbuffer_bytes = []
+        for byte_nums, entries in self.char_buf_descs:
+            descs = [self.format_template('cbuffer_desc', {'desc': entry}) for entry in entries]
+            row_descs = [self.format_template('cbuffer_desc_row', {'t_cbuffer_desc': desc}) for desc in descs[1:]]
+            subs = {
+                'rowspan': len(descs),
+                'bytes': byte_nums,
+                't_cbuffer_desc': descs[0],
+                'm_cbuffer_desc_row': '\n'.join(row_descs)
+            }
+            cbuffer_bytes.append(self.format_template('cbuffer_bytes', subs))
+        return self.format_template('cbuffer', {'m_cbuffer_bytes': '\n'.join(cbuffer_bytes)})
 
     def _get_tap_descs(self):
         tap_descs = {}
@@ -334,14 +485,16 @@ class ContactSamCruiseHtmlWriter(MicrosphereHtmlWriter):
         return '\n'.join(rows)
 
     def play_area(self, cwd, fname, x, y, w=1, h=1, scale=2, show_chars=0, show_x=0, game_mode=None, lights=1, blinds=1):
-        self.push_snapshot()
-        if show_chars and game_mode is not None:
-            self._initialise_characters(game_mode)
-        if lights or blinds:
-            self._adjust_lights_and_blinds(lights, blinds)
-        html = MicrosphereHtmlWriter.play_area(self, cwd, fname, x, y, w, h, scale, show_chars, show_x)
-        self.pop_snapshot()
-        return html
+        img_path = self.image_path(fname, 'PlayAreaImagePath')
+        if self.need_image(img_path):
+            self.push_snapshot()
+            if show_chars and game_mode is not None:
+                self._initialise_characters(game_mode)
+            if lights or blinds:
+                self._adjust_lights_and_blinds(lights, blinds)
+            self.write_image(img_path, self.get_skool_udgs(x, y, w, h, show_chars, show_x), scale=scale)
+            self.pop_snapshot()
+        return self.img_element(cwd, img_path)
 
     def ld_img(self, cwd, sam_x=None, sam_y=None, sam_z=None, sam_as=None, x=None, y=None, w=None, h=None):
         self.push_snapshot()
@@ -542,7 +695,9 @@ class ContactSamCruiseHtmlWriter(MicrosphereHtmlWriter):
         self._add_icons(udgs, x, y, show_x, cash_icon, cash_locs)
 
     def _get_animatory_state_tiles_row(self, state):
-        row = MicrosphereHtmlWriter._get_animatory_state_tiles_row(self, state)
+        states = ((state, None),)
+        states_desc = '{}: {}'.format(state, self.as_descs[state])
+        row = [(states, states_desc)]
         if state == SNIPER_AS:
             row += self._sniper_animatory_state_tiles_rows()
         return row
@@ -579,8 +734,8 @@ class ContactSamCruiseHtmlWriter(MicrosphereHtmlWriter):
 
     def _get_sprite_tile_img_fname(self, tile, state):
         if state & 127 in (7, 9, 10, 15, 23, 31, 39, 55, 63, 71, 79, 87, 95, 103, 111, 119):
-            return '{0:x}_{1}.{2}'.format(tile.ref + 256 * tile.udg_page, state, self.default_image_format)
-        return MicrosphereHtmlWriter._get_sprite_tile_img_fname(self, tile, state)
+            return '{:x}_{}.{}'.format(tile.ref + 256 * tile.udg_page, state, self.default_image_format)
+        return '{:x}.{}'.format(tile.udg_addr, self.default_image_format)
 
     def _get_disguise_tile_data(self, disguise_id, ref_index):
         ref = self.snapshot[62 + ref_index + 256 * (223 + disguise_id)]
@@ -589,6 +744,14 @@ class ContactSamCruiseHtmlWriter(MicrosphereHtmlWriter):
             return self.snapshot[addr:addr + 2048:256]
         addr = ref + 55040
         return self.snapshot[addr:addr + 4096:512]
+
+    def expand_as(self, text, index, cwd):
+        # #AS[state][(link text)]
+        end, state, link_text = parse_params(text, index)
+        as_file = self.relpath(cwd, self.paths['AnimatoryStates'])
+        anchor = '#{}'.format(state) if state else ''
+        link = self.format_link(as_file + anchor, link_text or state)
+        return end, link
 
     def expand_disguise(self, text, index, cwd):
         # #DISGUISEid[,scale][{X,Y,W,H}](fname)
@@ -623,9 +786,28 @@ class ContactSamCruiseHtmlWriter(MicrosphereHtmlWriter):
             self.pop_snapshot()
         return end, self.img_element(cwd, img_path)
 
-class ContactSamCruiseAsmWriter(MicrosphereAsmWriter):
+class ContactSamCruiseAsmWriter(AsmWriter):
+    def expand_as(self, text, index):
+        # #AS[state][(link text)]
+        end, state, link_text = parse_params(text, index)
+        return end, link_text or state
+
     def expand_disguise(self, text, index):
         raise UnsupportedMacroError()
 
     def expand_segment(self, text, index):
         raise UnsupportedMacroError()
+
+class Udg(BaseUdg):
+    def __init__(self, attr, data, mask=None, attr_addr=None, ref_addr=None, ref=None, udg_page=None, x=None, y=None, fg_udg=None):
+        BaseUdg.__init__(self, attr, data, mask)
+        self.attr_addr = attr_addr
+        self.ref_addr = ref_addr
+        # We store the UDG reference now in case the snapshot changes before
+        # the reference is looked up via self.snapshot[udg.ref_addr]
+        self.ref = ref
+        self.udg_page = udg_page
+        self.udg_addr = None if udg_page is None else ref + 256 * udg_page
+        self.x = x
+        self.y = y
+        self.fg_udg = fg_udg

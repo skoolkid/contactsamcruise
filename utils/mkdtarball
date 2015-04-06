@@ -76,9 +76,8 @@ EOF
 
 copying() {
   cat <<EOF
-The SkoolKit extension modules (microsphere.py and samcruise.py) are licensed
-under the GNU General Public License, version 3. To view a copy of this
-licence, visit
+The SkoolKit extension module (samcruise.py) is licensed under the GNU General
+Public License, version 3. To view a copy of this licence, visit
 
   http://www.gnu.org/licenses/
 
@@ -123,7 +122,9 @@ fi
 
 # Copy all files required to build the disassembly into the 'src' directory
 rm -rf src
-cp -a $CONTACTSAMCRUISE_HOME/sources src
+mkdir src
+cp -p $CONTACTSAMCRUISE_HOME/sources/*.skool src
+cp -p $CONTACTSAMCRUISE_HOME/sources/*.ref src
 cp -p $CONTACTSAMCRUISE_HOME/skoolkit/*.py src
 cp -p $CONTACTSAMCRUISE_HOME/resources/* src
 
