@@ -51,7 +51,7 @@ Copying ../resources/csc.css to {odir}/contact_sam_cruise/csc.css
   Writing contact_sam_cruise/graphics/asstart3.html
   Writing contact_sam_cruise/graphics/asstart4.html
   Writing contact_sam_cruise/graphics/as.html
-  Copying ../resources/microsphere.js to {odir}/contact_sam_cruise/microsphere.js
+  Copying ../resources/tiles.js to {odir}/contact_sam_cruise/tiles.js
   Writing contact_sam_cruise/graphics/astiles/astiles.html
   Writing contact_sam_cruise/buffers/cbuffer.html
   Writing contact_sam_cruise/tables/keys.html
