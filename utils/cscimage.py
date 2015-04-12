@@ -19,6 +19,9 @@ from skoolkit.image import ImageWriter
 from skoolkit.snapshot import get_snapshot
 from skoolkit.skoolhtml import Udg as BaseUdg, Frame
 
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CSC_Z80 = '{}/build/contact_sam_cruise.z80'.format(parent_dir)
+
 # Sniper's animatory state
 SNIPER_AS = 54
 
@@ -450,12 +453,11 @@ def run(snafile, imgfname, options):
 # Begin
 ###############################################################################
 parser = argparse.ArgumentParser(
-    usage='cscimage.py [options] SNAPSHOT FILE.{png,gif}',
-    description="Create an image from a snapshot of Contact Sam Cruise.",
+    usage='cscimage.py [options] FILE.{png,gif}',
+    description="Create an image of the play area in Contact Sam Cruise.",
     formatter_class=argparse.RawTextHelpFormatter,
     add_help=False
 )
-parser.add_argument('snapshot', help=argparse.SUPPRESS, nargs='?')
 parser.add_argument('imgfname', help=argparse.SUPPRESS, nargs='?')
 group = parser.add_argument_group('Options')
 group.add_argument('-c', dest='place_char', metavar='C[.N],X,Y,Z[,S]', action='append', default=[],
@@ -477,6 +479,6 @@ group.add_argument('-r', dest='rope', action="store_true",
 group.add_argument('-s', dest='scale', type=int, default=2,
                    help='Set the scale of the image (default: 2)')
 namespace, unknown_args = parser.parse_known_args()
-if unknown_args or not namespace.snapshot or not namespace.imgfname:
+if unknown_args or not namespace.imgfname:
     parser.exit(2, parser.format_help())
-run(namespace.snapshot, namespace.imgfname, namespace)
+run(CSC_Z80, namespace.imgfname, namespace)
