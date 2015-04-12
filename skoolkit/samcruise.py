@@ -130,22 +130,22 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
             for index in range(8):
                 udg[index] |= text_udgs[col][index]
 
-    def get_skool_udgs(self, x, y, w, h, show_chars=False, show_x=0):
-        skool_udgs = []
+    def get_play_area_udgs(self, x, y, w, h, show_chars=False, show_x=0):
+        udgs = []
         for row in range(y, y + h):
-            skool_udgs.append([])
+            udgs.append([])
             for col in range(x, x + w):
-                skool_udgs[-1].append(self.get_skool_udg(row, col, show_chars))
+                udgs[-1].append(self.get_play_area_udg(row, col, show_chars))
         if show_chars:
-            self._superimpose_sprite_udgs(skool_udgs, x, y, w, h)
+            self._superimpose_sprite_udgs(udgs, x, y, w, h)
         if show_x is not None and show_x > 0:
-            line = [Udg(8 * (7 - skool_x % 2), [0] * 8) for skool_x in range(x, x + w)]
-            for skool_x in range(x, x + w):
-                if skool_x % show_x == 0:
-                    self._draw_text([line], str(skool_x), skool_x - x, 0)
-            skool_udgs.insert(0, line)
-            skool_udgs.append(line)
-        return skool_udgs
+            line = [Udg(8 * (7 - i % 2), [0] * 8) for i in range(x, x + w)]
+            for i in range(x, x + w):
+                if i % show_x == 0:
+                    self._draw_text([line], str(i), i - x, 0)
+            udgs.insert(0, line)
+            udgs.append(line)
+        return udgs
 
     def _get_char_buf_descs(self):
         char_buf_descs = []
@@ -231,7 +231,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
                 tap_descs[entry.address] = title[len(prefix):].strip()
         return tap_descs
 
-    def get_skool_udg(self, y, x, show_chars=False):
+    def get_play_area_udg(self, y, x, show_chars=False):
         xh = x // 8
         xl = x % 8
         yhp = 256 * (184 + y // 6)
@@ -492,7 +492,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
                 self._initialise_characters(game_mode)
             if lights or blinds:
                 self._adjust_lights_and_blinds(lights, blinds)
-            self.write_image(img_path, self.get_skool_udgs(x, y, w, h, show_chars, show_x), scale=scale)
+            self.write_image(img_path, self.get_play_area_udgs(x, y, w, h, show_chars, show_x), scale=scale)
             self.pop_snapshot()
         return self.img_element(cwd, img_path)
 
@@ -535,14 +535,14 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         img_path = self.image_path(fname, 'LocationDescriptorImagePath')
         if self.need_image(img_path):
             self._adjust_lights_and_blinds(1, 1)
-            udgs = self.get_skool_udgs(x, y, w, h, True)
+            udgs = self.get_play_area_udgs(x, y, w, h, True)
             self.write_image(img_path, udgs, scale=2)
         return self.img_element(cwd, img_path)
 
     def play_area_objects(self, cwd, fname, x=0, y=2, w=256, h=38, scale=2, show_chars=0, show_x=8):
         img_path = self.image_path(fname, 'PlayAreaImagePath')
         if self.need_image(img_path):
-            udgs = self.get_skool_udgs(x, y, w, h, show_chars, show_x)
+            udgs = self.get_play_area_udgs(x, y, w, h, show_chars, show_x)
             self._add_objects(udgs, x, y, show_x)
             self.write_image(img_path, udgs, scale=scale)
         return self.img_element(cwd, img_path)
@@ -782,7 +782,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         if self.need_image(img_path):
             self.push_snapshot()
             self._adjust_lights_and_blinds(1, 1)
-            self.write_image(img_path, self.get_skool_udgs(x, y, 8, 6), crop_rect, scale)
+            self.write_image(img_path, self.get_play_area_udgs(x, y, 8, 6), crop_rect, scale)
             self.pop_snapshot()
         return end, self.img_element(cwd, img_path)
 
