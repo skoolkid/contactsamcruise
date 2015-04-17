@@ -7,14 +7,13 @@
 <title>Contact Sam Cruise: Routine at 61948</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../microsphere.css" />
 <link rel="stylesheet" type="text/css" href="../csc.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="logo"><a class="link" href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
@@ -252,36 +251,36 @@ The character will be moved. From this point, the following steps are taken:
 <div class="paragraph">
 <table class="default">
 <tr>
-<th>Step</th>
-<th>Action</th>
+<th colspan="1" rowspan="1">Step</th>
+<th colspan="1" rowspan="1">Action</th>
 </tr>
 <tr>
-<td class="centre">1</td>
-<td>If there is an uninterruptible subcommand routine address in bytes 18 and 19 of the character's buffer, jump to it</td>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">If there is an uninterruptible subcommand routine address in bytes 18 and 19 of the character's buffer, jump to it</td>
 </tr>
 <tr>
-<td class="centre">2</td>
-<td>If there is a continual subcommand routine address in bytes 27 and 28 of the character's buffer - which there never is - call it (and then return to step 3)</td>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">If there is a continual subcommand routine address in bytes 27 and 28 of the character's buffer - which there never is - call it (and then return to step 3)</td>
 </tr>
 <tr>
-<td class="centre">3</td>
-<td>If there is an interruptible subcommand routine address in bytes 14 and 15 of the character's buffer, jump to it</td>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">If there is an interruptible subcommand routine address in bytes 14 and 15 of the character's buffer, jump to it</td>
 </tr>
 <tr>
-<td class="centre">4</td>
-<td>Restart the command list if bit 4 of byte 3 of the character's buffer is set (and carry on to step 5)</td>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Restart the command list if bit 4 of byte 3 of the character's buffer is set (and carry on to step 5)</td>
 </tr>
 <tr>
-<td class="centre">5</td>
-<td>If there is a primary command routine address in bytes 8 and 9 of the character's buffer, jump to it</td>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">If there is a primary command routine address in bytes 8 and 9 of the character's buffer, jump to it</td>
 </tr>
 <tr>
-<td class="centre">6</td>
-<td>Remove any continual subcommand routine address from bytes 27 and 28 of the character's buffer</td>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1">Remove any continual subcommand routine address from bytes 27 and 28 of the character's buffer</td>
 </tr>
 <tr>
-<td class="centre">7</td>
-<td>Collect the next primary command routine address from the command list, place it into bytes 8 and 9 of the character's buffer, and jump to it</td>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1">Collect the next primary command routine address from the command list, place it into bytes 8 and 9 of the character's buffer, and jump to it</td>
 </tr>
 </table>
 </div>
@@ -291,24 +290,24 @@ The address of one of the following uninterruptible subcommand routines (or an e
 <div class="paragraph">
 <table class="default">
 <tr>
-<th>Address</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Description</th>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="31670.html">31670</a></td>
-<td>Control the hook while it's flying</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="31670.html">31670</a></td>
+<td class="" colspan="1" rowspan="1">Control the hook while it's flying</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="64005.html">64005</a></td>
-<td>Deal with a character who has been knocked over</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="64005.html">64005</a></td>
+<td class="" colspan="1" rowspan="1">Deal with a character who has been knocked over</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="64131.html">64131</a></td>
-<td>Deal with a character who has nearly recovered from being knocked over</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="64131.html">64131</a></td>
+<td class="" colspan="1" rowspan="1">Deal with a character who has nearly recovered from being knocked over</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="64331.html">64331</a></td>
-<td>Control a character who has stepped off the roof of a building</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="64331.html">64331</a></td>
+<td class="" colspan="1" rowspan="1">Control a character who has stepped off the roof of a building</td>
 </tr>
 </table>
 </div>
@@ -318,48 +317,48 @@ The address of one of the following interruptible subcommand routines (or an ent
 <div class="paragraph">
 <table class="default">
 <tr>
-<th>Address</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Description</th>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="25118.html">25118</a></td>
-<td>Control the sniper while active</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="25118.html">25118</a></td>
+<td class="" colspan="1" rowspan="1">Control the sniper while active</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="31319.html">31319</a></td>
-<td>Make a gangster walk up or down until Sam arrives</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="31319.html">31319</a></td>
+<td class="" colspan="1" rowspan="1">Make a gangster walk up or down until Sam arrives</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="62278.html">62278</a></td>
-<td>Control a character who is knocking on or opening a door (1)</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="62278.html">62278</a></td>
+<td class="" colspan="1" rowspan="1">Control a character who is knocking on or opening a door (1)</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="62297.html">62297</a></td>
-<td>Control a character who has knocked on a door and is waiting for an answer</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="62297.html">62297</a></td>
+<td class="" colspan="1" rowspan="1">Control a character who has knocked on a door and is waiting for an answer</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="62339.html">62339</a></td>
-<td>Control a character who is knocking on or opening a door (3)</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="62339.html">62339</a></td>
+<td class="" colspan="1" rowspan="1">Control a character who is knocking on or opening a door (3)</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="62892.html">62892</a></td>
-<td>Guide a character up or down staircases</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="62892.html">62892</a></td>
+<td class="" colspan="1" rowspan="1">Guide a character up or down staircases</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="62926.html">62926</a></td>
-<td>Guide a character across a floor to his destination</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="62926.html">62926</a></td>
+<td class="" colspan="1" rowspan="1">Guide a character across a floor to his destination</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="62971.html">62971</a></td>
-<td>Guide a character from one spot on the sidewalk or road to another</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="62971.html">62971</a></td>
+<td class="" colspan="1" rowspan="1">Guide a character from one spot on the sidewalk or road to another</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63209.html">63209</a></td>
-<td>Make a character walk up or down</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63209.html">63209</a></td>
+<td class="" colspan="1" rowspan="1">Make a character walk up or down</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63558.html">63558</a></td>
-<td>Make a cat run up or down</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63558.html">63558</a></td>
+<td class="" colspan="1" rowspan="1">Make a cat run up or down</td>
 </tr>
 </table>
 </div>
@@ -369,76 +368,76 @@ The address of one of the following primary command routines (or an entry point 
 <div class="paragraph">
 <table class="default">
 <tr>
-<th>Address</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Description</th>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="24925.html">24925</a></td>
-<td>Reset a gangster's location and restart the command list</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="24925.html">24925</a></td>
+<td class="" colspan="1" rowspan="1">Reset a gangster's location and restart the command list</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="25081.html">25081</a></td>
-<td>Make the gangster at no. 15 lie in wait for Sam</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="25081.html">25081</a></td>
+<td class="" colspan="1" rowspan="1">Make the gangster at no. 15 lie in wait for Sam</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="25307.html">25307</a></td>
-<td>Control the sniper</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="25307.html">25307</a></td>
+<td class="" colspan="1" rowspan="1">Control the sniper</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="25385.html">25385</a></td>
-<td>Make a gangster chase Sam</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="25385.html">25385</a></td>
+<td class="" colspan="1" rowspan="1">Make a gangster chase Sam</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="25420.html">25420</a></td>
-<td>Control a banknote</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="25420.html">25420</a></td>
+<td class="" colspan="1" rowspan="1">Control a banknote</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="29354.html">29354</a></td>
-<td>Control a policeman (1)</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="29354.html">29354</a></td>
+<td class="" colspan="1" rowspan="1">Control a policeman (1)</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="29361.html">29361</a></td>
-<td>Control a policeman (2)</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="29361.html">29361</a></td>
+<td class="" colspan="1" rowspan="1">Control a policeman (2)</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="31338.html">31338</a></td>
-<td>Make a gangster walk up and down while watching for Sam</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="31338.html">31338</a></td>
+<td class="" colspan="1" rowspan="1">Make a gangster walk up and down while watching for Sam</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="31594.html">31594</a></td>
-<td>Let Sam out of jail if necessary</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="31594.html">31594</a></td>
+<td class="" colspan="1" rowspan="1">Let Sam out of jail if necessary</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="59136.html#59147">59147</a></td>
-<td>Do nothing</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="59136.html#59147">59147</a></td>
+<td class="" colspan="1" rowspan="1">Do nothing</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="62976.html">62976</a></td>
-<td>Make a character go to a location</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="62976.html">62976</a></td>
+<td class="" colspan="1" rowspan="1">Make a character go to a location</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63198.html">63198</a></td>
-<td>Restart the command list</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63198.html">63198</a></td>
+<td class="" colspan="1" rowspan="1">Restart the command list</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63281.html">63281</a></td>
-<td>Make a character drop Sam</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63281.html">63281</a></td>
+<td class="" colspan="1" rowspan="1">Make a character drop Sam</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63304.html">63304</a></td>
-<td>Make a character walk up and down until somebody knocks on a door</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63304.html">63304</a></td>
+<td class="" colspan="1" rowspan="1">Make a character walk up and down until somebody knocks on a door</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63423.html">63423</a></td>
-<td>Make a character open a door that has been knocked on</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63423.html">63423</a></td>
+<td class="" colspan="1" rowspan="1">Make a character open a door that has been knocked on</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63520.html">63520</a></td>
-<td>Make a character walk up and down for a while</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63520.html">63520</a></td>
+<td class="" colspan="1" rowspan="1">Make a character walk up and down for a while</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63530.html">63530</a></td>
-<td>Control a cat</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63530.html">63530</a></td>
+<td class="" colspan="1" rowspan="1">Control a cat</td>
 </tr>
 </table>
 </div>
@@ -800,9 +799,9 @@ Now we look for a primary command routine address.
 </tr>
 </table>
 <div class="footer">
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20150417</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
 </div>
 </body>
 </html>

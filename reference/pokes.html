@@ -7,14 +7,13 @@
 <title>Contact Sam Cruise: Pokes</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../microsphere.css" />
 <link rel="stylesheet" type="text/css" href="../csc.css" />
 
 </head>
 <body class="Pokes">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="logo"><a class="link" href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
 <td class="page-header">Pokes</td>
 </tr>
 </table>
@@ -22,6 +21,7 @@
 <li><a class="link" href="#infiniteMoney">Infinite money</a></li>
 <li><a class="link" href="#easyMoney">Easy money</a></li>
 <li><a class="link" href="#infiniteFirstAid">Infinite first aid</a></li>
+<li><a class="link" href="#cheapTalk">Cheap talk</a></li>
 <li><a class="link" href="#getOutOfJail">Get out of jail</a></li>
 <li><a class="link" href="#everybodyOut">Everybody out</a></li>
 <li><a class="link" href="#perfectDisguises">Perfect disguises</a></li>
@@ -64,8 +64,18 @@ To prevent Sam's first aid kits from running out:
 POKE <a class="link" href="../asm/26002.html#26054">26054</a>,0
 </div>
 </div>
-<div><a name="getOutOfJail"></a></div>
+<div><a name="cheapTalk"></a></div>
 <div class="box box-2">
+<div class="box-title">Cheap talk</div>
+<div class="paragraph">
+To make outgoing phone calls cost nothing instead of the usual exorbitant $2:
+</div>
+<div class="paragraph">
+POKE <a class="link" href="../asm/30458.html#30488">30491</a>,173
+</div>
+</div>
+<div><a name="getOutOfJail"></a></div>
+<div class="box box-1">
 <div class="box-title">Get out of jail</div>
 <div class="paragraph">
 To enable Sam to leave the jail cell at any time (even after being arrested):
@@ -78,7 +88,7 @@ Note, however, that if Sam leaves the jail cell and the vicinity of the police s
 </div>
 </div>
 <div><a name="everybodyOut"></a></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Everybody out</div>
 <div class="paragraph">
 When characters (including Sam) are indoors, it's difficult to see where they are as they move up or down staircases and between windows. To make it so that characters are always drawn in front of buildings, even when they are inside:
@@ -88,7 +98,7 @@ POKE <a class="link" href="../asm/59635.html#59646">59646</a>,125
 </div>
 </div>
 <div><a name="perfectDisguises"></a></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Perfect disguises</div>
 <div class="paragraph">
 Sam's disguises can be useful for evading the law now and then, but the police soon catch on to them; to make the disguises effective for ever:
@@ -98,7 +108,7 @@ POKE <a class="link" href="../asm/29100.html#29145">29145</a>,0
 </div>
 </div>
 <div><a name="privateRooms"></a></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Private rooms</div>
 <div class="paragraph">
 The rooms on the ground floor of the hotel are not accessible: neither Sam nor any other character can enter them. In fact, they are the only rooms in the entire play area that are off limits.
@@ -130,15 +140,15 @@ And finally, to add light switches and usable window blinds to each room:
 Now Sam can enter either one of these rooms by first going to the hotel entrance and then walking left or right until he passes through the wall.
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="private_rooms" src="../images/play_area/private_rooms.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="private_rooms" src="../images/play_area/private_rooms.png" /></td>
 </tr>
 </table>
 </div>
 </div>
 <div><a name="stairwayToTheSafe"></a></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Stairway to the safe</div>
 <div class="paragraph">
 For some reason, the builders forgot to add a staircase leading from the third floor of no. 17 (where Sam's office is) to the top floor (where the safe containing the budgie is). To correct this omission:
@@ -150,7 +160,7 @@ For some reason, the builders forgot to add a staircase leading from the third f
 </div>
 </div>
 <div><a name="noSnipers"></a></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">No snipers</div>
 <div class="paragraph">
 To prevent snipers from showing up in the game:
@@ -160,7 +170,7 @@ POKE <a class="link" href="../asm/25307.html">25307</a>,201
 </div>
 </div>
 <div><a name="mobstopper"></a></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Mobstopper</div>
 <div class="paragraph">
 In game modes 1-3, there are various gangsters who will chase Sam with the intent of throwing him off the roof of a building if he gets too close to them. To make these gangsters completely unaware of Sam's presence:
@@ -176,7 +186,7 @@ POKE <a class="link" href="../asm/64878.html">64878</a>,49
 </div>
 </div>
 <div><a name="allKeys"></a></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">All keys</div>
 <div class="paragraph">
 To give Sam the keys to no. 15, no. 27, no. 31 and no. 74 while a game is in progress:
@@ -195,7 +205,7 @@ Note, however, that Sam will not be able to get the budgie while he has the key 
 </div>
 </div>
 <div><a name="keepTheLightsOn"></a></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Keep the lights on</div>
 <div class="paragraph">
 People have an annoying tendency to flip light switches off as they walk past them, which can make it tricky to navigate inside a building. To ensure that the lights stay on (even when a fuse is blown):
@@ -206,9 +216,9 @@ People have an annoying tendency to flip light switches off as they walk past th
 </div>
 </div>
 <div class="footer">
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20140614</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2014 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20150417</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
 </div>
 </body>
 </html>
