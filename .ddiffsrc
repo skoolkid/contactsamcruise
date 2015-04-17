@@ -1,6 +1,6 @@
 # rc file for disassembly-diff, skooldiff and write-files
 
-OLD_VERSION=20140614
-SK_OLD_VERSION=4.0
+OLD_VERSION=20150417
+SK_OLD_VERSION=4.3
 SKOOL=$CONTACTSAMCRUISE_HOME/sources/csc.skool
 SNAPSHOT=$CONTACTSAMCRUISE_HOME/build/contact_sam_cruise.z80
