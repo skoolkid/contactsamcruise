@@ -37,7 +37,7 @@ Using ref files: {srcdir}/csc.ref, {srcdir}/csc-bugs.ref, {srcdir}/csc-changelog
 Parsing {srcdir}/csc.skool
 Creating directory {odir}/contact_sam_cruise
 Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to {odir}/contact_sam_cruise/skoolkit.css
-Copying ../resources/csc.css to {odir}/contact_sam_cruise/csc.css
+Copying ../sources/csc.css to {odir}/contact_sam_cruise/csc.css
   Writing disassembly files in contact_sam_cruise/asm
   Writing contact_sam_cruise/maps/all.html
   Writing contact_sam_cruise/maps/routines.html
@@ -51,7 +51,7 @@ Copying ../resources/csc.css to {odir}/contact_sam_cruise/csc.css
   Writing contact_sam_cruise/graphics/asstart3.html
   Writing contact_sam_cruise/graphics/asstart4.html
   Writing contact_sam_cruise/graphics/as.html
-  Copying ../resources/tiles.js to {odir}/contact_sam_cruise/tiles.js
+  Copying ../sources/tiles.js to {odir}/contact_sam_cruise/tiles.js
   Writing contact_sam_cruise/graphics/astiles/astiles.html
   Writing contact_sam_cruise/buffers/cbuffer.html
   Writing contact_sam_cruise/tables/keys.html
@@ -188,7 +188,7 @@ class AsmTestCase(DisassembliesTestCase):
     def _write_asm(self, options, skoolfile, writer=None):
         args = [options, skoolfile]
         if writer:
-            writer_spec = '../skoolkit:{}'.format(writer)
+            writer_spec = '../sources:{}'.format(writer)
             args.insert(0, '-W {}'.format(writer_spec))
         output, stderr = self.run_skoolkit_command(skool2asm.main, ' '.join(args), err_lines=True)
         self.assertTrue(stderr[0].startswith('Parsed {}'.format(skoolfile)))
@@ -265,8 +265,7 @@ class HtmlTestCase(DisassembliesTestCase):
     def _write_html(self, options, writer, ref_file, exp_output):
         shutil.rmtree(self.odir, True)
 
-        main_options = '-W ../skoolkit:{}'.format(writer)
-        main_options += ' -S ../resources'
+        main_options = '-W ../sources:{}'.format(writer)
         main_options += ' -d {}'.format(self.odir)
         args = '{} {} ../{}'.format(main_options, options, ref_file)
         output, error = self.run_skoolkit_command(skool2html.main, args)
