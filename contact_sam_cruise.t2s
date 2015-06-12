@@ -6,9 +6,9 @@
 
 http://www.worldofspectrum.org/pub/sinclair/games/c/ContactSamCruise.tzx.zip
 contact_sam_cruise.z80
---ram load=3,65506,132,-247      # 65506 TO 33149 STEP -247
---ram load=4,16384,16572         # 16384 TO 32955
---ram load=4,32956,,247,20,32512 # 32956+20 TO end STEP 247 (+32512)
+--ram load=4,65506,132,-247      # 65506 TO 33149 STEP -247
+--ram load=5,16384,16572         # 16384 TO 32955
+--ram load=5,32956,,247,20,32512 # 32956+20 TO end STEP 247 (+32512)
 --ram move=16384,32,23904
 --ram move=16640,32,23936
 --ram move=16896,32,23968
