@@ -106,7 +106,7 @@ c24055 JP 23831      ; Jump to where it really starts
  23827 INC E         ; }
  23828 CALL 24047    ;
 ; More misdirection.
-!24047 POP HL        ; #REGhl=23831
+*24047 POP HL        ; #REGhl=23831
  24048 ADD HL,DE     ; #REGhl=23840
  24049 PUSH HL       ;
  24050 LD DE,7       ;
@@ -325,27 +325,27 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
 @end
 ; When the bytes from 33195 downwards to 32955 have loaded from the fast code
 ; block, the instruction at 32954 above becomes:
-a32954 JR NZ,32956   ;
+ 32954 JR NZ,32956   ;
 ; And the code continues at #R32956.
 ; .
 ; When the bytes from 16384 to 32955 have loaded from the standard speed code
 ; block, the instruction at 32954 becomes:
-A32954 JR NZ,32890
+ 32954 JR NZ,32890
 ; At this stage, 32890 reads as follows:
-!32890 LD (IX+20),L  ; Load the byte read from tape into memory
-a32893 EXX           ;
-a32894 ADD IX,BC     ; Add 247 to #REGix
-a32896 EXX           ;
-a32897 JR NC,32901   ; Jump unless #REGix was incremented beyond 65535
-a32899 LD IXh,127    ; Reset #REGix to the appropriate range
-a32902 JR 32931      ; Jump forward to load the next byte from tape
+*32890 LD (IX+20),L  ; Load the byte read from tape into memory
+ 32893 EXX           ;
+ 32894 ADD IX,BC     ; Add 247 to #REGix
+ 32896 EXX           ;
+ 32897 JR NC,32901   ; Jump unless #REGix was incremented beyond 65535
+ 32899 LD IXh,127    ; Reset #REGix to the appropriate range
+ 32902 JR 32931      ; Jump forward to load the next byte from tape
 ; Now 32890 more bytes are loaded, the first at 33223 and the last at 32902
 ; (even though there is one more byte, 33149, left on the tape: see the
 ; #R33010@save(save routine)). Then 32902 reads as follows:
-v32902 LD SP,23835   ; Point the stack pointer at the game start address that
+ 32902 LD SP,23835   ; Point the stack pointer at the game start address that
                      ; was placed at 23835 by the #R33010@save(save routine)
-v32905 LD D,H        ;
-v32906 RET           ; To (23835)=#R33224@start
+ 32905 LD D,H        ;
+ 32906 RET           ; To (23835)=#R33224@start
 
 ; Prepare to load the standard speed code block
 ;
