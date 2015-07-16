@@ -190,10 +190,8 @@ i32813 DEFS 2
 ;
 ; Continues from #R24055 (to load the fast code block) and #R33046 (to load the
 ; standard speed code block).
-@nowarn
 @label=CSCLOAD
 c32815 LD SP,33020   ; Put the stack somewhere safe
-@nowarn
  32818 LD IX,33195   ; The fast code block loads backwards from address 33195;
                      ; after the fast code block has loaded, this instruction
                      ; is changed to 'LD IX,16384' for the standard speed code

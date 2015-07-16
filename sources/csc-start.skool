@@ -38,14 +38,12 @@ c33224 LD SP,23898   ; Put the stack somewhere safe
  33233 CALL 32972    ; }
  33236 LD HL,20704   ; {Copy the data in the bottom row of the display file to
  33239 CALL 32972    ; addresses 24160-24415}
-@nowarn
  33242 LD HL,61668   ; {We will eventually jump to #R61668@main to enter demo
  33245 PUSH HL       ; mode; push this address onto the stack}
  33246 LD HL,32256   ; {Prepare #REGhl, #REGde and #REGbc to copy 32256-32767
  33249 LD DE,32768   ; into 32768-33279 (overwriting this routine)
  33252 LD B,2        ; }
  33254 EI            ; Enable interrupts
-@nowarn
  33255 JP 61600      ; Jump to perform the LDIR
 
 @org=55040

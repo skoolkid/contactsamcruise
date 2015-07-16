@@ -90,7 +90,6 @@ d16642 DEFB 24,60,0,60,64,126,60,124,0,60,8,8,24,8
 ; #R32815@load(load routine); instead, it is also filled in by the routine at
 ; #R33046@load.
 c33010 LD SP,23806   ;
-@nowarn
  33013 LD HL,33224   ; #R33224@start is where the game starts after loading
  33016 LD (23835),HL ; Store this address where it will be popped off the stack
                      ; by the #R32815@load(load routine)
