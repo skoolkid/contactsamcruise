@@ -17,14 +17,9 @@
 
 import cgi
 
-try:
-    from .skoolhtml import Udg as BaseUdg, HtmlWriter, join
-    from .skoolasm import AsmWriter
-    from .skoolmacro import parse_ints, parse_params, MacroParsingError, UnsupportedMacroError
-except (ValueError, SystemError, ImportError):
-    from skoolkit.skoolhtml import Udg as BaseUdg, HtmlWriter, join
-    from skoolkit.skoolasm import AsmWriter
-    from skoolkit.skoolmacro import parse_ints, parse_params, MacroParsingError, UnsupportedMacroError
+from skoolkit.skoolhtml import Udg as BaseUdg, HtmlWriter, join
+from skoolkit.skoolasm import AsmWriter
+from skoolkit.skoolmacro import parse_ints, parse_params, MacroParsingError, UnsupportedMacroError
 
 # Sniper's animatory state
 SNIPER_AS = 54
