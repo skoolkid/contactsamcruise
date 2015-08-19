@@ -86,13 +86,10 @@ CommandLists=maps/command_lists.html
 Walkthrough=reference/walkthrough.html
 
 [OtherCode:load]
-Source=csc-load.skool
 
 [OtherCode:save]
-Source=csc-save.skool
 
 [OtherCode:start]
-Source=csc-start.skool
 
 [Index:Graphics:Graphics]
 PlayArea

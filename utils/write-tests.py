@@ -49,13 +49,13 @@ Copying ../sources/csc.css to {odir}/contact_sam_cruise/csc.css
   Writing contact_sam_cruise/reference/facts.html
   Writing contact_sam_cruise/reference/glossary.html
   Writing contact_sam_cruise/reference/pokes.html
-  Parsing ../sources/csc-load.skool
+  Parsing ../sources/load.skool
     Writing contact_sam_cruise/load/load.html
     Writing disassembly files in contact_sam_cruise/load
-  Parsing ../sources/csc-save.skool
+  Parsing ../sources/save.skool
     Writing contact_sam_cruise/save/save.html
     Writing disassembly files in contact_sam_cruise/save
-  Parsing ../sources/csc-start.skool
+  Parsing ../sources/start.skool
     Writing contact_sam_cruise/start/start.html
     Writing disassembly files in contact_sam_cruise/start
   Writing contact_sam_cruise/index.html"""
