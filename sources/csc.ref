@@ -1,7 +1,7 @@
 ; Copyright 2010-2015 Richard Dymond (rjdymond@gmail.com)
 
 [Config]
-SkoolFile=csc.skool
+RefFiles=bugs.ref;changelog.ref;data.ref;facts.ref;glossary.ref;graphics.ref;pages.ref;pokes.ref
 HtmlWriterClass=:samcruise.ContactSamCruiseHtmlWriter
 GameDir=contact_sam_cruise
 

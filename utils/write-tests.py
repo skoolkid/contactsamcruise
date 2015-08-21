@@ -17,7 +17,7 @@ SKOOL = '../sources/csc.skool'
 SNAPSHOT = '../build/contact_sam_cruise.z80'
 
 OUTPUT = """Using skool file: ../sources/csc.skool
-Using ref files: ../sources/csc.ref, ../sources/csc-bugs.ref, ../sources/csc-changelog.ref, ../sources/csc-data.ref, ../sources/csc-facts.ref, ../sources/csc-glossary.ref, ../sources/csc-graphics.ref, ../sources/csc-pages.ref, ../sources/csc-pokes.ref
+Using ref files: ../sources/csc.ref, ../sources/bugs.ref, ../sources/changelog.ref, ../sources/data.ref, ../sources/facts.ref, ../sources/glossary.ref, ../sources/graphics.ref, ../sources/pages.ref, ../sources/pokes.ref
 Parsing ../sources/csc.skool
 Creating directory {odir}/contact_sam_cruise
 Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to {odir}/contact_sam_cruise/skoolkit.css
