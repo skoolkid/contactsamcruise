@@ -19,14 +19,9 @@ if [[ ! -d $SKOOLKIT_HOME ]]; then
   exit 1
 fi
 
-GAME=csc
-GAMEDIR=contact_sam_cruise
-GAMENAME="Contact Sam Cruise"
-SKOOLFILES=$(echo {csc,load,save,start}.skool)
-SRCFILES=$(echo COPYING samcruise.py {csc,bugs,changelog,data,facts,glossary,graphics,pages,pokes}.ref {csc,load,save,start}.skool {csc,dark,green,plum}.css tiles.js)
 DHOME=$CONTACTSAMCRUISE_HOME
-GHREPO=contactsamcruise
-GHHTMLOPTS=""
+
+. $DHOME/.dreleaserc
 
 . $SKOOLKIT_HOME/tools/drelease-functions
 
