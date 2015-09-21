@@ -1,4 +1,4 @@
-; Copyright 2010-2013 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2013, 2015 Richard Dymond (rjdymond@gmail.com)
 
 [Fact:hiddenSky:Hidden sky]
 The play area is 42 character squares high, but only the middle 38 (y-coordinates 2-39) are ever displayed. Which means that the top two rows (y-coordinates 0 and 1) of the play area are always hidden - even though the graphic data for them exists and is not garbage.
@@ -87,7 +87,7 @@ TABLE#
 There is no key to no. 19 to be found anywhere in the game, but setting bit 7 at #R32746 gives Sam access to that house without knocking.
 
 [Fact:mForMessages:'M' for messages]
-The 'M' key toggles the speed at which messages are displayed on the screen, but according to the original instructions, the 'I' key is supposed to do that. 'POKE #R49993,27' would make 'I' do the same as 'M'.
+The 'M' key toggles the speed at which messages are displayed on the screen, but according to the original instructions, the 'I' key is supposed to do that. 'POKE #R49993(49993),27' would make 'I' do the same as 'M'.
 
 [Fact:firstAidShortage:First aid shortage]
 The game instructions state that Sam has ten first aid kits to start with, but in fact he has only eight.
@@ -130,7 +130,7 @@ The gangster who watches for Sam outside the police station can be repeatedly kn
 TABLE#
 #POPS
 
-Now enter no. 31 (POKE #R32746,16 gives Sam the key to that house), go up to the roof, and walk off the edge - Sam will land on the gangster's head and knock him out. Move a few steps to the left, wait for the gangster to recover and return to the knockout location, and do it all over again.
+Now enter no. 31 (POKE #R32746(32746),16 gives Sam the key to that house), go up to the roof, and walk off the edge - Sam will land on the gangster's head and knock him out. Move a few steps to the left, wait for the gangster to recover and return to the knockout location, and do it all over again.
 
 Note that because of a #BUG#pttd in the routine that controls a character who's been knocked over, the gangster may, after recovering, freeze in a location that is to the left of the knockout location. In that case, Sam won't land on his head by jumping off the roof of no. 31. However, after Sam has landed on the sidewalk (and recovered from the fall), the gangster will remain frozen, completely unaware of Sam a few steps behind him.
 
@@ -207,9 +207,9 @@ TABLE#
 
 To bring Skinny Man into the game, use one of the following POKEs (which must be made before the game starts):
 
-POKE #R65312,64 (makes Skinny Man walk up and down in the shops below no. 15 and no. 17)
+POKE #R65312(65312),64 (makes Skinny Man walk up and down in the shops below no. 15 and no. 17)
 
-POKE #R65282,192 (makes Skinny Man walk between the sidewalk outside the first-floor window of no. 19 and the third floor of no. 15)
+POKE #R65282(65282),192 (makes Skinny Man walk between the sidewalk outside the first-floor window of no. 19 and the third floor of no. 15)
 
 [Fact:lurkingLana:Lurking Lana]
 In game mode 3 (after Sam has had the phone call about the key to no. 74 and gone to the top of the apartment building at the far left of town), Lana hides on the far left of the first floor of the apartment building next to no. 19 (see #R57650) until Sam phones her while in possession of the budgie. To see her emerge, call her (on 7162) using the phone in that location.

@@ -3,7 +3,7 @@
 [Bug:troubleHiding:The trouble with hiding]
 When Sam is wanted by the police, he is supposed to be able to hide inside buildings (but not on roofs or in stairwells that are visible from outside) in order to evade arrest. However, because of a bug in the routine that checks whether Sam can be spotted by the police in his current location (see #R28886), Sam's attempts at hiding may be either futile or undeservedly successful. In particular, if Sam is on the roof of or inside a building other than the hotel (and not in a stairwell that is visible from outside), he will be invisible to the police if he's facing right, but visible if he's facing left.
 
-POKE #R28910,44
+POKE #R28910(28910),44
 
 [Bug:hidingInPlainSight:Hiding in plain sight]
 If Sam is wanted by the police, one place he can go and be certain that the cops will not get him is the far right edge of the roof of the apartment building next to no. 74. As soon as Sam reaches that spot - at coordinates (23,6), to be precise - any policemen who are chasing him will turn round and head for the top floor of the hotel instead.
@@ -31,10 +31,10 @@ TABLE#
 
 When Sam feels that the time is right to turn himself in, he can unfreeze the policemen by approaching them. When he gets close enough, one of them will pick him up.
 
-POKE #R61416,24
+POKE #R61416(61416),24
 
 [Bug:hidingInTheCeiling:Hiding in the ceiling]
-Another place Sam can go and be certain that the cops will not get him is the room above his office. First you'll need to get the hook (POKE #R32745,64 while a game is in progress). Then go to the top-floor cyan room in the apartments next to no. 19, call the police, hang up, go to the right edge of the roof of the apartments, throw the hook over the roof of no. 19, make your way across the rope to the roof of no. 17, and go down into the room above Sam's office. Instead of following Sam there, the police will go to Sam's office instead and run up and down continuously.
+Another place Sam can go and be certain that the cops will not get him is the room above his office. First you'll need to get the hook (POKE #R32745(32745),64 while a game is in progress). Then go to the top-floor cyan room in the apartments next to no. 19, call the police, hang up, go to the right edge of the roof of the apartments, throw the hook over the roof of no. 19, make your way across the rope to the roof of no. 17, and go down into the room above Sam's office. Instead of following Sam there, the police will go to Sam's office instead and run up and down continuously.
 
 #PUSHS
 #CALL:place_char(230,229,13,1,0)
@@ -47,7 +47,7 @@ TABLE#
 The reason for this is that the routine at #R60812 assumes that every level of a building is reachable by climbing staircases going up from the ground floor. This is true for every building in the city except no. 17: there is no staircase leading up to the top floor from Sam's office below. So the police make their way to Sam's office only to find that there is no route up to their destination.
 
 [Bug:insideAndOut:Inside and out]
-Go to the far left of the room above Sam's office (to do which you'll need the hook: POKE #R32745,64) and turn round to face right; part of Sam's sprite will appear outside the room.
+Go to the far left of the room above Sam's office (to do which you'll need the hook: POKE #R32745(32745),64) and turn round to face right; part of Sam's sprite will appear outside the room.
 
 #PUSHS
 #CALL:place_char(230,223,13,1,128)
@@ -57,7 +57,7 @@ TABLE#
 #POPS
 
 [Bug:underTheRope:Under the rope]
-After throwing the hook (POKE #R32745,64 while a game is in progress gives Sam the hook) over the roof of no. 19, cross the rope to the extreme left edge of the roof of no. 17, turn round, and press 'A' ('down') or 'O' ('left') twice - Sam will step down below the level of the rope so that his feet are hidden. From here it's possible to walk below the level of the rope all the way back to the roof of the apartment building.
+After throwing the hook (POKE #R32745(32745),64 while a game is in progress gives Sam the hook) over the roof of no. 19, cross the rope to the extreme left edge of the roof of no. 17, turn round, and press 'A' ('down') or 'O' ('left') twice - Sam will step down below the level of the rope so that his feet are hidden. From here it's possible to walk below the level of the rope all the way back to the roof of the apartment building.
 
 #PUSHS
 #POKES47386,9;47387,9
@@ -73,7 +73,7 @@ This bug is caused by the location descriptors at #R47590. In particular, the de
 <div>POKE 56570,30: POKE 56571,128 (y=19, z=1; left)</div>
 <div>POKE 56572,42: POKE 56573,128 (y=25, z=1; left)</div>
 <div>POKE 56574,54: POKE 56575,128 (y=31, z=1; left)</div>
-<div>POKE #R50654,248: POKE #R50910,220</div>
+<div>POKE #R50654(50654),248: POKE #R50910(50910),220</div>
 
 [Bug:plightOfTheNonArrestingPoliceman1:The plight of the non-arresting policeman (1)]
 If Sam stands on the right edge of the roof of the apartment building next to no. 19 while the rope is there and both policemen are chasing him, one policeman will pick him up, and the other will then walk onto the rope and eventually get stuck at the right end, next to the edge of the roof of no. 17.
@@ -86,7 +86,7 @@ If Sam stands on the right edge of the roof of the apartment building next to no
 TABLE#
 #POPS
 
-(POKE #R32745,64 gives Sam the hook while a game is in progress, and there is a phone in the far left room on the top floor of the apartment building from which Sam can call the police.)
+(POKE #R32745(32745),64 gives Sam the hook while a game is in progress, and there is a phone in the far left room on the top floor of the apartment building from which Sam can call the police.)
 
 To key to reproducing this bug is to keep the policemen at bay until both of them have spotted Sam on the edge of the roof and are heading there to catch him. This can be done by stepping off the edge of the roof and onto the rope (which makes a chasing policeman turn round and head the other way), staying there for a few seconds, and then turning round and stepping off the rope and back onto the edge of the roof (which makes a chasing policeman turn round again and head for Sam's location).
 
@@ -148,9 +148,9 @@ TABLE#
 The reason no one answers is that (a) a phone in a room that is currently on-screen will be answered only if a character is nearby (see #R30511), and (b) Lana's phone is the one in the room past the catwalk (see #R27392).
 
 [Bug:hookVBird:Hook v. bird]
-When Sam phones Lana while in possession of the budgie, he should receive the message 'LANA ANSWERED 'OOH SAM! YOUVE GOT THE BIRD. SEE YOU IN YOUR OFFICE''. However, if Sam phones Lana while he has both the hook <em>and</em> the budgie, he will get no message; this is because the event table entry at #R24763 checks that Sam has the budgie and only the budgie. (POKE #R32745,192 gives Sam the hook and the budgie while a game is in progress.)
+When Sam phones Lana while in possession of the budgie, he should receive the message 'LANA ANSWERED 'OOH SAM! YOUVE GOT THE BIRD. SEE YOU IN YOUR OFFICE''. However, if Sam phones Lana while he has both the hook <em>and</em> the budgie, he will get no message; this is because the event table entry at #R24763 checks that Sam has the budgie and only the budgie. (POKE #R32745(32745),192 gives Sam the hook and the budgie while a game is in progress.)
 
-POKE #R24768,56: POKE #R24779,48
+POKE #R24768(24768),56: POKE #R24779(24779),48
 
 [Bug:okCruise:OK Cruise we're not coming]
 In game mode 4 - after Lana has been put in jail and the mob is after Sam - Sam can call 999 and hear the message 'OK CRUISE WE'RE COMING'. However, no policeman ever arrives, because there are no police on patrol duty in game mode 4.
@@ -178,7 +178,7 @@ When Sam knocks a character over by landing on his head from above, that charact
 
 But because of a bug in the routine at #R64131, the walking back part of step (3) is omitted. Worse than that, if the character was midstride at the time of the collision, step (3) is replaced by an immediate teleportation to the character's pre-knockout, post-midstride coordinates. As a result, you might see the recovering character zip from A (the point where he stops staggering around) to B (the spot just to the left or right of where he was hit on the head) without passing through the intervening space.
 
-POKE #R64140,40
+POKE #R64140(64140),40
 
 [Bug:persistentSniper:The persistent sniper]
 It's possible for part of the sniper's sprite to remain on screen after the screen has scrolled the sniper's body out of view. To see this, go to the first floor of the apartments next to no. 19, and position Sam so that the doorsteps of no. 19 are visible on the left side of the screen.
@@ -234,7 +234,7 @@ If, on the other hand, Sam approaches the gangsters on the doorstep, one of them
 
 The reason that the gangsters freeze on the doorstep of no. 19 is a combination of a quirk in the routine at #R60812 (which determines the next move a character should make to reach his destination), the boundary of the inner region that is watched by the gangsters (as defined at #R64836), and the logic in the routine at #R31362 (which controls a gangster who is chasing Sam). When a gangster arrives at the front door his coordinates are (211,31,1) and Sam's are (212,31,2). The routine at #R60812 then sends the gangster down a step to (210,32,2) instead of simply turning him round and changing his z-coordinate from 1 to 2. But (210,32,2) is outside the inner region watched by the gangster (which extends only to y-coordinate 31), which means the routine at #R31362 will abort without moving the gangster anywhere while Sam remains inside the inner region.
 
-<div>POKE #R62177,136: POKE #R62177(62178),144 (to give each gangster a key to no. 19)</div>
+<div>POKE #R62177(62177),136: POKE #R62177(62178),144 (to give each gangster a key to no. 19)</div>
 <div>POKE #R64836(64839),33: POKE #R64836(64843),33 (to extend the inner region and prevent the gangsters from freezing on the doorstep)</div>
 
 [Bug:frozenGangster:Frozen gangster]

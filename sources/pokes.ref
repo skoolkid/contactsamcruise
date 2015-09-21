@@ -9,13 +9,13 @@ POKE #R28309(28310),254
 If the infinite money POKE feels like too much of a cheat, try one or more of these sets of POKEs, which make it a bit easier for Sam to augment his cash supply with the proceeds of the recent bank robbery:
 
 <div>POKE #R25400(25401),0: POKE 25404,0: POKE 25406,0: POKE 25409,0 (prevents a banknote from fluttering up and down once it has hit the ground)</div>
-<div>POKE #R25526,0 (prevents a banknote from moving down the street)</div>
+<div>POKE #R25526(25526),0 (prevents a banknote from moving down the street)</div>
 <div>POKE #R25042(25043),100: POKE 25046,24 (makes every banknote worth $100)</div>
 
 [Poke:infiniteFirstAid:Infinite first aid]
 To prevent Sam's first aid kits from running out:
 
-POKE #R26054,0
+POKE #R26054(26054),0
 
 [Poke:cheapTalk:Cheap talk]
 To make outgoing phone calls cost nothing instead of the usual exorbitant $2:
@@ -25,19 +25,19 @@ POKE #R30488(30491),173
 [Poke:getOutOfJail:Get out of jail]
 To enable Sam to leave the jail cell at any time (even after being arrested):
 
-POKE #R31583,195
+POKE #R31583(31583),195
 
 Note, however, that if Sam leaves the jail cell and the vicinity of the police station after being arrested and before being officially released, and then later returns to the vicinity of the police station with $20 or less on his person, the game will freeze when the jailer next enters the cell (see #R31594).
 
 [Poke:everybodyOut:Everybody out]
 When characters (including Sam) are indoors, it's difficult to see where they are as they move up or down staircases and between windows. To make it so that characters are always drawn in front of buildings, even when they are inside:
 
-POKE #R59646,125
+POKE #R59646(59646),125
 
 [Poke:perfectDisguises:Perfect disguises]
 Sam's disguises can be useful for evading the law now and then, but the police soon catch on to them; to make the disguises effective for ever:
 
-POKE #R29145,0
+POKE #R29145(29145),0
 
 [Poke:privateRooms:Private rooms]
 The rooms on the ground floor of the hotel are not accessible: neither Sam nor any other character can enter them. In fact, they are the only rooms in the entire play area that are off limits.
@@ -46,8 +46,8 @@ To make the room on the left accessible to Sam:
 
 <div>POKE #R48238(48239),204</div>
 <div>POKE #R48238(48240),192</div>
-<div>POKE #R50494,47</div>
-<div>POKE #R50750,195</div>
+<div>POKE #R50494(50494),47</div>
+<div>POKE #R50750(50750),195</div>
 
 Next, the room on the right:
 
@@ -56,7 +56,7 @@ Next, the room on the right:
 
 And finally, to add light switches and usable window blinds to each room:
 
-<div>POKE #R62855,68</div>
+<div>POKE #R62855(62855),68</div>
 <div>POKE #R62855(62860),132</div>
 
 Now Sam can enter either one of these rooms by first going to the hotel entrance and then walking left or right until he passes through the wall.
@@ -71,32 +71,32 @@ TABLE#
 [Poke:stairwayToTheSafe:Stairway to the safe]
 For some reason, the builders forgot to add a staircase leading from the third floor of no. 17 (where Sam's office is) to the top floor (where the safe containing the budgie is). To correct this omission:
 
-<div>POKE #R50664,93</div>
-<div>POKE #R50665,100</div>
-<div>POKE #R50667,130</div>
+<div>POKE #R50664(50664),93</div>
+<div>POKE #R50665(50665),100</div>
+<div>POKE #R50667(50667),130</div>
 
 [Poke:noSnipers:No snipers]
 To prevent snipers from showing up in the game:
 
-POKE #R25307,201
+POKE #R25307(25307),201
 
 [Poke:mobstopper:Mobstopper]
 In game modes 1-3, there are various gangsters who will chase Sam with the intent of throwing him off the roof of a building if he gets too close to them. To make these gangsters completely unaware of Sam's presence:
 
-POKE #R31325,195
+POKE #R31325(31325),195
 
 In game mode 4, after Lana has been put in jail, Sam is chased relentlessly by one of the mob, who will keep dumping him off the roof of the apartment building next to no. 19 until he runs out of money. To disable this gangster and enable Sam to walk freely around the city with the budgie:
 
-POKE #R64878,49
+POKE #R64878(64878),49
 
 [Poke:allKeys:All keys]
 To give Sam the keys to no. 15, no. 27, no. 31 and no. 74 while a game is in progress:
 
-POKE #R32746,120
+POKE #R32746(32746),120
 
 To give Sam the key to no. 19 as well:
 
-POKE #R32746,248
+POKE #R32746(32746),248
 
 Note, however, that Sam will not be able to get the budgie while he has the key to no. 19; this is because the event table entry at #R24727 checks whether Sam has the keys to no. 15, no. 27, no. 31 and no. 74 only before making the budgie available.
 
