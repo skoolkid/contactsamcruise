@@ -1,10 +1,6 @@
 GAME=csc
-GAMEDIR=contact_sam_cruise
 GAMENAME="Contact Sam Cruise"
-REFFILE=csc.ref
-SKOOLFILES=$(echo {csc,load,save,start}.skool)
-SRCFILES=$(echo $SKOOLFILES {csc,bugs,changelog,data,facts,glossary,graphics,pages,pokes}.ref {csc,dark,green,plum}.css tiles.js samcruise.py COPYING)
-DHOME=$CONTACTSAMCRUISE_HOME
+SRCFILES=$(echo {csc,load,save,start}.skool {csc,bugs,changelog,data,facts,glossary,graphics,pages,pokes}.ref {csc,dark,green,plum}.css tiles.js samcruise.py COPYING)
 GHREPO=contactsamcruise
 GHHTMLOPTS=""
 SKOOL2BINOPTS=-i
