@@ -1,6 +1,4 @@
 GAME=csc
-GAMENAME="Contact Sam Cruise"
 SRCFILES=$(echo {csc,load,save,start}.skool {csc,bugs,changelog,data,facts,glossary,graphics,pages,pokes}.ref {csc,dark,green,plum}.css tiles.js samcruise.py COPYING)
-GHREPO=contactsamcruise
 GHHTMLOPTS=""
 SKOOL2BINOPTS=-i
