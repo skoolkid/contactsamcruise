@@ -1,4 +1,4 @@
 GAME=csc
+GHTHEME=dark
 SRCFILES=$(echo {csc,load,save,start}.skool {csc,bugs,changelog,data,facts,glossary,graphics,pages,pokes}.ref {csc,dark,green,plum}.css tiles.js samcruise.py COPYING)
-GHHTMLOPTS=""
 SKOOL2BINOPTS=-i
