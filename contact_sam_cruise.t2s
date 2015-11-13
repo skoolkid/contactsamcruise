@@ -283,5 +283,6 @@ contact_sam_cruise.z80
 --ram poke=32509,191
 --ram poke=32510,127
 --ram poke=32511,255             # End flip table at 32256-32511
+--ram poke=23611,8               # Set bit 3 of FLAGS
 --reg sp=23898                   # Stack pointer at 23898
 --reg pc=61668                   # Start at 61668
