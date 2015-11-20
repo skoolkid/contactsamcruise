@@ -165,7 +165,7 @@ Documented bugs:
   #BUG#blankTilesBehavingBadly()
   #BUG#conspicuousSniper()
 
-Added images of the sniper, characters lying on their backs, and Sam rolling and somersaulting to the #AS(Animatory states) and #LINK:AnimatoryStateTiles(Animatory state tiles) pages
+Added images of the sniper, characters lying on their backs, and Sam rolling and somersaulting to the #AS()(Animatory states) and #LINK:AnimatoryStateTiles(Animatory state tiles) pages
 
 [Changelog:20110416]
 Included in SkoolKit 2.1.1.
@@ -244,7 +244,7 @@ Added a trivia entry: #FACT#lurkingLana()
 [Changelog:20101201]
 Included in SkoolKit 2.0.2.
 
-Fixed the right-facing sprite images on the #AS(Animatory states) page
+Fixed the right-facing sprite images on the #AS()(Animatory states) page
 
 Added the first graphic glitch: #LINK:GraphicGlitches#samsCoat(Sam's coat)
 
@@ -288,7 +288,7 @@ Included in SkoolKit 1.1.
 
 Added the #LINK:PlayArea(Play area) page
 
-Added the #AS(Animatory states) page
+Added the #AS()(Animatory states) page
 
 Added the first trivia entry: #FACT#hiddenSky()
 

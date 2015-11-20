@@ -19,10 +19,16 @@ import cgi
 
 from skoolkit.skoolhtml import Udg as BaseUdg, HtmlWriter, join
 from skoolkit.skoolasm import AsmWriter
-from skoolkit.skoolmacro import parse_ints, parse_params, MacroParsingError, UnsupportedMacroError
+from skoolkit.skoolmacro import (parse_ints, parse_brackets, parse_image_macro,
+                                 MacroParsingError, UnsupportedMacroError)
 
 # Sniper's animatory state
 SNIPER_AS = 54
+
+def parse_as(text, index):
+    end, state = parse_ints(text, index, 1, (None,))
+    end, link_text = parse_brackets(text, end, state)
+    return end, state, str(link_text)
 
 class ContactSamCruiseHtmlWriter(HtmlWriter):
     def init(self):
@@ -742,50 +748,55 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
 
     def expand_as(self, text, index, cwd):
         # #AS[state][(link text)]
-        end, state, link_text = parse_params(text, index)
+        end, state, link_text = parse_as(text, index)
         as_file = self.relpath(cwd, self.paths['AnimatoryStates'])
-        anchor = '#{}'.format(state) if state else ''
-        link = self.format_link(as_file + anchor, link_text or state)
+        anchor = '#{}'.format(state) if state is not None else ''
+        link = self.format_link(as_file + anchor, link_text)
         return end, link
+
+    def _build_disguise(self, disguise_id):
+        attr = 79
+        ref_reps = self.snapshot[56894:56909]
+        udg_array = []
+        for row in ((0, 170, 0), (2, 3, 4), (183, 6, 7)):
+            udg_array.append([])
+            for ref in row:
+                if ref == 0:
+                    udg_data = [0] * 8
+                else:
+                    udg_data = self._get_disguise_tile_data(disguise_id, ref_reps.index(ref))
+                udg_array[-1].append(Udg(attr, udg_data))
+        return udg_array
 
     def expand_disguise(self, text, index, cwd):
         # #DISGUISEid[,scale][{X,Y,W,H}](fname)
-        end, img_path, crop_rect, disguise_id, scale = self.parse_image_params(text, index, 2, (1,))
-        if img_path is None:
-            raise MacroParsingError('Filename missing: #DISGUISE{0}'.format(text[index:end]))
-        if self.need_image(img_path):
-            attr = 79
-            ref_reps = self.snapshot[56894:56909]
-            udg_array = []
-            for row in ((0, 170, 0), (2, 3, 4), (183, 6, 7)):
-                udg_array.append([])
-                for ref in row:
-                    if ref == 0:
-                        udg_data = [0] * 8
-                    else:
-                        udg_data = self._get_disguise_tile_data(disguise_id, ref_reps.index(ref))
-                    udg_array[-1].append(Udg(attr, udg_data))
-            self.write_image(img_path, udg_array, crop_rect, scale)
-        return end, self.img_element(cwd, img_path)
+        end, crop_rect, fname, frame, alt, (disguise_id, scale) = parse_image_macro(text, index, (1,), ('id', 'scale'))
+        if fname is None:
+            raise MacroParsingError('Filename missing: #DISGUISE{}'.format(text[index:end]))
+        udgs_f = lambda: self._build_disguise(disguise_id)
+        img_path = self.image_path(fname)
+        return end, self.handle_image(udgs_f, img_path, cwd, alt, crop_rect, scale, frame=frame)
+
+    def _build_segment(self, x, y):
+        self.push_snapshot()
+        self._adjust_lights_and_blinds(1, 1)
+        udgs = self.get_play_area_udgs(x, y, 8, 6)
+        self.pop_snapshot()
+        return udgs
 
     def expand_segment(self, text, index, cwd):
         # #SEGMENTx,y[,scale][{X,Y,W,H}][(fname)]
-        img_path_id = 'ScreenshotImagePath'
-        end, img_path, crop_rect, x, y, scale = self.parse_image_params(text, index, 3, (1,), img_path_id)
-        if img_path is None:
-            img_path = self.image_path('segment-{0}-{1}'.format(x, y), img_path_id)
-        if self.need_image(img_path):
-            self.push_snapshot()
-            self._adjust_lights_and_blinds(1, 1)
-            self.write_image(img_path, self.get_play_area_udgs(x, y, 8, 6), crop_rect, scale)
-            self.pop_snapshot()
-        return end, self.img_element(cwd, img_path)
+        end, crop_rect, fname, frame, alt, (x, y, scale) = parse_image_macro(text, index, (1,), ('x', 'y', 'scale'))
+        udgs_f = lambda: self._build_segment(x, y)
+        fname = fname or 'segment-{}-{}'.format(x, y)
+        img_path = self.image_path(fname, 'ScreenshotImagePath')
+        return end, self.handle_image(udgs_f, img_path, cwd, alt, crop_rect, scale, frame=frame)
 
 class ContactSamCruiseAsmWriter(AsmWriter):
     def expand_as(self, text, index):
         # #AS[state][(link text)]
-        end, state, link_text = parse_params(text, index)
-        return end, link_text or state
+        end, state, link_text = parse_as(text, index)
+        return end, link_text
 
     def expand_disguise(self, text, index):
         raise UnsupportedMacroError()
