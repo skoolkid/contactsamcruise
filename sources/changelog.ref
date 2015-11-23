@@ -5,6 +5,8 @@
 
 Ported the disassembly to SkoolKit 5
 
+Added a POKE: #POKE#getOutOfJailFree()
+
 [Changelog:20150417]
 -
 

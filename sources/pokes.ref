@@ -29,6 +29,11 @@ POKE #R31583(31583),195
 
 Note, however, that if Sam leaves the jail cell and the vicinity of the police station after being arrested and before being officially released, and then later returns to the vicinity of the police station with $20 or less on his person, the game will freeze when the jailer next enters the cell (see #R31594).
 
+[Poke:getOutOfJailFree:Get out of jail free]
+If you're happy for Sam to serve time in jail, but would prefer him to be released without having to pay bail:
+
+POKE #R31605(31605),201
+
 [Poke:everybodyOut:Everybody out]
 When characters (including Sam) are indoors, it's difficult to see where they are as they move up or down staircases and between windows. To make it so that characters are always drawn in front of buildings, even when they are inside:
 
