@@ -180,6 +180,21 @@ But because of a bug in the routine at #R64131, the walking back part of step (3
 
 POKE #R64140(64140),40
 
+[Bug:samTheEscapeArtist:Sam the escape artist]
+If Sam moves midstride just before being picked up by a policeman, then he will teleport back to the spot where he was arrested if he turns round (by pressing 'P' or moving the joystick right) after being dropped in the jail cell.
+
+Whenever Sam (or indeed any character) moves midstride, his post-midstride animatory state, x-coordinate and y-coordinate are calculated and stored in bytes 5, 6 and 7 of his buffer by the section of code at #R60423, to be retrieved later (usually soon after) by the routine at #R60506. However, if Sam is picked up by a policeman while he's midstride, his post-midstride movement is delayed. When 'P' is pressed after he's been dropped in the cell, the routine at #R60636 is called, which first turns Sam round (because he's facing left). Then that routine jumps to the code at #R60644, which detects the post-midstride y-coordinate stored in byte 7 of Sam's buffer, and accordingly sets the midstride timer in byte 9 of his buffer to a non-zero value. A few passes through the main loop later, the midstride timer is decremented to zero by the code at #R61545, and Sam is belatedly moved to the post-midstride coordinates that were calculated just before he was arrested.
+
+The following POKEs fix this bug by making sure that Sam's post-midstride y-coordinate is cleared when he's picked up by a policeman:
+
+POKE #R29187(29188),0: POKE 29189,1: POKE 29191,7
+
+Note that the midstride trick does not work with gangsters, because the code at #R64422 sets byte 7 of Sam's buffer (which holds his post-midstride y-coordinate) to zero when he lands after being dropped off the roof of a building. To enable the midstride trick to be used with gangsters:
+
+POKE #R64422(64426),8
+
+Now when Sam turns round after coming to, he will teleport back to the spot where he was picked up by the gangster.
+
 [Bug:persistentSniper:The persistent sniper]
 It's possible for part of the sniper's sprite to remain on screen after the screen has scrolled the sniper's body out of view. To see this, go to the first floor of the apartments next to no. 19, and position Sam so that the doorsteps of no. 19 are visible on the left side of the screen.
 

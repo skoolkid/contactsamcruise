@@ -5,6 +5,8 @@
 
 Ported the disassembly to SkoolKit 5
 
+Documented a bug: #BUG#samTheEscapeArtist() (thanks Ersh)
+
 Added a POKE: #POKE#getOutOfJailFree()
 
 [Changelog:20150417]
