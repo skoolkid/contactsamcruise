@@ -24506,8 +24506,7 @@ c64338 CALL 64512    ; Deal with the case where #REGb=2 and the character is
  64422 LD HL,0       ; {Set Sam's post-midstride y-coordinate (in byte 7 of his
 @ssub=LD (58880+7),HL
  64425 LD (58887),HL ; buffer) to 0 to indicate that he is neither midstride
-                     ; nor mid-action (which is redundant, because byte 7 will
-                     ; already be 0), and his main action timer (in byte 8) to
+                     ; nor mid-action, and his main action timer (in byte 8) to
                      ; 0 to indicate to the routine at #R29912 that Sam has
                      ; finished falling}
  64428 RET Z         ; Return if Sam landed safely (without being knocked out)
