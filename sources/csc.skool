@@ -7679,7 +7679,9 @@ c31476 LD HL,1       ; {Set Sam's main action timer to 1 (so that we come here
  31517 LD (HL),8     ; }
  31519 CALL 59848    ; Update the SRB for Sam's current animatory state and
                      ; location
- 31522 AND 128       ; Set Sam's animatory state to #AS0(0 or 128)
+ 31522 AND 128       ; Sam's new animatory state is #AS0 (bit 7 of #REGa is
+                     ; reset, because Sam's always facing left when he's
+                     ; dropped here)
  31524 INC D         ; Drop him one level (to the floor)
  31525 JP 59861      ; Update Sam's animatory state and location and update the
                      ; SRB
