@@ -17,7 +17,7 @@
 
 import cgi
 
-from skoolkit.skoolhtml import Udg as BaseUdg, HtmlWriter, join
+from skoolkit.skoolhtml import Udg as BaseUdg, Frame, HtmlWriter, join
 from skoolkit.skoolasm import AsmWriter
 from skoolkit.skoolmacro import (parse_ints, parse_brackets, parse_image_macro,
                                  MacroParsingError, UnsupportedMacroError)
@@ -773,9 +773,9 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         end, crop_rect, fname, frame, alt, (disguise_id, scale) = parse_image_macro(text, index, (1,), ('id', 'scale'))
         if fname is None:
             raise MacroParsingError('Filename missing: #DISGUISE{}'.format(text[index:end]))
-        udgs_f = lambda: self._build_disguise(disguise_id)
-        img_path = self.image_path(fname)
-        return end, self.handle_image(udgs_f, img_path, cwd, alt, crop_rect, scale, frame=frame)
+        udgs = self._build_disguise(disguise_id)
+        frames = [Frame(udgs, scale, 0, *crop_rect, name=frame)]
+        return end, self.handle_image(frames, fname, cwd, alt)
 
     def _build_segment(self, x, y):
         self.push_snapshot()
@@ -787,10 +787,13 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
     def expand_segment(self, text, index, cwd):
         # #SEGMENTx,y[,scale][{X,Y,W,H}][(fname)]
         end, crop_rect, fname, frame, alt, (x, y, scale) = parse_image_macro(text, index, (1,), ('x', 'y', 'scale'))
-        udgs_f = lambda: self._build_segment(x, y)
-        fname = fname or 'segment-{}-{}'.format(x, y)
-        img_path = self.image_path(fname, 'ScreenshotImagePath')
-        return end, self.handle_image(udgs_f, img_path, cwd, alt, crop_rect, scale, frame=frame)
+        if not fname and not frame:
+            fname = 'segment-{}-{}'.format(x, y)
+            if frame == '':
+                frame = fname
+        udgs = self._build_segment(x, y)
+        frames = [Frame(udgs, scale, 0, *crop_rect, name=frame)]
+        return end, self.handle_image(frames, fname, cwd, alt, 'ScreenshotImagePath')
 
 class ContactSamCruiseAsmWriter(AsmWriter):
     def expand_as(self, text, index):
