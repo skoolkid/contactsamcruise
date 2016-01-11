@@ -1,4 +1,4 @@
-; Copyright 2010-2015 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2016 Richard Dymond (rjdymond@gmail.com)
 
 [Bug:troubleHiding:The trouble with hiding]
 When Sam is wanted by the police, he is supposed to be able to hide inside buildings (but not on roofs or in stairwells that are visible from outside) in order to evade arrest. However, because of a bug in the routine that checks whether Sam can be spotted by the police in his current location (see #R28886), Sam's attempts at hiding may be either futile or undeservedly successful. In particular, if Sam is on the roof of or inside a building other than the hotel (and not in a stairwell that is visible from outside), he will be invisible to the police if he's facing right, but visible if he's facing left.
@@ -181,7 +181,7 @@ But because of a bug in the routine at #R64131, the walking back part of step (3
 POKE #R64140(64140),40
 
 [Bug:samTheEscapeArtist:Sam the escape artist]
-If Sam moves midstride just before being picked up by a policeman, then he will teleport back to the spot where he was arrested if he turns round (by pressing 'P' or moving the joystick right) after being dropped in the jail cell.
+If Sam moves midstride just before being picked up by a policeman, then he can escape from the jail cell after being dropped there by the simple act of turning round (to face right). As soon as he does that, he will teleport back to the spot where he was arrested.
 
 Whenever Sam (or indeed any character) moves midstride, his post-midstride animatory state, x-coordinate and y-coordinate are calculated and stored in bytes 5, 6 and 7 of his buffer by the section of code at #R60423, to be retrieved later (usually soon after) by the routine at #R60506. However, if Sam is picked up by a policeman while he's midstride, his post-midstride movement is delayed. When 'P' is pressed after he's been dropped in the cell, the routine at #R60636 is called, which first turns Sam round (because he's facing left). Then that routine jumps to the code at #R60644, which detects the post-midstride y-coordinate stored in byte 7 of Sam's buffer, and accordingly sets the midstride timer in byte 9 of his buffer to a non-zero value. A few passes through the main loop later, the midstride timer is decremented to zero by the code at #R61545, and Sam is belatedly moved to the post-midstride coordinates that were calculated just before he was arrested.
 
