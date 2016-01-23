@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 7BB6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7B9A.html">7B9A</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7bb6">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7BE1.html">7BE1</a></span></td>
+</tr>
+</table>
+<div class="description">7BB6: Control the hook while it's flying</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this uninterruptible subcommand routine is placed into bytes 18 and 19 of the hook's buffer by the routine at <a href="7BE1.html">7BE1</a>. It controls the hook until the end of its flight, at which point it places a rope above the roof of no. 19 if necessary, or else restores the hook to its original location on the top floor of no. 74.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">229 (hook)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7bb6"></span>7BB6</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the hook's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bb9"></span>7BB9</td>
+<td class="instruction">LD L,$14</td>
+<td class="comment-11" rowspan="1">Byte 20 of the hook's buffer holds the distance remaining in the hook's flight</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bbb"></span>7BBB</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Decrease this by 1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bbc"></span>7BBC</td>
+<td class="instruction">JR Z,$7BC8</td>
+<td class="comment-11" rowspan="1">Jump if the hook's flight has ended</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bbe"></span>7BBE</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="2">Set the carry flag if the hook is flying rightwards</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bbf"></span>7BBF</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bc0"></span>7BC0</td>
+<td class="instruction">DEC E</td>
+<td class="comment-11" rowspan="1">Decrement the hook's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bc1"></span>7BC1</td>
+<td class="instruction">JR NC,$7BC5</td>
+<td class="comment-11" rowspan="1">Jump if the hook is flying leftwards</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bc3"></span>7BC3</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="2">Otherwise increment the hook's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bc4"></span>7BC4</td>
+<td class="instruction">INC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7bc5"></span>7BC5</td>
+<td class="instruction">JP NZ,<a href="E9D5.html">$E9D5</a></td>
+<td class="comment-11" rowspan="1">Update the hook's animatory state and location and update the SRB (unless the hook has flown off the edge of the play area)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="7bc8"></span>
+<div class="comments">
+<div class="paragraph">
+The hook's flight has ended (either naturally or by escaping the play area). Check whether it reached the roof of no. 17.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7bc8"></span>7BC8</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=19</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bc9"></span>7BC9</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="2">Remove the address of this routine from bytes 18 and 19 of the hook's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bca"></span>7BCA</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bcb"></span>7BCB</td>
+<td class="instruction">LD L,$03</td>
+<td class="comment-11" rowspan="2">Clear all flags in byte 3 of the hook's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bcd"></span>7BCD</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bce"></span>7BCE</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="2">Set the hook's y-coordinate to 50 (out of sight)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bcf"></span>7BCF</td>
+<td class="instruction">LD (HL),$32</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bd1"></span>7BD1</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=hook's y-coordinate while it was flying</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bd2"></span>7BD2</td>
+<td class="instruction">CP $09</td>
+<td class="comment-11" rowspan="1">Was it greater than 9?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bd4"></span>7BD4</td>
+<td class="instruction">JR NC,$7BDC</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bd6"></span>7BD6</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the hook at the end of its flight</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bd7"></span>7BD7</td>
+<td class="instruction">CP $DF</td>
+<td class="comment-11" rowspan="1">Did the hook reach the roof of no. 17?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bd9"></span>7BD9</td>
+<td class="instruction">JP NC,<a href="FC25.html">$FC25</a></td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7bdc"></span>7BDC</td>
+<td class="instruction">LD HL,$7D1C</td>
+<td class="comment-11" rowspan="2">Reactivate the entry for the hook in the object table at <a href="7D1C.html">7D1C</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7bdf"></span>7BDF</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7be0"></span>7BE0</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7B9A.html">7B9A</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7bb6">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7BE1.html">7BE1</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at F7AB</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F79A.html">F79A</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f7ab">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F7B0.html">F7B0</a></span></td>
+</tr>
+</table>
+<div class="description">F7AB: Initialise and execute an interruptible subcommand</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="62DB.html">62DB</a> (to activate the sniper) and <a href="F748.html">F748</a> (to make a character start walking up or down to his next walkabout destination).
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">BC</td>
+<td class="register-desc">Interruptible subcommand routine address (<a href="621E.html">621E</a>, <a href="7A57.html">7A57</a> or <a href="F6E9.html">F6E9</a>)</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-229)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f7ab"></span>F7AB</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Push the interruptible subcommand routine address onto the stack in preparation for an indirect jump</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7ac"></span>F7AC</td>
+<td class="instruction">LD L,$0E</td>
+<td class="comment-11" rowspan="2">Copy the interruptible subcommand routine address from <span class="register">BC</span> into bytes 14 and 15 of the character's buffer, and then jump to it</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7ae"></span>F7AE</td>
+<td class="instruction">JR <a href="F79A.html#f7a7">$F7A7</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F79A.html">F79A</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f7ab">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F7B0.html">F7B0</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

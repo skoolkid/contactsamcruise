@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 7294</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7222.html">7222</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7294">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="72AA.html">72AA</a></span></td>
+</tr>
+</table>
+<div class="description">7294: Check whether Sam's disguise is known to the police</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="7222.html">7222</a> and <a href="7D09.html">7D09</a>. Returns with the appropriate attribute byte to use for Sam's current disguise in <span class="register">A</span>. Also sets bit 0 of <span class="register">B</span> if Sam's disguise is known to the police.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">0, 4 or 6 (when called from <a href="7222.html">7222</a>)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7294"></span>7294</td>
+<td class="instruction">LD A,($7FC9)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's current disguise ID (0-7)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7297"></span>7297</td>
+<td class="instruction">ADD A,$A0</td>
+<td class="comment-11" rowspan="3">Byte 21 of pages 160-167 holds the values 128, 64, 32, 16, 8, 4, 2 and 1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7299"></span>7299</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="729a"></span>729A</td>
+<td class="instruction">LD L,$15</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="729c"></span>729C</td>
+<td class="instruction">LD A,($7FE8)</td>
+<td class="comment-11" rowspan="1">Collect the disguise status flags from <a href="7FE8.html">7FE8</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="729f"></span>729F</td>
+<td class="instruction">AND (HL)</td>
+<td class="comment-11" rowspan="1">Set the zero flag if this disguise is unknown to the police</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="72a0"></span>72A0</td>
+<td class="instruction">LD HL,$5ABD</td>
+<td class="comment-11" rowspan="1">23229 holds the attribute byte for the top-left tile of Sam's disguise in the bottom right of the screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="72a3"></span>72A3</td>
+<td class="instruction">LD A,$4F</td>
+<td class="comment-11" rowspan="1">79=INK 7: PAPER 1: BRIGHT 1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="72a5"></span>72A5</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if this disguise is unknown to the police</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="72a6"></span>72A6</td>
+<td class="instruction">INC B</td>
+<td class="comment-11" rowspan="1">Set bit 0 of <span class="register">B</span> to indicate that Sam's disguise is known to the police</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="72a7"></span>72A7</td>
+<td class="instruction">LD A,$57</td>
+<td class="comment-11" rowspan="1">87=INK 7: PAPER 2: BRIGHT 1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="72a9"></span>72A9</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7222.html">7222</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7294">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="72AA.html">72AA</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

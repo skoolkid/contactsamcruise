@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at ED30</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="ED2A.html">ED2A</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#ed30">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="ED36.html">ED36</a></span></td>
+</tr>
+</table>
+<div class="description">ED30: Obtain location descriptors for a character standing next to a closed door</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="EB13.html">EB13</a>. A location descriptor for the character's current location has been found, and it corresponds to a location that is next to a door that happens to be closed. In this case we process the remaining location descriptors for the character's x-coordinate, one of which may be specific to the character's z-coordinate (1=behind the closed door, or 2=in front of it), and thus provide the appropriate direction descriptors (which are returned in <span class="register">C</span>). For an example of where this can happen, see the three descriptors in the location descriptor table at <a href="C320.html">C320</a> that correspond to the entrance to the shop at the far left of town.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">Character's y-coordinate (bits 2-6: y-4) and z-coordinate (bit 7: z-1)</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">Character's x-coordinate</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Address of the third byte of the location descriptor just processed</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ed30"></span>ED30</td>
+<td class="instruction">CALL <a href="EB13.html#eb3e">$EB3E</a></td>
+<td class="comment-11" rowspan="1">Process the remaining location descriptors for the character's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed33"></span>ED33</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=4: the character is standing behind or in front of a closed door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed35"></span>ED35</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="ED2A.html">ED2A</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#ed30">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="ED36.html">ED36</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

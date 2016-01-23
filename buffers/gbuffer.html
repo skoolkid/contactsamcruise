@@ -1,19 +1,15 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Contact Sam Cruise: Game status buffer</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../csc.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="GameStatusBuffer">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
 <td class="page-header">Game status buffer</td>
 </tr>
 </table>
@@ -29,19 +25,19 @@
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">0</td>
-<td class="map-g"><a name="32512"></a><a class="link" href="../asm/32512.html">32512</a></td>
+<td class="map-g"><span id="7f00"></span><a href="../asm/7F00.html">7F00</a></td>
 <td class="map-length-1">96</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Screen refresh buffer</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routines at <a class="link" href="../asm/59861.html">59861</a>, <a class="link" href="../asm/60032.html">60032</a>, <a class="link" href="../asm/61630.html">61630</a>, <a class="link" href="../asm/61696.html">61696</a>, <a class="link" href="../asm/62368.html">62368</a> and <a class="link" href="../asm/64599.html">64599</a>. Each byte of the screen refresh buffer (SRB) corresponds to a segment of 8 character squares on the screen, the leftmost of which will be at x=0, x=8, x=16 or x=24. Each bit set in an SRB byte corresponds to a character square in the segment that needs refreshing. Bit 7 corresponds to the leftmost character square in the segment, bit 0 to the rightmost character square.
+Used by the routines at <a href="../asm/E9D5.html">E9D5</a>, <a href="../asm/EA80.html">EA80</a>, <a href="../asm/F0BE.html">F0BE</a>, <a href="../asm/F100.html">F100</a>, <a href="../asm/F3A0.html">F3A0</a> and <a href="../asm/FC57.html">FC57</a>. Each byte of the screen refresh buffer (SRB) corresponds to a segment of 8 character squares on the screen, the leftmost of which will be at x=0, x=8, x=16 or x=24. Each bit set in an SRB byte corresponds to a character square in the segment that needs refreshing. Bit 7 corresponds to the leftmost character square in the segment, bit 0 to the rightmost character square.
 </div>
 <div class="paragraph">
-Note that, owing to a quirk in the way the SRB-updating routine at <a class="link" href="../asm/59861.html">59861</a> works, the first 16 bytes of the screen refresh buffer correspond not to any part of the screen, but to the four rows of the play area that are immediately above the currently visible portion of the play area. Therefore, the screen-updating routine at <a class="link" href="../asm/60032.html">60032</a> ignores those bytes and starts inspecting SRB bytes at 32528 instead.
+Note that, owing to a quirk in the way the SRB-updating routine at <a href="../asm/E9D5.html">E9D5</a> works, the first 16 bytes of the screen refresh buffer correspond not to any part of the screen, but to the four rows of the play area that are immediately above the currently visible portion of the play area. Therefore, the screen-updating routine at <a href="../asm/EA80.html">EA80</a> ignores those bytes and starts inspecting SRB bytes at 32528 instead.
 </div>
 <div class="paragraph">
-Note also that the routine at <a class="link" href="../asm/28357.html">28357</a> uses the first 16 bytes of the SRB as a temporary backup store for the submessage indicator and submessage addresses at <a class="link" href="../asm/32641.html">32641</a>, and the routine at <a class="link" href="../asm/64618.html">64618</a> uses the first 32 bytes of the SRB as a temporary store for the top row of attribute bytes when scrolling the screen up and down.
+Note also that the routine at <a href="../asm/6EC5.html">6EC5</a> uses the first 16 bytes of the SRB as a temporary backup store for the submessage indicator and submessage addresses at <a href="../asm/7F81.html">7F81</a>, and the routine at <a href="../asm/FC6A.html">FC6A</a> uses the first 32 bytes of the SRB as a temporary store for the top row of attribute bytes when scrolling the screen up and down.
 </div>
 </div>
 </td>
@@ -49,13 +45,13 @@ Note also that the routine at <a class="link" href="../asm/28357.html">28357</a>
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">96</td>
-<td class="map-g"><a name="32608"></a><a class="link" href="../asm/32608.html">32608</a></td>
+<td class="map-g"><span id="7f60"></span><a href="../asm/7F60.html">7F60</a></td>
 <td class="map-length-1">33</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Message buffer</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routine at <a class="link" href="../asm/28357.html">28357</a> to prepare a message before displaying it. Also used by the routines at <a class="link" href="../asm/61838.html">61838</a> and <a class="link" href="../asm/61882.html">61882</a> as temporary storage for one of the character buffers in groups 215-221.
+Used by the routine at <a href="../asm/6EC5.html">6EC5</a> to prepare a message before displaying it. Also used by the routines at <a href="../asm/F18E.html">F18E</a> and <a href="../asm/F1BA.html">F1BA</a> as temporary storage for one of the character buffers in groups 215-221.
 </div>
 </div>
 </td>
@@ -63,13 +59,13 @@ Used by the routine at <a class="link" href="../asm/28357.html">28357</a> to pre
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">129</td>
-<td class="map-g"><a name="32641"></a><a class="link" href="../asm/32641.html">32641</a></td>
+<td class="map-g"><span id="7f81"></span><a href="../asm/7F81.html">7F81</a></td>
 <td class="map-length-1">16</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Submessage indicator and message addresses</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routine at <a class="link" href="../asm/28357.html">28357</a>.
+Used by the routine at <a href="../asm/6EC5.html">6EC5</a>.
 </div>
 </div>
 </td>
@@ -77,7 +73,7 @@ Used by the routine at <a class="link" href="../asm/28357.html">28357</a>.
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">145</td>
-<td class="map-g"><a name="32657"></a><a class="link" href="../asm/32657.html">32657</a></td>
+<td class="map-g"><span id="7f91"></span><a href="../asm/7F91.html">7F91</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Unused</div>
@@ -89,13 +85,13 @@ Used by the routine at <a class="link" href="../asm/28357.html">28357</a>.
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">146</td>
-<td class="map-t"><a name="32658"></a><a class="link" href="../asm/32658.html">32658</a></td>
+<td class="map-t"><span id="7f92"></span><a href="../asm/7F92.html">7F92</a></td>
 <td class="map-length-1">5</td>
 <td class="map-t-desc">
 <div class="map-entry-title-11">Message 2: '{number}'</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used as a submessage of message <a class="link" href="../asm/27141.html">42</a>. This message is cleared by the routine at <a class="link" href="../asm/30458.html">30458</a> when Sam picks up a phone, and updated by the routine at <a class="link" href="../asm/30675.html">30675</a> as Sam dials.
+Used as a submessage of message <a href="../asm/6A05.html">42</a>. This message is cleared by the routine at <a href="../asm/76FA.html">76FA</a> when Sam picks up a phone, and updated by the routine at <a href="../asm/77D3.html">77D3</a> as Sam dials.
 </div>
 </div>
 </td>
@@ -103,13 +99,13 @@ Used as a submessage of message <a class="link" href="../asm/27141.html">42</a>.
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">151</td>
-<td class="map-g"><a name="32663"></a><a class="link" href="../asm/32663.html">32663</a></td>
+<td class="map-g"><span id="7f97"></span><a href="../asm/7F97.html">7F97</a></td>
 <td class="map-length-1">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Phone table entry address</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routines at <a class="link" href="../asm/30575.html">30575</a> and <a class="link" href="../asm/30627.html">30627</a>. Holds either the address of the second byte of the entry in the phone message table at <a class="link" href="../asm/27467.html">27467</a> or <a class="link" href="../asm/27506.html">27506</a> that corresponds to the phone that Sam is calling (if the person on the other end has a message for him) or picking up a call from, or the address of the final byte of the phone table at <a class="link" href="../asm/27506.html">27506</a> (if the person Sam's calling has no message to give); this address contains the number of the message corresponding to the name that Sam must give in order to receive the telephone message, or 0 if no name is required to receive the message, or 255 if the person Sam's calling will respond with message <a class="link" href="../asm/27204.html">46</a> (I DUNNO NO {name}).
+Used by the routines at <a href="../asm/776F.html">776F</a> and <a href="../asm/77A3.html">77A3</a>. Holds either the address of the second byte of the entry in the phone message table at <a href="../asm/6B4B.html">6B4B</a> or <a href="../asm/6B72.html">6B72</a> that corresponds to the phone that Sam is calling (if the person on the other end has a message for him) or picking up a call from, or the address of the final byte of the phone table at <a href="../asm/6B72.html">6B72</a> (if the person Sam's calling has no message to give); this address contains the number of the message corresponding to the name that Sam must give in order to receive the telephone message, or 0 if no name is required to receive the message, or 255 if the person Sam's calling will respond with message <a href="../asm/6A44.html">46</a> (I DUNNO NO {name}).
 </div>
 </div>
 </td>
@@ -117,13 +113,13 @@ Used by the routines at <a class="link" href="../asm/30575.html">30575</a> and <
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">153</td>
-<td class="map-g"><a name="32665"></a><a class="link" href="../asm/32665.html">32665</a></td>
+<td class="map-g"><span id="7f99"></span><a href="../asm/7F99.html">7F99</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Time that Sam last lifted a ringing telephone</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Checked by the routine at <a class="link" href="../asm/30429.html">30429</a> and set by the routine at <a class="link" href="../asm/30458.html">30458</a> (to the value of the second byte of the the system variable FRAMES, which is incremented every 5.12s).
+Checked by the routine at <a href="../asm/76DD.html">76DD</a> and set by the routine at <a href="../asm/76FA.html">76FA</a> (to the value of the second byte of the the system variable FRAMES, which is incremented every 5.12s).
 </div>
 </div>
 </td>
@@ -131,13 +127,13 @@ Checked by the routine at <a class="link" href="../asm/30429.html">30429</a> and
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">154</td>
-<td class="map-g"><a name="32666"></a><a class="link" href="../asm/32666.html">32666</a></td>
+<td class="map-g"><span id="7f9a"></span><a href="../asm/7F9A.html">7F9A</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">ID of the telephone that Sam is calling</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Checked by the routines at <a class="link" href="../asm/29952.html">29952</a> (using the event entry at <a class="link" href="../asm/24544.html#24644">24644</a>) and <a class="link" href="../asm/30511.html">30511</a>, and updated by the routines at <a class="link" href="../asm/29149.html">29149</a>, <a class="link" href="../asm/30575.html">30575</a>, <a class="link" href="../asm/31244.html">31244</a> and <a class="link" href="../asm/61923.html">61923</a>.
+Checked by the routines at <a href="../asm/7500.html">7500</a> (using the event entry at <a href="../asm/5FE0.html#6044">6044</a>) and <a href="../asm/772F.html">772F</a>, and updated by the routines at <a href="../asm/71DD.html">71DD</a>, <a href="../asm/776F.html">776F</a>, <a href="../asm/7A0C.html">7A0C</a> and <a href="../asm/F1E3.html">F1E3</a>.
 </div>
 </div>
 </td>
@@ -145,13 +141,13 @@ Checked by the routines at <a class="link" href="../asm/29952.html">29952</a> (u
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">155</td>
-<td class="map-g"><a name="32667"></a><a class="link" href="../asm/32667.html">32667</a></td>
+<td class="map-g"><span id="7f9b"></span><a href="../asm/7F9B.html">7F9B</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Telephone call status flags</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routines at <a class="link" href="../asm/30198.html">30198</a>, <a class="link" href="../asm/30458.html">30458</a>, <a class="link" href="../asm/30575.html">30575</a>, <a class="link" href="../asm/30675.html">30675</a> and <a class="link" href="../asm/31244.html">31244</a>.
+Used by the routines at <a href="../asm/75F6.html">75F6</a>, <a href="../asm/76FA.html">76FA</a>, <a href="../asm/776F.html">776F</a>, <a href="../asm/77D3.html">77D3</a> and <a href="../asm/7A0C.html">7A0C</a>.
 </div>
 <div class="paragraph">
 <table class="default">
@@ -195,13 +191,13 @@ Used by the routines at <a class="link" href="../asm/30198.html">30198</a>, <a c
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">156</td>
-<td class="map-g"><a name="32668"></a><a class="link" href="../asm/32668.html">32668</a></td>
+<td class="map-g"><span id="7f9c"></span><a href="../asm/7F9C.html">7F9C</a></td>
 <td class="map-length-1">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Score</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Checked by the routine at <a class="link" href="../asm/61630.html">61630</a>, and updated by the routine at <a class="link" href="../asm/28337.html">28337</a>.
+Checked by the routine at <a href="../asm/F0BE.html">F0BE</a>, and updated by the routine at <a href="../asm/6EB1.html">6EB1</a>.
 </div>
 </div>
 </td>
@@ -209,13 +205,13 @@ Checked by the routine at <a class="link" href="../asm/61630.html">61630</a>, an
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">158</td>
-<td class="map-g"><a name="32670"></a><a class="link" href="../asm/32670.html">32670</a></td>
+<td class="map-g"><span id="7f9e"></span><a href="../asm/7F9E.html">7F9E</a></td>
 <td class="map-length-1">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Bucks</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Checked by the routines at <a class="link" href="../asm/31594.html">31594</a>, <a class="link" href="../asm/31642.html">31642</a> and <a class="link" href="../asm/61630.html">61630</a>, and updated by the routines at <a class="link" href="../asm/24832.html">24832</a> and <a class="link" href="../asm/28295.html">28295</a>.
+Checked by the routines at <a href="../asm/7B6A.html">7B6A</a>, <a href="../asm/7B9A.html">7B9A</a> and <a href="../asm/F0BE.html">F0BE</a>, and updated by the routines at <a href="../asm/6100.html">6100</a> and <a href="../asm/6E87.html">6E87</a>.
 </div>
 </div>
 </td>
@@ -223,13 +219,13 @@ Checked by the routines at <a class="link" href="../asm/31594.html">31594</a>, <
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">160</td>
-<td class="map-g"><a name="32672"></a><a class="link" href="../asm/32672.html">32672</a></td>
+<td class="map-g"><span id="7fa0"></span><a href="../asm/7FA0.html">7FA0</a></td>
 <td class="map-length-1">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Time the last message was displayed</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routine at <a class="link" href="../asm/28357.html">28357</a>. Holds the two least significant bytes of the system variable FRAMES as they were when the last message was displayed.
+Used by the routine at <a href="../asm/6EC5.html">6EC5</a>. Holds the two least significant bytes of the system variable FRAMES as they were when the last message was displayed.
 </div>
 </div>
 </td>
@@ -237,13 +233,13 @@ Used by the routine at <a class="link" href="../asm/28357.html">28357</a>. Holds
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">162</td>
-<td class="map-g"><a name="32674"></a><a class="link" href="../asm/32674.html">32674</a></td>
+<td class="map-g"><span id="7fa2"></span><a href="../asm/7FA2.html">7FA2</a></td>
 <td class="map-length-1">6</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Blown fuse delay counters</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-When a fuse is blown, the corresponding delay counter here is initialised by the routine at <a class="link" href="../asm/29866.html">29866</a>. The delay counters are checked and decremented by the routine at <a class="link" href="../asm/62468.html">62468</a>.
+When a fuse is blown, the corresponding delay counter here is initialised by the routine at <a href="../asm/74AA.html">74AA</a>. The delay counters are checked and decremented by the routine at <a href="../asm/F404.html">F404</a>.
 </div>
 </div>
 </td>
@@ -251,13 +247,13 @@ When a fuse is blown, the corresponding delay counter here is initialised by the
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">168</td>
-<td class="map-g"><a name="32680"></a><a class="link" href="../asm/32680.html">32680</a></td>
+<td class="map-g"><span id="7fa8"></span><a href="../asm/7FA8.html">7FA8</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Icon panel status flags</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used as a temporary buffer by the routines at <a class="link" href="../asm/29668.html">29668</a>, <a class="link" href="../asm/29733.html">29733</a> and <a class="link" href="../asm/30211.html">30211</a>. Each bit set here (by the routine at <a class="link" href="../asm/29733.html">29733</a> or <a class="link" href="../asm/30211.html">30211</a>) corresponds to an icon that should be displayed in the panel.
+Used as a temporary buffer by the routines at <a href="../asm/73E4.html">73E4</a>, <a href="../asm/7425.html">7425</a> and <a href="../asm/7603.html">7603</a>. Each bit set here (by the routine at <a href="../asm/7425.html">7425</a> or <a href="../asm/7603.html">7603</a>) corresponds to an icon that should be displayed in the panel.
 </div>
 <div class="paragraph">
 <table class="default">
@@ -293,13 +289,13 @@ Used as a temporary buffer by the routines at <a class="link" href="../asm/29668
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">169</td>
-<td class="map-g"><a name="32681"></a><a class="link" href="../asm/32681.html">32681</a></td>
+<td class="map-g"><span id="7fa9"></span><a href="../asm/7FA9.html">7FA9</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Main loop task timer</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Decremented and checked on every pass through the main loop by the routine at <a class="link" href="../asm/61440.html">61440</a>, and also checked by the routine at <a class="link" href="../asm/61764.html">61764</a>.
+Decremented and checked on every pass through the main loop by the routine at <a href="../asm/F000.html">F000</a>, and also checked by the routine at <a href="../asm/F144.html">F144</a>.
 </div>
 </div>
 </td>
@@ -307,13 +303,13 @@ Decremented and checked on every pass through the main loop by the routine at <a
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">170</td>
-<td class="map-g"><a name="32682"></a><a class="link" href="../asm/32682.html">32682</a></td>
+<td class="map-g"><span id="7faa"></span><a href="../asm/7FAA.html">7FAA</a></td>
 <td class="map-length-1">10</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Door knock status flags</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routines at <a class="link" href="../asm/62120.html">62120</a>, <a class="link" href="../asm/63304.html">63304</a> and <a class="link" href="../asm/63437.html">63437</a>. The bits in each byte here are used as follows:
+Used by the routines at <a href="../asm/F2A8.html">F2A8</a>, <a href="../asm/F748.html">F748</a> and <a href="../asm/F7CD.html">F7CD</a>. The bits in each byte here are used as follows:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -341,13 +337,13 @@ Used by the routines at <a class="link" href="../asm/62120.html">62120</a>, <a c
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">180</td>
-<td class="map-g"><a name="32692"></a><a class="link" href="../asm/32692.html">32692</a></td>
+<td class="map-g"><span id="7fb4"></span><a href="../asm/7FB4.html">7FB4</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Blown fuse indicator</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routine at <a class="link" href="../asm/61948.html">61948</a>, which stores a non-zero value here if any fuses are currently blown.
+Used by the routine at <a href="../asm/F1FC.html">F1FC</a>, which stores a non-zero value here if any fuses are currently blown.
 </div>
 </div>
 </td>
@@ -355,7 +351,7 @@ Used by the routine at <a class="link" href="../asm/61948.html">61948</a>, which
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">181</td>
-<td class="map-g"><a name="32693"></a><a class="link" href="../asm/32693.html">32693</a></td>
+<td class="map-g"><span id="7fb5"></span><a href="../asm/7FB5.html">7FB5</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Unused</div>
@@ -367,13 +363,13 @@ Used by the routine at <a class="link" href="../asm/61948.html">61948</a>, which
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">182</td>
-<td class="map-g"><a name="32694"></a><a class="link" href="../asm/32694.html">32694</a></td>
+<td class="map-g"><span id="7fb6"></span><a href="../asm/7FB6.html">7FB6</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Fuse flags</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routines at <a class="link" href="../asm/29866.html">29866</a> and <a class="link" href="../asm/30116.html">30116</a>. A bit set here indicates that the corresponding fuse has already been blown once. Bits 6 and 7 are unused.
+Used by the routines at <a href="../asm/74AA.html">74AA</a> and <a href="../asm/75A4.html">75A4</a>. A bit set here indicates that the corresponding fuse has already been blown once. Bits 6 and 7 are unused.
 </div>
 <div class="paragraph">
 <table class="default">
@@ -413,13 +409,13 @@ Used by the routines at <a class="link" href="../asm/29866.html">29866</a> and <
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">183</td>
-<td class="map-g"><a name="32695"></a><a class="link" href="../asm/32695.html">32695</a></td>
+<td class="map-g"><span id="7fb7"></span><a href="../asm/7FB7.html">7FB7</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Index of the current message in the message queue</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routines at <a class="link" href="../asm/28357.html">28357</a> and <a class="link" href="../asm/30160.html">30160</a>.
+Used by the routines at <a href="../asm/6EC5.html">6EC5</a> and <a href="../asm/75D0.html">75D0</a>.
 </div>
 </div>
 </td>
@@ -427,13 +423,13 @@ Used by the routines at <a class="link" href="../asm/28357.html">28357</a> and <
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">184</td>
-<td class="map-g"><a name="32696"></a><a class="link" href="../asm/32696.html">32696</a></td>
+<td class="map-g"><span id="7fb8"></span><a href="../asm/7FB8.html">7FB8</a></td>
 <td class="map-length-1">8</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Message queue</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routines at <a class="link" href="../asm/28357.html">28357</a>, <a class="link" href="../asm/30160.html">30160</a> and <a class="link" href="../asm/64121.html">64121</a>.
+Used by the routines at <a href="../asm/6EC5.html">6EC5</a>, <a href="../asm/75D0.html">75D0</a> and <a href="../asm/FA79.html">FA79</a>.
 </div>
 </div>
 </td>
@@ -441,13 +437,13 @@ Used by the routines at <a class="link" href="../asm/28357.html">28357</a>, <a c
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">192</td>
-<td class="map-g"><a name="32704"></a><a class="link" href="../asm/32704.html">32704</a></td>
+<td class="map-g"><span id="7fc0"></span><a href="../asm/7FC0.html">7FC0</a></td>
 <td class="map-length-1">4</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Bullet buffer 1</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routines at <a class="link" href="../asm/25118.html">25118</a>, <a class="link" href="../asm/26075.html">26075</a> and <a class="link" href="../asm/26224.html">26224</a>.
+Used by the routines at <a href="../asm/621E.html">621E</a>, <a href="../asm/65DB.html">65DB</a> and <a href="../asm/6670.html">6670</a>.
 </div>
 </div>
 </td>
@@ -455,13 +451,13 @@ Used by the routines at <a class="link" href="../asm/25118.html">25118</a>, <a c
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">196</td>
-<td class="map-g"><a name="32708"></a><a class="link" href="../asm/32708.html">32708</a></td>
+<td class="map-g"><span id="7fc4"></span><a href="../asm/7FC4.html">7FC4</a></td>
 <td class="map-length-1">4</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Bullet buffer 2</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routines at <a class="link" href="../asm/25118.html">25118</a>, <a class="link" href="../asm/26075.html">26075</a> and <a class="link" href="../asm/26224.html">26224</a>.
+Used by the routines at <a href="../asm/621E.html">621E</a>, <a href="../asm/65DB.html">65DB</a> and <a href="../asm/6670.html">6670</a>.
 </div>
 </div>
 </td>
@@ -469,13 +465,13 @@ Used by the routines at <a class="link" href="../asm/25118.html">25118</a>, <a c
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">200</td>
-<td class="map-g"><a name="32712"></a><a class="link" href="../asm/32712.html">32712</a></td>
+<td class="map-g"><span id="7fc8"></span><a href="../asm/7FC8.html">7FC8</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Last value seen in the system variable FRAMES</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Stores the value of the LSB of the system variable FRAMES as it stood at the end of the last pass through the main loop at <a class="link" href="../asm/61483.html">61483</a> or the routine at <a class="link" href="../asm/30989.html">30989</a>.
+Stores the value of the LSB of the system variable FRAMES as it stood at the end of the last pass through the main loop at <a href="../asm/F02B.html">F02B</a> or the routine at <a href="../asm/790D.html">790D</a>.
 </div>
 </div>
 </td>
@@ -483,13 +479,13 @@ Stores the value of the LSB of the system variable FRAMES as it stood at the end
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">201</td>
-<td class="map-g"><a name="32713"></a><a class="link" href="../asm/32713.html">32713</a></td>
+<td class="map-g"><span id="7fc9"></span><a href="../asm/7FC9.html">7FC9</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Current disguise</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Checked by the routines at <a class="link" href="../asm/29218.html">29218</a>, <a class="link" href="../asm/29597.html">29597</a> and <a class="link" href="../asm/29952.html">29952</a> (using the event entry at <a class="link" href="../asm/24544.html#24666">24666</a>), and changed by the routine at <a class="link" href="../asm/63838.html">63838</a>. Holds the ID of Sam's current disguise.
+Checked by the routines at <a href="../asm/7222.html">7222</a>, <a href="../asm/739D.html">739D</a> and <a href="../asm/7500.html">7500</a> (using the event entry at <a href="../asm/5FE0.html#605a">605A</a>), and changed by the routine at <a href="../asm/F95E.html">F95E</a>. Holds the ID of Sam's current disguise.
 </div>
 <div class="paragraph">
 <table class="default">
@@ -537,13 +533,13 @@ Checked by the routines at <a class="link" href="../asm/29218.html">29218</a>, <
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">202</td>
-<td class="map-g"><a name="32714"></a><a class="link" href="../asm/32714.html">32714</a></td>
+<td class="map-g"><span id="7fca"></span><a href="../asm/7FCA.html">7FCA</a></td>
 <td class="map-length-1">6</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Number string buffer</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routine at <a class="link" href="../asm/28186.html">28186</a>.
+Used by the routine at <a href="../asm/6E1A.html">6E1A</a>.
 </div>
 </div>
 </td>
@@ -551,13 +547,13 @@ Used by the routine at <a class="link" href="../asm/28186.html">28186</a>.
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">208</td>
-<td class="map-t"><a name="32720"></a><a class="link" href="../asm/32720.html">32720</a></td>
+<td class="map-t"><span id="7fd0"></span><a href="../asm/7FD0.html">7FD0</a></td>
 <td class="map-length-1">2</td>
 <td class="map-t-desc">
 <div class="map-entry-title-11">Message 1: '{tens digit}/{name}'</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used as a submessage of messages <a class="link" href="../asm/27057.html">36</a>, <a class="link" href="../asm/27122.html">40</a>, <a class="link" href="../asm/27204.html">46</a> and <a class="link" href="../asm/27304.html">52</a>. The message number of the name is inserted by the routine at <a class="link" href="../asm/30575.html">30575</a>; the tens digit of the number of bucks is inserted by the routine at <a class="link" href="../asm/31594.html">31594</a> or <a class="link" href="../asm/64338.html">64338</a>.
+Used as a submessage of messages <a href="../asm/69B1.html">36</a>, <a href="../asm/69F2.html">40</a>, <a href="../asm/6A44.html">46</a> and <a href="../asm/6AA8.html">52</a>. The message number of the name is inserted by the routine at <a href="../asm/776F.html">776F</a>; the tens digit of the number of bucks is inserted by the routine at <a href="../asm/7B6A.html">7B6A</a> or <a href="../asm/FB52.html">FB52</a>.
 </div>
 </div>
 </td>
@@ -565,13 +561,13 @@ Used as a submessage of messages <a class="link" href="../asm/27057.html">36</a>
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">210</td>
-<td class="map-g"><a name="32722"></a><a class="link" href="../asm/32722.html">32722</a></td>
+<td class="map-g"><span id="7fd2"></span><a href="../asm/7FD2.html">7FD2</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Message number to watch in the message queue</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Set by the routines at <a class="link" href="../asm/24832.html">24832</a>, <a class="link" href="../asm/30989.html">30989</a> and <a class="link" href="../asm/31126.html">31126</a>, and checked by the routine at <a class="link" href="../asm/30972.html">30972</a>.
+Set by the routines at <a href="../asm/6100.html">6100</a>, <a href="../asm/790D.html">790D</a> and <a href="../asm/7996.html">7996</a>, and checked by the routine at <a href="../asm/78FC.html">78FC</a>.
 </div>
 </div>
 </td>
@@ -579,13 +575,13 @@ Set by the routines at <a class="link" href="../asm/24832.html">24832</a>, <a cl
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">211</td>
-<td class="map-g"><a name="32723"></a><a class="link" href="../asm/32723.html">32723</a></td>
+<td class="map-g"><span id="7fd3"></span><a href="../asm/7FD3.html">7FD3</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">ID of the telephone Sam is holding</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Set by the routine at <a class="link" href="../asm/30458.html">30458</a> and checked by the routine at <a class="link" href="../asm/30675.html">30675</a>.
+Set by the routine at <a href="../asm/76FA.html">76FA</a> and checked by the routine at <a href="../asm/77D3.html">77D3</a>.
 </div>
 </div>
 </td>
@@ -593,13 +589,13 @@ Set by the routine at <a class="link" href="../asm/30458.html">30458</a> and che
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">212</td>
-<td class="map-g"><a name="32724"></a><a class="link" href="../asm/32724.html">32724</a></td>
+<td class="map-g"><span id="7fd4"></span><a href="../asm/7FD4.html">7FD4</a></td>
 <td class="map-length-1">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Time when the score was last incremented</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Checked and set by the routine at <a class="link" href="../asm/31414.html">31414</a>. Holds the value of the two least significant bytes of the system variable FRAMES as they were when the score was last incremented.
+Checked and set by the routine at <a href="../asm/7AB6.html">7AB6</a>. Holds the value of the two least significant bytes of the system variable FRAMES as they were when the score was last incremented.
 </div>
 </div>
 </td>
@@ -607,7 +603,7 @@ Checked and set by the routine at <a class="link" href="../asm/31414.html">31414
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">214</td>
-<td class="map-g"><a name="32726"></a><a class="link" href="../asm/32726.html">32726</a></td>
+<td class="map-g"><span id="7fd6"></span><a href="../asm/7FD6.html">7FD6</a></td>
 <td class="map-length-1">5</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Unused</div>
@@ -619,13 +615,13 @@ Checked and set by the routine at <a class="link" href="../asm/31414.html">31414
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">219</td>
-<td class="map-g"><a name="32731"></a><a class="link" href="../asm/32731.html">32731</a></td>
+<td class="map-g"><span id="7fdb"></span><a href="../asm/7FDB.html">7FDB</a></td>
 <td class="map-length-1">3</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Location the police should head for when looking for Sam</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Set by the routines at <a class="link" href="../asm/29088.html">29088</a> and <a class="link" href="../asm/31289.html">31289</a>, and checked by the routine at <a class="link" href="../asm/29361.html">29361</a>.
+Set by the routines at <a href="../asm/71A0.html">71A0</a> and <a href="../asm/7A39.html">7A39</a>, and checked by the routine at <a href="../asm/72B1.html">72B1</a>.
 </div>
 </div>
 </td>
@@ -633,13 +629,13 @@ Set by the routines at <a class="link" href="../asm/29088.html">29088</a> and <a
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">222</td>
-<td class="map-g"><a name="32734"></a><a class="link" href="../asm/32734.html">32734</a></td>
+<td class="map-g"><span id="7fde"></span><a href="../asm/7FDE.html">7FDE</a></td>
 <td class="map-length-1">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Random number seed</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routine at <a class="link" href="../asm/61823.html">61823</a>.
+Used by the routine at <a href="../asm/F17F.html">F17F</a>.
 </div>
 </div>
 </td>
@@ -647,13 +643,13 @@ Used by the routine at <a class="link" href="../asm/61823.html">61823</a>.
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">224</td>
-<td class="map-g"><a name="32736"></a><a class="link" href="../asm/32736.html">32736</a></td>
+<td class="map-g"><span id="7fe0"></span><a href="../asm/7FE0.html">7FE0</a></td>
 <td class="map-length-1">7</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Unused</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Data is copied here from the game status buffer template at <a class="link" href="../asm/65504.html">65504</a>, but is never used.
+Data is copied here from the game status buffer template at <a href="../asm/FFE0.html">FFE0</a>, but is never used.
 </div>
 </div>
 </td>
@@ -661,13 +657,13 @@ Data is copied here from the game status buffer template at <a class="link" href
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">231</td>
-<td class="map-g"><a name="32743"></a><a class="link" href="../asm/32743.html">32743</a></td>
+<td class="map-g"><span id="7fe7"></span><a href="../asm/7FE7.html">7FE7</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Bullet timer</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routine at <a class="link" href="../asm/26075.html">26075</a>.
+Used by the routine at <a href="../asm/65DB.html">65DB</a>.
 </div>
 </div>
 </td>
@@ -675,13 +671,13 @@ Used by the routine at <a class="link" href="../asm/26075.html">26075</a>.
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">232</td>
-<td class="map-g"><a name="32744"></a><a class="link" href="../asm/32744.html">32744</a></td>
+<td class="map-g"><span id="7fe8"></span><a href="../asm/7FE8.html">7FE8</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Disguise status flags</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Modified by the routine at <a class="link" href="../asm/29100.html">29100</a>, and checked by the routine at <a class="link" href="../asm/29332.html">29332</a>. Each bit set here corresponds to a disguise that is known by the police. Bit 7 (corresponding to no disguise) is always set.
+Modified by the routine at <a href="../asm/71AC.html">71AC</a>, and checked by the routine at <a href="../asm/7294.html">7294</a>. Each bit set here corresponds to a disguise that is known by the police. Bit 7 (corresponding to no disguise) is always set.
 </div>
 <div class="paragraph">
 <table class="default">
@@ -729,13 +725,13 @@ Modified by the routine at <a class="link" href="../asm/29100.html">29100</a>, a
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">233</td>
-<td class="map-g"><a name="32745"></a><a class="link" href="../asm/32745.html">32745</a></td>
+<td class="map-g"><span id="7fe9"></span><a href="../asm/7FE9.html">7FE9</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Object inventory</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Changed by the routine at <a class="link" href="../asm/30211.html">30211</a>, and checked by the routines at <a class="link" href="../asm/25420.html">25420</a>, <a class="link" href="../asm/29952.html">29952</a> (using the event entries at <a class="link" href="../asm/24544.html#24752">24752</a> and <a class="link" href="../asm/24544.html#24774">24774</a>) and <a class="link" href="../asm/31713.html">31713</a>. Each bit set here corresponds to an object in Sam's possession.
+Changed by the routine at <a href="../asm/7603.html">7603</a>, and checked by the routines at <a href="../asm/634C.html">634C</a>, <a href="../asm/7500.html">7500</a> (using the event entries at <a href="../asm/5FE0.html#60b0">60B0</a> and <a href="../asm/5FE0.html#60c6">60C6</a>) and <a href="../asm/7BE1.html">7BE1</a>. Each bit set here corresponds to an object in Sam's possession.
 </div>
 <div class="paragraph">
 <table class="default">
@@ -763,13 +759,13 @@ Changed by the routine at <a class="link" href="../asm/30211.html">30211</a>, an
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">234</td>
-<td class="map-g"><a name="32746"></a><a class="link" href="../asm/32746.html">32746</a></td>
+<td class="map-g"><span id="7fea"></span><a href="../asm/7FEA.html">7FEA</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Key inventory</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Changed by the routines at <a class="link" href="../asm/30211.html">30211</a> and <a class="link" href="../asm/31126.html">31126</a>, and checked by the routines at <a class="link" href="../asm/29952.html">29952</a> (using the event entries at <a class="link" href="../asm/24544.html#24586">24586</a> and <a class="link" href="../asm/24544.html#24727">24727</a>) and <a class="link" href="../asm/31289.html">31289</a>. Each bit set here corresponds to a key in Sam's possession.
+Changed by the routines at <a href="../asm/7603.html">7603</a> and <a href="../asm/7996.html">7996</a>, and checked by the routines at <a href="../asm/7500.html">7500</a> (using the event entries at <a href="../asm/5FE0.html#600a">600A</a> and <a href="../asm/5FE0.html#6097">6097</a>) and <a href="../asm/7A39.html">7A39</a>. Each bit set here corresponds to a key in Sam's possession.
 </div>
 <div class="paragraph">
 <table class="default">
@@ -809,13 +805,13 @@ Changed by the routines at <a class="link" href="../asm/30211.html">30211</a> an
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">235</td>
-<td class="map-g"><a name="32747"></a><a class="link" href="../asm/32747.html">32747</a></td>
+<td class="map-g"><span id="7feb"></span><a href="../asm/7FEB.html">7FEB</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Police flags</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Changed by the routines at <a class="link" href="../asm/29149.html">29149</a>, <a class="link" href="../asm/29952.html">29952</a> (using the event entry at <a class="link" href="../asm/24544.html#24727">24727</a>), <a class="link" href="../asm/31236.html">31236</a>, <a class="link" href="../asm/31289.html">31289</a> and <a class="link" href="../asm/63281.html">63281</a>; checked by the routines at <a class="link" href="../asm/29668.html">29668</a>, <a class="link" href="../asm/31580.html">31580</a>, <a class="link" href="../asm/31594.html">31594</a> and <a class="link" href="../asm/31998.html">31998</a>. The bits set here have the following meaning:
+Changed by the routines at <a href="../asm/71DD.html">71DD</a>, <a href="../asm/7500.html">7500</a> (using the event entry at <a href="../asm/5FE0.html#6097">6097</a>), <a href="../asm/7A04.html">7A04</a>, <a href="../asm/7A39.html">7A39</a> and <a href="../asm/F731.html">F731</a>; checked by the routines at <a href="../asm/73E4.html">73E4</a>, <a href="../asm/7B5C.html">7B5C</a>, <a href="../asm/7B6A.html">7B6A</a> and <a href="../asm/7CFE.html">7CFE</a>. The bits set here have the following meaning:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -843,13 +839,13 @@ Changed by the routines at <a class="link" href="../asm/29149.html">29149</a>, <
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">236</td>
-<td class="map-g"><a name="32748"></a><a class="link" href="../asm/32748.html">32748</a></td>
+<td class="map-g"><span id="7fec"></span><a href="../asm/7FEC.html">7FEC</a></td>
 <td class="map-length-1">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">High score</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-The high score is copied here from the game status buffer template at <a class="link" href="../asm/65504.html">65504</a> by the routine at <a class="link" href="../asm/63662.html">63662</a>, but never used afterwards.
+The high score is copied here from the game status buffer template at <a href="../asm/FFE0.html">FFE0</a> by the routine at <a href="../asm/F8AE.html">F8AE</a>, but never used afterwards.
 </div>
 </div>
 </td>
@@ -857,13 +853,13 @@ The high score is copied here from the game status buffer template at <a class="
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">238</td>
-<td class="map-g"><a name="32750"></a><a class="link" href="../asm/32750.html">32750</a></td>
+<td class="map-g"><span id="7fee"></span><a href="../asm/7FEE.html">7FEE</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Game mode indicator</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Holds the current game mode (0-4). Checked by the routines at <a class="link" href="../asm/29952.html">29952</a> (using the event entry at <a class="link" href="../asm/24544.html">24544</a>), <a class="link" href="../asm/31126.html">31126</a>, <a class="link" href="../asm/31414.html">31414</a> and <a class="link" href="../asm/61568.html">61568</a>, and updated by the routine at <a class="link" href="../asm/63662.html">63662</a>.
+Holds the current game mode (0-4). Checked by the routines at <a href="../asm/7500.html">7500</a> (using the event entry at <a href="../asm/5FE0.html">5FE0</a>), <a href="../asm/7996.html">7996</a>, <a href="../asm/7AB6.html">7AB6</a> and <a href="../asm/F080.html">F080</a>, and updated by the routine at <a href="../asm/F8AE.html">F8AE</a>.
 </div>
 <div class="paragraph">
 <table class="default">
@@ -899,13 +895,13 @@ Holds the current game mode (0-4). Checked by the routines at <a class="link" hr
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">239</td>
-<td class="map-g"><a name="32751"></a><a class="link" href="../asm/32751.html">32751</a></td>
+<td class="map-g"><span id="7fef"></span><a href="../asm/7FEF.html">7FEF</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Lives (first aid kits)</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routines at <a class="link" href="../asm/26002.html">26002</a> and <a class="link" href="../asm/29716.html">29716</a>. A first aid kit will be displayed in the icon panel for every bit that is set.
+Used by the routines at <a href="../asm/6592.html">6592</a> and <a href="../asm/7414.html">7414</a>. A first aid kit will be displayed in the icon panel for every bit that is set.
 </div>
 </div>
 </td>
@@ -913,13 +909,13 @@ Used by the routines at <a class="link" href="../asm/26002.html">26002</a> and <
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">240</td>
-<td class="map-g"><a name="32752"></a><a class="link" href="../asm/32752.html">32752</a></td>
+<td class="map-g"><span id="7ff0"></span><a href="../asm/7FF0.html">7FF0</a></td>
 <td class="map-length-1">10</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Door status flags</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routines at <a class="link" href="../asm/30396.html">30396</a>, <a class="link" href="../asm/61764.html">61764</a>, <a class="link" href="../asm/62099.html">62099</a> and <a class="link" href="../asm/62120.html">62120</a>. In each flag byte here, bits 0-2 hold the door close delay timer (0 if the door is shut), and the set bit (if any) in bits 3-7 indicates the key that is required to unlock the door:
+Used by the routines at <a href="../asm/76BC.html">76BC</a>, <a href="../asm/F144.html">F144</a>, <a href="../asm/F293.html">F293</a> and <a href="../asm/F2A8.html">F2A8</a>. In each flag byte here, bits 0-2 hold the door close delay timer (0 if the door is shut), and the set bit (if any) in bits 3-7 indicates the key that is required to unlock the door:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -955,13 +951,13 @@ Used by the routines at <a class="link" href="../asm/30396.html">30396</a>, <a c
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">250</td>
-<td class="map-g"><a name="32762"></a><a class="link" href="../asm/32762.html">32762</a></td>
+<td class="map-g"><span id="7ffa"></span><a href="../asm/7FFA.html">7FFA</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Input device indicator</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Set by the routine at <a class="link" href="../asm/24951.html">24951</a>, and used by the routine at <a class="link" href="../asm/60082.html">60082</a>. Holds 107 ('k') if the Kempston joystick is being used, or 0 otherwise.
+Set by the routine at <a href="../asm/6177.html">6177</a>, and used by the routine at <a href="../asm/EAB2.html">EAB2</a>. Holds 107 ('k') if the Kempston joystick is being used, or 0 otherwise.
 </div>
 </div>
 </td>
@@ -969,13 +965,13 @@ Set by the routine at <a class="link" href="../asm/24951.html">24951</a>, and us
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">251</td>
-<td class="map-g"><a name="32763"></a><a class="link" href="../asm/32763.html">32763</a></td>
+<td class="map-g"><span id="7ffb"></span><a href="../asm/7FFB.html">7FFB</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Number of the character just moved (215-229)</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routine at <a class="link" href="../asm/61948.html">61948</a>.
+Used by the routine at <a href="../asm/F1FC.html">F1FC</a>.
 </div>
 </div>
 </td>
@@ -983,13 +979,13 @@ Used by the routine at <a class="link" href="../asm/61948.html">61948</a>.
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">252</td>
-<td class="map-g"><a name="32764"></a><a class="link" href="../asm/32764.html">32764</a></td>
+<td class="map-g"><span id="7ffc"></span><a href="../asm/7FFC.html">7FFC</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Sam's status flags</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routine at <a class="link" href="../asm/29912.html">29912</a> to decide how to deal with Sam.
+Used by the routine at <a href="../asm/74D8.html">74D8</a> to decide how to deal with Sam.
 </div>
 <div class="paragraph">
 <table class="default">
@@ -1001,12 +997,12 @@ Used by the routine at <a class="link" href="../asm/29912.html">29912</a> to dec
 <tr>
 <td class="centre" colspan="1" rowspan="1">0</td>
 <td class="" colspan="1" rowspan="1">Sam is being carried by a gangster or policeman</td>
-<td class="centre" colspan="1" rowspan="1"><a class="link" href="../asm/31476.html">31476</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../asm/7AF4.html">7AF4</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">1</td>
 <td class="" colspan="1" rowspan="1">Sam is immobilised (after meeting Lana)</td>
-<td class="centre" colspan="1" rowspan="1"><a class="link" href="../asm/24832.html">24832</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../asm/6100.html">6100</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">2</td>
@@ -1016,17 +1012,17 @@ Used by the routine at <a class="link" href="../asm/29912.html">29912</a> to dec
 <tr>
 <td class="centre" colspan="1" rowspan="1">3</td>
 <td class="" colspan="1" rowspan="1">Sam is rolling or somersaulting</td>
-<td class="centre" colspan="1" rowspan="1"><a class="link" href="../asm/25789.html#25805">25805</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../asm/64BD.html#64cd">64CD</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">4</td>
 <td class="" colspan="1" rowspan="1">Sam is on the phone</td>
-<td class="centre" colspan="1" rowspan="1"><a class="link" href="../asm/30675.html">30675</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../asm/77D3.html">77D3</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="5">5</td>
 <td class="" colspan="1" rowspan="1">Sam is blowing a fuse</td>
-<td class="centre" colspan="1" rowspan="5"><a class="link" href="../asm/30146.html">30146</a></td>
+<td class="centre" colspan="1" rowspan="5"><a href="../asm/75C2.html">75C2</a></td>
 </tr>
 <tr>
 <td class="" colspan="1" rowspan="1">Sam is switching a light on or off</td>
@@ -1043,12 +1039,12 @@ Used by the routine at <a class="link" href="../asm/29912.html">29912</a> to dec
 <tr>
 <td class="centre" colspan="1" rowspan="1">6</td>
 <td class="" colspan="1" rowspan="1">Sam is knocking on or opening a door</td>
-<td class="centre" colspan="1" rowspan="1"><a class="link" href="../asm/62216.html">62216</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../asm/F308.html">F308</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">7</td>
 <td class="" colspan="1" rowspan="1">Sam is falling from the roof of a building</td>
-<td class="centre" colspan="1" rowspan="1"><a class="link" href="../asm/64338.html#64403">64403</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../asm/FB52.html#fb93">FB93</a></td>
 </tr>
 </table>
 </div>
@@ -1058,13 +1054,13 @@ Used by the routine at <a class="link" href="../asm/29912.html">29912</a> to dec
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">253</td>
-<td class="map-g"><a name="32765"></a><a class="link" href="../asm/32765.html">32765</a></td>
+<td class="map-g"><span id="7ffd"></span><a href="../asm/7FFD.html">7FFD</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">Last key pressed</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Set by the main loop at <a class="link" href="../asm/61483.html">61483</a>, and checked by the routine at <a class="link" href="../asm/60641.html">60641</a>. Holds the value from the <a class="link" href="../asm/49968.html">keypress offset table</a> corresponding to the last key pressed.
+Set by the main loop at <a href="../asm/F02B.html">F02B</a>, and checked by the routine at <a href="../asm/ECE1.html">ECE1</a>. Holds the value from the <a href="../asm/C330.html">keypress offset table</a> corresponding to the last key pressed.
 </div>
 </div>
 </td>
@@ -1072,13 +1068,13 @@ Set by the main loop at <a class="link" href="../asm/61483.html">61483</a>, and 
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">254</td>
-<td class="map-g"><a name="32766"></a><a class="link" href="../asm/32766.html">32766</a></td>
+<td class="map-g"><span id="7ffe"></span><a href="../asm/7FFE.html">7FFE</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">x-coordinate of the leftmost column of the play area on screen</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Checked by many routines, and modified by the routines at <a class="link" href="../asm/59406.html">59406</a> and <a class="link" href="../asm/59461.html">59461</a>.
+Checked by many routines, and modified by the routines at <a href="../asm/E80E.html">E80E</a> and <a href="../asm/E845.html">E845</a>.
 </div>
 </div>
 </td>
@@ -1086,22 +1082,22 @@ Checked by many routines, and modified by the routines at <a class="link" href="
 <tr>
 <td class="map-page-0">127</td>
 <td class="map-byte-0">255</td>
-<td class="map-g"><a name="32767"></a><a class="link" href="../asm/32767.html">32767</a></td>
+<td class="map-g"><span id="7fff"></span><a href="../asm/7FFF.html">7FFF</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11">y-coordinate of the topmost row of the play area on screen</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Checked by many routines, and modified by the routines at <a class="link" href="../asm/59516.html">59516</a> and <a class="link" href="../asm/59575.html">59575</a>.
+Checked by many routines, and modified by the routines at <a href="../asm/E87C.html">E87C</a> and <a href="../asm/E8B7.html">E8B7</a>.
 </div>
 </div>
 </td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20150417</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
 </body>
 </html>

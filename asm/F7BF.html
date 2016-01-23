@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at F7BF</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F7B1.html">F7B1</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f7bf">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F7CD.html">F7CD</a></span></td>
+</tr>
+</table>
+<div class="description">F7BF: Make a character open a door that has been knocked on</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the command lists at <a href="FD4E.html">FD4E</a>, <a href="FE23.html">FE23</a>, <a href="FE58.html">FE58</a> and <a href="FE77.html">FE77</a>. Opens the door that the character is standing behind, and then rewinds the command list such that the character returns to the spot where he was walking up and down before going to answer the door.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-229)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f7bf"></span>F7BF</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the character number briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7c0"></span>F7C0</td>
+<td class="instruction">CALL <a href="F308.html#f32c">$F32C</a></td>
+<td class="comment-11" rowspan="1">Open the door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7c3"></span>F7C3</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7c4"></span>F7C4</td>
+<td class="instruction">LD L,$16</td>
+<td class="comment-11" rowspan="1">Byte 22 of the character's buffer holds the offset of the point reached in the command list</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7c6"></span>F7C6</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="3">Subtract 14 from this offset; this has the effect of sending the character back to the spot where he was walking up and down before answering the door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7c7"></span>F7C7</td>
+<td class="instruction">SUB $0E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7c9"></span>F7C9</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7ca"></span>F7CA</td>
+<td class="instruction">JP <a href="F280.html">$F280</a></td>
+<td class="comment-11" rowspan="1">Terminate this primary command</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F7B1.html">F7B1</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f7bf">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F7CD.html">F7CD</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

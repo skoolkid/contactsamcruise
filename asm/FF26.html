@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Data at FF26</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FF08.html">FF08</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#ff26">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FF44.html">FF44</a></span></td>
+</tr>
+</table>
+<div class="description">FF26: Initialisation parameters for character group 219</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="F7F0.html">F7F0</a>. The first set of parameters belongs to the character who owns character buffer <a href="DB00.html">219</a> when X&lt;=32 (where X is the leftmost column of the play area on screen).
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff26"></span>FF26</td>
+<td class="instruction">DEFB $20</td>
+<td class="comment-11" rowspan="1">Animatory state (<a href="../graphics/as.html#32">32</a>: gangster)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff27"></span>FF27</td>
+<td class="instruction">DEFB $14,$0D</td>
+<td class="comment-11" rowspan="1">Location (top floor of the apartment building next to no. 74, right-hand side)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff29"></span>FF29</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-11" rowspan="1">z-coordinate (indoors)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff2a"></span>FF2A</td>
+<td class="instruction">DEFW <a href="FD16.html">$FD16</a></td>
+<td class="comment-11" rowspan="1">Command list: Keep guard on the catwalk</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ff2c"></span>
+<div class="comments">
+<div class="paragraph">
+The next set of parameters belongs to the character who owns character buffer <a href="DB00.html">219</a> when 40&lt;=X&lt;=88.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff2c"></span>FF2C</td>
+<td class="instruction">DEFB $70</td>
+<td class="comment-11" rowspan="1">Animatory state (<a href="../graphics/as.html#112">112</a>: man in a baseball cap)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff2d"></span>FF2D</td>
+<td class="instruction">DEFB $48,$13</td>
+<td class="comment-11" rowspan="1">Location (third floor of the hotel, left-hand side)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff2f"></span>FF2F</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-11" rowspan="1">z-coordinate (indoors)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff30"></span>FF30</td>
+<td class="instruction">DEFW <a href="FDDF.html">$FDDF</a></td>
+<td class="comment-11" rowspan="1">Command list: Hotel walkabout</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ff32"></span>
+<div class="comments">
+<div class="paragraph">
+The next set of parameters belongs to the character who owns character buffer <a href="DB00.html">219</a> when 96&lt;=X&lt;=144.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff32"></span>FF32</td>
+<td class="instruction">DEFB $10</td>
+<td class="comment-11" rowspan="1">Animatory state (<a href="../graphics/as.html#16">16</a>: policeman)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff33"></span>FF33</td>
+<td class="instruction">DEFB $87,$13</td>
+<td class="comment-11" rowspan="1">Location (third floor of the police station, left-hand side)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff35"></span>FF35</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-11" rowspan="1">z-coordinate (indoors)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff36"></span>FF36</td>
+<td class="instruction">DEFW <a href="FCFC.html">$FCFC</a></td>
+<td class="comment-11" rowspan="1">Command list: Jail cell duty</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ff38"></span>
+<div class="comments">
+<div class="paragraph">
+The next set of parameters belongs to the character who owns character buffer <a href="DB00.html">219</a> when 152&lt;=X&lt;=200.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff38"></span>FF38</td>
+<td class="instruction">DEFB $58</td>
+<td class="comment-11" rowspan="1">Animatory state (<a href="../graphics/as.html#88">88</a>: lady with big hair)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff39"></span>FF39</td>
+<td class="instruction">DEFB $BB,$13</td>
+<td class="comment-11" rowspan="1">Location (third floor of the apartment building next to no. 19, left-hand side)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff3b"></span>FF3B</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-11" rowspan="1">z-coordinate (indoors)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff3c"></span>FF3C</td>
+<td class="instruction">DEFW <a href="FE96.html">$FE96</a></td>
+<td class="comment-11" rowspan="1">Command list: Walk up and down for ever</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ff3e"></span>
+<div class="comments">
+<div class="paragraph">
+The next set of parameters belongs to the character who owns character buffer <a href="DB00.html">219</a> when X&gt;=208.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff3e"></span>FF3E</td>
+<td class="instruction">DEFB $50</td>
+<td class="comment-11" rowspan="1">Animatory state (<a href="../graphics/as.html#80">80</a>: lady in a hat)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff3f"></span>FF3F</td>
+<td class="instruction">DEFB $F8,$13</td>
+<td class="comment-11" rowspan="1">Location (third floor of no. 15)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff41"></span>FF41</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-11" rowspan="1">z-coordinate (indoors)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ff42"></span>FF42</td>
+<td class="instruction">DEFW <a href="FDEA.html">$FDEA</a></td>
+<td class="comment-11" rowspan="1">Command list: No. 15 walkabout</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FF08.html">FF08</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#ff26">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FF44.html">FF44</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

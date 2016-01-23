@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at F280</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F1FC.html">F1FC</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f280">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F293.html">F293</a></span></td>
+</tr>
+</table>
+<div class="description">F280: Terminate a command</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The main entry point is used by the routines at <a href="7A57.html">7A57</a>, <a href="F600.html">F600</a>, <a href="F6DE.html">F6DE</a>, <a href="F748.html">F748</a> and <a href="F7BF.html">F7BF</a>. Removes the primary command routine address from bytes 8 and 9 of the character's buffer, which has the effect of making the routine at <a href="F1FC.html">F1FC</a> move immediately to the next command in the command list.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f280"></span>F280</td>
+<td class="instruction">LD L,$09</td>
+<td class="comment-11" rowspan="1">Byte 9 of the buffer contains the MSB of the primary command routine address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f282"></span>F282</td>
+<td class="instruction">JR $F28A</td>
+<td class="comment-11" rowspan="1">Jump forward to replace it with 0</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f284"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="621E.html">621E</a>, <a href="F359.html">F359</a>, <a href="F383.html">F383</a>, <a href="F5AC.html">F5AC</a>, <a href="F5CE.html">F5CE</a>, <a href="F6E9.html">F6E9</a> and <a href="F846.html">F846</a>. Removes the interruptible subcommand routine address from bytes 14 and 15 of the character's buffer, which has the effect of making the routine at <a href="F1FC.html">F1FC</a> immediately hand control of the character back to the primary command.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f284"></span>F284</td>
+<td class="instruction">LD L,$0F</td>
+<td class="comment-11" rowspan="1">Byte 15 of the buffer contains the MSB of the interruptible subcommand routine address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f286"></span>F286</td>
+<td class="instruction">JR $F28A</td>
+<td class="comment-11" rowspan="1">Jump forward to replace it with 0</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f288"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="FA83.html">FA83</a> and <a href="FB4B.html">FB4B</a>. Removes the uninterruptible subcommand routine address from bytes 18 and 19 of the character's buffer, which has the effect of making the routine at <a href="F1FC.html">F1FC</a> immediately hand control of the character back to the interruptible subcommand or the primary command.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f288"></span>F288</td>
+<td class="instruction">LD L,$13</td>
+<td class="comment-11" rowspan="1">Byte 19 of the buffer contains the MSB of the uninterruptible subcommand routine address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f28a"></span>F28A</td>
+<td class="instruction">LD A,($7FFB)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character being moved (215-229)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f28d"></span>F28D</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-11" rowspan="2">Zero out the relevant routine address MSB (in byte 9, 15 or 19) in the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f28e"></span>F28E</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f290"></span>F290</td>
+<td class="instruction">JP <a href="F1FC.html#f24d">$F24D</a></td>
+<td class="comment-11" rowspan="1">Re-enter the character-moving routine (<a href="F1FC.html">F1FC</a>) at the checkpoint for the interruptible subcommand</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F1FC.html">F1FC</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f280">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F293.html">F293</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

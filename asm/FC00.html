@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at FC00</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FB52.html">FB52</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fc00">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FC25.html">FC25</a></span></td>
+</tr>
+</table>
+<div class="description">FC00: Deal with a character who is stepping onto or over the roof of no. 19</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="FB52.html">FB52</a>. If the character is about to step off the edge of the roof of no. 17 or the apartment building next to no. 19 towards no. 19, this routine checks whether there is a rope above the roof of no. 19 and moves the character accordingly. Otherwise, if the character is about to move left onto the roof of no. 17 (having just crossed the roof of no. 19 by means of the rope), this routine removes the rope.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">Location indicator (2-6; see <a href="FB52.html">FB52</a>)</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-230)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fc00"></span>FC00</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=location indicator</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc01"></span>FC01</td>
+<td class="instruction">CP $02</td>
+<td class="comment-11" rowspan="1">Is the character standing on the right edge of the roof of one of the apartment buildings (next to no. 74 and no. 19), or on the left edge of the roof of no. 17?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc03"></span>FC03</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc04"></span>FC04</td>
+<td class="instruction">LD L,$01</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc06"></span>FC06</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc07"></span>FC07</td>
+<td class="instruction">CP $CE</td>
+<td class="comment-11" rowspan="1">Is it less than 206 (meaning the character is standing on the right edge of the roof of the apartment building next to no. 74)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc09"></span>FC09</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc0a"></span>FC0A</td>
+<td class="instruction">JR NZ,$FC16</td>
+<td class="comment-11" rowspan="1">Jump unless the character's x-coordinate is 206</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fc0c"></span>
+<div class="comments">
+<div class="paragraph">
+The character is standing on the right edge of the roof the apartment building next to no. 19, or the left edge of the roof of no. 17.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fc0c"></span>FC0C</td>
+<td class="instruction">LD A,($B91A)</td>
+<td class="comment-11" rowspan="1">Collect the Z value for 208&lt;=x&lt;=215, 6&lt;=y&lt;=11 from the block at <a href="B900.html">B900</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc0f"></span>FC0F</td>
+<td class="instruction">CP $0B</td>
+<td class="comment-11" rowspan="1">Is there a rope connecting the roofs of no. 17 and the apartment building next to no. 19 (in which case <span class="register">A</span>=9)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc11"></span>FC11</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fc12"></span>FC12</td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Drop the return address (<a href="FB52.html#fb55">FB55</a>) from the stack</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc13"></span>FC13</td>
+<td class="instruction">JP <a href="EBBB.html#ec07">$EC07</a></td>
+<td class="comment-11" rowspan="1">Move the character midstride</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fc16"></span>
+<div class="comments">
+<div class="paragraph">
+The character is standing on the left edge of the roof of no. 17.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fc16"></span>FC16</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc17"></span>FC17</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Is the character facing left?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc19"></span>FC19</td>
+<td class="instruction">JR Z,$FC0C</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fc1b"></span>
+<div class="comments">
+<div class="paragraph">
+The character is about to move right, away from the left edge of the roof of no. 17.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc1b"></span>FC1B</td>
+<td class="instruction">LD A,($B91A)</td>
+<td class="comment-11" rowspan="1">Collect the Z value for 208&lt;=x&lt;=215, 6&lt;=y&lt;=11 from the block at <a href="B900.html">B900</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc1e"></span>FC1E</td>
+<td class="instruction">CP $0B</td>
+<td class="comment-11" rowspan="1">Is there a rope connecting the roofs of no. 17 and the apartment building next to no. 19 (in which case <span class="register">A</span>=9)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc20"></span>FC20</td>
+<td class="instruction">CALL NZ,<a href="FC25.html">$FC25</a></td>
+<td class="comment-11" rowspan="1">Remove it if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc23"></span>FC23</td>
+<td class="instruction">JR $FC12</td>
+<td class="comment-11" rowspan="1">Move the character midstride</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FB52.html">FB52</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fc00">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FC25.html">FC25</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

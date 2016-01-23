@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 80CC</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="start-Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Startup routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-0">Prev: <a href=""></a></span></td>
+<td class="up">Up: <a href="start.html#80cc">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="81C8.html">81C8</a></span></td>
+</tr>
+</table>
+<div class="description">80CC: Copy data from a row of the screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="81C8.html">81C8</a>. Copies 256 bytes of data from a row of the screen to its destination, in eight 32-byte blocks.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Source (16384 or 20704)</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Destination (23904 or 24160)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="80cc"></span>80CC</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="80cd"></span>80CD</td>
+<td class="instruction">LD BC,$0020</td>
+<td class="comment-11" rowspan="1">There are 32 bytes per block (row of pixels)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="80d0"></span>80D0</td>
+<td class="instruction">LDIR</td>
+<td class="comment-11" rowspan="1">Copy 32 bytes to the destination</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="80d2"></span>80D2</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="80d3"></span>80D3</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next block of 32 bytes to copy</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="80d4"></span>80D4</td>
+<td class="instruction">BIT 3,H</td>
+<td class="comment-11" rowspan="1">Have we copied 8 blocks yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="80d6"></span>80D6</td>
+<td class="instruction">JR Z,$80CC</td>
+<td class="comment-11" rowspan="1">Jump back if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="80d8"></span>80D8</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-0">Prev: <a href=""></a></span></td>
+<td class="up">Up: <a href="start.html#80cc">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="81C8.html">81C8</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 7CD8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7CC8.html">7CC8</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7cd8">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7CFE.html">7CFE</a></span></td>
+</tr>
+</table>
+<div class="description">7CD8: Take the hook and budgie from Sam</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="FB52.html">FB52</a>. Removes the hook and the budgie from Sam's possession if he has either one.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7cd8"></span>7CD8</td>
+<td class="instruction">LD HL,$7D1C</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the object location table at <a href="7D1C.html">7D1C</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7cdb"></span>7CDB</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the first byte of an entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cdc"></span>7CDC</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1">Have we reached the end of the table?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cdd"></span>7CDD</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cde"></span>7CDE</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="3">Point <span class="register">HL</span> at the last byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cdf"></span>7CDF</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ce0"></span>7CE0</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ce1"></span>7CE1</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="1">Is the entry active?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ce2"></span>7CE2</td>
+<td class="instruction">JR C,$7CFB</td>
+<td class="comment-11" rowspan="1">Jump to the next entry if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ce4"></span>7CE4</td>
+<td class="instruction">AND $20</td>
+<td class="comment-11" rowspan="1">Is the entry for the hook or budgie?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ce6"></span>7CE6</td>
+<td class="instruction">JR Z,$7CFB</td>
+<td class="comment-11" rowspan="1">Jump to the next entry if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ce8"></span>7CE8</td>
+<td class="instruction">LD A,($7FE9)</td>
+<td class="comment-11" rowspan="1">Collect the object inventory flags from <a href="7FE9.html">7FE9</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ceb"></span>7CEB</td>
+<td class="instruction">AND (HL)</td>
+<td class="comment-11" rowspan="1">Does Sam have this object?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cec"></span>7CEC</td>
+<td class="instruction">JR Z,$7CFB</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cee"></span>7CEE</td>
+<td class="instruction">LD A,($7FE9)</td>
+<td class="comment-11" rowspan="3">Take the object from Sam by resetting the appropriate bit at <a href="7FE9.html">7FE9</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cf1"></span>7CF1</td>
+<td class="instruction">XOR (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cf2"></span>7CF2</td>
+<td class="instruction">LD ($7FE9),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cf5"></span>7CF5</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-11" rowspan="3">Point <span class="register">HL</span> at the first byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cf6"></span>7CF6</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cf7"></span>7CF7</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cf8"></span>7CF8</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Activate the entry by resetting bit 0 of the first byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cf9"></span>7CF9</td>
+<td class="instruction">JR $7CDB</td>
+<td class="comment-11" rowspan="1">Jump back to scan the remaining entries</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7cfb"></span>7CFB</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Move <span class="register">HL</span> along to the first byte of the next entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7cfc"></span>7CFC</td>
+<td class="instruction">JR $7CDB</td>
+<td class="comment-11" rowspan="1">Jump back to scan this entry</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7CC8.html">7CC8</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7cd8">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7CFE.html">7CFE</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

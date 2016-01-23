@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at E9D5</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="E9C8.html">E9C8</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#e9d5">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="EA80.html">EA80</a></span></td>
+</tr>
+</table>
+<div class="description">E9D5: Update a character's animatory state and location and update the SRB</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="634C.html">634C</a>, <a href="64BD.html">64BD</a>, <a href="6670.html">6670</a>, <a href="71DD.html">71DD</a>, <a href="790D.html">790D</a>, <a href="79E4.html">79E4</a>, <a href="7AF4.html">7AF4</a>, <a href="7BB6.html">7BB6</a>, <a href="7BE1.html">7BE1</a>, <a href="EBBB.html">EBBB</a>, <a href="EC5A.html">EC5A</a>, <a href="F338.html">F338</a>, <a href="F375.html">F375</a>, <a href="F731.html">F731</a>, <a href="F846.html">F846</a>, <a href="F9D2.html">F9D2</a>, <a href="FA83.html">FA83</a> and <a href="FAE3.html">FAE3</a>. Sets the new animatory state and location of a character, and updates the <a href="7F00.html">screen refresh buffer</a> (SRB) accordingly.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">New animatory state</td>
+</tr>
+<tr>
+<td class="register">D</td>
+<td class="register-desc">New y-coordinate</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">New x-coordinate</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-230)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="e9d5"></span>E9D5</td>
+<td class="instruction">LD L,$02</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9d7"></span>E9D7</td>
+<td class="instruction">LD (HL),D</td>
+<td class="comment-11" rowspan="1">Fill in the new y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9d8"></span>E9D8</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9d9"></span>E9D9</td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-11" rowspan="1">Fill in the new x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9da"></span>E9DA</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9db"></span>E9DB</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="1">Fill in the new animatory state</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="e9dc"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="E9C8.html">E9C8</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="e9dc"></span>E9DC</td>
+<td class="instruction">LD BC,$0202</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=2, <span class="register">C</span>=2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9df"></span>E9DF</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9e0"></span>E9E0</td>
+<td class="instruction">AND $7F</td>
+<td class="comment-11" rowspan="1">Clear the 'direction' bit (bit 7)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9e2"></span>E9E2</td>
+<td class="instruction">ADD A,$88</td>
+<td class="comment-11" rowspan="1">Is the animatory state &gt;= <a href="../graphics/as.html#120">120</a>?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9e4"></span>E9E4</td>
+<td class="instruction">JR C,$E9F1</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9e6"></span>E9E6</td>
+<td class="instruction">LD BC,$0503</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=5, <span class="register">C</span>=3</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9e9"></span>E9E9</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="2">Is the animatory state equal to 7 mod 8?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9ea"></span>E9EA</td>
+<td class="instruction">AND $07</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9ec"></span>E9EC</td>
+<td class="instruction">JR NZ,$E9F1</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9ee"></span>E9EE</td>
+<td class="instruction">LD BC,$0305</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=3, <span class="register">C</span>=5</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="e9f1"></span>
+<div class="comments">
+<div class="paragraph">
+Now <span class="register">B</span> holds the height of the sprite in tiles, and <span class="register">C</span> holds the width.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="e9f1"></span>E9F1</td>
+<td class="instruction">LD A,($7FFF)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Y, the y-coordinate of the topmost row of the play area on screen (2-20)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9f4"></span>E9F4</td>
+<td class="instruction">SUB B</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Y-<span class="register">B</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9f5"></span>E9F5</td>
+<td class="instruction">JR C,$E9F9</td>
+<td class="comment-11" rowspan="1">Jump if <span class="register">B</span>&gt;Y</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9f7"></span>E9F7</td>
+<td class="instruction">CP D</td>
+<td class="comment-11" rowspan="1">Is the character entirely above the portion of the play area currently on screen?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9f8"></span>E9F8</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="e9f9"></span>E9F9</td>
+<td class="instruction">ADD A,B</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Y</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9fa"></span>E9FA</td>
+<td class="instruction">ADD A,$13</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the bottom row of the play area on screen (21-39)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9fc"></span>E9FC</td>
+<td class="instruction">SUB D</td>
+<td class="comment-11" rowspan="1">Is the character entirely below the portion of the play area currently on screen?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9fd"></span>E9FD</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9fe"></span>E9FE</td>
+<td class="instruction">CPL</td>
+<td class="comment-11" rowspan="4"><span class="register">A</span>=4*(<span class="register">D</span>-Y+4)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e9ff"></span>E9FF</td>
+<td class="instruction">ADD A,$18</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea01"></span>EA01</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea02"></span>EA02</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea03"></span>EA03</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-11" rowspan="1">Copy this value (0, 4, 8, 12,...92) to <span class="register">D</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea04"></span>EA04</td>
+<td class="instruction">LD A,($7FFE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=X, the x-coordinate of the leftmost column of the play area on screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea07"></span>EA07</td>
+<td class="instruction">SUB C</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=X-<span class="register">C</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea08"></span>EA08</td>
+<td class="instruction">JR C,$EA0C</td>
+<td class="comment-11" rowspan="1">Jump if <span class="register">C</span>&gt;X</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea0a"></span>EA0A</td>
+<td class="instruction">CP E</td>
+<td class="comment-11" rowspan="1">Is the character entirely off-screen to the left?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea0b"></span>EA0B</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ea0c"></span>EA0C</td>
+<td class="instruction">ADD A,C</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=X</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea0d"></span>EA0D</td>
+<td class="instruction">ADD A,$1F</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the rightmost column of the play area on screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea0f"></span>EA0F</td>
+<td class="instruction">SUB E</td>
+<td class="comment-11" rowspan="1">Is the character entirely off-screen to the right?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea10"></span>EA10</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ea11"></span>
+<div class="comments">
+<div class="paragraph">
+If we get here, then the character's sprite (or at least a portion of it) is on-screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea11"></span>EA11</td>
+<td class="instruction">CPL</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=<span class="register">E</span>-X: the character's screen x-coordinate (-4 to 31)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea12"></span>EA12</td>
+<td class="instruction">ADD A,$20</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea14"></span>EA14</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save this temporarily</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea15"></span>EA15</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea16"></span>EA16</td>
+<td class="instruction">AND $07</td>
+<td class="comment-11" rowspan="1">Set the zero flag if the animatory state is 0 mod 8</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea18"></span>EA18</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea19"></span>EA19</td>
+<td class="instruction">JR NZ,$EA1D</td>
+<td class="comment-11" rowspan="1">Jump unless the animatory state is 0 mod 8</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea1b"></span>EA1B</td>
+<td class="instruction">ADD A,$02</td>
+<td class="comment-11" rowspan="1">Add 2 if the animatory state is congruent to 0 mod 8</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ea1d"></span>EA1D</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Push the sprite dimensions onto the stack</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea1e"></span>EA1E</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea1f"></span>EA1F</td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Retrieve the sprite dimensions in <span class="register">BC'</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea20"></span>EA20</td>
+<td class="instruction">LD H,$D7</td>
+<td class="comment-11" rowspan="1">Page 215 holds sprite tile references for the top-left tile (tile 0) in the left-facing sprites</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea22"></span>EA22</td>
+<td class="instruction">LD D,B</td>
+<td class="comment-11" rowspan="1"><span class="register">D'</span>=sprite height (2, 3 or 5)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea23"></span>EA23</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="3">Set bit 7 of <span class="register">A</span>, and set the carry flag if the character is facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea24"></span>EA24</td>
+<td class="instruction">SCF</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea25"></span>EA25</td>
+<td class="instruction">RRA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea26"></span>EA26</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1"><span class="register">L'</span>=character's animatory state (with bit 7 set)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea27"></span>EA27</td>
+<td class="instruction">JR NC,$EA34</td>
+<td class="comment-11" rowspan="1">Jump if the character is facing left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea29"></span>EA29</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="3"><span class="register">D'</span>=-<span class="register">B'</span> (negative sprite height)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea2a"></span>EA2A</td>
+<td class="instruction">SUB B</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea2b"></span>EA2B</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea2c"></span>EA2C</td>
+<td class="instruction">LD E,C</td>
+<td class="comment-11" rowspan="2"><span class="register">E'</span>=<span class="register">C'</span>-1 (sprite width minus 1)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea2d"></span>EA2D</td>
+<td class="instruction">DEC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea2e"></span>EA2E</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=215 (page containing references for sprite tile 0)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ea2f"></span>EA2F</td>
+<td class="instruction">ADD A,B</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=215+<span class="register">B'</span>*(<span class="register">C'</span>-1)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea30"></span>EA30</td>
+<td class="instruction">DEC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea31"></span>EA31</td>
+<td class="instruction">JR NZ,$EA2F</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea33"></span>EA33</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-11" rowspan="1">Copy this value to <span class="register">H'</span></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ea34"></span>
+<div class="comments">
+<div class="paragraph">
+Now <span class="register">HL'</span> points at the sprite tile reference for the top-left tile in the character's sprite.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ea34"></span>EA34</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the character's screen x-coordinate to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea35"></span>EA35</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1">Copy it to <span class="register">E'</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea36"></span>EA36</td>
+<td class="instruction">JR C,$EA3F</td>
+<td class="comment-11" rowspan="1">Jump if <span class="register">E'</span>&gt;=0 (meaning that the leftmost tiles in the character's sprite are on-screen)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea38"></span>EA38</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="5"><span class="register">A</span>=<span class="register">H'</span>-<span class="register">D'</span>*<span class="register">E'</span> (sprite tile reference page number); <span class="register">C'</span>=<span class="register">C'</span>+<span class="register">E'</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ea39"></span>EA39</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea3a"></span>EA3A</td>
+<td class="instruction">DEC C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea3b"></span>EA3B</td>
+<td class="instruction">INC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea3c"></span>EA3C</td>
+<td class="instruction">JR NZ,$EA39</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea3e"></span>EA3E</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-11" rowspan="1">Copy the sprite tile reference page number to <span class="register">H'</span></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ea3f"></span>
+<div class="comments">
+<div class="paragraph">
+Now <span class="register">HL'</span> points at the sprite tile reference for the tile in the top row and the leftmost column of the character's sprite that is on-screen. <span class="register">C'</span> holds the number of tile columns of the character's sprite that are to the right of the left edge of the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ea3f"></span>EA3F</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the screen occupied by the sprite (0-31)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea40"></span>EA40</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea41"></span>EA41</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=leftmost column of the screen occupied by the sprite</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea42"></span>EA42</td>
+<td class="instruction">AND $07</td>
+<td class="comment-11" rowspan="4">Point <span class="register">BC</span> at byte 21 of page 160+(<span class="register">E</span>%8)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea44"></span>EA44</td>
+<td class="instruction">ADD A,$A0</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea46"></span>EA46</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea47"></span>EA47</td>
+<td class="instruction">LD C,$15</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea49"></span>EA49</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-11" rowspan="1">Pick up the contents in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea4a"></span>EA4A</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">Copy them to <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ea4b"></span>
+<div class="comments">
+<div class="paragraph">
+Now <span class="register">C</span> holds 1, 2, 4, 8, 16, 32, 64 or 128. The bit set in <span class="register">C</span> corresponds to the bit that needs to be set in the relevant byte of the screen refresh buffer (SRB).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea4b"></span>EA4B</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the screen occupied by the sprite (0-31)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea4c"></span>EA4C</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="5">Set <span class="register">A</span> to the LSB of the first byte of the SRB that needs to be modified: <span class="register">D</span>+INT(<span class="register">E</span>/8)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea4d"></span>EA4D</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea4e"></span>EA4E</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea4f"></span>EA4F</td>
+<td class="instruction">AND $03</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea51"></span>EA51</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea52"></span>EA52</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-11" rowspan="1">Copy this LSB to <span class="register">B</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea53"></span>EA53</td>
+<td class="instruction">LD D,$7F</td>
+<td class="comment-11" rowspan="1">The SRB is in page 127</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea55"></span>EA55</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ea56"></span>
+<div class="comments">
+<div class="paragraph">
+Here we enter a loop to set the appropriate bits in the SRB. At this point <span class="register">B'</span> holds the number of tile rows in the sprite (2, 3, or 5) and <span class="register">C'</span> holds the number of tile columns of the sprite that are to the right of the left edge of the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ea56"></span>EA56</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Save the tile row and column counters temporarily</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea57"></span>EA57</td>
+<td class="instruction">LD E,$00</td>
+<td class="comment-11" rowspan="1">Start at sprite tile row 0 (top row)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ea59"></span>EA59</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the sprite tile reference in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea5a"></span>EA5A</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is this the 'null' tile (blank square)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea5b"></span>EA5B</td>
+<td class="instruction">JR Z,$EA67</td>
+<td class="comment-11" rowspan="1">Jump if so (no need to set a bit in the SRB)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea5d"></span>EA5D</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=sprite tile row number (0-4)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea5e"></span>EA5E</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea5f"></span>EA5F</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="2">Multiply by 4 (the number of bytes of the SRB that correspond to one row of the screen)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea60"></span>EA60</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea61"></span>EA61</td>
+<td class="instruction">ADD A,B</td>
+<td class="comment-11" rowspan="2">Point <span class="register">DE</span> at the relevant byte of the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea62"></span>EA62</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea63"></span>EA63</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1">Pick up the SRB byte in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea64"></span>EA64</td>
+<td class="instruction">OR C</td>
+<td class="comment-11" rowspan="1">Make sure the appropriate bit is set</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea65"></span>EA65</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-11" rowspan="1">Restore the SRB byte with the appropriate bit set</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea66"></span>EA66</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ea67"></span>EA67</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at the reference for the next tile in the sprite (one row down)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea68"></span>EA68</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Next row down in this column of the sprite</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea69"></span>EA69</td>
+<td class="instruction">DJNZ $EA59</td>
+<td class="comment-11" rowspan="1">Jump back until we've set all the SRB bits for this tile column of the sprite</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea6b"></span>EA6B</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="5">Point <span class="register">HL'</span> at the reference for the tile in the top row of the next column of the sprite</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea6c"></span>EA6C</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea6d"></span>EA6D</td>
+<td class="instruction">POP BC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea6e"></span>EA6E</td>
+<td class="instruction">SUB B</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea6f"></span>EA6F</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea70"></span>EA70</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea71"></span>EA71</td>
+<td class="instruction">RRC C</td>
+<td class="comment-11" rowspan="1">Move the SRB marker bit in <span class="register">C</span> one place to the right (possibly wrapping round to bit 7)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea73"></span>EA73</td>
+<td class="instruction">JR NC,$EA7A</td>
+<td class="comment-11" rowspan="1">Jump if there are still bits to be set in the current SRB byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea75"></span>EA75</td>
+<td class="instruction">INC B</td>
+<td class="comment-11" rowspan="1">Otherwise move along to the next byte in the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea76"></span>EA76</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=LSB of the next SRB byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea77"></span>EA77</td>
+<td class="instruction">AND $03</td>
+<td class="comment-11" rowspan="1">Does the next SRB byte correspond to a segment in the leftmost 8 columns of the screen (i.e. have we wrapped around from right to left)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea79"></span>EA79</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if so (any remaining sprite tile columns are off-screen to the right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ea7a"></span>EA7A</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea7b"></span>EA7B</td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1">Next sprite tile column</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea7c"></span>EA7C</td>
+<td class="instruction">JR NZ,$EA56</td>
+<td class="comment-11" rowspan="1">Jump back until the relevant SRB bits for every sprite tile column have been set</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea7e"></span>EA7E</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ea7f"></span>EA7F</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="E9C8.html">E9C8</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#e9d5">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="EA80.html">EA80</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

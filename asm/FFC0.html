@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Data at FFC0</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FFB6.html">FFB6</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#ffc0">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FFE0.html">FFE0</a></span></td>
+</tr>
+</table>
+<div class="description">FFC0: Locations affected by blown fuses</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="714C.html">714C</a>, <a href="F404.html">F404</a> and <a href="F7DA.html">F7DA</a>. Each of the 32 bytes in this data table corresponds to an 8-column-wide segment of the play area: the first byte to x-coordinates 0-7, the second byte to x-coordinates 8-15 and so on. Each value is the LSB of the address of the game status buffer variable that holds the delay counter for the fuse (if any) that affects the segment (see <a href="7FA2.html">7FA2</a>).
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ffc0"></span>FFC0</td>
+<td class="instruction">DEFB $A8,$A8,$A8,$A8</td>
+<td class="comment-11" rowspan="1">0&lt;=x&lt;32: no fuses here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ffc4"></span>FFC4</td>
+<td class="instruction">DEFB $A2,$A2,$A2</td>
+<td class="comment-11" rowspan="1">32&lt;=x&lt;56: no. 74</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ffc7"></span>FFC7</td>
+<td class="instruction">DEFB $A3,$A3,$A3,$A3,$A3,$A3</td>
+<td class="comment-11" rowspan="1">56&lt;=x&lt;104: hotel</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ffcd"></span>FFCD</td>
+<td class="instruction">DEFB $A4,$A4</td>
+<td class="comment-11" rowspan="1">104&lt;=x&lt;120: no. 31</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ffcf"></span>FFCF</td>
+<td class="instruction">DEFB $A8,$A8,$A8,$A8,$A8,$A8,$A8,$A8,$A8,$A8,$A8</td>
+<td class="comment-11" rowspan="1">120&lt;=x&lt;208: no fuses here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ffda"></span>FFDA</td>
+<td class="instruction">DEFB $A5,$A5</td>
+<td class="comment-11" rowspan="1">208&lt;=x&lt;224: no. 19</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ffdc"></span>FFDC</td>
+<td class="instruction">DEFB $A6,$A6</td>
+<td class="comment-11" rowspan="1">224&lt;=x&lt;240: no. 17</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ffde"></span>FFDE</td>
+<td class="instruction">DEFB $A7,$A7</td>
+<td class="comment-11" rowspan="1">240&lt;=x&lt;256: no. 15</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FFB6.html">FFB6</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#ffc0">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FFE0.html">FFE0</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

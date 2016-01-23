@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Data at 647C</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="647B.html">647B</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#647c">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6494.html">6494</a></span></td>
+</tr>
+</table>
+<div class="description">647C: Animation phase table for Sam when rolling</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="64B8.html">64B8</a>. Each entry in this table comprises 4 bytes. The first entry corresponds to animation phase 1.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="647c"></span>647C</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-11" rowspan="1">x-coordinate increment (if facing left)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="647d"></span>647D</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-11" rowspan="1">x-coordinate increment (if facing right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="647e"></span>647E</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-11" rowspan="1">y-coordinate increment</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="647f"></span>647F</td>
+<td class="instruction">DEFB $06</td>
+<td class="comment-11" rowspan="1">Bits 0-6: base animatory state (<a href="../graphics/as.html#6">6</a>); bit 7 reset: Sam cannot land on his feet yet</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6480"></span>
+<div class="comments">
+<div class="paragraph">
+The next entry corresponds to animation phase 2.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6480"></span>6480</td>
+<td class="instruction">DEFB $FD</td>
+<td class="comment-11" rowspan="1">x-coordinate increment (if facing left)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6481"></span>6481</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-11" rowspan="1">x-coordinate increment (if facing right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6482"></span>6482</td>
+<td class="instruction">DEFB $02</td>
+<td class="comment-11" rowspan="1">y-coordinate increment</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6483"></span>6483</td>
+<td class="instruction">DEFB $0F</td>
+<td class="comment-11" rowspan="1">Bits 0-6: base animatory state (<a href="../graphics/as.html#15">15</a>); bit 7 reset: Sam cannot land on his feet yet</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6484"></span>
+<div class="comments">
+<div class="paragraph">
+The next entry corresponds to animation phase 3.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6484"></span>6484</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-11" rowspan="1">x-coordinate increment (if facing left)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6485"></span>6485</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-11" rowspan="1">x-coordinate increment (if facing right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6486"></span>6486</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-11" rowspan="1">y-coordinate increment</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6487"></span>6487</td>
+<td class="instruction">DEFB $09</td>
+<td class="comment-11" rowspan="1">Bits 0-6: base animatory state (<a href="../graphics/as.html#9">9</a>); bit 7 reset: Sam cannot land on his feet yet</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6488"></span>
+<div class="comments">
+<div class="paragraph">
+The next entry corresponds to animation phase 4.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6488"></span>6488</td>
+<td class="instruction">DEFB $FE</td>
+<td class="comment-11" rowspan="1">x-coordinate increment (if facing left)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6489"></span>6489</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-11" rowspan="1">x-coordinate increment (if facing right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="648a"></span>648A</td>
+<td class="instruction">DEFB $02</td>
+<td class="comment-11" rowspan="1">y-coordinate increment</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="648b"></span>648B</td>
+<td class="instruction">DEFB $1F</td>
+<td class="comment-11" rowspan="1">Bits 0-6: base animatory state (<a href="../graphics/as.html#31">31</a>); bit 7 reset: Sam cannot land on his feet yet</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="648c"></span>
+<div class="comments">
+<div class="paragraph">
+The next entry corresponds to animation phase 5.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="648c"></span>648C</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-11" rowspan="1">x-coordinate increment (if facing left)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="648d"></span>648D</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-11" rowspan="1">x-coordinate increment (if facing right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="648e"></span>648E</td>
+<td class="instruction">DEFB $FC</td>
+<td class="comment-11" rowspan="1">y-coordinate increment</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="648f"></span>648F</td>
+<td class="instruction">DEFB $8A</td>
+<td class="comment-11" rowspan="1">Bits 0-6: base animatory state (<a href="../graphics/as.html#10">10</a>); bit 7 set: check whether Sam has landed on his feet</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6490"></span>
+<div class="comments">
+<div class="paragraph">
+The next entry corresponds to animation phase 6.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6490"></span>6490</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-11" rowspan="1">x-coordinate increment (if facing left)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6491"></span>6491</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-11" rowspan="1">x-coordinate increment (if facing right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6492"></span>6492</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-11" rowspan="1">y-coordinate increment</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6493"></span>6493</td>
+<td class="instruction">DEFB $80</td>
+<td class="comment-11" rowspan="1">Bits 0-6: base animatory state (<a href="../graphics/as.html#0">0</a>); bit 7 set: check whether Sam has landed on his feet</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="647B.html">647B</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#647c">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6494.html">6494</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 7AB6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7AB5.html">7AB5</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7ab6">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7AE2.html">7AE2</a></span></td>
+</tr>
+</table>
+<div class="description">7AB6: Increment the score and decrement Sam's cash supply at regular intervals</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="F000.html">F000</a>. Increments the score and decrements Sam's cash supply every 5.12s. Displays the endgame cutscene and enters demo mode if Sam runs out of money.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7ab6"></span>7AB6</td>
+<td class="instruction">LD A,($7FEE)</td>
+<td class="comment-11" rowspan="1">Collect the current game mode (0-4) from <a href="7FEE.html">7FEE</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ab9"></span>7AB9</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is it demo mode?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7aba"></span>7ABA</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7abb"></span>7ABB</td>
+<td class="instruction">LD HL,($5C78)</td>
+<td class="comment-11" rowspan="1">Collect the two least significant bytes of the system variable FRAMES in <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7abe"></span>7ABE</td>
+<td class="instruction">LD DE,($7FD4)</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=two least significant bytes of the system variable FRAMES as they were the last time the score was incremented</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ac2"></span>7AC2</td>
+<td class="instruction">LD BC,$FF00</td>
+<td class="comment-11" rowspan="1"><span class="register">BC</span>=-256</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ac5"></span>7AC5</td>
+<td class="instruction">SBC HL,DE</td>
+<td class="comment-11" rowspan="2">Was the score last incremented at least 5.12s ago?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ac7"></span>7AC7</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ac8"></span>7AC8</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ac9"></span>7AC9</td>
+<td class="instruction">LD HL,($5C78)</td>
+<td class="comment-11" rowspan="1">Collect the two least significant bytes of the system variable FRAMES in <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7acc"></span>7ACC</td>
+<td class="instruction">LD ($7FD4),HL</td>
+<td class="comment-11" rowspan="1">Store these bytes at <a href="7FD4.html">7FD4</a> for comparison next time</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7acf"></span>7ACF</td>
+<td class="instruction">CALL <a href="6EB1.html">$6EB1</a></td>
+<td class="comment-11" rowspan="1">Increment the score and decrement Sam's cash supply</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ad2"></span>7AD2</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return unless Sam has no money left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ad3"></span>7AD3</td>
+<td class="instruction">LD A,$22</td>
+<td class="comment-11" rowspan="1">Message <a href="6992.html">34</a>: 'I WAS BROKE AGAIN...'</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="7ad5"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="6100.html">6100</a>, <a href="6592.html">6592</a> and <a href="FB52.html">FB52</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7ad5"></span>7AD5</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save the message number briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ad6"></span>7AD6</td>
+<td class="instruction">LD A,$39</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=57, <span class="register">D</span>=8, <span class="register">E</span>=216: the top-left corner of the cutscene window will be at (224,19), with Sam at (229,19) (in his office)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ad8"></span>7AD8</td>
+<td class="instruction">LD DE,$08D8</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="7adb"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="7B9A.html">7B9A</a> and <a href="F8AE.html">F8AE</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7adb"></span>7ADB</td>
+<td class="instruction">CALL <a href="7866.html">$7866</a></td>
+<td class="comment-11" rowspan="1">Prepare for the cutscene</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ade"></span>7ADE</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the cutscene message number to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7adf"></span>7ADF</td>
+<td class="instruction">JP <a href="790D.html">$790D</a></td>
+<td class="comment-11" rowspan="1">Display the cutscene</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7AB5.html">7AB5</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7ab6">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7AE2.html">7AE2</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at FC25</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FC00.html">FC00</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fc25">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FC43.html">FC43</a></span></td>
+</tr>
+</table>
+<div class="description">FC25: Add or remove the rope above the roof of no. 19</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="7BB6.html">7BB6</a> (to add the rope) and <a href="FC00.html">FC00</a> (to remove it). Also updates the <a href="7F00.html">screen refresh buffer</a> (SRB) once the rope has been added or removed.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fc25"></span>FC25</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc26"></span>FC26</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc27"></span>FC27</td>
+<td class="instruction">LD HL,$B91A</td>
+<td class="comment-11" rowspan="6">Flip bit 1 of the Z values in the block at <a href="B900.html">B900</a> that correspond to the rope (reset=rope, set=no rope)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc2a"></span>FC2A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc2b"></span>FC2B</td>
+<td class="instruction">XOR $02</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc2d"></span>FC2D</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc2e"></span>FC2E</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc2f"></span>FC2F</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc30"></span>FC30</td>
+<td class="instruction">LD E,$D0</td>
+<td class="comment-11" rowspan="1">208=x-coordinate of the left end of the rope</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc32"></span>FC32</td>
+<td class="instruction">LD BC,$0AFF</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=10 (y-coordinate of the rope), <span class="register">C</span>=255 (11111111)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc35"></span>FC35</td>
+<td class="instruction">CALL <a href="F100.html#f123">$F123</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the left half of the rope</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc38"></span>FC38</td>
+<td class="instruction">LD E,$D8</td>
+<td class="comment-11" rowspan="1">216=x-coordinate of the middle of the rope</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc3a"></span>FC3A</td>
+<td class="instruction">LD BC,$0AFF</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=10 (y-coordinate of the rope), <span class="register">C</span>=255 (11111111)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc3d"></span>FC3D</td>
+<td class="instruction">CALL <a href="F100.html#f123">$F123</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the right half of the rope</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc40"></span>FC40</td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc41"></span>FC41</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc42"></span>FC42</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FC00.html">FC00</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fc25">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FC43.html">FC43</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

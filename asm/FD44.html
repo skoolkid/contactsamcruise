@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Data at FD44</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FD30.html">FD30</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fd44">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FD4E.html">FD4E</a></span></td>
+</tr>
+</table>
+<div class="description">FD44: Region definitions used by the gangster at no. 19</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="738A.html">738A</a>. Defines the regions watched by the gangsters at no. 19 (who use the command list that follows at <a href="FD4E.html">FD4E</a>).
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fd44"></span>FD44</td>
+<td class="instruction">DEFB $CF,$DE</td>
+<td class="comment-11" rowspan="2">207&lt;=x&lt;222, 13&lt;=y&lt;32 (the gangster will give up the chase if Sam leaves this region)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fd46"></span>FD46</td>
+<td class="instruction">DEFB $0D,$20</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fd48"></span>FD48</td>
+<td class="instruction">DEFB $CF,$DE</td>
+<td class="comment-11" rowspan="2">207&lt;=x&lt;222, 15&lt;=y&lt;32 (the gangster will remain inside this region, and start chasing Sam if he enters it)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fd4a"></span>FD4A</td>
+<td class="instruction">DEFB $0F,$20</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fd4c"></span>FD4C</td>
+<td class="instruction">DEFB $07</td>
+<td class="comment-11" rowspan="1">Disguise ID (oil man); this is set by the routine at <a href="7500.html">7500</a>: to 7 (using the event entry at <a href="5FE0.html">5FE0</a>), and later to 255 (using the event entry at <a href="5FE0.html#5fee">5FEE</a>) when Sam walks over the roof of no. 19 using the hook</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fd4d"></span>FD4D</td>
+<td class="instruction">DEFB $0E</td>
+<td class="comment-11" rowspan="1">Command list offset</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FD30.html">FD30</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fd44">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FD4E.html">FD4E</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

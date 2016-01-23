@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 7603</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="75F6.html">75F6</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7603">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="76BC.html">76BC</a></span></td>
+</tr>
+</table>
+<div class="description">7603: Check whether Sam has found something and update the icon panel</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="79E4.html">79E4</a> and <a href="F080.html">F080</a>. Scans the object location table at <a href="7D1C.html">7D1C</a> to check whether Sam has found the hook, the budgie, a key, some money, or a location that requires a message to be displayed, and then updates the icon panel appropriately.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7603"></span>7603</td>
+<td class="instruction">LD HL,$E601</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7606"></span>7606</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=Sam's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7607"></span>7607</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7608"></span>7608</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=Sam's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7609"></span>7609</td>
+<td class="instruction">LD HL,$7D1C</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the object location table at <a href="7D1C.html">7D1C</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="760c"></span>760C</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Collect the first byte of an entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="760d"></span>760D</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1">Have we reached the end of the table?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="760e"></span>760E</td>
+<td class="instruction">JR Z,$763C</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7610"></span>7610</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Move <span class="register">HL</span> to the second byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7611"></span>7611</td>
+<td class="instruction">AND $02</td>
+<td class="comment-11" rowspan="1">Is this entry active?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7613"></span>7613</td>
+<td class="instruction">JR NZ,$761F</td>
+<td class="comment-11" rowspan="1">Proceed to the next entry if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7615"></span>7615</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the object</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7616"></span>7616</td>
+<td class="instruction">CP C</td>
+<td class="comment-11" rowspan="1">Is Sam's x-coordinate the same?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7617"></span>7617</td>
+<td class="instruction">JR NZ,$761F</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7619"></span>7619</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Move <span class="register">HL</span> to the third byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="761a"></span>761A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the object</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="761b"></span>761B</td>
+<td class="instruction">CP B</td>
+<td class="comment-11" rowspan="1">Set the zero flag if Sam's y-coordinate is the same</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="761c"></span>761C</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-11" rowspan="1">Move <span class="register">HL</span> back to the second byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="761d"></span>761D</td>
+<td class="instruction">JR Z,$7624</td>
+<td class="comment-11" rowspan="1">Jump if Sam's coordinates match the object's</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="761f"></span>761F</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="3">Point <span class="register">HL</span> at the first byte of the next entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7620"></span>7620</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7621"></span>7621</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7622"></span>7622</td>
+<td class="instruction">JR $760C</td>
+<td class="comment-11" rowspan="1">Jump back to check the next entry</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="7624"></span>
+<div class="comments">
+<div class="paragraph">
+Sam's coordinates match those of the object. Is it the hook or the budgie?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7624"></span>7624</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-11" rowspan="1">Move <span class="register">HL</span> back to the first byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7625"></span>7625</td>
+<td class="instruction">BIT 6,(HL)</td>
+<td class="comment-11" rowspan="1">Is this entry for an object that can be picked up (i.e. the hook or the budgie)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7627"></span>7627</td>
+<td class="instruction">JR Z,$763F</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7629"></span>7629</td>
+<td class="instruction">LD A,($E600)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="762c"></span>762C</td>
+<td class="instruction">AND $7F</td>
+<td class="comment-11" rowspan="1">Discard bit 7 (the direction bit)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="762e"></span>762E</td>
+<td class="instruction">CP $06</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#6">6</a>: Is Sam bending his knees?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7630"></span>7630</td>
+<td class="instruction">JR NZ,$763E</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7632"></span>7632</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="1">Increment the first byte of the entry (thus deactivating it)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7633"></span>7633</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="3">Point <span class="register">HL</span> at the fourth byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7634"></span>7634</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7635"></span>7635</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7636"></span>7636</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the fourth byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7637"></span>7637</td>
+<td class="instruction">LD HL,$7FE9</td>
+<td class="comment-11" rowspan="3">Set the appropriate bit at <a href="7FE9.html">7FE9</a> to give Sam the object</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="763a"></span>763A</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="763b"></span>763B</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="763c"></span>763C</td>
+<td class="instruction">JR $7683</td>
+<td class="comment-11" rowspan="1">Jump forward to update the icon panel</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="763e"></span>763E</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Decrement the first byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="763f"></span>763F</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="1">Increment the first byte of the entry (thus deactivating it if it's not the hook or the budgie)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7640"></span>7640</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=first byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7641"></span>7641</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="3">Point <span class="register">HL</span> at the fourth byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7642"></span>7642</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7643"></span>7643</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7644"></span>7644</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the object table entry pointer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7645"></span>7645</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Save Sam's coordinates</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7646"></span>7646</td>
+<td class="instruction">BIT 6,A</td>
+<td class="comment-11" rowspan="1">Is this entry for an object that can be picked up (i.e. the hook or the budgie)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7648"></span>7648</td>
+<td class="instruction">JR Z,$7654</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="764a"></span>764A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=fourth byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="764b"></span>764B</td>
+<td class="instruction">LD HL,$7FA8</td>
+<td class="comment-11" rowspan="2">Store the object ID at <a href="7FA8.html">7FA8</a> for now</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="764e"></span>764E</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="764f"></span>764F</td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Restore Sam's coordinates to <span class="register">BC</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7650"></span>7650</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the object table entry pointer to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7651"></span>7651</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first byte of the next entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7652"></span>7652</td>
+<td class="instruction">JR $760C</td>
+<td class="comment-11" rowspan="1">Jump back to check the next entry</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="7654"></span>
+<div class="comments">
+<div class="paragraph">
+It's not the hook or the budgie. Does a message need to be displayed?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7654"></span>7654</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-11" rowspan="1">Is this entry for a message that needs to be displayed?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7656"></span>7656</td>
+<td class="instruction">JR Z,$765E</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7658"></span>7658</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=message number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7659"></span>7659</td>
+<td class="instruction">CALL <a href="6EC5.html">$6EC5</a></td>
+<td class="comment-11" rowspan="1">Queue the message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="765c"></span>765C</td>
+<td class="instruction">JR $764F</td>
+<td class="comment-11" rowspan="1">Jump back to check the next entry</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="765e"></span>
+<div class="comments">
+<div class="paragraph">
+It's not the hook, the budgie or a message. Is it a key?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="765e"></span>765E</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-11" rowspan="1">Is this entry for a key?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7660"></span>7660</td>
+<td class="instruction">JR Z,$7671</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7662"></span>7662</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=key identifier (8, 16, 32 or 64)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7663"></span>7663</td>
+<td class="instruction">LD HL,$7FEA</td>
+<td class="comment-11" rowspan="3">Set the appropriate bit at <a href="7FEA.html">7FEA</a>, thus giving Sam the key</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7666"></span>7666</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7667"></span>7667</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7668"></span>7668</td>
+<td class="instruction">LD A,$64</td>
+<td class="comment-11" rowspan="1">$100 to add to Sam's cash supply</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="766a"></span>766A</td>
+<td class="instruction">JR $7672</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="766c"></span>766C</td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="3">This block of code is never executed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="766d"></span>766D</td>
+<td class="instruction">LD D,$02</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="766f"></span>766F</td>
+<td class="instruction">JR $767C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="7671"></span>
+<div class="comments">
+<div class="paragraph">
+If it's not the hook, the budgie, a message or a key, it must be cash.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7671"></span>7671</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=number of bucks</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7672"></span>7672</td>
+<td class="instruction">CALL <a href="6E87.html#6e92">$6E92</a></td>
+<td class="comment-11" rowspan="1">Add this to Sam's total</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7675"></span>7675</td>
+<td class="instruction">LD HL,$1406</td>
+<td class="comment-11" rowspan="3">Prepare the cash bonus sound effect parameters</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7678"></span>7678</td>
+<td class="instruction">LD C,$90</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="767a"></span>767A</td>
+<td class="instruction">LD D,$01</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="767c"></span>767C</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="767e"></span>767E</td>
+<td class="instruction">CALL <a href="7565.html">$7565</a></td>
+<td class="comment-11" rowspan="1">Make a sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7681"></span>7681</td>
+<td class="instruction">JR $764F</td>
+<td class="comment-11" rowspan="1">Jump back to check the next entry</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="7683"></span>
+<div class="comments">
+<div class="paragraph">
+Now we set the attribute bytes for the budgie and hook in the icon panel.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7683"></span>7683</td>
+<td class="instruction">LD HL,$7FA8</td>
+<td class="comment-11" rowspan="1"><a href="7FA8.html">7FA8</a> holds the ID of the object Sam is standing next to (if any)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7686"></span>7686</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=object ID</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7687"></span>7687</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-11" rowspan="1">Reset <a href="7FA8.html">7FA8</a> to 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7689"></span>7689</td>
+<td class="instruction">LD L,$E9</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FE9.html">7FE9</a> (object inventory)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="768b"></span>768B</td>
+<td class="instruction">LD H,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=object inventory flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="768c"></span>768C</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=ID of the object Sam is standing next to (if any)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="768d"></span>768D</td>
+<td class="instruction">LD E,$B0</td>
+<td class="comment-11" rowspan="1">176 is the LSB of 23216 (the attribute file address for the top-left tile of the budgie icon)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="768f"></span>768F</td>
+<td class="instruction">LD BC,$0602</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=6, <span class="register">C</span>=2 (2 objects: budgie and hook)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7692"></span>7692</td>
+<td class="instruction">RL L</td>
+<td class="comment-11" rowspan="2">Move an object ID bit (if any) into bit 0 of <span class="register">H</span>, and an object inventory flag into the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7694"></span>7694</td>
+<td class="instruction">RL H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7696"></span>7696</td>
+<td class="instruction">LD A,$30</td>
+<td class="comment-11" rowspan="1">48=PAPER 6: INK 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7698"></span>7698</td>
+<td class="instruction">JR C,$76A0</td>
+<td class="comment-11" rowspan="1">Jump if Sam already has this object</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="769a"></span>769A</td>
+<td class="instruction">ADD A,B</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=56 (INK 6: PAPER 6)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="769b"></span>769B</td>
+<td class="instruction">BIT 0,H</td>
+<td class="comment-11" rowspan="1">Is Sam standing next to this object?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="769d"></span>769D</td>
+<td class="instruction">JR Z,$76A0</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="769f"></span>769F</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=6 (INK 6: PAPER 0)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="76a0"></span>76A0</td>
+<td class="instruction">CALL <a href="701F.html#7025">$7025</a></td>
+<td class="comment-11" rowspan="1">Set the attribute bytes for the object in the icon panel</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="76a3"></span>76A3</td>
+<td class="instruction">LD E,$B2</td>
+<td class="comment-11" rowspan="1">176 is the LSB of 23218 (the attribute file address for the top-left tile of the hook icon)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="76a5"></span>76A5</td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1">Have we dealt with both objects yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="76a6"></span>76A6</td>
+<td class="instruction">JR NZ,$7692</td>
+<td class="comment-11" rowspan="1">Jump back to deal with the second object if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="76a8"></span>
+<div class="comments">
+<div class="paragraph">
+Now we display the keys Sam has found.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="76a8"></span>76A8</td>
+<td class="instruction">LD A,($7FEA)</td>
+<td class="comment-11" rowspan="1">Pick up the key inventory flags from <a href="7FEA.html">7FEA</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="76ab"></span>76AB</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="1">Move bits 3-6 into bits 4-7 (thus discarding bit 7, which corresponds to the key to no. 19)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="76ac"></span>76AC</td>
+<td class="instruction">LD BC,$0430</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=4 (there are 4 keys), <span class="register">C</span>=48 (INK 6: PAPER 0)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="76af"></span>76AF</td>
+<td class="instruction">LD HL,$5AF0</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the attribute byte for the leftmost key in the icon panel</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="76b2"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="7414.html">7414</a> with <span class="register">HL</span>=23272 (attribute byte for the leftmost first aid kit in the icon panel) and <span class="register">C</span>=50 (INK 2: PAPER 6).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="76b2"></span>76B2</td>
+<td class="instruction">LD (HL),$36</td>
+<td class="comment-11" rowspan="1">Set the attribute byte to 54 (INK 6: PAPER 6) by default</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="76b4"></span>76B4</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="1">Should there be a first aid kit or key displayed here?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="76b5"></span>76B5</td>
+<td class="instruction">JR NC,$76B8</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="76b7"></span>76B7</td>
+<td class="instruction">LD (HL),C</td>
+<td class="comment-11" rowspan="1">Otherwise reveal the first aid kit or key by setting the attribute byte to 50 (INK 2: PAPER 6) or 48 (INK 6: PAPER 0)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="76b8"></span>76B8</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Move <span class="register">HL</span> to the attribute byte for the next first aid kit or key</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="76b9"></span>76B9</td>
+<td class="instruction">DJNZ $76B2</td>
+<td class="comment-11" rowspan="1">Jump back until all the first aid kits or keys have been done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="76bb"></span>76BB</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="75F6.html">75F6</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7603">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="76BC.html">76BC</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

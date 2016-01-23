@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Data at ED00</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-w">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="ECFD.html">ECFD</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#ed00">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="ED2A.html">ED2A</a></span></td>
+</tr>
+</table>
+<div class="description">ED00: Addresses of keypress handling routines</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the main loop at <a href="F02B.html">F02B</a>. Each non-zero entry in the keypress offset table at <a href="C330.html">C330</a> points to a routine address in this table.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed00"></span>ED00</td>
+<td class="instruction">DEFW <a href="ECD2.html">$ECD2</a></td>
+<td class="comment-11" rowspan="1">1: Up (fast)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed02"></span>ED02</td>
+<td class="instruction">DEFW <a href="ECD7.html">$ECD7</a></td>
+<td class="comment-11" rowspan="1">3: Down (fast)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed04"></span>ED04</td>
+<td class="instruction">DEFW <a href="ECDC.html">$ECDC</a></td>
+<td class="comment-11" rowspan="1">5: Right (fast)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed06"></span>ED06</td>
+<td class="instruction">DEFW <a href="ECE1.html">$ECE1</a></td>
+<td class="comment-11" rowspan="1">7: Left (fast)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed08"></span>ED08</td>
+<td class="instruction">DEFW <a href="ECD2.html">$ECD2</a></td>
+<td class="comment-11" rowspan="1">9: Up (slow)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed0a"></span>ED0A</td>
+<td class="instruction">DEFW <a href="ECD7.html">$ECD7</a></td>
+<td class="comment-11" rowspan="1">11: Down (slow)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed0c"></span>ED0C</td>
+<td class="instruction">DEFW <a href="ECDC.html">$ECDC</a></td>
+<td class="comment-11" rowspan="1">13: Right (slow)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed0e"></span>ED0E</td>
+<td class="instruction">DEFW <a href="ECE1.html">$ECE1</a></td>
+<td class="comment-11" rowspan="1">15: Left (slow)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed10"></span>ED10</td>
+<td class="instruction">DEFW <a href="FADA.html">$FADA</a></td>
+<td class="comment-11" rowspan="1">17: Change disguise</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed12"></span>ED12</td>
+<td class="instruction">DEFW <a href="F2F0.html">$F2F0</a></td>
+<td class="comment-11" rowspan="1">19: Knock</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed14"></span>ED14</td>
+<td class="instruction">DEFW <a href="7576.html">$7576</a></td>
+<td class="comment-11" rowspan="1">21: Light on/off</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed16"></span>ED16</td>
+<td class="instruction">DEFW <a href="758C.html">$758C</a></td>
+<td class="comment-11" rowspan="1">23: Raise/lower blind</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed18"></span>ED18</td>
+<td class="instruction">DEFW <a href="74AA.html">$74AA</a></td>
+<td class="comment-11" rowspan="1">25: Fuse</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed1a"></span>ED1A</td>
+<td class="instruction">DEFW <a href="6FDB.html">$6FDB</a></td>
+<td class="comment-11" rowspan="1">27: Toggle message speed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed1c"></span>ED1C</td>
+<td class="instruction">DEFW <a href="6177.html">$6177</a></td>
+<td class="comment-11" rowspan="1">29: Joystick</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed1e"></span>ED1E</td>
+<td class="instruction">DEFW <a href="76FA.html">$76FA</a></td>
+<td class="comment-11" rowspan="1">31: Telephone</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed20"></span>ED20</td>
+<td class="instruction">DEFW <a href="79E4.html">$79E4</a></td>
+<td class="comment-11" rowspan="1">33: Get object</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed22"></span>ED22</td>
+<td class="instruction">DEFW <a href="7BE1.html">$7BE1</a></td>
+<td class="comment-11" rowspan="1">35: Use hook</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed24"></span>ED24</td>
+<td class="instruction">DEFW <a href="64B8.html">$64B8</a></td>
+<td class="comment-11" rowspan="1">37: Forward roll</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed26"></span>ED26</td>
+<td class="instruction">DEFW <a href="64BD.html">$64BD</a></td>
+<td class="comment-11" rowspan="1">39: Somersault</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ed28"></span>ED28</td>
+<td class="instruction">DEFW <a href="F0B2.html">$F0B2</a></td>
+<td class="comment-11" rowspan="1">41: Unused</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="ECFD.html">ECFD</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#ed00">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="ED2A.html">ED2A</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

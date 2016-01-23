@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 6FC8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="6FC7.html">6FC7</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#6fc8">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6FDB.html">6FDB</a></span></td>
+</tr>
+</table>
+<div class="description">6FC8: Randomly select a message number</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with a randomly chosen message number (different from the last one used) in <span class="register">A</span>. On entry, <span class="register">A</span> holds 197 or 198 depending on the type of message required: 197 for a person or group of people, 198 for a verb.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">197 or 198</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6fc8"></span>6FC8</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="2">Point <span class="register">BC</span> at the relevant last used message number (see <a href="6FC5.html">6FC5</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6fc9"></span>6FC9</td>
+<td class="instruction">LD B,$6F</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6fcb"></span>6FCB</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-11" rowspan="2"><span class="register">E</span>=last used message number (8-15, 16-23)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6fcc"></span>6FCC</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6fcd"></span>6FCD</td>
+<td class="instruction">AND $F8</td>
+<td class="comment-11" rowspan="1">Discard bits 0-2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6fcf"></span>6FCF</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=8 or 16</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6fd0"></span>6FD0</td>
+<td class="instruction">CALL <a href="F17F.html">$F17F</a></td>
+<td class="comment-11" rowspan="1">Get a random number in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6fd3"></span>6FD3</td>
+<td class="instruction">AND $07</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=message number (8-15, 16-23)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6fd5"></span>6FD5</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6fd6"></span>6FD6</td>
+<td class="instruction">CP E</td>
+<td class="comment-11" rowspan="1">Is this the same message number as last time?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6fd7"></span>6FD7</td>
+<td class="instruction">JR Z,$6FD0</td>
+<td class="comment-11" rowspan="1">Jump back to try again if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6fd9"></span>6FD9</td>
+<td class="instruction">LD (BC),A</td>
+<td class="comment-11" rowspan="1">Store the randomly chosen message number for comparison next time</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6fda"></span>6FDA</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="6FC7.html">6FC7</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#6fc8">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6FDB.html">6FDB</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

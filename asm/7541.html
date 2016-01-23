@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 7541</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7500.html">7500</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7541">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="755B.html">755B</a></span></td>
+</tr>
+</table>
+<div class="description">7541: Initialise the events and objects for a new game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Continues from the routine at <a href="7AE2.html">7AE2</a>. First we initialise the entries in the event table at <a href="5FE0.html">5FE0</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7541"></span>7541</td>
+<td class="instruction">LD HL,$5FE0</td>
+<td class="comment-11" rowspan="1">The event table starts at <a href="5FE0.html">5FE0</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7544"></span>7544</td>
+<td class="instruction">LD DE,$0000</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span> will be used to move <span class="register">HL</span> from one entry to the next; initialise it to 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7547"></span>7547</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next entry in the table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7548"></span>7548</td>
+<td class="instruction">CALL <a href="755B.html">$755B</a></td>
+<td class="comment-11" rowspan="1">Initialise the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="754b"></span>754B</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="2">Prepare <span class="register">DE</span> to point <span class="register">HL</span> at the next event entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="754c"></span>754C</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="754d"></span>754D</td>
+<td class="instruction">JR NZ,$7547</td>
+<td class="comment-11" rowspan="1">Jump back until every entry has been processed</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="754f"></span>
+<div class="comments">
+<div class="paragraph">
+Now we initialise the entries in the object location table at <a href="7D1C.html">7D1C</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="754f"></span>754F</td>
+<td class="instruction">LD E,$04</td>
+<td class="comment-11" rowspan="1">Each entry is 4 bytes long</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7551"></span>7551</td>
+<td class="instruction">LD HL,$7D1C</td>
+<td class="comment-11" rowspan="1">The object location table starts at <a href="7D1C.html">7D1C</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7554"></span>7554</td>
+<td class="instruction">CALL <a href="755B.html">$755B</a></td>
+<td class="comment-11" rowspan="1">Initialise the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7557"></span>7557</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if we've reached the end of the table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7558"></span>7558</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7559"></span>7559</td>
+<td class="instruction">JR $7554</td>
+<td class="comment-11" rowspan="1">Jump back to process the next entry</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7500.html">7500</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7541">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="755B.html">755B</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

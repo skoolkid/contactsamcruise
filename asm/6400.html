@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 6400</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="63C3.html">63C3</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#6400">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6412.html">6412</a></span></td>
+</tr>
+</table>
+<div class="description">6400: Copy source sprite tiles over target sprite tiles</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="6412.html">6412</a> to prepare sprite tiles 239-247, which are used by animatory states <a href="../graphics/as.html#9">9</a>, <a href="../graphics/as.html#10">10</a>, <a href="../graphics/as.html#15">15</a> and <a href="../graphics/as.html#31">31</a> (corresponding to the sprites of Sam rolling and somersaulting).
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">Number of tiles to copy</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">Target sprite tile reference</td>
+</tr>
+<tr>
+<td class="register">L</td>
+<td class="register-desc">Source sprite tile reference</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6400"></span>6400</td>
+<td class="instruction">LD H,$C7</td>
+<td class="comment-11" rowspan="1">This is the base page of the graphic data for the source tile</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6402"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="6412.html">6412</a> with <span class="register">H</span>=215.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6402"></span>6402</td>
+<td class="instruction">LD D,$C7</td>
+<td class="comment-11" rowspan="1">This is the base page of the graphic data for the target tile</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6404"></span>6404</td>
+<td class="instruction">LD B,$10</td>
+<td class="comment-11" rowspan="6">Copy the source sprite tile over the target sprite tile (8 bytes of graphic data interleaved with 8 bytes of mask data)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6406"></span>6406</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6407"></span>6407</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6408"></span>6408</td>
+<td class="instruction">INC H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6409"></span>6409</td>
+<td class="instruction">INC D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="640a"></span>640A</td>
+<td class="instruction">DJNZ $6406</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="640c"></span>640C</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Move to the next source sprite tile reference</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="640d"></span>640D</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Move to the next target sprite tile reference</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="640e"></span>640E</td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1">Have all the sprite tiles been copied yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="640f"></span>640F</td>
+<td class="instruction">JR NZ,$6400</td>
+<td class="comment-11" rowspan="1">Jump back if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6411"></span>6411</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="63C3.html">63C3</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#6400">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6412.html">6412</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

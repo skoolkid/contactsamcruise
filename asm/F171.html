@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at F171</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F15F.html">F15F</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f171">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F17F.html">F17F</a></span></td>
+</tr>
+</table>
+<div class="description">F171: Copy two bytes from a command list into a character's buffer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="7A6A.html">7A6A</a>, <a href="7CC8.html">7CC8</a>, <a href="F1FC.html">F1FC</a> and <a href="F748.html">F748</a>. Copies two bytes from a character's current command list into his buffer. Returns with <span class="register">HL</span> pointing at the second byte of the pair in the character's buffer.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-229)</td>
+</tr>
+<tr>
+<td class="register">L</td>
+<td class="register-desc">Destination for the copied bytes</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f171"></span>F171</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-11" rowspan="1">Two bytes will be copied</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f173"></span>F173</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save the byte counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f174"></span>F174</td>
+<td class="instruction">CALL <a href="F15F.html">$F15F</a></td>
+<td class="comment-11" rowspan="1">Collect one byte from the character's command list</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f177"></span>F177</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="1">Copy it to the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f178"></span>F178</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the byte counter to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f179"></span>F179</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the destination for the second byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f17a"></span>F17A</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="1">Have we copied both bytes yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f17b"></span>F17B</td>
+<td class="instruction">JR NZ,$F173</td>
+<td class="comment-11" rowspan="1">Jump back to copy the second one if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f17d"></span>F17D</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the second byte that was copied</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f17e"></span>F17E</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F15F.html">F15F</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f171">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F17F.html">F17F</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at F7F0</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F7DA.html">F7DA</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f7f0">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F81F.html">F81F</a></span></td>
+</tr>
+</table>
+<div class="description">F7F0: Initialise the character buffers for character groups 215-221</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory state, location and command list address for every character in character groups 215-221.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f7f0"></span>F7F0</td>
+<td class="instruction">LD HL,$FEAE</td>
+<td class="comment-11" rowspan="1">The initialisation parameters for character groups 215-221 are located at <a href="FEAE.html">FEAE</a> onwards</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7f3"></span>F7F3</td>
+<td class="instruction">LD D,$D7</td>
+<td class="comment-11" rowspan="1">Begin with the buffers for character group <a href="D700.html">215</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f7f5"></span>F7F5</td>
+<td class="instruction">LD E,$00</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first byte of the first buffer in the group</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7f7"></span>F7F7</td>
+<td class="instruction">LD C,$05</td>
+<td class="comment-11" rowspan="1">There are 5 characters in the group</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f7f9"></span>F7F9</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-11" rowspan="6">Initialise a character's animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f7fb"></span>F7FB</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7fc"></span>F7FC</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7fd"></span>F7FD</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7fe"></span>F7FE</td>
+<td class="instruction">INC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f7ff"></span>F7FF</td>
+<td class="instruction">DJNZ $F7FB</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f801"></span>F801</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="2">Reset the flags in byte 3 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f802"></span>F802</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f803"></span>F803</td>
+<td class="instruction">INC C</td>
+<td class="comment-11" rowspan="1">Increment <span class="register">C</span> to compensate for the LDI instruction that follows</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f804"></span>F804</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="2">Initialise the character's z-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f805"></span>F805</td>
+<td class="instruction">LDI</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f807"></span>F807</td>
+<td class="instruction">LD B,$12</td>
+<td class="comment-11" rowspan="4">Zero out bytes 5-22 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f809"></span>F809</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f80a"></span>F80A</td>
+<td class="instruction">INC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f80b"></span>F80B</td>
+<td class="instruction">DJNZ $F809</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f80d"></span>F80D</td>
+<td class="instruction">LD B,$02</td>
+<td class="comment-11" rowspan="6">Copy the command list address into bytes 23 and 24 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f80f"></span>F80F</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f810"></span>F810</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f811"></span>F811</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f812"></span>F812</td>
+<td class="instruction">INC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f813"></span>F813</td>
+<td class="instruction">DJNZ $F80F</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f815"></span>F815</td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1">Have we initialised the buffers of all 5 characters in the group yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f816"></span>F816</td>
+<td class="instruction">JR NZ,$F7F9</td>
+<td class="comment-11" rowspan="1">Jump back if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f818"></span>F818</td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the next character group</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f819"></span>F819</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="2">Have we initialised the buffers in every character group yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f81a"></span>F81A</td>
+<td class="instruction">CP $DE</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f81c"></span>F81C</td>
+<td class="instruction">JR NZ,$F7F5</td>
+<td class="comment-11" rowspan="1">Jump back if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f81e"></span>F81E</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F7DA.html">F7DA</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f7f0">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F81F.html">F81F</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

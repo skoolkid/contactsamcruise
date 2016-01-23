@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Game status buffer entry at 7F81</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-g">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Game status buffer</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7F60.html">7F60</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7f81">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7F91.html">7F91</a></span></td>
+</tr>
+</table>
+<div class="description">7F81: Submessage indicator and message addresses</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="6EC5.html">6EC5</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7f81"></span>7F81</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-11" rowspan="1">0 (end of top-level message has been reached), 2 (top-level message), 4 (submessage), 6 (sub-submessage) or 8 (sub-sub-submessage)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7f82"></span>7F82</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-11" rowspan="1">Address of the next character in the top-level message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7f84"></span>7F84</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-11" rowspan="1">Address of the next character in the submessage</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7f86"></span>7F86</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-11" rowspan="1">Address of the next character in the sub-submessage</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7f88"></span>7F88</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-11" rowspan="1">Address of the next character in the sub-sub-submessage</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7f8a"></span>7F8A</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-11" rowspan="3">Unused (no message has more than 3 levels of submessages)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7f8c"></span>7F8C</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7f8e"></span>7F8E</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7f90"></span>7F90</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-11" rowspan="1">Unused</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7F60.html">7F60</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7f81">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7F91.html">7F91</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

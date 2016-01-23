@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 621E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="6219.html">6219</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#621e">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="62DA.html">62DA</a></span></td>
+</tr>
+</table>
+<div class="description">621E: Control the sniper while active</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this interruptible subcommand routine is placed into bytes 14 and 15 of the sniper's buffer by the routine at <a href="62DB.html">62DB</a>. It controls the sniper from the moment he appears until he hides again.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">227 (sniper)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="621e"></span>621E</td>
+<td class="instruction">LD L,$02</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=sniper's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6220"></span>6220</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6221"></span>6221</td>
+<td class="instruction">LD L,$11</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 17 of the sniper's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6223"></span>6223</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="2">Is it zero (meaning the sniper has not fired recently)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6224"></span>6224</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6225"></span>6225</td>
+<td class="instruction">JR Z,$6228</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6227"></span>6227</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Otherwise decrement byte 17</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6228"></span>6228</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=16</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6229"></span>6229</td>
+<td class="instruction">CP $32</td>
+<td class="comment-11" rowspan="1">The sniper's y-coordinate is 50 when he's inactive</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="622b"></span>622B</td>
+<td class="instruction">JR NZ,$6250</td>
+<td class="comment-11" rowspan="1">Jump if the sniper is currently active</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="622d"></span>
+<div class="comments">
+<div class="paragraph">
+The sniper is currently inactive.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="622d"></span>622D</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Decrement byte 16 of the sniper's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="622e"></span>622E</td>
+<td class="instruction">JP Z,<a href="F280.html#f284">$F284</a></td>
+<td class="comment-11" rowspan="1">Terminate this subcommand if byte 16 is now 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6231"></span>6231</td>
+<td class="instruction">CALL <a href="66D8.html">$66D8</a></td>
+<td class="comment-11" rowspan="1">Is the sniper on screen at least 8 x-coordinates away from Sam?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6234"></span>6234</td>
+<td class="instruction">NOP</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6235"></span>6235</td>
+<td class="instruction">JP NZ,<a href="F280.html#f284">$F284</a></td>
+<td class="comment-11" rowspan="1">Terminate this subcommand if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6238"></span>6238</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the sniper's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6239"></span>6239</td>
+<td class="instruction">LD (HL),$25</td>
+<td class="comment-11" rowspan="1">Set the sniper's y-coordinate to 37 (out of sight, but ready to emerge)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="623b"></span>623B</td>
+<td class="instruction">LD A,($E601)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="623e"></span>623E</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="623f"></span>623F</td>
+<td class="instruction">SUB (HL)</td>
+<td class="comment-11" rowspan="1">Subtract the sniper's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6240"></span>6240</td>
+<td class="instruction">CCF</td>
+<td class="comment-11" rowspan="3">Compute the appropriate animatory state for the sniper: <a href="../graphics/as.html#54">54</a> if he's to the right of Sam, <a href="../graphics/as.html#182">182</a> if he's to the left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6241"></span>6241</td>
+<td class="instruction">LD A,$6C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6243"></span>6243</td>
+<td class="instruction">RRA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6244"></span>6244</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-11" rowspan="2">Set the sniper's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6245"></span>6245</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6246"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="6FE6.html">6FE6</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6246"></span>6246</td>
+<td class="instruction">LD L,$02</td>
+<td class="comment-11" rowspan="4">Collect the sniper's x- and y-coordinates in <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6248"></span>6248</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6249"></span>6249</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="624a"></span>624A</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="624b"></span>624B</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=sniper's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="624c"></span>624C</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="624d"></span>624D</td>
+<td class="instruction">JP <a href="6670.html">$6670</a></td>
+<td class="comment-11" rowspan="1">Update the sniper's sprite tile references</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6250"></span>
+<div class="comments">
+<div class="paragraph">
+The sniper is currently active (his y-coordinate is 34-37).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6250"></span>6250</td>
+<td class="instruction">LD A,($DEB6)</td>
+<td class="comment-11" rowspan="1">Collect the sprite tile reference for tile 7 of animatory states <a href="../graphics/as.html#54">54/182</a>; this will be 235 if the sniper is firing, or 0, 110, 111 or 113 otherwise</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6253"></span>6253</td>
+<td class="instruction">CP H</td>
+<td class="comment-11" rowspan="1">Is the sniper firing?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6254"></span>6254</td>
+<td class="instruction">JP NC,<a href="6FE6.html">$6FE6</a></td>
+<td class="comment-11" rowspan="1">If so, make the firing sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6257"></span>6257</td>
+<td class="instruction">LD A,($7FFF)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the topmost row of the play area on screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="625a"></span>625A</td>
+<td class="instruction">CP $14</td>
+<td class="comment-11" rowspan="1">Is the sidewalk on screen?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="625c"></span>625C</td>
+<td class="instruction">JR NZ,$6269</td>
+<td class="comment-11" rowspan="1">If not, deactivate the sniper and terminate this subcommand</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="625e"></span>625E</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Decrement byte 16 of the sniper's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="625f"></span>625F</td>
+<td class="instruction">JR NZ,$627A</td>
+<td class="comment-11" rowspan="1">Jump unless byte 16 is now zero</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6261"></span>
+<div class="comments">
+<div class="paragraph">
+Byte 16 of the sniper's buffer has been decremented to zero. The apparent intention here is to make the sniper duck out of sight and terminate this subcommand; however, if the sniper is not already out of sight, he will duck briefly but remain in view, and byte 16 will be decremented to 255 on the next pass through this routine. This is a <a href="../reference/bugs.html#conspicuousSniper">bug</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6261"></span>6261</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the sniper's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6264"></span>6264</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=sniper's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6265"></span>6265</td>
+<td class="instruction">CP $25</td>
+<td class="comment-11" rowspan="1">Is the sniper currently out of sight?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6267"></span>6267</td>
+<td class="instruction">JR NZ,$6272</td>
+<td class="comment-11" rowspan="1">Jump if not to make him duck</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6269"></span>6269</td>
+<td class="instruction">LD L,$0F</td>
+<td class="comment-11" rowspan="2">Remove the address of this routine from byte 14 and 15 of the sniper's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="626b"></span>626B</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="626d"></span>626D</td>
+<td class="instruction">LD L,$02</td>
+<td class="comment-11" rowspan="2">Set the sniper's y-coordinate to 50 (inactive)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="626f"></span>626F</td>
+<td class="instruction">LD (HL),$32</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6271"></span>6271</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6272"></span>
+<div class="comments">
+<div class="paragraph">
+The sniper is in the process of ducking.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6272"></span>6272</td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=sniper's next y-coordinate (35-37)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6273"></span>6273</td>
+<td class="instruction">LD L,$00</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the sniper's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6275"></span>6275</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=sniper's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6276"></span>6276</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Reset the carry flag to indicate that the sniper is not firing</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6277"></span>6277</td>
+<td class="instruction">JP <a href="6670.html">$6670</a></td>
+<td class="comment-11" rowspan="1">Update the sniper's sprite tile references</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="627a"></span>
+<div class="comments">
+<div class="paragraph">
+Byte 16 of the sniper's buffer is not zero.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="627a"></span>627A</td>
+<td class="instruction">CALL <a href="66D8.html">$66D8</a></td>
+<td class="comment-11" rowspan="1">Compare the sniper's coordinates with Sam's</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="627d"></span>627D</td>
+<td class="instruction">JR Z,$628B</td>
+<td class="comment-11" rowspan="1">Jump if the sniper is on screen and at least 8 x-coordinates away from Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="627f"></span>627F</td>
+<td class="instruction">JR NC,$6269</td>
+<td class="comment-11" rowspan="1">Terminate this subcommand if the sniper if off screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6281"></span>6281</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the sniper's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6284"></span>6284</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=sniper's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6285"></span>6285</td>
+<td class="instruction">CP $25</td>
+<td class="comment-11" rowspan="1">Has the sniper already ducked out of sight?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6287"></span>6287</td>
+<td class="instruction">JR NZ,$6272</td>
+<td class="comment-11" rowspan="1">Jump if not to make the sniper continue ducking</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6289"></span>6289</td>
+<td class="instruction">JR $626D</td>
+<td class="comment-11" rowspan="1">Deactivate the sniper</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="628b"></span>
+<div class="comments">
+<div class="paragraph">
+The sniper is on screen and at least 8 x-coordinates away from Sam. If he's already popped his head out far enough (his y-coordinate is 34 or 35), he can consider shooting; otherwise he'll need to emerge a little further first.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="628b"></span>628B</td>
+<td class="instruction">LD L,$02</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the sniper's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="628d"></span>628D</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=sniper's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="628e"></span>628E</td>
+<td class="instruction">CP $24</td>
+<td class="comment-11" rowspan="1">Is at least half of the sniper visible?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6290"></span>6290</td>
+<td class="instruction">JR C,$6298</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6292"></span>6292</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the sniper's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6295"></span>6295</td>
+<td class="instruction">DEC D</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=sniper's next y-coordinate (35 or 36)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6296"></span>6296</td>
+<td class="instruction">JR $6276</td>
+<td class="comment-11" rowspan="1">Jump back to update the sniper's sprite tile references</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6298"></span>
+<div class="comments">
+<div class="paragraph">
+At least half of the sniper is visible (his y-coordinate is 34 or 35), which means he can shoot.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6298"></span>6298</td>
+<td class="instruction">LD L,$10</td>
+<td class="comment-11" rowspan="2">Collect byte 16 of the sniper's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="629a"></span>629A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="629b"></span>629B</td>
+<td class="instruction">AND $03</td>
+<td class="comment-11" rowspan="1">Is bit 0 or bit 1 set?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="629d"></span>629D</td>
+<td class="instruction">JR NZ,$62AF</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="629f"></span>629F</td>
+<td class="instruction">CALL <a href="F17F.html">$F17F</a></td>
+<td class="comment-11" rowspan="1">Get a random number in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62a2"></span>62A2</td>
+<td class="instruction">CP $A0</td>
+<td class="comment-11" rowspan="1">Should the sniper consider shooting?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62a4"></span>62A4</td>
+<td class="instruction">JR C,$62AF</td>
+<td class="comment-11" rowspan="1">Jump if so (5 times out of 8)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62a6"></span>62A6</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the sniper's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62a9"></span>62A9</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=sniper's y-coordinate (34 or 35)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62aa"></span>62AA</td>
+<td class="instruction">XOR $01</td>
+<td class="comment-11" rowspan="1">Toggle between 34 and 35</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62ac"></span>62AC</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=sniper's next y-coordinate (35 or 34)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62ad"></span>62AD</td>
+<td class="instruction">JR $6273</td>
+<td class="comment-11" rowspan="1">Jump back to update the sniper's sprite tile references</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="62af"></span>
+<div class="comments">
+<div class="paragraph">
+The sniper will consider shooting.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62af"></span>62AF</td>
+<td class="instruction">LD A,($E604)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's z-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62b2"></span>62B2</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="1">Is Sam indoors?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62b3"></span>62B3</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62b4"></span>62B4</td>
+<td class="instruction">LD A,($7FFC)</td>
+<td class="comment-11" rowspan="1">Collect Sam's status flags from <a href="7FFC.html">7FFC</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62b7"></span>62B7</td>
+<td class="instruction">AND $81</td>
+<td class="comment-11" rowspan="1">Is Sam falling from a building or being carried?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62b9"></span>62B9</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62ba"></span>62BA</td>
+<td class="instruction">LD L,$11</td>
+<td class="comment-11" rowspan="2">Collect byte 17 of the sniper's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62bc"></span>62BC</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62bd"></span>62BD</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Has the sniper fired recently?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62be"></span>62BE</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62bf"></span>62BF</td>
+<td class="instruction">CALL <a href="F17F.html">$F17F</a></td>
+<td class="comment-11" rowspan="1">Get a random number in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62c2"></span>62C2</td>
+<td class="instruction">CP $54</td>
+<td class="comment-11" rowspan="1">Should the sniper continue to consider shooting?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62c4"></span>62C4</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if not (21 times out of 64)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62c5"></span>62C5</td>
+<td class="instruction">LD DE,$7FC2</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the third byte of bullet buffer 1 (at <a href="7FC0.html">7FC0</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62c8"></span>62C8</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62c9"></span>62C9</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is bullet buffer 1 in use?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62ca"></span>62CA</td>
+<td class="instruction">JR Z,$62D1</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62cc"></span>62CC</td>
+<td class="instruction">LD E,$C6</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the third byte of bullet buffer 2 (at <a href="7FC4.html">7FC4</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62ce"></span>62CE</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62cf"></span>62CF</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is bullet buffer 2 in use?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62d0"></span>62D0</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="62d1"></span>
+<div class="comments">
+<div class="paragraph">
+The sniper has decided to shoot, and a bullet buffer is available.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62d1"></span>62D1</td>
+<td class="instruction">LD (HL),$0C</td>
+<td class="comment-11" rowspan="1">Place 12 into byte 17 of the sniper's buffer (indicating that he's just fired)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62d3"></span>62D3</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the sniper's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62d6"></span>62D6</td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Set the carry flag to indicate that the sniper is firing</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62d7"></span>62D7</td>
+<td class="instruction">JP <a href="6670.html">$6670</a></td>
+<td class="comment-11" rowspan="1">Update the sniper's sprite tile references and initialise a bullet</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="6219.html">6219</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#621e">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="62DA.html">62DA</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

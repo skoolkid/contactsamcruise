@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 7500</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="74D8.html">74D8</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7500">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7541.html">7541</a></span></td>
+</tr>
+</table>
+<div class="description">7500: Process the event table</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="F080.html">F080</a>. Scans the event table at <a href="5FE0.html">5FE0</a> and processes every active entry.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7500"></span>7500</td>
+<td class="instruction">LD HL,$7563</td>
+<td class="comment-11" rowspan="2">Set the operand of the JP instruction at <a href="7500.html#750b">750B</a> (below) to <a href="755B.html#7563">7563</a> (RET)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7503"></span>7503</td>
+<td class="instruction">LD ($750C),HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7506"></span>7506</td>
+<td class="instruction">LD HL,$5FE0</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the event table at <a href="5FE0.html">5FE0</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7509"></span>7509</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Collect the first byte of an entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="750a"></span>750A</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1">Set the zero flag if it's 255</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="750b"></span>
+<div class="comments">
+<div class="paragraph">
+The operand of the JP instruction that follows is changed (by this routine) using entries in the event table at <a href="5FE0.html">5FE0</a> during the game as follows:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Operand</th>
+<th colspan="1" rowspan="1">Entry</th>
+<th colspan="1" rowspan="1">Occasion</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="7A04.html">7A04</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="5FE0.html#6032">6032</a></td>
+<td class="" colspan="1" rowspan="1">Sam finds the dead body in the hotel</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="6152.html">6152</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="5FE0.html#600a">600A</a></td>
+<td class="" colspan="1" rowspan="1">Sam enters no. 15 using the key (in game mode 1)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="6152.html">6152</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="5FE0.html#6077">6077</a></td>
+<td class="" colspan="1" rowspan="1">Sam climbs the stairs up to the roof of the apartment building next to no. 74 (in game mode 2, after he has entered the hotel's right-hand green room while disguised as a woman)</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="750b"></span>750B</td>
+<td class="instruction">JP Z,<a href="755B.html#7563">$7563</a></td>
+<td class="comment-11" rowspan="1">Jump if we've reached the end of the event table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="750e"></span>750E</td>
+<td class="instruction">AND $02</td>
+<td class="comment-11" rowspan="1">Is this event active?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7510"></span>7510</td>
+<td class="instruction">JR NZ,$7525</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7512"></span>7512</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the event table entry pointer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7513"></span>7513</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the third byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7514"></span>7514</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7515"></span>7515</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=number of conditions to check</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7516"></span>7516</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="4"><span class="register">DE</span>=address to check</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7517"></span>7517</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7518"></span>7518</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7519"></span>7519</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="751a"></span>751A</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=opcode of the 'JR' instruction to place at <a href="7500.html#7522">7522</a> (below)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="751b"></span>751B</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="751c"></span>751C</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the value to compare with (<span class="register">DE</span>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="751d"></span>751D</td>
+<td class="instruction">LD ($7522),A</td>
+<td class="comment-11" rowspan="1">Set the instruction at <a href="7500.html#7522">7522</a> (below) to 'JR Z', 'JR NZ', 'JR C' or 'JR NC' as appropriate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7520"></span>7520</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="2">Check the condition</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7521"></span>7521</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7522"></span>7522</td>
+<td class="instruction">JR $752C</td>
+<td class="comment-11" rowspan="1">This instruction is set to 'JR Z', 'JR NZ', 'JR C' or 'JR NC' above</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7524"></span>7524</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the event table entry pointer to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7525"></span>7525</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the second byte of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7526"></span>7526</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-11" rowspan="3">Move <span class="register">HL</span> along to the first byte of the next entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7527"></span>7527</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7529"></span>7529</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="752a"></span>752A</td>
+<td class="instruction">JR $7509</td>
+<td class="comment-11" rowspan="1">Jump back to examine the next entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="752c"></span>752C</td>
+<td class="instruction">DJNZ $7516</td>
+<td class="comment-11" rowspan="1">Jump back to check the next condition in the entry</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="752e"></span>
+<div class="comments">
+<div class="paragraph">
+If we get here, then every condition in the entry was satisfied.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="752e"></span>752E</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="2"><span class="register">B</span>=number of POKEs in the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="752f"></span>752F</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7530"></span>7530</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="4"><span class="register">DE</span>=address to POKE</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7531"></span>7531</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7532"></span>7532</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7533"></span>7533</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7534"></span>7534</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=byte to POKE</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7535"></span>7535</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7536"></span>7536</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-11" rowspan="1">Do the POKE</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7537"></span>7537</td>
+<td class="instruction">DJNZ $7530</td>
+<td class="comment-11" rowspan="1">Jump back until every POKE has been done</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="7539"></span>
+<div class="comments">
+<div class="paragraph">
+The entry has been processed.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7539"></span>7539</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the event table entry pointer to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="753a"></span>753A</td>
+<td class="instruction">BIT 6,(HL)</td>
+<td class="comment-11" rowspan="1">Should this entry be deactivated now?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="753c"></span>753C</td>
+<td class="instruction">JR NZ,$7525</td>
+<td class="comment-11" rowspan="1">Move along to the next entry if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="753e"></span>753E</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="1">Otherwise deactivate the entry by setting bit 0 of the first byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="753f"></span>753F</td>
+<td class="instruction">JR $7525</td>
+<td class="comment-11" rowspan="1">Move along to the next entry</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="74D8.html">74D8</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7500">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7541.html">7541</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

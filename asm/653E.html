@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 653E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="64BD.html">64BD</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#653e">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6558.html">6558</a></span></td>
+</tr>
+</table>
+<div class="description">653E: Check whether Sam can roll or somersault from his current location</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="64BD.html">64BD</a>. Returns to the caller if Sam can roll or somersault from his current location; otherwise returns to the main loop.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="653e"></span>653E</td>
+<td class="instruction">LD H,$E6</td>
+<td class="comment-11" rowspan="1">230=Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6540"></span>6540</td>
+<td class="instruction">CALL <a href="EAF8.html">$EAF8</a></td>
+<td class="comment-11" rowspan="1">Is Sam on the sidewalk or the road?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6543"></span>6543</td>
+<td class="instruction">JR C,$6555</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6545"></span>6545</td>
+<td class="instruction">LD L,$00</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6547"></span>6547</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Reset the zero flag if Sam is facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6549"></span>6549</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="654a"></span>654A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="654b"></span>654B</td>
+<td class="instruction">JR NZ,$6552</td>
+<td class="comment-11" rowspan="1">Jump if Sam is facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="654d"></span>654D</td>
+<td class="instruction">CP $04</td>
+<td class="comment-11" rowspan="2">Return if Sam is facing left and his x-coordinate is &gt;= 4</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="654f"></span>654F</td>
+<td class="instruction">RET NC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6550"></span>6550</td>
+<td class="instruction">JR C,$6555</td>
+<td class="comment-11" rowspan="1">Jump if Sam is facing left and his x-coordinate is &lt; 4</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6552"></span>6552</td>
+<td class="instruction">CP $FA</td>
+<td class="comment-11" rowspan="2">Return if Sam is facing right and his x-coordinate is &lt; 250</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6554"></span>6554</td>
+<td class="instruction">RET C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6555"></span>6555</td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Drop the return address from the stack</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6556"></span>6556</td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Drop the address of the animation phase table from the stack</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6557"></span>6557</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return to the main loop at <a href="F02B.html#f06d">F06D</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="64BD.html">64BD</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#653e">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6558.html">6558</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

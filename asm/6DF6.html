@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 6DF6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="6D82.html">6D82</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#6df6">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6DFF.html">6DFF</a></span></td>
+</tr>
+</table>
+<div class="description">6DF6: Set <span class="register">A</span>=1</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="739D.html">739D</a>. Returns with <span class="register">A</span>=1.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">122 (the MSB of the routine at <a href="7A57.html">7A57</a>)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6df6"></span>6DF6</td>
+<td class="instruction">LD L,$01</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6df8"></span>6DF8</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="1">This instruction resets the zero flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6df9"></span>6DF9</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6dfa"></span>6DFA</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">This return always happens</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6dfb"></span>
+<div class="comments">
+<div class="paragraph">
+The following instructions are never executed.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6dfb"></span>6DFB</td>
+<td class="instruction">LD A,($E604)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's z-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6dfe"></span>6DFE</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="6D82.html">6D82</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#6df6">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6DFF.html">6DFF</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

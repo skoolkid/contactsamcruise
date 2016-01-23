@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 717C</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="717B.html">717B</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#717c">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="718C.html">718C</a></span></td>
+</tr>
+</table>
+<div class="description">717C: Make a policeman switch a light on if possible</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="72B1.html">72B1</a>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">222 or 223 (policeman)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="717c"></span>717C</td>
+<td class="instruction">CALL <a href="F436.html">$F436</a></td>
+<td class="comment-11" rowspan="1">Is the policeman standing next to a light switch?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="717f"></span>717F</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7180"></span>7180</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-11" rowspan="1">Set the zero flag if the light switch affects the light in only one window or window-pair</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7182"></span>7182</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=window flags for the policeman's location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7183"></span>7183</td>
+<td class="instruction">JP NZ,<a href="F485.html#f4a3">$F4A3</a></td>
+<td class="comment-11" rowspan="1">Jump if the light switch affects the light in more than one window or window-pair</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7186"></span>7186</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-11" rowspan="1">Is the light switch here in the 'on' position?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7188"></span>7188</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7189"></span>7189</td>
+<td class="instruction">JP <a href="F485.html#f497">$F497</a></td>
+<td class="comment-11" rowspan="1">Switch the light on</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="717B.html">717B</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#717c">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="718C.html">718C</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

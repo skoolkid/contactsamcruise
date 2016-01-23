@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at EBBB</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="EBAE.html">EBAE</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#ebbb">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="EC58.html">EC58</a></span></td>
+</tr>
+</table>
+<div class="description">EBBB: Make a character move left</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="ECE1.html">ECE1</a>, <a href="F5CE.html">F5CE</a>, <a href="F600.html">F600</a> and <a href="F6E9.html">F6E9</a>. Turns the character round if he's facing right; otherwise moves him left, or up and to the left, or down and to the left (in that order of preference, and if possible). Returns with the carry flag set unless the character could not move.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-230)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ebbb"></span>EBBB</td>
+<td class="instruction">CALL <a href="EB85.html">$EB85</a></td>
+<td class="comment-11" rowspan="1">Make the character stand up if he's lying down</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebbe"></span>EBBE</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if the character was lying down</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebbf"></span>EBBF</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Set the zero flag if the character is facing left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebc1"></span>EBC1</td>
+<td class="instruction">LD DE,$A019</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the direction indicator table at <a href="A019.html">A019</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebc4"></span>EBC4</td>
+<td class="instruction">JR Z,$EBD0</td>
+<td class="comment-11" rowspan="1">Jump if the character is facing left</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ebc6"></span>
+<div class="comments">
+<div class="paragraph">
+The character is facing right, so we make him turn round first. This entry point is also used by the routine at <a href="EBAE.html">EBAE</a> to make a character who is facing left turn round.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ebc6"></span>EBC6</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebc9"></span>EBC9</td>
+<td class="instruction">XOR $80</td>
+<td class="comment-11" rowspan="1">Flip bit 7 of the character's animatory state, thus turning him round</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ebcb"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="EB85.html">EB85</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ebcb"></span>EBCB</td>
+<td class="instruction">CALL <a href="E9D5.html">$E9D5</a></td>
+<td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebce"></span>EBCE</td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Set the carry flag to indicate that the character was moved</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebcf"></span>EBCF</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ebd0"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="EB9B.html">EB9B</a> (with <span class="register">DE</span>=<a href="A218.html">A218</a>, <a href="A318.html">A318</a>, <a href="A418.html">A418</a> or <a href="A518.html">A518</a>) to move a character up or down, and by the routine at <a href="EBAE.html">EBAE</a> (with <span class="register">DE</span>=<a href="A119.html">A119</a>) to make a character move right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ebd0"></span>EBD0</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the character buffer pointer briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebd1"></span>EBD1</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the pointer to the direction indicator table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebd2"></span>EBD2</td>
+<td class="instruction">CALL <a href="EB13.html">$EB13</a></td>
+<td class="comment-11" rowspan="1">Obtain descriptors for the character's current location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebd5"></span>EBD5</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the direction indicator table (<a href="A019.html">A019</a>, <a href="A119.html">A119</a>, <a href="A218.html">A218</a>, <a href="A318.html">A318</a>, <a href="A418.html">A418</a> or <a href="A518.html">A518</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebd6"></span>EBD6</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=location type indicator (1-5; see <a href="EB13.html">EB13</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ebd7"></span>EBD7</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=direction descriptor (see <a href="EB13.html">EB13</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebd8"></span>EBD8</td>
+<td class="instruction">AND (HL)</td>
+<td class="comment-11" rowspan="1">Does this direction indicator correspond to a direction that is available at the character's current location?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebd9"></span>EBD9</td>
+<td class="instruction">JR NZ,$EBE2</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebdb"></span>EBDB</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next byte in the direction indicator table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebdc"></span>EBDC</td>
+<td class="instruction">BIT 2,L</td>
+<td class="comment-11" rowspan="1">Have we reached the end of the direction indicator table?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebde"></span>EBDE</td>
+<td class="instruction">JR Z,$EBD7</td>
+<td class="comment-11" rowspan="1">Jump back if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebe0"></span>EBE0</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character buffer pointer to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebe1"></span>EBE1</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the carry flag reset (the character did not move)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ebe2"></span>
+<div class="comments">
+<div class="paragraph">
+Now <span class="register">A</span>=128, 64, 32, 16, 8 or 4; the bit set in <span class="register">A</span> indicates the direction in which the character has chosen to move next:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Direction</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1">Left</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1">Right</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">Up and to the left</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Up and to the right</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Down and to the left</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Down and to the right</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ebe2"></span>EBE2</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=direction indicator (128, 64, 32, 16, 8 or 4)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebe3"></span>EBE3</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character buffer pointer to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebe4"></span>EBE4</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Set the zero flag if the character is facing left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebe6"></span>EBE6</td>
+<td class="instruction">LD A,$54</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=84: bits 6 (right), 4 (up/right) and 2 (down/right) set</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebe8"></span>EBE8</td>
+<td class="instruction">JR NZ,$EBEB</td>
+<td class="comment-11" rowspan="1">Jump if the character is facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebea"></span>EBEA</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=168: bits 7 (left), 5 (up/left) and 3 (down/left) set</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ebeb"></span>EBEB</td>
+<td class="instruction">AND D</td>
+<td class="comment-11" rowspan="1">Is the character facing the direction in which he wants to move?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebec"></span>EBEC</td>
+<td class="instruction">JR Z,$EBC6</td>
+<td class="comment-11" rowspan="1">Make him turn round if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ebee"></span>
+<div class="comments">
+<div class="paragraph">
+The character is facing the direction in which he wants to move. Now we examine the character's current location to determine whether the desired move requires any special handling.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebee"></span>EBEE</td>
+<td class="instruction">LD L,$04</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 4 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebf0"></span>EBF0</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=location type indicator for the character's current location (1-5; see <a href="EB13.html">EB13</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebf1"></span>EBF1</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="1">Is the character on the sidewalk or the road?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebf2"></span>EBF2</td>
+<td class="instruction">JR NZ,$EC04</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ebf4"></span>
+<div class="comments">
+<div class="paragraph">
+The character is on the sidewalk or the road. In this case we need to check whether the character is going up a step, and change his z-coordinate accordingly.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebf4"></span>EBF4</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=direction indicator (128, 64, 32, 16, 8 or 4)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebf5"></span>EBF5</td>
+<td class="instruction">AND $30</td>
+<td class="comment-11" rowspan="1">Check bits 4 and 5: is the character going to move up a step?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebf7"></span>EBF7</td>
+<td class="instruction">JR Z,$EC07</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebf9"></span>EBF9</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="4">Slide bits 5 and 4 of <span class="register">A</span> into bits 1 and 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebfa"></span>EBFA</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebfb"></span>EBFB</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebfc"></span>EBFC</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebfd"></span>EBFD</td>
+<td class="instruction">AND C</td>
+<td class="comment-11" rowspan="1">Will going up the step change the character's z-coordinate to 2?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ebfe"></span>EBFE</td>
+<td class="instruction">JR Z,$EC07</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec00"></span>EC00</td>
+<td class="instruction">LD (HL),$02</td>
+<td class="comment-11" rowspan="1">Set the character's z-coordinate to 2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec02"></span>EC02</td>
+<td class="instruction">JR $EC07</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ec04"></span>
+<div class="comments">
+<div class="paragraph">
+The character is not on the sidewalk or the road.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ec04"></span>EC04</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="1">Is the location type indicator 3 (at the open entrance to a building) or 5 (a location that requires special handling)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec05"></span>EC05</td>
+<td class="instruction">JR NC,$EC39</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ec07"></span>
+<div class="comments">
+<div class="paragraph">
+Finally we can move the character midstride in the desired direction and update the SRB accordingly. This entry point is used by the routines at <a href="7B5C.html">7B5C</a> and <a href="FC00.html">FC00</a>. The address of this entry point is also found at <a href="A016.html">A016</a>; it is used to handle a character who is moving from one of a set of certain special locations, but it does not actually do anything special.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ec07"></span>EC07</td>
+<td class="instruction">LD L,$00</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec09"></span>EC09</td>
+<td class="instruction">LD C,$05</td>
+<td class="comment-11" rowspan="2">Point <span class="register">BC</span> at byte 5 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec0b"></span>EC0B</td>
+<td class="instruction">LD B,H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec0c"></span>EC0C</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec0d"></span>EC0D</td>
+<td class="instruction">XOR $02</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's post-midstride animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec0f"></span>EC0F</td>
+<td class="instruction">LD (BC),A</td>
+<td class="comment-11" rowspan="1">Save this in byte 5 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec10"></span>EC10</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec11"></span>EC11</td>
+<td class="instruction">INC C</td>
+<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 6 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec12"></span>EC12</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="4"><span class="register">A</span>=-1 if the character is facing left, 1 if he's facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec13"></span>EC13</td>
+<td class="instruction">SBC A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec14"></span>EC14</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec15"></span>EC15</td>
+<td class="instruction">CPL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec16"></span>EC16</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-11" rowspan="1">Add the character's current x-coordinate to obtain his post-midstride x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec17"></span>EC17</td>
+<td class="instruction">LD (BC),A</td>
+<td class="comment-11" rowspan="1">Save this in byte 6 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec18"></span>EC18</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec19"></span>EC19</td>
+<td class="instruction">INC C</td>
+<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 7 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec1a"></span>EC1A</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=direction indicator (128, 64, 32, 16, 8 or 4)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec1b"></span>EC1B</td>
+<td class="instruction">AND $3C</td>
+<td class="comment-11" rowspan="1">Is the character going up or down a step?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec1d"></span>EC1D</td>
+<td class="instruction">JR Z,$EC26</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec1f"></span>EC1F</td>
+<td class="instruction">AND $30</td>
+<td class="comment-11" rowspan="1">Is the character going up a step?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec21"></span>EC21</td>
+<td class="instruction">JR Z,$EC25</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec23"></span>EC23</td>
+<td class="instruction">LD A,$FE</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=-2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ec25"></span>EC25</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=-1 if the character is going up a step, or 1 if he's going down a step</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ec26"></span>EC26</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-11" rowspan="1">Add the character's y-coordinate; now the carry flag is set if the character will be going up a step</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec27"></span>EC27</td>
+<td class="instruction">LD L,$00</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec29"></span>EC29</td>
+<td class="instruction">LD (BC),A</td>
+<td class="comment-11" rowspan="1">Save the character's post-midstride y-coordinate in byte 7 of his buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec2a"></span>EC2A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec2b"></span>EC2B</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save the carry flag briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec2c"></span>EC2C</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec2f"></span>EC2F</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec30"></span>EC30</td>
+<td class="instruction">JR NC,$EC33</td>
+<td class="comment-11" rowspan="1">Jump unless the character is going up a step</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec32"></span>EC32</td>
+<td class="instruction">DEC D</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=character's new y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ec33"></span>EC33</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's new animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec34"></span>EC34</td>
+<td class="instruction">CALL <a href="E9D5.html">$E9D5</a></td>
+<td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec37"></span>EC37</td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Set the carry flag to indicate that the character was moved</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec38"></span>EC38</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ec39"></span>
+<div class="comments">
+<div class="paragraph">
+The location type indicator is 3 (at the open entrance to a building) or 5 (a location that requires special handling).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ec39"></span>EC39</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="1">Is the location type indicator 5 (a location that requires special handling)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec3a"></span>EC3A</td>
+<td class="instruction">JR NC,$EC45</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ec3c"></span>
+<div class="comments">
+<div class="paragraph">
+The character is standing at the open entrance to a building.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec3c"></span>EC3C</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Set the zero flag if the character is indoors</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec3d"></span>EC3D</td>
+<td class="instruction">LD (HL),$01</td>
+<td class="comment-11" rowspan="1">Set the character's z-coordinate to 1 (indoors)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec3f"></span>EC3F</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=direction indicator (128, 64, 32, 16, 8 or 4)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec40"></span>EC40</td>
+<td class="instruction">CALL <a href="76BC.html">$76BC</a></td>
+<td class="comment-11" rowspan="1">Adjust the character's z-coordinate according to whether he is going to enter or exit the building, and, if dealing with Sam, check whether he is entering a house without a key</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec43"></span>EC43</td>
+<td class="instruction">JR $EC07</td>
+<td class="comment-11" rowspan="1">Move the character midstride</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ec45"></span>
+<div class="comments">
+<div class="paragraph">
+The character is at a location that may require special handling depending on the direction in which he is going.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ec45"></span>EC45</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=direction indicator (128, 64, 32, 16, 8 or 4)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec46"></span>EC46</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="2">Move bits 7 (left) and 6 (right) into bits 1 and 0 for comparison with bits 1 and 0 of the direction descriptor in <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec47"></span>EC47</td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec48"></span>EC48</td>
+<td class="instruction">AND C</td>
+<td class="comment-11" rowspan="1">Is the character moving in a direction that requires special handling (e.g. off the edge of a roof)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec49"></span>EC49</td>
+<td class="instruction">JR Z,$EC07</td>
+<td class="comment-11" rowspan="1">Jump if not to move the character midstride</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="ec4b"></span>
+<div class="comments">
+<div class="paragraph">
+The character's next move requires special handling.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec4b"></span>EC4B</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Q'', the third byte of the location descriptor (1-7; see <a href="EB13.html">EB13</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec4c"></span>EC4C</td>
+<td class="instruction">ADD A,$9F</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=160-166</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec4e"></span>EC4E</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the character number briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec4f"></span>EC4F</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-11" rowspan="6">Collect in <span class="register">HL</span> the special location handler routine address (<a href="7B5C.html">7B5C</a>, <a href="EBBB.html#ec07">EC07</a> or <a href="FB52.html">FB52</a>) from <a href="A016.html">A016</a>, <a href="A116.html">A116</a>, <a href="A216.html">A216</a>, <a href="A316.html">A316</a>, <a href="A416.html">A416</a>, <a href="A516.html">A516</a> or <a href="A616.html">A616</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec50"></span>EC50</td>
+<td class="instruction">LD L,$16</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec52"></span>EC52</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec53"></span>EC53</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec54"></span>EC54</td>
+<td class="instruction">LD H,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec55"></span>EC55</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec56"></span>EC56</td>
+<td class="instruction">EX (SP),HL</td>
+<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span>, and copy the special location handler routine address onto the stack</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec57"></span>EC57</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">To <a href="7B5C.html">7B5C</a> (if Q''=7), <a href="EBBB.html#ec07">EC07</a> (Q''=1) or <a href="FB52.html">FB52</a> (Q''=2, 3, 4, 5 or 6)</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="EBAE.html">EBAE</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#ebbb">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="EC58.html">EC58</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

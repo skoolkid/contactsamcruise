@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at F2A8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F2A7.html">F2A7</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f2a8">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F2DD.html">F2DD</a></span></td>
+</tr>
+</table>
+<div class="description">F2A8: Check whether a character can open a door</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="F308.html">F308</a> and <a href="F346.html">F346</a>. Returns with the carry flag reset if the door is already open, or the character can open the door (either because the door requires no key, or because the character has the key); otherwise returns with the carry flag set, and the zero flag set if the character has no keys. If the door is closed and requires a key, this routine will either open it (if the character has the key), or signal that the door was knocked on.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-230)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f2a8"></span>F2A8</td>
+<td class="instruction">LD D,H</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2a9"></span>F2A9</td>
+<td class="instruction">CALL <a href="F293.html">$F293</a></td>
+<td class="comment-11" rowspan="1">Check whether the door is open</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2ac"></span>F2AC</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2ad"></span>F2AD</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return (with the carry flag reset) if the door is open</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2ae"></span>F2AE</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the door status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2af"></span>F2AF</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=door status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2b0"></span>F2B0</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Does the door require a key to unlock it?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2b1"></span>F2B1</td>
+<td class="instruction">JR NZ,$F2BE</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f2b3"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="F308.html">F308</a> and <a href="F383.html">F383</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f2b3"></span>F2B3</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="3">Initialise the door close delay timer (in bits 0-2 of the door status flags) to 7</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2b4"></span>F2B4</td>
+<td class="instruction">ADD A,$07</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2b6"></span>F2B6</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2b7"></span>F2B7</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the character number (in <span class="register">D</span>) briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2b8"></span>F2B8</td>
+<td class="instruction">CALL <a href="F7CD.html">$F7CD</a></td>
+<td class="comment-11" rowspan="1">Open the door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2bb"></span>F2BB</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2bc"></span>F2BC</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="1">Reset the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2bd"></span>F2BD</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f2be"></span>
+<div class="comments">
+<div class="paragraph">
+The door requires a key to unlock it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f2be"></span>F2BE</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (215-230)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2bf"></span>F2BF</td>
+<td class="instruction">CP $E6</td>
+<td class="comment-11" rowspan="1">Is this Sam?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2c1"></span>F2C1</td>
+<td class="instruction">JR NZ,$F2C8</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2c3"></span>F2C3</td>
+<td class="instruction">LD A,($7FEA)</td>
+<td class="comment-11" rowspan="1">Pick up the key inventory flags from <a href="7FEA.html">7FEA</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2c6"></span>F2C6</td>
+<td class="instruction">JR $F2CE</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f2c8"></span>F2C8</td>
+<td class="instruction">ADD A,$0A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number + 10 (225-239)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2ca"></span>F2CA</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="2">Point <span class="register">BC</span> at the entry in the table of key ownership flags at <a href="F2E1.html">F2E1</a> that corresponds to this character</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2cb"></span>F2CB</td>
+<td class="instruction">LD B,$F2</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2cd"></span>F2CD</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-11" rowspan="1">Pick up the key ownership flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f2ce"></span>F2CE</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=character's key ownership flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2cf"></span>F2CF</td>
+<td class="instruction">AND (HL)</td>
+<td class="comment-11" rowspan="1">Does the character have the key to this door?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2d0"></span>F2D0</td>
+<td class="instruction">JR NZ,$F2B3</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2d2"></span>F2D2</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=LSB of the door status flag byte (240-249)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2d3"></span>F2D3</td>
+<td class="instruction">SUB $46</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=170-179</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2d5"></span>F2D5</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the door knock status flags for the door (at <a href="7FAA.html">7FAA</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2d6"></span>F2D6</td>
+<td class="instruction">SET 7,(HL)</td>
+<td class="comment-11" rowspan="1">Signal: somebody has knocked on the door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2d8"></span>F2D8</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's key ownership flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2d9"></span>F2D9</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Set the zero flag if the character has no keys</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2da"></span>F2DA</td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Signal: the character cannot open the door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2db"></span>F2DB</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f2dc"></span>F2DC</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F2A7.html">F2A7</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f2a8">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F2DD.html">F2DD</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 790D</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="78FC.html">78FC</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#790d">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="797C.html">797C</a></span></td>
+</tr>
+</table>
+<div class="description">790D: Display a cutscene</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="7AB6.html">7AB6</a>. Displays a cutscene, and then enters demo mode or resumes the game in the next mode.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Cutscene message number</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="790d"></span>790D</td>
+<td class="instruction">LD ($7FD2),A</td>
+<td class="comment-11" rowspan="1">Store the cutscene message number at <a href="7FD2.html">7FD2</a> so that it can be monitored</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7910"></span>7910</td>
+<td class="instruction">CALL <a href="6EC5.html">$6EC5</a></td>
+<td class="comment-11" rowspan="1">Add the message to the message queue</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7913"></span>7913</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7914"></span>7914</td>
+<td class="instruction">LD ($7FC9),A</td>
+<td class="comment-11" rowspan="1">Set Sam's disguise ID (stored at <a href="7FC9.html">7FC9</a>) to 0 (none)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7917"></span>7917</td>
+<td class="instruction">LD ($7F9A),A</td>
+<td class="comment-11" rowspan="1">Disconnect any phone call Sam may be making by setting <a href="7F9A.html">7F9A</a> to 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="791a"></span>791A</td>
+<td class="instruction">LD ($7FFC),A</td>
+<td class="comment-11" rowspan="1">Clear all of Sam's status flags at <a href="7FFC.html">7FFC</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="791d"></span>791D</td>
+<td class="instruction">CALL <a href="F95E.html#f969">$F969</a></td>
+<td class="comment-11" rowspan="1">Update Sam's sprite and the disguise icon now that Sam's wearing no disguise</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="7920"></span>
+<div class="comments">
+<div class="paragraph">
+The loop that follows makes Sam pace up and down until the cutscene is over.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7920"></span>7920</td>
+<td class="instruction">LD HL,$E609</td>
+<td class="comment-11" rowspan="3">Reset the midstride/mid-action timer in byte 9 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7923"></span>7923</td>
+<td class="instruction">XOR A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7924"></span>7924</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7925"></span>7925</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7926"></span>7926</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Is Sam midstride?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7928"></span>7928</td>
+<td class="instruction">JR Z,$7952</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="792a"></span>792A</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for Sam's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="792d"></span>792D</td>
+<td class="instruction">DEC E</td>
+<td class="comment-11" rowspan="5">Set <span class="register">E</span> to Sam's next x-coordinate (immediately in front of him)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="792e"></span>792E</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7930"></span>7930</td>
+<td class="instruction">JR Z,$7934</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7932"></span>7932</td>
+<td class="instruction">INC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7933"></span>7933</td>
+<td class="instruction">INC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7934"></span>7934</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="2">Set <span class="register">A</span> to Sam's new animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7935"></span>7935</td>
+<td class="instruction">AND $FB</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7937"></span>7937</td>
+<td class="instruction">CALL <a href="E9D5.html">$E9D5</a></td>
+<td class="comment-11" rowspan="1">Update Sam's animatory state and location and update the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="793a"></span>793A</td>
+<td class="instruction">CALL <a href="EC69.html">$EC69</a></td>
+<td class="comment-11" rowspan="1">Make a walking sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="793d"></span>793D</td>
+<td class="instruction">CALL <a href="EA80.html">$EA80</a></td>
+<td class="comment-11" rowspan="1">Update the display</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7940"></span>7940</td>
+<td class="instruction">CALL <a href="6EC5.html#6ef4">$6EF4</a></td>
+<td class="comment-11" rowspan="1">Update the message line</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7943"></span>7943</td>
+<td class="instruction">LD HL,$7FC8</td>
+<td class="comment-11" rowspan="1"><a href="7FC8.html">7FC8</a> holds the value of the LSB of the system variable FRAMES as it was at the end of the last pass through the main loop (or this routine)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7946"></span>7946</td>
+<td class="instruction">LD A,($5C78)</td>
+<td class="comment-11" rowspan="4">Wait about 240ms</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7949"></span>7949</td>
+<td class="instruction">SUB (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="794a"></span>794A</td>
+<td class="instruction">CP $0C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="794c"></span>794C</td>
+<td class="instruction">JR C,$7946</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="794e"></span>794E</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-11" rowspan="2">Store the current value of the LSB of the system variable FRAMES at <a href="7FC8.html">7FC8</a> for comparison next time</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="794f"></span>794F</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7950"></span>7950</td>
+<td class="instruction">JR $7920</td>
+<td class="comment-11" rowspan="1">Jump back to the beginning of this loop</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="7952"></span>
+<div class="comments">
+<div class="paragraph">
+Sam is not midstride at the moment.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7952"></span>7952</td>
+<td class="instruction">CALL <a href="73E4.html">$73E4</a></td>
+<td class="comment-11" rowspan="1">Show or hide the fuse, door, light bulb or phone in the icon panel</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7955"></span>7955</td>
+<td class="instruction">CALL <a href="78FC.html">$78FC</a></td>
+<td class="comment-11" rowspan="1">Has the entire cutscene message been displayed yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7958"></span>7958</td>
+<td class="instruction">JP NZ,<a href="F0BE.html">$F0BE</a></td>
+<td class="comment-11" rowspan="1">Jump if so to end the cutscene</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="795b"></span>
+<div class="comments">
+<div class="paragraph">
+The cutscene is not over yet. Check whether Sam should turn round before pacing up or down again.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="795b"></span>795B</td>
+<td class="instruction">LD HL,$E601</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="795e"></span>795E</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="795f"></span>795F</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7960"></span>7960</td>
+<td class="instruction">AND $07</td>
+<td class="comment-11" rowspan="1">Does Sam's x-coordinate divide 8 exactly?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7962"></span>7962</td>
+<td class="instruction">JR NZ,$796F</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7964"></span>7964</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Is Sam facing right?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7966"></span>7966</td>
+<td class="instruction">JR NZ,$7977</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7968"></span>7968</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for Sam's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="796b"></span>796B</td>
+<td class="instruction">XOR $80</td>
+<td class="comment-11" rowspan="1">Flip bit 7 of Sam's animatory state, this turning him round</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="796d"></span>796D</td>
+<td class="instruction">JR $7937</td>
+<td class="comment-11" rowspan="1">Jump back to update Sam's animatory state and the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="796f"></span>796F</td>
+<td class="instruction">CP $05</td>
+<td class="comment-11" rowspan="1">Is Sam's x-coordinate congruent to 5 mod 8?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7971"></span>7971</td>
+<td class="instruction">JR NZ,$7977</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7973"></span>7973</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Is Sam facing right?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7975"></span>7975</td>
+<td class="instruction">JR NZ,$7968</td>
+<td class="comment-11" rowspan="1">Jump back to turn Sam round if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7977"></span>7977</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for Sam's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="797a"></span>797A</td>
+<td class="instruction">JR $7934</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="78FC.html">78FC</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#790d">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="797C.html">797C</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

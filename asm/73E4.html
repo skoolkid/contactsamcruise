@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 73E4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="73CF.html">73CF</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#73e4">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7414.html">7414</a></span></td>
+</tr>
+</table>
+<div class="description">73E4: Show or hide the fuse, door, light bulb or phone in the icon panel (1)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="790D.html">790D</a> and <a href="F080.html">F080</a>. Shows or hides the fuse, door, light bulb or phone in the icon panel depending on Sam's current location and activity.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="73e4"></span>73E4</td>
+<td class="instruction">LD HL,$E600</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73e7"></span>73E7</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Is Sam midstride?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73e9"></span>73E9</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73ea"></span>73EA</td>
+<td class="instruction">LD A,($7FFC)</td>
+<td class="comment-11" rowspan="1">Collect Sam's status flags from <a href="7FFC.html">7FFC</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73ed"></span>73ED</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is Sam engaged in an action at the moment?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73ee"></span>73EE</td>
+<td class="instruction">JR Z,$740A</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="73f0"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="7425.html">7425</a>. Now that the relevant bits at <a href="7FA8.html">7FA8</a> have been set or reset, it's time to show or hide the fuse, door, light bulb or phone in the icon panel.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="73f0"></span>73F0</td>
+<td class="instruction">LD B,$04</td>
+<td class="comment-11" rowspan="1">There are four icons to show or hide</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73f2"></span>73F2</td>
+<td class="instruction">LD A,($7FA8)</td>
+<td class="comment-11" rowspan="1">Collect the icon panel status flags from <a href="7FA8.html">7FA8</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73f5"></span>73F5</td>
+<td class="instruction">LD E,$A6</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span> will hold the LSB of the attribute file address for the icon; initialise it to 166</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="73f7"></span>73F7</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="2">Set <span class="register">E</span> to the LSB of the attribute file address for the next icon in the panel</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73f8"></span>73F8</td>
+<td class="instruction">INC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73f9"></span>73F9</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="1">Set the carry flag if this icon should be shown</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73fa"></span>73FA</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save the icon status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73fb"></span>73FB</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the LSB of the attribute file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73fc"></span>73FC</td>
+<td class="instruction">CALL C,<a href="701F.html">$701F</a></td>
+<td class="comment-11" rowspan="1">Reveal the icon if necessary</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="73ff"></span>73FF</td>
+<td class="instruction">CALL NC,<a href="701F.html#7023">$7023</a></td>
+<td class="comment-11" rowspan="1">Or hide it if necessary</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7402"></span>7402</td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1">Restore the LSB of the attribute file address to <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7403"></span>7403</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the icon status flags to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7404"></span>7404</td>
+<td class="instruction">DJNZ $73F7</td>
+<td class="comment-11" rowspan="1">Jump back until the fuse, door, light bulb and phone icons have been revealed or hidden</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7406"></span>7406</td>
+<td class="instruction">LD ($7FA8),A</td>
+<td class="comment-11" rowspan="1">Clear all the icon panel status flags at <a href="7FA8.html">7FA8</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7409"></span>7409</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="740a"></span>
+<div class="comments">
+<div class="paragraph">
+Sam is not engaged in any action at the moment (no status flags at <a href="7FFC.html">7FFC</a> are set).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="740a"></span>740A</td>
+<td class="instruction">LD A,($7FEB)</td>
+<td class="comment-11" rowspan="1">Collect the police flags from <a href="7FEB.html">7FEB</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="740d"></span>740D</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Is Sam in jail?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="740e"></span>740E</td>
+<td class="instruction">JR C,<a href="7425.html#743d">$743D</a></td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7410"></span>7410</td>
+<td class="instruction">LD L,$02</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7412"></span>7412</td>
+<td class="instruction">JR <a href="7425.html">$7425</a></td>
+<td class="comment-11" rowspan="1">Check whether Sam is standing next to a fuse, door, light switch or telephone, and return here to update the icon panel as appropriate</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="73CF.html">73CF</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#73e4">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7414.html">7414</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

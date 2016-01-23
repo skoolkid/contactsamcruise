@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 7A6A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7A57.html">7A57</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7a6a">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7A82.html">7A82</a></span></td>
+</tr>
+</table>
+<div class="description">7A6A: Make a gangster walk up and down while watching for Sam</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the command lists at <a href="FD16.html">FD16</a>, <a href="FD30.html">FD30</a>, <a href="FD4E.html">FD4E</a> and <a href="FD86.html">FD86</a>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Gangster's character number (215-224)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7a6a"></span>7A6A</td>
+<td class="instruction">LD L,$0B</td>
+<td class="comment-11" rowspan="2">Copy the door identifier (168 or 175) and walkabout duration indicator (always 0) from the command list into bytes 11 and 12 of the gangster's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7a6c"></span>7A6C</td>
+<td class="instruction">CALL <a href="F171.html">$F171</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7a6f"></span>7A6F</td>
+<td class="instruction">LD L,$0D</td>
+<td class="comment-11" rowspan="2">Set byte 13 of the gangster's buffer to a non-zero value to ensure that he walks up and down indefinitely</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7a71"></span>7A71</td>
+<td class="instruction">LD (HL),$3F</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7a73"></span>7A73</td>
+<td class="instruction">LD L,$01</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=gangster's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7a75"></span>7A75</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7a76"></span>7A76</td>
+<td class="instruction">LD L,$0A</td>
+<td class="comment-11" rowspan="2">Copy this to byte 10 of the gangster's buffer, thus making it his walkabout origin x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7a78"></span>7A78</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7a79"></span>7A79</td>
+<td class="instruction">CALL <a href="F7B1.html">$F7B1</a></td>
+<td class="comment-11" rowspan="1">Change the gangster's primary command routine address to <a href="7A6A.html#7a7c">7A7C</a> (below)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7a7c"></span>7A7C</td>
+<td class="instruction">LD BC,$7A57</td>
+<td class="comment-11" rowspan="1">The routine at <a href="7A57.html">7A57</a> makes the gangster walk up or down until Sam arrives</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7a7f"></span>7A7F</td>
+<td class="instruction">JP <a href="F748.html#f763">$F763</a></td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7A57.html">7A57</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7a6a">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7A82.html">7A82</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at FAE3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FADA.html">FADA</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fae3">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FB43.html">FB43</a></span></td>
+</tr>
+</table>
+<div class="description">FAE3: Move a falling character to the next point in his descent</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="FB4B.html">FB4B</a> and <a href="FB52.html">FB52</a>. Moves the character to the next point in his descent from the roof of a building. Returns with the carry flag reset if the character has landed, and then with the zero flag reset if he was knocked out by the landing.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-230)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fae3"></span>FAE3</td>
+<td class="instruction">LD L,$02</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fae5"></span>FAE5</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fae6"></span>FAE6</td>
+<td class="instruction">LD L,$15</td>
+<td class="comment-11" rowspan="1">Byte 21 of the character's buffer holds his landing y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fae8"></span>FAE8</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Has the character landed yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fae9"></span>FAE9</td>
+<td class="instruction">JR NZ,$FAF6</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="faeb"></span>FAEB</td>
+<td class="instruction">LD L,$0D</td>
+<td class="comment-11" rowspan="2">Is the character Sam, and should he be knocked out upon landing?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="faed"></span>FAED</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="faef"></span>FAEF</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return with the carry flag reset (the character has landed) and the zero flag set (he was not knocked out) if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="faf0"></span>FAF0</td>
+<td class="instruction">CALL <a href="F9D2.html">$F9D2</a></td>
+<td class="comment-11" rowspan="1">Knock Sam out</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="faf3"></span>FAF3</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="2">Reset the carry flag (Sam has landed) and the zero flag (he was knocked out upon landing)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="faf4"></span>FAF4</td>
+<td class="instruction">AND A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="faf5"></span>FAF5</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="faf6"></span>
+<div class="comments">
+<div class="paragraph">
+The character has not landed yet.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="faf6"></span>FAF6</td>
+<td class="instruction">ADD A,$03</td>
+<td class="comment-11" rowspan="2">Set the zero flag if the character is at the right height above the roof or ground to hit another character</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="faf8"></span>FAF8</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="faf9"></span>FAF9</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the character number briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fafa"></span>FAFA</td>
+<td class="instruction">CALL Z,<a href="FAA2.html">$FAA2</a></td>
+<td class="comment-11" rowspan="1">Check whether the character has landed on someone</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fafd"></span>FAFD</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fafe"></span>FAFE</td>
+<td class="instruction">JR NZ,$FB04</td>
+<td class="comment-11" rowspan="1">Jump unless the character has landed on someone</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb00"></span>FB00</td>
+<td class="instruction">LD L,$0D</td>
+<td class="comment-11" rowspan="2">Set byte 13 of the character's buffer to 0: he will not be knocked out upon landing</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb02"></span>FB02</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fb04"></span>FB04</td>
+<td class="instruction">LD L,$0D</td>
+<td class="comment-11" rowspan="2">Is the character Sam, and was he dropped from a great enough height that he could be knocked out upon landing?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb06"></span>FB06</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb08"></span>FB08</td>
+<td class="instruction">JR Z,$FB0D</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb0a"></span>FB0A</td>
+<td class="instruction">LD L,$04</td>
+<td class="comment-11" rowspan="2">Set Sam's z-coordinate to 4 (outside)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb0c"></span>FB0C</td>
+<td class="instruction">LD (HL),L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fb0d"></span>FB0D</td>
+<td class="instruction">LD L,$14</td>
+<td class="comment-11" rowspan="2">Pick up byte 20 of the character's buffer; this will be non-zero if the character is still moving to the left or right just after stepping off the roof of a building</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb0f"></span>FB0F</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb10"></span>FB10</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Set the zero flag if byte 20 is zero</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb11"></span>FB11</td>
+<td class="instruction">LD DE,$0100</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=1 (default y-coordinate increment), <span class="register">E</span>=0 (default x-coordinate increment)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb14"></span>FB14</td>
+<td class="instruction">JR Z,$FB2E</td>
+<td class="comment-11" rowspan="1">Jump if the character is falling straight downwards now</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb16"></span>FB16</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Decrement byte 20 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb17"></span>FB17</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="2">Set the carry flag if byte 20 is less than 5</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb18"></span>FB18</td>
+<td class="instruction">CP $05</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb1a"></span>FB1A</td>
+<td class="instruction">LD L,E</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb1b"></span>FB1B</td>
+<td class="instruction">JR C,$FB27</td>
+<td class="comment-11" rowspan="1">Jump if byte 20 of the character's buffer is less than 5</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb1d"></span>FB1D</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-11" rowspan="1">Set the y-coordinate increment to 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb1f"></span>FB1F</td>
+<td class="instruction">JR Z,$FB27</td>
+<td class="comment-11" rowspan="1">Jump if byte 20 of the character's buffer is 5</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb21"></span>FB21</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb24"></span>FB24</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's next animatory state (midstride)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb25"></span>FB25</td>
+<td class="instruction">JR $FB3D</td>
+<td class="comment-11" rowspan="1">Make the character take the first step off the edge of the roof</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fb27"></span>
+<div class="comments">
+<div class="paragraph">
+The character is midstride on the edge of the roof. The next step (to the left or right) will place him in mid-air.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fb27"></span>FB27</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb28"></span>FB28</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Is the character facing right?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb2a"></span>FB2A</td>
+<td class="instruction">JR NZ,$FB2E</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb2c"></span>FB2C</td>
+<td class="instruction">LD E,$FF</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=-1</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fb2e"></span>
+<div class="comments">
+<div class="paragraph">
+Now <span class="register">D</span> holds the y-coordinate increment (0 or 1), and <span class="register">E</span> holds the x-coordinate increment (-1, 0 or 1).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fb2e"></span>FB2E</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the x- and y-coordinate increments</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb2f"></span>FB2F</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb32"></span>FB32</td>
+<td class="instruction">AND $F8</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb34"></span>FB34</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1">Copy this to <span class="register">L</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb35"></span>FB35</td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Restore the x- and y-coordinate increments to <span class="register">C</span> and <span class="register">B</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb36"></span>FB36</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-11" rowspan="3"><span class="register">D</span>=character's next y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb37"></span>FB37</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb38"></span>FB38</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb39"></span>FB39</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="3"><span class="register">E</span>=character's next x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb3a"></span>FB3A</td>
+<td class="instruction">ADD A,E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb3b"></span>FB3B</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb3c"></span>FB3C</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fb3d"></span>
+<div class="comments">
+<div class="paragraph">
+Now <span class="register">A</span>, <span class="register">E</span> and <span class="register">D</span> hold the character's new animatory state and x- and y-coordinates.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fb3d"></span>FB3D</td>
+<td class="instruction">CALL <a href="E9D5.html">$E9D5</a></td>
+<td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb40"></span>FB40</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (215-230)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb41"></span>FB41</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="1">Set the carry flag (the character has not landed yet)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fb42"></span>FB42</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FADA.html">FADA</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fae3">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FB43.html">FB43</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

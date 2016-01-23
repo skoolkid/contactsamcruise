@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Data at C3DB</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="C3D5.html">C3D5</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#c3db">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="C3F2.html">C3F2</a></span></td>
+</tr>
+</table>
+<div class="description">C3DB: Location descriptors (x-coordinates 14, 30, 198)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="EB13.html">EB13</a>.
+</div>
+<div class="paragraph">
+The first descriptor corresponds to the left side of the wall between the right-hand shop under the apartment building next to no. 74 and the stairwell of that building (x=14).
+</div>
+<div class="paragraph">
+<table class="locdesc">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="ld-14-31-4" src="../images/location_descriptors/ld-14-31-4.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="c3db"></span>C3DB</td>
+<td class="instruction">DEFB $36,$80</td>
+<td class="comment-11" rowspan="1">y=31, z=1; left</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="c3dd"></span>
+<div class="comments">
+<div class="paragraph">
+The next descriptor corresponds to the staircases leading up to the roofs of the apartment building next to no. 74 (x=14) and the apartment building next to no. 19 (x=198).
+</div>
+<div class="paragraph">
+<table class="locdesc">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="ld-14-12-4" src="../images/location_descriptors/ld-14-12-4.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="ld-198-12-4" src="../images/location_descriptors/ld-198-12-4.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="c3dd"></span>C3DD</td>
+<td class="instruction">DEFB $10,$28</td>
+<td class="comment-11" rowspan="1">y=12, z=1; up/left, down/left</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="c3df"></span>
+<div class="comments">
+<div class="paragraph">
+The next descriptor corresponds to the location between the stairwell and the first window to the right of the stairwell on the first floor of the apartment building next to no. 19 (x=198). It invokes the special location handler routine whose address is at <a href="A016.html">A016</a> when a character moves right at this location. However, the handler routine does nothing special, and therefore the descriptor is redundant. (The location at (x,y,z)=(14,31,1) is dealt with by the first descriptor above.)
+</div>
+<div class="paragraph">
+<table class="locdesc">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="ld-198-31-4" src="../images/location_descriptors/ld-198-31-4.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="c3df"></span>C3DF</td>
+<td class="instruction">DEFB $9B,$C1,$01</td>
+<td class="comment-11" rowspan="1">y=31, z=1; left, right</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="c3e2"></span>
+<div class="comments">
+<div class="paragraph">
+The next descriptor corresponds to the staircases between the third and top floors in the apartment building next to no. 74 (x=14) and the apartment building next to no. 19 (x=198).
+</div>
+<div class="paragraph">
+<table class="locdesc">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="ld-14-18-4" src="../images/location_descriptors/ld-14-18-4.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="ld-198-18-4" src="../images/location_descriptors/ld-198-18-4.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="c3e2"></span>C3E2</td>
+<td class="instruction">DEFB $1C,$28</td>
+<td class="comment-11" rowspan="1">y=18, z=1; up/left, down/left</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="c3e4"></span>
+<div class="comments">
+<div class="paragraph">
+The next descriptor corresponds to the location between the stairwell and the first window to the right of the stairwell on the third floor of the apartment building next to no. 74 (x=14), and the location between the stairwell and the first window to the right of the stairwell on the third floor of the apartment building next to no. 19 (x=198). It invokes the special location handler routine whose address is at <a href="A016.html">A016</a> when a character moves right at these locations. However, the handler routine does nothing special, and therefore the descriptor is redundant.
+</div>
+<div class="paragraph">
+<table class="locdesc">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="ld-14-19-4" src="../images/location_descriptors/ld-14-19-4.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="ld-198-19-4" src="../images/location_descriptors/ld-198-19-4.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="c3e4"></span>C3E4</td>
+<td class="instruction">DEFB $8F,$C1,$01</td>
+<td class="comment-11" rowspan="1">y=19, z=1; left, right</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="c3e7"></span>
+<div class="comments">
+<div class="paragraph">
+The next descriptor corresponds to the staircases between the second and third floors in the apartment building next to no. 74 (x=14) and the apartment building next to no. 19 (x=198).
+</div>
+<div class="paragraph">
+<table class="locdesc">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="ld-14-24-4" src="../images/location_descriptors/ld-14-24-4.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="ld-198-24-4" src="../images/location_descriptors/ld-198-24-4.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="c3e7"></span>C3E7</td>
+<td class="instruction">DEFB $28,$28</td>
+<td class="comment-11" rowspan="1">y=24, z=1; up/left, down/left</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="c3e9"></span>
+<div class="comments">
+<div class="paragraph">
+The next descriptor corresponds to the location between the stairwell and the first window to the right of the stairwell on the second floor of the apartment building next to no. 74 (x=14), and the location between the stairwell and the first window to the right of the stairwell on the second floor of the apartment building next to no. 19 (x=198). It invokes the special location handler routine whose address is at <a href="A016.html">A016</a> when a character moves right at these locations. However, the handler routine does nothing special, and therefore the descriptor is redundant.
+</div>
+<div class="paragraph">
+<table class="locdesc">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="ld-14-25-4" src="../images/location_descriptors/ld-14-25-4.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="ld-198-25-4" src="../images/location_descriptors/ld-198-25-4.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="c3e9"></span>C3E9</td>
+<td class="instruction">DEFB $95,$C1,$01</td>
+<td class="comment-11" rowspan="1">y=25, z=1; left, right</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="c3ec"></span>
+<div class="comments">
+<div class="paragraph">
+The next descriptor corresponds to the staircases between the first and second floors in the apartment building next to no. 74 (x=14) and the apartment building next to no. 19 (x=198).
+</div>
+<div class="paragraph">
+<table class="locdesc">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="ld-14-30-4" src="../images/location_descriptors/ld-14-30-4.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="ld-198-30-4" src="../images/location_descriptors/ld-198-30-4.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="c3ec"></span>C3EC</td>
+<td class="instruction">DEFB $34,$28</td>
+<td class="comment-11" rowspan="1">y=30, z=1; up/left, down/left</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="c3ee"></span>
+<div class="comments">
+<div class="paragraph">
+The next descriptor corresponds to the location between the stairwell and the first window to the right of the stairwell on the top floor of the apartment building next to no. 74 (x=14), the right end of the catwalk (x=30), and the location between the stairwell and the first window to the right of the stairwell on the top floor of the apartment building next to no. 19 (x=198). It invokes the special location handler routine whose address is at <a href="A016.html">A016</a> when a character moves right at these locations. However, the handler routine does nothing special, and therefore the descriptor is redundant.
+</div>
+<div class="paragraph">
+<table class="locdesc">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="ld-14-13-4" src="../images/location_descriptors/ld-14-13-4.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="ld-30-13-1" src="../images/location_descriptors/ld-30-13-1.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="ld-198-13-4" src="../images/location_descriptors/ld-198-13-4.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="c3ee"></span>C3EE</td>
+<td class="instruction">DEFB $89,$C1,$01</td>
+<td class="comment-11" rowspan="1">y=13, z=1; left, right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="c3f1"></span>C3F1</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-11" rowspan="1">End marker</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="C3D5.html">C3D5</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#c3db">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="C3F2.html">C3F2</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

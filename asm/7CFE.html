@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 7CFE</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7CD8.html">7CD8</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7cfe">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7D09.html">7D09</a></span></td>
+</tr>
+</table>
+<div class="description">7CFE: Check whether Sam should be chased by the police</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="72B1.html">72B1</a>. Returns with the <a href="7FEB.html">police flags</a> in <span class="register">A</span> if Sam is neither falling from the roof of a building nor being carried by a gangster or policeman; otherwise returns with <span class="register">A</span>=0.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7cfe"></span>7CFE</td>
+<td class="instruction">LD A,($7FFC)</td>
+<td class="comment-11" rowspan="1">Collect Sam's status flags from <a href="7FFC.html">7FFC</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7d01"></span>7D01</td>
+<td class="instruction">AND $81</td>
+<td class="comment-11" rowspan="1">Keep only bits 0 and 7</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7d03"></span>7D03</td>
+<td class="instruction">LD A,($7FEB)</td>
+<td class="comment-11" rowspan="1">Collect the police flags from <a href="7FEB.html">7FEB</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7d06"></span>7D06</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return unless Sam is being carried by a gangster or policeman, or is falling from a building</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7d07"></span>7D07</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7d08"></span>7D08</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7CD8.html">7CD8</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7cfe">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7D09.html">7D09</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

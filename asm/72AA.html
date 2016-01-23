@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 72AA</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7294.html">7294</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#72aa">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="72B1.html">72B1</a></span></td>
+</tr>
+</table>
+<div class="description">72AA: Control a policeman (1)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the command list at <a href="FCF4.html">FCF4</a>. Makes the policeman begin patrol duty, and chase and pick up Sam when appropriate.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">222 or 223 (policeman)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="72aa"></span>72AA</td>
+<td class="instruction">LD L,$08</td>
+<td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 8 and 9 of the policeman's buffer to <a href="72B1.html">72B1</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="72ac"></span>72AC</td>
+<td class="instruction">LD (HL),$B1</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="72ae"></span>72AE</td>
+<td class="instruction">JP <a href="72B1.html#7360">$7360</a></td>
+<td class="comment-11" rowspan="1">Send the policeman to a randomly chosen spot on the sidewalk or road</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7294.html">7294</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#72aa">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="72B1.html">72B1</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

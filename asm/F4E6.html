@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at F4E6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F485.html">F485</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f4e6">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F4FB.html">F4FB</a></span></td>
+</tr>
+</table>
+<div class="description">F4E6: Make a character flip a light switch on or off occasionally</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="F5CE.html">F5CE</a>. If the character is standing next to a light switch, this routine makes him flip the switch off (if it's on and affects the lights in more than one window or window-pair), or consider flipping the switch on (if it's off and affects the lights in only one window or window-pair).
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-229)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f4e6"></span>F4E6</td>
+<td class="instruction">CALL <a href="F436.html">$F436</a></td>
+<td class="comment-11" rowspan="1">Is the character standing next to a light switch?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4e9"></span>F4E9</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4ea"></span>F4EA</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-11" rowspan="1">Reset the zero flag if the light switch affects the lights in more than one window or window-pair</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f4ec"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="F5A0.html">F5A0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f4ec"></span>F4EC</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=window flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4ed"></span>F4ED</td>
+<td class="instruction">JR NZ,$F4F5</td>
+<td class="comment-11" rowspan="1">Jump if the light switch affects the lights in more than one window or window-pair</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4ef"></span>F4EF</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-11" rowspan="1">Is the light switch in the 'on' position?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4f1"></span>F4F1</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4f2"></span>F4F2</td>
+<td class="instruction">JP <a href="F485.html#f491">$F491</a></td>
+<td class="comment-11" rowspan="1">Flip the light switch on 109 times out of 256</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f4f5"></span>F4F5</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-11" rowspan="1">Is the light switch in the 'off' position?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4f7"></span>F4F7</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4f8"></span>F4F8</td>
+<td class="instruction">JP <a href="F485.html#f4a6">$F4A6</a></td>
+<td class="comment-11" rowspan="1">Flip the light switch off</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F485.html">F485</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f4e6">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F4FB.html">F4FB</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

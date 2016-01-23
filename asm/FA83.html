@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at FA83</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FA82.html">FA82</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fa83">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FAA2.html">FAA2</a></span></td>
+</tr>
+</table>
+<div class="description">FA83: Deal with a character who has nearly recovered from being knocked over</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="FA05.html">FA05</a>. Controls a character from the point where he has almost recovered from the daze of being knocked over.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-229)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fa83"></span>FA83</td>
+<td class="instruction">CALL <a href="F9FA.html">$F9FA</a></td>
+<td class="comment-11" rowspan="1">Place the address of the next instruction into bytes 18 and 19 of the character's buffer</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fa86"></span>
+<div class="comments">
+<div class="paragraph">
+The apparent intention of the remainder of this routine is to make the character return (by walking backwards or forwards as required) to the spot where he was hit, but this fails to happen because of the faulty 'JR NZ' instruction below, which should be a 'JR Z' instead.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa86"></span>FA86</td>
+<td class="instruction">LD L,$15</td>
+<td class="comment-11" rowspan="2">Collect the character's pre-knockout x-coordinate from byte 21 of his buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa88"></span>FA88</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa89"></span>FA89</td>
+<td class="instruction">LD L,$01</td>
+<td class="comment-11" rowspan="2">Does it match the character's current x-coordinate?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa8b"></span>FA8B</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa8c"></span>FA8C</td>
+<td class="instruction">JR NZ,$FA96</td>
+<td class="comment-11" rowspan="1">Jump if not (this is a <a href="../reference/bugs.html#pttd">bug</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa8e"></span>FA8E</td>
+<td class="instruction">LD C,$80</td>
+<td class="comment-11" rowspan="1">Bit 7 set, bit 6 reset: the character will move left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa90"></span>FA90</td>
+<td class="instruction">JR C,<a href="FA05.html#fa50">$FA50</a></td>
+<td class="comment-11" rowspan="1">This jump is never made, but the intention was to make it if the character's current x-coordinate is greater than his pre-knockout x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa92"></span>FA92</td>
+<td class="instruction">LD C,$40</td>
+<td class="comment-11" rowspan="1">Bit 7 reset, bit 6 set: the character will move right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa94"></span>FA94</td>
+<td class="instruction">JR <a href="FA05.html#fa50">$FA50</a></td>
+<td class="comment-11" rowspan="1">Move the character right</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fa96"></span>
+<div class="comments">
+<div class="paragraph">
+Restore the character's pre-knockout animatory state and terminate this subcommand.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fa96"></span>FA96</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa99"></span>FA99</td>
+<td class="instruction">LD L,$0D</td>
+<td class="comment-11" rowspan="2">Collect the character's pre-knockout animatory state from byte 13 of his buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa9b"></span>FA9B</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa9c"></span>FA9C</td>
+<td class="instruction">CALL <a href="E9D5.html">$E9D5</a></td>
+<td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa9f"></span>FA9F</td>
+<td class="instruction">JP <a href="F280.html#f288">$F288</a></td>
+<td class="comment-11" rowspan="1">Terminate this uninterruptible subcommand</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FA82.html">FA82</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fa83">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FAA2.html">FAA2</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at EC5A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="EC58.html">EC58</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#ec5a">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="EC69.html">EC69</a></span></td>
+</tr>
+</table>
+<div class="description">EC5A: Move a character from the midstride or mid-action position and update the SRB</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="71DD.html">71DD</a>, <a href="EC7B.html">EC7B</a>, <a href="F5AC.html">F5AC</a>, <a href="F5CE.html">F5CE</a> and <a href="F698.html">F698</a>. Updates the character's animatory state and location, and updates the <a href="7F00.html">screen refresh buffer</a> (SRB) accordingly.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-230)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="ec5a"></span>EC5A</td>
+<td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec5d"></span>EC5D</td>
+<td class="instruction">LD L,$05</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 5 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec5f"></span>EC5F</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">A=character's post-midstride/post-action animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec60"></span>EC60</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="4">Collect the character's post-midstride/post-action coordinates in <span class="register">DE</span> from bytes 6 and 7 of his buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec61"></span>EC61</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec62"></span>EC62</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec63"></span>EC63</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec64"></span>EC64</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-11" rowspan="1">Set byte 7 of the character's buffer to 0 (to indicate that he is neither midstride nor mid-action now)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="ec66"></span>EC66</td>
+<td class="instruction">JP <a href="E9D5.html">$E9D5</a></td>
+<td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="EC58.html">EC58</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#ec5a">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="EC69.html">EC69</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

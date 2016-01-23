@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at E700</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="E6F1.html">E6F1</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#e700">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="E70C.html">E70C</a></span></td>
+</tr>
+</table>
+<div class="description">E700: Copy a play area tile into the back buffer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="E70C.html">E70C</a>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Play area tile base address</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="e700"></span>E700</td>
+<td class="instruction">LD DE,$A01E</td>
+<td class="comment-11" rowspan="1">The first byte of the back buffer is at <a href="A01E.html">A01E</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="e703"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is also used by the routine at <a href="E70C.html">E70C</a> (with <span class="register">HL</span>=<a href="A01E.html">A01E</a> and <span class="register">DE</span> holding a display file address) to copy the tile from the back buffer to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="e703"></span>E703</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-11" rowspan="1">There are 8 bytes to copy</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="e705"></span>E705</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="5">Copy the 8 tile bytes to the back buffer or the screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e706"></span>E706</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e707"></span>E707</td>
+<td class="instruction">INC H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e708"></span>E708</td>
+<td class="instruction">INC D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e709"></span>E709</td>
+<td class="instruction">DJNZ $E705</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="e70b"></span>
+<div class="comments">
+<div class="paragraph">
+The address of this entry point is placed into bytes 8 and 9 of a policeman's buffer by the routine at <a href="6100.html">6100</a>, and is also found in the command lists at <a href="FDAC.html">FDAC</a> and <a href="FE94.html">FE94</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e70b"></span>E70B</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="E6F1.html">E6F1</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#e700">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="E70C.html">E70C</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Data at BD40</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="BD20.html">BD20</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#bd40">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="BD60.html">BD60</a></span></td>
+</tr>
+</table>
+<div class="description">BD40: 1st floor window flags (30&lt;=y&lt;=35)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="F436.html">F436</a> and <a href="F7DA.html">F7DA</a>. Each byte here corresponds to a segment of the play area that is eight tiles wide, and level with the 1st floor of a building (30&lt;=y&lt;=35). The 2nd floor window flags are at <a href="BC40.html">BC40</a>; the window flags for y-coordinate range 36-41 are at <a href="BE40.html">BE40</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd40"></span>BD40</td>
+<td class="instruction">DEFB $0C,$00,$2C</td>
+<td class="comment-11" rowspan="1">0&lt;=x&lt;24: apartment building next to no. 74</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd43"></span>BD43</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-11" rowspan="1">24&lt;=x&lt;32: no windows here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd44"></span>BD44</td>
+<td class="instruction">DEFB $5D,$40,$5D</td>
+<td class="comment-11" rowspan="1">32&lt;=x&lt;56: no. 74 (windows and a house number sign)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd47"></span>BD47</td>
+<td class="instruction">DEFB $C8,$00,$00,$00,$00,$88</td>
+<td class="comment-11" rowspan="1">56&lt;=x&lt;104: hotel</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd4d"></span>BD4D</td>
+<td class="instruction">DEFB $DE,$00</td>
+<td class="comment-11" rowspan="1">104&lt;=&lt;120: no. 31 (windows and a house number sign)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd4f"></span>BD4F</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-11" rowspan="1">120&lt;=x&lt;128: no windows here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd50"></span>BD50</td>
+<td class="instruction">DEFB $48,$00,$68</td>
+<td class="comment-11" rowspan="1">128&lt;=x&lt;152: police station</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd53"></span>BD53</td>
+<td class="instruction">DEFB $80</td>
+<td class="comment-11" rowspan="1">152&lt;=x&lt;160: no. 27 (windows and a house number sign)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd54"></span>BD54</td>
+<td class="instruction">DEFB $00,$00</td>
+<td class="comment-11" rowspan="1">160&lt;=x&lt;176: no windows here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd56"></span>BD56</td>
+<td class="instruction">DEFB $00,$DF,$00,$1C</td>
+<td class="comment-11" rowspan="1">176&lt;=x&lt;208: apartment building next to no. 19</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd5a"></span>BD5A</td>
+<td class="instruction">DEFB $80,$48</td>
+<td class="comment-11" rowspan="1">208&lt;=x&lt;224: no. 19 (windows and a house number sign)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd5c"></span>BD5C</td>
+<td class="instruction">DEFB $2E,$40</td>
+<td class="comment-11" rowspan="1">224&lt;=x&lt;240: no. 17 (windows and a house number sign)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="bd5e"></span>BD5E</td>
+<td class="instruction">DEFB $0E,$20</td>
+<td class="comment-11" rowspan="1">240&lt;=x&lt;256: no. 15 (windows and a house number sign)</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="BD20.html">BD20</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#bd40">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="BD60.html">BD60</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>
