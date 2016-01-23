@@ -1,6 +1,6 @@
-; Copyright 2010-2015 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2016 Richard Dymond (rjdymond@gmail.com)
 
-[Changelog:YYYYMMDD]
+[Changelog:20160123]
 -
 
 Ported the disassembly to SkoolKit 5
