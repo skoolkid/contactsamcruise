@@ -21,10 +21,8 @@ else:
 sys.stderr.write("Found SkoolKit in {}\n".format(skool2html.PACKAGE_DIR))
 
 def run_skool2asm():
-    options = '-W {}/sources:samcruise.ContactSamCruiseAsmWriter'.format(CONTACTSAMCRUISE_HOME)
-    skool2asm.main(options.split() + sys.argv[1:] + [CSC_SKOOL])
+    skool2asm.main(sys.argv[1:] + [CSC_SKOOL])
 
 def run_skool2html():
     options = '-d {}/build/html'.format(CONTACTSAMCRUISE_HOME)
-    options += ' -W {}/sources:samcruise.ContactSamCruiseHtmlWriter'.format(CONTACTSAMCRUISE_HOME)
     skool2html.main(options.split() + sys.argv[1:] + [CSC_SKOOL])
