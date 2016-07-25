@@ -1,4 +1,4 @@
-; Copyright 2010-2015 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2016 Richard Dymond (rjdymond@gmail.com)
 
 d20648 DEFB 8,136,31,252,3,128,1,192
  20657 DEFB 12,0,8,144
@@ -348,7 +348,7 @@ r33010 save
 ; http://skoolkit.ca/
 ;
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2015 Richard Dymond (this disassembly)
+; Copyright 2010-2016 Richard Dymond (this disassembly)
 @bfix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -24072,8 +24072,8 @@ c64005 LD A,138      ; #REGa=10 (short knockout delay) + 128 (quick recovery)
                      ; character's buffer) to 40 (if the character was hit by
                      ; another with the same x-coordinate) or 20
  64045 CALL 60300    ; Make the character stand up
- 64048 CALL 63997    ; Place the address of the following instruction (64051)
-                     ; into bytes 18 and 19 of the character's buffer
+ 64048 CALL 63997    ; Place the address of the following instruction into
+                     ; bytes 18 and 19 of the character's buffer
 ; This entry point is used after the character has stood up again and while he
 ; is still dazed from the collision.
  64051 LD L,20       ; {Decrement the recovery delay counter
