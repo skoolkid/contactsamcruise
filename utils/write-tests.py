@@ -41,14 +41,14 @@ Copying ../sources/csc.css to {odir}/contact_sam_cruise/csc.css
   Writing contact_sam_cruise/tables/keys.html
   Writing contact_sam_cruise/maps/command_lists.html
   Writing contact_sam_cruise/reference/walkthrough.html
-  Writing contact_sam_cruise/graphics/playarea.html
-  Writing contact_sam_cruise/graphics/playarea_objects.html
-  Writing contact_sam_cruise/graphics/glitches.html
-  Writing contact_sam_cruise/reference/changelog.html
   Writing contact_sam_cruise/reference/bugs.html
+  Writing contact_sam_cruise/reference/changelog.html
   Writing contact_sam_cruise/reference/facts.html
   Writing contact_sam_cruise/reference/glossary.html
+  Writing contact_sam_cruise/graphics/glitches.html
   Writing contact_sam_cruise/reference/pokes.html
+  Writing contact_sam_cruise/graphics/playarea.html
+  Writing contact_sam_cruise/graphics/playarea_objects.html
   Parsing ../sources/load.skool
     Writing contact_sam_cruise/load/load.html
     Writing disassembly files in contact_sam_cruise/load
