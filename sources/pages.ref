@@ -1,9 +1,12 @@
-; Copyright 2010, 2012-2015 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010, 2012-2015, 2017 Richard Dymond (rjdymond@gmail.com)
 
 [Page:PlayArea]
 PageContent=<div>#CALL:play_area(play_area,0,2,256,38,2,0,8,,0,0)</div>
 
-[PageContent:InitialAnimatoryStates0]
+[Page:InitialAnimatoryStates0]
+PageContent=#INCLUDE(InitialAnimatoryStates0)
+
+[InitialAnimatoryStates0]
 <ul class="contents">
 <li>#LINK:InitialAnimatoryStates1()</li>
 <li>#LINK:InitialAnimatoryStates2()</li>
@@ -12,7 +15,10 @@ PageContent=<div>#CALL:play_area(play_area,0,2,256,38,2,0,8,,0,0)</div>
 </ul>
 <div>#CALL:play_area(initial_as0,0,2,256,38,2,1,8,0)</div>
 
-[PageContent:InitialAnimatoryStates1]
+[Page:InitialAnimatoryStates1]
+PageContent=#INCLUDE(InitialAnimatoryStates1)
+
+[InitialAnimatoryStates1]
 <ul class="contents">
 <li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo mode))</li>
 <li>#LINK:InitialAnimatoryStates2()</li>
@@ -21,7 +27,10 @@ PageContent=<div>#CALL:play_area(play_area,0,2,256,38,2,0,8,,0,0)</div>
 </ul>
 <div>#CALL:play_area(initial_as1,0,2,256,38,2,1,8,1)</div>
 
-[PageContent:InitialAnimatoryStates2]
+[Page:InitialAnimatoryStates2]
+PageContent=#INCLUDE(InitialAnimatoryStates2)
+
+[InitialAnimatoryStates2]
 <ul class="contents">
 <li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo mode))</li>
 <li>#LINK:InitialAnimatoryStates1()</li>
@@ -30,7 +39,10 @@ PageContent=<div>#CALL:play_area(play_area,0,2,256,38,2,0,8,,0,0)</div>
 </ul>
 <div>#CALL:play_area(initial_as2,0,2,256,38,2,1,8,2)</div>
 
-[PageContent:InitialAnimatoryStates3]
+[Page:InitialAnimatoryStates3]
+PageContent=#INCLUDE(InitialAnimatoryStates3)
+
+[InitialAnimatoryStates3]
 <ul class="contents">
 <li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo mode))</li>
 <li>#LINK:InitialAnimatoryStates1()</li>
@@ -39,7 +51,10 @@ PageContent=<div>#CALL:play_area(play_area,0,2,256,38,2,0,8,,0,0)</div>
 </ul>
 <div>#CALL:play_area(initial_as3,0,2,256,38,2,1,8,3)</div>
 
-[PageContent:InitialAnimatoryStates4]
+[Page:InitialAnimatoryStates4]
+PageContent=#INCLUDE(InitialAnimatoryStates4)
+
+[InitialAnimatoryStates4]
 <ul class="contents">
 <li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo mode))</li>
 <li>#LINK:InitialAnimatoryStates1()</li>
@@ -51,7 +66,10 @@ PageContent=<div>#CALL:play_area(play_area,0,2,256,38,2,0,8,,0,0)</div>
 [Page:PlayAreaObjects]
 PageContent=<div>#CALL:play_area_objects(play_area_objects)</div>
 
-[PageContent:AnimatoryStates]
+[Page:AnimatoryStates]
+PageContent=#INCLUDE(AnimatoryStatesPage)
+
+[AnimatoryStatesPage]
 <table class="animatoryStates">
 #CALL:animatory_states()
 </table>
@@ -72,8 +90,9 @@ PageContent=<div>#CALL:play_area_objects(play_area_objects)</div>
 
 [Page:AnimatoryStateTiles]
 JavaScript=tiles.js
+PageContent=#INCLUDE(AnimatoryStateTiles)
 
-[PageContent:AnimatoryStateTiles]
+[AnimatoryStateTiles]
 <div>
 <p>Click a tile in the gallery below to see the following info:</p>
 <table>
@@ -257,7 +276,10 @@ The tiles for animatory states 128-255 are not stored separately; the tiles for 
 [Template:astile_null]
 <div class="T" onclick="s('{bubble_id}')"><img alt="{state}:{row},{column}" src="{img_fname}"/></div><div id="{bubble_id}" class="B P" onclick="h(this)"><div class="H">{state}: row {row}, column {column}</div><table><tr><td><img alt="{state}:{row},{column}" src="{img_fname}"/></td><td><i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/><i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={tile.ref_addr}<br/><i>ref</i>=0</td></tr></table></div>
 
-[PageContent:CharacterBuffers]
+[Page:CharacterBuffers]
+PageContent=#INCLUDE(CharacterBuffers)
+
+[CharacterBuffers]
 <p>The character buffers occupy bytes 0-24 in pages 215-221 and bytes 0-31 in pages 222-230.</p>
 <p>The buffers in pages 215-221 are each shared by a group of five minor characters. Which one of the five characters 'owns' the buffer at any one time depends on the portion of the play area that is currently on screen. When the screen scrolls left or right, ownership of one of the buffers switches to the next or previous character in the group. See the routines at #R61838 and #R61882.</p>
 <p>The buffers in pages 222-230 are used mostly by the principal characters, depending on the current #R32750(game mode) (0-4).</p>
@@ -302,7 +324,10 @@ TABLE#
 {desc}
 </td>
 
-[PageContent:Keys]
+[Page:Keys]
+PageContent=#INCLUDE(Keys)
+
+[Keys]
 <div class="details">
 <div>Key = CHR$(Index + 48)</div>
 <div>Address = Index + #R49968</div>
@@ -334,7 +359,10 @@ TABLE#
 <td class="keyPurpose">{purpose}</td>
 </tr>
 
-[PageContent:CommandLists]
+[Page:CommandLists]
+PageContent=#INCLUDE(CommandLists)
+
+[CommandLists]
 <table class="map">
 <tr>
 <th>Address</th>
@@ -349,7 +377,10 @@ TABLE#
 <td>{description}</td>
 </tr>
 
-[PageContent:Walkthrough]
+[Page:Walkthrough]
+PageContent=#INCLUDE(Walkthrough)
+
+[Walkthrough]
 <p>The walkthrough that follows is not the only way to complete the game, nor is it necessarily the quickest; however, it is an attempt to list the game's important events in a logical order, and includes every cash bonus and phone message that it's possible to receive.</p>
 
 <p>Before the game starts, a cutscene is displayed: '...THE PHONE RANG. IT WAS A DAMED NAMED LANA. SHE SAID TO MEET HER ON THE TOP FLOOR OF THE HOTEL ROYALE. SO BEGAN THE CASE OF THE BALI BUDGIE'</p>

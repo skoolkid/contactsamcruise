@@ -1,4 +1,4 @@
-; Copyright 2010-2014 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2014, 2017 Richard Dymond (rjdymond@gmail.com)
 
 [GraphicGlitch:samsCoat:Sam's coat]
 There is a misplaced transparent pixel at the base of Sam's coat when he's midstride:
@@ -190,7 +190,10 @@ To fix these pixels:
 TABLE#
 #POPS
 
-[PageContent:Graphics]
+[Page:Graphics]
+PageContent=#INCLUDE(Graphics)
+
+[Graphics]
 <h3>Icon panel and score box</h3>
 <table cellpadding="5">
 <tr><td>#SCR2,8,21,12,3(icon_panel)</td><td>Icon panel</td></tr>
