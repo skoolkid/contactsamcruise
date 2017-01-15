@@ -1,4 +1,4 @@
-; Copyright 2010-2013, 2015 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2013, 2015, 2017 Richard Dymond (rjdymond@gmail.com)
 
 d16643 DEFB 60,0,124,60,66,120,60,66,62,126,126,0,66
  16656 DEFB 60,124,0,60,60,126,60,8,0,0,124,126,66,0,0,16
@@ -131,8 +131,9 @@ c24055 JP 23831      ; Jump to where it really starts
  23858 JP (HL)       ; Jump to #R32815
 
 @start
+@replace=/#BUG(?![A-Z])/#LINK:Bugs
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2013, 2015 Richard Dymond (this disassembly)
+; Copyright 2010-2013, 2015, 2017 Richard Dymond (this disassembly)
 @org=32768
 
 ; Collect one bit from tape
@@ -426,7 +427,7 @@ c33046 EXX           ; {Set #REGhl' to the first destination address (minus
 ; 33149-65506 (step 247) after the fast code block has loaded. Note that the
 ; first entry in this table leads to the value 134 being copied into address
 ; 33149, which corrupts the table entry at that address; this is a
-; #BUG#selfModifyingDataTable.
+; #BUG#selfModifyingDataTable(bug).
 b33064 DEFB 134,0,127,0,0,162,255,143,31,8,216,0,1,127,152,51
  33080 DEFB 84,0,255,25,0,0,84,255,248,255,34,0,23,176,170,240
  33096 DEFB 3,194,0,222,3,194,3,0,80,104,40,72,69,64,128,2
