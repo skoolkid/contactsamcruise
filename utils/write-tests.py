@@ -28,12 +28,20 @@ Copying ../sources/csc.css to {odir}/contact_sam_cruise/csc.css
   Writing contact_sam_cruise/maps/data.html
   Writing contact_sam_cruise/maps/messages.html
   Writing contact_sam_cruise/buffers/gbuffer.html
+  Writing contact_sam_cruise/reference/bugs.html
+  Writing contact_sam_cruise/reference/changelog.html
+  Writing contact_sam_cruise/reference/facts.html
+  Writing contact_sam_cruise/reference/glossary.html
+  Writing contact_sam_cruise/graphics/glitches.html
+  Writing contact_sam_cruise/reference/pokes.html
   Writing contact_sam_cruise/graphics/graphics.html
+  Writing contact_sam_cruise/graphics/playarea.html
   Writing contact_sam_cruise/graphics/asstart0.html
   Writing contact_sam_cruise/graphics/asstart1.html
   Writing contact_sam_cruise/graphics/asstart2.html
   Writing contact_sam_cruise/graphics/asstart3.html
   Writing contact_sam_cruise/graphics/asstart4.html
+  Writing contact_sam_cruise/graphics/playarea_objects.html
   Writing contact_sam_cruise/graphics/as.html
   Copying ../sources/tiles.js to {odir}/contact_sam_cruise/tiles.js
   Writing contact_sam_cruise/graphics/astiles/astiles.html
@@ -41,14 +49,6 @@ Copying ../sources/csc.css to {odir}/contact_sam_cruise/csc.css
   Writing contact_sam_cruise/tables/keys.html
   Writing contact_sam_cruise/maps/command_lists.html
   Writing contact_sam_cruise/reference/walkthrough.html
-  Writing contact_sam_cruise/reference/bugs.html
-  Writing contact_sam_cruise/reference/changelog.html
-  Writing contact_sam_cruise/reference/facts.html
-  Writing contact_sam_cruise/reference/glossary.html
-  Writing contact_sam_cruise/graphics/glitches.html
-  Writing contact_sam_cruise/reference/pokes.html
-  Writing contact_sam_cruise/graphics/playarea.html
-  Writing contact_sam_cruise/graphics/playarea_objects.html
   Parsing ../sources/load.skool
     Writing contact_sam_cruise/load/load.html
     Writing disassembly files in contact_sam_cruise/load
