@@ -329,10 +329,10 @@ PageContent=#INCLUDE(Keys)
 
 [Keys]
 <div class="details">
-<div>Key = CHR$(Index + 48)</div>
+<div>Key = CHR$(Index + #N48,,,1(0x))</div>
 <div>Address = Index + #R49968</div>
 <div>Offset = PEEK(Address)</div>
-<div>Lookup = Offset + 60671 (points to an entry in the table at #R60672)</div>
+<div>Lookup = Offset + #N60671 (points to an entry in the table at #R60672)</div>
 <div>Routine = address at (Lookup, Lookup + 1)</div>
 </div>
 <table class="keytable">
