@@ -1,300 +1,266 @@
-; Copyright 2010-2016 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2017 Richard Dymond (rjdymond@gmail.com)
+
+[Page:Changelog]
+SectionType=BulletPoints
 
 [Changelog:20160123]
 -
 
-Ported the disassembly to SkoolKit 5
-
-Documented a bug: #BUG#samTheEscapeArtist() (thanks Ersh)
-
-Added a POKE: #POKE#getOutOfJailFree()
+- Ported the disassembly to SkoolKit 5
+- Documented a bug: #BUG#samTheEscapeArtist() (thanks Ersh)
+- Added a POKE: #POKE#getOutOfJailFree()
 
 [Changelog:20150417]
 -
 
-Added a POKE: #POKE#cheapTalk()
+- Added a POKE: #POKE#cheapTalk()
 
 [Changelog:20140614]
 -
 
-Ported the disassembly to SkoolKit 4
+- Ported the disassembly to SkoolKit 4
 
 [Changelog:20131224]
 -
 
-Added a trivia entry: #FACT#policemenAndDisguises()
-
-Added a POKE: #POKE#perfectDisguises()
-
-Added images of the Fat Man to the #LINK:GraphicGlitches#mensShoes(Men's shoes) graphic glitch
-
-Added CSS files to complete the 'dark', 'green', 'plum' and 'spectrum' themes
+- Added a trivia entry: #FACT#policemenAndDisguises()
+- Added a POKE: #POKE#perfectDisguises()
+- Added images of the Fat Man to the #LINK:GraphicGlitches#mensShoes(Men's
+  shoes) graphic glitch
+- Added CSS files to complete the 'dark', 'green', 'plum' and 'spectrum' themes
 
 [Changelog:20121119]
 -
 
-Added a trivia entry: #FACT#lanasLegs()
-
-In the entry at #R48896, added images of the play area segments that use each Z' value
+- Added a trivia entry: #FACT#lanasLegs()
+- In the entry at #R48896, added images of the play area segments that use each
+  Z' value
 
 [Changelog:20120807]
 -
 
-Added a POKE: #POKE#easyMoney()
-
-Fixed the entries for the characters '#CHR8593' (code 94) and '#CHR163' (code 96) in the #LINK:Keys(keypress table) and the #R49968(keypress offset table)
+- Added a POKE: #POKE#easyMoney()
+- Fixed the entries for the characters '#CHR8593' (code 94) and '#CHR163' (code
+  96) in the #LINK:Keys(keypress table) and the #R49968(keypress offset table)
 
 [Changelog:20120411]
 -
 
-Ported the disassembly to SkoolKit 3
+- Ported the disassembly to SkoolKit 3
 
 [Changelog:20120228]
 -
 
-Documented a bug: #BUG#lifeSentence()
-
-Added bugfix POKEs to the #BUG#underTheRope() bug
-
-Added trivia entries:
-  #FACT#theEdgeOfTown()
-  #FACT#gangstersWhoGetAMoveOn()
-  #FACT#firstAidShortage()
-  #FACT#theGarbageHypothesis()
-  #FACT#deckMeIfYouCan()
-  #FACT#daisysDiversion()
-
-Added a graphic glitch: #LINK:GraphicGlitches#brokenBanister(Broken banister)
-
-Added images of shop and house doors to the #LINK:Graphics(Other graphics) page
+- Documented a bug: #BUG#lifeSentence()
+- Added bugfix POKEs to the #BUG#underTheRope() bug
+- Added trivia entries:
+  - #FACT#theEdgeOfTown()
+  - #FACT#gangstersWhoGetAMoveOn()
+  - #FACT#firstAidShortage()
+  - #FACT#theGarbageHypothesis()
+  - #FACT#deckMeIfYouCan()
+  - #FACT#daisysDiversion()
+- Added a graphic glitch: #LINK:GraphicGlitches#brokenBanister(Broken banister)
+- Added images of shop and house doors to the #LINK:Graphics(Other graphics)
+  page
 
 [Changelog:20120117]
 -
 
-Documented bugs:
-  #BUG#selfModifyingDataTable()
-  #BUG#plightOfTheNonArrestingPoliceman1()
-  #BUG#plightOfTheNonArrestingPoliceman2()
-
-Added trivia entries:
-  #FACT#hiddenGround()
-  #FACT#gluttonForPunishment()
-  #FACT#returnToBASIC()
-  #FACT#ordinarySpecialLocations()
-
-Added POKEs:
-  #POKE#getOutOfJail()
-  #POKE#stairwayToTheSafe()
-
-Added comments and images to the location descriptor entries to indicate which locations the descriptors correspond to (e.g. see #R49792)
-
-Added comments and images to the entries at #R32768 and #R38912 describing play area tiles that are unused
-
-Added comments to the blocks of window flags to indicate which windows the flags correspond to (e.g. see #R48192)
-
-Added comments to the blocks of play area tile attribute address LSBs to indicate which buildings the LSBs correspond to (e.g. see #R48160)
-
-Added comments to the blocks of Z values to indicate which buildings the values correspond to (e.g. see #R48128)
+- Documented bugs:
+  - #BUG#selfModifyingDataTable()
+  - #BUG#plightOfTheNonArrestingPoliceman1()
+  - #BUG#plightOfTheNonArrestingPoliceman2()
+- Added trivia entries:
+  - #FACT#hiddenGround()
+  - #FACT#gluttonForPunishment()
+  - #FACT#returnToBASIC()
+  - #FACT#ordinarySpecialLocations()
+- Added POKEs:
+  - #POKE#getOutOfJail()
+  - #POKE#stairwayToTheSafe()
+- Added comments and images to the location descriptor entries to indicate
+  which locations the descriptors correspond to (e.g. see #R49792)
+- Added comments and images to the entries at #R32768 and #R38912 describing
+  play area tiles that are unused
+- Added comments to the blocks of window flags to indicate which windows the
+  flags correspond to (e.g. see #R48192)
+- Added comments to the blocks of play area tile attribute address LSBs to
+  indicate which buildings the LSBs correspond to (e.g. see #R48160)
+- Added comments to the blocks of Z values to indicate which buildings the
+  values correspond to (e.g. see #R48128)
 
 [Changelog:20111031]
 -
 
-Added a trivia entry: #FACT#telephonicDistribution()
-
-New graphic glitches:
-  #LINK:GraphicGlitches#mensShoes(Men's shoes)
-  #LINK:GraphicGlitches#gangstersKnee(Gangster's knee)
-  #LINK:GraphicGlitches#lanasWaist(Lana's waist)
-  #LINK:GraphicGlitches#fatMansWaist(Fat Man's waist)
-  #LINK:GraphicGlitches#daisysHead(Daisy's head)
-  #LINK:GraphicGlitches#daisysHand(Daisy's hand)
-  #LINK:GraphicGlitches#ladiesArms(Ladies' arms)
-  #LINK:GraphicGlitches#ladiesWaists(Ladies' waists)
-  #LINK:GraphicGlitches#baseballCapMansFace(Baseball cap man's face)
+- Added a trivia entry: #FACT#telephonicDistribution()
+- New graphic glitches:
+  - #LINK:GraphicGlitches#mensShoes(Men's shoes)
+  - #LINK:GraphicGlitches#gangstersKnee(Gangster's knee)
+  - #LINK:GraphicGlitches#lanasWaist(Lana's waist)
+  - #LINK:GraphicGlitches#fatMansWaist(Fat Man's waist)
+  - #LINK:GraphicGlitches#daisysHead(Daisy's head)
+  - #LINK:GraphicGlitches#daisysHand(Daisy's hand)
+  - #LINK:GraphicGlitches#ladiesArms(Ladies' arms)
+  - #LINK:GraphicGlitches#ladiesWaists(Ladies' waists)
+  - #LINK:GraphicGlitches#baseballCapMansFace(Baseball cap man's face)
 
 [Changelog:20111017]
 Included in SkoolKit 2.2.5.
 
-Added the #LINK:PlayAreaObjects(Play area objects) page
-
-Added 'Initial animatory states and locations' pages for game modes #LINK:InitialAnimatoryStates0(0), #LINK:InitialAnimatoryStates2(2), #LINK:InitialAnimatoryStates3(3) and #LINK:InitialAnimatoryStates4(4)
-
-Documented bugs: 
-  #BUG#anUrgentMessageDelayed()
-  #BUG#frozenGangster()
-  #BUG#hidingInTheCeiling()
-  #BUG#hookVBird()
-  #BUG#runGangsterRun()
-  #BUG#zCoordinateConfusion()
-
-Added trivia entries:
-  #FACT#darkRoom()
-  #FACT#aCatsTale()
-
-Added POKEs:
-  #POKE#everybodyOut()
-  #POKE#privateRooms()
-
-Added an explanation and bugfix POKEs to the #BUG#no19Lockout() bug
-
-Added POKEs to the #FACT#skinnyMan() trivia entry to bring the character into the game
+- Added the #LINK:PlayAreaObjects(Play area objects) page
+- Added 'Initial animatory states and locations' pages for game modes
+  #LINK:InitialAnimatoryStates0(0), #LINK:InitialAnimatoryStates2(2),
+  #LINK:InitialAnimatoryStates3(3) and #LINK:InitialAnimatoryStates4(4)
+- Documented bugs:
+  - #BUG#anUrgentMessageDelayed()
+  - #BUG#frozenGangster()
+  - #BUG#hidingInTheCeiling()
+  - #BUG#hookVBird()
+  - #BUG#runGangsterRun()
+  - #BUG#zCoordinateConfusion()
+- Added trivia entries:
+  - #FACT#darkRoom()
+  - #FACT#aCatsTale()
+- Added POKEs:
+  - #POKE#everybodyOut()
+  - #POKE#privateRooms()
+- Added an explanation and bugfix POKEs to the #BUG#no19Lockout() bug
+- Added POKEs to the #FACT#skinnyMan() trivia entry to bring the character into
+  the game
 
 [Changelog:20110810]
 Included in SkoolKit 2.2.4.
 
-Added the #LINK:Walkthrough(Walkthrough) page
-
-Documented bugs:
-  #BUG#displacedDude()
-  #BUG#extendedEarpiece()
-  #BUG#hidingInPlainSight()
-  #BUG#insideAndOut()
-  #BUG#okCruise()
-
-Added trivia entries:
-  #FACT#dontCallDaisy()
-  #FACT#stunSettings()
-
-Added POKEs:
-  #POKE#allKeys()
-  #POKE#keepTheLightsOn()
-  #POKE#mobstopper()
+- Added the #LINK:Walkthrough(Walkthrough) page
+- Documented bugs:
+  - #BUG#displacedDude()
+  - #BUG#extendedEarpiece()
+  - #BUG#hidingInPlainSight()
+  - #BUG#insideAndOut()
+  - #BUG#okCruise()
+- Added trivia entries:
+  - #FACT#dontCallDaisy()
+  - #FACT#stunSettings()
+- Added POKEs:
+  - #POKE#allKeys()
+  - #POKE#keepTheLightsOn()
+  - #POKE#mobstopper()
 
 [Changelog:20110715]
 Included in SkoolKit 2.2.3. The disassembly is now 'complete'.
 
-Added a trivia entry: #FACT#snipersAndKeys()
-
-Documented bugs:
-  #BUG#blankTilesBehavingBadly()
-  #BUG#conspicuousSniper()
-
-Added images of the sniper, characters lying on their backs, and Sam rolling and somersaulting to the #AS()(Animatory states) and #LINK:AnimatoryStateTiles(Animatory state tiles) pages
+- Added a trivia entry: #FACT#snipersAndKeys()
+- Documented bugs:
+  - #BUG#blankTilesBehavingBadly()
+  - #BUG#conspicuousSniper()
+- Added images of the sniper, characters lying on their backs, and Sam rolling
+  and somersaulting to the #AS()(Animatory states) and
+  #LINK:AnimatoryStateTiles(Animatory state tiles) pages
 
 [Changelog:20110416]
 Included in SkoolKit 2.1.1.
 
-Added the #LINK:CommandLists(Command lists) page
-
-Added trivia entries:
-  #FACT#cashChances()
-  #FACT#silentHangup()
-  #FACT#copKnocksTwice()
-
-Documented bugs:
-  #BUG#lanaNoAnswer()
-  #BUG#no19Lockout()
-  #BUG#pttd()
-  #BUG#persistentSniper()
-  #BUG#underTheRope()
+- Added the #LINK:CommandLists(Command lists) page
+- Added trivia entries:
+  - #FACT#cashChances()
+  - #FACT#silentHangup()
+  - #FACT#copKnocksTwice()
+- Documented bugs:
+  - #BUG#lanaNoAnswer()
+  - #BUG#no19Lockout()
+  - #BUG#pttd()
+  - #BUG#persistentSniper()
+  - #BUG#underTheRope()
 
 [Changelog:20110403]
 Included in SkoolKit 2.1.
 
-Various minor updates and corrections to code comments
+- Various minor updates and corrections to code comments
 
 [Changelog:20110309]
 Included in SkoolKit 2.0.6.
 
-Documented bugs:
-  #BUG#missingBlueLine()
-  #BUG#troubleHiding()
-  #BUG#tricksWithLightSwitches()
-
-Added trivia entries:
-  #FACT#46OrBust()
-  #FACT#bulletSpeed()
-  #FACT#gangstersAndDisguises()
-  #FACT#lanaRings()
-  #FACT#mForMessages()
-  #FACT#missingKey()
-  #FACT#talkIsExpensive()
-
-Every routine now has a title stating its main purpose
-
-Every data block now has a title describing its contents
-
-Every game status buffer entry now has a title explaining what it's used for
+- Documented bugs:
+  - #BUG#missingBlueLine()
+  - #BUG#troubleHiding()
+  - #BUG#tricksWithLightSwitches()
+- Added trivia entries:
+  - #FACT#46OrBust()
+  - #FACT#bulletSpeed()
+  - #FACT#gangstersAndDisguises()
+  - #FACT#lanaRings()
+  - #FACT#mForMessages()
+  - #FACT#missingKey()
+  - #FACT#talkIsExpensive()
+- Every routine now has a title stating its main purpose
+- Every data block now has a title describing its contents
+- Every game status buffer entry now has a title explaining what it's used for
 
 [Changelog:20110209]
 Included in SkoolKit 2.0.5.
 
-Added the #LINK:Graphics(Other graphics) page
-
-Fixed the drawing of window decorations (blinds etc.) in the play area images
+- Added the #LINK:Graphics(Other graphics) page
+- Fixed the drawing of window decorations (blinds etc.) in the play area images
 
 [Changelog:20101216]
 Included in SkoolKit 2.0.4.
 
-Added comments to many routines, data blocks and game status buffer entries
-
-Documented #LINK:CharacterBuffers(character buffer) bytes 3, 10, 11, 22, and 25-28
-
-Added items to the #LINK:Glossary(glossary)
+- Added comments to many routines, data blocks and game status buffer entries
+- Documented #LINK:CharacterBuffers(character buffer) bytes 3, 10, 11, 22, and
+  25-28
+- Added items to the #LINK:Glossary(glossary)
 
 [Changelog:20101208]
 Included in SkoolKit 2.0.3.
 
-Added the #LINK:Glossary(Glossary) page
-
-Added the #LINK:InitialAnimatoryStates1(Initial animatory states and locations) page
-
-Documented a bug: #BUG#displacedDame()
-
-Added a POKE: #POKE#noSnipers()
-
-Added a trivia entry: #FACT#lurkingLana()
+- Added the #LINK:Glossary(Glossary) page
+- Added the #LINK:InitialAnimatoryStates1(Initial animatory states and
+  locations) page
+- Documented a bug: #BUG#displacedDame()
+- Added a POKE: #POKE#noSnipers()
+- Added a trivia entry: #FACT#lurkingLana()
 
 [Changelog:20101201]
 Included in SkoolKit 2.0.2.
 
-Fixed the right-facing sprite images on the #AS()(Animatory states) page
-
-Added the first graphic glitch: #LINK:GraphicGlitches#samsCoat(Sam's coat)
-
-Added the #LINK:CharacterBuffers(Character buffers) page
-
-Added the #LINK:Keys(Keypress table) page
-
-Documented the first bug: #BUG#frozenFiver()
-
-Added the first two POKEs:
-  #POKE#infiniteMoney()
-  #POKE#infiniteFirstAid()
+- Fixed the right-facing sprite images on the #AS()(Animatory states) page
+- Added the first graphic glitch: #LINK:GraphicGlitches#samsCoat(Sam's coat)
+- Added the #LINK:CharacterBuffers(Character buffers) page
+- Added the #LINK:Keys(Keypress table) page
+- Documented the first bug: #BUG#frozenFiver()
+- Added the first two POKEs:
+  - #POKE#infiniteMoney()
+  - #POKE#infiniteFirstAid()
 
 [Changelog:20101128]
 Included in SkoolKit 2.0.1.
 
-Added a trivia entry: #FACT#skinnyMan()
-
-Began annotating the tile-printing routines at #R59148 and #R59635
-
-Added the #LINK:AnimatoryStateTiles(Animatory state tiles) page
+- Added a trivia entry: #FACT#skinnyMan()
+- Began annotating the tile-printing routines at #R59148 and #R59635
+- Added the #LINK:AnimatoryStateTiles(Animatory state tiles) page
 
 [Changelog:20101123]
 Included in SkoolKit 2.0.
 
-Ported the disassembly to SkoolKit 2
-
-Added the #LINK:load-Index(loading code disassembly)
-
-Added the #LINK:save-Index(save code disassembly)
-
-Added the #LINK:start-Index(startup code disassembly)
+- Ported the disassembly to SkoolKit 2
+- Added the #LINK:load-Index(loading code disassembly)
+- Added the #LINK:save-Index(save code disassembly)
+- Added the #LINK:start-Index(startup code disassembly)
 
 [Changelog:20100723]
 Included in SkoolKit 1.3.
 
-Updated the descriptions of banknote animatory states #AS62(62/190) and #AS70(70/198)
+- Updated the descriptions of banknote animatory states #AS62(62/190) and
+  #AS70(70/198)
 
 [Changelog:20100225]
 Included in SkoolKit 1.1.
 
-Added the #LINK:PlayArea(Play area) page
-
-Added the #AS()(Animatory states) page
-
-Added the first trivia entry: #FACT#hiddenSky()
+- Added the #LINK:PlayArea(Play area) page
+- Added the #AS()(Animatory states) page
+- Added the first trivia entry: #FACT#hiddenSky()
 
 [Changelog:20100212]
-The incomplete Contact Sam Cruise disassembly appears as a sample control file in SkoolKit 1.0.7.
+The incomplete Contact Sam Cruise disassembly appears as a sample control file
+in SkoolKit 1.0.7.
