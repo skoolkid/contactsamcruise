@@ -20,7 +20,8 @@ PageContent=#INCLUDE(InitialAnimatoryStates1)
 
 [InitialAnimatoryStates1]
 <ul class="contents">
-<li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo mode))</li>
+<li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo
+mode))</li>
 <li>#LINK:InitialAnimatoryStates2()</li>
 <li>#LINK:InitialAnimatoryStates3()</li>
 <li>#LINK:InitialAnimatoryStates4()</li>
@@ -32,7 +33,8 @@ PageContent=#INCLUDE(InitialAnimatoryStates2)
 
 [InitialAnimatoryStates2]
 <ul class="contents">
-<li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo mode))</li>
+<li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo
+mode))</li>
 <li>#LINK:InitialAnimatoryStates1()</li>
 <li>#LINK:InitialAnimatoryStates3()</li>
 <li>#LINK:InitialAnimatoryStates4()</li>
@@ -44,7 +46,8 @@ PageContent=#INCLUDE(InitialAnimatoryStates3)
 
 [InitialAnimatoryStates3]
 <ul class="contents">
-<li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo mode))</li>
+<li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo
+mode))</li>
 <li>#LINK:InitialAnimatoryStates1()</li>
 <li>#LINK:InitialAnimatoryStates2()</li>
 <li>#LINK:InitialAnimatoryStates4()</li>
@@ -56,7 +59,8 @@ PageContent=#INCLUDE(InitialAnimatoryStates4)
 
 [InitialAnimatoryStates4]
 <ul class="contents">
-<li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo mode))</li>
+<li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo
+mode))</li>
 <li>#LINK:InitialAnimatoryStates1()</li>
 <li>#LINK:InitialAnimatoryStates2()</li>
 <li>#LINK:InitialAnimatoryStates3()</li>
@@ -117,15 +121,21 @@ PageContent=#INCLUDE(AnimatoryStateTiles)
 </table>
 <p>where:</p>
 <ul>
-<li><i>lsb</i> is the animatory state + 128 + <i>n</i> (<i>n</i>=2 if the animatory state is divisible by 8, <i>n</i>=0 otherwise)</li>
-<li><i>ref_page</i> is the page containing the UDG reference for the tile (215-229)</li>
-<li><i>ref_addr</i> is the address of the UDG reference (<i>lsb</i>+256*<i>ref_page</i>)</li>
+<li><i>lsb</i> is the animatory state + 128 + <i>n</i> (<i>n</i>=2 if the
+animatory state is divisible by 8, <i>n</i>=0 otherwise)</li>
+<li><i>ref_page</i> is the page containing the UDG reference for the tile
+(215-229)</li>
+<li><i>ref_addr</i> is the address of the UDG reference
+(<i>lsb</i>+256*<i>ref_page</i>)</li>
 <li><i>ref</i> is the UDG reference at <i>ref_addr</i> (0-214, 217-255)</li>
-<li><i>udg_page</i> is the base page for the tile graphic data (always 199)</li>
-<li><i>udg_addr</i> is the base address of the tile graphic data (<i>ref</i>+256*<i>udg_page</i>)</li>
+<li><i>udg_page</i> is the base page for the tile graphic data (always 199)
+</li>
+<li><i>udg_addr</i> is the base address of the tile graphic data
+(<i>ref</i>+256*<i>udg_page</i>)</li>
 </ul>
 <p>
-The graphic for an animatory state is made up of 4 or 15 tiles in a 2x2, 3x5 or 5x3, grid:
+The graphic for an animatory state is made up of 4 or 15 tiles in a 2x2, 3x5 or
+5x3, grid:
 </p>
 <table>
 <tr>
@@ -154,38 +164,91 @@ The graphic for an animatory state is made up of 4 or 15 tiles in a 2x2, 3x5 or 
 </tr>
 </table>
 <p>
-Each tile has a UDG reference (<i>ref</i>) located at (<i>lsb</i>,T+215), where T is the tile number (0-14).
+Each tile has a UDG reference (<i>ref</i>) located at (<i>lsb</i>,T+215), where
+T is the tile number (0-14).
 </p>
 <p>
 The eight graphic bytes and eight mask bytes for a tile are located thus:
 </p>
 <table class="default">
 <tr><th>Address</th><th>Contents</th></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>)=<i>udg_addr</i></td><td>Graphic byte 1/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+1)=<i>udg_addr</i>+256</td><td>Mask byte 1/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+2)=<i>udg_addr</i>+512</td><td>Graphic byte 2/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+3)=<i>udg_addr</i>+768</td><td>Mask byte 2/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+4)=<i>udg_addr</i>+1024</td><td>Graphic byte 3/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+5)=<i>udg_addr</i>+1280</td><td>Mask byte 3/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+6)=<i>udg_addr</i>+1536</td><td>Graphic byte 4/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+7)=<i>udg_addr</i>+1792</td><td>Mask byte 4/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+8)=<i>udg_addr</i>+2048</td><td>Graphic byte 5/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+9)=<i>udg_addr</i>+2304</td><td>Mask byte 5/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+10)=<i>udg_addr</i>+2560</td><td>Graphic byte 6/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+11)=<i>udg_addr</i>+2816</td><td>Mask byte 6/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+12)=<i>udg_addr</i>+3072</td><td>Graphic byte 7/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+13)=<i>udg_addr</i>+3328</td><td>Mask byte 7/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+14)=<i>udg_addr</i>+3584</td><td>Graphic byte 8/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+15)=<i>udg_addr</i>+3840</td><td>Mask byte 8/8</td></tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>)=<i>udg_addr</i></td>
+<td>Graphic byte 1/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+1)=<i>udg_addr</i>+256</td>
+<td>Mask byte 1/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+2)=<i>udg_addr</i>+512</td>
+<td>Graphic byte 2/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+3)=<i>udg_addr</i>+768</td>
+<td>Mask byte 2/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+4)=<i>udg_addr</i>+1024</td>
+<td>Graphic byte 3/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+5)=<i>udg_addr</i>+1280</td>
+<td>Mask byte 3/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+6)=<i>udg_addr</i>+1536</td>
+<td>Graphic byte 4/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+7)=<i>udg_addr</i>+1792</td>
+<td>Mask byte 4/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+8)=<i>udg_addr</i>+2048</td>
+<td>Graphic byte 5/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+9)=<i>udg_addr</i>+2304</td>
+<td>Mask byte 5/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+10)=<i>udg_addr</i>+2560</td>
+<td>Graphic byte 6/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+11)=<i>udg_addr</i>+2816</td>
+<td>Mask byte 6/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+12)=<i>udg_addr</i>+3072</td>
+<td>Graphic byte 7/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+13)=<i>udg_addr</i>+3328</td>
+<td>Mask byte 7/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+14)=<i>udg_addr</i>+3584</td>
+<td>Graphic byte 8/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+15)=<i>udg_addr</i>+3840</td>
+<td>Mask byte 8/8</td>
+</tr>
 </table>
 <p>
-The 'null' UDG (<i>ref</i>=0) is always taken to be blank (eight zeroes); its graphic data is not looked up at (0,199).
+The 'null' UDG (<i>ref</i>=0) is always taken to be blank (eight zeroes); its
+graphic data is not looked up at (0,199).
 </p>
 <p>
-Any given tile (identified by <i>udg_addr</i>) may appear in more than one animatory state (and in more than one place in a single animatory state).
+Any given tile (identified by <i>udg_addr</i>) may appear in more than one
+animatory state (and in more than one place in a single animatory state).
 </p>
 <p>
-The tiles for animatory states 128-255 are not stored separately; the tiles for animatory state N>=128 are obtained by flipping the tiles for animatory state N-128 (see #R59635).
+The tiles for animatory states 128-255 are not stored separately; the tiles for
+animatory state N>=128 are obtained by flipping the tiles for animatory state
+N-128 (see #R59635).
 </p>
 </div>
 <table class="asTiles">
@@ -271,18 +334,56 @@ The tiles for animatory states 128-255 are not stored separately; the tiles for 
 </td>
 
 [Template:astile]
-<div class="T" onclick="s('{bubble_id}')"><img alt="{state}:{row},{column}" src="{img_fname}"/></div><div id="{bubble_id}" class="B P" onclick="h(this)"><div class="H">{state}: row {row}, column {column}</div><table><tr><td><img alt="{state}:{row},{column}" src="{img_fname}"/></td><td><i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/><i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={tile.ref_addr}<br/><i>ref</i>={tile.ref}, <i>udg_page</i>={tile.udg_page}<br/><i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)={tile.udg_addr}</td></tr></table></div>
+<div class="T" onclick="s('{bubble_id}')">
+<img alt="{state}:{row},{column}" src="{img_fname}"/>
+</div>
+<div id="{bubble_id}" class="B P" onclick="h(this)">
+<div class="H">{state}: row {row}, column {column}</div>
+<table>
+<tr>
+<td><img alt="{state}:{row},{column}" src="{img_fname}"/></td>
+<td>
+<i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/>
+<i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={tile.ref_addr}<br/>
+<i>ref</i>={tile.ref}, <i>udg_page</i>={tile.udg_page}<br/>
+<i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)={tile.udg_addr}
+</td>
+</tr>
+</table>
+</div>
 
 [Template:astile_null]
-<div class="T" onclick="s('{bubble_id}')"><img alt="{state}:{row},{column}" src="{img_fname}"/></div><div id="{bubble_id}" class="B P" onclick="h(this)"><div class="H">{state}: row {row}, column {column}</div><table><tr><td><img alt="{state}:{row},{column}" src="{img_fname}"/></td><td><i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/><i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={tile.ref_addr}<br/><i>ref</i>=0</td></tr></table></div>
+<div class="T" onclick="s('{bubble_id}')">
+<img alt="{state}:{row},{column}" src="{img_fname}"/>
+</div>
+<div id="{bubble_id}" class="B P" onclick="h(this)">
+<div class="H">{state}: row {row}, column {column}</div>
+<table>
+<tr>
+<td><img alt="{state}:{row},{column}" src="{img_fname}"/></td>
+<td>
+<i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/>
+<i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={tile.ref_addr}<br/>
+<i>ref</i>=0
+</td>
+</tr>
+</table>
+</div>
 
 [Page:CharacterBuffers]
 PageContent=#INCLUDE(CharacterBuffers)
 
 [CharacterBuffers]
-<p>The character buffers occupy bytes 0-24 in pages 215-221 and bytes 0-31 in pages 222-230.</p>
-<p>The buffers in pages 215-221 are each shared by a group of five minor characters. Which one of the five characters 'owns' the buffer at any one time depends on the portion of the play area that is currently on screen. When the screen scrolls left or right, ownership of one of the buffers switches to the next or previous character in the group. See the routines at #R61838 and #R61882.</p>
-<p>The buffers in pages 222-230 are used mostly by the principal characters, depending on the current #R32750(game mode) (0-4).</p>
+<p>The character buffers occupy bytes 0-24 in pages 215-221 and bytes 0-31 in
+pages 222-230.</p>
+<p>The buffers in pages 215-221 are each shared by a group of five minor
+characters. Which one of the five characters 'owns' the buffer at any one time
+depends on the portion of the play area that is currently on screen. When the
+screen scrolls left or right, ownership of one of the buffers switches to the
+next or previous character in the group. See the routines at #R61838 and
+#R61882.</p>
+<p>The buffers in pages 222-230 are used mostly by the principal characters,
+depending on the current #R32750(game mode) (0-4).</p>
 #CALL:cast()
 #CALL:cbuffer()
 
@@ -332,7 +433,9 @@ PageContent=#INCLUDE(Keys)
 <div>Key = CHR$(Index + #N48,,,1(0x))</div>
 <div>Address = Index + #R49968</div>
 <div>Offset = PEEK(Address)</div>
-<div>Lookup = Offset + #N60671 (points to an entry in the table at #R60672)</div>
+<div>
+Lookup = Offset + #N60671 (points to an entry in the table at #R60672)
+</div>
 <div>Routine = address at (Lookup, Lookup + 1)</div>
 </div>
 <table class="keytable">
@@ -381,56 +484,117 @@ PageContent=#INCLUDE(CommandLists)
 PageContent=#INCLUDE(Walkthrough)
 
 [Walkthrough]
-<p>The walkthrough that follows is not the only way to complete the game, nor is it necessarily the quickest; however, it is an attempt to list the game's important events in a logical order, and includes every cash bonus and phone message that it's possible to receive.</p>
+<p>The walkthrough that follows is not the only way to complete the game, nor
+is it necessarily the quickest; however, it is an attempt to list the game's
+important events in a logical order, and includes every cash bonus and phone
+message that it's possible to receive.</p>
 
-<p>Before the game starts, a cutscene is displayed: '...THE PHONE RANG. IT WAS A DAMED NAMED LANA. SHE SAID TO MEET HER ON THE TOP FLOOR OF THE HOTEL ROYALE. SO BEGAN THE CASE OF THE BALI BUDGIE'</p>
+<p>Before the game starts, a cutscene is displayed: '...THE PHONE RANG. IT WAS
+A DAMED NAMED LANA. SHE SAID TO MEET HER ON THE TOP FLOOR OF THE HOTEL ROYALE.
+SO BEGAN THE CASE OF THE BALI BUDGIE'</p>
 
 <div class="box box-1">
 <ul class="walkthrough">
-<li>Go to the top floor of the hotel and proceed to the room on the far left; as you approach the entrance, note the message that is displayed: 'THERE'S A MAN'S BODY ON THE FLOOR'</li>
+<li>
+Go to the top floor of the hotel and proceed to the room on the far left; as
+you approach the entrance, note the message that is displayed: 'THERE'S A MAN'S
+BODY ON THE FLOOR'
+</li>
 <li>Continue walking into the room and collect the $100 cash bonus</li>
-<li>Pick up the ringing telephone and note the message: 'A VOICE SAID 'ED - TELL THE OIL MAN THAT THE KEY TO THE FAT MANS HOUSE IS AT NO 31 AND THAT THE BOSS WANTS TO SEE YOU BOTH AT NO 19''</li>
+<li>
+Pick up the ringing telephone and note the message: 'A VOICE SAID 'ED - TELL
+THE OIL MAN THAT THE KEY TO THE FAT MANS HOUSE IS AT NO 31 AND THAT THE BOSS
+WANTS TO SEE YOU BOTH AT NO 19''
+</li>
 <li>Wait for the police to arrest you and put you in jail</li>
-<li>After you've been released from jail, go to the room above the cell in the police station, pick up the phone, dial 7337, and note the message from Daisy: 'DAISY SAID 'LANA RANG - SHE HAD TO GET OUT IN A HURRY - OH AND I HEARD NOISES IN THE CEILING''</li>
+<li>
+After you've been released from jail, go to the room above the cell in the
+police station, pick up the phone, dial 7337, and note the message from Daisy:
+'DAISY SAID 'LANA RANG - SHE HAD TO GET OUT IN A HURRY - OH AND I HEARD NOISES
+IN THE CEILING''
+</li>
 <li>Hang up the phone</li>
 <li>If the score is not yet at least 50, wait around until it is</li>
-<li>Pick up the phone, dial 7337, and note the message from Daisy: 'DAISY SAID 'LANA RANG - HER NEW NUMBERS 7162. THE POLICE WERE HERE''</li>
+<li>
+Pick up the phone, dial 7337, and note the message from Daisy: 'DAISY SAID
+'LANA RANG - HER NEW NUMBERS 7162. THE POLICE WERE HERE''
+</li>
 <li>Hang up the phone</li>
-<li>Pick up the phone and dial 7162; when asked who's there, press 'S', and note the message from Lana: 'LANA ANSWERED 'OOH SAM! THEY KILLED MY FIANCE AND STOLE THE BUDGIE''</li>
+<li>
+Pick up the phone and dial 7162; when asked who's there, press 'S', and note
+the message from Lana: 'LANA ANSWERED 'OOH SAM! THEY KILLED MY FIANCE AND STOLE
+THE BUDGIE''
+</li>
 <li>Hang up the phone</li>
-<li>Pick up the phone, dial 7162, and note the message from Lana: 'LANA ANSWERED 'OOH SAM! THAT CROOK THE FAT MAN'S JUST MOVED INTO NO 15''; now we know that the key at no. 31 must be for no. 15 (the Fat Man's house)</li>
+<li>
+Pick up the phone, dial 7162, and note the message from Lana: 'LANA ANSWERED
+'OOH SAM! THAT CROOK THE FAT MAN'S JUST MOVED INTO NO 15''; now we know that
+the key at no. 31 must be for no. 15 (the Fat Man's house)
+</li>
 <li>Hang up the phone</li>
-<li>Go to the roof of the police station and step off the left edge onto the roof of no. 31 (entering no. 31 this way instead of by the front door means the police won't arrest you)</li>
-<li>Go down to the left end of the middle floor of no. 31 and pick up the key (this is the key to no. 15)</li>
+<li>
+Go to the roof of the police station and step off the left edge onto the roof
+of no. 31 (entering no. 31 this way instead of by the front door means the
+police won't arrest you)
+</li>
+<li>
+Go down to the left end of the middle floor of no. 31 and pick up the key (this
+is the key to no. 15)
+</li>
 <li>Leave no. 31 and head for no. 19</li>
-<li>Outside no. 19, change disguise to the oil man (press 'D' seven times):
+<li>
+Outside no. 19, change disguise to the oil man (press 'D' seven times):
 <div>#DISGUISE7,2(disguise7)</div>
 </li>
 <li>Knock on the door to no. 19 and enter when the gangster opens it</li>
-<li>Pick up the $50 cash bonus on the ground floor (by the window on the right)</li>
+<li>
+Pick up the $50 cash bonus on the ground floor (by the window on the right)
+</li>
 <li>Go up to the top floor of no. 19</li>
-<li>Pick up the ringing telephone; when asked who's there, press 'E' and note the message: 'OK ED - THE FAT MAN HAS THE KEY TO NO 27'</li>
+<li>
+Pick up the ringing telephone; when asked who's there, press 'E' and note the
+message: 'OK ED - THE FAT MAN HAS THE KEY TO NO 27'
+</li>
 <li>Hang up the phone</li>
 <li>Leave no. 19, go to no. 15, and enter using the key</li>
 <li>Head for the second floor of no. 15</li>
 </ul>
 </div>
 
-<p>A cutscene is displayed: 'IT ALL WENT BLACK. AS I FELL SOMEONE FAT PUSHED PAST ME SHOUTING ' YOULL NOT GET THE KEY WHEN I'M STILL STANDING''</p>
+<p>A cutscene is displayed: 'IT ALL WENT BLACK. AS I FELL SOMEONE FAT PUSHED
+PAST ME SHOUTING ' YOULL NOT GET THE KEY WHEN I'M STILL STANDING''</p>
 
 <div class="box box-2">
 <ul class="walkthrough">
-<li>Pick up the ringing telephone, and note the message from Daisy: 'DAISY SAID 'SAM - A GANGSTER'S WATCHING FOR YOU OUTSIDE THE POLICE STATION''</li>
+<li>
+Pick up the ringing telephone, and note the message from Daisy: 'DAISY SAID
+'SAM - A GANGSTER'S WATCHING FOR YOU OUTSIDE THE POLICE STATION''
+</li>
 <li>Hang up the phone</li>
-<li>Wait for the phone to start ringing again, pick it up, and note the message: 'A VOICE SAID 'OK FATS THE HOOK'S AT NO 74 AND ALS GUARDING IT''</li>
+<li>
+Wait for the phone to start ringing again, pick it up, and note the message:
+'A VOICE SAID 'OK FATS THE HOOK'S AT NO 74 AND ALS GUARDING IT''
+</li>
 <li>Hang up the phone</li>
-<li>Pick up the phone, dial 7337, and note the message from Daisy: 'DAISY SAID 'LANA RANG - THAT FAT MAN HAS TWO KEYS NOT JUST ONE ''</li>
+<li>
+Pick up the phone, dial 7337, and note the message from Daisy: 'DAISY SAID
+'LANA RANG - THAT FAT MAN HAS TWO KEYS NOT JUST ONE ''
+</li>
 <li>Hang up the phone</li>
-<li>Pick up the phone, dial 7162, and note the message from Lana: 'LANA ANSWERED 'OOH SAM! BUD SAID HE'D MEET ME ALONE IN THE HOTELS RIGHT HAND GREEN ROOM. I'M SCARED - WILL YOU GO INSTEAD?''</li>
+<li>
+Pick up the phone, dial 7162, and note the message from Lana: 'LANA ANSWERED
+'OOH SAM! BUD SAID HE'D MEET ME ALONE IN THE HOTELS RIGHT HAND GREEN ROOM. I'M
+SCARED - WILL YOU GO INSTEAD?''
+</li>
 <li>Hang up the phone</li>
-<li>Go up to the top floor of no. 15 and pick up the key (this is the key to no. 31; you should now have two keys)</li>
+<li>
+Go up to the top floor of no. 15 and pick up the key (this is the key to no.
+31; you should now have two keys)
+</li>
 <li>Go down to the second floor of no. 15 and pick up the $100 cash bonus</li>
-<li>Leave no. 15, go to the roof of the apartment building next to no. 19, and walk down to the bottom of the fire escape:
+<li>
+Leave no. 15, go to the roof of the apartment building next to no. 19, and walk
+down to the bottom of the fire escape:
 <div>
 #PUSHS
 #CALL:place_char(230,177,28,2,0)
@@ -438,7 +602,9 @@ PageContent=#INCLUDE(Walkthrough)
 #POPS
 </div>
 </li>
-<li>Wait until the Fat Man approaches and then, at the right moment, step off the fire escape and down onto the Fat Man's head:
+<li>
+Wait until the Fat Man approaches and then, at the right moment, step off the
+fire escape and down onto the Fat Man's head:
 <div>
 #PUSHS
 #CALL:place_char(230,177,28,2,1)
@@ -447,24 +613,42 @@ PageContent=#INCLUDE(Walkthrough)
 #POPS
 </div>
 </li>
-<li>Walk past the stunned Fat Man towards no. 27 and pick up the key that he has dropped (this is the key to no. 27; you should now have three keys)</li>
+<li>
+Walk past the stunned Fat Man towards no. 27 and pick up the key that he has
+dropped (this is the key to no. 27; you should now have three keys)
+</li>
 <li>Go to no. 27 and enter using the key</li>
-<li>Go to the roof of no. 27, walk over to the roof of the police station, and then step off the left edge onto the roof of no. 31 (thus avoiding the gangster who is watching for you outside the police station)</li>
-<li>Go down to the ground floor of no. 31, leave through the front door, and go to the right hand green room on the fourth floor of the hotel</li>
+<li>
+Go to the roof of no. 27, walk over to the roof of the police station, and then
+step off the left edge onto the roof of no. 31 (thus avoiding the gangster who
+is watching for you outside the police station)
+</li>
+<li>
+Go down to the ground floor of no. 31, leave through the front door, and go to
+the right hand green room on the fourth floor of the hotel
+</li>
 <li>Change into the female disguise (press 'D' four times):
 <div>#DISGUISE4,2(disguise4)</div>
 </li>
-<li>Pick up the ringing telephone and note the message: 'A VOICE SAID 'OK LANA THE KEY TO 74'S IN THE ROOM PAST THE CATWALK BUT THERE'S A GUARD''</li>
+<li>
+Pick up the ringing telephone and note the message: 'A VOICE SAID 'OK LANA THE
+KEY TO 74'S IN THE ROOM PAST THE CATWALK BUT THERE'S A GUARD''
+</li>
 <li>Hang up the phone</li>
-<li>Leave the hotel and head for the roof of the apartment building next to no. 74</li>
+<li>
+Leave the hotel and head for the roof of the apartment building next to no. 74
+</li>
 </ul>
 </div>
 
-<p>A cutscene is displayed: 'SOMEONE HIT ME. I PLAYED DEAD. TWO MEN WALKED OFF. ONE SAID 'HEY DON AINT YOU SCARED THAT CRUISE WILL GET UP TO YOUR ROOM WHEN ALS ON THE PHONE ?''</p>
+<p>A cutscene is displayed: 'SOMEONE HIT ME. I PLAYED DEAD. TWO MEN WALKED OFF.
+ONE SAID 'HEY DON AINT YOU SCARED THAT CRUISE WILL GET UP TO YOUR ROOM WHEN ALS
+ON THE PHONE ?''</p>
 
 <div class="box box-1">
 <ul class="walkthrough">
-<li>Stand on the right edge of the roof of the apartment building next to no. 74:
+<li>
+Stand on the right edge of the roof of the apartment building next to no. 74:
 <div>
 #PUSHS
 #CALL:place_char(230,23,6,1,128)
@@ -472,7 +656,9 @@ PageContent=#INCLUDE(Walkthrough)
 #POPS
 </div>
 </li>
-<li>At the right moment, step off the roof and down onto the gangster pacing the catwalk:
+<li>
+At the right moment, step off the roof and down onto the gangster pacing the
+catwalk:
 <div>
 #PUSHS
 #CALL:place_char(230,23,6,1,129)
@@ -481,18 +667,49 @@ PageContent=#INCLUDE(Walkthrough)
 #POPS
 </div>
 </li>
-<li>While the gangster is stunned, go to the room to the right of the catwalk and pick up the key (this is the key to no. 74; you should now have four keys)</li>
-<li>Walk back through the catwalk and go down a floor to the magenta room on the right</li>
-<li>Pick up the phone, dial 7337, and note the message from Daisy: 'DAISY SAID 'ALS NUMBER'S 6124''</li>
+<li>
+While the gangster is stunned, go to the room to the right of the catwalk and
+pick up the key (this is the key to no. 74; you should now have four keys)
+</li>
+<li>
+Walk back through the catwalk and go down a floor to the magenta room on the
+right
+</li>
+<li>
+Pick up the phone, dial 7337, and note the message from Daisy: 'DAISY SAID 'ALS
+NUMBER'S 6124''
+</li>
 <li>Leave the apartment building, go to no. 74, and enter using the key</li>
-<li>Pick up the phone on the ground floor of no. 74, dial 6124, wait a second, hang up, and then go to the top floor of no. 74 (Al won't get you because he's gone to answer the phone)</li>
-<li>Pick up the hook (on the right; press 'G') and the $100 cash bonus (on the left)</li>
+<li>
+Pick up the phone on the ground floor of no. 74, dial 6124, wait a second, hang
+up, and then go to the top floor of no. 74 (Al won't get you because he's gone
+to answer the phone)
+</li>
+<li>
+Pick up the hook (on the right; press 'G') and the $100 cash bonus (on the
+left)
+</li>
 <li>Go down to the left-hand room on the third floor of no. 74</li>
-<li>Pick up the ringing telephone; when asked who's there, press 'D', and note the message: 'TECHNICAL SERVICES HERE. TO USE A HOOK GET TO RIGHT PLACE AND PRESS C'</li>
+<li>
+Pick up the ringing telephone; when asked who's there, press 'D', and note the
+message: 'TECHNICAL SERVICES HERE. TO USE A HOOK GET TO RIGHT PLACE AND PRESS
+C'
+</li>
 <li>Hang up the phone</li>
-<li>Pick up the phone, dial 999, and wait for the police to arrive and take you to the jail cell (thus avoiding Al on the way out of no. 74, and also avoiding the gangster watching for you outside the police station)</li>
-<li>After you've been released from jail, go to the roof of the police station, step over to the roof of no. 27, and then go down and leave no. 27 through the front door (thus avoiding the gangster who is watching for you outside the police station)</li>
-<li>Go to the roof of the apartment building next to no. 19 and stand on the right edge, facing right:
+<li>
+Pick up the phone, dial 999, and wait for the police to arrive and take you to
+the jail cell (thus avoiding Al on the way out of no. 74, and also avoiding the
+gangster watching for you outside the police station)
+</li>
+<li>
+After you've been released from jail, go to the roof of the police station,
+step over to the roof of no. 27, and then go down and leave no. 27 through the
+front door (thus avoiding the gangster who is watching for you outside the
+police station)
+</li>
+<li>
+Go to the roof of the apartment building next to no. 19 and stand on the right
+edge, facing right:
 <div>
 #PUSHS
 #CALL:place_char(230,206,6,1,128)
@@ -501,17 +718,33 @@ PageContent=#INCLUDE(Walkthrough)
 </div>
 </li>
 <li>Press 'C' to throw the hook</li>
-<li>When the rope appears, walk across it to the roof of no. 17; note the message that is displayed: 'SOMEONE BELOW SAID 'CRUISE WAS DRESSED AS THE OIL MAN. DONT LET ANYONE PAST'' (at this point the oil man disguise will no longer work at no. 19)</li>
-<li>Go down into the room above Sam's office and walk towards the far left wall; note the message that is displayed: 'THERES A SAFE WITH 4 LOCKS'</li>
+<li>
+When the rope appears, walk across it to the roof of no. 17; note the message
+that is displayed: 'SOMEONE BELOW SAID 'CRUISE WAS DRESSED AS THE OIL MAN. DONT
+LET ANYONE PAST'' (at this point the oil man disguise will no longer work at
+no. 19)
+</li>
+<li>
+Go down into the room above Sam's office and walk towards the far left wall;
+note the message that is displayed: 'THERES A SAFE WITH 4 LOCKS'
+</li>
 <li>Continue walking to the left and pick up the $200 cash bonus</li>
 <li>Continue walking to the left and pick up the budgie (press 'G')</li>
 <li>Go back to the roof of no. 17 and step down onto the roof of no. 19</li>
 <li>Walk left until you find the fuse</li>
-<li>Blow the fuse (press 'F'), go down to the ground floor, and leave no. 19 through the front door</li>
+<li>
+Blow the fuse (press 'F'), go down to the ground floor, and leave no. 19
+through the front door
+</li>
 <li>Go to Sam's office</li>
-<li>Pick up the phone, dial 7162, and note the message: 'LANA ANSWERED 'OOH SAM! YOUVE GOT THE BIRD. SEE YOU IN YOUR OFFICE''</li>
+<li>
+Pick up the phone, dial 7162, and note the message: 'LANA ANSWERED 'OOH SAM!
+YOUVE GOT THE BIRD. SEE YOU IN YOUR OFFICE''
+</li>
 <li>Hang up the phone</li>
-<li>Wait until Lana has climbed the stairs up to the second floor of no. 17, and then pick up the phone and dial 999:
+<li>
+Wait until Lana has climbed the stairs up to the second floor of no. 17, and
+then pick up the phone and dial 999:
 <div>
 #PUSHS
 #POKES48221,128
@@ -522,14 +755,22 @@ PageContent=#INCLUDE(Walkthrough)
 #POPS
 </div>
 </li>
-<li>When Lana arrives at Sam's office, a message is displayed: 'I STARED AT THE LOVELY LANA WAS IT THOSE RUBY LIPS OR THE SLIM AUTOMATIC THAT TRANSFIXED ME? SHE SAID 'THANK YOU FOR THE BUDGIE SAM . ITS PRICELESS. IVE ALREADY KILLED ONCE FOR IT. AND NOW ITS GOODBYE SAM ''</li>
+<li>
+When Lana arrives at Sam's office, a message is displayed: 'I STARED AT THE
+LOVELY LANA WAS IT THOSE RUBY LIPS OR THE SLIM AUTOMATIC THAT TRANSFIXED ME?
+SHE SAID 'THANK YOU FOR THE BUDGIE SAM . ITS PRICELESS. IVE ALREADY KILLED ONCE
+FOR IT. AND NOW ITS GOODBYE SAM ''
+</li>
 </ul>
 </div>
 
-<p>A cutscene is displayed: 'SHE'S IN JAIL NOW. ANOTHER CASE SOLVED. BUT NOW THE MOB KNOWS IVE GOT THE BUDGIE AND THEYRE AFTER ME . .'</p>
+<p>A cutscene is displayed: 'SHE'S IN JAIL NOW. ANOTHER CASE SOLVED. BUT NOW
+THE MOB KNOWS IVE GOT THE BUDGIE AND THEYRE AFTER ME . .'</p>
 
 <div class="box box-2">
 <ul class="walkthrough">
-<li>Wait for the gangster to come and get you, again and again and again...</li>
+<li>
+Wait for the gangster to come and get you, again and again and again...
+</li>
 </ul>
 </div>
