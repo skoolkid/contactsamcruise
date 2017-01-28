@@ -1,4 +1,4 @@
-; Copyright 2010-2012 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2012, 2017 Richard Dymond (rjdymond@gmail.com)
 
 [AnimatoryStates]
 0=Sam standing/walking (phase 1)
@@ -184,7 +184,8 @@ Various flags:
 TABLE#
 
 [CharBuf:4]
-z-coordinate: 1=indoors; 2=outside, behind people on the sidewalk; 4=on the sidewalk or road; 8=invisible
+z-coordinate: 1=indoors; 2=outside, behind people on the sidewalk; 4=on the
+sidewalk or road; 8=invisible
 
 [CharBuf:5]
 Post-midstride animatory state (see #R60347, #R60506)
@@ -198,7 +199,8 @@ Post-midstride y-coordinate  (see #R60347, #R60506, #R60641, #R64338)
 [CharBuf:8]
 LSB of the primary command routine address (see #R61948)
 
-Sam's main action timer (see #R24832, #R25789, #R29149, #R29912, #R30675, #R60641, #R61483, #R64338)
+Sam's main action timer (see #R24832, #R25789, #R29149, #R29912, #R30675,
+#R60641, #R61483, #R64338)
 
 [CharBuf:9]
 MSB of the primary command routine address (see #R61948)
@@ -206,27 +208,33 @@ MSB of the primary command routine address (see #R61948)
 Sam's midstride/mid-action timer (see #R29149, #R60641, #R61483)
 
 [CharBuf:10]
-Destination x-coordinate (see #R28803, #R29072, #R29361, #R31126, #R31808, #R31944, #R60812, #R62976)
+Destination x-coordinate (see #R28803, #R29072, #R29361, #R31126, #R31808,
+#R31944, #R60812, #R62976)
 
 Walkabout origin x-coordinate (see #R63304, #R63530)
 
 Counter used by the sniper to decide when to appear (see #R25307)
 
-1 if the banknote has just been landed on by Sam, 0 otherwise (see #R25420, #R25539)
+1 if the banknote has just been landed on by Sam, 0 otherwise (see #R25420,
+#R25539)
 
 [CharBuf:11]
-Destination y-coordinate (see #R29072, #R29361, #R31126, #R31944, #R60812, #R62976)
+Destination y-coordinate (see #R29072, #R29361, #R31126, #R31944, #R60812,
+#R62976)
 
 Walkabout destination x-coordinate for a cat (see #R63530)
 
-LSB of the address of the door knock status flags for the door (if any) that the character is on duty for (see #R31338, #R63304, #R63520)
+LSB of the address of the door knock status flags for the door (if any) that
+the character is on duty for (see #R31338, #R63304, #R63520)
 
 [CharBuf:12]
 Roll/somersault animation phase table entry address LSB (see #R25789)
 
-Destination location identifier (see #R28803, #R29072, #R29361, #R31126, #R31808, #R31944, #R60812, #R62976)
+Destination location identifier (see #R28803, #R29072, #R29361, #R31126,
+#R31808, #R31944, #R60812, #R62976)
 
-Walkabout duration indicator (0=indefinite, 255=finite) (see #R31338, #R63304, #R63520)
+Walkabout duration indicator (0=indefinite, 255=finite) (see #R31338, #R63304,
+#R63520)
 
 [CharBuf:13]
 Roll/somersault animation phase table entry address MSB (see #R25789)
@@ -237,9 +245,16 @@ Pre-knockout animatory state (see #R64005, #R64131)
 
 Number of mini-walkabouts remaining (see #R31338, #R63304)
 
-Location/destination indicator: 2 if the character is not on the sidewalk or the road, and is not in the same region as his destination; 1 if the character is not on the sidewalk or the road, and is in the same region as his destination; 0 if the character is on the sidewalk or the road, or on the front steps of the hotel but heading somewhere other than the hotel (see #R31808, #R60812, #R62976)
+Location/destination indicator: 2 if the character is not on the sidewalk or
+the road, and is not in the same region as his destination; 1 if the character
+is not on the sidewalk or the road, and is in the same region as his
+destination; 0 if the character is on the sidewalk or the road, or on the front
+steps of the hotel but heading somewhere other than the hotel (see #R31808,
+#R60812, #R62976)
 
-1 if Sam has stepped off or been dropped off the the roof of a building to the ground from a great enough height that he could be knocked out when he lands; 0 otherwise (see #R64227, #R64338)
+1 if Sam has stepped off or been dropped off the the roof of a building to the
+ground from a great enough height that he could be knocked out when he lands; 0
+otherwise (see #R64227, #R64338)
 
 [CharBuf:14,15]
 Interruptible subcommand routine address (see #R61948)
@@ -251,18 +266,23 @@ Intermediate destination x-coordinate (see #R62926, #R62976)
 
 Intermediate destination y-coordinate (see #R62892, #R62976)
 
-Counter used by the sniper to decide when to duck and when to shoot (see #R25118, #R25307)
+Counter used by the sniper to decide when to duck and when to shoot (see
+#R25118, #R25307)
 
-LSB of the address of the door knock status flags (see #R32682) for the door the character has knocked on (see #R62278, #R62297)
+LSB of the address of the door knock status flags (see #R32682) for the door
+the character has knocked on (see #R62278, #R62297)
 
-Counter that determines how much longer a policeman will keep knocking on a door before busting it open (see #R62325, #R62339)
+Counter that determines how much longer a policeman will keep knocking on a
+door before busting it open (see #R62325, #R62339)
 
 [CharBuf:17]
 Delay counter used by the sniper after firing a bullet (see #R25118, #R25307)
 
-Counter that determines how much longer the character will wait for a door to be opened before giving up (see #R62278, #R62297)
+Counter that determines how much longer the character will wait for a door to
+be opened before giving up (see #R62278, #R62297)
 
-Counter that determines the delay until the character will consider flipping a light switch or raising or lowering a window blind (see #R63209)
+Counter that determines the delay until the character will consider flipping a
+light switch or raising or lowering a window blind (see #R63209)
 
 [CharBuf:18,19]
 Uninterruptible subcommand routine address (see #R61948)
@@ -274,7 +294,8 @@ Distance remaining for the hook to fly (see #R31713)
 
 Knockout and recovery delay counter (see #R64005)
 
-Animation phase counter used when a character has just stepped off the roof of a building (see #R64227, #R64338)
+Animation phase counter used when a character has just stepped off the roof of
+a building (see #R64227, #R64338)
 
 [CharBuf:21]
 Pre-knockout x-coordinate (see #R64005, #R64131)
@@ -282,7 +303,8 @@ Pre-knockout x-coordinate (see #R64005, #R64131)
 Landing y-coordinate (see #R64338)
 
 [CharBuf:22]
-Offset of the point reached in the current command list (relative to the start) (see #R61791)
+Offset of the point reached in the current command list (relative to the start)
+(see #R61791)
 
 [CharBuf:23,24]
 Start address of the command list (see #R61791, #R61948)
@@ -294,10 +316,15 @@ Unused (but see #R61948)
 Unused (but checked by #R61948 for a continual subcommand routine address)
 
 [CharBuf:29]
-ID of Sam's disguise (bits 5-7) when he was last spotted (but not recognised) by the policeman, and the corresponding disguise timeout counter (bits 0-4) (see #R29100, #R29218, #R29361, #R29559)
+ID of Sam's disguise (bits 5-7) when he was last spotted (but not recognised)
+by the policeman, and the corresponding disguise timeout counter (bits 0-4)
+(see #R29100, #R29218, #R29361, #R29559)
 
 [CharBuf:30]
-Sam's x-coordinate when he was last spotted by the policeman while wearing a disguise unknown to the police (see #R29100, #R29218)
+Sam's x-coordinate when he was last spotted by the policeman while wearing a
+disguise unknown to the police (see #R29100, #R29218)
 
 [CharBuf:31]
-Sam's y-coordinate (bits 0-5) and z-coordinate (bits 6-7) when he was last spotted by the policeman while wearing a disguise unknown to the police (see #R29100, #R29218)
+Sam's y-coordinate (bits 0-5) and z-coordinate (bits 6-7) when he was last
+spotted by the policeman while wearing a disguise unknown to the police (see
+#R29100, #R29218)
