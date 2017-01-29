@@ -1,7 +1,8 @@
 ; Copyright 2010-2014, 2017 Richard Dymond (rjdymond@gmail.com)
 
 [GraphicGlitch:samsCoat:Sam's coat]
-There is a misplaced transparent pixel at the base of Sam's coat when he's midstride:
+There is a misplaced transparent pixel at the base of Sam's coat when he's
+midstride:
 
 #UDGTABLE(gallery)
 { #CALL:as_img(1,4) | #CALL:as_img(3,4) }
@@ -18,24 +19,31 @@ TABLE#
 #POPS
 
 [GraphicGlitch:mensShoes:Men's shoes]
-There is a transparent pixel that should be blank at the bottom front edge of the shoe in various animatory states of the policeman, the Fat Man, the man in a bowler hat, and the man in a baseball cap:
+There is a transparent pixel that should be blank at the bottom front edge of
+the shoe in various animatory states of the policeman, the Fat Man, the man in
+a bowler hat, and the man in a baseball cap:
 
-#UDGTABLE(gallery)
-{ #CALL:as_img(16,4) | #CALL:as_img(56,4) | #CALL:as_img(104,4) | #CALL:as_img(112,4) | #CALL:as_img(19,4) | #CALL:as_img(107,4) | #CALL:as_img(115,4) }
-TABLE#
+#UDGTABLE(gallery) {
+  #CALL:as_img(16,4) | #CALL:as_img(56,4) |
+  #CALL:as_img(104,4) | #CALL:as_img(112,4) |
+  #CALL:as_img(19,4) | #CALL:as_img(107,4) | #CALL:as_img(115,4)
+} TABLE#
 
 To make these pixels blank:
 
 #PUSHSms
 #POKES54830,253;54859,223
 #UDGTABLE(gallery)
-{ #CALL:as_img(16,4) | #CALL:as_img(56,4) | #CALL:as_img(104,4) | #CALL:as_img(112,4) | #CALL:as_img(19,4) | #CALL:as_img(107,4) | #CALL:as_img(115,4) }
+{ #CALL:as_img(16,4) | #CALL:as_img(56,4) |
+  #CALL:as_img(104,4) | #CALL:as_img(112,4) |
+  #CALL:as_img(19,4) | #CALL:as_img(107,4) | #CALL:as_img(115,4) }
 { =c4 POKE 54830,253 | =c3 POKE 54859,223 }
 TABLE#
 #POPS
 
 [GraphicGlitch:gangstersKnee:Gangster's knee]
-There are erroneous transparent pixels and a misplaced blank pixel in and near the gangster's knee when he's midstride:
+There are erroneous transparent pixels and a misplaced blank pixel in and near
+the gangster's knee when he's midstride:
 
 #UDGTABLE(gallery)
 { #CALL:as_img(35,4) }
@@ -52,7 +60,8 @@ TABLE#
 #POPS
 
 [GraphicGlitch:lanasWaist:Lana's waist]
-There are erroneous transparent pixels and extraneous blank pixels across and near Lana's waist when she has her arm raised:
+There are erroneous transparent pixels and extraneous blank pixels across and
+near Lana's waist when she has her arm raised:
 
 #UDGTABLE(gallery)
 { #CALL:as_img(52,4) }
@@ -103,7 +112,8 @@ TABLE#
 #POPS
 
 [GraphicGlitch:daisysHand:Daisy's hand]
-There are transparent pixels that should be blank and also a misplaced blank pixel on and near Daisy's hand when she's midstride:
+There are transparent pixels that should be blank and also a misplaced blank
+pixel on and near Daisy's hand when she's midstride:
 
 #UDGTABLE(gallery)
 { #CALL:as_img(73,4) | #CALL:as_img(75,4) }
@@ -120,7 +130,9 @@ TABLE#
 #POPS
 
 [GraphicGlitch:ladiesArms:Ladies' arms]
-When Daisy and the girl with a pony tail have their arms raised, there is a transparent pixel that should be blank under their hands, and another near their armpits:
+When Daisy and the girl with a pony tail have their arms raised, there is a
+transparent pixel that should be blank under their hands, and another near
+their armpits:
 
 #UDGTABLE(gallery)
 { #CALL:as_img(76,4) | #CALL:as_img(100,4) }
@@ -137,24 +149,28 @@ TABLE#
 #POPS
 
 [GraphicGlitch:ladiesWaists:Ladies' waists]
-There are extraneous blank pixels near both Daisy's waist and the waist of the girl with a pony tail when they are midstride:
+There are extraneous blank pixels near both Daisy's waist and the waist of the
+girl with a pony tail when they are midstride:
 
-#UDGTABLE(gallery)
-{ #CALL:as_img(73,4) | #CALL:as_img(75,4) | #CALL:as_img(97,4) | #CALL:as_img(99,4) }
-TABLE#
+#UDGTABLE(gallery) {
+  #CALL:as_img(73,4) | #CALL:as_img(75,4) |
+  #CALL:as_img(97,4) | #CALL:as_img(99,4)
+} TABLE#
 
 To remove these blank pixels:
 
 #PUSHSlw
 #POKES54354,250
 #UDGTABLE(gallery)
-{ #CALL:as_img(73,4) | #CALL:as_img(75,4) | #CALL:as_img(97,4) | #CALL:as_img(99,4) }
+{ #CALL:as_img(73,4) | #CALL:as_img(75,4) |
+  #CALL:as_img(97,4) | #CALL:as_img(99,4) }
 { =c4 POKE 54354,250 }
 TABLE#
 #POPS
 
 [GraphicGlitch:baseballCapMansFace:Baseball cap man's face]
-There are extraneous blank pixels and transparent pixels that should be blank in front of and on the face of the man in a baseball cap when he's midstride:
+There are extraneous blank pixels and transparent pixels that should be blank
+in front of and on the face of the man in a baseball cap when he's midstride:
 
 #UDGTABLE(gallery)
 { #CALL:as_img(113,4) | #CALL:as_img(115,4) }
@@ -171,21 +187,26 @@ TABLE#
 #POPS
 
 [GraphicGlitch:brokenBanister:Broken banister]
-In the open doorways of no. 74, no. 31 and no. 19, a line of blank pixels can be seen running through the banister at the bottom of the staircase:
+In the open doorways of no. 74, no. 31 and no. 19, a line of blank pixels can
+be seen running through the banister at the bottom of the staircase:
 
 #PUSHS
 #POKES48389,82
 #POKES48398,82
 #POKES48410,82
-#UDGTABLE(gallery)
-{ #CALL:play_area(banister_74,40,29,7,8,4) | #CALL:play_area(banister_31,112,29,7,8,4) | #CALL:play_area(banister_19,208,29,7,8,4) }
-TABLE#
+#UDGTABLE(gallery) {
+  #CALL:play_area(banister_74,40,29,7,8,4) |
+  #CALL:play_area(banister_31,112,29,7,8,4) |
+  #CALL:play_area(banister_19,208,29,7,8,4)
+} TABLE#
 
 To fix these pixels:
 
 #POKES39254,137
 #UDGTABLE(gallery)
-{ #CALL:play_area(banister_74_fixed,40,29,7,8,4) | #CALL:play_area(banister_31_fixed,112,29,7,8,4) | #CALL:play_area(banister_19_fixed,208,29,7,8,4) }
+{ #CALL:play_area(banister_74_fixed,40,29,7,8,4) |
+  #CALL:play_area(banister_31_fixed,112,29,7,8,4) |
+  #CALL:play_area(banister_19_fixed,208,29,7,8,4) }
 { =c3 POKE 39254,137 }
 TABLE#
 #POPS
@@ -231,14 +252,60 @@ PageContent=#INCLUDE(Graphics)
 </table>
 <h3>Doors</h3>
 <table cellpadding="5">
-<tr><td>#CALL:play_area(shop1_shut,0,31,3,8)</td><td>#PUSHS #POKES48384,80;48640,79 #CALL:play_area(shop1_open,0,31,3,8) #POPS</td><td>Left-hand shop under the apartments next to no. 74</td></tr>
-<tr><td>#CALL:play_area(shop2_shut,15,31,4,8)</td><td>#PUSHS #POKES48386,80;48642,79 #CALL:play_area(shop2_open,15,31,4,8) #POPS</td><td>Right-hand shop under the apartments next to no. 74</td></tr>
-<tr><td>#CALL:play_area(shop3_shut,223,31,4,8)</td><td>#PUSHS #POKES48412,80;48668,79 #CALL:play_area(shop3_open,223,31,4,8) #POPS</td><td>Shop under no. 17</td></tr>
-<tr><td>#CALL:play_area(shop4_shut,239,31,4,8)</td><td>#PUSHS #POKES48414,80;48670,79 #CALL:play_area(shop4_open,239,31,4,8) #POPS</td><td>Shop under no. 15</td></tr>
-<tr><td>#CALL:play_area(no74_shut,40,29,8,8)</td><td>#PUSHS #POKES48389,82 #CALL:play_area(no74_open,40,29,8,8) #POPS</td><td>No. 74</td></tr>
-<tr><td>#CALL:play_area(no31_shut,112,29,8,8)</td><td>#PUSHS #POKES48398,82 #CALL:play_area(no31_open,112,29,8,8) #POPS</td><td>No. 31</td></tr>
-<tr><td>#CALL:play_area(no27_shut,152,29,8,8)</td><td>#PUSHS #POKES48403,81 #CALL:play_area(no27_open,152,29,8,8) #POPS</td><td>No. 27</td></tr>
-<tr><td>#CALL:play_area(no19_shut,208,29,8,8)</td><td>#PUSHS #POKES48410,82 #CALL:play_area(no19_open,208,29,8,8) #POPS</td><td>No. 19</td></tr>
-<tr><td>#CALL:play_area(no17_shut,232,29,8,8)</td><td>#PUSHS #POKES48413,81 #CALL:play_area(no17_open,232,29,8,8) #POPS</td><td>No. 17</td></tr>
-<tr><td>#CALL:play_area(no15_shut,248,29,8,8)</td><td>#PUSHS #POKES48415,81 #CALL:play_area(no15_open,248,29,8,8) #POPS</td><td>No. 15</td></tr>
+<tr>
+<td>#CALL:play_area(shop1_shut,0,31,3,8)</td>
+<td>
+#PUSHS #POKES48384,80;48640,79 #CALL:play_area(shop1_open,0,31,3,8) #POPS
+</td>
+<td>Left-hand shop under the apartments next to no. 74</td>
+</tr>
+<tr>
+<td>#CALL:play_area(shop2_shut,15,31,4,8)</td>
+<td>
+#PUSHS #POKES48386,80;48642,79 #CALL:play_area(shop2_open,15,31,4,8) #POPS
+</td>
+<td>Right-hand shop under the apartments next to no. 74</td>
+</tr>
+<tr>
+<td>#CALL:play_area(shop3_shut,223,31,4,8)</td>
+<td>
+#PUSHS #POKES48412,80;48668,79 #CALL:play_area(shop3_open,223,31,4,8) #POPS
+</td>
+<td>Shop under no. 17</td>
+</tr>
+<tr>
+<td>#CALL:play_area(shop4_shut,239,31,4,8)</td>
+<td>
+#PUSHS #POKES48414,80;48670,79 #CALL:play_area(shop4_open,239,31,4,8) #POPS
+</td>
+<td>Shop under no. 15</td></tr>
+<tr>
+<td>#CALL:play_area(no74_shut,40,29,8,8)</td>
+<td>#PUSHS #POKES48389,82 #CALL:play_area(no74_open,40,29,8,8) #POPS</td>
+<td>No. 74</td></tr>
+<tr>
+<td>#CALL:play_area(no31_shut,112,29,8,8)</td>
+<td>#PUSHS #POKES48398,82 #CALL:play_area(no31_open,112,29,8,8) #POPS</td>
+<td>No. 31</td>
+</tr>
+<tr>
+<td>#CALL:play_area(no27_shut,152,29,8,8)</td>
+<td>#PUSHS #POKES48403,81 #CALL:play_area(no27_open,152,29,8,8) #POPS</td>
+<td>No. 27</td>
+</tr>
+<tr>
+<td>#CALL:play_area(no19_shut,208,29,8,8)</td>
+<td>#PUSHS #POKES48410,82 #CALL:play_area(no19_open,208,29,8,8) #POPS</td>
+<td>No. 19</td>
+</tr>
+<tr>
+<td>#CALL:play_area(no17_shut,232,29,8,8)</td>
+<td>#PUSHS #POKES48413,81 #CALL:play_area(no17_open,232,29,8,8) #POPS</td>
+<td>No. 17</td>
+</tr>
+<tr>
+<td>#CALL:play_area(no15_shut,248,29,8,8)</td>
+<td>#PUSHS #POKES48415,81 #CALL:play_area(no15_open,248,29,8,8) #POPS</td>
+<td>No. 15</td>
+</tr>
 </table>
