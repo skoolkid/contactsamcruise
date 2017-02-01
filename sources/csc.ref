@@ -1,4 +1,4 @@
-; Copyright 2010-2016 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2017 Richard Dymond (rjdymond@gmail.com)
 
 [Config]
 RefFiles=bugs.ref;changelog.ref;data.ref;facts.ref;glossary.ref;graphics.ref;pages.ref;pokes.ref
@@ -115,7 +115,11 @@ Pokes
 Walkthrough
 
 [MemoryMap:MessagesMap]
-Intro=The LSB and MSB of the address of message number N can be found at (N+#R27649(27648)) and (N+#R27905(27904)) respectively.
+Intro=#INCLUDE(MessagesMapIntro)
+
+[MessagesMapIntro]
+The LSB and MSB of the address of message number N can be found at
+(N+#R27649(27648)) and (N+#R27905(27904)) respectively.
 
 [MemoryMap:UnusedMap]
 Write=0
