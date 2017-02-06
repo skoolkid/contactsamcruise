@@ -477,17 +477,19 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
             rows.append(self.format_template('keypress_table_row', subs))
         return '\n'.join(rows)
 
+    def _play_area_udgs(self, x, y, w, h, show_chars, show_x, game_mode, lights, blinds):
+        self.push_snapshot()
+        if show_chars and game_mode is not None:
+            self._initialise_characters(game_mode)
+        if lights or blinds:
+            self._adjust_lights_and_blinds(lights, blinds)
+        udgs = self.get_play_area_udgs(x, y, w, h, show_chars, show_x)
+        self.pop_snapshot()
+        return udgs
+
     def play_area(self, cwd, fname, x, y, w=1, h=1, scale=2, show_chars=0, show_x=0, game_mode=None, lights=1, blinds=1):
-        img_path = self.image_path(fname, 'PlayAreaImagePath')
-        if self.need_image(img_path):
-            self.push_snapshot()
-            if show_chars and game_mode is not None:
-                self._initialise_characters(game_mode)
-            if lights or blinds:
-                self._adjust_lights_and_blinds(lights, blinds)
-            self.write_image(img_path, self.get_play_area_udgs(x, y, w, h, show_chars, show_x), scale=scale)
-            self.pop_snapshot()
-        return self.img_element(cwd, img_path)
+        frame = Frame(lambda: self._play_area_udgs(x, y, w, h, show_chars, show_x, game_mode, lights, blinds), scale)
+        return self.handle_image([frame], fname, cwd, path_id='PlayAreaImagePath')
 
     def ld_img(self, cwd, sam_x=None, sam_y=None, sam_z=None, sam_as=None, x=None, y=None, w=None, h=None):
         self.push_snapshot()
