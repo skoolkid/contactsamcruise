@@ -534,13 +534,14 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
             self.write_image(img_path, udgs, scale=2)
         return self.img_element(cwd, img_path)
 
+    def _play_area_objects_udgs(self, x, y, w, h, show_chars, show_x):
+        udgs = self.get_play_area_udgs(x, y, w, h, show_chars, show_x)
+        self._add_objects(udgs, x, y, show_x)
+        return udgs
+
     def play_area_objects(self, cwd, fname, x=0, y=2, w=256, h=38, scale=2, show_chars=0, show_x=8):
-        img_path = self.image_path(fname, 'PlayAreaImagePath')
-        if self.need_image(img_path):
-            udgs = self.get_play_area_udgs(x, y, w, h, show_chars, show_x)
-            self._add_objects(udgs, x, y, show_x)
-            self.write_image(img_path, udgs, scale=scale)
-        return self.img_element(cwd, img_path)
+        frame = Frame(lambda: self._play_area_objects_udgs(x, y, w, h, show_chars, show_x), scale)
+        return self.handle_image([frame], fname, cwd, path_id='PlayAreaImagePath')
 
     def command_lists(self, cwd):
         rows = []
