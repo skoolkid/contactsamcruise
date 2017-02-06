@@ -527,12 +527,9 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         return 35
 
     def _write_ld_img(self, cwd, fname, x, y, w, h):
-        img_path = self.image_path(fname, 'LocationDescriptorImagePath')
-        if self.need_image(img_path):
-            self._adjust_lights_and_blinds(1, 1)
-            udgs = self.get_play_area_udgs(x, y, w, h, True)
-            self.write_image(img_path, udgs, scale=2)
-        return self.img_element(cwd, img_path)
+        self._adjust_lights_and_blinds(1, 1)
+        frame = Frame(lambda: self.get_play_area_udgs(x, y, w, h, True), 2)
+        return self.handle_image([frame], fname, cwd, path_id='LocationDescriptorImagePath')
 
     def _play_area_objects_udgs(self, x, y, w, h, show_chars, show_x):
         udgs = self.get_play_area_udgs(x, y, w, h, show_chars, show_x)
