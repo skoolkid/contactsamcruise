@@ -16,7 +16,7 @@ sys.path.insert(0, SKOOLKIT_HOME)
 
 from skoolkit.image import ImageWriter
 from skoolkit.snapshot import get_snapshot
-from skoolkit.skoolhtml import Udg as BaseUdg, Frame
+from skoolkit.graphics import Udg as BaseUdg, Frame
 
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSC_Z80 = '{}/build/contact_sam_cruise.z80'.format(parent_dir)
