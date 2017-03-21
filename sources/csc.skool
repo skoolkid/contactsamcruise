@@ -346,6 +346,7 @@ r33010 save
 @replace=/#BUG(?![A-Z])/#LINK:Bugs
 @replace=/#FACT(?![A-Z])/#LINK:Facts
 @replace=/#POKE(?![A-Z])/#LINK:Pokes
+@replace=/#n\i/#N\1,,,1($)
 @writer=:samcruise.ContactSamCruiseAsmWriter
 ; Contact Sam Cruise disassembly
 ; http://skoolkit.ca/
@@ -1920,7 +1921,7 @@ c25420 LD A,(32745)  ; #R32745 holds Sam's object inventory
 ; the banknote is added to Sam's cash supply.
 ;
 @ignoreua
-; HL 58892 (byte 12 of Sam's buffer)
+; HL #N58892 (byte 12 of Sam's buffer)
 @label=GOTNOTE
 c25539 BIT 5,(HL)    ; Byte 12 of Sam's buffer holds the LSB of the current
                      ; roll/somersault animation phase table entry
@@ -4554,7 +4555,7 @@ c28295 LD E,A        ; {#REGa=N
 ; #REGa holding the number of bucks to add to Sam's cash supply.
 *28306 LD D,0        ; Prepare #REGde for addition
 *28308 LD E,A        ; Now #REGde=number of bucks to add (may be negative)
-; This entry point is used by the routine at #R28337 with #REGde=65535 (-1).
+; This entry point is used by the routine at #R28337 with #REGde=#N65535 (-1).
 *28309 LD HL,(32670) ; Collect the current number of bucks from #R32670
  28312 ADD HL,DE     ; Adjust the number
  28313 INC H         ; Is the result negative?
@@ -4774,7 +4775,7 @@ c28357 LD E,A        ; #REGe=number of the message to be queued
 ; submessage indicator and submessage addresses.
 @ignoreua
  28549 LD HL,32641   ; {Copy the submessage indicator and submessage addresses
- 28552 LD BC,16      ; from #R32641 to 32512-32527
+ 28552 LD BC,16      ; from #R32641 to #N32512-#N32527
  28555 LD DE,32512   ;
  28558 LDIR          ; }
 *28560 CP 96         ; Is the ASCII code of the character < 96?
@@ -4789,7 +4790,7 @@ c28357 LD E,A        ; #REGe=number of the message to be queued
                      ; buffer at #R32608
  28574 LD (HL),A     ; Store the ASCII code of the message character there
  28575 BIT 7,L       ; Reset the zero flag if we've reached the end of the
-                     ; message buffer (#REGhl'=32640)
+                     ; message buffer (#REGhl'=#N32640)
  28577 EXX           ;
  28578 JR Z,28512    ; Jump if there's still space left in the message buffer
 ; The message buffer at #R32608 is full.
@@ -4798,7 +4799,7 @@ c28357 LD E,A        ; #REGe=number of the message to be queued
  28586 LD BC,16      ;
  28589 LDIR          ; }
 @ssub=LD L,32640%256
- 28591 LD L,128      ; #REGhl=32640 (message buffer overflow byte)
+ 28591 LD L,128      ; #REGhl=#N32640 (message buffer overflow byte)
 *28593 LD A,(HL)     ; {Remove all characters from the end of the message
  28594 LD (HL),C     ; buffer back to the last space
  28595 DEC L         ;
@@ -5416,8 +5417,8 @@ c29088 CALL 29072    ; Set the policeman's destination to Sam's current
 *29091 LD DE,32733   ; {Copy either (a) bytes 10, 11 and 12 of the policeman's
  29094 LD BC,3       ; buffer (which hold his destination coordinates and
  29097 LDDR          ; location identifier), or (b) Sam's coordinates and
-                     ; location identifier (just copied into 32522-32524 when
-                     ; coming from #R31236) to #R32731}
+                     ; location identifier (just copied into #N32522-#N32524
+                     ; when coming from #R31236) to #R32731}
  29099 RET           ;
 
 ; Send a policeman to Sam's last known whereabouts
@@ -5678,8 +5679,8 @@ c29332 LD A,(32713)  ; #REGa=Sam's current disguise ID (0-7)
  29343 AND (HL)      ; Set the zero flag if this disguise is unknown to the
                      ; police
 @nowarn
- 29344 LD HL,23229   ; 23229 holds the attribute byte for the top-left tile of
-                     ; Sam's disguise in the bottom right of the screen
+ 29344 LD HL,23229   ; #N23229 holds the attribute byte for the top-left tile
+                     ; of Sam's disguise in the bottom right of the screen
  29347 LD A,79       ; 79=INK 7: PAPER 1: BRIGHT 1
  29349 RET Z         ; Return if this disguise is unknown to the police
  29350 INC B         ; Set bit 0 of #REGb to indicate that Sam's disguise is
@@ -5812,7 +5813,7 @@ c29361 CALL 63128    ; Exit now if the policeman is midstride
  29502 LD L,2        ; Point #REGhl at byte 2 of the policeman's buffer
  29504 CP (HL)       ; Compare the policeman's y-coordinate with that of the
                      ; spot to which the police should run to get Sam
- 29505 DEC DE        ; #REGde=32731
+ 29505 DEC DE        ; #REGde=#N32731
  29506 JR NZ,29525   ; Jump unless the policeman's y-coordinate matches
  29508 DEC L         ; #REGl=1
  29509 LD A,(DE)     ; #REGa=x-coordinate of the spot to which the police
@@ -6058,7 +6059,7 @@ s29731 DEFS 2
 ; appropriate.
 ;
 @ignoreua
-; HL 58882 (byte 2 of Sam's buffer)
+; HL #N58882 (byte 2 of Sam's buffer)
 @label=ICONPANEL2
 c29733 LD A,(HL)     ; #REGa=Sam's y-coordinate
  29734 LD DE,29647   ; Point #REGde at the list of x-coordinates of the house
@@ -6117,14 +6118,14 @@ c29733 LD A,(HL)     ; #REGa=Sam's y-coordinate
  29828 BIT 5,A       ; Bit 5 of FRAMES alternates every 0.64s
  29830 JR Z,29841    ; Jump if it's zero now
 @nowarn
- 29832 LD A,(20654)  ; 20654 is the display file address for the byte in the
+ 29832 LD A,(20654)  ; #N20654 is the display file address for the byte in the
                      ; top-left corner of the telephone icon
  29835 DEC A         ; Is the telephone icon in the ringing phase at the
                      ; moment?
  29836 CALL Z,28660  ; If not, make it so
  29839 JR 29848      ;
 @nowarn
-*29841 LD A,(20654)  ; 20654 is the display file address for the byte in the
+*29841 LD A,(20654)  ; #N20654 is the display file address for the byte in the
                      ; top-left corner of the telephone icon
  29844 DEC A         ; Is the telephone icon in the ringing phase at the
                      ; moment?
@@ -6212,7 +6213,7 @@ c29912 LD HL,58888   ; {Decrement Sam's main action timer in  byte 8 of his
  29917 LD HL,29939   ; {We will continue at #R29939 (below) after calling the
  29920 PUSH HL       ; routine to handle Sam}
 @ssub=LD L,29896%256-2
- 29921 LD L,198      ; #REGhl=29894
+ 29921 LD L,198      ; #REGhl=#N29894
  29923 LD A,(32764)  ; Pick up Sam's status flags from #R32764
 *29926 INC L         ; {Point #REGhl at one of the entries in the table of
  29927 INC L         ; Sam-handling routine addresses at #R29896
@@ -6634,8 +6635,8 @@ c30211 LD HL,58881   ; Point #REGhl at byte 1 of Sam's buffer
  30345 LD L,233      ; #REGhl=#R32745 (object inventory)
  30347 LD H,(HL)     ; #REGh=object inventory flags
  30348 LD L,A        ; #REGl=ID of the object Sam is standing next to (if any)
- 30349 LD E,176      ; 176 is the LSB of 23216 (the attribute file address for
-                     ; the top-left tile of the budgie icon)
+ 30349 LD E,176      ; 176 is the LSB of #N23216 (the attribute file address
+                     ; for the top-left tile of the budgie icon)
  30351 LD BC,1538    ; #REGb=6, #REGc=2 (2 objects: budgie and hook)
 *30354 RL L          ; {Move an object ID bit (if any) into bit 0 of #REGh, and
  30356 RL H          ; an object inventory flag into the carry flag}
@@ -6646,8 +6647,8 @@ c30211 LD HL,58881   ; Point #REGhl at byte 1 of Sam's buffer
  30365 JR Z,30368    ; Jump if not
  30367 LD A,B        ; #REGa=6 (INK 6: PAPER 0)
 *30368 CALL 28709    ; Set the attribute bytes for the object in the icon panel
- 30371 LD E,178      ; 176 is the LSB of 23218 (the attribute file address for
-                     ; the top-left tile of the hook icon)
+ 30371 LD E,178      ; 176 is the LSB of #N23218 (the attribute file address
+                     ; for the top-left tile of the hook icon)
  30373 DEC C         ; Have we dealt with both objects yet?
  30374 JR NZ,30354   ; Jump back to deal with the second object if not
 ; Now we display the keys Sam has found.
@@ -6658,7 +6659,7 @@ c30211 LD HL,58881   ; Point #REGhl at byte 1 of Sam's buffer
 @nowarn
  30383 LD HL,23280   ; Point #REGhl at the attribute byte for the leftmost key
                      ; in the icon panel
-; This entry point is used by the routine at #R29716 with #REGhl=23272
+; This entry point is used by the routine at #R29716 with #REGhl=#N23272
 ; (attribute byte for the leftmost first aid kit in the icon panel) and
 ; #REGc=50 (INK 2: PAPER 6).
 *30386 LD (HL),54    ; Set the attribute byte to 54 (INK 6: PAPER 6) by default
@@ -8403,7 +8404,7 @@ b32256 DEFB 0,128,64,192,32,160,96,224,16,144,80,208,48,176,112,240
 ; part of the screen, but to the four rows of the play area that are
 ; immediately above the currently visible portion of the play area. Therefore,
 ; the screen-updating routine at #R60032 ignores those bytes and starts
-; inspecting SRB bytes at 32528 instead.
+; inspecting SRB bytes at #N32528 instead.
 ; .
 ; Note also that the routine at #R28357 uses the first 16 bytes of the SRB as a
 ; temporary backup store for the submessage indicator and submessage addresses
@@ -10073,9 +10074,9 @@ b43038 DEFB 56
 ; Used by the routines at #R59148 and #R62368. T values in this block may be
 ; used by play area tiles at y-coordinates 4, 10, 16, 22, 28, 34 and 40; in
 ; practice, these T values are used only by tiles at y-coordinates 22, 28, 34
-; and 40. In particular, the T values at addresses 43039-43119, 43128, 43129
-; and 43149-43161 are used only by tiles at y-coordinate 40 (which are never
-; displayed), and are therefore effectively unused.
+; and 40. In particular, the T values at addresses #N43039-#N(43119),
+; #N(43128), #N43129 and #N43149-#N43161 are used only by tiles at y-coordinate
+; 40 (which are never displayed), and are therefore effectively unused.
 b43039 DEFB 3
  43040 DEFB 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
  43056 DEFB 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
@@ -10114,9 +10115,9 @@ u43294 DEFB 0
 ; Used by the routine at #R59148. T' values in this block may be used by play
 ; area tiles at y-coordinates 4, 10, 16, 22, 28, 34 and 40; in practice, these
 ; T' values are used only by tiles at y-coordinates 22, 28, 34 and 40. In
-; particular, the T' values at addresses 43295-43375, 43384, 43385 and
-; 43405-43417 are used only by tiles at y-coordinate 40 (which are never
-; displayed), and are therefore effectively unused.
+; particular, the T' values at addresses #N43295-#N(43375), #N(43384), #N43385
+; and #N43405-#N43417 are used only by tiles at y-coordinate 40 (which are
+; never displayed), and are therefore effectively unused.
 b43295 DEFB 194
  43296 DEFB 194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194
  43312 DEFB 194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194
@@ -10171,9 +10172,9 @@ u43550 DEFB 0
 ; Used by the routines at #R59148 and #R62368. T values in this block may be
 ; used by play area tiles at y-coordinates 5, 11, 17, 23, 29, 35 and 41; in
 ; practice, these T values are used only by tiles at y-coordinates 23, 29, 35
-; and 41. In particular, the T values at addresses 43551-43631, 43640, 43641
-; and 43661-43673 are used only by tiles at y-coordinate 41 (which are never
-; displayed), and are therefore effectively unused.
+; and 41. In particular, the T values at addresses #N43551-#N(43631),
+; #N(43640), #N43641 and #N43661-#N43673 are used only by tiles at y-coordinate
+; 41 (which are never displayed), and are therefore effectively unused.
 b43551 DEFB 3
  43552 DEFB 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
  43568 DEFB 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
@@ -10221,8 +10222,8 @@ u43806 DEFB 0
 ; Used by the routine at #R59148. T' values in this block may be used by play
 ; area tiles at y-coordinates 5, 11, 17, 23, 29, 35 and 41; in practice, these
 ; T' values are used only by tiles at y-coordinates 23, 29, 35 and 41. In
-; particular, the T' values at addresses 43807-43887, 43896, 43897 and
-; 43917-43929 are used only by tiles at y-coordinate 41 (which are never
+; particular, the T' values at addresses #N43807-#N(43887), #N(43896), #N43897
+; and #N43917-#N43929 are used only by tiles at y-coordinate 41 (which are never
 ; displayed), and are therefore effectively unused.
 b43807 DEFB 194
  43808 DEFB 194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194
@@ -10245,8 +10246,8 @@ b43807 DEFB 194
 @ignoreua
 ; Used by the routines at #R59148 and #R62368. T values in this block may be
 ; (and in practice are) used by play area tiles at y-coordinates 0, 6, 12, 18,
-; 24, 30 and 36. The T values at addresses 44255-44260, 44265-44277 and
-; 44284-44287 are used only by tiles at y-coordinate 0 (which are never
+; 24, 30 and 36. The T values at addresses #N44255-#N(44260), #N44265-#N44277
+; and #N44284-#N44287 are used only by tiles at y-coordinate 0 (which are never
 ; displayed), and are therefore effectively unused.
 @label=Z3VALUES0B
 b44032 DEFB 11,64,64,64,64,64,64,64,64,64,64,64,64,0,9,9
@@ -10271,9 +10272,9 @@ b44032 DEFB 11,64,64,64,64,64,64,64,64,64,64,64,64,0,9,9
 @ignoreua
 ; Used by the routine at #R59148. T' values in this block may be (and in
 ; practice are) used by play area tiles at y-coordinates 0, 6, 12, 18, 24, 30
-; and 36. The T' values at addresses 44511-44516, 44521-44533 and 44540-44543
-; are used only by tiles at y-coordinate 0 (which are never displayed), and are
-; therefore effectively unused.
+; and 36. The T' values at addresses #N44511-#N(44516), #N44521-#N44533 and
+; #N44540-#N44543 are used only by tiles at y-coordinate 0 (which are never
+; displayed), and are therefore effectively unused.
 b44288 DEFB 47,194,194,194,194,194,194,194,194,194,194,194,194,128,25,24
  44304 DEFB 23,128,22,128,194,194,19,198,202,9,8,10,9,8,7,194
  44320 DEFB 241,240,239,238,194,49,237,229,228,227,226,128,194,194,194,129
@@ -10296,8 +10297,8 @@ b44288 DEFB 47,194,194,194,194,194,194,194,194,194,194,194,194,128,25,24
 @ignoreua
 ; Used by the routines at #R59148 and #R62368. T values in this block may be
 ; (and in practice are) used by play area tiles at y-coordinates 1, 7, 13, 19,
-; 25, 31 and 37. The T values at addresses 44767-44772, 44777-44789 and
-; 44796-44799 are used only by tiles at y-coordinate 1 (which are never
+; 25, 31 and 37. The T values at addresses #N44767-#N(44772), #N44777-#N44789
+; and #N44796-#N44799 are used only by tiles at y-coordinate 1 (which are never
 ; displayed), and are therefore effectively unused.
 b44544 DEFB 3,129,129,129,129,64,64,64,64,129,129,129,129,0,9,9
  44560 DEFB 9,5,0,0,2,75,72,64,64,133,133,75,129,129,75,2
@@ -10321,9 +10322,9 @@ b44544 DEFB 3,129,129,129,129,64,64,64,64,129,129,129,129,0,9,9
 @ignoreua
 ; Used by the routine at #R59148. T' values in this block may be (and in
 ; practice are) used by play area tiles at y-coordinates 1, 7, 13, 19, 25, 31
-; and 37. The T' values at addresses 45023-45028, 45033-45045, 45052-45055 are
-; used only by tiles at y-coordinate 1 (which are never displayed), and are
-; therefore effectively unused.
+; and 37. The T' values at addresses #N45023-#N(45028), #N45033-#N45045 and
+; #N45052-#N45055 are used only by tiles at y-coordinate 1 (which are never
+; displayed), and are therefore effectively unused.
 b44800 DEFB 128,13,13,13,9,194,194,194,194,17,13,13,13,128,28,27
  44816 DEFB 26,230,231,128,194,19,20,194,231,3,0,12,3,0,11,194
  44832 DEFB 241,178,244,243,194,49,242,233,228,232,231,230,194,194,194,129
@@ -10434,9 +10435,10 @@ b45824 DEFB 128,16,16,16,12,194,194,194,194,20,16,16,16,128,129,7
 @ignoreua
 ; Used by the routines at #R59148 and #R62368. T values in this block may be
 ; (and in practice are) used by play area tiles at y-coordinates 4, 10, 16, 22,
-; 28, 34 and 40. The T values at addresses 46266, 46267, 46275-46281,
-; 46309-46312 and 46326-46331 are used only by tiles at y-coordinate 40 (which
-; are never displayed), and are therefore effectively unused.
+; 28, 34 and 40. The T values at addresses #N(46266), #N(46267),
+; #N46275-#N(46281), #N46309-#N46312 and #N46326-#N46331 are used only by tiles
+; at y-coordinate 40 (which are never displayed), and are therefore effectively
+; unused.
 b46080 DEFB 3,64,64,64,64,64,64,64,64,64,64,64,64,0,1,5
  46096 DEFB 9,5,8,8,68,68,68,68,68,68,68,72,68,68,72,6
  46112 DEFB 10,10,8,7,4,4,4,5,5,64,68,68,68,68,68,68
@@ -10459,9 +10461,9 @@ b46080 DEFB 3,64,64,64,64,64,64,64,64,64,64,64,64,0,1,5
 @ignoreua
 ; Used by the routine at #R59148. T' values in this block may be (and in
 ; practice are) used by play area tiles at y-coordinates 4, 10, 16, 22, 28, 34
-; and 40. The T' values at addresses 46522, 46523, 46531-46537, 46565-46568 and
-; 46582-46587 are used only by tiles at y-coordinate 40 (which are never
-; displayed), and are therefore effectively unused.
+; and 40. The T' values at addresses #N(46522), #N(46523), #N46531-#N(46537),
+; #N46565-#N46568 and #N46582-#N46587 are used only by tiles at y-coordinate 40
+; (which are never displayed), and are therefore effectively unused.
 b46336 DEFB 128,194,194,194,194,194,194,194,194,194,194,194,194,128,129,7
  46352 DEFB 26,234,34,33,110,110,110,110,110,39,39,18,39,39,17,241
  46368 DEFB 2,1,0,247,255,251,242,233,228,128,231,234,223,222,221,129
@@ -10484,9 +10486,10 @@ b46336 DEFB 128,194,194,194,194,194,194,194,194,194,194,194,194,128,129,7
 @ignoreua
 ; Used by the routines at #R59148 and #R62368. T values in this block may be
 ; (and in practice are) used by play area tiles at y-coordinates 5, 11, 17, 23,
-; 29, 35 and 41. The T values at addresses 46778, 46779, 46787-46793,
-; 46821-46824 and 46838-46843 are used only by tiles at y-coordinate 41 (which
-; are never displayed), and are therefore effectively unused.
+; 29, 35 and 41. The T values at addresses #N(46778), #N(46779),
+; #N46787-#N(46793), #N46821-#N46824 and #N46838-#N46843 are used only by tiles
+; at y-coordinate 41 (which are never displayed), and are therefore effectively
+; unused.
 b46592 DEFB 3,74,74,74,70,74,74,74,74,74,74,74,66,0,1,5
  46608 DEFB 9,5,8,8,64,64,64,64,64,64,64,64,64,64,64,6
  46624 DEFB 2,9,8,7,8,4,8,5,5,64,68,68,68,68,64,68
@@ -10509,9 +10512,9 @@ b46592 DEFB 3,74,74,74,70,74,74,74,74,74,74,74,66,0,1,5
 @ignoreua
 ; Used by the routine at #R59148. T' values in this block may be (and in
 ; practice are) used by play area tiles at y-coordinates 5, 11, 17, 23, 29, 35
-; and 41. The T' values at addresses 47034, 47035, 47043-47049, 47077-47080 and
-; 47094-47099 are used only by tiles at y-coordinate 41 (which are never
-; displayed), and are therefore effectively unused.
+; and 41. The T' values at addresses #N(47034), #N(47035), #N47043-#N(47049),
+; #N47077-#N47080 and #N47094-#N47099 are used only by tiles at y-coordinate 41
+; (which are never displayed), and are therefore effectively unused.
 b46848 DEFB 128,46,45,44,12,43,42,41,40,39,38,37,194,128,129,7
  46864 DEFB 26,234,36,35,194,194,194,194,194,194,194,194,194,194,194,241
  46880 DEFB 128,6,5,247,4,251,3,236,228,128,231,234,225,224,194,129
@@ -19148,7 +19151,7 @@ s59405 DEFB 0
 ; Used by the routine at #R61882.
 @label=LSCROLL8
 @ssub=LD HL,59371+1
-c59406 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,31'
+c59406 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,#n31'
  59409 LD (HL),31    ; }
 @ssub=LD L,59375%256
  59411 LD L,239      ; {Set the instruction at #R59374 to 'LDIR'
@@ -19192,7 +19195,7 @@ s59458 DEFS 3
 ; Used by the routine at #R61838.
 @label=RSCROLL8
 @ssub=LD HL,59371+1
-c59461 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,31'
+c59461 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,#n31'
  59464 LD (HL),31    ; }
 @ssub=LD L,59375%256
  59466 LD L,239      ; {Set the instruction at #R59374 to 'LDDR'
@@ -19236,7 +19239,7 @@ s59513 DEFS 3
 ; Used by the routine at #R60539.
 @label=USCROLL6
 @ssub=LD HL,59371+1
-c59516 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,32'
+c59516 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,#n32'
  59519 LD (HL),32    ; }
 @ssub=LD L,59375%256
  59521 LD L,239      ; {Set the instruction at #R59374 to 'LDIR'
@@ -19285,7 +19288,7 @@ s59572 DEFS 3
 ; Used by the routine at #R60539.
 @label=DSCROLL6
 @ssub=LD HL,59371+1
-c59575 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,32'
+c59575 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,#n32'
  59578 LD (HL),32    ; }
 @ssub=LD L,59375%256
  59580 LD L,239      ; {Set the instruction at #R59374 to 'LDIR'
@@ -21416,17 +21419,17 @@ s61597 DEFS 3
 ; #R23904 onwards, pushes #R61668 onto the stack, and then jumps here.
 ;
 @ignoreua
-; BC 512
-; DE 32768
-; HL 32256
+; BC #N512
+; DE #N32768
+; HL #N32256
 @label=PREP128
 @ignoreua
-c61600 LDIR          ; Copy 32256-32767 to 32768-33279 (overwriting the
+c61600 LDIR          ; Copy #N32256-#N32767 to #N32768-#N33279 (overwriting the
                      ; #R33224@start(startup routine))
  61602 RET           ; To #R61668
 
 @ignoreua
-; Populate addresses 32256-32767 (unused)
+; Populate addresses #N32256-#N32767 (unused)
 c61603 LD DE,32256   ;
  61606 LD BC,512     ;
  61609 LDIR          ;
@@ -23648,14 +23651,14 @@ c63614 LD C,A        ; {Point #REGhl at the last byte in the set of
 c63662 CALL 64582    ; Generate the table of mirrored values of 0-255 at
                      ; #R32256
 ; Now we initialise the game status buffer.
- 63665 INC H         ; #REGhl=32512
+ 63665 INC H         ; #REGhl=#N32512
  63666 LD (HL),B     ; {Zero out the first 222 bytes of the game status buffer
  63667 LD C,221      ;
 @ssub=LD DE,32512+1
  63669 LD DE,32513   ;
  63672 LDIR          ; }
 @ssub=LD E,32736%256
- 63674 LD E,224      ; #REGde=32736
+ 63674 LD E,224      ; #REGde=#N32736
  63676 LD HL,65504   ; {Copy the data at #R65504 into the last 32 bytes of the
  63679 LD C,32       ; game status buffer
  63681 LDIR          ; }
@@ -23925,9 +23928,9 @@ c63838 LD L,8        ; {Set Sam's main action timer (in byte 8 of his buffer)
 *63914 LD HL,55170   ; This is the address of the tile reference for the
                      ; top-left tile in Sam's sprite (animatory state #AS0)
 @nowarn
- 63917 LD DE,20669   ; 20669 is the display file address for the leftmost byte
-                     ; in the top row of pixels of Sam's disguise in the bottom
-                     ; right of the screen
+ 63917 LD DE,20669   ; #N20669 is the display file address for the leftmost
+                     ; byte in the top row of pixels of Sam's disguise in the
+                     ; bottom right of the screen
 *63920 PUSH HL       ; Save the sprite tile reference pointer
  63921 LD L,(HL)     ; {Point #REGhl at the first byte of graphic data for this
  63922 LD H,199      ; tile}
@@ -24696,7 +24699,7 @@ c64618 LD HL,59552   ; {Change the instruction at #R59552 to RET
  64623 LD L,220      ; {Change the instruction at #R59612 to RET
  64625 LD (HL),201   ; }
 @ssub=LD HL,59371+1
- 64627 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,32'
+ 64627 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,#n32'
  64630 LD (HL),32    ; }
 @ssub=LD L,59374%256+1
  64632 LD L,239      ; {Set the instruction at #R59374 to 'LDIR'
@@ -24713,8 +24716,8 @@ c64618 LD HL,59552   ; {Change the instruction at #R59552 to RET
  64654 LD C,32       ;
  64656 DEC A         ;
  64657 JR NZ,64650   ; }
- 64659 LD H,88       ; {Save the top row of attribute bytes (22528-22559) in
- 64661 LDIR          ; the first 32 bytes of the screen refresh buffer at
+ 64659 LD H,88       ; {Save the top row of attribute bytes (#N22528-#N22559)
+ 64661 LDIR          ; in the first 32 bytes of the screen refresh buffer at
                      ; #R32512}
  64663 CALL 59528    ; Scroll the screen up a row
 @bfix-begin
@@ -24745,8 +24748,8 @@ c64618 LD HL,59552   ; {Change the instruction at #R59552 to RET
  64704 LD C,32       ;
  64706 DEC A         ;
  64707 JR NZ,64700   ; }
- 64709 LD D,88       ; {Restore the top row of attribute bytes (22528-22559)
- 64711 LDIR          ; from where they were saved earlier}
+ 64709 LD D,88       ; {Restore the top row of attribute bytes
+ 64711 LDIR          ; (#N22528-#N22559) from where they were saved earlier}
  64713 POP HL        ; Restore the scroll counter (1-7) to #REGh
  64714 LD DE,256     ; {Prepare the sound effect parameters
  64717 LD C,96       ;
@@ -24756,11 +24759,11 @@ c64618 LD HL,59552   ; {Change the instruction at #R59552 to RET
  64724 JR NZ,64638   ; Jump back until we've scrolled the screen up and down 7
                      ; times
 @nowarn
- 64726 LD HL,59552   ; {Change the instruction at #R59552 back to 'LD HL,32767'
- 64729 LD (HL),33    ; }
+ 64726 LD HL,59552   ; {Change the instruction at #R59552 back to
+ 64729 LD (HL),33    ; 'LD HL,#n32767'}
 @ssub=LD L,59612%256
- 64731 LD L,220      ; {Change the instruction at #R59612 back to 'LD HL,32767'
- 64733 LD (HL),33    ; }
+ 64731 LD L,220      ; {Change the instruction at #R59612 back to
+ 64733 LD (HL),33    ; 'LD HL,#n32767'}
  64735 JP 64582      ; Regenerate the table of mirrored values of 0-255 at
                      ; #R32256
 
