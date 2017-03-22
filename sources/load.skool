@@ -58,10 +58,10 @@ d00259 DEFB 60,0,124,60,66,120,60,66,62,126,126,0,66
 ; Contact Sam Cruise (as it appears after doing 'POKE 23762,0' to change the
 ; INK for the BASIC listing from white to black). Don't be fooled by the
 ; 'RANDOMIZE USR 23794': the floating point number stored underneath is
-; actually 24055. }
+; actually #N24055. }
 ; TABLE#
 ; .
-; Entering the code here from BASIC means that #REGc=247 (the LSB of 24055);
+; Entering the code here from BASIC means that #REGc=247 (the LSB of #N24055);
 ; this value is used later on in the routine at #R32815.
 c24055 JP 23831      ; Jump to where it really starts
 ; And this is where it really starts.
@@ -70,14 +70,14 @@ c24055 JP 23831      ; Jump to where it really starts
  23834 LD DE,65487   ;
  23837 CALL 24047    ;
 ; And so begins the misdirection.
-*24047 POP HL        ; #REGhl=23840
- 24048 ADD HL,DE     ; #REGhl=23791
+*24047 POP HL        ; #REGhl=#N23840
+ 24048 ADD HL,DE     ; #REGhl=#N23791
  24049 PUSH HL       ;
  24050 LD DE,7       ;
- 24053 ADD HL,DE     ; #REGhl=23798
- 24054 RET           ; Jump to 23791
+ 24053 ADD HL,DE     ; #REGhl=#N23798
+ 24054 RET           ; Jump to #N23791
 ; Undo some code obfuscation before continuing.
-*23791 LD A,(HL)     ; Do some XORing on the 49 bytes from 23798 to 23846
+*23791 LD A,(HL)     ; Do some XORing on the 49 bytes from #N23798 to #N23846
  23792 XOR H         ;
  23793 XOR L         ;
  23794 LD (HL),A     ;
@@ -85,14 +85,14 @@ c24055 JP 23831      ; Jump to where it really starts
  23796 DJNZ 23791    ;
 ; After the XORing:
 *23798 EXX           ;
- 23799 EX (SP),HL    ; #REGhl'=11563
- 23800 LD A,H        ; #REGa=45
- 23801 AND L         ; #REGa=41
- 23802 ADD A,L       ; #REGa=84
- 23803 ADD A,L       ; #REGa=127
- 23804 LD H,A        ; #REGh'=127
- 23805 ADD A,78      ; #REGa=205
- 23807 LD L,A        ; #REGhl'=32717
+ 23799 EX (SP),HL    ; #REGhl'=#N11563
+ 23800 LD A,H        ; #REGa=#N45
+ 23801 AND L         ; #REGa=#N41
+ 23802 ADD A,L       ; #REGa=#N84
+ 23803 ADD A,L       ; #REGa=#N127
+ 23804 LD H,A        ; #REGh'=#N127
+ 23805 ADD A,78      ; #REGa=#N205
+ 23807 LD L,A        ; #REGhl'=#N32717
  23808 EXX           ;
  23809 LD HL,23551   ; {INK 1: PAPER 1
 *23812 LD (HL),9     ;
@@ -103,36 +103,37 @@ c24055 JP 23831      ; Jump to where it really starts
  23821 DEC HL        ;
  23822 BIT 6,H       ;
  23824 JR NZ,23819   ; }
- 23826 INC E         ; {#REGde=9
+ 23826 INC E         ; {#REGde=#N9,4
  23827 INC E         ; }
  23828 CALL 24047    ;
 ; More misdirection.
-*24047 POP HL        ; #REGhl=23831
- 24048 ADD HL,DE     ; #REGhl=23840
+*24047 POP HL        ; #REGhl=#N23831
+ 24048 ADD HL,DE     ; #REGhl=#N23840
  24049 PUSH HL       ;
  24050 LD DE,7       ;
- 24053 ADD HL,DE     ; #REGhl=23847
- 24054 RET           ; Jump to 23840
+ 24053 ADD HL,DE     ; #REGhl=#N23847
+ 24054 RET           ; Jump to #N23840
 ; Undo some more code obfuscation before continuing.
-*23840 LD A,(HL)     ; {Do some XORing and RLCing on the 217 bytes from 23847
- 23841 XOR E         ; to 24063
+*23840 LD A,(HL)     ; {Do some XORing and RLCing on the 217 bytes from #N23847
+ 23841 XOR E         ; to #N24063
  23842 RLCA          ;
  23843 LD (HL),A     ;
  23844 INC L         ;
  23845 JR NZ,23840   ; }
 ; After the XORing and RLCing:
-*23847 PUSH HL       ; #REGhl=23808
+*23847 PUSH HL       ; #REGhl=#N23808
  23848 EXX           ;
- 23849 POP DE        ; #REGde'=23808
- 23850 EX DE,HL      ; #REGde'=32717
- 23851 LD BC,255     ; {Copy 255 bytes from 23808-24062 to 32717-32971
+ 23849 POP DE        ; #REGde'=#N23808
+ 23850 EX DE,HL      ; #REGde'=#N32717
+ 23851 LD BC,255     ; {Copy 255 bytes from #N23808-#N24062 to #N32717-#N32971
  23854 LDIR          ; }
- 23856 LD E,A        ; #REGe'=47
- 23857 EX DE,HL      ; #REGhl'=32815
+ 23856 LD E,A        ; #REGe'=#N47
+ 23857 EX DE,HL      ; #REGhl'=#N32815
  23858 JP (HL)       ; Jump to #R32815
 
 @start
 @replace=/#BUG(?![A-Z])/#LINK:Bugs
+@replace=/#n\i/#N\1,,,1($)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
 ; Copyright 2010-2013, 2015, 2017 Richard Dymond (this disassembly)
 @org=32768
@@ -150,7 +151,7 @@ c32768 INC SP        ; {Place the address 0 on the stack above the current
  32775 DEC SP        ;
  32776 DEC SP        ; }
  32777 LD A,6        ; After the fast code block has loaded, this instruction
-                     ; is changed to 'LD A,17' for the standard speed code
+                     ; is changed to 'LD A,#n17' for the standard speed code
                      ; block
  32779 CALL 32785    ; Listen for one edge
  32782 RET NC        ; Return if no edge was found within the time limit
@@ -158,7 +159,7 @@ c32768 INC SP        ; {Place the address 0 on the stack above the current
 @label=EDGE1
 *32783 LD A,11       ; {Wait a bit; after the fast code block has loaded, this
 @label=DELAY
-*32785 DEC A         ; instruction is changed to 'LD A,22' for the standard
+*32785 DEC A         ; instruction is changed to 'LD A,#n22' for the standard
  32786 JR NZ,32785   ; speed code block}
  32788 AND A         ; Reset the carry flag
 @label=SAMPLE
@@ -194,16 +195,16 @@ i32813 DEFS 2
 ; standard speed code block).
 @label=CSCLOAD
 c32815 LD SP,33020   ; Put the stack somewhere safe
- 32818 LD IX,33195   ; The fast code block loads backwards from address 33195;
-                     ; after the fast code block has loaded, this instruction
-                     ; is changed to 'LD IX,16384' for the standard speed code
-                     ; block
+ 32818 LD IX,33195   ; The fast code block loads backwards from address
+                     ; #N33195; after the fast code block has loaded, this
+                     ; instruction is changed to 'LD IX,#n16384' for the
+                     ; standard speed code block
 @nowarn
  32822 LD DE,49152   ; Set #REGde (the byte counter) to a high enough value
                      ; that it won't reach 0 before (a) 241 bytes have been
                      ; loaded from the fast code block, or (b) the first 16572
-                     ; bytes (16384-32955) have been loaded from the standard
-                     ; speed code block
+                     ; bytes (#N16384-#N32955) have been loaded from the
+                     ; standard speed code block
  32825 LD A,255      ; We expect the first byte loaded (the flag byte) to be
                      ; 255
  32827 SCF           ; In the analogous ROM routine, setting the carry flag
@@ -270,7 +271,7 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
  32901 LD H,0        ; Initialise the parity byte to 0
  32903 LD B,225      ; Set the timing constant for the flag byte; after the
                      ; fast code block has loaded, this instruction is changed
-                     ; to 'LD B,176' for the standard speed code block
+                     ; to 'LD B,#n176' for the standard speed code block
  32905 JR 32933      ; Jump forward to load the flag byte
 ; This is the byte-loading loop. The first byte loaded is the flag byte.
 @label=LOOP
@@ -299,7 +300,7 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
  32930 EX AF,AF'     ; Save the flags (the zero flag is now set)
 @label=INNERLOOP
 *32931 LD B,227      ; Set the timing constant; after the fast code block has
-                     ; loaded, this instruction is changed to 'LD B,178' for
+                     ; loaded, this instruction is changed to 'LD B,#n178' for
                      ; the standard speed code block
 @label=MARKER
 *32933 LD L,1        ; Get ready to load eight bits from the tape
@@ -308,12 +309,12 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
  32938 RET NC        ; Reset the Spectrum if there was a loading error
  32939 LD A,237      ; {Set the carry flag if a '1' was read from the tape, or
  32941 CP B          ; reset it if a '0' was read; after the fast code block
-                     ; has loaded, the 'LD A,237' instruction is changed to
-                     ; 'LD A,203' for the standard speed code block }
+                     ; has loaded, the 'LD A,#n237' instruction is changed to
+                     ; 'LD A,#n203' for the standard speed code block }
  32942 RL L          ; Move the bit into the #REGl register
  32944 LD B,225      ; Set the timing constant for the next bit; after the fast
                      ; code block has loaded, this instruction is changed to
-                     ; 'LD B,176' for the standard speed code block
+                     ; 'LD B,#n176' for the standard speed code block
  32946 JP NC,32935   ; Jump unless eight bits have been loaded
 ; A full byte has just been read from the tape.
  32949 LD A,H        ; {Update the (ultimately unused) parity byte against the
@@ -323,29 +324,29 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
  32953 OR E          ; (which never happens)}
  32954 JR NZ,32907   ; Jump back to load another byte from the tape
 @end
-; When the bytes from 33195 downwards to 32955 have loaded from the fast code
-; block, the instruction at 32954 above becomes:
+; When the bytes from #N33195 downwards to #N32955 have loaded from the fast
+; code block, the instruction at #N32954 above becomes:
  32954 JR NZ,32956   ;
 ; And the code continues at #R32956.
 ; .
-; When the bytes from 16384 to 32955 have loaded from the standard speed code
-; block, the instruction at 32954 becomes:
+; When the bytes from #N16384 to #N32955 have loaded from the standard speed
+; code block, the instruction at #N32954 becomes:
  32954 JR NZ,32890
-; At this stage, 32890 reads as follows:
+; At this stage, #N32890 reads as follows:
 *32890 LD (IX+20),L  ; Load the byte read from tape into memory
  32893 EXX           ;
  32894 ADD IX,BC     ; Add 247 to #REGix
  32896 EXX           ;
- 32897 JR NC,32901   ; Jump unless #REGix was incremented beyond 65535
+ 32897 JR NC,32901   ; Jump unless #REGix was incremented beyond #N65535
  32899 LD IXh,127    ; Reset #REGix to the appropriate range
  32902 JR 32931      ; Jump forward to load the next byte from tape
-; Now 32890 more bytes are loaded, the first at 33223 and the last at 32902
-; (even though there is one more byte, 33149, left on the tape: see the
-; #R33010@save(save routine)). Then 32902 reads as follows:
+; Now 32890 more bytes are loaded, the first at #N33223 and the last at #N32902
+; (even though there is one more byte, #N(33149), left on the tape: see the
+; #R33010@save(save routine)). Then #N32902 reads as follows:
  32902 LD SP,23835   ; Point the stack pointer at the game start address that
-                     ; was placed at 23835 by the #R33010@save(save routine)
+                     ; was placed at #N23835 by the #R33010@save(save routine)
  32905 LD D,H        ;
- 32906 RET           ; To (23835)=#R33224@start
+ 32906 RET           ; To (#n23835)=#R33224@start
 
 ; Prepare to load the standard speed code block
 ;
@@ -361,13 +362,13 @@ c32956 LD B,11       ; {Do the 11 POKEs in the POKE table at #R33024; these
  32966 LD (DE),A     ;
  32967 INC L         ;
  32968 DJNZ 32963    ; }
-; Now a checksum of the bytes at addresses 33024-33195 (just loaded from tape)
-; is calculated.
- 32970 LD L,B        ; #REGhl=33024
- 32971 LD E,B        ; {#REGde=0
+; Now a checksum of the bytes at addresses #N33024-#N33195 (just loaded from
+; tape) is calculated.
+ 32970 LD L,B        ; #REGhl=#N33024
+ 32971 LD E,B        ; {#REGde=#N0,4
  32972 LD D,B        ; }
  32973 LD B,172      ; {Create 'checksums' in #REGa and #REGe of the 172 bytes
-*32975 LD A,(HL)     ; at addresses 33024-33195
+*32975 LD A,(HL)     ; at addresses #N33024-#N33195
  32976 ADD A,E       ;
  32977 LD E,A        ;
  32978 LD A,(HL)     ;
@@ -375,7 +376,7 @@ c32956 LD B,11       ; {Do the 11 POKEs in the POKE table at #R33024; these
  32980 LD D,A        ;
  32981 INC L         ;
  32982 DJNZ 32975    ; }
- 32984 LD L,40       ; #REGhl=33064
+ 32984 LD L,40       ; #REGhl=#N33064
  32986 CP 75         ; Is the checksum in #REGa correct?
  32988 JP NZ,0       ; Reset the Spectrum if not
  32991 LD A,E        ; {Is the checksum in #REGe correct?
@@ -386,29 +387,29 @@ c32956 LD B,11       ; {Do the 11 POKEs in the POKE table at #R33024; these
 ; POKE table
 ;
 ; Used by the routine at #R32956 after the fast code block has loaded.
-b33024 DEFB 10,17    ; POKE 32778,17 ('LD A,6' becomes 'LD A,17')
- 33026 DEFB 16,22    ; POKE 32784,22 ('LD A,11' becomes 'LD A,22')
- 33028 DEFB 52,0     ; {POKE 32820,0: POKE 32821,64 ('LD IX,33195' becomes
- 33030 DEFB 53,64    ; 'LD IX,16384')}
- 33032 DEFB 136,176  ; POKE 32904,176 ('LD B,225' becomes 'LD B,176')
+b33024 DEFB 10,17    ; POKE 32778,17 ('LD A,#n6' becomes 'LD A,#n17')
+ 33026 DEFB 16,22    ; POKE 32784,22 ('LD A,#n11' becomes 'LD A,#n22')
+ 33028 DEFB 52,0     ; {POKE 32820,0: POKE 32821,64 ('LD IX,#n33195' becomes
+ 33030 DEFB 53,64    ; 'LD IX,#n16384')}
+ 33032 DEFB 136,176  ; POKE 32904,176 ('LD B,#n225' becomes 'LD B,#n176')
  33034 DEFB 160,35   ; POKE 32928,35 ('DEC IX' becomes 'INC IX')
- 33036 DEFB 164,178  ; POKE 32932,178 ('LD B,227' becomes 'LD B,178')
- 33038 DEFB 172,203  ; POKE 32940,203 ('LD A,237' becomes 'LD A,203')
- 33040 DEFB 177,176  ; POKE 32945,176 ('LD B,225' becomes 'LD B,176')
- 33042 DEFB 187,207  ; POKE 32955,207 ('JR NZ,32956' becomes 'JR NZ,32907'
+ 33036 DEFB 164,178  ; POKE 32932,178 ('LD B,#n227' becomes 'LD B,#n178')
+ 33038 DEFB 172,203  ; POKE 32940,203 ('LD A,#n237' becomes 'LD A,#n203')
+ 33040 DEFB 177,176  ; POKE 32945,176 ('LD B,#n225' becomes 'LD B,#n176')
+ 33042 DEFB 187,207  ; POKE 32955,207 ('JR NZ,#n32956' becomes 'JR NZ,#n32907'
                      ; again)
  33044 DEFB 28,208   ; POKE 32796,208 ('AND A' becomes 'RET NC')
 
-; Copy data into addresses 33149-65506 (step 247)
+; Copy data into addresses #N33149-#N65506 (step 247)
 ;
 ; Used by the routine at #R32956. Copies the 132 bytes from the data table at
-; #R33064 into addresses 33149-65506 (step 247). This is done before loading
-; the standard speed code block because the data for those addresses is not
-; present in that code block (except for 33149, which is present on the tape,
-; but is not loaded).
+; #R33064 into addresses #N33149-#N65506 (step 247). This is done before
+; loading the standard speed code block because the data for those addresses
+; is not present in that code block (except for #N(33149), which is present on
+; the tape, but is not loaded).
 ;
-; HL 33064
-; BC' 247
+; HL #N33064
+; BC' #N247,4
 c33046 EXX           ; {Set #REGhl' to the first destination address (minus
  33047 LD HL,32902   ; 247)
  33050 EXX           ; }
@@ -422,12 +423,12 @@ c33046 EXX           ; {Set #REGhl' to the first destination address (minus
  33059 DJNZ 33053    ; Jump back until all 132 bytes have been copied
  33061 JP 32815      ; Load the standard speed code block
 
-; Data for addresses 33149-65506 (step 247)
+; Data for addresses #N33149-#N65506 (step 247)
 ;
 ; Used by the routine at #R33046. These bytes are copied into addresses
-; 33149-65506 (step 247) after the fast code block has loaded. Note that the
-; first entry in this table leads to the value 134 being copied into address
-; 33149, which corrupts the table entry at that address; this is a
+; #N33149-#N65506 (step 247) after the fast code block has loaded. Note that
+; the first entry in this table leads to the value 134 being copied into
+; address #N(33149), which corrupts the table entry at that address; this is a
 ; #BUG#selfModifyingDataTable(bug).
 b33064 DEFB 134,0,127,0,0,162,255,143,31,8,216,0,1,127,152,51
  33080 DEFB 84,0,255,25,0,0,84,255,248,255,34,0,23,176,170,240
