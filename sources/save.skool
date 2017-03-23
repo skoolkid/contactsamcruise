@@ -64,6 +64,7 @@ d00258 DEFB 24,60,0,60,64,126,60,124,0,60,8,8,24,8
  06880 DEFB 184
 
 @start
+@replace=/#n\i/#N\1,,,1($)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
 ; Copyright 2010-2013, 2015, 2017 Richard Dymond (this disassembly)
 @org=33010
@@ -77,15 +78,15 @@ d00258 DEFB 24,60,0,60,64,126,60,124,0,60,8,8,24,8
 ; TABLE#
 ; .
 ; The standard speed code block consists of two sections of data. The first
-; section contains the 16572 bytes of data for addresses 16384-32955. The
-; second section contains 32892 bytes of data starting at address 32976, moving
-; forward in steps of 247 bytes (rolling back to page 127 every time the 64K
-; boundary is reached), and ending at 33149.
+; section contains the 16572 bytes of data for addresses #N16384-#N32955. The
+; second section contains 32892 bytes of data starting at address #N(32976),
+; moving forward in steps of 247 bytes (rolling back to page #N127 every time
+; the 64K boundary is reached), and ending at #N33149.
 ; .
-; Note that the second section does not contain data for addresses 33396-65506
-; (step 247); these addresses are filled in by the routine at #R33046@load
-; after the fast code block has loaded. Also note that although the byte for
-; address 33149 is saved to tape, it is not loaded by the
+; Note that the second section does not contain data for addresses
+; #N33396-#N65506 (step 247); these addresses are filled in by the routine at
+; #R33046@load after the fast code block has loaded. Also note that although
+; the byte for address #N33149 is saved to tape, it is not loaded by the
 ; #R32815@load(load routine); instead, it is also filled in by the routine at
 ; #R33046@load.
 c33010 LD SP,23806   ;
@@ -95,9 +96,9 @@ c33010 LD SP,23806   ;
  33019 EXX           ; {Prepare #REGbc' for saving the second section of data
  33020 LD BC,247     ;
  33023 EXX           ; }
- 33024 LD IX,16384   ; {16384 to 32955 will be saved first
+ 33024 LD IX,16384   ; {#N16384 to #N32955 will be saved first
  33028 LD DE,16571   ; }
- 33031 LD A,255      ; A flag byte of 255 (the first byte saved) indicates a
+ 33031 LD A,255      ; A flag byte of #N255 (the first byte saved) indicates a
                      ; data block
  33033 LD HL,3224    ; This constant will give a leader tone of about 2 seconds
  33036 EX AF,AF'     ;
@@ -127,11 +128,11 @@ c33010 LD SP,23806   ;
 @label=SYNC2
 *33070 DJNZ 33070    ;
  33072 OUT (254),A   ;
-; It's time to save the first byte, which will be the flag byte (255).
- 33074 LD BC,15118   ; #REGb=59 (timing constant), #REGc=14 (MIC off, border
-                     ; yellow)
- 33077 EX AF,AF'     ; #REGa=255
- 33078 LD L,A        ; #REGl=255
+; It's time to save the first byte, which will be the flag byte (#N255).
+ 33074 LD BC,15118   ; #REGb=#N59 (timing constant), #REGc=#N14 (MIC off,
+                     ; border yellow)
+ 33077 EX AF,AF'     ; #REGa=#N255
+ 33078 LD L,A        ; #REGl=#N255
  33079 JP 33091      ; Jump forward to save the flag byte
 ; This is the main byte-saving loop.
 @label=B1_LOOP
@@ -145,16 +146,16 @@ c33010 LD SP,23806   ;
  33090 XOR L         ; Update this for the next byte to be saved
 @label=B1_START
 *33091 LD H,A        ; #REGh=new parity byte
- 33092 LD A,1        ; #REGa=1 (MIC on, border blue)
+ 33092 LD A,1        ; #REGa=#N1 (MIC on, border blue)
  33094 SCF           ; Set the carry flag (which will act as the marker bit)
  33095 JP 33121      ; Jump forward to save the byte
 ; This section of code, if it were used, would save the parity byte.
 @label=B1_PARITY
 *33098 LD L,H        ; Pick up the parity byte in #REGl
  33099 JR 33089      ; Save it
-; This is the bit-saving loop for the first section of data (16384-32955).
+; This is the bit-saving loop for the first section of data (#N16384-#N32955).
 @label=B1_BIT2
-*33101 LD A,C        ; #REGa=14 (MIC off, border yellow) for the second pass
+*33101 LD A,C        ; #REGa=#N14 (MIC off, border yellow) for the second pass
  33102 BIT 7,B       ; Set the zero flag to indicate that this is the second
                      ; pass through the loop
 @label=B1_BIT1
@@ -170,13 +171,13 @@ c33010 LD SP,23806   ;
                      ; first
  33118 DEC B         ;
  33119 XOR A         ; Clear the carry flag
- 33120 INC A         ; #REGa=1 (MIC on, border blue)
+ 33120 INC A         ; #REGa=#N1 (MIC on, border blue)
 @label=B1_8BITS
 *33121 RL L          ; Move the bit to be saved into the carry flag, and the
                      ; marker bit leftwards
  33123 JP NZ,33104   ; Jump unless we've saved all 8 bits of the byte
-; A byte from the first section (16384-32955) has just been saved. Are there
-; any more left?
+; A byte from the first section (#N16384-#N32955) has just been saved. Are
+; there any more left?
  33126 DEC DE        ; Decrease the length counter
  33127 INC IX        ; Move to the next byte to be saved
  33129 LD B,49       ; Set the timing constant for the first bit of the next
@@ -185,17 +186,17 @@ c33010 LD SP,23806   ;
  33133 IN A,(254)    ;
  33135 RRA           ;
  33136 RET NC        ; }
- 33137 LD A,D        ; {Have we saved 16384 to 32955 yet?
+ 33137 LD A,D        ; {Have we saved #N16384 to #N32955 yet?
  33138 INC A         ; }
  33139 JP NZ,33082   ; Jump back if not
 @ignoreua
-; Now a further 32892 bytes are saved: starting at 32976, moving forward in
-; steps of 247 bytes, rolling back to page 127 whenever the 64K boundary is
-; hit, and ending at 33149.
+; Now a further 32892 bytes are saved: starting at #N(32976), moving forward in
+; steps of 247 bytes, rolling back to page #N127 whenever the 64K boundary is
+; hit, and ending at #N33149.
  33142 RET NZ        ; This return does not happen
  33143 LD DE,32892   ; We need to save a further 32892 bytes
- 33146 LD A,49       ; {Change the instruction at 32902 (in the
- 33148 LD (32902),A  ; #R32815@load(load routine)) to LD SP,23835}
+ 33146 LD A,49       ; {Change the instruction at #N32902 (in the
+ 33148 LD (32902),A  ; #R32815@load(load routine)) to LD SP,#n23835}
  33151 LD B,46       ;
 @label=B2_LOOP
 *33153 LD A,D        ; {Have we saved every byte of the second section yet?
@@ -205,7 +206,7 @@ c33010 LD SP,23806   ;
  33160 LD A,H        ; #REGa=current parity byte
  33161 XOR L         ; Update this for the next byte to be saved
  33162 LD H,A        ; #REGh=new parity byte
- 33163 LD A,1        ; #REGa=1 (MIC on, border blue)
+ 33163 LD A,1        ; #REGa=#N1 (MIC on, border blue)
  33165 SCF           ; Set the carry flag (which will act as the marker bit)
  33166 JP 33192      ; Jump forward to save the byte
 ; This is where we come when all 49464 bytes have been saved.
@@ -214,7 +215,7 @@ c33010 LD SP,23806   ;
  33171 RET           ;
 ; This is the bit-saving loop for the second section of data.
 @label=B2_BIT2
-*33172 LD A,C        ; #REGa=14 (MIC off, border yellow) for the second pass
+*33172 LD A,C        ; #REGa=#N14 (MIC off, border yellow) for the second pass
  33173 BIT 7,B       ; Set the zero flag to indicate that this is the second
                      ; pass through the loop
 @label=B2_BIT1
@@ -230,7 +231,7 @@ c33010 LD SP,23806   ;
                      ; first
  33189 DEC B         ;
  33190 XOR A         ; Clear the carry flag
- 33191 INC A         ; #REGa=1 (MIC on, border blue)
+ 33191 INC A         ; #REGa=#N1 (MIC on, border blue)
 @label=B2_8BITS
 *33192 RL L          ; Move the bit to be saved into the carry flag, and the
                      ; marker bit leftwards
