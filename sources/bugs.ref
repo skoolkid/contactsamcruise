@@ -530,7 +530,7 @@ The reason for this is that the routine at #R63784, which prepares the tiles
 for a knocked-out sprite by making rotated copies of tiles 1-4 and 6-9 of the
 character's base sprite, needlessly makes rotated copies of blank tiles (those
 with a tile reference of 0) too. However, the blank tile (the graphic and mask
-data for which are located at addresses 50944 TO 54784 STEP 256) does not
+data for which are located at addresses #N50944 TO #N54784 STEP 256) does not
 contain the correct mask data - it is all zeroes instead of 255s. This is not
 normally a problem because the sprite-tile-printing routine at #R59635 is
 optimised to ignore sprite tiles with a tile reference of 0. But the rotated
@@ -694,14 +694,16 @@ the catwalk, but now he is running continuously instead of walking.
 
 [Bug:selfModifyingDataTable:The self-modifying data table]
 The first entry in the data table at #R33064@load in the loader code results in
-33149 being POKEd with 134 (replacing the original contents: 124); but 33149 is
-in the data table itself, and corresponds to address 54144, which means that
-54144 ends up being POKEd with 134 instead of 124, thus leading to the graphic
-glitch #LINK:GraphicGlitches#lanasWaist(Lana's waist).
+#N33149 being POKEd with #N134 (replacing the original contents: #N124); but
+#N33149 is in the data table itself, and corresponds to address #N(54144),
+which means that #N54144 ends up being POKEd with #N134 instead of #N(124),
+thus leading to the graphic glitch #LINK:GraphicGlitches#lanasWaist(Lana's
+waist).
 
-POKEing 33149 with 134 is actually redundant, since 33149 is in an area of
-memory that is overwritten soon after loading (33149 contains the LSB of the
-operand of the 'LD (32902),A' instruction at #R33148@save in the save routine).
+POKEing #N33149 with #N134 is actually redundant, since #N33149 is in an area
+of memory that is overwritten soon after loading (#N33149 contains the LSB of
+the operand of the 'LD (#n32902),A' instruction at #R33148@save in the save
+routine).
 
 This bug is not present in the re-release of Contact Sam Cruise by Summit
 Software in 1988, which uses a different loading scheme.
