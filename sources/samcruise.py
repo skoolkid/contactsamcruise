@@ -29,6 +29,11 @@ def parse_as(text, index):
     end, link_text = parse_brackets(text, end, state)
     return end, state, str(link_text)
 
+def parse_s(text, index):
+    sep = text[index]
+    end, s = parse_brackets(text, index, '', sep, sep)
+    return end, '#IF({{case}}==1){0}{0}{1}{0}{2}{0}{0}'.format(sep, s.lower(), s)
+
 class ContactSamCruiseHtmlWriter(HtmlWriter):
     def init(self):
         self.char_buf_descs = self.get_sections('CharBuf', True)
@@ -769,6 +774,10 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         frames = [Frame(udgs, scale, 0, *crop_rect, name=frame)]
         return end, self.handle_image(frames, fname, cwd, alt)
 
+    def expand_s(self, text, index, cwd):
+        # #S/text/
+        return parse_s(text, index)
+
     def _build_segment(self, x, y):
         self.push_snapshot()
         self._adjust_lights_and_blinds(1, 1)
@@ -795,6 +804,10 @@ class ContactSamCruiseAsmWriter(AsmWriter):
 
     def expand_disguise(self, text, index):
         raise UnsupportedMacroError()
+
+    def expand_s(self, text, index):
+        # #S/text/
+        return parse_s(text, index)
 
     def expand_segment(self, text, index):
         raise UnsupportedMacroError()

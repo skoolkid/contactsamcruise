@@ -64,6 +64,7 @@ d00258 DEFB 24,60,0,60,64,126,60,124,0,60,8,8,24,8
  06880 DEFB 184
 
 @start
+@writer=:samcruise.ContactSamCruiseAsmWriter
 @replace=/#n\i/#N\1,,,1($)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
 ; Copyright 2010-2013, 2015, 2017 Richard Dymond (this disassembly)
@@ -137,8 +138,8 @@ c33010 LD SP,23806   ;
 ; This is the main byte-saving loop.
 @label=B1_LOOP
 *33082 LD A,D        ; {In the analagous ROM routine, the second instruction
- 33083 LD A,D        ; here is 'OR E', to check whether it's time to save the
-                     ; last byte (the parity byte)}
+ 33083 LD A,D        ; here is '#S/OR E/', to check whether it's time to save
+                     ; the last byte (the parity byte)}
  33084 JR Z,33098    ; This jump (to save the parity byte) is never made
  33086 LD L,(IX+0)   ; Fetch the next byte to be saved
 @label=B1_LOOP_P
@@ -196,7 +197,7 @@ c33010 LD SP,23806   ;
  33142 RET NZ        ; This return does not happen
  33143 LD DE,32892   ; We need to save a further 32892 bytes
  33146 LD A,49       ; {Change the instruction at #N32902 (in the
- 33148 LD (32902),A  ; #R32815@load(load routine)) to LD SP,#n23835}
+ 33148 LD (32902),A  ; #R32815@load(load routine)) to #S/LD SP/,#n23835}
  33151 LD B,46       ;
 @label=B2_LOOP
 *33153 LD A,D        ; {Have we saved every byte of the second section yet?
