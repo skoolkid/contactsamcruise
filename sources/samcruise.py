@@ -168,8 +168,13 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
     def astiles(self, cwd):
         rows = []
         attr = 120
+        b_fmt = '{:02X}' if self.base == 16 else '{}'
+        w_fmt = '{:04X}' if self.base == 16 else '{}'
+        if self.case == 1:
+            b_fmt = b_fmt.lower()
+            w_fmt = w_fmt.lower()
         for n in range(128):
-            for state_specs, states_desc in self._get_animatory_state_tiles_row(n):
+            for state_specs, states_desc in self._get_animatory_state_tiles_row(n, b_fmt):
                 frames = []
                 for state, udg_page in state_specs:
                     tiles = []
@@ -188,13 +193,16 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
                             template_name = 'astile' if tile.ref else 'astile_null'
                             astile_subs = {
                                 'bubble_id': bubble_id,
-                                'state': state,
+                                'state': b_fmt.format(state),
                                 'row': row_num,
                                 'column': col_num,
                                 'img_fname': img_fname,
-                                'lsb': tile.ref_addr % 256,
-                                'ref_page': tile.ref_addr // 256,
-                                'tile': tile
+                                'lsb': b_fmt.format(tile.ref_addr % 256),
+                                'ref_page': b_fmt.format(tile.ref_addr // 256),
+                                'ref_addr': w_fmt.format(tile.ref_addr),
+                                'ref': b_fmt.format(tile.ref),
+                                'udg_page': b_fmt.format(tile.udg_page),
+                                'udg_addr': w_fmt.format(tile.udg_addr)
                             }
                             tiles.append(self.format_template(template_name, astile_subs))
                     template_name = 'astiles_frame_{}x{}'.format(num_rows, len(row))
@@ -692,9 +700,9 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
             cash_locs.append((self.snapshot[i], self.snapshot[i + 1] + 2))
         self._add_icons(udgs, x, y, show_x, cash_icon, cash_locs)
 
-    def _get_animatory_state_tiles_row(self, state):
+    def _get_animatory_state_tiles_row(self, state, fmt):
         states = ((state, None),)
-        states_desc = '{}: {}'.format(state, self.as_descs[state])
+        states_desc = (fmt + ': {}').format(state, self.as_descs[state])
         row = [(states, states_desc)]
         if state == SNIPER_AS:
             row += self._sniper_animatory_state_tiles_rows()
