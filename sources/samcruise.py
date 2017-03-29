@@ -79,6 +79,9 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
             246: 55229,
             247: 55237
         }
+        self.b_fmt = '{:02X}' if self.base == 16 else '{}'
+        if self.case == 1:
+            self.b_fmt = self.b_fmt.lower()
 
     def _get_sprite_udg(self, state, attr, ref_page, udg_page):
         ref_addr = state + 256 * ref_page
@@ -168,13 +171,11 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
     def astiles(self, cwd):
         rows = []
         attr = 120
-        b_fmt = '{:02X}' if self.base == 16 else '{}'
         w_fmt = '{:04X}' if self.base == 16 else '{}'
         if self.case == 1:
-            b_fmt = b_fmt.lower()
             w_fmt = w_fmt.lower()
         for n in range(128):
-            for state_specs, states_desc in self._get_animatory_state_tiles_row(n, b_fmt):
+            for state_specs, states_desc in self._get_animatory_state_tiles_row(n):
                 frames = []
                 for state, udg_page in state_specs:
                     tiles = []
@@ -193,15 +194,15 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
                             template_name = 'astile' if tile.ref else 'astile_null'
                             astile_subs = {
                                 'bubble_id': bubble_id,
-                                'state': b_fmt.format(state),
+                                'state': self.b_fmt.format(state),
                                 'row': row_num,
                                 'column': col_num,
                                 'img_fname': img_fname,
-                                'lsb': b_fmt.format(tile.ref_addr % 256),
-                                'ref_page': b_fmt.format(tile.ref_addr // 256),
+                                'lsb': self.b_fmt.format(tile.ref_addr % 256),
+                                'ref_page': self.b_fmt.format(tile.ref_addr // 256),
                                 'ref_addr': w_fmt.format(tile.ref_addr),
-                                'ref': b_fmt.format(tile.ref),
-                                'udg_page': b_fmt.format(tile.udg_page),
+                                'ref': self.b_fmt.format(tile.ref),
+                                'udg_page': self.b_fmt.format(tile.udg_page),
                                 'udg_addr': w_fmt.format(tile.udg_addr)
                             }
                             tiles.append(self.format_template(template_name, astile_subs))
@@ -700,9 +701,9 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
             cash_locs.append((self.snapshot[i], self.snapshot[i + 1] + 2))
         self._add_icons(udgs, x, y, show_x, cash_icon, cash_locs)
 
-    def _get_animatory_state_tiles_row(self, state, fmt):
+    def _get_animatory_state_tiles_row(self, state):
         states = ((state, None),)
-        states_desc = (fmt + ': {}').format(state, self.as_descs[state])
+        states_desc = (self.b_fmt + ': {}').format(state, self.as_descs[state])
         row = [(states, states_desc)]
         if state == SNIPER_AS:
             row += self._sniper_animatory_state_tiles_rows()
@@ -711,13 +712,15 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
     def _sniper_animatory_state_tiles_rows(self):
         rows = []
         for state, desc, refs in self.sniper_phases:
-            rows.append((((state, None),), '{0}: Sniper ({1})'.format(SNIPER_AS, desc)))
+            rows.append((((state, None),), (self.b_fmt + ': Sniper ({})').format(SNIPER_AS, desc)))
         return rows
 
     def _animatory_state_row(self, cwd, state):
         subs = {
             'state_l': state,
             'state_r': state + 128,
+            'state_l_s': self.b_fmt.format(state),
+            'state_r_s': self.b_fmt.format(state + 128),
             'desc': self.as_descs.get(state, '-'),
             'img_l': self.as_img(cwd, state),
             'img_r': self.as_img(cwd, state + 128)
@@ -729,7 +732,12 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
 
     def _sniper_animatory_state_rows(self, cwd):
         lines = []
-        subs = {'state_l': SNIPER_AS, 'state_r': SNIPER_AS + 128}
+        subs = {
+            'state_l': SNIPER_AS,
+            'state_r': SNIPER_AS + 128,
+            'state_l_s': self.b_fmt.format(SNIPER_AS),
+            'state_r_s': self.b_fmt.format(SNIPER_AS + 128)
+        }
         for phase, (state, desc, refs) in enumerate(self.sniper_phases):
             fname_suffix = '_{}'.format(phase + 1)
             subs['img_l'] = self.as_img(cwd, state, fname_suffix=fname_suffix)
