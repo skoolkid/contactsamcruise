@@ -1541,8 +1541,8 @@ c25118 LD L,2        ; {#REGa=sniper's y-coordinate
 ; The sniper is currently active (his y-coordinate is 34-37).
 @nowarn
 *25168 LD A,(57014)  ; Collect the sprite tile reference for tile 7 of
-                     ; animatory states #AS54(54/182); this will be 235 if the
-                     ; sniper is firing, or 0, 110, 111 or 113 otherwise
+                     ; animatory states #AS54(#N54/#N182); this will be 235 if
+                     ; the sniper is firing, or 0, 110, 111 or 113 otherwise
  25171 CP H          ; Is the sniper firing?
  25172 JP NC,28646   ; If so, make the firing sound effect
  25175 LD A,(32767)  ; #REGa=y-coordinate of the topmost row of the play area
@@ -1949,9 +1949,9 @@ c25539 BIT 5,(HL)    ; Byte 12 of Sam's buffer holds the LSB of the current
 *25562 DEC L         ; #REGl=0
  25563 LD A,(HL)     ; #REGa=banknote's animatory state
  25564 AND 127       ; Discard bit 7
- 25566 SUB 62        ; Is the banknote's animatory state #AS62(62 or 190)?
+ 25566 SUB 62        ; Is the banknote's animatory state #AS62(#N62 or #N190)?
  25568 JR Z,25573    ; Jump if so
- 25570 SUB 8         ; Is the banknote's animatory state #AS70(70 or 198)?
+ 25570 SUB 8         ; Is the banknote's animatory state #AS70(#N70 or #N198)?
  25572 RET NZ        ; Return if not (this never happens)
 ; Sam has landed on something that looks like a banknote.
 *25573 LD L,10       ; {Set byte 10 of the banknote's buffer to 1 to indicate
@@ -2245,8 +2245,8 @@ c25789 LD HL,25748   ; The animation phase table for Sam when somersaulting is
  25840 JR NC,25877   ; Jump unless it's time to check whether Sam has landed
 ; It's time to check whether Sam has landed on his feet yet.
  25842 PUSH DE       ; Save Sam's new coordinates briefly
- 25843 AND A         ; Is Sam's next animatory state #AS0(0 or 128) (standing
-                     ; upright)?
+ 25843 AND A         ; Is Sam's next animatory state #AS0(#N0 or #N128)
+                     ; (standing upright)?
  25844 JR Z,25853    ; Jump if so
  25846 DEC E         ; Subtract 1 from Sam's new x-coordinate
  25847 BIT 7,B       ; Is Sam facing left?
@@ -2266,12 +2266,12 @@ c25789 LD HL,25748   ; The animation phase table for Sam when somersaulting is
                      ; his new x-coordinate to #REGe
  25867 JR C,25876    ; Jump if Sam has not landed yet
  25869 LD A,C        ; #REGa=Sam's next base animatory state (bit 7 reset)
- 25870 AND A         ; Is it #AS0(0 or 128) (standing upright)?
+ 25870 AND A         ; Is it #AS0(#N0 or #N128) (standing upright)?
  25871 JR NZ,25876   ; Jump if not
  25873 LD (32764),A  ; Clear all of Sam's status flags at #R32764 (Sam has
                      ; landed)
 *25876 LD A,C        ; #REGa=Sam's next base animatory state (bit 7 reset)
-*25877 CP 9          ; Is the new base animatory state < 9 (meaning Sam has
+*25877 CP 9          ; Is the new base animatory state < #N9 (meaning Sam has
                      ; just started or is just finishing a roll or somersault)?
  25879 JR C,25893    ; Jump if so
  25881 PUSH BC       ; Save Sam's direction indicator and next base animatory
@@ -2600,10 +2600,10 @@ s26222 DEFS 2
 ; Update the sniper's sprite tile references
 ;
 ; Used by the routine at #R25118. Updates the sprite tile references for
-; animatory states #AS54(54/182). On entry, the carry flag is set if the sniper
-; is firing, in which case a new bullet will be initialised.
+; animatory states #AS54(#N54/#N182). On entry, the carry flag is set if the
+; sniper is firing, in which case a new bullet will be initialised.
 ;
-; A Sniper's animatory state (#AS54(54/182))
+; A Sniper's animatory state (#AS54(#N54/#N182))
 ; D Sniper's next y-coordinate (34-37)
 ; E Sniper's x-coordinate
 ; H 227 (sniper)
@@ -2620,11 +2620,11 @@ c26224 PUSH AF       ; Save the sniper's animatory state
  26234 ADD A,6       ; that will be filled with non-blank tiles)
  26236 LD D,A        ; }
 ; The next section of code modifies the sprite tile references for animatory
-; states #AS54(54/182) column by column.
+; states #AS54(#N54/#N182) column by column.
  26237 LD H,215      ; 215 is the base page for sprite tile references
 *26239 LD B,D        ; #REGb=number of non-blank tiles to initialise in this
                      ; column
-*26240 LD L,162      ; Animatory state #AS34(162) (gangster)
+*26240 LD L,162      ; Animatory state #AS34(#N162) (gangster)
                      ; will be used as a template for the sniper's sprite
  26242 LD A,(HL)     ; Collect a sprite tile reference from the template
  26243 LD L,182      ; {Copy the sprite tile reference into place
@@ -7404,7 +7404,7 @@ c31204 LD A,32       ; {Set bit 5 of Sam's status flags at #R32764
  31216 LDIR          ; }
  31218 CALL 59848    ; Update the SRB for Sam's current animatory state and
                      ; location
- 31221 AND 128       ; {#REGa=#AS6(6 or 134): Sam bending his knees
+ 31221 AND 128       ; {#REGa=#AS6(#N6 or #N134): Sam bending his knees
  31223 ADD A,6       ; }
  31225 CALL 59861    ; Update Sam's animatory state and location and update the
                      ; SRB
@@ -7705,8 +7705,8 @@ c31476 LD HL,1       ; {Set Sam's main action timer to 1 (so that we come here
 *31547 LD A,E        ; #REGa=-2 if Sam's carrier is midstride, -1 otherwise
  31548 BIT 7,(HL)    ; Is Sam's carrier facing left?
  31550 JR Z,31556    ; Jump if so
- 31552 SET 7,C       ; #REGc=#AS2(130) or #AS5(133) (animatory states of Sam
-                     ; being carried, facing right)
+ 31552 SET 7,C       ; #REGc=#AS2(#N130) or #AS5(#N133) (animatory states of
+                     ; Sam being carried, facing right)
  31554 NEG           ; #REGa=2 if Sam's carrier is midstride, 1 otherwise
 *31556 INC L         ; {Add Sam's carrier's x-coordinate to obtain Sam's
  31557 ADD A,(HL)    ; x-coordinate}
@@ -7900,7 +7900,7 @@ c31713 LD A,(32745)  ; Collect the object inventory flags from #R32745
  31759 AND 128       ; Keep only the direction bit (bit 7)
  31761 JR Z,31764    ; Jump if Sam is facing left
  31763 INC L         ; #REGl=1+Sam's x-coordinate
-*31764 ADD A,121     ; #REGa=#AS121(121/249) (hook)
+*31764 ADD A,121     ; #REGa=#AS121(#N121/#N249) (hook)
  31766 EX DE,HL      ; #REGde=hook's initial coordinates
 @ssub=LD HL,58624+19
  31767 LD HL,58643   ; Point #REGhl at byte 19 of character buffer 229
@@ -16189,120 +16189,131 @@ b55040 DEFS 25 ; Primary character buffer, used by the routine at #R61948
 ; bottom 3 rows of the screen by the #R56576@start(startup routine).
 s55165 DEFB 0
 
-; Sprite tile references (tile 0, animatory states 0-127) and graphic data
+; Sprite tile references (tile 0, animatory states #N0-#N127) and graphic data
 ; (UDG byte 1/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b55166 DEFB 0,64,3              ; Graphic data for sprite tiles 126-128 (used
                                 ; for Sam's disguises)
  55169 DEFB 175,0,175,0,175,0,0 ; Sprite tile references for animatory states
-                                ; 0-7
+                                ; #N0-#N7
  55176 DEFB 192                 ; Graphic data for sprite tile 136 (used for
                                 ; Sam's disguises)
  55177 DEFB 0,0                 ; Sprite tile references for animatory states
-                                ; 8-10
+                                ; #N8-#N10
  55179 DEFB 0                   ; Sprite tile reference for unused animatory
-                                ; state 11
+                                ; state #N11
  55180 DEFB 0,4,32              ; Graphic data for sprite tiles 140-142 (used
                                 ; for Sam's disguises)
- 55183 DEFB 0                   ; Sprite tile reference for animatory state 15
+ 55183 DEFB 0                   ; Sprite tile reference for animatory state
+                                ; #N15
  55184 DEFB 4                   ; Graphic data for sprite tile 144 (used for
                                 ; Sam's disguises)
  55185 DEFB 0,0,0,0             ; Sprite tile references for animatory states
-                                ; 16-20
+                                ; #N16-#N20
  55189 DEFB 0,0                 ; Graphic data for sprite tiles 149-150 (used
                                 ; for Sam's disguises)
- 55191 DEFB 0                   ; Sprite tile reference for animatory state 23
+ 55191 DEFB 0                   ; Sprite tile reference for animatory state
+                                ; #N23
  55192 DEFB 18                  ; Graphic data for sprite tile 152 (used for
                                 ; Sam's disguises)
  55193 DEFB 220,217,220         ; Sprite tile references for animatory states
-                                ; 24-27
+                                ; #N24-#N27
  55196 DEFB 217                 ; Sprite tile reference for unused animatory
-                                ; state 28
+                                ; state #N28
  55197 DEFB 0,66                ; Graphic data for sprite tiles 157-158 (used
                                 ; for Sam's disguises)
- 55199 DEFB 0                   ; Sprite tile reference for animatory state 31
+ 55199 DEFB 0                   ; Sprite tile reference for animatory state
+                                ; #N31
  55200 DEFB 0                   ; Graphic data for sprite tile 160 (used for
                                 ; Sam's disguises)
  55201 DEFB 0,0,0,0             ; Sprite tile references for animatory states
-                                ; 32-36
+                                ; #N32-#N36
  55205 DEFB 0,240               ; Graphic data for sprite tiles 165-166 (used
                                 ; for Sam's disguises)
- 55207 DEFB 0                   ; Sprite tile reference for animatory state 39
+ 55207 DEFB 0                   ; Sprite tile reference for animatory state
+                                ; #N39
  55208 DEFB 0                   ; Graphic data for sprite tile 168 (used for
                                 ; Sam's disguises)
  55209 DEFB 220,217,220,217     ; Sprite tile references for animatory states
-                                ; 40-44
+                                ; #N40-#N44
  55213 DEFB 0,0,15,0            ; Graphic data for sprite tiles 173-176 (used
                                 ; for Sam's disguises)
  55217 DEFB 0,0,0,0             ; Sprite tile references for animatory states
-                                ; 48-52
+                                ; #N48-#N52
  55221 DEFB 0                   ; Graphic data for sprite tile 181 (used by Sam
                                 ; when he's rolling or somersaulting)
  55222 DEFB 0,0                 ; Sprite tile references for animatory states
-                                ; 54-55
+                                ; #N54-#N55
  55224 DEFB 0                   ; Graphic data for sprite tile 184 (used for
                                 ; Sam's disguises)
  55225 DEFB 0,0,0,0             ; Sprite tile references for animatory states
-                                ; 56-60
+                                ; #N56-#N60
  55229 DEFB 76                  ; Graphic data for sprite tile 189 (used by Sam
                                 ; when he's rolling or somersaulting)
  55230 DEFB 0,0                 ; Sprite tile references for animatory states
-                                ; 62-63
+                                ; #N62-#N63
  55232 DEFB 0                   ; Graphic data for sprite tile 192 (used for
                                 ; Sam's disguises)
  55233 DEFB 14,0,14,0           ; Sprite tile references for unused animatory
-                                ; states 64-68
+                                ; states #N64-#N68
  55237 DEFB 65                  ; Graphic data for sprite tile 197 (used by Sam
                                 ; when he's rolling or somersaulting)
- 55238 DEFB 0                   ; Sprite tile reference for animatory state 70
+ 55238 DEFB 0                   ; Sprite tile reference for animatory state
+                                ; #N70
  55239 DEFB 0                   ; Sprite tile reference for unused animatory
-                                ; state 71
+                                ; state #N71
  55240 DEFB 60                  ; Graphic data for sprite tile 200 (used for
                                 ; Sam's disguises)
  55241 DEFB 0,0,0,0             ; Sprite tile references for animatory states
-                                ; 72-76
+                                ; #N72-#N76
  55245 DEFB 8                   ; Graphic data for sprite tile 205 (used by Sam
                                 ; when he's rolling or somersaulting)
  55246 DEFB 0                   ; Sprite tile reference for unused animatory
-                                ; state 78
- 55247 DEFB 0                   ; Sprite tile reference for animatory state 79
+                                ; state #N78
+ 55247 DEFB 0                   ; Sprite tile reference for animatory state
+                                ; #N79
  55248 DEFB 0                   ; Graphic data for sprite tile 208 (used for
                                 ; Sam's disguises)
  55249 DEFB 14,0,14,0           ; Sprite tile references for animatory states
-                                ; 80-84
+                                ; #N80-#N84
  55253 DEFB 12,8                ; Graphic data for sprite tiles 213-214 (used
                                 ; for Sam's disguises)
- 55255 DEFB 0                   ; Sprite tile reference for animatory state 87
+ 55255 DEFB 0                   ; Sprite tile reference for animatory state
+                                ; #N87
  55256 DEFB 196                 ; Graphic data for sprite tile 216 (used for
                                 ; Sam's disguises)
  55257 DEFB 0,0,0,0             ; Sprite tile references for animatory states
-                                ; 88-92
+                                ; #N88-#N92
  55261 DEFB 3,192               ; Graphic data for sprite tiles 221-222 (used
                                 ; for Sam's disguises)
- 55263 DEFB 0                   ; Sprite tile reference for animatory state 95
+ 55263 DEFB 0                   ; Sprite tile reference for animatory state
+                                ; #N95
  55264 DEFB 32                  ; Graphic data for sprite tile 224 (used for
                                 ; Sam's disguises)
  55265 DEFB 0,0,0,0             ; Sprite tile references for animatory states
-                                ; 96-100
+                                ; #N96-#N100
  55269 DEFB 192,128             ; Graphic data for sprite tiles 229-230 (used
                                 ; for Sam's disguises)
- 55271 DEFB 0                   ; Sprite tile reference for animatory state 103
+ 55271 DEFB 0                   ; Sprite tile reference for animatory state
+                                ; #N103
  55272 DEFB 3                   ; Graphic data for sprite tile 232 (used for
                                 ; Sam's disguises)
  55273 DEFB 0,0,0,0             ; Sprite tile references for animatory states
-                                ; 104-108
+                                ; #N104-#N108
  55277 DEFB 66,60               ; Graphic data for sprite tiles 237-238 (used
                                 ; for Sam's disguises)
- 55279 DEFB 0                   ; Sprite tile reference for animatory state 111
+ 55279 DEFB 0                   ; Sprite tile reference for animatory state
+                                ; #N111
  55280 DEFB 192                 ; Graphic data for sprite tile 240 (used for
                                 ; Sam's disguises)
  55281 DEFB 0,0,0,0,0,0,0       ; Sprite tile references for animatory states
-                                ; 112-119
+                                ; #N112-#N119
  55288 DEFB 0                   ; Unused
- 55289 DEFB 231                 ; Sprite tile reference for animatory state 121
+ 55289 DEFB 231                 ; Sprite tile reference for animatory state
+                                ; #N121
  55290 DEFB 0,0,0,0,0,0         ; Sprite tile references for unused animatory
-                                ; states 120 and 122-127
+                                ; states #N120 and #N122-#N127
 
 ; Character buffers for character group 216
 ;
@@ -16332,137 +16343,137 @@ b55296 DEFS 25 ; Primary character buffer, used by the routine at #R61948
 ; bottom 3 rows of the screen by the #R56576@start(startup routine).
 u55421 DEFB 21
 
-; Sprite tile references (tile 1, animatory states 0-127) and graphic data
+; Sprite tile references (tile 1, animatory states #N0-#N127) and graphic data
 ; (mask byte 1/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b55422 DEFB 254,64,251              ; Graphic data for sprite tiles 126-128
                                     ; (used for Sam's disguises)
  55425 DEFB 16,2,16,122,16,175,251  ; Sprite tile references for animatory
-                                    ; states 0-7
+                                    ; states #N0-#N7
  55432 DEFB 223                     ; Graphic data for sprite tile 136 (used
                                     ; for Sam's disguises)
  55433 DEFB 0,0                     ; Sprite tile references for animatory
-                                    ; states 8-10
+                                    ; states #N8-#N10
  55435 DEFB 0                       ; Sprite tile reference for unused
-                                    ; animatory state 11
+                                    ; animatory state #N11
  55436 DEFB 255,244,47              ; Graphic data for sprite tiles 140-142
                                     ; (used for Sam's disguises)
  55439 DEFB 0                       ; Sprite tile reference for animatory state
-                                    ; 15
+                                    ; #N15
  55440 DEFB 228                     ; Graphic data for sprite tile 144 (used
                                     ; for Sam's disguises)
  55441 DEFB 66,60,66,124            ; Sprite tile references for animatory
-                                    ; states 16-20
+                                    ; states #N16-#N20
  55445 DEFB 255,255                 ; Graphic data for sprite tiles 149-150
                                     ; (used for Sam's disguises)
  55447 DEFB 251                     ; Sprite tile reference for animatory state
-                                    ; 23
+                                    ; #N23
  55448 DEFB 210                     ; Graphic data for sprite tile 152 (used
                                     ; for Sam's disguises)
  55449 DEFB 221,218,221             ; Sprite tile references for animatory
-                                    ; states 24-27
+                                    ; states #N24-#N27
  55452 DEFB 218                     ; Sprite tile reference for unused
-                                    ; animatory state 28
+                                    ; animatory state #N28
  55453 DEFB 227,66                  ; Graphic data for sprite tiles 157-158
                                     ; (used for Sam's disguises)
  55455 DEFB 0                       ; Sprite tile reference for animatory state
-                                    ; 31
+                                    ; #N31
  55456 DEFB 255                     ; Graphic data for sprite tile 160 (used
                                     ; for Sam's disguises)
  55457 DEFB 114,109,114,129         ; Sprite tile references for animatory
-                                    ; states 32-36
+                                    ; states #N32-#N36
  55461 DEFB 255,240                 ; Graphic data for sprite tiles 165-166
                                     ; (used for Sam's disguises)
 @bfix=DEFB 0
  55463 DEFB 251                     ; Sprite tile reference for animatory state
-                                    ; 39
+                                    ; #N39
  55464 DEFB 255                     ; Graphic data for sprite tile 168 (used
                                     ; for Sam's disguises)
  55465 DEFB 225,223,225,223         ; Sprite tile references for animatory
-                                    ; states 40-44
+                                    ; states #N40-#N44
  55469 DEFB 254,63,239,1            ; Graphic data for sprite tiles 173-176
                                     ; (used for Sam's disguises)
  55473 DEFB 32,0,32,126             ; Sprite tile references for animatory
-                                    ; states 48-52
+                                    ; states #N48-#N52
  55477 DEFB 241                     ; Graphic data for sprite tile 181 (used by
                                     ; Sam when he's rolling or somersaulting)
 @bfix=DEFB 0,0
  55478 DEFB 0,251                   ; Sprite tile references for animatory
-                                    ; states 54-55
+                                    ; states #N54-#N55
  55480 DEFB 240                     ; Graphic data for sprite tile 184 (used
                                     ; for Sam's disguises)
  55481 DEFB 48,40,48,40             ; Sprite tile references for animatory
-                                    ; states 56-60
+                                    ; states #N56-#N60
  55485 DEFB 76                      ; Graphic data for sprite tile 189 (used by
                                     ; Sam when he's rolling or somersaulting)
  55486 DEFB 0,251                   ; Sprite tile references for animatory
-                                    ; states 62-63
+                                    ; states #N62-#N63
  55488 DEFB 31                      ; Graphic data for sprite tile 192 (used
                                     ; for Sam's disguises)
  55489 DEFB 92,0,92,0               ; Sprite tile references for unused
-                                    ; animatory states 64-68
+                                    ; animatory states #N64-#N68
  55493 DEFB 65                      ; Graphic data for sprite tile 197 (used by
                                     ; Sam when he's rolling or somersaulting)
  55494 DEFB 0                       ; Sprite tile reference for animatory state
-                                    ; 70
+                                    ; #N70
  55495 DEFB 251                     ; Sprite tile reference for unused
-                                    ; animatory state 71
+                                    ; animatory state #N71
  55496 DEFB 189                     ; Graphic data for sprite tile 200 (used
                                     ; for Sam's disguises)
  55497 DEFB 80,27,80,27             ; Sprite tile references for animatory
-                                    ; states 72-76
+                                    ; states #N72-#N76
  55501 DEFB 239                     ; Graphic data for sprite tile 205 (used by
                                     ; Sam when he's rolling or somersaulting)
  55502 DEFB 0                       ; Sprite tile reference for unused
-                                    ; animatory state 78
+                                    ; animatory state #N78
 @bfix=DEFB 0
  55503 DEFB 251                     ; Sprite tile reference for animatory state
-                                    ; 79
+                                    ; #N79
  55504 DEFB 255                     ; Graphic data for sprite tile 208 (used
                                     ; for Sam's disguises)
  55505 DEFB 154,147,154,160         ; Sprite tile references for animatory
-                                    ; states 80-84
+                                    ; states #N80-#N84
  55509 DEFB 236,11                  ; Graphic data for sprite tiles 213-214
                                     ; (used for Sam's disguises)
 @bfix=DEFB 0
  55511 DEFB 251                     ; Sprite tile reference for animatory state
-                                    ; 87
+                                    ; #N87
  55512 DEFB 196                     ; Graphic data for sprite tile 216 (used
                                     ; for Sam's disguises)
  55513 DEFB 164,0,164,168           ; Sprite tile references for animatory
-                                    ; states 88-92
+                                    ; states #N88-#N92
  55517 DEFB 251,223                 ; Graphic data for sprite tiles 221-222
                                     ; (used for Sam's disguises)
 @bfix=DEFB 0
  55519 DEFB 251                     ; Sprite tile reference for animatory state
-                                    ; 95
+                                    ; #N95
  55520 DEFB 47                      ; Graphic data for sprite tile 224 (used
                                     ; for Sam's disguises)
  55521 DEFB 140,138,140,138         ; Sprite tile references for animatory
-                                    ; states 96-100
+                                    ; states #N96-#N100
  55525 DEFB 192,191                 ; Graphic data for sprite tiles 229-230
                                     ; (used for Sam's disguises)
 @bfix=DEFB 0
  55527 DEFB 251                     ; Sprite tile reference for animatory state
-                                    ; 103
+                                    ; #N103
  55528 DEFB 251                     ; Graphic data for sprite tile 232 (used
                                     ; for Sam's disguises)
  55529 DEFB 187,185,187,189         ; Sprite tile references for animatory
-                                    ; states 104-108
+                                    ; states #N104-#N108
  55533 DEFB 66,189                  ; Graphic data for sprite tiles 237-238
                                     ; (used for Sam's disguises)
  55535 DEFB 251                     ; Sprite tile reference for animatory state
-                                    ; 111
+                                    ; #N111
  55536 DEFB 223                     ; Graphic data for sprite tile 240 (used
                                     ; for Sam's disguises)
  55537 DEFB 196,191,196,204,0,0,251 ; Sprite tile references for animatory
-                                    ; states 112-119
+                                    ; states #N112-#N119
  55544 DEFB 0                       ; Unused
  55545 DEFB 232                     ; Sprite tile reference for animatory state
-                                    ; 121
+                                    ; #N121
  55546 DEFB 0,0,0,0,0,0             ; Sprite tile references for unused
-                                    ; animatory states 120 and 122-127
+                                    ; animatory states #N120 and #N122-#N127
 
 ; Character buffers for character group 217
 ;
@@ -16491,131 +16502,131 @@ b55552 DEFS 25 ; Primary character buffer, used by the routine at #R61948
 ; bottom 3 rows of the screen by the #R56576@start(startup routine).
 u55677 DEFB 24
 
-; Sprite tile references (tile 2, animatory states 0-127) and graphic data
+; Sprite tile references (tile 2, animatory states #N0-#N127) and graphic data
 ; (UDG byte 2/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b55678 DEFB 0,160,2                 ; Graphic data for sprite tiles 126-128
                                     ; (used for Sam's disguises)
  55681 DEFB 18,183,18,123,18,16,255 ; Sprite tile references for animatory
-                                    ; states 0-7
+                                    ; states #N0-#N7
  55688 DEFB 160                     ; Graphic data for sprite tile 136 (used
                                     ; for Sam's disguises)
  55689 DEFB 244,239                 ; Sprite tile references for animatory
-                                    ; states 8-10
+                                    ; states #N8-#N10
  55691 DEFB 0                       ; Sprite tile reference for unused
-                                    ; animatory state 11
+                                    ; animatory state #N11
  55692 DEFB 0,4,32                  ; Graphic data for sprite tiles 140-142
                                     ; (used for Sam's disguises)
  55695 DEFB 0                       ; Sprite tile reference for animatory state
-                                    ; 15
+                                    ; #N15
  55696 DEFB 10                      ; Graphic data for sprite tile 144 (used
                                     ; for Sam's disguises)
  55697 DEFB 68,62,68,125            ; Sprite tile references for animatory
-                                    ; states 16-20
+                                    ; states #N16-#N20
  55701 DEFB 0,0                     ; Graphic data for sprite tiles 149-150
                                     ; (used for Sam's disguises)
  55703 DEFB 255                     ; Sprite tile reference for animatory state
-                                    ; 23
+                                    ; #N23
  55704 DEFB 16                      ; Graphic data for sprite tile 152 (used
                                     ; for Sam's disguises)
  55705 DEFB 222,219,222             ; Sprite tile references for animatory
-                                    ; states 24-27
+                                    ; states #N24-#N27
  55708 DEFB 219                     ; Sprite tile reference for unused
-                                    ; animatory state 28
+                                    ; animatory state #N28
  55709 DEFB 28,66                   ; Graphic data for sprite tiles 157-158
                                     ; (used for Sam's disguises)
  55711 DEFB 0                       ; Sprite tile reference for animatory state
-                                    ; 31
+                                    ; #N31
  55712 DEFB 0                       ; Graphic data for sprite tile 160 (used
                                     ; for Sam's disguises)
  55713 DEFB 116,5,116,130           ; Sprite tile references for animatory
-                                    ; states 32-36
+                                    ; states #N32-#N36
  55717 DEFB 0,240                   ; Graphic data for sprite tiles 165-166
                                     ; (used for Sam's disguises)
  55719 DEFB 255                     ; Sprite tile reference for animatory state
-                                    ; 39
+                                    ; #N39
  55720 DEFB 0                       ; Graphic data for sprite tile 168 (used
                                     ; for Sam's disguises)
  55721 DEFB 226,224,226,224         ; Sprite tile references for animatory
-                                    ; states 40-44
+                                    ; states #N40-#N44
  55725 DEFB 1,192,15,254            ; Graphic data for sprite tiles 173-176
                                     ; (used for Sam's disguises)
  55729 DEFB 34,27,34,127            ; Sprite tile references for animatory
-                                    ; states 48-52
+                                    ; states #N48-#N52
  55733 DEFB 14                      ; Graphic data for sprite tile 181 (used by
                                     ; Sam when he's rolling or somersaulting)
  55734 DEFB 0,255                   ; Sprite tile references for animatory
-                                    ; states 54-55
+                                    ; states #N54-#N55
  55736 DEFB 15                      ; Graphic data for sprite tile 184 (used
                                     ; for Sam's disguises)
  55737 DEFB 50,42,50,132            ; Sprite tile references for animatory
-                                    ; states 56-60
+                                    ; states #N56-#N60
  55741 DEFB 92                      ; Graphic data for sprite tile 189 (used by
                                     ; Sam when he's rolling or somersaulting)
  55742 DEFB 0,255                   ; Sprite tile references for animatory
-                                    ; states 62-63
+                                    ; states #N62-#N63
  55744 DEFB 224                     ; Graphic data for sprite tile 192 (used
                                     ; for Sam's disguises)
  55745 DEFB 99,94,99,137            ; Sprite tile references for unused
-                                    ; animatory states 64-68
+                                    ; animatory states #N64-#N68
  55749 DEFB 1                       ; Graphic data for sprite tile 197 (used by
                                     ; Sam when he's rolling or somersaulting)
  55750 DEFB 0                       ; Sprite tile reference for animatory state
-                                    ; 70
+                                    ; #N70
  55751 DEFB 255                     ; Sprite tile reference for unused
-                                    ; animatory state 71
+                                    ; animatory state #N71
  55752 DEFB 42                      ; Graphic data for sprite tile 200 (used
                                     ; for Sam's disguises)
  55753 DEFB 82,27,82,135            ; Sprite tile references for animatory
-                                    ; states 72-76
+                                    ; states #N72-#N76
  55757 DEFB 16                      ; Graphic data for sprite tile 205 (used by
                                     ; Sam when he's rolling or somersaulting)
  55758 DEFB 0                       ; Sprite tile reference for unused
-                                    ; animatory state 78
+                                    ; animatory state #N78
  55759 DEFB 255                     ; Sprite tile reference for animatory state
-                                    ; 79
+                                    ; #N79
  55760 DEFB 0                       ; Graphic data for sprite tile 208 (used
                                     ; for Sam's disguises)
  55761 DEFB 156,149,156,161         ; Sprite tile references for animatory
-                                    ; states 80-84
+                                    ; states #N80-#N84
  55765 DEFB 12,196                  ; Graphic data for sprite tiles 213-214
                                     ; (used for Sam's disguises)
  55767 DEFB 255                     ; Sprite tile reference for animatory state
-                                    ; 87
+                                    ; #N87
  55768 DEFB 196                     ; Graphic data for sprite tile 216 (used
                                     ; for Sam's disguises)
  55769 DEFB 166,163,166,169         ; Sprite tile references for animatory
-                                    ; states 88-92
+                                    ; states #N88-#N92
  55773 DEFB 3,224                   ; Graphic data for sprite tiles 221-222
                                     ; (used for Sam's disguises)
  55775 DEFB 255                     ; Sprite tile reference for animatory state
-                                    ; 95
+                                    ; #N95
  55776 DEFB 32                      ; Graphic data for sprite tile 224 (used
                                     ; for Sam's disguises)
  55777 DEFB 82,27,82,135            ; Sprite tile references for animatory
-                                    ; states 96-100
+                                    ; states #N96-#N100
  55781 DEFB 204,64                  ; Graphic data for sprite tiles 229-230
                                     ; (used for Sam's disguises)
  55783 DEFB 255                     ; Sprite tile reference for animatory state
-                                    ; 103
+                                    ; #N103
  55784 DEFB 2                       ; Graphic data for sprite tile 232 (used
                                     ; for Sam's disguises)
  55785 DEFB 177,171,177,184         ; Sprite tile references for animatory
-                                    ; states 104-108
+                                    ; states #N104-#N108
  55789 DEFB 66,62                   ; Graphic data for sprite tiles 237-238
                                     ; (used for Sam's disguises)
  55791 DEFB 255                     ; Sprite tile reference for animatory state
-                                    ; 111
+                                    ; #N111
  55792 DEFB 160                     ; Graphic data for sprite tile 240 (used
                                     ; for Sam's disguises)
  55793 DEFB 198,192,198,205,0,0,255 ; Sprite tile references for animatory
-                                    ; states 112-119
+                                    ; states #N112-#N119
  55800 DEFB 0                       ; Unused
  55801 DEFB 0                       ; Sprite tile reference for animatory state
                                     ; 121
  55802 DEFB 0,0,0,0,0,0             ; Sprite tile references for unused
-                                    ; animatory states 120 and 122-127
+                                    ; animatory states #N120 and #N122-#N127
 
 ; Character buffers for character group 218
 ;
@@ -16646,136 +16657,136 @@ b55808 DEFS 25 ; Primary character buffer, used by the routine at #R61948
 ; bottom 3 rows of the screen by the #R56576@start(startup routine).
 u55933 DEFB 0
 
-; Sprite tile references (tile 3, animatory states 0-127) and graphic data
+; Sprite tile references (tile 3, animatory states #N0-#N127) and graphic data
 ; (mask byte 2/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b55934 DEFB 254,160,242               ; Graphic data for sprite tiles 126-128
                                       ; (used for Sam's disguises)
  55937 DEFB 20,8,20,8,20,18,0         ; Sprite tile references for animatory
-                                      ; states 0-7
+                                      ; states #N0-#N7
  55944 DEFB 175                       ; Graphic data for sprite tile 136 (used
                                       ; for Sam's disguises)
  55945 DEFB 241,245                   ; Sprite tile references for animatory
-                                      ; states 8-10
+                                      ; states #N8-#N10
  55947 DEFB 0                         ; Sprite tile reference for unused
-                                      ; animatory state 11
+                                      ; animatory state #N11
  55948 DEFB 127,196,39                ; Graphic data for sprite tiles 140-142
                                       ; (used for Sam's disguises)
  55951 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 15
+                                      ; state #N15
  55952 DEFB 234                       ; Graphic data for sprite tile 144 (used
                                       ; for Sam's disguises)
  55953 DEFB 70,8,74,8                 ; Sprite tile references for animatory
-                                      ; states 16-20
+                                      ; states #N16-#N20
  55957 DEFB 255,252                   ; Graphic data for sprite tiles 149-150
                                       ; (used for Sam's disguises)
  55959 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 23
+                                      ; state #N23
  55960 DEFB 208                       ; Graphic data for sprite tile 152 (used
                                       ; for Sam's disguises)
  55961 DEFB 70,8,74                   ; Sprite tile references for animatory
-                                      ; states 24-27
+                                      ; states #N24-#N27
  55964 DEFB 8                         ; Sprite tile reference for unused
-                                      ; animatory state 28
+                                      ; animatory state #N28
  55965 DEFB 221,66                    ; Graphic data for sprite tiles 157-158
                                       ; (used for Sam's disguises)
  55967 DEFB 246                       ; Sprite tile reference for animatory
-                                      ; state 31
+                                      ; state #N31
  55968 DEFB 255                       ; Graphic data for sprite tile 160 (used
                                       ; for Sam's disguises)
  55969 DEFB 118,112,120,112           ; Sprite tile references for animatory
-                                      ; states 32-36
+                                      ; states #N32-#N36
  55973 DEFB 252,240                   ; Graphic data for sprite tiles 165-166
                                       ; (used for Sam's disguises)
  55975 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 39
+                                      ; state #N39
  55976 DEFB 254                       ; Graphic data for sprite tile 168 (used
                                       ; for Sam's disguises)
  55977 DEFB 118,112,120,112           ; Sprite tile references for animatory
-                                      ; states 40-44
+                                      ; states #N40-#N44
  55981 DEFB 253,223,239,254           ; Graphic data for sprite tiles 173-176
                                       ; (used for Sam's disguises)
 @bfix=DEFB 36,11,36,0
  55985 DEFB 36,11,36,11               ; Sprite tile references for animatory
-                                      ; states 48-52
+                                      ; states #N48-#N52
  55989 DEFB 238                       ; Graphic data for sprite tile 181 (used
                                       ; by Sam when he's rolling or
                                       ; somersaulting)
  55990 DEFB 0,0                       ; Sprite tile references for animatory
-                                      ; states 54-55
+                                      ; states #N54-#N55
  55992 DEFB 239                       ; Graphic data for sprite tile 184 (used
                                       ; for Sam's disguises)
  55993 DEFB 52,44,56,44               ; Sprite tile references for animatory
-                                      ; states 56-60
+                                      ; states #N56-#N60
  55997 DEFB 92                        ; Graphic data for sprite tile 189 (used
                                       ; by Sam when he's rolling or
                                       ; somersaulting)
  55998 DEFB 0,0                       ; Sprite tile references for animatory
-                                      ; states 62-63
+                                      ; states #N62-#N63
  56000 DEFB 239                       ; Graphic data for sprite tile 192 (used
                                       ; for Sam's disguises)
  56001 DEFB 101,96,105,96             ; Sprite tile references for unused
-                                      ; animatory states 64-68
+                                      ; animatory states #N64-#N68
  56005 DEFB 1                         ; Graphic data for sprite tile 197 (used
                                       ; by Sam when he's rolling or
                                       ; somersaulting)
  56006 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 70
+                                      ; state #N70
  56007 DEFB 0                         ; Sprite tile reference for unused
-                                      ; animatory state 71
+                                      ; animatory state #N71
  56008 DEFB 170                       ; Graphic data for sprite tile 200 (used
                                       ; for Sam's disguises)
  56009 DEFB 84,11,87,11               ; Sprite tile references for animatory
-                                      ; states 72-76
+                                      ; states #N72-#N76
  56013 DEFB 211                       ; Graphic data for sprite tile 205 (used
                                       ; by Sam when he's rolling or
                                       ; somersaulting)
  56014 DEFB 0                         ; Sprite tile reference for unused
-                                      ; animatory state 78
+                                      ; animatory state #N78
  56015 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 79
+                                      ; state #N79
  56016 DEFB 255                       ; Graphic data for sprite tile 208 (used
                                       ; for Sam's disguises)
  56017 DEFB 158,152,158,152           ; Sprite tile references for animatory
-                                      ; states 80-84
+                                      ; states #N80-#N84
  56021 DEFB 236,197                   ; Graphic data for sprite tiles 213-214
                                       ; (used for Sam's disguises)
  56023 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 87
+                                      ; state #N87
  56024 DEFB 196                       ; Graphic data for sprite tile 216 (used
                                       ; for Sam's disguises)
  56025 DEFB 167,8,167,8               ; Sprite tile references for animatory
-                                      ; states 88-92
+                                      ; states #N88-#N92
  56029 DEFB 243,239                   ; Graphic data for sprite tiles 221-222
                                       ; (used for Sam's disguises)
  56031 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 95
+                                      ; state #N95
  56032 DEFB 47                        ; Graphic data for sprite tile 224 (used
                                       ; for Sam's disguises)
  56033 DEFB 143,11,145,11             ; Sprite tile references for animatory
-                                      ; states 96-100
+                                      ; states #N96-#N100
  56037 DEFB 204,95                    ; Graphic data for sprite tiles 229-230
                                       ; (used for Sam's disguises)
  56039 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 103
+                                      ; state #N103
  56040 DEFB 250                       ; Graphic data for sprite tile 232 (used
                                       ; for Sam's disguises)
  56041 DEFB 179,173,181,173           ; Sprite tile references for animatory
-                                      ; states 104-108
+                                      ; states #N104-#N108
  56045 DEFB 66,62                     ; Graphic data for sprite tiles 237-238
                                       ; (used for Sam's disguises)
  56047 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 111
+                                      ; state #N111
  56048 DEFB 175                       ; Graphic data for sprite tile 240 (used
                                       ; for Sam's disguises)
  56049 DEFB 200,194,202,194,211,206,0 ; Sprite tile references for animatory
-                                      ; states 112-119
+                                      ; states #N112-#N119
  56056 DEFB 0                         ; Unused
  56057 DEFB 233                       ; Sprite tile reference for animatory
-                                      ; state 121
+                                      ; state #N121
  56058 DEFB 0,0,0,0,0,0               ; Sprite tile references for unused
-                                      ; animatory states 120 and 122-127
+                                      ; animatory states #N120 and #N122-127
 
 ; Character buffers for character group 219
 ;
@@ -16803,131 +16814,131 @@ b56064 DEFS 25 ; Primary character buffer, used by the routine at #R61948
 ; Unused
 s56189 DEFB 0
 
-; Sprite tile references (tile 4, animatory states 0-119) and graphic data
+; Sprite tile references (tile 4, animatory states #N0-#N119) and graphic data
 ; (UDG byte 3/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b56190 DEFB 1,18,13                 ; Graphic data for sprite tiles 126-128
                                     ; (used for Sam's disguises)
  56193 DEFB 22,11,24,11,227,229,250 ; Sprite tile references for animatory
-                                    ; states 0-7
+                                    ; states #N0-#N7
  56200 DEFB 80                      ; Graphic data for sprite tile 136 (used
                                     ; for Sam's disguises)
  56201 DEFB 0,246                   ; Sprite tile references for animatory
-                                    ; states 8-10
+                                    ; states #N8-#N10
  56203 DEFB 0                       ; Sprite tile reference for unused
-                                    ; animatory state 11
+                                    ; animatory state #N11
  56204 DEFB 128,63,248              ; Graphic data for sprite tiles 140-142
                                     ; (used for Sam's disguises)
  56207 DEFB 242                     ; Sprite tile reference for animatory state
-                                    ; 15
+                                    ; #N15
  56208 DEFB 17                      ; Graphic data for sprite tile 144 (used
                                     ; for Sam's disguises)
  56209 DEFB 72,46,75,46             ; Sprite tile references for animatory
-                                    ; states 16-20
+                                    ; states #N16-#N20
  56213 DEFB 0,3                     ; Graphic data for sprite tiles 149-150
                                     ; (used for Sam's disguises)
  56215 DEFB 250                     ; Sprite tile reference for animatory state
-                                    ; 23
+                                    ; #N23
  56216 DEFB 15                      ; Graphic data for sprite tile 152 (used
                                     ; for Sam's disguises)
  56217 DEFB 72,46,75                ; Sprite tile references for animatory
-                                    ; states 24-27
+                                    ; states #N24-#N27
  56220 DEFB 46                      ; Sprite tile reference for unused
-                                    ; animatory state 28
+                                    ; animatory state #N28
  56221 DEFB 62,255                  ; Graphic data for sprite tiles 157-158
                                     ; (used for Sam's disguises)
  56223 DEFB 247                     ; Sprite tile reference for animatory state
-                                    ; 31
+                                    ; #N31
  56224 DEFB 0                       ; Graphic data for sprite tile 160 (used
                                     ; for Sam's disguises)
  56225 DEFB 103,0,107,0             ; Sprite tile references for animatory
-                                    ; states 32-36
+                                    ; states #N32-#N36
  56229 DEFB 3,242                   ; Graphic data for sprite tiles 165-166
                                     ; (used for Sam's disguises)
  56231 DEFB 250                     ; Sprite tile reference for animatory state
-                                    ; 39
+                                    ; #N39
  56232 DEFB 0                       ; Graphic data for sprite tile 168 (used
                                     ; for Sam's disguises)
  56233 DEFB 103,0,107,0             ; Sprite tile references for animatory
-                                    ; states 40-44
+                                    ; states #N40-#N44
  56237 DEFB 3,224,31,127            ; Graphic data for sprite tiles 173-176
                                     ; (used for Sam's disguises)
  56241 DEFB 38,0,38,0               ; Sprite tile references for animatory
-                                    ; states 48-52
+                                    ; states #N48-#N52
  56245 DEFB 29                      ; Graphic data for sprite tile 181 (used by
                                     ; Sam when he's rolling or somersaulting)
  56246 DEFB 0,250                   ; Sprite tile references for animatory
-                                    ; states 54-55
+                                    ; states #N54-#N55
  56248 DEFB 7                       ; Graphic data for sprite tile 184 (used
                                     ; for Sam's disguises)
  56249 DEFB 54,46,58,46             ; Sprite tile references for animatory
-                                    ; states 56-60
+                                    ; states #N56-#N60
  56253 DEFB 92                      ; Graphic data for sprite tile 189 (used by
                                     ; Sam when he's rolling or somersaulting)
  56254 DEFB 0,250                   ; Sprite tile references for animatory
-                                    ; states 62-63
+                                    ; states #N62-#N63
  56256 DEFB 240                     ; Graphic data for sprite tile 192 (used
                                     ; for Sam's disguises)
  56257 DEFB 103,0,107,0             ; Sprite tile references for unused
-                                    ; animatory states 64-68
+                                    ; animatory states #N64-#N68
  56261 DEFB 1                       ; Graphic data for sprite tile 197 (used by
                                     ; Sam when he's rolling or somersaulting)
  56262 DEFB 0                       ; Sprite tile reference for animatory state
-                                    ; 70
+                                    ; #N70
  56263 DEFB 250                     ; Sprite tile reference for unused
-                                    ; animatory state 71
+                                    ; animatory state #N71
  56264 DEFB 69                      ; Graphic data for sprite tile 200 (used
                                     ; for Sam's disguises)
  56265 DEFB 38,0,89,0               ; Sprite tile references for animatory
-                                    ; states 72-76
+                                    ; states #N72-#N76
  56269 DEFB 16                      ; Graphic data for sprite tile 205 (used by
                                     ; Sam when he's rolling or somersaulting)
  56270 DEFB 0                       ; Sprite tile reference for unused
-                                    ; animatory state 78
+                                    ; animatory state #N78
  56271 DEFB 250                     ; Sprite tile reference for animatory state
-                                    ; 79
+                                    ; #N79
  56272 DEFB 0                       ; Graphic data for sprite tile 208 (used
                                     ; for Sam's disguises)
  56273 DEFB 38,0,89,0               ; Sprite tile references for animatory
-                                    ; states 80-84
+                                    ; states #N80-#N84
  56277 DEFB 12,228                  ; Graphic data for sprite tiles 213-214
                                     ; (used for Sam's disguises)
  56279 DEFB 250                     ; Sprite tile reference for animatory state
-                                    ; 87
+                                    ; #N87
  56280 DEFB 196                     ; Graphic data for sprite tile 216 (used
                                     ; for Sam's disguises)
  56281 DEFB 38,0,89,0               ; Sprite tile references for animatory
-                                    ; states 88-92
+                                    ; states #N88-#N92
  56285 DEFB 15,240                  ; Graphic data for sprite tiles 221-222
                                     ; (used for Sam's disguises)
  56287 DEFB 250                     ; Sprite tile reference for animatory state
-                                    ; 95
+                                    ; #N95
  56288 DEFB 64                      ; Graphic data for sprite tile 224 (used
                                     ; for Sam's disguises)
  56289 DEFB 38,0,89,0               ; Sprite tile references for animatory
-                                    ; states 96-100
+                                    ; states #N96-#N100
  56293 DEFB 206,64                  ; Graphic data for sprite tiles 229-230
                                     ; (used for Sam's disguises)
  56295 DEFB 250                     ; Sprite tile reference for animatory state
-                                    ; 103
+                                    ; #N103
  56296 DEFB 4                       ; Graphic data for sprite tile 232 (used
                                     ; for Sam's disguises)
  56297 DEFB 72,46,75,46             ; Sprite tile references for animatory
-                                    ; states 104-108
+                                    ; states #N104-#N108
  56301 DEFB 68,255                  ; Graphic data for sprite tiles 237-238
                                     ; (used for Sam's disguises)
  56303 DEFB 250                     ; Sprite tile reference for animatory state
-                                    ; 111
+                                    ; #N111
  56304 DEFB 80                      ; Graphic data for sprite tile 240 (used
                                     ; for Sam's disguises)
  56305 DEFB 72,46,75,46,212,208,250 ; Sprite tile references for animatory
-                                    ; states 112-119
+                                    ; states #N112-#N119
 
 ; Unused
 ;
 ; These bytes are unused, but they may once have held attribute bytes to be
-; used for animatory states #AS120(120-127/248-255) (see #R59635).
+; used for animatory states #AS120(#N120-#N127/#N248-#N255) (see #R59635).
 @label=OBJATTR
 s56312 DEFS 8
 
@@ -16956,130 +16967,130 @@ b56320 DEFS 25 ; Primary character buffer, used by the routine at #R61948
 ; Unused
 s56445 DEFB 0
 
-; Sprite tile references (tile 5, animatory states 0-119) and graphic data
+; Sprite tile references (tile 5, animatory states #N0-#N119) and graphic data
 ; (mask byte 3/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b56446 DEFB 253,18,237                ; Graphic data for sprite tiles 126-128
                                       ; (used for Sam's disguises)
  56449 DEFB 176,170,176,170,176,0,254 ; Sprite tile references for animatory
-                                      ; states 0-7
+                                      ; states #N0-#N7
  56456 DEFB 87                        ; Graphic data for sprite tile 136 (used
                                       ; for Sam's disguises)
  56457 DEFB 0,0                       ; Sprite tile references for animatory
-                                      ; states 8-10
+                                      ; states #N8-#N10
  56459 DEFB 0                         ; Sprite tile reference for unused
-                                      ; animatory state 11
+                                      ; animatory state #N11
  56460 DEFB 191,191,251               ; Graphic data for sprite tiles 140-142
                                       ; (used for Sam's disguises)
  56463 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 15
+                                      ; state #N15
  56464 DEFB 209                       ; Graphic data for sprite tile 144 (used
                                       ; for Sam's disguises)
  56465 DEFB 0,0,0,0                   ; Sprite tile references for animatory
-                                      ; states 16-20
+                                      ; states #N16-#N20
  56469 DEFB 255,251                   ; Graphic data for sprite tiles 149-150
                                       ; (used for Sam's disguises)
  56471 DEFB 254                       ; Sprite tile reference for animatory
-                                      ; state 23
+                                      ; state #N23
  56472 DEFB 239                       ; Graphic data for sprite tile 152 (used
                                       ; for Sam's disguises)
  56473 DEFB 0,0,0                     ; Sprite tile references for animatory
-                                      ; states 24-27
+                                      ; states #N24-#N27
  56476 DEFB 0                         ; Sprite tile reference for unused
-                                      ; animatory state 28
+                                      ; animatory state #N28
  56477 DEFB 190,255                   ; Graphic data for sprite tiles 157-158
                                       ; (used for Sam's disguises)
  56479 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 31
+                                      ; state #N31
  56480 DEFB 255                       ; Graphic data for sprite tile 160 (used
                                       ; for Sam's disguises)
  56481 DEFB 0,0,0,0                   ; Sprite tile references for animatory
-                                      ; states 32-36
+                                      ; states #N32-#N36
  56485 DEFB 155,242                   ; Graphic data for sprite tiles 165-166
                                       ; (used for Sam's disguises)
  56487 DEFB 254                       ; Sprite tile reference for animatory
-                                      ; state 39
+                                      ; state #N39
  56488 DEFB 255                       ; Graphic data for sprite tile 168 (used
                                       ; for Sam's disguises)
  56489 DEFB 0,0,0,0                   ; Sprite tile references for animatory
-                                      ; states 40-44
+                                      ; states #N40-#N44
  56493 DEFB 251,239,223,127           ; Graphic data for sprite tiles 173-176
                                       ; (used for Sam's disguises)
  56497 DEFB 0,0,0,0                   ; Sprite tile references for animatory
-                                      ; states 48-52
+                                      ; states #N48-#N52
  56501 DEFB 221                       ; Graphic data for sprite tile 181 (used
                                       ; by Sam when he's rolling or
                                       ; somersaulting)
  56502 DEFB 0,254                     ; Sprite tile references for animatory
-                                      ; states 54-55
+                                      ; states #N54-#N55
  56504 DEFB 247                       ; Graphic data for sprite tile 184 (used
                                       ; for Sam's disguises)
  56505 DEFB 0,0,0,0                   ; Sprite tile references for animatory
-                                      ; states 56-60
+                                      ; states #N56-#N60
  56509 DEFB 92                        ; Graphic data for sprite tile 189 (used
                                       ; by Sam when he's rolling or
                                       ; somersaulting)
  56510 DEFB 0,254                     ; Sprite tile references for animatory
-                                      ; states 62-63
+                                      ; states #N62-#N63
  56512 DEFB 247                       ; Graphic data for sprite tile 192 (used
                                       ; for Sam's disguises)
  56513 DEFB 15,1,15,1                 ; Sprite tile references for unused
-                                      ; animatory states 64-68
+                                      ; animatory states #N64-#N68
  56517 DEFB 1                         ; Graphic data for sprite tile 197 (used
                                       ; by Sam when he's rolling or
                                       ; somersaulting)
  56518 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 70
+                                      ; state #N70
  56519 DEFB 254                       ; Sprite tile reference for unused
-                                      ; animatory state 71
+                                      ; animatory state #N71
  56520 DEFB 69                        ; Graphic data for sprite tile 200 (used
                                       ; for Sam's disguises)
  56521 DEFB 0,0,0,0                   ; Sprite tile references for animatory
-                                      ; states 72-76
+                                      ; states #N72-#N76
  56525 DEFB 209                       ; Graphic data for sprite tile 205 (used
                                       ; by Sam when he's rolling or
                                       ; somersaulting)
  56526 DEFB 0                         ; Sprite tile reference for unused
-                                      ; animatory state 78
+                                      ; animatory state #N78
  56527 DEFB 254                       ; Sprite tile reference for animatory
-                                      ; state 79
+                                      ; state #N79
  56528 DEFB 127                       ; Graphic data for sprite tile 208 (used
                                       ; for Sam's disguises)
  56529 DEFB 15,1,15,1                 ; Sprite tile references for animatory
-                                      ; states 80-84
+                                      ; states #N80-#N84
  56533 DEFB 236,228                   ; Graphic data for sprite tiles 213-214
                                       ; (used for Sam's disguises)
  56535 DEFB 254                       ; Sprite tile reference for animatory
-                                      ; state 87
+                                      ; state #N87
  56536 DEFB 196                       ; Graphic data for sprite tile 216 (used
                                       ; for Sam's disguises)
  56537 DEFB 0,0,0,0                   ; Sprite tile references for animatory
-                                      ; states 88-92
+                                      ; states #N88-#N92
  56541 DEFB 239,247                   ; Graphic data for sprite tiles 221-222
                                       ; (used for Sam's disguises)
  56543 DEFB 254                       ; Sprite tile reference for animatory
-                                      ; state 95
+                                      ; state #N95
  56544 DEFB 95                        ; Graphic data for sprite tile 224 (used
                                       ; for Sam's disguises)
  56545 DEFB 0,0,0,0                   ; Sprite tile references for animatory
-                                      ; states 96-100
+                                      ; states #N96-#N100
  56549 DEFB 206,79                    ; Graphic data for sprite tiles 229-230
                                       ; (used for Sam's disguises)
  56551 DEFB 254                       ; Sprite tile reference for animatory
-                                      ; state 103
+                                      ; state #N103
  56552 DEFB 244                       ; Graphic data for sprite tile 232 (used
                                       ; for Sam's disguises)
  56553 DEFB 0,0,0,0                   ; Sprite tile references for animatory
-                                      ; states 104-108
+                                      ; states #N104-#N108
  56557 DEFB 69,255                    ; Graphic data for sprite tiles 237-238
                                       ; (used for Sam's disguises)
  56559 DEFB 254                       ; Sprite tile reference for animatory
-                                      ; state 111
+                                      ; state #N111
  56560 DEFB 87                        ; Graphic data for sprite tile 240 (used
                                       ; for Sam's disguises)
  56561 DEFB 0,0,0,0,0,0,254           ; Sprite tile references for animatory
-                                      ; states 112-119
+                                      ; states #N112-#N119
 @bfix-begin
 ; Unused
 s56568 DEFS 8
@@ -17123,126 +17134,126 @@ b56576 DEFS 25 ; Primary character buffer, used by the routine at #R61948
 ; Unused
 s56701 DEFB 0
 
-; Sprite tile references (tile 6, animatory states 0-119) and graphic data
+; Sprite tile references (tile 6, animatory states #N0-#N119) and graphic data
 ; (UDG byte 4/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b56702 DEFB 1,82,7                ; Graphic data for sprite tiles 126-128 (used
                                   ; for Sam's disguises)
  56705 DEFB 17,3,17,3,17,176,0    ; Sprite tile references for animatory states
-                                  ; 0-7
+                                  ; #N0-#N7
  56712 DEFB 224                   ; Graphic data for sprite tile 136 (used for
                                   ; Sam's disguises)
  56713 DEFB 247,242               ; Sprite tile references for animatory states
-                                  ; 8-10
+                                  ; #N8-#N10
  56715 DEFB 0                     ; Sprite tile reference for unused animatory
-                                  ; state 11
+                                  ; state #N11
  56716 DEFB 0,7,224               ; Graphic data for sprite tiles 140-142 (used
                                   ; for Sam's disguises)
  56719 DEFB 241                   ; Sprite tile reference for animatory state
-                                  ; 15
+                                  ; #N15
  56720 DEFB 21                    ; Graphic data for sprite tile 144 (used for
                                   ; Sam's disguises)
  56721 DEFB 67,61,67,61           ; Sprite tile references for animatory states
-                                  ; 16-20
+                                  ; #N16-#N20
  56725 DEFB 0,0                   ; Graphic data for sprite tiles 149-150 (used
                                   ; for Sam's disguises)
  56727 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 23
+                                  ; #N23
  56728 DEFB 7                     ; Graphic data for sprite tile 152 (used for
                                   ; Sam's disguises)
  56729 DEFB 67,61,67              ; Sprite tile references for animatory states
-                                  ; 24-27
+                                  ; #N24-#N27
  56732 DEFB 61                    ; Sprite tile reference for unused animatory
-                                  ; state 28
+                                  ; state #N28
  56733 DEFB 66,126                ; Graphic data for sprite tiles 157-158 (used
                                   ; for Sam's disguises)
  56735 DEFB 245                   ; Sprite tile reference for animatory state
-                                  ; 31
+                                  ; #N31
  56736 DEFB 0                     ; Graphic data for sprite tile 160 (used for
                                   ; Sam's disguises)
  56737 DEFB 115,110,115,110       ; Sprite tile references for animatory states
-                                  ; 32-36
+                                  ; #N32-#N36
  56741 DEFB 96,226                ; Graphic data for sprite tiles 165-166 (used
                                   ; for Sam's disguises)
  56743 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 39
+                                  ; #N39
  56744 DEFB 0                     ; Graphic data for sprite tile 168 (used for
                                   ; Sam's disguises)
  56745 DEFB 115,110,115,110       ; Sprite tile references for animatory states
-                                  ; 40-44
+                                  ; #N40-#N44
  56749 DEFB 4,32,30,226           ; Graphic data for sprite tiles 173-176 (used
                                   ; for Sam's disguises)
  56753 DEFB 33,26,33,26           ; Sprite tile references for animatory states
-                                  ; 48-52
+                                  ; #N48-#N52
  56757 DEFB 20                    ; Graphic data for sprite tile 181 (used by
                                   ; Sam when he's rolling or somersaulting)
  56758 DEFB 0,0                   ; Sprite tile references for animatory states
-                                  ; 54-55
+                                  ; #N54-#N55
  56760 DEFB 14                    ; Graphic data for sprite tile 184 (used for
                                   ; Sam's disguises)
  56761 DEFB 49,41,49,41           ; Sprite tile references for animatory states
-                                  ; 56-60
+                                  ; #N56-#N60
  56765 DEFB 84                    ; Graphic data for sprite tile 189 (used by
                                   ; Sam when he's rolling or somersaulting)
  56766 DEFB 0,0                   ; Sprite tile references for animatory states
-                                  ; 62-63
+                                  ; #N62-#N63
  56768 DEFB 32                    ; Graphic data for sprite tile 192 (used for
                                   ; Sam's disguises)
  56769 DEFB 93,91,93,91           ; Sprite tile references for unused animatory
-                                  ; states 64-68
+                                  ; states #N64-#N68
  56773 DEFB 1                     ; Graphic data for sprite tile 197 (used by
                                   ; Sam when he's rolling or somersaulting)
  56774 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 70
+                                  ; #N70
  56775 DEFB 0                     ; Sprite tile reference for unused animatory
-                                  ; state 71
+                                  ; state #N71
  56776 DEFB 68                    ; Graphic data for sprite tile 200 (used for
                                   ; Sam's disguises)
  56777 DEFB 81,77,81,77           ; Sprite tile references for animatory states
-                                  ; 72-76
+                                  ; #N72-#N76
  56781 DEFB 163                   ; Graphic data for sprite tile 205 (used by
                                   ; Sam when he's rolling or somersaulting)
  56782 DEFB 0                     ; Sprite tile reference for unused animatory
-                                  ; state 78
+                                  ; state #N78
  56783 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 79
+                                  ; #N79
  56784 DEFB 128                   ; Graphic data for sprite tile 208 (used for
                                   ; Sam's disguises)
  56785 DEFB 155,148,155,148       ; Sprite tile references for animatory states
-                                  ; 80-84
+                                  ; #N80-#N84
  56789 DEFB 8,231                 ; Graphic data for sprite tiles 213-214 (used
                                   ; for Sam's disguises)
  56791 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 87
+                                  ; #N87
  56792 DEFB 131                   ; Graphic data for sprite tile 216 (used for
                                   ; Sam's disguises)
  56793 DEFB 165,162,165,162       ; Sprite tile references for animatory states
-                                  ; 88-92
+                                  ; #N88-#N92
  56797 DEFB 7,224                 ; Graphic data for sprite tiles 221-222 (used
                                   ; for Sam's disguises)
  56799 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 95
+                                  ; #N95
  56800 DEFB 192                   ; Graphic data for sprite tile 224 (used for
                                   ; Sam's disguises)
  56801 DEFB 141,139,141,139       ; Sprite tile references for animatory states
-                                  ; 96-100
+                                  ; #N96-#N100
  56805 DEFB 142,112               ; Graphic data for sprite tiles 229-230 (used
                                   ; for Sam's disguises)
  56807 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 103
+                                  ; #N103
  56808 DEFB 4                     ; Graphic data for sprite tile 232 (used for
                                   ; Sam's disguises)
  56809 DEFB 188,186,188,186       ; Sprite tile references for animatory states
-                                  ; 104-108
+                                  ; #N104-#N108
  56813 DEFB 60,126                ; Graphic data for sprite tiles 237-238 (used
                                   ; for Sam's disguises)
  56815 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 111
+                                  ; #N111
  56816 DEFB 72                    ; Graphic data for sprite tile 240 (used for
                                   ; Sam's disguises)
  56817 DEFB 197,190,197,190,0,0,0 ; Sprite tile references for animatory states
-                                  ; 112-119
+                                  ; #N112-#N119
 
 ; Unused
 s56824 DEFS 8
@@ -17304,126 +17315,126 @@ b56894 DEFB 2,3,4,170,183,6,7,175,176,16,17,18,19,122,123
 ; Unused
 s56910 DEFS 48
 
-; Sprite tile references (tile 7, animatory states 0-119) and graphic data
+; Sprite tile references (tile 7, animatory states #N0-#N119) and graphic data
 ; (mask byte 4/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b56958 DEFB 253,82,247              ; Graphic data for sprite tiles 126-128
                                     ; (used for Sam's disguises)
  56961 DEFB 19,6,19,6,19,17,249     ; Sprite tile references for animatory
-                                    ; states 0-7
+                                    ; states #N0-#N7
  56968 DEFB 239                     ; Graphic data for sprite tile 136 (used
                                     ; for Sam's disguises)
  56969 DEFB 243,240                 ; Sprite tile references for animatory
-                                    ; states 8-10
+                                    ; states #N8-#N10
  56971 DEFB 0                       ; Sprite tile reference for unused
-                                    ; animatory state 11
+                                    ; animatory state #N11
  56972 DEFB 127,199,231             ; Graphic data for sprite tiles 140-142
                                     ; (used for Sam's disguises)
  56975 DEFB 240                     ; Sprite tile reference for animatory state
-                                    ; 15
+                                    ; #N15
  56976 DEFB 213                     ; Graphic data for sprite tile 144 (used
                                     ; for Sam's disguises)
  56977 DEFB 69,63,69,63             ; Sprite tile references for animatory
-                                    ; states 16-20
+                                    ; states #N16-#N20
  56981 DEFB 255,252                 ; Graphic data for sprite tiles 149-150
                                     ; (used for Sam's disguises)
  56983 DEFB 249                     ; Sprite tile reference for animatory state
-                                    ; 23
+                                    ; #N23
  56984 DEFB 247                     ; Graphic data for sprite tile 152 (used
                                     ; for Sam's disguises)
  56985 DEFB 69,63,69                ; Sprite tile references for animatory
-                                    ; states 24-27
+                                    ; states #N24-#N27
  56988 DEFB 63                      ; Sprite tile reference for unused
-                                    ; animatory state 28
+                                    ; animatory state #N28
  56989 DEFB 66,126                  ; Graphic data for sprite tiles 157-158
                                     ; (used for Sam's disguises)
  56991 DEFB 243                     ; Sprite tile reference for animatory state
-                                    ; 31
+                                    ; #N31
  56992 DEFB 255                     ; Graphic data for sprite tile 160 (used
                                     ; for Sam's disguises)
  56993 DEFB 117,111,117,111         ; Sprite tile references for animatory
-                                    ; states 32-36
+                                    ; states #N32-#N36
  56997 DEFB 108,226                 ; Graphic data for sprite tiles 165-166
                                     ; (used for Sam's disguises)
  56999 DEFB 249                     ; Sprite tile reference for animatory state
-                                    ; 39
+                                    ; #N39
  57000 DEFB 254                     ; Graphic data for sprite tile 168 (used
                                     ; for Sam's disguises)
  57001 DEFB 117,111,117,111         ; Sprite tile references for animatory
-                                    ; states 40-44
+                                    ; states #N40-#N44
  57005 DEFB 244,47,222,226          ; Graphic data for sprite tiles 173-176
                                     ; (used for Sam's disguises)
  57009 DEFB 35,28,35,128            ; Sprite tile references for animatory
-                                    ; states 48-52
+                                    ; states #N48-#N52
  57013 DEFB 212                     ; Graphic data for sprite tile 181 (used by
                                     ; Sam when he's rolling or somersaulting)
  57014 DEFB 0,249                   ; Sprite tile references for animatory
-                                    ; states 54-55
+                                    ; states #N54-#N55
  57016 DEFB 238                     ; Graphic data for sprite tile 184 (used
                                     ; for Sam's disguises)
  57017 DEFB 51,43,51,133            ; Sprite tile references for animatory
-                                    ; states 56-60
+                                    ; states #N56-#N60
  57021 DEFB 84                      ; Graphic data for sprite tile 189 (used by
                                     ; Sam when he's rolling or somersaulting)
  57022 DEFB 0,249                   ; Sprite tile references for animatory
-                                    ; states 62-63
+                                    ; states #N62-#N63
  57024 DEFB 47                      ; Graphic data for sprite tile 192 (used
                                     ; for Sam's disguises)
  57025 DEFB 100,95,100,95           ; Sprite tile references for unused
-                                    ; animatory states 64-68
+                                    ; animatory states #N64-#N68
  57029 DEFB 1                       ; Graphic data for sprite tile 197 (used by
                                     ; Sam when he's rolling or somersaulting)
  57030 DEFB 0                       ; Sprite tile reference for animatory state
-                                    ; 70
+                                    ; #N70
  57031 DEFB 249                     ; Sprite tile reference for unused
-                                    ; animatory state 71
+                                    ; animatory state #N71
  57032 DEFB 68                      ; Graphic data for sprite tile 200 (used
                                     ; for Sam's disguises)
  57033 DEFB 83,78,83,136            ; Sprite tile references for animatory
-                                    ; states 72-76
+                                    ; states #N72-#N76
  57037 DEFB 163                     ; Graphic data for sprite tile 205 (used by
                                     ; Sam when he's rolling or somersaulting)
  57038 DEFB 0                       ; Sprite tile reference for unused
-                                    ; animatory state 78
+                                    ; animatory state #N78
  57039 DEFB 249                     ; Sprite tile reference for animatory state
-                                    ; 79
+                                    ; #N79
  57040 DEFB 191                     ; Graphic data for sprite tile 208 (used
                                     ; for Sam's disguises)
  57041 DEFB 157,150,157,150         ; Sprite tile references for animatory
-                                    ; states 80-84
+                                    ; states #N80-#N84
  57045 DEFB 232,231                 ; Graphic data for sprite tiles 213-214
                                     ; (used for Sam's disguises)
  57047 DEFB 249                     ; Sprite tile reference for animatory state
-                                    ; 87
+                                    ; #N87
  57048 DEFB 131                     ; Graphic data for sprite tile 216 (used
                                     ; for Sam's disguises)
  57049 DEFB 157,150,157,150         ; Sprite tile references for animatory
-                                    ; states 88-92
+                                    ; states #N88-#N92
  57053 DEFB 247,239                 ; Graphic data for sprite tiles 221-222
                                     ; (used for Sam's disguises)
  57055 DEFB 249                     ; Sprite tile reference for animatory state
-                                    ; 95
+                                    ; #N95
  57056 DEFB 223                     ; Graphic data for sprite tile 224 (used
                                     ; for Sam's disguises)
  57057 DEFB 83,78,83,136            ; Sprite tile references for animatory
-                                    ; states 96-100
+                                    ; states #N96-#N100
  57061 DEFB 142,127                 ; Graphic data for sprite tiles 229-230
                                     ; (used for Sam's disguises)
  57063 DEFB 249                     ; Sprite tile reference for animatory state
-                                    ; 103
+                                    ; #N103
  57064 DEFB 244                     ; Graphic data for sprite tile 232 (used
                                     ; for Sam's disguises)
  57065 DEFB 178,172,178,172         ; Sprite tile references for animatory
-                                    ; states 104-108
+                                    ; states #N104-#N108
  57069 DEFB 61,126                  ; Graphic data for sprite tiles 237-238
                                     ; (used for Sam's disguises)
  57071 DEFB 249                     ; Sprite tile reference for animatory state
-                                    ; 111
+                                    ; #N111
  57072 DEFB 75                      ; Graphic data for sprite tile 240 (used
                                     ; for Sam's disguises)
  57073 DEFB 199,193,199,193,0,0,249 ; Sprite tile references for animatory
-                                    ; states 112-119
+                                    ; states #N112-#N119
 
 ; Unused
 s57080 DEFS 8
@@ -17488,130 +17499,130 @@ b57168 DEFB 0,255,60,189,0,255,0,255,0,254,192,192,128,191,0,255
  57184 DEFB 0,255,3,251,192,223,12,236,8,11,0,255,18,210,0,255
  57200 DEFB 0,255,0,255,0,255,8,248,16,31,129,129,60,189
 
-; Sprite tile references (tile 8, animatory states 0-119) and graphic data
+; Sprite tile references (tile 8, animatory states #N0-#N119) and graphic data
 ; (UDG byte 5/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b57214 DEFB 1,18,6                    ; Graphic data for sprite tiles 126-128
                                       ; (used for Sam's disguises)
  57217 DEFB 21,9,21,9,21,19,253       ; Sprite tile references for animatory
-                                      ; states 0-7
+                                      ; states #N0-#N7
  57224 DEFB 96                        ; Graphic data for sprite tile 136 (used
                                       ; for Sam's disguises)
  57225 DEFB 240,243                   ; Sprite tile references for animatory
-                                      ; states 8-10
+                                      ; states #N8-#N10
  57227 DEFB 0                         ; Sprite tile reference for unused
-                                      ; animatory state 11
+                                      ; animatory state #N11
  57228 DEFB 0,4,96                    ; Graphic data for sprite tiles 140-142
                                       ; (used for Sam's disguises)
  57231 DEFB 239                       ; Sprite tile reference for animatory
-                                      ; state 15
+                                      ; state #N15
  57232 DEFB 17                        ; Graphic data for sprite tile 144 (used
                                       ; for Sam's disguises)
  57233 DEFB 71,64,71,64               ; Sprite tile references for animatory
-                                      ; states 16-20
+                                      ; states #N16-#N20
  57237 DEFB 0,0                       ; Graphic data for sprite tiles 149-150
                                       ; (used for Sam's disguises)
  57239 DEFB 253                       ; Sprite tile reference for animatory
-                                      ; state 23
+                                      ; state #N23
  57240 DEFB 1                         ; Graphic data for sprite tile 152 (used
                                       ; for Sam's disguises)
  57241 DEFB 71,64,71                  ; Sprite tile references for animatory
-                                      ; states 24-27
+                                      ; states #N24-#N27
  57244 DEFB 64                        ; Sprite tile reference for unused
-                                      ; animatory state 28
+                                      ; animatory state #N28
  57245 DEFB 70,70                     ; Graphic data for sprite tiles 157-158
                                       ; (used for Sam's disguises)
  57247 DEFB 244                       ; Sprite tile reference for animatory
-                                      ; state 31
+                                      ; state #N31
  57248 DEFB 0                         ; Graphic data for sprite tile 160 (used
                                       ; for Sam's disguises)
  57249 DEFB 119,113,121,113           ; Sprite tile references for animatory
-                                      ; states 32-36
+                                      ; states #N32-#N36
  57253 DEFB 144,194                   ; Graphic data for sprite tiles 165-166
                                       ; (used for Sam's disguises)
  57255 DEFB 253                       ; Sprite tile reference for animatory
-                                      ; state 39
+                                      ; state #N39
  57256 DEFB 0                         ; Graphic data for sprite tile 168 (used
                                       ; for Sam's disguises)
  57257 DEFB 119,113,121,113           ; Sprite tile references for animatory
-                                      ; states 40-44
+                                      ; states #N40-#N44
  57261 DEFB 4,96,28,70                ; Graphic data for sprite tiles 173-176
                                       ; (used for Sam's disguises)
  57265 DEFB 37,30,37,131              ; Sprite tile references for animatory
-                                      ; states 48-52
+                                      ; states #N48-#N52
  57269 DEFB 52                        ; Graphic data for sprite tile 181 (used
                                       ; by Sam when he's rolling or
                                       ; somersaulting)
  57270 DEFB 0,253                     ; Sprite tile references for animatory
-                                      ; states 54-55
+                                      ; states #N54-#N55
  57272 DEFB 4                         ; Graphic data for sprite tile 184 (used
                                       ; for Sam's disguises)
  57273 DEFB 53,45,57,134              ; Sprite tile references for animatory
-                                      ; states 56-60
+                                      ; states #N56-#N60
  57277 DEFB 242                       ; Graphic data for sprite tile 189 (used
                                       ; by Sam when he's rolling or
                                       ; somersaulting)
  57278 DEFB 0,253                     ; Sprite tile references for animatory
-                                      ; states 62-63
+                                      ; states #N62-#N63
  57280 DEFB 96                        ; Graphic data for sprite tile 192 (used
                                       ; for Sam's disguises)
  57281 DEFB 102,97,106,97             ; Sprite tile references for unused
-                                      ; animatory states 64-68
+                                      ; animatory states #N64-#N68
  57285 DEFB 2                         ; Graphic data for sprite tile 197 (used
                                       ; by Sam when he's rolling or
                                       ; somersaulting)
  57286 DEFB 0                         ; Sprite tile reference for animatory
-                                      ; state 70
+                                      ; state #N70
  57287 DEFB 253                       ; Sprite tile reference for unused
-                                      ; animatory state 71
+                                      ; animatory state #N71
  57288 DEFB 72                        ; Graphic data for sprite tile 200 (used
                                       ; for Sam's disguises)
  57289 DEFB 85,79,88,79               ; Sprite tile references for animatory
-                                      ; states 72-76
+                                      ; states #N72-#N76
  57293 DEFB 66                        ; Graphic data for sprite tile 205 (used
                                       ; by Sam when he's rolling or
                                       ; somersaulting)
  57294 DEFB 0                         ; Sprite tile reference for unused
-                                      ; animatory state 78
+                                      ; animatory state #N78
  57295 DEFB 253                       ; Sprite tile reference for animatory
-                                      ; state 79
+                                      ; state #N79
  57296 DEFB 128                       ; Graphic data for sprite tile 208 (used
                                       ; for Sam's disguises)
  57297 DEFB 159,153,159,153           ; Sprite tile references for animatory
-                                      ; states 80-84
+                                      ; states #N80-#N84
  57301 DEFB 9,231                     ; Graphic data for sprite tiles 213-214
                                       ; (used for Sam's disguises)
  57303 DEFB 253                       ; Sprite tile reference for animatory
-                                      ; state 87
+                                      ; state #N87
  57304 DEFB 130                       ; Graphic data for sprite tile 216 (used
                                       ; for Sam's disguises)
  57305 DEFB 159,153,159,153           ; Sprite tile references for animatory
-                                      ; states 88-92
+                                      ; states #N88-#N92
  57309 DEFB 6,96                      ; Graphic data for sprite tiles 221-222
                                       ; (used for Sam's disguises)
  57311 DEFB 253                       ; Sprite tile reference for animatory
-                                      ; state 95
+                                      ; state #N95
  57312 DEFB 64                        ; Graphic data for sprite tile 224 (used
                                       ; for Sam's disguises)
  57313 DEFB 144,142,146,142           ; Sprite tile references for animatory
-                                      ; states 96-100
+                                      ; states #N96-#N100
  57317 DEFB 158,112                   ; Graphic data for sprite tiles 229-230
                                       ; (used for Sam's disguises)
  57319 DEFB 253                       ; Sprite tile reference for animatory
-                                      ; state 103
+                                      ; state #N103
  57320 DEFB 4                         ; Graphic data for sprite tile 232 (used
                                       ; for Sam's disguises)
  57321 DEFB 180,174,182,174           ; Sprite tile references for animatory
-                                      ; states 104-108
+                                      ; states #N104-#N108
  57325 DEFB 36,102                    ; Graphic data for sprite tiles 237-238
                                       ; (used for Sam's disguises)
  57327 DEFB 253                       ; Sprite tile reference for animatory
-                                      ; state 111
+                                      ; state #N111
  57328 DEFB 136                       ; Graphic data for sprite tile 240 (used
                                       ; for Sam's disguises)
  57329 DEFB 201,195,203,195,206,0,253 ; Sprite tile references for animatory
-                                      ; states 112-119
+                                      ; states #N112-#N119
 
 ; Unused
 s57336 DEFS 8
@@ -17683,126 +17694,126 @@ b57424 DEFB 0,255,34,34,0,255,0,255,0,254,192,192,64,95,0,255
  57440 DEFB 0,255,2,242,32,47,12,236,4,5,0,255,17,209,0,255
  57456 DEFB 0,255,0,255,0,255,4,244,32,47,66,66,42,42
 
-; Sprite tile references (tile 9, animatory states 0-119) and graphic data
+; Sprite tile references (tile 9, animatory states #N0-#N119) and graphic data
 ; (mask byte 5/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b57470 DEFB 253,18,246            ; Graphic data for sprite tiles 126-128 (used
                                   ; for Sam's disguises)
  57473 DEFB 23,12,25,12,228,230,0 ; Sprite tile references for animatory states
-                                  ; 0-7
+                                  ; #N0-#N7
  57480 DEFB 111                   ; Graphic data for sprite tile 136 (used for
                                   ; Sam's disguises)
  57481 DEFB 242,247               ; Sprite tile references for animatory states
-                                  ; 8-10
+                                  ; #N8-#N10
  57483 DEFB 0                     ; Sprite tile reference for unused animatory
-                                  ; state 11
+                                  ; state #N11
  57484 DEFB 255,196,111           ; Graphic data for sprite tiles 140-142 (used
                                   ; for Sam's disguises)
  57487 DEFB 244                   ; Sprite tile reference for animatory state
-                                  ; 15
+                                  ; #N15
  57488 DEFB 209                   ; Graphic data for sprite tile 144 (used for
                                   ; Sam's disguises)
  57489 DEFB 73,65,76,65           ; Sprite tile references for animatory states
-                                  ; 16-20
+                                  ; #N16-#N20
  57493 DEFB 255,252               ; Graphic data for sprite tiles 149-150 (used
                                   ; for Sam's disguises)
  57495 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 23
+                                  ; #N23
  57496 DEFB 249                   ; Graphic data for sprite tile 152 (used for
                                   ; Sam's disguises)
  57497 DEFB 73,65,76              ; Sprite tile references for animatory states
-                                  ; 24-27
+                                  ; #N24-#N27
  57500 DEFB 65                    ; Sprite tile reference for unused animatory
-                                  ; state 28
+                                  ; state #N28
  57501 DEFB 70,70                 ; Graphic data for sprite tiles 157-158 (used
                                   ; for Sam's disguises)
  57503 DEFB 239                   ; Sprite tile reference for animatory state
-                                  ; 31
+                                  ; #N31
  57504 DEFB 255                   ; Graphic data for sprite tile 160 (used for
                                   ; Sam's disguises)
  57505 DEFB 104,98,108,98         ; Sprite tile references for animatory states
-                                  ; 32-36
+                                  ; #N32-#N36
  57509 DEFB 148,194               ; Graphic data for sprite tiles 165-166 (used
                                   ; for Sam's disguises)
  57511 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 39
+                                  ; #N39
  57512 DEFB 255                   ; Graphic data for sprite tile 168 (used for
                                   ; Sam's disguises)
  57513 DEFB 104,98,108,98         ; Sprite tile references for animatory states
-                                  ; 40-44
+                                  ; #N40-#N44
  57517 DEFB 244,111,220,70        ; Graphic data for sprite tiles 173-176 (used
                                   ; for Sam's disguises)
  57521 DEFB 39,31,39,31           ; Sprite tile references for animatory states
-                                  ; 48-52
+                                  ; #N48-#N52
  57525 DEFB 180                   ; Graphic data for sprite tile 181 (used by
                                   ; Sam when he's rolling or somersaulting)
  57526 DEFB 0,0                   ; Sprite tile references for animatory states
-                                  ; 54-55
+                                  ; #N54-#N55
  57528 DEFB 244                   ; Graphic data for sprite tile 184 (used for
                                   ; Sam's disguises)
  57529 DEFB 55,47,59,47           ; Sprite tile references for animatory states
-                                  ; 56-60
+                                  ; #N56-#N60
  57533 DEFB 242                   ; Graphic data for sprite tile 189 (used by
                                   ; Sam when he's rolling or somersaulting)
  57534 DEFB 236,0                 ; Sprite tile references for animatory states
-                                  ; 62-63
+                                  ; #N62-#N63
  57536 DEFB 111                   ; Graphic data for sprite tile 192 (used for
                                   ; Sam's disguises)
  57537 DEFB 104,98,108,98         ; Sprite tile references for unused animatory
-                                  ; states 64-68
+                                  ; states #N64-#N68
  57541 DEFB 2                     ; Graphic data for sprite tile 197 (used by
                                   ; Sam when he's rolling or somersaulting)
  57542 DEFB 237                   ; Sprite tile reference for animatory state
-                                  ; 70
+                                  ; #N70
  57543 DEFB 0                     ; Sprite tile reference for unused animatory
-                                  ; state 71
+                                  ; state #N71
  57544 DEFB 72                    ; Graphic data for sprite tile 200 (used for
                                   ; Sam's disguises)
  57545 DEFB 39,86,90,86           ; Sprite tile references for animatory states
-                                  ; 72-76
+                                  ; #N72-#N76
  57549 DEFB 66                    ; Graphic data for sprite tile 205 (used by
                                   ; Sam when he's rolling or somersaulting)
  57550 DEFB 0                     ; Sprite tile reference for unused animatory
-                                  ; state 78
+                                  ; state #N78
  57551 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 79
+                                  ; #N79
  57552 DEFB 191                   ; Graphic data for sprite tile 208 (used for
                                   ; Sam's disguises)
  57553 DEFB 39,86,90,86           ; Sprite tile references for animatory states
-                                  ; 80-84
+                                  ; #N80-#N84
  57557 DEFB 233,231               ; Graphic data for sprite tiles 213-214 (used
                                   ; for Sam's disguises)
  57559 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 87
+                                  ; #N87
  57560 DEFB 130                   ; Graphic data for sprite tile 216 (used for
                                   ; Sam's disguises)
  57561 DEFB 39,86,90,86           ; Sprite tile references for animatory states
-                                  ; 88-92
+                                  ; #N88-#N92
  57565 DEFB 246,111               ; Graphic data for sprite tiles 221-222 (used
                                   ; for Sam's disguises)
  57567 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 95
+                                  ; #N95
  57568 DEFB 95                    ; Graphic data for sprite tile 224 (used for
                                   ; Sam's disguises)
  57569 DEFB 39,86,90,86           ; Sprite tile references for animatory states
-                                  ; 96-100
+                                  ; #N96-#N100
  57573 DEFB 158,127               ; Graphic data for sprite tiles 229-230 (used
                                   ; for Sam's disguises)
  57575 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 103
+                                  ; #N103
  57576 DEFB 244                   ; Graphic data for sprite tile 232 (used for
                                   ; Sam's disguises)
  57577 DEFB 73,65,76,65           ; Sprite tile references for animatory states
-                                  ; 104-108
+                                  ; #N104-#N108
  57581 DEFB 37,102                ; Graphic data for sprite tiles 237-238 (used
                                   ; for Sam's disguises)
  57583 DEFB 0                     ; Sprite tile reference for animatory state
-                                  ; 111
+                                  ; #N111
  57584 DEFB 139                   ; Graphic data for sprite tile 240 (used for
                                   ; Sam's disguises)
  57585 DEFB 73,65,76,65,213,209,0 ; Sprite tile references for animatory states
-                                  ; 112-119
+                                  ; #N112-#N119
 
 ; Unused
 s57592 DEFS 8
@@ -17868,105 +17879,116 @@ b57680 DEFB 0,254,255,255,0,127,0,255,0,254,194,194,64,95,0,255
  57696 DEFB 0,255,15,239,240,247,12,236,36,37,0,159,15,239,0,255
  57712 DEFB 0,255,0,255,0,255,4,244,96,111,70,70,213,213
 
-; Sprite tile references (tile 10, animatory states 0-119) and graphic data
+; Sprite tile references (tile 10, animatory states #N0-#N119) and graphic data
 ; (UDG byte 6/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b57726 DEFB 0,163,6         ; Graphic data for sprite tiles 126-128 (used for
                             ; Sam's disguises)
- 57729 DEFB 0,0,0,0,0,0,248 ; Sprite tile references for animatory states 0-7
+ 57729 DEFB 0,0,0,0,0,0,248 ; Sprite tile references for animatory states
+                            ; #N0-#N7
  57736 DEFB 160             ; Graphic data for sprite tile 136 (used for Sam's
                             ; disguises)
  57737 DEFB 0,0             ; Sprite tile references for animatory states 8-10
  57739 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 11
+                            ; #N11
  57740 DEFB 0,62,160        ; Graphic data for sprite tiles 140-142 (used for
                             ; Sam's disguises)
- 57743 DEFB 243             ; Sprite tile reference for animatory state 15
+ 57743 DEFB 243             ; Sprite tile reference for animatory state #N15
  57744 DEFB 10              ; Graphic data for sprite tile 144 (used for Sam's
                             ; disguises)
  57745 DEFB 0,0,0,0         ; Sprite tile references for animatory states 16-20
  57749 DEFB 0,3             ; Graphic data for sprite tiles 149-150 (used for
                             ; Sam's disguises)
- 57751 DEFB 248             ; Sprite tile reference for animatory state 23
+ 57751 DEFB 248             ; Sprite tile reference for animatory state #N23
  57752 DEFB 0               ; Graphic data for sprite tile 152 (used for Sam's
                             ; disguises)
- 57753 DEFB 0,0,0           ; Sprite tile references for animatory states 24-27
+ 57753 DEFB 0,0,0           ; Sprite tile references for animatory states
+                            ; #N24-#N27
  57756 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 28
+                            ; #N28
  57757 DEFB 74,234          ; Graphic data for sprite tiles 157-158 (used for
                             ; Sam's disguises)
- 57759 DEFB 240             ; Sprite tile reference for animatory state 31
+ 57759 DEFB 240             ; Sprite tile reference for animatory state #N31
  57760 DEFB 0               ; Graphic data for sprite tile 160 (used for Sam's
                             ; disguises)
- 57761 DEFB 0,0,0,0         ; Sprite tile references for animatory states 32-36
+ 57761 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N32-#N36
  57765 DEFB 107,131         ; Graphic data for sprite tiles 165-166 (used for
                             ; Sam's disguises)
- 57767 DEFB 248             ; Sprite tile reference for animatory state 39
+ 57767 DEFB 248             ; Sprite tile reference for animatory state #N39
  57768 DEFB 0               ; Graphic data for sprite tile 168 (used for Sam's
                             ; disguises)
- 57769 DEFB 0,0,0,0         ; Sprite tile references for animatory states 40-44
+ 57769 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N40-#N44
  57773 DEFB 4,160,8,74      ; Graphic data for sprite tiles 173-176 (used for
                             ; Sam's disguises)
- 57777 DEFB 0,0,0,0         ; Sprite tile references for animatory states 48-52
+ 57777 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N48-#N52
  57781 DEFB 38              ; Graphic data for sprite tile 181 (used by Sam
                             ; when he's rolling or somersaulting)
 @bfix=DEFB 0,0
- 57782 DEFB 0,248           ; Sprite tile references for animatory states 54-55
+ 57782 DEFB 0,248           ; Sprite tile references for animatory states
+                            ; #N54-#N55
  57784 DEFB 4               ; Graphic data for sprite tile 184 (used for Sam's
                             ; disguises)
- 57785 DEFB 0,0,0,0         ; Sprite tile references for animatory states 56-60
+ 57785 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N56-#N60
  57789 DEFB 161             ; Graphic data for sprite tile 189 (used by Sam
                             ; when he's rolling or somersaulting)
- 57790 DEFB 0,248           ; Sprite tile references for animatory states 62-63
+ 57790 DEFB 0,248           ; Sprite tile references for animatory states
+                            ; #N62-#N63
  57792 DEFB 160             ; Graphic data for sprite tile 192 (used for Sam's
                             ; disguises)
  57793 DEFB 0,0,0,0         ; Sprite tile references for unused animatory
-                            ; states 64-68
+                            ; states #N64-#N68
  57797 DEFB 2               ; Graphic data for sprite tile 197 (used by Sam
                             ; when he's rolling or somersaulting)
- 57798 DEFB 0               ; Sprite tile reference for animatory state 70
+ 57798 DEFB 0               ; Sprite tile reference for animatory state #N70
  57799 DEFB 248             ; Sprite tile reference for unused animatory state
-                            ; 71
+                            ; #N71
  57800 DEFB 72              ; Graphic data for sprite tile 200 (used for Sam's
                             ; disguises)
- 57801 DEFB 0,0,0,0         ; Sprite tile references for animatory states 72-76
+ 57801 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N72-#N76
  57805 DEFB 4               ; Graphic data for sprite tile 205 (used by Sam
                             ; when he's rolling or somersaulting)
  57806 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 78
- 57807 DEFB 248             ; Sprite tile reference for animatory state 79
+                            ; #N78
+ 57807 DEFB 248             ; Sprite tile reference for animatory state #N79
  57808 DEFB 64              ; Graphic data for sprite tile 208 (used for Sam's
                             ; disguises)
- 57809 DEFB 0,0,0,0         ; Sprite tile references for animatory states 80-84
+ 57809 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N80-#N84
  57813 DEFB 9,247           ; Graphic data for sprite tiles 213-214 (used for
                             ; Sam's disguises)
- 57815 DEFB 248             ; Sprite tile reference for animatory state 87
+ 57815 DEFB 248             ; Sprite tile reference for animatory state #N87
  57816 DEFB 131             ; Graphic data for sprite tile 216 (used for Sam's
                             ; disguises)
- 57817 DEFB 0,0,0,0         ; Sprite tile references for animatory states 88-92
+ 57817 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N88-#N92
  57821 DEFB 6,160           ; Graphic data for sprite tiles 221-222 (used for
                             ; Sam's disguises)
 @bfix=DEFB 0
- 57823 DEFB 248             ; Sprite tile reference for animatory state 95
+ 57823 DEFB 248             ; Sprite tile reference for animatory state #N95
  57824 DEFB 64              ; Graphic data for sprite tile 224 (used for Sam's
                             ; disguises)
  57825 DEFB 0,0,0,0         ; Sprite tile references for animatory states
-                            ; 96-100
+                            ; #N96-#N100
  57829 DEFB 159,112         ; Graphic data for sprite tiles 229-230 (used for
                             ; Sam's disguises)
- 57831 DEFB 248             ; Sprite tile reference for animatory state 103
+ 57831 DEFB 248             ; Sprite tile reference for animatory state #N103
  57832 DEFB 4               ; Graphic data for sprite tile 232 (used for Sam's
                             ; disguises)
  57833 DEFB 0,0,0,0         ; Sprite tile references for animatory states
-                            ; 104-108
+                            ; #N104-#N108
  57837 DEFB 52,106          ; Graphic data for sprite tiles 237-238 (used for
                             ; Sam's disguises)
- 57839 DEFB 248             ; Sprite tile reference for animatory state 111
+ 57839 DEFB 248             ; Sprite tile reference for animatory state #N111
  57840 DEFB 132             ; Graphic data for sprite tile 240 (used for Sam's
                             ; disguises)
  57841 DEFB 0,0,0,0,0,0,248 ; Sprite tile references for animatory states
-                            ; 112-119
+                            ; #N112-#N119
 
 ; Unused
 s57848 DEFS 8
@@ -18032,102 +18054,116 @@ b57936 DEFB 0,255,126,126,0,255,0,255,0,254,130,130,64,95,0,255
  57952 DEFB 0,255,7,247,224,239,8,232,36,37,96,111,6,246,0,255
  57968 DEFB 0,255,0,255,0,255,7,247,224,239,126,126,126,126
 
-; Sprite tile references (tile 11, animatory states 0-119) and graphic data
+; Sprite tile references (tile 11, animatory states #N0-#N119) and graphic data
 ; (mask byte 6/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b57982 DEFB 254,163,246     ; Graphic data for sprite tiles 126-128 (used for
                             ; Sam's disguises)
- 57985 DEFB 0,4,0,4,0,0,252 ; Sprite tile references for animatory states 0-7
+ 57985 DEFB 0,4,0,4,0,0,252 ; Sprite tile references for animatory states
+                            ; #N0-#N7
  57992 DEFB 175             ; Graphic data for sprite tile 136 (used for Sam's
                             ; disguises)
- 57993 DEFB 246,0           ; Sprite tile references for animatory states 8-10
+ 57993 DEFB 246,0           ; Sprite tile references for animatory states
+                            ; #N8-#N10
  57995 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 11
+                            ; #N11
  57996 DEFB 255,190,175     ; Graphic data for sprite tiles 140-142 (used for
                             ; Sam's disguises)
- 57999 DEFB 245             ; Sprite tile reference for animatory state 15
+ 57999 DEFB 245             ; Sprite tile reference for animatory state #N15
  58000 DEFB 234             ; Graphic data for sprite tile 144 (used for Sam's
                             ; disguises)
- 58001 DEFB 0,0,0,0         ; Sprite tile references for animatory states 16-20
+ 58001 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N16-#N20
  58005 DEFB 255,251         ; Graphic data for sprite tiles 149-150 (used for
                             ; Sam's disguises)
- 58007 DEFB 252             ; Sprite tile reference for animatory state 23
+ 58007 DEFB 252             ; Sprite tile reference for animatory state #N23
  58008 DEFB 254             ; Graphic data for sprite tile 152 (used for Sam's
                             ; disguises)
- 58009 DEFB 0,0,0           ; Sprite tile references for animatory states 24-27
+ 58009 DEFB 0,0,0           ; Sprite tile references for animatory states
+                            ; #N24-#N27
  58012 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 28
+                            ; #N28
  58013 DEFB 74,234          ; Graphic data for sprite tiles 157-158 (used for
                             ; Sam's disguises)
- 58015 DEFB 241             ; Sprite tile reference for animatory state 31
+ 58015 DEFB 241             ; Sprite tile reference for animatory state #N31
  58016 DEFB 255             ; Graphic data for sprite tile 160 (used for Sam's
                             ; disguises)
- 58017 DEFB 0,0,0,0         ; Sprite tile references for animatory states 32-36
+ 58017 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N32-#N36
  58021 DEFB 107,131         ; Graphic data for sprite tiles 165-166 (used for
                             ; Sam's disguises)
- 58023 DEFB 252             ; Sprite tile reference for animatory state 39
+ 58023 DEFB 252             ; Sprite tile reference for animatory state #N39
  58024 DEFB 255             ; Graphic data for sprite tile 168 (used for Sam's
                             ; disguises)
- 58025 DEFB 0,0,0,0         ; Sprite tile references for animatory states 40-44
+ 58025 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N40-#N44
  58029 DEFB 244,175,232,74  ; Graphic data for sprite tiles 173-176 (used for
                             ; Sam's disguises)
- 58033 DEFB 0,0,0,0         ; Sprite tile references for animatory states 48-52
+ 58033 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N48-#N52
  58037 DEFB 166             ; Graphic data for sprite tile 181 (used by Sam
                             ; when he's rolling or somersaulting)
- 58038 DEFB 0,252           ; Sprite tile references for animatory states 54-55
+ 58038 DEFB 0,252           ; Sprite tile references for animatory states
+                            ; #N54-#N55
  58040 DEFB 244             ; Graphic data for sprite tile 184 (used for Sam's
                             ; disguises)
- 58041 DEFB 0,0,0,0         ; Sprite tile references for animatory states 56-60
+ 58041 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N56-#N60
  58045 DEFB 173             ; Graphic data for sprite tile 189 (used by Sam
                             ; when he's rolling or somersaulting)
- 58046 DEFB 0,252           ; Sprite tile references for animatory states 62-63
+ 58046 DEFB 0,252           ; Sprite tile references for animatory states
+                            ; #N62-#N63
  58048 DEFB 175             ; Graphic data for sprite tile 192 (used for Sam's
                             ; disguises)
  58049 DEFB 0,0,0,0         ; Sprite tile references for unused animatory
-                            ; states 64-68
+                            ; states #N64-#N68
  58053 DEFB 2               ; Graphic data for sprite tile 197 (used by Sam
                             ; when he's rolling or somersaulting)
- 58054 DEFB 0               ; Sprite tile reference for animatory state 70
+ 58054 DEFB 0               ; Sprite tile reference for animatory state #N70
  58055 DEFB 252             ; Sprite tile reference for unused animatory state
-                            ; 71
+                            ; #N71
  58056 DEFB 72              ; Graphic data for sprite tile 200 (used for Sam's
                             ; disguises)
- 58057 DEFB 0,0,0,0         ; Sprite tile references for animatory states 72-76
+ 58057 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N72-#N76
  58061 DEFB 5               ; Graphic data for sprite tile 205 (used by Sam
                             ; when he's rolling or somersaulting)
  58062 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 78
- 58063 DEFB 252             ; Sprite tile reference for animatory state 79
+                            ; #N78
+ 58063 DEFB 252             ; Sprite tile reference for animatory state #N79
  58064 DEFB 95              ; Graphic data for sprite tile 208 (used for Sam's
                             ; disguises)
- 58065 DEFB 0,0,0,0         ; Sprite tile references for animatory states 80-84
+ 58065 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N80-#N84
  58069 DEFB 233,247         ; Graphic data for sprite tiles 213-214 (used for
                             ; Sam's disguises)
- 58071 DEFB 252             ; Sprite tile reference for animatory state 87
+ 58071 DEFB 252             ; Sprite tile reference for animatory state #N87
  58072 DEFB 131             ; Graphic data for sprite tile 216 (used for Sam's
                             ; disguises)
- 58073 DEFB 0,0,0,0         ; Sprite tile references for animatory states 88-92
+ 58073 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N88-#N92
  58077 DEFB 246,175         ; Graphic data for sprite tiles 221-222 (used for
                             ; Sam's disguises)
- 58079 DEFB 252             ; Sprite tile reference for animatory state 95
+ 58079 DEFB 252             ; Sprite tile reference for animatory state #N95
  58080 DEFB 95              ; Graphic data for sprite tile 224 (used for Sam's
                             ; disguises)
  58081 DEFB 0,0,0,0         ; Sprite tile references for animatory states
-                            ; 96-100
+                            ; #N96-#N100
  58085 DEFB 159,127         ; Graphic data for sprite tiles 229-230 (used for
                             ; Sam's disguises)
- 58087 DEFB 252             ; Sprite tile reference for animatory state 103
+ 58087 DEFB 252             ; Sprite tile reference for animatory state #N103
  58088 DEFB 244             ; Graphic data for sprite tile 232 (used for Sam's
                             ; disguises)
  58089 DEFB 0,0,0,0         ; Sprite tile references for animatory states
-                            ; 104-108
+                            ; #N104-#N108
  58093 DEFB 53,106          ; Graphic data for sprite tiles 237-238 (used for
                             ; Sam's disguises)
- 58095 DEFB 252             ; Sprite tile reference for animatory state 111
+ 58095 DEFB 252             ; Sprite tile reference for animatory state #N111
  58096 DEFB 133             ; Graphic data for sprite tile 240 (used for Sam's
                             ; disguises)
  58097 DEFB 0,0,0,0,0,0,252 ; Sprite tile references for animatory states
+                            ; #N112-#N119
 
 ; Unused
 s58104 DEFS 8
@@ -18190,103 +18226,116 @@ b58192 DEFB 0,255,102,102,0,255,0,255,0,254,130,130,64,95,0,255
  58208 DEFB 0,255,6,246,96,111,8,232,36,37,144,151,0,248,0,255
  58224 DEFB 0,255,0,255,0,255,6,246,96,111,102,102,102,102
 
-; Sprite tile references (tile 12, animatory states 0-119) and graphic data
+; Sprite tile references (tile 12, animatory states #N0-#N119) and graphic data
 ; (UDG byte 7/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b58238 DEFB 0,66,7          ; Graphic data for sprite tiles 126-128 (used for
                             ; Sam's disguises)
- 58241 DEFB 0,7,0,7,0,0,0   ; Sprite tile references for animatory states 0-7
+ 58241 DEFB 0,7,0,7,0,0,0   ; Sprite tile references for animatory states
+                            ; #N0-#N7
  58248 DEFB 48              ; Graphic data for sprite tile 136 (used for Sam's
                             ; disguises)
- 58249 DEFB 245,241         ; Sprite tile references for animatory states 8-10
+ 58249 DEFB 245,241         ; Sprite tile references for animatory states
+                            ; #N8-#N10
  58251 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 11
+                            ; #N11
  58252 DEFB 0,5,48          ; Graphic data for sprite tiles 140-142 (used for
                             ; Sam's disguises)
- 58255 DEFB 0               ; Sprite tile reference for animatory state 15
+ 58255 DEFB 0               ; Sprite tile reference for animatory state #N15
  58256 DEFB 4               ; Graphic data for sprite tile 144 (used for Sam's
                             ; disguises)
- 58257 DEFB 0,13,0,13       ; Sprite tile references for animatory states 16-20
+ 58257 DEFB 0,13,0,13       ; Sprite tile references for animatory states
+                            ; #N16-#N20
  58261 DEFB 0,0             ; Graphic data for sprite tiles 149-150 (used for
                             ; Sam's disguises)
- 58263 DEFB 0               ; Sprite tile reference for animatory state 23
+ 58263 DEFB 0               ; Sprite tile reference for animatory state #N23
  58264 DEFB 0               ; Graphic data for sprite tile 152 (used for Sam's
                             ; disguises)
- 58265 DEFB 0,13,0          ; Sprite tile references for animatory states 24-27
+ 58265 DEFB 0,13,0          ; Sprite tile references for animatory states
+                            ; #N24-#N27
  58268 DEFB 13              ; Sprite tile reference for unused animatory state
-                            ; 28
+                            ; #N28
  58269 DEFB 115,83          ; Graphic data for sprite tiles 157-158 (used for
                             ; Sam's disguises)
- 58271 DEFB 0               ; Sprite tile reference for animatory state 31
+ 58271 DEFB 0               ; Sprite tile reference for animatory state #N31
  58272 DEFB 0               ; Graphic data for sprite tile 160 (used for Sam's
                             ; disguises)
- 58273 DEFB 0,0,0,0         ; Sprite tile references for animatory states 32-36
+ 58273 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N32-#N36
  58277 DEFB 40,130          ; Graphic data for sprite tiles 165-166 (used for
                             ; Sam's disguises)
- 58279 DEFB 0               ; Sprite tile reference for animatory state 39
+ 58279 DEFB 0               ; Sprite tile reference for animatory state #N39
  58280 DEFB 0               ; Graphic data for sprite tile 168 (used for Sam's
                             ; disguises)
- 58281 DEFB 0,0,0,0         ; Sprite tile references for animatory states 40-44
+ 58281 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N40-#N44
  58285 DEFB 7,48,8,115      ; Graphic data for sprite tiles 173-176 (used for
                             ; Sam's disguises)
- 58289 DEFB 0,29,0,29       ; Sprite tile references for animatory states 48-52
+ 58289 DEFB 0,29,0,29       ; Sprite tile references for animatory states
+                            ; #N48-#N52
  58293 DEFB 47              ; Graphic data for sprite tile 181 (used by Sam
                             ; when he's rolling or somersaulting)
- 58294 DEFB 0,0             ; Sprite tile references for animatory states 54-55
+ 58294 DEFB 0,0             ; Sprite tile references for animatory states
+                            ; #N54-#N55
  58296 DEFB 7               ; Graphic data for sprite tile 184 (used for Sam's
                             ; disguises)
- 58297 DEFB 0,13,0,13       ; Sprite tile references for animatory states 56-60
+ 58297 DEFB 0,13,0,13       ; Sprite tile references for animatory states
+                            ; #N56-#N60
  58301 DEFB 160             ; Graphic data for sprite tile 189 (used by Sam
                             ; when he's rolling or somersaulting)
- 58302 DEFB 0,0             ; Sprite tile references for animatory states 62-63
+ 58302 DEFB 0,0             ; Sprite tile references for animatory states
+                            ; #N62-#N63
  58304 DEFB 48              ; Graphic data for sprite tile 192 (used for Sam's
                             ; disguises)
  58305 DEFB 0,29,0,29       ; Sprite tile references for unused animatory
-                            ; states 64-68
+                            ; states #N64-#N68
  58309 DEFB 252             ; Graphic data for sprite tile 197 (used by Sam
                             ; when he's rolling or somersaulting)
- 58310 DEFB 0               ; Sprite tile reference for animatory state 70
+ 58310 DEFB 0               ; Sprite tile reference for animatory state #N70
  58311 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 71
+                            ; #N71
  58312 DEFB 184             ; Graphic data for sprite tile 200 (used for Sam's
                             ; disguises)
- 58313 DEFB 0,0,0,0         ; Sprite tile references for animatory states 72-76
+ 58313 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N72-#N76
  58317 DEFB 8               ; Graphic data for sprite tile 205 (used by Sam
                             ; when he's rolling or somersaulting)
  58318 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 78
- 58319 DEFB 0               ; Sprite tile reference for animatory state 79
+                            ; #N78
+ 58319 DEFB 0               ; Sprite tile reference for animatory state #N79
  58320 DEFB 64              ; Graphic data for sprite tile 208 (used for Sam's
                             ; disguises)
- 58321 DEFB 0,151,0,151     ; Sprite tile references for animatory states 80-84
+ 58321 DEFB 0,151,0,151     ; Sprite tile references for animatory states
+                            ; #N80-#N84
  58325 DEFB 8,102           ; Graphic data for sprite tiles 213-214 (used for
                             ; Sam's disguises)
- 58327 DEFB 0               ; Sprite tile reference for animatory state 87
+ 58327 DEFB 0               ; Sprite tile reference for animatory state #N87
  58328 DEFB 130             ; Graphic data for sprite tile 216 (used for Sam's
                             ; disguises)
- 58329 DEFB 0,151,0,151     ; Sprite tile references for animatory states 88-92
+ 58329 DEFB 0,151,0,151     ; Sprite tile references for animatory states
+                            ; #N88-#N92
  58333 DEFB 7,48            ; Graphic data for sprite tiles 221-222 (used for
                             ; Sam's disguises)
- 58335 DEFB 0               ; Sprite tile reference for animatory state 95
+ 58335 DEFB 0               ; Sprite tile reference for animatory state #N95
  58336 DEFB 64              ; Graphic data for sprite tile 224 (used for Sam's
                             ; disguises)
  58337 DEFB 0,0,0,0         ; Sprite tile references for animatory states
-                            ; 96-100
+                            ; #N96-#N100
  58341 DEFB 134,96          ; Graphic data for sprite tiles 229-230 (used for
                             ; Sam's disguises)
- 58343 DEFB 0               ; Sprite tile reference for animatory state 103
+ 58343 DEFB 0               ; Sprite tile reference for animatory state #N103
  58344 DEFB 11              ; Graphic data for sprite tile 232 (used for Sam's
                             ; disguises)
  58345 DEFB 0,13,0,13       ; Sprite tile references for animatory states
-                            ; 104-108
+                            ; #N104-#N108
  58349 DEFB 36,115          ; Graphic data for sprite tiles 237-238 (used for
                             ; Sam's disguises)
- 58351 DEFB 0               ; Sprite tile reference for animatory state 111
+ 58351 DEFB 0               ; Sprite tile reference for animatory state #N111
  58352 DEFB 132             ; Graphic data for sprite tile 240 (used for Sam's
                             ; disguises)
  58353 DEFB 0,13,0,13,0,0,0 ; Sprite tile references for animatory states
-                            ; 112-119
+                            ; #N112-#N119
 
 ; Unused
 s58360 DEFS 8
@@ -18350,103 +18399,116 @@ b58448 DEFB 0,255,106,106,0,255,0,255,0,254,131,131,64,95,0,255
  58464 DEFB 0,255,6,246,160,175,8,232,52,53,104,107,0,254,0,255
  58480 DEFB 0,255,0,255,0,255,6,246,160,175,106,106,106,106
 
-; Sprite tile references (tile 13, animatory states 0-119) and graphic data
+; Sprite tile references (tile 13, animatory states #N0-#N119) and graphic data
 ; (mask byte 7/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b58494 DEFB 254,66,247      ; Graphic data for sprite tiles 126-128 (used for
                             ; Sam's disguises)
- 58497 DEFB 0,10,0,10,0,0,0 ; Sprite tile references for animatory states 0-7
+ 58497 DEFB 0,10,0,10,0,0,0 ; Sprite tile references for animatory states
+                            ; #N0-#N7
  58504 DEFB 55              ; Graphic data for sprite tile 136 (used for Sam's
                             ; disguises)
- 58505 DEFB 239,244         ; Sprite tile references for animatory states 8-10
+ 58505 DEFB 239,244         ; Sprite tile references for animatory states
+                            ; #N8-#N10
  58507 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 11
+                            ; #N11
  58508 DEFB 127,197,55      ; Graphic data for sprite tiles 140-142 (used for
                             ; Sam's disguises)
- 58511 DEFB 247             ; Sprite tile reference for animatory state 15
+ 58511 DEFB 247             ; Sprite tile reference for animatory state #N15
  58512 DEFB 228             ; Graphic data for sprite tile 144 (used for Sam's
                             ; disguises)
- 58513 DEFB 0,0,0,0         ; Sprite tile references for animatory states 16-20
+ 58513 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N16-#N20
  58517 DEFB 127,252         ; Graphic data for sprite tiles 149-150 (used for
                             ; Sam's disguises)
- 58519 DEFB 0               ; Sprite tile reference for animatory state 23
+ 58519 DEFB 0               ; Sprite tile reference for animatory state #N23
  58520 DEFB 254             ; Graphic data for sprite tile 152 (used for Sam's
                             ; disguises)
- 58521 DEFB 0,0,0           ; Sprite tile references for animatory states 24-27
+ 58521 DEFB 0,0,0           ; Sprite tile references for animatory states
+                            ; #N24-#N27
  58524 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 28
+                            ; #N28
  58525 DEFB 115,83          ; Graphic data for sprite tiles 157-158 (used for
                             ; Sam's disguises)
- 58527 DEFB 242             ; Sprite tile reference for animatory state 31
+ 58527 DEFB 242             ; Sprite tile reference for animatory state #N31
  58528 DEFB 255             ; Graphic data for sprite tile 160 (used for Sam's
                             ; disguises)
- 58529 DEFB 0,0,0,0         ; Sprite tile references for animatory states 32-36
+ 58529 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N32-#N36
  58533 DEFB 168,130         ; Graphic data for sprite tiles 165-166 (used for
                             ; Sam's disguises)
- 58535 DEFB 0               ; Sprite tile reference for animatory state 39
+ 58535 DEFB 0               ; Sprite tile reference for animatory state #N39
  58536 DEFB 255             ; Graphic data for sprite tile 168 (used for Sam's
                             ; disguises)
- 58537 DEFB 0,0,0,0         ; Sprite tile references for animatory states 40-44
+ 58537 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N40-#N44
  58541 DEFB 231,55,232,115  ; Graphic data for sprite tiles 173-176 (used for
                             ; Sam's disguises)
- 58545 DEFB 0,0,0,0         ; Sprite tile references for animatory states 48-52
+ 58545 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N48-#N52
  58549 DEFB 175             ; Graphic data for sprite tile 181 (used by Sam
                             ; when he's rolling or somersaulting)
- 58550 DEFB 0,0             ; Sprite tile references for animatory states 54-55
+ 58550 DEFB 0,0             ; Sprite tile references for animatory states
+                            ; #N54-#N55
  58552 DEFB 247             ; Graphic data for sprite tile 184 (used for Sam's
                             ; disguises)
- 58553 DEFB 0,29,0,29       ; Sprite tile references for animatory states 56-60
+ 58553 DEFB 0,29,0,29       ; Sprite tile references for animatory states
+                            ; #N56-#N60
  58557 DEFB 174             ; Graphic data for sprite tile 189 (used by Sam
                             ; when he's rolling or somersaulting)
- 58558 DEFB 0,0             ; Sprite tile references for animatory states 62-63
+ 58558 DEFB 0,0             ; Sprite tile references for animatory states
+                            ; #N62-#N63
  58560 DEFB 55              ; Graphic data for sprite tile 192 (used for Sam's
                             ; disguises)
  58561 DEFB 0,0,0,0         ; Sprite tile references for unused animatory
-                            ; states 64-68
+                            ; states #N64-#N68
  58565 DEFB 253             ; Graphic data for sprite tile 197 (used by Sam
                             ; when he's rolling or somersaulting)
- 58566 DEFB 0               ; Sprite tile reference for animatory state 70
+ 58566 DEFB 0               ; Sprite tile reference for animatory state #N70
  58567 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 71
+                            ; #N71
  58568 DEFB 184             ; Graphic data for sprite tile 200 (used for Sam's
                             ; disguises)
- 58569 DEFB 0,0,0,0         ; Sprite tile references for animatory states 72-76
+ 58569 DEFB 0,0,0,0         ; Sprite tile references for animatory states
+                            ; #N72-#N76
  58573 DEFB 9               ; Graphic data for sprite tile 205 (used by Sam
                             ; when he's rolling or somersaulting)
  58574 DEFB 0               ; Sprite tile reference for unused animatory state
-                            ; 78
- 58575 DEFB 0               ; Sprite tile reference for animatory state 79
+                            ; #N78
+ 58575 DEFB 0               ; Sprite tile reference for animatory state #N79
  58576 DEFB 95              ; Graphic data for sprite tile 208 (used for Sam's
                             ; disguises)
- 58577 DEFB 0,13,0,13       ; Sprite tile references for animatory states 80-84
+ 58577 DEFB 0,13,0,13       ; Sprite tile references for animatory states
+                            ; #N80-#N84
  58581 DEFB 232,102         ; Graphic data for sprite tiles 213-214 (used for
                             ; Sam's disguises)
- 58583 DEFB 0               ; Sprite tile reference for animatory state 87
+ 58583 DEFB 0               ; Sprite tile reference for animatory state #N87
  58584 DEFB 130             ; Graphic data for sprite tile 216 (used for Sam's
                             ; disguises)
- 58585 DEFB 0,13,0,13       ; Sprite tile references for animatory states 88-92
+ 58585 DEFB 0,13,0,13       ; Sprite tile references for animatory states
+                            ; #N88-#N92
  58589 DEFB 247,55          ; Graphic data for sprite tiles 221-222 (used for
                             ; Sam's disguises)
- 58591 DEFB 0               ; Sprite tile reference for animatory state 95
+ 58591 DEFB 0               ; Sprite tile reference for animatory state #N95
  58592 DEFB 95              ; Graphic data for sprite tile 224 (used for Sam's
                             ; disguises)
  58593 DEFB 0,0,0,0         ; Sprite tile references for animatory states
-                            ; 96-100
+                            ; #N96-#N100
  58597 DEFB 134,111         ; Graphic data for sprite tiles 229-230 (used for
                             ; Sam's disguises)
- 58599 DEFB 0               ; Sprite tile reference for animatory state 103
+ 58599 DEFB 0               ; Sprite tile reference for animatory state #N103
  58600 DEFB 235             ; Graphic data for sprite tile 232 (used for Sam's
                             ; disguises)
  58601 DEFB 0,29,0,29       ; Sprite tile references for animatory states
-                            ; 104-108
+                            ; #N104-#N108
  58605 DEFB 37,115          ; Graphic data for sprite tiles 237-238 (used for
                             ; Sam's disguises)
- 58607 DEFB 0               ; Sprite tile reference for animatory state 111
+ 58607 DEFB 0               ; Sprite tile reference for animatory state #N111
  58608 DEFB 133             ; Graphic data for sprite tile 240 (used for Sam's
                             ; disguises)
  58609 DEFB 0,0,0,0,0,207,0 ; Sprite tile references for animatory states
-                            ; 112-119
+                            ; #N112-#N119
 
 ; Unused
 s58616 DEFS 8
@@ -18516,115 +18578,116 @@ b58704 DEFB 0,255,115,115,0,127,0,255,0,254,130,130,64,95,0,255
  58720 DEFB 0,255,7,247,48,55,8,232,36,37,40,42,0,254,0,129
  58736 DEFB 0,254,0,248,0,31,7,231,48,55,115,115,115,115
 
-; Sprite tile references (tile 14, animatory states 0-119) and graphic data
+; Sprite tile references (tile 14, animatory states #N0-#N119) and graphic data
 ; (UDG byte 8/8)
 ;
 ; Used by the routines at #R25618, #R59635 and #R63838.
 b58750 DEFB 1,28,11           ; Graphic data for sprite tiles 126-128 (used for
                               ; Sam's disguises)
- 58753 DEFB 0,13,0,13,0,0,0   ; Sprite tile references for animatory states 0-7
+ 58753 DEFB 0,13,0,13,0,0,0   ; Sprite tile references for animatory states
+                              ; #N0-#N7
  58760 DEFB 8                 ; Graphic data for sprite tile 136 (used for
                               ; Sam's disguises)
  58761 DEFB 0,0               ; Sprite tile references for animatory states
-                              ; 8-10
+                              ; #N8-#N10
  58763 DEFB 0                 ; Sprite tile reference for unused animatory
-                              ; state 11
+                              ; state #N11
  58764 DEFB 128,11,8          ; Graphic data for sprite tiles 140-142 (used for
                               ; Sam's disguises)
- 58767 DEFB 246               ; Sprite tile reference for animatory state 15
+ 58767 DEFB 246               ; Sprite tile reference for animatory state #N15
  58768 DEFB 17                ; Graphic data for sprite tile 144 (used for
                               ; Sam's disguises)
  58769 DEFB 0,0,0,0           ; Sprite tile references for animatory states
-                              ; 16-20
+                              ; #N16-#N20
  58773 DEFB 128,0             ; Graphic data for sprite tiles 149-150 (used for
                               ; Sam's disguises)
- 58775 DEFB 0                 ; Sprite tile reference for animatory state 23
+ 58775 DEFB 0                 ; Sprite tile reference for animatory state #N23
  58776 DEFB 1                 ; Graphic data for sprite tile 152 (used for
                               ; Sam's disguises)
  58777 DEFB 0,0,0             ; Sprite tile references for animatory states
-                              ; 24-27
+                              ; #N24-#N27
  58780 DEFB 0                 ; Sprite tile reference for unused animatory
-                              ; state 28
+                              ; state #N28
  58781 DEFB 240,176           ; Graphic data for sprite tiles 157-158 (used for
                               ; Sam's disguises)
- 58783 DEFB 0                 ; Sprite tile reference for animatory state 31
+ 58783 DEFB 0                 ; Sprite tile reference for animatory state #N31
  58784 DEFB 0                 ; Graphic data for sprite tile 160 (used for
                               ; Sam's disguises)
  58785 DEFB 0,0,0,0           ; Sprite tile references for animatory states
-                              ; 32-36
+                              ; #N32-#N36
  58789 DEFB 37,92             ; Graphic data for sprite tiles 165-166 (used for
                               ; Sam's disguises)
- 58791 DEFB 0                 ; Sprite tile reference for animatory state 39
+ 58791 DEFB 0                 ; Sprite tile reference for animatory state #N39
  58792 DEFB 0                 ; Graphic data for sprite tile 168 (used for
                               ; Sam's disguises)
  58793 DEFB 0,0,0,0           ; Sprite tile references for animatory states
-                              ; 40-44
+                              ; #N40-#N44
  58797 DEFB 15,8,21,176       ; Graphic data for sprite tiles 173-176 (used for
                               ; Sam's disguises)
  58801 DEFB 0,0,0,0           ; Sprite tile references for animatory states
-                              ; 48-52
+                              ; #N48-#N52
  58805 DEFB 44                ; Graphic data for sprite tile 181 (used by Sam
                               ; when he's rolling or somersaulting)
  58806 DEFB 0,0               ; Sprite tile references for animatory states
-                              ; 54-55
+                              ; #N54-#N55
  58808 DEFB 11                ; Graphic data for sprite tile 184 (used for
                               ; Sam's disguises)
  58809 DEFB 0,0,0,0           ; Sprite tile references for animatory states
-                              ; 56-60
+                              ; #N56-#N60
  58813 DEFB 192               ; Graphic data for sprite tile 189 (used by Sam
                               ; when he's rolling or somersaulting)
  58814 DEFB 0,0               ; Sprite tile references for animatory states
-                              ; 62-63
+                              ; #N62-#N63
  58816 DEFB 8                 ; Graphic data for sprite tile 192 (used for
                               ; Sam's disguises)
  58817 DEFB 0,0,0,0           ; Sprite tile references for unused animatory
-                              ; states 64-68
+                              ; states #N64-#N68
  58821 DEFB 0                 ; Graphic data for sprite tile 197 (used by Sam
                               ; when he's rolling or somersaulting)
  58822 DEFB 0                 ; Sprite tile reference for animatory state 70
  58823 DEFB 0                 ; Sprite tile reference for unused animatory
-                              ; state 71
+                              ; state #N71
  58824 DEFB 136               ; Graphic data for sprite tile 200 (used for
                               ; Sam's disguises)
  58825 DEFB 0,0,0,0           ; Sprite tile references for animatory states
-                              ; 72-76
+                              ; #N72-#N76
  58829 DEFB 176               ; Graphic data for sprite tile 205 (used by Sam
                               ; when he's rolling or somersaulting)
  58830 DEFB 0                 ; Sprite tile reference for unused animatory
-                              ; state 78
- 58831 DEFB 0                 ; Sprite tile reference for animatory state 79
+                              ; state #N78
+ 58831 DEFB 0                 ; Sprite tile reference for animatory state #N79
  58832 DEFB 32                ; Graphic data for sprite tile 208 (used for
                               ; Sam's disguises)
  58833 DEFB 0,0,0,0           ; Sprite tile references for animatory states
-                              ; 80-84
+                              ; #N80-#N84
  58837 DEFB 21,206            ; Graphic data for sprite tiles 213-214 (used for
                               ; Sam's disguises)
- 58839 DEFB 0                 ; Sprite tile reference for animatory state 87
+ 58839 DEFB 0                 ; Sprite tile reference for animatory state #N87
  58840 DEFB 92                ; Graphic data for sprite tile 216 (used for
                               ; Sam's disguises)
  58841 DEFB 0,0,0,0           ; Sprite tile references for animatory states
-                              ; 88-92
+                              ; #N88-#N92
  58845 DEFB 11,8              ; Graphic data for sprite tiles 221-222 (used for
                               ; Sam's disguises)
- 58847 DEFB 0                 ; Sprite tile reference for animatory state 95
+ 58847 DEFB 0                 ; Sprite tile reference for animatory state #N95
  58848 DEFB 128               ; Graphic data for sprite tile 224 (used for
                               ; Sam's disguises)
  58849 DEFB 0,0,0,0           ; Sprite tile references for animatory states
-                              ; 96-100
+                              ; #N96-#N100
  58853 DEFB 92,224            ; Graphic data for sprite tiles 229-230 (used for
                               ; Sam's disguises)
- 58855 DEFB 0                 ; Sprite tile reference for animatory state 103
+ 58855 DEFB 0                 ; Sprite tile reference for animatory state #N103
  58856 DEFB 8                 ; Graphic data for sprite tile 232 (used for
                               ; Sam's disguises)
  58857 DEFB 0,0,0,0           ; Sprite tile references for animatory states
-                              ; 104-108
+                              ; #N104-#N108
  58861 DEFB 200,176           ; Graphic data for sprite tiles 237-238 (used for
                               ; Sam's disguises)
- 58863 DEFB 0                 ; Sprite tile reference for animatory state 111
+ 58863 DEFB 0                 ; Sprite tile reference for animatory state #N111
  58864 DEFB 130               ; Graphic data for sprite tile 240 (used for
                               ; Sam's disguises)
  58865 DEFB 0,0,0,0,214,210,0 ; Sprite tile references for animatory states
-                              ; 112-119
+                              ; #N112-#N119
 
 ; Unused
 s58872 DEFS 8
@@ -19365,9 +19428,9 @@ c59635 CALL 59640    ; Superimpose sprite tiles for characters whose
  59650 LD L,0        ; Point #REGhl' at byte 0 of the character's buffer
  59652 LD A,(HL)     ; #REGa=character's animatory state
  59653 AND 127       ; Drop the direction bit (bit 7)
- 59655 CP 120        ; Is this character's animatory state >= 120?
+ 59655 CP 120        ; Is this character's animatory state >= #N120?
  59657 JR NC,59717   ; Jump if so
-; The character's animatory state is < 120, which means he has a 5x3 sprite.
+; The character's animatory state is < #N(120), which means he has a 5x3 sprite.
  59659 INC L         ; #REGl'=1
  59660 INC A         ; #REGa=character's animatory state + 1
  59661 AND 7         ; Reduce this modulo 8
@@ -19417,9 +19480,9 @@ c59635 CALL 59640    ; Superimpose sprite tiles for characters whose
  59712 SUB (HL)      ; Subtract the character's y-coordinate
  59713 CP 3          ; Set the carry flag if the sprite impinges on row Y
  59715 JR 59740      ;
-; The character's animatory state is >= 120, which means he has a sprite with 2
-; rows and 2 columns. Check whether any part of the sprite impinges on the tile
-; at (X,Y).
+; The character's animatory state is >= #N(120), which means he has a sprite
+; with 2 rows and 2 columns. Check whether any part of the sprite impinges on
+; the tile at (X,Y).
 *59717 LD L,1        ; Point #REGhl' at byte 1 of the character's buffer
  59719 LD A,E        ; #REGa=X, the play area x-coordinate (0-255)
  59720 SUB (HL)      ; Subtract the character's x-coordinate
@@ -19466,9 +19529,9 @@ c59635 CALL 59640    ; Superimpose sprite tiles for characters whose
                      ; tile is blank
 ; A tile of this character's sprite needs to be printed at (X,Y). The apparent
 ; intention of the next section of code is to treat animatory states
-; #AS120(120-127/248-255) (used only by the hook) specially, but the next
-; instruction copies #REGl' (which holds 0) instead of #REGl (which holds the
-; adjusted animatory state) into #REGa.
+; #AS120(#N120-#N127/#N248-#N255) (used only by the hook) specially, but the
+; next instruction copies #REGl' (which holds 0) instead of #REGl (which holds
+; the adjusted animatory state) into #REGa.
  59776 LD A,L        ; #REGa=0
  59777 CP 248        ; This instruction sets the carry flag
  59779 EXX           ;
@@ -23543,13 +23606,13 @@ c63530 LD L,1        ; Point #REGhl at byte 1 of the cat's buffer
 @label=CATRUN
 c63558 LD L,0        ; Point #REGhl at byte 0 of the cat's buffer
  63560 BIT 0,(HL)    ; Is the cat in running phase 2 (animatory state
-                     ; #AS118(118/246))?
-; The cat's animatory state is #AS117(117 or 245) (running phase 1). Move him
-; forward and advance his animatory state.
+                     ; #AS118(#N118/#N246))?
+; The cat's animatory state is #AS117(#N117 or #N245) (running phase 1). Move
+; him forward and advance his animatory state.
  63562 JR Z,63580    ; Jump if so
  63564 CALL 59848    ; Update the SRB for the cat's current animatory state and
                      ; location
- 63567 INC A         ; #REGa=#AS118(118/246) (cat running phase 2)
+ 63567 INC A         ; #REGa=#AS118(#N118/#N246) (cat running phase 2)
  63568 PUSH AF       ; Save this animatory state briefly
  63569 RLCA          ; {#REGa=-1 if the cat is facing left, 1 if he's facing
  63570 CCF           ; right
@@ -23561,7 +23624,7 @@ c63558 LD L,0        ; Point #REGhl at byte 0 of the cat's buffer
  63576 POP AF        ; Restore the cat's next animatory state to #REGa
  63577 JP 59861      ; Update the cat's animatory state and location and update
                      ; the SRB
-; The cat's animatory state is #AS118(118 or 246) (running phase 2). Either
+; The cat's animatory state is #AS118(#N118 or #N246) (running phase 2). Either
 ; advance his animatory state, or turn him round.
 *63580 LD L,1        ; Point #REGhl at byte 1 of the cat's buffer
  63582 LD A,(HL)     ; #REGa=cat's current x-coordinate

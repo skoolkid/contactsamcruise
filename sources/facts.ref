@@ -349,7 +349,7 @@ TABLE#
 
 [Fact:skinnyMan:Skinny Man]
 The graphic data contains unused sprites (animatory states
-#AS64(64-68/192-196)) of a skinny man wearing a hat:
+#AS64(#N64-#N68/#N192-#N196)) of a skinny man wearing a hat:
 
 #UDGTABLE {
   #CALL:as_img(192) | #CALL:as_img(193) | #CALL:as_img(194) |
