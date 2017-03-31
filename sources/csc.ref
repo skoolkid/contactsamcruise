@@ -119,7 +119,7 @@ Intro=#INCLUDE(MessagesMapIntro)
 
 [MessagesMapIntro]
 The LSB and MSB of the address of message number N can be found at
-(N+#R27649(#N27648)) and (N+#R27905(#N27904)) respectively.
+(N+#R27649(#w27648)) and (N+#R27905(#w27904)) respectively.
 
 [MemoryMap:UnusedMap]
 Write=0
