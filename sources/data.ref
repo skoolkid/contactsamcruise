@@ -233,8 +233,8 @@ Roll/somersault animation phase table entry address LSB (see #R25789)
 Destination location identifier (see #R28803, #R29072, #R29361, #R31126,
 #R31808, #R31944, #R60812, #R62976)
 
-Walkabout duration indicator (0=indefinite, 255=finite) (see #R31338, #R63304,
-#R63520)
+Walkabout duration indicator (#b0=indefinite, #b255=finite) (see #R31338,
+#R63304, #R63520)
 
 [CharBuf:13]
 Roll/somersault animation phase table entry address MSB (see #R25789)

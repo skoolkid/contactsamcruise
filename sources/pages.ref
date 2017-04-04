@@ -375,28 +375,28 @@ state N-#b128 (see #R59635).
 PageContent=#INCLUDE(CharacterBuffers)
 
 [CharacterBuffers]
-<p>The character buffers occupy bytes 0-24 in pages 215-221 and bytes 0-31 in
-pages 222-230.</p>
-<p>The buffers in pages 215-221 are each shared by a group of five minor
+<p>The character buffers occupy bytes #b0-#b24 in pages #b215-#b221 and bytes
+#b0-#b31 in pages #b222-#b230.</p>
+<p>The buffers in pages #b215-#b221 are each shared by a group of five minor
 characters. Which one of the five characters 'owns' the buffer at any one time
 depends on the portion of the play area that is currently on screen. When the
 screen scrolls left or right, ownership of one of the buffers switches to the
 next or previous character in the group. See the routines at #R61838 and
 #R61882.</p>
-<p>The buffers in pages 222-230 are used mostly by the principal characters,
-depending on the current #R32750(game mode) (0-4).</p>
+<p>The buffers in pages #b222-#b230 are used mostly by the principal
+characters, depending on the current #R32750(game mode) (0-4).</p>
 #CALL:cast()
 #CALL:cbuffer()
 
 [Template:cast]
 #TABLE(cbuffer,cbufPage,cbufAddress,cbufCharacter,transparent,cbufPage,cbufAddress,cbufCharacter,transparent,cbufPage,cbufAddress,cbufCharacter)
 {{ =h Page | =h Address | =h Character      |  | =h Page | =h Address | =h Character      |  | =h Page | =h Address | =h Character }}
-{{ 215     | #R55040    | {characters[215]} |  | 221     | #R56576    | {characters[221]} |  | 227     | #R58112    | {characters[227]} }}
-{{ 216     | #R55296    | {characters[216]} |  | 222     | #R56832    | {characters[222]} |  | 228     | #R58368    | {characters[228]} }}
-{{ 217     | #R55552    | {characters[217]} |  | 223     | #R57088    | {characters[223]} |  | 229     | #R58624    | {characters[229]} }}
-{{ 218     | #R55808    | {characters[218]} |  | 224     | #R57344    | {characters[224]} |  | 230     | #R58880    | {characters[230]} }}
-{{ 219     | #R56064    | {characters[219]} |  | 225     | #R57600    | {characters[225]} }}
-{{ 220     | #R56320    | {characters[220]} |  | 226     | #R57856    | {characters[226]} }}
+{{ #b215   | #R55040    | {characters[215]} |  | #b221   | #R56576    | {characters[221]} |  | #b227   | #R58112    | {characters[227]} }}
+{{ #b216   | #R55296    | {characters[216]} |  | #b222   | #R56832    | {characters[222]} |  | #b228   | #R58368    | {characters[228]} }}
+{{ #b217   | #R55552    | {characters[217]} |  | #b223   | #R57088    | {characters[223]} |  | #b229   | #R58624    | {characters[229]} }}
+{{ #b218   | #R55808    | {characters[218]} |  | #b224   | #R57344    | {characters[224]} |  | #b230   | #R58880    | {characters[230]} }}
+{{ #b219   | #R56064    | {characters[219]} |  | #b225   | #R57600    | {characters[225]} }}
+{{ #b220   | #R56320    | {characters[220]} |  | #b226   | #R57856    | {characters[226]} }}
 TABLE#
 
 [Template:cbuffer]
