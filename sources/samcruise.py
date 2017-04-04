@@ -26,7 +26,7 @@ SNIPER_AS = 54
 
 def parse_as(text, index):
     end, state = parse_ints(text, index, 1, (None,))
-    end, link_text = parse_brackets(text, end, '#N{}'.format(state))
+    end, link_text = parse_brackets(text, end, '#N({})'.format(state))
     return end, state, link_text
 
 def parse_s(text, index):
@@ -764,7 +764,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         end, state, link_text = parse_as(text, index)
         as_file = self.relpath(cwd, self.paths['AnimatoryStates'])
         anchor = '#{}'.format(state) if state is not None else ''
-        link = self.format_link(as_file + anchor, self.expand(link_text))
+        link = self.format_link(as_file + anchor, link_text)
         return end, link
 
     def _build_disguise(self, disguise_id):
@@ -816,7 +816,7 @@ class ContactSamCruiseAsmWriter(AsmWriter):
     def expand_as(self, text, index):
         # #AS[state][(link text)]
         end, state, link_text = parse_as(text, index)
-        return end, self.expand(link_text)
+        return end, link_text
 
     def expand_disguise(self, text, index):
         raise UnsupportedMacroError()
