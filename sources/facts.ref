@@ -175,10 +175,10 @@ The unused routine at #R61618 is found in the table of keypress handling
 routines at #R60672, but is not bound to any key - so what does it do? Perhaps
 during development it <em>was</em> bound to some key, and was used to quit the
 game and return to BASIC. Note also the unused routine at #R61612, which sets
-the operand of the 'LD SP' instruction in the routine at #w61618, sets up the
-bottom 4 lines of the screen, and then starts the game in demo mode; could it
-be the tail end of a routine that was used during development to start the game
-for testing?
+the operand of the '#S/LD SP/' instruction in the routine at #w61618, sets up
+the bottom 4 lines of the screen, and then starts the game in demo mode; could
+it be the tail end of a routine that was used during development to start the
+game for testing?
 
 [Fact:silentHangup:Silent hangup]
 Pressing 'H' while Sam is on the phone makes him hang up. No message is
