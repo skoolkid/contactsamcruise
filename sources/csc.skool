@@ -842,15 +842,15 @@ b24544 DEFB 0
  24545 DEFB 13    ; 13 bytes until the next entry
  24546 DEFB 1     ; 1 condition follows
  24547 DEFW 32750 ; #R32750 holds the game mode indicator
- 24549 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24549 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24550 DEFB 1     ; Game mode
  24551 DEFB 2     ; 2 POKEs follow (to do if the game mode is 1)
  24552 DEFW 64844 ; #R64844 holds the disguise ID in the region definition
                   ; table at #R64836
  24554 DEFB 7     ; Disguise ID (oil man)
 @ssub=DEFW 29539+1
- 24555 DEFW 29540 ; {Set the operand of the 'OR' instruction at #R29539 to 0
- 24557 DEFB 0     ; (to make the policemen roam the entire city)}
+ 24555 DEFW 29540 ; {Set the operand of the '#S/OR/' instruction at #R29539 to
+ 24557 DEFB 0     ; 0 (to make the policemen roam the entire city)}
 ; The next entry makes Sam's oil man disguise known to the gangsters at no. 19.
 ; It is triggered when Sam passes the point on the rope above the roof of no.
 ; 19 where someone below says 'CRUISE WAS DRESSED AS THE OIL MAN. DONT LET
@@ -861,7 +861,7 @@ b24544 DEFB 0
  24560 DEFB 1     ; 1 condition follows
  24561 DEFW 32064 ; The object table entry at #R32064 is for where someone
                   ; below says 'CRUISE WAS DRESSED AS THE OIL MAN...'
- 24563 DEFB 32    ; JR NZ (for the instruction at #R29986)
+ 24563 DEFB 32    ; #S/JR NZ/ (for the instruction at #R29986)
  24564 DEFB 32    ;
  24565 DEFB 1     ; 1 POKE follows
  24566 DEFW 64844 ; #R64844 holds the disguise ID in the region definition
@@ -875,7 +875,7 @@ b24544 DEFB 0
  24570 DEFB 16    ; 16 bytes until the next entry
  24571 DEFB 1     ; 1 condition follows
  24572 DEFW 32668 ; #R32668 holds the LSB of the score
- 24574 DEFB 48    ; JR NC (for the instruction at #R29986)
+ 24574 DEFB 48    ; #S/JR NC/ (for the instruction at #R29986)
  24575 DEFB 50    ; Score LSB for comparison
  24576 DEFB 3     ; 3 POKEs follow (to do when the score LSB is >= 50)
  24577 DEFW 27509 ; {Initialise phone message #R23441(58): 'DAISY SAID 'LANA
@@ -892,14 +892,14 @@ b24544 DEFB 0
  24588 DEFB 3     ; 3 conditions follow
 @ssub=DEFW 58880+1
  24589 DEFW 58881 ; This address holds Sam's x-coordinate
- 24591 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24591 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24592 DEFB 249   ;
 @ssub=DEFW 58880+2
  24593 DEFW 58882 ; This address holds Sam's y-coordinate
- 24595 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24595 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24596 DEFB 29    ;
  24597 DEFW 32746 ; #R32746 holds the key inventory
- 24599 DEFB 48    ; JR NC (for the instruction at #R29986)
+ 24599 DEFB 48    ; #S/JR NC/ (for the instruction at #R29986)
  24600 DEFB 64    ; Bit 6 set: Sam has the key to no. 15
  24601 DEFB 8     ; 8 POKEs follow
  24602 DEFW 27473 ; {Initialise phone message #R23904(63): 'DAISY SAID 'SAM - A
@@ -914,7 +914,7 @@ b24544 DEFB 0
  24614 DEFW 32056 ; {Disable the object table entry at #R32056 (for where
  24616 DEFB 33    ; someone growls 'NO KEY EH!' in no. 15)}
 @ssub=DEFW 29963+1
- 24617 DEFW 29964 ; {Change the operand of the JP instruction at #R29963 to
+ 24617 DEFW 29964 ; {Change the operand of the #S/JP/ instruction at #R29963 to
 @ssub=DEFB 24914%256
  24619 DEFB 82    ; #R24914 (to display the cutscene before entering game mode
 @ssub=DEFW 29963+2
@@ -923,7 +923,7 @@ b24544 DEFB 0
  24622 DEFB 97    ; }
  24623 DEFW 24666 ; {Activate the entry at #R24666 (below)
  24625 DEFB 128   ; }
-; The next entry changes the operand of the JP instruction at #R29963 to
+; The next entry changes the operand of the #S/JP/ instruction at #R29963 to
 ; #R31236 to send the police after Sam when he finds the dead body on the top
 ; floor of the hotel.
 @label=EVENT05
@@ -932,15 +932,15 @@ b24544 DEFB 0
  24628 DEFB 2     ; 2 conditions follow
 @ssub=DEFW 58880+1
  24629 DEFW 58881 ; This address holds Sam's x-coordinate
- 24631 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24631 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24632 DEFB 64    ; x-coordinate for comparison
 @ssub=DEFW 58880+2
  24633 DEFW 58882 ; This address holds Sam's y-coordinate
- 24635 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24635 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24636 DEFB 7     ; y-coordinate for comparison
  24637 DEFB 2     ; 2 POKEs follow
 @ssub=DEFW 29963+1
- 24638 DEFW 29964 ; {Change the operand of the JP instruction at #R29963 to
+ 24638 DEFW 29964 ; {Change the operand of the #S/JP/ instruction at #R29963 to
 @ssub=DEFB 31236%256
  24640 DEFB 4     ; #R31236
 @ssub=DEFW 29963+2
@@ -954,16 +954,16 @@ b24544 DEFB 0
  24645 DEFB 21    ; 21 bytes until the next entry
  24646 DEFB 3     ; 3 conditions follow
  24647 DEFW 32666 ; #R32666 holds the ID of the telephone Sam is calling
- 24649 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24649 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24650 DEFB 102   ; Telephone ID: 6124 (no. 74, second floor)
  24651 DEFW 32766 ; #R32766 holds X, the x-coordinate of the leftmost column of
                   ; the play area on screen
- 24653 DEFB 56    ; JR C (for the instruction at #R29986)
+ 24653 DEFB 56    ; #S/JR C/ (for the instruction at #R29986)
  24654 DEFB 56    ; x-coordinate for comparison
 @ssub=DEFW 56576+22
  24655 DEFW 56598 ; This is byte 22 of character 221's buffer (used by Al at
                   ; no. 74 when X<56)
- 24657 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24657 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24658 DEFB 12    ; Command list offset for comparison (points at the fourth
                   ; command in the command list at #R64816)
  24659 DEFB 2     ; 2 POKEs follow
@@ -986,19 +986,19 @@ b24544 DEFB 0
  24667 DEFB 28    ; 28 bytes until the next entry
  24668 DEFB 4     ; 4 conditions follow
  24669 DEFW 32713 ; #R32713 holds the ID of Sam's current disguise
- 24671 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24671 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24672 DEFB 4     ; Disguise ID (woman)
 @ssub=DEFW 58880+2
  24673 DEFW 58882 ; This address holds Sam's y-coordinate
- 24675 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24675 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24676 DEFB 13    ; y-coordinate for comparison
 @ssub=DEFW 58880+1
  24677 DEFW 58881 ; This address holds Sam's x-coordinate
- 24679 DEFB 48    ; JR NC (for the instruction at #R29986)
+ 24679 DEFB 48    ; #S/JR NC/ (for the instruction at #R29986)
  24680 DEFB 94    ; x-coordinate for comparison
 @ssub=DEFW 58880+1
  24681 DEFW 58881 ; This address holds Sam's x-coordinate
- 24683 DEFB 56    ; JR C (for the instruction at #R29986)
+ 24683 DEFB 56    ; #S/JR C/ (for the instruction at #R29986)
  24684 DEFB 101   ; x-coordinate for comparison
  24685 DEFB 3     ; 3 POKEs follow
  24686 DEFW 27479 ; {Line up phone message #R24019(66): 'A VOICE SAID 'OK LANA
@@ -1019,17 +1019,17 @@ b24544 DEFB 0
  24697 DEFB 2     ; 2 conditions follow
 @ssub=DEFW 58880+2
  24698 DEFW 58882 ; This address holds Sam's y-coordinate
- 24700 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24700 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24701 DEFB 8     ; y-coordinate for comparison
 @ssub=DEFW 58880+1
  24702 DEFW 58881 ; This address holds Sam's x-coordinate
- 24704 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24704 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24705 DEFB 10    ; x-coordinate for comparison
  24706 DEFB 3     ; 3 POKEs follow
  24707 DEFW 27524 ; {Line up phone message #R24161(68): 'DAISY SAID 'ALS
  24709 DEFB 92    ; NUMBER'S 6124''}
 @ssub=DEFW 29963+1
- 24710 DEFW 29964 ; {Change the operand of the JP instruction at #R29963 to
+ 24710 DEFW 29964 ; {Change the operand of the #S/JP/ instruction at #R29963 to
 @ssub=DEFB 24914%256
  24712 DEFB 82    ; #R24914 (to display the cutscene before entering game mode
 @ssub=DEFW 29963+2
@@ -1045,7 +1045,7 @@ b24544 DEFB 0
 @ssub=DEFW 57600+2
  24719 DEFW 57602 ; This address holds character 225's y-coordinate (character
                   ; 225 is the Fat Man in game mode 2)
- 24721 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24721 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24722 DEFB 37    ; y-coordinate for comparison (lying on the road)
  24723 DEFB 1     ; 1 POKE follows
  24724 DEFW 32044 ; {Make the key to no. 27 available
@@ -1058,14 +1058,14 @@ b24544 DEFB 0
  24729 DEFB 3     ; 3 conditions follow
 @ssub=DEFW 58880+2
  24730 DEFW 58882 ; This address holds Sam's y-coordinate
- 24732 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24732 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24733 DEFB 13    ; y-coordinate for comparison
 @ssub=DEFW 58880+1
  24734 DEFW 58881 ; This address holds Sam's x-coordinate
- 24736 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24736 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24737 DEFB 232   ; x-coordinate for comparison
  24738 DEFW 32746 ; #R32746 holds the key inventory
- 24740 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24740 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24741 DEFB 120   ; Bits 3-6 set: Sam has all four keys
  24742 DEFB 3     ; 3 POKEs follow
  24743 DEFW 32032 ; {Make the budgie available
@@ -1073,9 +1073,9 @@ b24544 DEFB 0
  24746 DEFW 32747 ; {Clear all flags at #R32747 so that Sam won't be chased by
  24748 DEFB 0     ; the police}
 @ssub=DEFW 29539+1
- 24749 DEFW 29540 ; {Set the operand of the 'OR' instruction at #R29539 to 192
- 24751 DEFB 192   ; (to make the policemen stay close to Sam's office while on
-                  ; the beat)}
+ 24749 DEFW 29540 ; {Set the operand of the '#S/OR/' instruction at #R29539 to
+ 24751 DEFB 192   ; 192 (to make the policemen stay close to Sam's office while
+                  ; on the beat)}
 ; The next entry lines up phone message #R24230(72) ('LANA ANSWERED 'OOH SAM!
 ; YOUVE GOT THE BIRD. SEE YOU IN YOUR OFFICE'') when Sam gets the budgie.
 @label=EVENT11
@@ -1083,7 +1083,7 @@ b24544 DEFB 0
  24753 DEFB 10    ; 10 bytes until the next entry
  24754 DEFB 1     ; 1 condition follows
  24755 DEFW 32745 ; #R32745 holds the object inventory
- 24757 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24757 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24758 DEFB 128   ; Bit 7 set: Sam has the budgie
  24759 DEFB 1     ; 1 POKE follows
  24760 DEFW 27527 ; {Line up phone message #R24230(72): 'LANA ANSWERED 'OOH
@@ -1097,11 +1097,11 @@ b24544 DEFB 0
  24765 DEFB 1     ; 1 condition follows
  24766 DEFW 32745 ; #R32745 holds the object inventory
 @bfix-begin
- 24768 DEFB 32    ; JR NZ (for the instruction at #R29986)
+ 24768 DEFB 32    ; #S/JR NZ/ (for the instruction at #R29986)
  24769 DEFB 128   ; Bit 7 set: Sam has the budgie (and only the budgie; this is
                   ; a #BUG#hookVBird(bug))
 @bfix+else
- 24768 DEFB 56    ; JR C (for the instruction at #R29986)
+ 24768 DEFB 56    ; #S/JR C/ (for the instruction at #R29986)
  24769 DEFB 128   ; Bit 7 set: Sam has the budgie
 @bfix+end
  24770 DEFB 1     ; 1 POKE follows
@@ -1115,15 +1115,15 @@ b24544 DEFB 0
  24776 DEFB 2     ; 2 conditions follow
  24777 DEFW 32745 ; #R32745 holds the object inventory
 @bfix-begin
- 24779 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24779 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24780 DEFB 128   ; Bit 7 set: Sam has the budgie (and only the budgie; this is
                   ; a #BUG#hookVBird(bug))
 @bfix+else
- 24779 DEFB 48    ; JR NC (for the instruction at #R29986)
+ 24779 DEFB 48    ; #S/JR NC/ (for the instruction at #R29986)
  24780 DEFB 128   ; Bit 7 set: Sam has the budgie
 @bfix+end
  24781 DEFW 27527 ; This is the entry for phone message #R24230(72) for Sam
- 24783 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24783 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24784 DEFB 0     ; 0 means the phone message has been received by Sam
  24785 DEFB 2     ; 2 POKES follow
  24786 DEFW 24792 ; {Activate the entry at #R24792 (below)
@@ -1141,20 +1141,20 @@ b24544 DEFB 0
 @ssub=DEFW 57600+22
  24795 DEFW 57622 ; This is byte 22 of character 225's buffer (character 225 is
                   ; Lana in game mode 3)
- 24797 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24797 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24798 DEFB 8     ; This command list offset points past the end of the command
                   ; list
 @ssub=DEFW 58880+2
  24799 DEFW 58882 ; This address holds Sam's y-coordinate
- 24801 DEFB 40    ; JR Z (for the instruction at #R29986)
+ 24801 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24802 DEFB 19    ; y-coordinate for comparison
 @ssub=DEFW 58880+1
  24803 DEFW 58881 ; This address holds Sam's x-coordinate
- 24805 DEFB 48    ; JR NC (for the instruction at #R29986)
+ 24805 DEFB 48    ; #S/JR NC/ (for the instruction at #R29986)
  24806 DEFB 222   ; x-coordinate for comparison
 @ssub=DEFW 58880+1
  24807 DEFW 58881 ; This address holds Sam's x-coordinate
- 24809 DEFB 56    ; JR C (for the instruction at #R29986)
+ 24809 DEFB 56    ; #S/JR C/ (for the instruction at #R29986)
  24810 DEFB 231   ; x-coordinate for comparison
  24811 DEFB 2     ; 2 POKEs follow
  24812 DEFW 32764 ; {Set bit 1 of Sam's status flags at #R32764
@@ -1199,7 +1199,7 @@ c24832 LD L,8        ; {Set Sam's main action timer (in byte 8 of his buffer)
  24858 LD A,(DE)     ; #REGa=MSB of the policeman's current primary command
                      ; routine
 @ssub=CP 59147/256
- 24859 CP 231        ; Is it the MSB of #R59147 (RET)?
+ 24859 CP 231        ; Is it the MSB of #R59147 (#S/RET/)?
  24861 JR Z,24890    ; Jump if so (this policeman is already immobilised)
  24863 DEC C         ; Decrement #REGc because this policeman is not yet
                      ; immobilised
@@ -1214,7 +1214,7 @@ c24832 LD L,8        ; {Set Sam's main action timer (in byte 8 of his buffer)
  24877 CP 224        ;
  24879 JR C,24890    ; }
 @ssub=LD A,59147/256
- 24881 LD A,231      ; {Place #R59147 (RET) into bytes 8 and 9 of the
+ 24881 LD A,231      ; {Place #R59147 (#S/RET/) into bytes 8 and 9 of the
  24883 LD E,9        ; policeman's buffer, thus immobilising him
  24885 LD (DE),A     ;
 @ssub=LD A,59147%256
@@ -5194,8 +5194,8 @@ c28886 LD L,4        ; Point #REGhl at byte 4 of the character's buffer
 ; from outside.
  28909 LD A,(HL)     ; #REGa=x (the character's x-coordinate)
 @bfix-begin
- 28910 DEC L         ; #REGl=0 (this should be 'INC L', so that #REGhl points
-                     ; at the character's y-coordinate)
+ 28910 DEC L         ; #REGl=0 (this should be '#S/INC L/', so that #REGhl
+                     ; points at the character's y-coordinate)
 @bfix+else
  28910 INC L         ; #REGl=2
 @bfix+end
@@ -5222,7 +5222,7 @@ c28886 LD L,4        ; Point #REGhl at byte 4 of the character's buffer
 @bfix-begin
 ; The next instruction is supposed to compare #REGa with the character's
 ; y-coordinate to see whether he's on the roof of a building (as opposed to
-; inside it), but because of the erroneous 'DEC L' instruction above, it
+; inside it), but because of the erroneous '#S/DEC L/' instruction above, it
 ; instead compares #REGa with the character's animatory state. This is a
 ; #BUG#troubleHiding(bug).
 *28936 CP (HL)       ; Compare #REGa (8 or 14) with the character's animatory
@@ -5842,7 +5842,7 @@ c29361 CALL 63128    ; Exit now if the policeman is midstride
 ; destination to a randomly chosen spot on the sidewalk or road.
 *29536 CALL 61823    ; Get a random number in #REGa
 @label=COPDESTOR
- 29539 OR 0          ; The operand of this OR instruction is changed by the
+ 29539 OR 0          ; The operand of this #S/OR/ instruction is changed by the
                      ; routine at #R29952: to 0 (using the event entry at
                      ; #R24544), or to 192 (using the event entry at #R24727)
                      ; to keep the policeman close to Sam's office
@@ -6248,14 +6248,15 @@ c29912 LD HL,58888   ; {Decrement Sam's main action timer in  byte 8 of his
 ; processes every active entry.
 @label=EVENTS
 @nowarn
-c29952 LD HL,30051   ; {Set the operand of the JP instruction at #R29963
+c29952 LD HL,30051   ; {Set the operand of the #S/JP/ instruction at #R29963
 @ssub=LD (29963+1),HL
- 29955 LD (29964),HL ; (below) to #R30051 (RET)}
+ 29955 LD (29964),HL ; (below) to #R30051 (#S/RET/)}
  29958 LD HL,24544   ; Point #REGhl at the event table at #R24544
 *29961 LD A,(HL)     ; Collect the first byte of an entry
  29962 INC A         ; Set the zero flag if it's 255
-; The operand of the JP instruction that follows is changed (by this routine)
-; using entries in the event table at #R24544 during the game as follows:
+; The operand of the #S/JP/ instruction that follows is changed (by this
+; routine) using entries in the event table at #R24544 during the game as
+; follows:
 ; .
 ; #TABLE(default,centre,centre,:w)
 ; { =h Operand | =h Entry | =h Occasion }
@@ -6278,17 +6279,17 @@ c29952 LD HL,30051   ; {Set the operand of the JP instruction at #R29963
  29975 LD E,(HL)     ;
  29976 INC HL        ;
  29977 LD D,(HL)     ; }
- 29978 INC HL        ; {#REGa=opcode of the 'JR' instruction to place at
+ 29978 INC HL        ; {#REGa=opcode of the '#S/JR/' instruction to place at
  29979 LD A,(HL)     ; #R29986 (below)}
  29980 INC HL        ; Point #REGhl at the value to compare with (#REGde)
 @nowarn
- 29981 LD (29986),A  ; Set the instruction at #R29986 (below) to 'JR Z', 'JR
-                     ; NZ', 'JR C' or 'JR NC' as appropriate
+ 29981 LD (29986),A  ; Set the instruction at #R29986 (below) to '#S/JR Z/',
+                     ; '#S/JR NZ/', '#S/JR C/' or '#S/JR NC/' as appropriate
  29984 LD A,(DE)     ; {Check the condition
  29985 CP (HL)       ; }
 @label=EVENTJR
- 29986 JR 29996      ; This instruction is set to 'JR Z', 'JR NZ', 'JR C' or
-                     ; 'JR NC' above
+ 29986 JR 29996      ; This instruction is set to '#S/JR Z/', '#S/JR NZ/',
+                     ; '#S/JR C/' or '#S/JR NC/' above
  29988 POP HL        ; Restore the event table entry pointer to #REGhl
 *29989 INC HL        ; Point #REGhl at the second byte of the entry
  29990 LD E,(HL)     ; {Move #REGhl along to the first byte of the next entry
@@ -6367,7 +6368,7 @@ u30052 DEFB 244
 ; C 144 (pitch)
 ; DE 509 (duration)
 ; H 20 (repetitions)
-; L 6 (border XOR value)
+; L 6 (border #S/XOR/ value)
 @label=CASHKEYSND
 c30053 PUSH DE       ; Save the duration
  30054 XOR L         ; Toggle the border colour between 2 (red) and 4 (green)
@@ -7126,10 +7127,10 @@ c30822 PUSH DE       ; Save the play area coordinates briefly
 ; Next we cycle character buffer groups forwards or backwards as appropriate to
 ; correspond with the portion of the play area that will be on screen.
 @nowarn
- 30865 LD HL,61879   ; {Place a RET instruction at #R61879 so that the screen
- 30868 LD (HL),201   ; will not scroll right}
- 30870 LD L,224      ; {Place a RET instruction at #R61920 so that the screen
- 30872 LD (HL),201   ; will not scroll left}
+ 30865 LD HL,61879   ; {Place a #S/RET/ instruction at #R61879 so that the
+ 30868 LD (HL),201   ; screen will not scroll right}
+ 30870 LD L,224      ; {Place a #S/RET/ instruction at #R61920 so that the
+ 30872 LD (HL),201   ; screen will not scroll left}
  30874 PUSH HL       ;
  30875 LD HL,32766   ; {Collect X (the x-coordinate of the leftmost column of
  30878 LD A,(HL)     ; the play area on screen) from #R32766}
@@ -7151,9 +7152,9 @@ c30822 PUSH DE       ; Save the play area coordinates briefly
  30903 JR 30879      ; Jump back to check whether we need to cycle any more
                      ; character buffers backwards or forwards
 *30905 POP HL        ;
- 30906 LD (HL),195   ; Restore the JP instruction at #R61920
+ 30906 LD (HL),195   ; Restore the #S/JP/ instruction at #R61920
 @ssub=LD L,61879%256
- 30908 LD L,183      ; {Restore the JP instruction at #R61879
+ 30908 LD L,183      ; {Restore the #S/JP/ instruction at #R61879
  30910 LD (HL),195   ; }
 ; Next we determine whether any lights near Sam need to be switched on and any
 ; window blinds need to be raised.
@@ -19108,9 +19109,9 @@ c59148 PUSH HL       ; Put the screen coordinates onto the stack
                      ; group
  59303 LD B,4        ; There are 4 pairs of bytes per group
 *59305 LD A,(DE)     ; #REGa=back buffer byte
- 59306 OR (HL)       ; OR on the graphic byte
+ 59306 OR (HL)       ; #S/OR/ on the graphic byte
  59307 INC H         ; Point #REGhl at the corresponding mask byte
- 59308 AND (HL)      ; AND on the mask byte
+ 59308 AND (HL)      ; #S/AND/ on the mask byte
  59309 INC H         ; Point #REGhl at the next graphic byte
  59310 LD (DE),A     ; Replace the back buffer byte
  59311 INC D         ; Point #REGde at the next back buffer byte
@@ -19177,9 +19178,9 @@ c59368 XOR A         ; Set #REGa=0 initially to indicate that we are copying a
                      ; routines at #R59406 and #R59461, and to 32 by the
                      ; routines at #R59516, #R59575 and #R64618
 @label=MOVEROWLD
- 59374 LDDR          ; This instruction is set to LDIR by the routines at
-                     ; #R59406, #R59516, #R59575 and #R64618, and to LDDR by
-                     ; the routine at #R59461; it copies the source row of
+ 59374 LDDR          ; This instruction is set to #S/LDIR/ by the routines at
+                     ; #R59406, #R59516, #R59575 and #R64618, and to #S/LDDR/
+                     ; by the routine at #R59461; it copies the source row of
                      ; attribute bytes or pixels to the destination row
  59376 POP DE        ; Restore the destination attribute file address to #REGde
  59377 POP HL        ; Restore the source attribute file address to #REGhl
@@ -19214,10 +19215,10 @@ s59405 DEFB 0
 ; Used by the routine at #R61882.
 @label=LSCROLL8
 @ssub=LD HL,59371+1
-c59406 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,#n31'
+c59406 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#n31'
  59409 LD (HL),31    ; }
 @ssub=LD L,59375%256
- 59411 LD L,239      ; {Set the instruction at #R59374 to 'LDIR'
+ 59411 LD L,239      ; {Set the instruction at #R59374 to '#S/LDIR/'
  59413 LD (HL),176   ; }
  59415 LD B,8        ; There are 8 columns to scroll on
 *59417 PUSH BC       ; Save the column counter
@@ -19258,10 +19259,10 @@ s59458 DEFS 3
 ; Used by the routine at #R61838.
 @label=RSCROLL8
 @ssub=LD HL,59371+1
-c59461 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,#n31'
+c59461 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#n31'
  59464 LD (HL),31    ; }
 @ssub=LD L,59375%256
- 59466 LD L,239      ; {Set the instruction at #R59374 to 'LDDR'
+ 59466 LD L,239      ; {Set the instruction at #R59374 to '#S/LDDR/'
  59468 LD (HL),184   ; }
  59470 LD B,8        ; There are 8 columns to scroll on
 *59472 PUSH BC       ; Save the column counter
@@ -19302,10 +19303,10 @@ s59513 DEFS 3
 ; Used by the routine at #R60539.
 @label=USCROLL6
 @ssub=LD HL,59371+1
-c59516 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,#n32'
+c59516 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#n32'
  59519 LD (HL),32    ; }
 @ssub=LD L,59375%256
- 59521 LD L,239      ; {Set the instruction at #R59374 to 'LDIR'
+ 59521 LD L,239      ; {Set the instruction at #R59374 to '#S/LDIR/'
  59523 LD (HL),176   ; }
  59525 LD B,6        ; 6 rows will be scrolled on
 *59527 PUSH BC       ; Save the primary screen row counter
@@ -19351,10 +19352,10 @@ s59572 DEFS 3
 ; Used by the routine at #R60539.
 @label=DSCROLL6
 @ssub=LD HL,59371+1
-c59575 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,#n32'
+c59575 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#n32'
  59578 LD (HL),32    ; }
 @ssub=LD L,59375%256
- 59580 LD L,239      ; {Set the instruction at #R59374 to 'LDIR'
+ 59580 LD L,239      ; {Set the instruction at #R59374 to '#S/LDIR/'
  59582 LD (HL),176   ; }
  59584 LD B,6        ; 6 rows will be scrolled on
 *59586 PUSH BC       ; Save the primary screen row counter
@@ -19556,9 +19557,9 @@ c59635 CALL 59640    ; Superimpose sprite tiles for characters whose
  59802 EX DE,HL      ; Now #REGde points at the back buffer, and #REGhl points
                      ; at the graphic data for the sprite tile
 *59803 LD A,(DE)     ; Pick up a graphic byte from the back buffer
- 59804 OR (HL)       ; OR on the sprite tile graphic byte
+ 59804 OR (HL)       ; #S/OR/ on the sprite tile graphic byte
  59805 INC H         ; Point #REGhl at the sprite tile mask byte
- 59806 AND (HL)      ; AND on the sprite tile mask byte
+ 59806 AND (HL)      ; #S/AND/ on the sprite tile mask byte
  59807 LD (DE),A     ; Update the back buffer byte
  59808 INC H         ; Point #REGhl at the next graphic byte of the sprite tile
  59809 INC D         ; Point #REGde at the next byte of the back buffer
@@ -19572,13 +19573,13 @@ c59635 CALL 59640    ; Superimpose sprite tiles for characters whose
 *59819 LD A,(DE)     ; Pick up a sprite tile graphic byte
  59820 LD C,A        ; Copy it to #REGc
  59821 LD A,(BC)     ; #REGa=mirror image of the sprite tile graphic byte
- 59822 OR (HL)       ; OR on the back buffer graphic byte
+ 59822 OR (HL)       ; #S/OR/ on the back buffer graphic byte
  59823 LD (HL),A     ; Store the result in the back buffer
  59824 INC D         ; Point #REGde at the sprite tile mask byte
  59825 LD A,(DE)     ; Pick this up in #REGa
  59826 LD C,A        ; Copy it to #REGc
  59827 LD A,(BC)     ; #REGa=mirror image of the sprite tile mask byte
- 59828 AND (HL)      ; AND on the back buffer graphic byte
+ 59828 AND (HL)      ; #S/AND/ on the back buffer graphic byte
  59829 LD (HL),A     ; Store the result in the back buffer
  59830 INC D         ; Point #REGde at the next graphic byte of the sprite tile
  59831 INC H         ; Point #REGhl at the next byte of the back buffer
@@ -20877,7 +20878,7 @@ c60812 CALL 31808    ; Deal with the case where the character will soon be
  60825 JR NZ,60842   ; Jump if not
 ; The next section of code deals with the case where the character can reach
 ; his destination simply by continuing to move left or right. The routine at
-; #R31808 re-enters here (from the opening CALL in this routine) if the
+; #R31808 re-enters here (from the opening #S/CALL/ in this routine) if the
 ; character is on the front steps of the hotel, and his destination is on the
 ; first floor or the front steps of the hotel.
 *60827 LD L,10       ; Point #REGhl at byte 10 of the character's buffer
@@ -21501,7 +21502,8 @@ c61603 LD DE,32256   ;
 ; Start the game (unused)
 @label=XSETSP
 @ssub=LD (61618+1),HL
-c61612 LD (61619),HL ; Set the operand of the 'LD SP' instruction at #R61618
+c61612 LD (61619),HL ; Set the operand of the '#S/LD SP/' instruction at
+                     ; #R61618
  61615 JP 61668      ; Prepare the bottom 4 lines of the screen and enter demo
                      ; mode
 
@@ -21782,7 +21784,7 @@ c61838 LD A,(32766)  ; #R32766 holds X, the x-coordinate of the leftmost column
  61877 LDDR          ; }
 @label=CBUFGFWD_S
  61879 JP 59461      ; Scroll the screen right 8 columns (the routine at
-                     ; #R30822 replaces this instruction with a RET)
+                     ; #R30822 replaces this instruction with a #S/RET/)
 
 ; Cycle a character buffer group backwards and scroll the screen left 8 columns
 ;
@@ -21825,7 +21827,7 @@ c61882 LD A,(32766)  ; #R32766 holds X, the x-coordinate of the leftmost column
  61918 LDIR          ; }
 @label=CBUFGREV_S
  61920 JP 59406      ; Scroll the screen left 8 columns (the routine at #R30822
-                     ; replaces this instruction with a RET)
+                     ; replaces this instruction with a #S/RET/)
 
 ; Check for keypresses when Sam is on the phone
 ;
@@ -22898,7 +22900,7 @@ s62925 DEFB 0
 @nowarn
 c62926 LD BC,62694   ; Point #REGbc at the routine at #R62694
 ; This entry point is used by the unused routine at #R62966 (with
-; #REGbc=#R62880) and by the routine at #R62971 (with #REGbc=#R62958: RET).
+; #REGbc=#R62880) and by the routine at #R62971 (with #REGbc=#R62958: #S/RET/).
 *62929 LD L,0        ; Point #REGhl at byte 0 of the character's buffer
  62931 BIT 0,(HL)    ; Is the character midstride?
  62933 JP NZ,60506   ; If so, move the character from the midstride position
@@ -22940,7 +22942,7 @@ c62966 LD BC,62880   ; Point #REGbc at the routine at #R62880
 ; H Character number (215-229)
 @label=WALKSTREET
 @nowarn
-c62971 LD BC,62958   ; Point #REGbc at the RET instruction at #R62958
+c62971 LD BC,62958   ; Point #REGbc at the #S/RET/ instruction at #R62958
  62974 JR 62929      ; Move the character left or right towards his destination
 
 ; Make a character go to a location
@@ -23401,8 +23403,8 @@ s63408 DEFB 0
 ; Change the primary command routine address
 ;
 ; Used by the routines at #R25420, #R31338 and #R63304. Places the address of
-; the instruction following the CALL to this routine into bytes 8 and 9 of the
-; character's buffer, thus making it the address of the character's primary
+; the instruction following the #S/CALL/ to this routine into bytes 8 and 9 of
+; the character's buffer, thus making it the address of the character's primary
 ; command routine.
 ;
 ; H Character number (215-229)
@@ -23526,8 +23528,8 @@ c63472 LD HL,65198   ; The initialisation parameters for character groups
  63487 DJNZ 63483    ; }
  63489 XOR A         ; {Reset the flags in byte 3 of the character's buffer
  63490 LD (DE),A     ; }
- 63491 INC C         ; Increment #REGc to compensate for the LDI instruction
-                     ; that follows
+ 63491 INC C         ; Increment #REGc to compensate for the #S/LDI/
+                     ; instruction that follows
  63492 INC E         ; {Initialise the character's z-coordinate
  63493 LDI           ; }
  63495 LD B,18       ; {Zero out bytes 5-22 of the character's buffer
@@ -24083,7 +24085,7 @@ c63981 PUSH HL       ;
 c63994 POP BC        ; Drop the return address from the stack into #REGbc
  63995 PUSH BC       ; Push the return address back onto the stack
  63996 PUSH BC       ; Push the return address onto the stack again in
-                     ; preparation for the 'POP BC' below
+                     ; preparation for the '#S/POP BC/' below
 ; This entry point is used by the routine at #R64005.
 *63997 LD L,19       ; Point #REGhl at byte 19 of the character's buffer
  63999 POP BC        ; Drop the return address from the stack into #REGbc
@@ -24234,8 +24236,8 @@ c64131 CALL 63994    ; Place the address of the next instruction into bytes 18
 @bfix-begin
 ; The apparent intention of the remainder of this routine is to make the
 ; character return (by walking backwards or forwards as required) to the spot
-; where he was hit, but this fails to happen because of the faulty 'JR NZ'
-; instruction below, which should be a 'JR Z' instead.
+; where he was hit, but this fails to happen because of the faulty '#S/JR NZ/'
+; instruction below, which should be a '#S/JR Z/' instead.
 @bfix+else
 ; The remainder of this routine makes the character return (by walking
 ; backwards or forwards as required) to the spot where he was hit.
@@ -24756,16 +24758,16 @@ c64599 LD HL,23167   ; {Set the attribute bytes for the top 20 rows of the
 ; gangster.
 @label=SCRUPDOWN7
 @nowarn
-c64618 LD HL,59552   ; {Change the instruction at #R59552 to RET
+c64618 LD HL,59552   ; {Change the instruction at #R59552 to #S/RET/
  64621 LD (HL),201   ; }
 @ssub=LD L,59612%256
- 64623 LD L,220      ; {Change the instruction at #R59612 to RET
+ 64623 LD L,220      ; {Change the instruction at #R59612 to #S/RET/
  64625 LD (HL),201   ; }
 @ssub=LD HL,59371+1
- 64627 LD HL,59372   ; {Set the instruction at #R59371 to 'LD BC,#n32'
+ 64627 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#n32'
  64630 LD (HL),32    ; }
 @ssub=LD L,59374%256+1
- 64632 LD L,239      ; {Set the instruction at #R59374 to 'LDIR'
+ 64632 LD L,239      ; {Set the instruction at #R59374 to '#S/LDIR/'
  64634 LD (HL),176   ; }
  64636 LD H,7        ; We will scroll the screen up and down a row 7 times
 *64638 PUSH HL       ; Save the scroll counter
@@ -24823,10 +24825,10 @@ c64618 LD HL,59552   ; {Change the instruction at #R59552 to RET
                      ; times
 @nowarn
  64726 LD HL,59552   ; {Change the instruction at #R59552 back to
- 64729 LD (HL),33    ; 'LD HL,#n32767'}
+ 64729 LD (HL),33    ; '#S/LD HL/,#n32767'}
 @ssub=LD L,59612%256
  64731 LD L,220      ; {Change the instruction at #R59612 back to
- 64733 LD (HL),33    ; 'LD HL,#n32767'}
+ 64733 LD (HL),33    ; '#S/LD HL/,#n32767'}
  64735 JP 64582      ; Regenerate the table of mirrored values of 0-255 at
                      ; #R32256
 
