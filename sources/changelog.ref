@@ -46,8 +46,9 @@ SectionType=BulletPoints
 -
 
 - Added a POKE: #POKE#easyMoney()
-- Fixed the entries for the characters '#CHR8593' (code 94) and '#CHR163' (code
-  96) in the #LINK:Keys(keypress table) and the #R49968(keypress offset table)
+- Fixed the entries for the characters '#CHR8593' (code #b94) and '#CHR163'
+  (code #b96) in the #LINK:Keys(keypress table) and the #R49968(keypress offset
+  table)
 
 [Changelog:20120411]
 -
@@ -213,8 +214,8 @@ Included in SkoolKit 2.0.5.
 Included in SkoolKit 2.0.4.
 
 - Added comments to many routines, data blocks and game status buffer entries
-- Documented #LINK:CharacterBuffers(character buffer) bytes 3, 10, 11, 22, and
-  25-28
+- Documented #LINK:CharacterBuffers(character buffer) bytes #b3, #b10, #b11,
+  #b22, and #b25-#b28
 - Added items to the #LINK:Glossary(glossary)
 
 [Changelog:20101208]
