@@ -701,8 +701,8 @@ leading to the graphic glitch #LINK:GraphicGlitches#lanasWaist(Lana's waist).
 
 POKEing #w33149 with #b134 is actually redundant, since #w33149 is in an area
 of memory that is overwritten soon after loading (#w33149 contains the LSB of
-the operand of the 'LD (#n32902),A' instruction at #R33148@save in the save
-routine).
+the operand of the '#S/LD/ (#n32902),#S/A/' instruction at #R33148@save in the
+save routine).
 
 This bug is not present in the re-release of Contact Sam Cruise by Summit
 Software in 1988, which uses a different loading scheme.
