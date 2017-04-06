@@ -347,6 +347,7 @@ r33010 save
 @replace=/#FACT(?![A-Z])/#LINK:Facts
 @replace=/#POKE(?![A-Z])/#LINK:Pokes
 @replace=/#n\i/#N\1,,,1($)
+@replace=/#nn\i/#N(\1,4,,1)($)
 @replace=/#b\i/#N(\1)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 @writer=:samcruise.ContactSamCruiseAsmWriter
@@ -19215,7 +19216,7 @@ s59405 DEFB 0
 ; Used by the routine at #R61882.
 @label=LSCROLL8
 @ssub=LD HL,59371+1
-c59406 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#n31'
+c59406 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#nn31'
  59409 LD (HL),31    ; }
 @ssub=LD L,59375%256
  59411 LD L,239      ; {Set the instruction at #R59374 to '#S/LDIR/'
@@ -19259,7 +19260,7 @@ s59458 DEFS 3
 ; Used by the routine at #R61838.
 @label=RSCROLL8
 @ssub=LD HL,59371+1
-c59461 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#n31'
+c59461 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#nn31'
  59464 LD (HL),31    ; }
 @ssub=LD L,59375%256
  59466 LD L,239      ; {Set the instruction at #R59374 to '#S/LDDR/'
@@ -19303,7 +19304,7 @@ s59513 DEFS 3
 ; Used by the routine at #R60539.
 @label=USCROLL6
 @ssub=LD HL,59371+1
-c59516 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#n32'
+c59516 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#nn32'
  59519 LD (HL),32    ; }
 @ssub=LD L,59375%256
  59521 LD L,239      ; {Set the instruction at #R59374 to '#S/LDIR/'
@@ -19352,7 +19353,7 @@ s59572 DEFS 3
 ; Used by the routine at #R60539.
 @label=DSCROLL6
 @ssub=LD HL,59371+1
-c59575 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#n32'
+c59575 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#nn32'
  59578 LD (HL),32    ; }
 @ssub=LD L,59375%256
  59580 LD L,239      ; {Set the instruction at #R59374 to '#S/LDIR/'
@@ -24764,7 +24765,7 @@ c64618 LD HL,59552   ; {Change the instruction at #R59552 to #S/RET/
  64623 LD L,220      ; {Change the instruction at #R59612 to #S/RET/
  64625 LD (HL),201   ; }
 @ssub=LD HL,59371+1
- 64627 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#n32'
+ 64627 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#nn32'
  64630 LD (HL),32    ; }
 @ssub=LD L,59374%256+1
  64632 LD L,239      ; {Set the instruction at #R59374 to '#S/LDIR/'
