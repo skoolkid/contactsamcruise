@@ -191,7 +191,7 @@ quickly, making it difficult to take in.
 
 [Fact:dontCallDaisy:Don't call Daisy - she'll call you]
 The only phone message from Daisy that Sam doesn't have to call the office to
-receive is message #R23904(63): 'DAISY SAID 'SAM - A GANGSTER'S WATCHING FOR
+receive is message #R23904(#b63): 'DAISY SAID 'SAM - A GANGSTER'S WATCHING FOR
 YOU OUTSIDE THE POLICE STATION''. It is the first message received on the phone
 on the third floor of no. 15 after Sam has entered that house using the
 key. Exactly how Daisy knows where Sam is at that time remains a mystery,
@@ -253,10 +253,10 @@ by 1 (see #R64162 and #R64005).
 [Fact:deckMeIfYouCan:Deck me if you can]
 The routine at #R64162 checks whether anyone (including Sam) has been struck by
 a falling character, but because it simply places the address of the
-uninterruptible subcommand routine at #R64005 or #R64009 into bytes 18 and 19
-of the stricken character's buffer, this has no effect on Sam; thus Sam is the
-only character who cannot be knocked over by another character landing on his
-head.
+uninterruptible subcommand routine at #R64005 or #R64009 into bytes #b18 and
+#b19 of the stricken character's buffer, this has no effect on Sam; thus Sam is
+the only character who cannot be knocked over by another character landing on
+his head.
 
 Note that the only occasion on which a character other than Sam will step off
 the roof of a building (and therefore possibly strike another character) is
@@ -327,7 +327,7 @@ angle:
 { #CALL:as_img(246) | #CALL:as_img(245) }
 TABLE#
 
-But sprite tiles 215 and 216 (which are unused) also look like the body and
+But sprite tiles #b215 and #b216 (which are unused) also look like the body and
 tail of a cat - this time with the tail pointing horizontally - and may once
 have been used as an alternative second phase (or additional phase) of
 animation for that creature:

@@ -11,18 +11,18 @@ Number denoting one of the #AS()(phases of animation) of a character's sprite.
 #LINK:CommandLists(List of commands) used to control a character.
 
 [Glossary:Continual subcommand]
-A character-controlling command routine whose address is stored in bytes 27 and
-28 of a character's buffer. The command is executed each time the character is
-moved - before the interruptible subcommand or primary command - unless the
-character is under the control of an uninterruptible subcommand (see
+A character-controlling command routine whose address is stored in bytes #b27
+and #b28 of a character's buffer. The command is executed each time the
+character is moved - before the interruptible subcommand or primary command -
+unless the character is under the control of an uninterruptible subcommand (see
 #R61948). Though continual subcommands are supported, there are none used in
 the game.
 
 [Glossary:Interruptible subcommand]
 One of various character-controlling command routines whose address is stored
-in bytes 14 and 15 of a character's buffer. If present, the command is executed
-each time the character is moved, unless the character is under the control of
-an uninterruptible subcommand (see #R61948).
+in bytes #b14 and #b15 of a character's buffer. If present, the command is
+executed each time the character is moved, unless the character is under the
+control of an uninterruptible subcommand (see #R61948).
 
 [Glossary:Midstride]
 Of a character: in phase 2 or 4 of the walking animation. For example:
@@ -33,15 +33,15 @@ TABLE#
 
 [Glossary:Primary command]
 One of various character-controlling command routines whose address is stored
-in bytes 8 and 9 of a character's buffer. If present, the command is executed
-each time the character is moved, unless the character is under the control of
-an uninterruptible or interruptible subcommand (see #R61948).
+in bytes #b8 and #b9 of a character's buffer. If present, the command is
+executed each time the character is moved, unless the character is under the
+control of an uninterruptible or interruptible subcommand (see #R61948).
 
 [Glossary:SRB]
 Screen refresh buffer at #R32512.
 
 [Glossary:Uninterruptible subcommand]
 One of various character-controlling command routines whose address is stored
-in bytes 18 and 19 of a character's buffer. If present, the command is executed
-each time the character is moved, and overrides any other command (see
+in bytes #b18 and #b19 of a character's buffer. If present, the command is
+executed each time the character is moved, and overrides any other command (see
 #R61948).

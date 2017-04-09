@@ -239,7 +239,7 @@ POKE #R61416(61419),21
 
 [Bug:lanaNoAnswer:Lana doesn't answer]
 When Sam's score hits 50, the first phone message from Lana (message
-#R32089(59): LANA ANSWERED 'OOH SAM! THEY KILLED MY FIANCE AND STOLE THE
+#R32089(#b59): LANA ANSWERED 'OOH SAM! THEY KILLED MY FIANCE AND STOLE THE
 BUDGIE') is activated (see #R24569). However, if Sam calls Lana (on 7162) from
 the phone in the third-floor magenta room in the apartments next to no. 74
 while the room past the catwalk is on-screen, no one answers.
@@ -343,14 +343,14 @@ to the spot where he was arrested.
 
 Whenever Sam (or indeed any character) moves midstride, his post-midstride
 animatory state, x-coordinate and y-coordinate are calculated and stored in
-bytes 5, 6 and 7 of his buffer by the section of code at #R60423, to be
+bytes #b5, #b6 and #b7 of his buffer by the section of code at #R60423, to be
 retrieved later (usually soon after) by the routine at #R60506. However, if Sam
 is picked up by a policeman while he's midstride, his post-midstride movement
 is delayed. When 'P' is pressed after he's been dropped in the cell, the
 routine at #R60636 is called, which first turns Sam round (because he's facing
 left). Then that routine jumps to the code at #R60644, which detects the
-post-midstride y-coordinate stored in byte 7 of Sam's buffer, and accordingly
-sets the midstride timer in byte 9 of his buffer to a non-zero value. A few
+post-midstride y-coordinate stored in byte #b7 of Sam's buffer, and accordingly
+sets the midstride timer in byte #b9 of his buffer to a non-zero value. A few
 passes through the main loop later, the midstride timer is decremented to zero
 by the code at #R61545, and Sam is belatedly moved to the post-midstride
 coordinates that were calculated just before he was arrested.
@@ -361,7 +361,7 @@ y-coordinate is cleared when he's picked up by a policeman:
 POKE #R29187(29188),0: POKE 29189,1: POKE 29191,7
 
 Note that the midstride trick does not work with gangsters, because the code at
-#R64422 sets byte 7 of Sam's buffer (which holds his post-midstride
+#R64422 sets byte #b7 of Sam's buffer (which holds his post-midstride
 y-coordinate) to zero when he lands after being dropped off the roof of a
 building. To enable the midstride trick to be used with gangsters:
 
@@ -402,9 +402,9 @@ concealed or inconspicuous when aiming at his target. However, because of a bug
 in the sniper-controlling routine at #R25118, the sniper will, after emerging
 to take aim, remain brazenly out in the open for all to see until Sam gets too
 close. The apparent intention of the sniper-controlling routine is that the
-sniper should emerge, shoot once or twice, and then hide again when byte 16 of
-the sniper's buffer has been decremented to zero from its original value
-between 10 and 25 (see #R25307).
+sniper should emerge, shoot once or twice, and then hide again when byte #b16
+of the sniper's buffer has been decremented to zero from its original value
+between #b10 and #b25 (see #R25307).
 
 <div>POKE 25113,46</div>
 <div>POKE 25114,16</div>
@@ -527,15 +527,15 @@ be transparent:
 TABLE#
 
 The reason for this is that the routine at #R63784, which prepares the tiles
-for a knocked-out sprite by making rotated copies of tiles 1-4 and 6-9 of the
-character's base sprite, needlessly makes rotated copies of blank tiles (those
-with a tile reference of 0) too. However, the blank tile (the graphic and mask
-data for which are located at addresses #w50944 TO #w54784 STEP 256) does not
-contain the correct mask data - it is all zeroes instead of 255s. This is not
-normally a problem because the sprite-tile-printing routine at #R59635 is
-optimised to ignore sprite tiles with a tile reference of 0. But the rotated
-copies of the blank tile have non-zero tile references, and are therefore
-drawn.
+for a knocked-out sprite by making rotated copies of tiles #b1-#b4 and #b6-#b9
+of the character's base sprite, needlessly makes rotated copies of blank tiles
+(those with a tile reference of #b0) too. However, the blank tile (the graphic
+and mask data for which are located at addresses #w50944 TO #w54784 STEP 256)
+does not contain the correct mask data - it is all zeroes instead of #b255s.
+This is not normally a problem because the sprite-tile-printing routine at
+#R59635 is optimised to ignore sprite tiles with a tile reference of #b0. But
+the rotated copies of the blank tile have non-zero tile references, and are
+therefore drawn.
 
 This bug is noticeable if Sam knocks over one of the affected characters on the
 sidewalk: the blank tiles will obscure parts of the building (and possibly
@@ -550,7 +550,7 @@ just landed on Daisy after being dropped from the roof of no. 19:
 TABLE#
 #POPS
 
-The simplest fix is to set the mask data for the blank tile to all 255s:
+The simplest fix is to set the mask data for the blank tile to all #b255s:
 
 <div>POKE 51200,255</div>
 <div>POKE 51712,255</div>
@@ -563,7 +563,7 @@ The simplest fix is to set the mask data for the blank tile to all 255s:
 
 Another fix (which leaves the graphic and mask data for the blank tile
 completely unused) is to set the relevant tile references in the affected
-sprites to 0:
+sprites to #b0:
 
 #PUSHSbtbh
 #POKES55463,0;55479,0;57783,0;55503,0;55511,0;55519,0;57823,0;55527,0
@@ -671,7 +671,7 @@ seen on the sidewalk outside that building or the hotel. The banknote can be
 somersaulted onto repeatedly (to gain extra cash) without disappearing.
 
 The reason this happens is that the routine at #R25420 brings the banknote out
-of service when Sam collects the hook - thus leaving character buffer 229
+of service when Sam collects the hook - thus leaving character buffer #b229
 available for use by the hook when it's thrown - but doesn't remove the
 banknote from view.
 
@@ -724,13 +724,13 @@ light switch there and the light in the shop underneath no. 17 comes on.
 
 [Bug:displacedDame:Displaced dame]
 When the screen scrolls left or right as Sam moves through the play area,
-certain members of character groups 215-221 are moved in and out of operation,
-depending on the portion of the play area that is visible. In particular, the
-lady in a hat who is a member of character group 215 is in operation only when
-the far left edge of the play area is on screen (see #R65198). That is a rather
-small range of operation - so small, in fact, that it's possible to see her
-move out of operation (and become motionless) when the left edge of the play
-area scrolls out of view:
+certain members of character groups #b215-#b221 are moved in and out of
+operation, depending on the portion of the play area that is visible. In
+particular, the lady in a hat who is a member of character group #b215 is in
+operation only when the far left edge of the play area is on screen (see
+#R65198). That is a rather small range of operation - so small, in fact, that
+it's possible to see her move out of operation (and become motionless) when the
+left edge of the play area scrolls out of view:
 
 <div>1. Go to the right-hand magenta room on the third floor of the apartment
 building at the far left of town.</div>
@@ -756,7 +756,7 @@ TABLE#
 
 [Bug:displacedDude:Displaced dude]
 Like the displaced dame described above, the man in a bowler hat who is a
-member of character group 221 and walks up and down on the second and third
+member of character group #b221 and walks up and down on the second and third
 floors of the apartment building next to no. 19 can be seen becoming motionless
 when the screen scrolls too far to the right:
 
