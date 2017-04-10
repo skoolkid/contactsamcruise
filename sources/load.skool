@@ -61,8 +61,8 @@ d00259 DEFB 60,0,124,60,66,120,60,66,62,126,126,0,66
 ; actually #w24055. }
 ; TABLE#
 ; .
-; Entering the code here from BASIC means that #REGc=247 (the LSB of #w24055);
-; this value is used later on in the routine at #R32815.
+; Entering the code here from BASIC means that #REGc=#b247 (the LSB of
+; #w24055); this value is used later on in the routine at #R32815.
 c24055 JP 23831      ; Jump to where it really starts
 ; And this is where it really starts.
 *23831 DI            ; Disable interrupts
@@ -144,7 +144,7 @@ c24055 JP 23831      ; Jump to where it really starts
 ;
 ; Used by the routine at #R32815.
 @label=EDGE2
-c32768 INC SP        ; {Place the address 0 on the stack above the current
+c32768 INC SP        ; {Place the address #w0 on the stack above the current
  32769 INC SP        ; return address, so the Spectrum will reset if there's a
  32770 EX (SP),HL    ; loading error
  32771 LD H,0        ;
@@ -434,7 +434,7 @@ c33046 EXX           ; {Set #REGhl' to the first destination address (minus
 ;
 ; Used by the routine at #R33046. These bytes are copied into addresses
 ; #w33149-#w65506 (step 247) after the fast code block has loaded. Note that
-; the first entry in this table leads to the value 134 being copied into
+; the first entry in this table leads to the value #b134 being copied into
 ; address #w33149, which corrupts the table entry at that address; this is a
 ; #BUG#selfModifyingDataTable(bug).
 b33064 DEFB 134,0,127,0,0,162,255,143,31,8,216,0,1,127,152,51

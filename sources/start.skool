@@ -1,6 +1,7 @@
 ; Copyright 2010-2013, 2015, 2017 Richard Dymond (rjdymond@gmail.com)
 
 @start
+@replace=/#b\i/#N(\1)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
 ; Copyright 2010-2013, 2015, 2017 Richard Dymond (this disassembly)
@@ -182,29 +183,29 @@ c56576 NOP           ;
  56632 LD HL,23168   ; Point #REGhl at the first attribute byte of the line
                      ; where on-screen messages will be displayed
  56635 LD B,32       ; There are 32 attribute bytes in this line
-*56637 LD (HL),15    ; {Set each attribute byte to 15 (INK 7: PAPER 1)
+*56637 LD (HL),15    ; {Set each attribute byte to #b15 (INK 7: PAPER 1)
  56639 INC L         ;
  56640 DJNZ 56637    ; }
  56642 LD C,3        ; There are 3 lines at the bottom of the screen that still
                      ; need their attribute bytes set
 *56644 LD B,8        ; The first 8 bytes in each line correspond to the Contact
                      ; Sam Cruise logo
-*56646 LD (HL),23    ; {Set these attribute bytes to 23 (INK 7: PAPER 2)
+*56646 LD (HL),23    ; {Set these attribute bytes to #b23 (INK 7: PAPER 2)
  56648 INC L         ;
  56649 DJNZ 56646    ; }
  56651 LD B,12       ; The next 12 bytes in each line correspond to the icon
                      ; panel
-*56653 LD (HL),54    ; {Set these attribute bytes to 54 (INK 6: PAPER 6)
+*56653 LD (HL),54    ; {Set these attribute bytes to #b54 (INK 6: PAPER 6)
  56655 INC L         ;
  56656 DJNZ 56653    ; }
  56658 LD B,9        ; The next 9 bytes in each line correspond to the score
                      ; box
-*56660 LD (HL),32    ; {Set these attribute bytes to 32 (INK 0: PAPER 4)
+*56660 LD (HL),32    ; {Set these attribute bytes to #b32 (INK 0: PAPER 4)
  56662 INC L         ;
  56663 DJNZ 56660    ; }
  56665 LD B,3        ; The last 3 bytes in each line correspond to the disguise
                      ; box
-*56667 LD (HL),23    ; {Set these attribute bytes to 23 (INK 7: PAPER 2)
+*56667 LD (HL),23    ; {Set these attribute bytes to #b23 (INK 7: PAPER 2)
  56669 INC L         ;
  56670 DJNZ 56667    ; }
  56672 DEC C         ; Have we done all 3 lines at the bottom of the screen?
