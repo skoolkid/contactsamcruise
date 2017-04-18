@@ -4975,7 +4975,7 @@ s28702 DEFB 0
 ;
 ; The main entry point is used to show an icon in the icon panel.
 @label=UPDICONS
-c28703 LD A,48       ; 48=PAPER 6: INK 0
+c28703 LD A,48       ; #b48=PAPER 6: INK 0
  28705 JR 28709      ;
 ; This entry point is used by the routine at #R29668 to hide an icon in the
 ; icon panel.
@@ -8930,8 +8930,8 @@ g32752 DEFB 0   ; Shop at the far left of town
 
 ; Input device indicator
 ;
-; Set by the routine at #R24951, and used by the routine at #R60082. Holds 107
-; ('k') if the Kempston joystick is being used, or 0 otherwise.
+; Set by the routine at #R24951, and used by the routine at #R60082. Holds
+; #b107 ('k') if the Kempston joystick is being used, or #b0 otherwise.
 @label=KEMPSTON
 g32762 DEFB 0
 
@@ -22116,7 +22116,7 @@ c62080 LD L,9        ; Byte #b9 of the buffer contains the MSB of the primary
 ; subcommand or the primary command.
 *62088 LD L,19       ; Byte #b19 of the buffer contains the MSB of the
                      ; uninterruptible subcommand routine address
-*62090 LD A,(32763)  ; #REGa=number of the character being moved (215-229)
+*62090 LD A,(32763)  ; #REGa=number of the character being moved (#b215-#b229)
  62093 LD H,A        ; {Zero out the relevant routine address MSB (in byte #b9,
  62094 LD (HL),0     ; #b15 or #b19) in the character's buffer}
  62096 JP 62029      ; Re-enter the character-moving routine (#R61948) at the
@@ -24574,7 +24574,7 @@ c64331 CALL 64227    ; Move the character to the next point in his descent
 c64338 CALL 64512    ; Deal with the case where #REGb=2 and the character is
                      ; standing on the edge of the roof of no. 17 or the
                      ; apartment building next to no. 19
-; This entry point is used by the routine at #R31476 with #REGh=230 (Sam) and
+; This entry point is used by the routine at #R31476 with #REGh=#b230 (Sam) and
 ; #REGb=1.
 *64341 LD L,13       ; {Initialise byte #b13 of the character's buffer to 0 on
  64343 LD (HL),0     ; the assumption that he will land safely}
