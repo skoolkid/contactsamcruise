@@ -12,6 +12,7 @@ GameStatusBufferIncludes=32658,32720
 StyleSheet=skoolkit.css;csc.css
 Release=The complete Contact Sam Cruise RAM disassembly YYYYMMDD
 Copyright=&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).
+AddressAnchor={address#IF({base}==16)(:04x)}
 
 [Links]
 DataMap=[Data] (just the data)
@@ -66,6 +67,7 @@ start-Asm-b=Startup data
 start-Asm-c=Startup routines
 
 [Paths]
+CodeFiles={address#IF({base}==16)(:04#S/X/)}.html
 PlayAreaImagePath=images/play_area
 AnimatoryStateImagePath=images/animatory_states
 LocationDescriptorImagePath=images/location_descriptors
@@ -113,6 +115,12 @@ Facts
 Bugs
 Pokes
 Walkthrough
+
+[MemoryMap:MemoryMap]
+PageByteColumns=#IF({base}==16)(0,1)
+
+[MemoryMap:DataMap]
+PageByteColumns=#IF({base}==16)(0,1)
 
 [MemoryMap:MessagesMap]
 Intro=#INCLUDE(MessagesMapIntro)
