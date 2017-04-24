@@ -66,7 +66,7 @@ d00258 DEFB 24,60,0,60,64,126,60,124,0,60,8,8,24,8
 @start
 @writer=:samcruise.ContactSamCruiseAsmWriter
 @replace=/#n\i/#N\1,,,1($)
-@replace=/#b\i/#N(\1)/ (byte)
+@replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
 ; Copyright 2010-2013, 2015, 2017 Richard Dymond (this disassembly)

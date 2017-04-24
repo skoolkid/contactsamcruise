@@ -348,7 +348,7 @@ r33010 save
 @replace=/#POKE(?![A-Z])/#LINK:Pokes
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#nn\i/#N(\1,4,,1)($)
-@replace=/#b\i/#N(\1)/ (byte)
+@replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 @writer=:samcruise.ContactSamCruiseAsmWriter
 ; Contact Sam Cruise disassembly

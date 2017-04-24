@@ -1,7 +1,7 @@
 ; Copyright 2010-2013, 2015, 2017 Richard Dymond (rjdymond@gmail.com)
 
 @start
-@replace=/#b\i/#N(\1)/ (byte)
+@replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
 ; Copyright 2010-2013, 2015, 2017 Richard Dymond (this disassembly)

@@ -26,7 +26,7 @@ SNIPER_AS = 54
 
 def parse_as(text, index):
     end, state = parse_ints(text, index, 1, (None,))
-    end, link_text = parse_brackets(text, end, '#N({})'.format(state))
+    end, link_text = parse_brackets(text, end, '#N({},,,1)(0x)'.format(state))
     return end, state, link_text
 
 def parse_s(text, index):
@@ -79,7 +79,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
             246: 55229,
             247: 55237
         }
-        self.b_fmt = '{:02X}' if self.base == 16 else '{}'
+        self.b_fmt = '0x{:02X}' if self.base == 16 else '{}'
         if self.case == 1:
             self.b_fmt = self.b_fmt.lower()
 
@@ -480,10 +480,10 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
                 routine_link = '#R{}'.format(routine)
                 purpose = self.keypress_routines[routine]
             subs = {
-                'index': '#N{}'.format(index),
+                'index': self.b_fmt.format(index),
                 'key': self.get_chr(index + 48),
                 'address': '#N{}'.format(address),
-                'offset': '#N{}'.format(offset),
+                'offset': self.b_fmt.format(offset),
                 'lookup': '#N{}'.format(lookup) if lookup else '',
                 'routine': routine_link,
                 'purpose': purpose
