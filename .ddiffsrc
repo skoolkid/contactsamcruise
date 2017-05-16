@@ -1,5 +1,5 @@
 # rc file for disassembly-diff, skooldiff and write-files
 
-OLD_VERSION=20160123
-SK_OLD_VERSION=5.1
+OLD_VERSION=20170516
+SK_OLD_VERSION=6.0
 SNAPSHOT=$CONTACTSAMCRUISE_HOME/build/contact_sam_cruise.z80
