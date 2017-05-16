@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="77D3.html">77D3</a>. Waits for a keypress, and then queues message <a href="69F2.html">40</a> (''{name}' I SAID ') followed by either message <a href="6A44.html">46</a> ('I DUNNO NO {name}') or the message Sam is supposed to receive upon giving the correct name.
+Used by the routine at <a href="77D3.html">77D3</a>. Waits for a keypress, and then queues message <a href="69F2.html">0x28</a> (''{name}' I SAID ') followed by either message <a href="6A44.html">0x2E</a> ('I DUNNO NO {name}') or the message Sam is supposed to receive upon giving the correct name.
 </div>
 </div>
 <table class="input-0">
@@ -53,13 +53,13 @@ Used by the routine at <a href="77D3.html">77D3</a>. Waits for a keypress, and t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7772"></span>7772</td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if no key with an ASCII code in the range 48-127 was pressed</td>
+<td class="comment-11" rowspan="1">Return if no key with an ASCII code in the range 0x30-0x7F was pressed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7773"></span>7773</td>
 <td class="instruction">CP $61</td>
-<td class="comment-11" rowspan="1">Is the ASCII code of the keypress less than 97 ('a')?</td>
+<td class="comment-11" rowspan="1">Is the ASCII code of the keypress less than 0x61 ('a')?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -71,7 +71,7 @@ Used by the routine at <a href="77D3.html">77D3</a>. Waits for a keypress, and t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7776"></span>7776</td>
 <td class="instruction">CP $68</td>
-<td class="comment-11" rowspan="1">Is the ASCII code of the keypress less than 104 ('h')?</td>
+<td class="comment-11" rowspan="1">Is the ASCII code of the keypress less than 0x68 ('h')?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -95,13 +95,13 @@ Used by the routine at <a href="77D3.html">77D3</a>. Waits for a keypress, and t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="777d"></span>777D</td>
 <td class="instruction">SUB $0B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=104</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x68</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="777f"></span>777F</td>
 <td class="instruction">ADD A,$07</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=104-111 (message number of a name)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x68-0x6F (message number of a name)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -119,7 +119,7 @@ Used by the routine at <a href="77D3.html">77D3</a>. Waits for a keypress, and t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7785"></span>7785</td>
 <td class="instruction">LD A,$28</td>
-<td class="comment-11" rowspan="1">Message <a href="69F2.html">40</a>: ''{name}' I SAID '</td>
+<td class="comment-11" rowspan="1">Message <a href="69F2.html">0x28</a>: ''{name}' I SAID '</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -131,7 +131,7 @@ Used by the routine at <a href="77D3.html">77D3</a>. Waits for a keypress, and t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="778a"></span>778A</td>
 <td class="instruction">LD HL,($7F97)</td>
-<td class="comment-11" rowspan="1">Collect from <a href="7F97.html">7F97</a> the address of either the second byte of the relevant phone table entry (if the phone was ringing, or the person Sam's calling has a message for him), or the final byte of the phone message table at <a href="6B72.html">6B72</a> (if the person Sam's calling has no message for him); the final byte of the phone message table is 255, which does not match the message number of any name</td>
+<td class="comment-11" rowspan="1">Collect from <a href="7F97.html">7F97</a> the address of either the second byte of the relevant phone table entry (if the phone was ringing, or the person Sam's calling has a message for him), or the final byte of the phone message table at <a href="6B72.html">6B72</a> (if the person Sam's calling has no message for him); the final byte of the phone message table is 0xFF, which does not match the message number of any name</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -149,7 +149,7 @@ Used by the routine at <a href="77D3.html">77D3</a>. Waits for a keypress, and t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="778f"></span>778F</td>
 <td class="instruction">LD A,$2E</td>
-<td class="comment-11" rowspan="1">Message <a href="6A44.html">46</a>: 'I DUNNO NO {name}'</td>
+<td class="comment-11" rowspan="1">Message <a href="6A44.html">0x2E</a>: 'I DUNNO NO {name}'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -202,7 +202,7 @@ This entry point is used by the routine at <a href="77A3.html">77A3</a>.
 <span id="7799"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="77A3.html">77A3</a> (with <span class="register">A</span>=<a href="6A0E.html">43</a>, <a href="6A1D.html">44</a>, <a href="6A39.html">45</a> or <a href="6A87.html">50</a>) and <a href="77D3.html">77D3</a> (with <span class="register">A</span>=<a href="6A4E.html">47</a>).
+This entry point is used by the routines at <a href="77A3.html">77A3</a> (with <span class="register">A</span>=<a href="6A0E.html">0x2B</a>, <a href="6A1D.html">0x2C</a>, <a href="6A39.html">0x2D</a> or <a href="6A87.html">0x32</a>) and <a href="77D3.html">77D3</a> (with <span class="register">A</span>=<a href="6A4E.html">0x2F</a>).
 </div>
 </div>
 </td>
@@ -234,9 +234,9 @@ This entry point is used by the routines at <a href="77A3.html">77A3</a> (with <
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The main entry point is used by the routines at <a href="7A57.html">7A57</a>, <a href="F600.html">F600</a>, <a href="F6DE.html">F6DE</a>, <a href="F748.html">F748</a> and <a href="F7BF.html">F7BF</a>. Removes the primary command routine address from bytes 8 and 9 of the character's buffer, which has the effect of making the routine at <a href="F1FC.html">F1FC</a> move immediately to the next command in the command list.
+The main entry point is used by the routines at <a href="7A57.html">7A57</a>, <a href="F600.html">F600</a>, <a href="F6DE.html">F6DE</a>, <a href="F748.html">F748</a> and <a href="F7BF.html">F7BF</a>. Removes the primary command routine address from bytes 0x08 and 0x09 of the character's buffer, which has the effect of making the routine at <a href="F1FC.html">F1FC</a> move immediately to the next command in the command list.
 </div>
 </div>
 <table class="input-0">
@@ -47,7 +47,7 @@ The main entry point is used by the routines at <a href="7A57.html">7A57</a>, <a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f280"></span>F280</td>
 <td class="instruction">LD L,$09</td>
-<td class="comment-11" rowspan="1">Byte 9 of the buffer contains the MSB of the primary command routine address</td>
+<td class="comment-11" rowspan="1">Byte 0x09 of the buffer contains the MSB of the primary command routine address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -60,7 +60,7 @@ The main entry point is used by the routines at <a href="7A57.html">7A57</a>, <a
 <span id="f284"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="621E.html">621E</a>, <a href="F359.html">F359</a>, <a href="F383.html">F383</a>, <a href="F5AC.html">F5AC</a>, <a href="F5CE.html">F5CE</a>, <a href="F6E9.html">F6E9</a> and <a href="F846.html">F846</a>. Removes the interruptible subcommand routine address from bytes 14 and 15 of the character's buffer, which has the effect of making the routine at <a href="F1FC.html">F1FC</a> immediately hand control of the character back to the primary command.
+This entry point is used by the routines at <a href="621E.html">621E</a>, <a href="F359.html">F359</a>, <a href="F383.html">F383</a>, <a href="F5AC.html">F5AC</a>, <a href="F5CE.html">F5CE</a>, <a href="F6E9.html">F6E9</a> and <a href="F846.html">F846</a>. Removes the interruptible subcommand routine address from bytes 0x0E and 0x0F of the character's buffer, which has the effect of making the routine at <a href="F1FC.html">F1FC</a> immediately hand control of the character back to the primary command.
 </div>
 </div>
 </td>
@@ -69,7 +69,7 @@ This entry point is used by the routines at <a href="621E.html">621E</a>, <a hre
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f284"></span>F284</td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="1">Byte 15 of the buffer contains the MSB of the interruptible subcommand routine address</td>
+<td class="comment-11" rowspan="1">Byte 0x0F of the buffer contains the MSB of the interruptible subcommand routine address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -82,7 +82,7 @@ This entry point is used by the routines at <a href="621E.html">621E</a>, <a hre
 <span id="f288"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="FA83.html">FA83</a> and <a href="FB4B.html">FB4B</a>. Removes the uninterruptible subcommand routine address from bytes 18 and 19 of the character's buffer, which has the effect of making the routine at <a href="F1FC.html">F1FC</a> immediately hand control of the character back to the interruptible subcommand or the primary command.
+This entry point is used by the routines at <a href="FA83.html">FA83</a> and <a href="FB4B.html">FB4B</a>. Removes the uninterruptible subcommand routine address from bytes 0x12 and 0x13 of the character's buffer, which has the effect of making the routine at <a href="F1FC.html">F1FC</a> immediately hand control of the character back to the interruptible subcommand or the primary command.
 </div>
 </div>
 </td>
@@ -91,19 +91,19 @@ This entry point is used by the routines at <a href="FA83.html">FA83</a> and <a 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f288"></span>F288</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="1">Byte 19 of the buffer contains the MSB of the uninterruptible subcommand routine address</td>
+<td class="comment-11" rowspan="1">Byte 0x13 of the buffer contains the MSB of the uninterruptible subcommand routine address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f28a"></span>F28A</td>
 <td class="instruction">LD A,($7FFB)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character being moved (215-229)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character being moved (0xD7-0xE5)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f28d"></span>F28D</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-11" rowspan="2">Zero out the relevant routine address MSB (in byte 9, 15 or 19) in the character's buffer</td>
+<td class="comment-11" rowspan="2">Zero out the relevant routine address MSB (in byte 0x09, 0x0F or 0x13) in the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -126,9 +126,9 @@ This entry point is used by the routines at <a href="FA83.html">FA83</a> and <a 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

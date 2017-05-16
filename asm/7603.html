@@ -47,7 +47,7 @@ Used by the routines at <a href="79E4.html">79E4</a> and <a href="F080.html">F08
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7603"></span>7603</td>
 <td class="instruction">LD HL,$E601</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of Sam's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -59,7 +59,7 @@ Used by the routines at <a href="79E4.html">79E4</a> and <a href="F080.html">F08
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7607"></span>7607</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -225,7 +225,7 @@ Sam's coordinates match those of the object. Is it the hook or the budgie?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="762e"></span>762E</td>
 <td class="instruction">CP $06</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#6">6</a>: Is Sam bending his knees?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#6">0x06</a>: Is Sam bending his knees?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -455,7 +455,7 @@ It's not the hook, the budgie or a message. Is it a key?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7662"></span>7662</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=key identifier (8, 16, 32 or 64)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=key identifier (0x08, 0x10, 0x20 or 0x40)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -613,7 +613,7 @@ Now we set the attribute bytes for the budgie and hook in the icon panel.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="768d"></span>768D</td>
 <td class="instruction">LD E,$B0</td>
-<td class="comment-11" rowspan="1">176 is the LSB of 23216 (the attribute file address for the top-left tile of the budgie icon)</td>
+<td class="comment-11" rowspan="1">0xB0 is the LSB of 5AB0 (the attribute file address for the top-left tile of the budgie icon)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -637,7 +637,7 @@ Now we set the attribute bytes for the budgie and hook in the icon panel.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7696"></span>7696</td>
 <td class="instruction">LD A,$30</td>
-<td class="comment-11" rowspan="1">48=PAPER 6: INK 0</td>
+<td class="comment-11" rowspan="1">0x30=PAPER 6: INK 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -649,7 +649,7 @@ Now we set the attribute bytes for the budgie and hook in the icon panel.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="769a"></span>769A</td>
 <td class="instruction">ADD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=56 (INK 6: PAPER 6)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x38 (INK 6: PAPER 6)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -667,7 +667,7 @@ Now we set the attribute bytes for the budgie and hook in the icon panel.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="769f"></span>769F</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=6 (INK 6: PAPER 0)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x06 (INK 6: PAPER 0)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -679,7 +679,7 @@ Now we set the attribute bytes for the budgie and hook in the icon panel.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76a3"></span>76A3</td>
 <td class="instruction">LD E,$B2</td>
-<td class="comment-11" rowspan="1">176 is the LSB of 23218 (the attribute file address for the top-left tile of the hook icon)</td>
+<td class="comment-11" rowspan="1">0xB2 is the LSB of 5AB2 (the attribute file address for the top-left tile of the hook icon)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -719,7 +719,7 @@ Now we display the keys Sam has found.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76ac"></span>76AC</td>
 <td class="instruction">LD BC,$0430</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=4 (there are 4 keys), <span class="register">C</span>=48 (INK 6: PAPER 0)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=4 (there are 4 keys), <span class="register">C</span>=0x30 (INK 6: PAPER 0)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -732,7 +732,7 @@ Now we display the keys Sam has found.
 <span id="76b2"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="7414.html">7414</a> with <span class="register">HL</span>=23272 (attribute byte for the leftmost first aid kit in the icon panel) and <span class="register">C</span>=50 (INK 2: PAPER 6).
+This entry point is used by the routine at <a href="7414.html">7414</a> with <span class="register">HL</span>=5AE8 (attribute byte for the leftmost first aid kit in the icon panel) and <span class="register">C</span>=0x32 (INK 2: PAPER 6).
 </div>
 </div>
 </td>
@@ -741,7 +741,7 @@ This entry point is used by the routine at <a href="7414.html">7414</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76b2"></span>76B2</td>
 <td class="instruction">LD (HL),$36</td>
-<td class="comment-11" rowspan="1">Set the attribute byte to 54 (INK 6: PAPER 6) by default</td>
+<td class="comment-11" rowspan="1">Set the attribute byte to 0x36 (INK 6: PAPER 6) by default</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -759,7 +759,7 @@ This entry point is used by the routine at <a href="7414.html">7414</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76b7"></span>76B7</td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-11" rowspan="1">Otherwise reveal the first aid kit or key by setting the attribute byte to 50 (INK 2: PAPER 6) or 48 (INK 6: PAPER 0)</td>
+<td class="comment-11" rowspan="1">Otherwise reveal the first aid kit or key by setting the attribute byte to 0x32 (INK 2: PAPER 6) or 0x30 (INK 6: PAPER 0)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -788,9 +788,9 @@ This entry point is used by the routine at <a href="7414.html">7414</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

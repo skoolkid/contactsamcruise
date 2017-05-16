@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="64BD.html">64BD</a>. Animatory states <a href="../graphics/as.html#9">9</a>, <a href="../graphics/as.html#10">10</a>, <a href="../graphics/as.html#15">15</a> and <a href="../graphics/as.html#31">31</a> - corresponding to the sprites of Sam rolling and somersaulting - use sprite tiles 239-247. These sprite tiles are initialised before Sam starts his acrobatic manoeuvre, and later rotated as he moves through each phase of animation.
+Used by the routine at <a href="64BD.html">64BD</a>. Animatory states <a href="../graphics/as.html#9">0x09</a>, <a href="../graphics/as.html#10">0x0A</a>, <a href="../graphics/as.html#15">0x0F</a> and <a href="../graphics/as.html#31">0x1F</a> - corresponding to the sprites of Sam rolling and somersaulting - use sprite tiles 0xEF-0xF7. These sprite tiles are initialised before Sam starts his acrobatic manoeuvre, and later rotated as he moves through each phase of animation.
 </div>
 </div>
 <table class="input-0">
@@ -47,7 +47,7 @@ Used by the routine at <a href="64BD.html">64BD</a>. Animatory states <a href=".
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6412"></span>6412</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="4">Copy sprite tiles 2-7 over sprite tiles 239-244</td>
+<td class="comment-11" rowspan="4">Copy sprite tiles 0x02-0x07 over sprite tiles 0xEF-0xF4</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -71,7 +71,7 @@ Used by the routine at <a href="64BD.html">64BD</a>. Animatory states <a href=".
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="641b"></span>641B</td>
 <td class="instruction">LD E,$F2</td>
-<td class="comment-11" rowspan="4">Copy sprite tile 170 over sprite tile 242</td>
+<td class="comment-11" rowspan="4">Copy sprite tile 0xAA over sprite tile 0xF2</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -95,7 +95,7 @@ Used by the routine at <a href="64BD.html">64BD</a>. Animatory states <a href=".
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6423"></span>6423</td>
 <td class="instruction">LD A,$B5</td>
-<td class="comment-11" rowspan="10">Copy sprite tiles 181, 189 and 197 from base page 215 over sprite tiles 245-247</td>
+<td class="comment-11" rowspan="10">Copy sprite tiles 0xB5, 0xBD and 0xC5 from base page 0xD7 over sprite tiles 0xF5-0xF7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -155,7 +155,7 @@ Used by the routine at <a href="64BD.html">64BD</a>. Animatory states <a href=".
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6435"></span>6435</td>
 <td class="instruction">LD B,$08</td>
-<td class="comment-11" rowspan="13">Superimpose sprite tile 205 from base page 215 over sprite tile 243 (which is currently a copy of sprite tile 6, the centre tile of Sam's base animatory state); this makes Sam appear to bend his arms and hold his knees while performing the acrobatic feat, at the expense of losing some detail from his current disguise</td>
+<td class="comment-11" rowspan="13">Superimpose sprite tile 0xCD from base page 0xD7 over sprite tile 0xF3 (which is currently a copy of sprite tile 0x06, the centre tile of Sam's base animatory state); this makes Sam appear to bend his arms and hold his knees while performing the acrobatic feat, at the expense of losing some detail from his current disguise</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -234,7 +234,7 @@ Used by the routine at <a href="64BD.html">64BD</a>. Animatory states <a href=".
 <span id="6448"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="64BD.html">64BD</a>. Here we rotate sprite tiles 239-247 and store the results in sprite tile slots 238-246.
+This entry point is used by the routine at <a href="64BD.html">64BD</a>. Here we rotate sprite tiles 0xEF-0xF7 and store the results in sprite tile slots 0xEE-0xF6.
 </div>
 </div>
 </td>
@@ -243,13 +243,13 @@ This entry point is used by the routine at <a href="64BD.html">64BD</a>. Here we
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6448"></span>6448</td>
 <td class="instruction">LD L,$EF</td>
-<td class="comment-11" rowspan="1">Tile 239 is the first source tile</td>
+<td class="comment-11" rowspan="1">Tile 0xEF is the first source tile</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="644a"></span>644A</td>
 <td class="instruction">LD E,L</td>
-<td class="comment-11" rowspan="2"><span class="register">E</span>=238 (the first target tile)</td>
+<td class="comment-11" rowspan="2"><span class="register">E</span>=0xEE (the first target tile)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -261,7 +261,7 @@ This entry point is used by the routine at <a href="64BD.html">64BD</a>. Here we
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="644c"></span>644C</td>
 <td class="instruction">LD D,$C7</td>
-<td class="comment-11" rowspan="1">The base page for these tiles is 199</td>
+<td class="comment-11" rowspan="1">The base page for these tiles is 0xC7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -369,7 +369,7 @@ This entry point is used by the routine at <a href="64BD.html">64BD</a>. Here we
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6467"></span>6467</td>
 <td class="instruction">BIT 3,L</td>
-<td class="comment-11" rowspan="1">Have we rotated sprite tiles 239-247 yet?</td>
+<td class="comment-11" rowspan="1">Have we rotated sprite tiles 0xEF-0xF7 yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -382,7 +382,7 @@ This entry point is used by the routine at <a href="64BD.html">64BD</a>. Here we
 <span id="646b"></span>
 <div class="comments">
 <div class="paragraph">
-Next we move sprite tiles 238-246 up to 239-247.
+Next we move sprite tiles 0xEE-0xF6 up to 0xEF-0xF7.
 </div>
 </div>
 </td>
@@ -397,7 +397,7 @@ Next we move sprite tiles 238-246 up to 239-247.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="646d"></span>646D</td>
 <td class="instruction">LD E,$F7</td>
-<td class="comment-11" rowspan="8">Copy sprite tiles 238-246 into slots 239-247</td>
+<td class="comment-11" rowspan="8">Copy sprite tiles 0xEE-0xF6 into slots 0xEF-0xF7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -456,9 +456,9 @@ Next we move sprite tiles 238-246 up to 239-247.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="7222.html">7222</a> and <a href="7A04.html">7A04</a>. Copies Sam's coordinates and location identifier into bytes 10, 11 and 12 of the policeman's buffer, and also to <a href="7FDB.html">7FDB</a> (where they can be checked by the other policeman).
+Used by the routines at <a href="7222.html">7222</a> and <a href="7A04.html">7A04</a>. Copies Sam's coordinates and location identifier into bytes 0x0A, 0x0B and 0x0C of the policeman's buffer, and also to <a href="7FDB.html">7FDB</a> (where they can be checked by the other policeman).
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by the routines at <a href="7222.html">7222</a> and <a href="7A04.html">7A0
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">222 or 223 (policeman), or 127 (when coming from <a href="7A04.html">7A04</a>)</td>
+<td class="register-desc">0xDE or 0xDF (policeman), or 0x7F (when coming from <a href="7A04.html">7A04</a>)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -57,7 +57,7 @@ Used by the routines at <a href="7222.html">7222</a> and <a href="7A04.html">7A0
 <span id="71a3"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="71AC.html">71AC</a> with <span class="register">HL</span> pointing at byte 12 of a policeman's buffer.
+This entry point is used by the routine at <a href="71AC.html">71AC</a> with <span class="register">HL</span> pointing at byte 0x0C of a policeman's buffer.
 </div>
 </div>
 </td>
@@ -66,7 +66,7 @@ This entry point is used by the routine at <a href="71AC.html">71AC</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="71a3"></span>71A3</td>
 <td class="instruction">LD DE,$7FDD</td>
-<td class="comment-11" rowspan="3">Copy either (a) bytes 10, 11 and 12 of the policeman's buffer (which hold his destination coordinates and location identifier), or (b) Sam's coordinates and location identifier (just copied into 32522-32524 when coming from <a href="7A04.html">7A04</a>) to <a href="7FDB.html">7FDB</a></td>
+<td class="comment-11" rowspan="3">Copy either (a) bytes 0x0A, 0x0B and 0x0C of the policeman's buffer (which hold his destination coordinates and location identifier), or (b) Sam's coordinates and location identifier (just copied into 7F0A-7F0C when coming from <a href="7A04.html">7A04</a>) to <a href="7FDB.html">7FDB</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -95,9 +95,9 @@ This entry point is used by the routine at <a href="71AC.html">71AC</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

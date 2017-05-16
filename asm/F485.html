@@ -35,7 +35,7 @@ Used by the routines at <a href="F5AC.html">F5AC</a> and <a href="F600.html">F60
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -118,7 +118,7 @@ This entry point is used by the routine at <a href="F4E6.html">F4E6</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f494"></span>F494</td>
 <td class="instruction">CP $6E</td>
-<td class="comment-11" rowspan="1">Is it greater than 109?</td>
+<td class="comment-11" rowspan="1">Is it greater than 0x6D?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -147,7 +147,7 @@ This entry point is used by the routines at <a href="717C.html">717C</a> and <a 
 <span id="f499"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="758C.html">758C</a> (with <span class="register">A</span>=1 or 64), <a href="7866.html">7866</a> (with <span class="register">A</span>=0) and <a href="F6E9.html">F6E9</a> (with <span class="register">A</span>=1, 32 or 64).
+This entry point is used by the routines at <a href="758C.html">758C</a> (with <span class="register">A</span>=0x01 or 0x40), <a href="7866.html">7866</a> (with <span class="register">A</span>=0x00) and <a href="F6E9.html">F6E9</a> (with <span class="register">A</span>=0x01, 0x20 or 0x40).
 </div>
 </div>
 </td>
@@ -264,7 +264,7 @@ This entry point is used by the routines at <a href="7576.html">7576</a>, <a hre
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f4a9"></span>F4A9</td>
 <td class="instruction">LD BC,$0420</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=4 (the four central windows on a floor of the hotel span four 8-tile wide segments), <span class="register">C</span>=32 (bit 5 set: light switch toggle)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=4 (the four central windows on a floor of the hotel span four 8-tile wide segments), <span class="register">C</span>=0x20 (bit 5 set: light switch toggle)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -392,7 +392,7 @@ A light switch that affects the lights in the windows on more than one floor of 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f4c5"></span>F4C5</td>
 <td class="instruction">SUB C</td>
-<td class="comment-11" rowspan="1">Subtract 32 from the LSB of the window flags address</td>
+<td class="comment-11" rowspan="1">Subtract 0x20 from the LSB of the window flags address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -416,7 +416,7 @@ A light switch that affects the lights in the windows on more than one floor of 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f4c9"></span>F4C9</td>
 <td class="instruction">LD H,$BA</td>
-<td class="comment-11" rowspan="1">The fourth floor window flags are in bytes 64-95 of page 186 (at <a href="BA40.html">BA40</a>)</td>
+<td class="comment-11" rowspan="1">The fourth floor window flags are in bytes 0x40-0x5F of page 0xBA (at <a href="BA40.html">BA40</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -547,9 +547,9 @@ A light switch that affects the lights in the windows on more than one floor of 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

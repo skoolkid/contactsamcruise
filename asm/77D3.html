@@ -211,13 +211,13 @@ Sam is still dialling the telephone number.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="780d"></span>780D</td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if no key with an ASCII code in the range 48-127 was pressed</td>
+<td class="comment-11" rowspan="1">Return if no key with an ASCII code in the range 0x30-0x7F was pressed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="780e"></span>780E</td>
 <td class="instruction">CP $3A</td>
-<td class="comment-11" rowspan="1">Was the ASCII code of the keypress greater than 57 ('9')?</td>
+<td class="comment-11" rowspan="1">Was the ASCII code of the keypress greater than 0x39 ('9')?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -229,7 +229,7 @@ Sam is still dialling the telephone number.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7811"></span>7811</td>
 <td class="instruction">CP $30</td>
-<td class="comment-11" rowspan="1">Was the ASCII code less than 48 ('0')?</td>
+<td class="comment-11" rowspan="1">Was the ASCII code less than 0x30 ('0')?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -295,7 +295,7 @@ Sam is still dialling the telephone number.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7824"></span>7824</td>
 <td class="instruction">LD ($E614),A</td>
-<td class="comment-11" rowspan="1">Store this in byte 20 of Sam's buffer</td>
+<td class="comment-11" rowspan="1">Store this in byte 0x14 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -313,7 +313,7 @@ Sam is still dialling the telephone number.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="782b"></span>782B</td>
 <td class="instruction">LD A,$2A</td>
-<td class="comment-11" rowspan="1">Message <a href="6A05.html">42</a>: 'I DIALLED {number}'</td>
+<td class="comment-11" rowspan="1">Message <a href="6A05.html">0x2A</a>: 'I DIALLED {number}'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -335,7 +335,7 @@ The sound effect of a digit being dialled is currently in progress.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7830"></span>7830</td>
 <td class="instruction">LD HL,$E608</td>
-<td class="comment-11" rowspan="2">Set Sam's main action timer (in byte 8 of his buffer) to 3</td>
+<td class="comment-11" rowspan="2">Set Sam's main action timer (in byte 0x08 of his buffer) to 3</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -347,7 +347,7 @@ The sound effect of a digit being dialled is currently in progress.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7835"></span>7835</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 20 of Sam's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x14 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -447,7 +447,7 @@ Sam has finished dialling a digit of the telephone number. Check whether the num
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="784e"></span>784E</td>
 <td class="instruction">LD A,$70</td>
-<td class="comment-11" rowspan="1">112 is the ID of the telephone in the police station</td>
+<td class="comment-11" rowspan="1">0x70 is the ID of the telephone in the police station</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -501,7 +501,7 @@ Sam has finished dialling a digit of the telephone number. Check whether the num
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7861"></span>7861</td>
 <td class="instruction">LD A,$2F</td>
-<td class="comment-11" rowspan="1">Message <a href="6A4E.html">47</a>: ' THE NUMBER WAS UNOBTAINABLE'</td>
+<td class="comment-11" rowspan="1">Message <a href="6A4E.html">0x2F</a>: ' THE NUMBER WAS UNOBTAINABLE'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -518,9 +518,9 @@ Sam has finished dialling a digit of the telephone number. Check whether the num
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

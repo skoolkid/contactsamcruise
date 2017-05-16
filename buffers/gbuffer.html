@@ -34,7 +34,7 @@
 Used by the routines at <a href="../asm/E9D5.html">E9D5</a>, <a href="../asm/EA80.html">EA80</a>, <a href="../asm/F0BE.html">F0BE</a>, <a href="../asm/F100.html">F100</a>, <a href="../asm/F3A0.html">F3A0</a> and <a href="../asm/FC57.html">FC57</a>. Each byte of the screen refresh buffer (SRB) corresponds to a segment of 8 character squares on the screen, the leftmost of which will be at x=0, x=8, x=16 or x=24. Each bit set in an SRB byte corresponds to a character square in the segment that needs refreshing. Bit 7 corresponds to the leftmost character square in the segment, bit 0 to the rightmost character square.
 </div>
 <div class="paragraph">
-Note that, owing to a quirk in the way the SRB-updating routine at <a href="../asm/E9D5.html">E9D5</a> works, the first 16 bytes of the screen refresh buffer correspond not to any part of the screen, but to the four rows of the play area that are immediately above the currently visible portion of the play area. Therefore, the screen-updating routine at <a href="../asm/EA80.html">EA80</a> ignores those bytes and starts inspecting SRB bytes at 32528 instead.
+Note that, owing to a quirk in the way the SRB-updating routine at <a href="../asm/E9D5.html">E9D5</a> works, the first 16 bytes of the screen refresh buffer correspond not to any part of the screen, but to the four rows of the play area that are immediately above the currently visible portion of the play area. Therefore, the screen-updating routine at <a href="../asm/EA80.html">EA80</a> ignores those bytes and starts inspecting SRB bytes at 7F10 instead.
 </div>
 <div class="paragraph">
 Note also that the routine at <a href="../asm/6EC5.html">6EC5</a> uses the first 16 bytes of the SRB as a temporary backup store for the submessage indicator and submessage addresses at <a href="../asm/7F81.html">7F81</a>, and the routine at <a href="../asm/FC6A.html">FC6A</a> uses the first 32 bytes of the SRB as a temporary store for the top row of attribute bytes when scrolling the screen up and down.
@@ -51,7 +51,7 @@ Note also that the routine at <a href="../asm/6EC5.html">6EC5</a> uses the first
 <div class="map-entry-title-11">Message buffer</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routine at <a href="../asm/6EC5.html">6EC5</a> to prepare a message before displaying it. Also used by the routines at <a href="../asm/F18E.html">F18E</a> and <a href="../asm/F1BA.html">F1BA</a> as temporary storage for one of the character buffers in groups 215-221.
+Used by the routine at <a href="../asm/6EC5.html">6EC5</a> to prepare a message before displaying it. Also used by the routines at <a href="../asm/F18E.html">F18E</a> and <a href="../asm/F1BA.html">F1BA</a> as temporary storage for one of the character buffers in groups 0xD7-0xDD.
 </div>
 </div>
 </td>
@@ -88,10 +88,10 @@ Used by the routine at <a href="../asm/6EC5.html">6EC5</a>.
 <td class="map-t"><span id="7f92"></span><a href="../asm/7F92.html">7F92</a></td>
 <td class="map-length-1">5</td>
 <td class="map-t-desc">
-<div class="map-entry-title-11">Message 2: '{number}'</div>
+<div class="map-entry-title-11">Message 0x02: '{number}'</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used as a submessage of message <a href="../asm/6A05.html">42</a>. This message is cleared by the routine at <a href="../asm/76FA.html">76FA</a> when Sam picks up a phone, and updated by the routine at <a href="../asm/77D3.html">77D3</a> as Sam dials.
+Used as a submessage of message <a href="../asm/6A05.html">0x2A</a>. This message is cleared by the routine at <a href="../asm/76FA.html">76FA</a> when Sam picks up a phone, and updated by the routine at <a href="../asm/77D3.html">77D3</a> as Sam dials.
 </div>
 </div>
 </td>
@@ -105,7 +105,7 @@ Used as a submessage of message <a href="../asm/6A05.html">42</a>. This message 
 <div class="map-entry-title-11">Phone table entry address</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used by the routines at <a href="../asm/776F.html">776F</a> and <a href="../asm/77A3.html">77A3</a>. Holds either the address of the second byte of the entry in the phone message table at <a href="../asm/6B4B.html">6B4B</a> or <a href="../asm/6B72.html">6B72</a> that corresponds to the phone that Sam is calling (if the person on the other end has a message for him) or picking up a call from, or the address of the final byte of the phone table at <a href="../asm/6B72.html">6B72</a> (if the person Sam's calling has no message to give); this address contains the number of the message corresponding to the name that Sam must give in order to receive the telephone message, or 0 if no name is required to receive the message, or 255 if the person Sam's calling will respond with message <a href="../asm/6A44.html">46</a> (I DUNNO NO {name}).
+Used by the routines at <a href="../asm/776F.html">776F</a> and <a href="../asm/77A3.html">77A3</a>. Holds either the address of the second byte of the entry in the phone message table at <a href="../asm/6B4B.html">6B4B</a> or <a href="../asm/6B72.html">6B72</a> that corresponds to the phone that Sam is calling (if the person on the other end has a message for him) or picking up a call from, or the address of the final byte of the phone table at <a href="../asm/6B72.html">6B72</a> (if the person Sam's calling has no message to give); this address contains the number of the message corresponding to the name that Sam must give in order to receive the telephone message, or 0x00 if no name is required to receive the message, or 0xFF if the person Sam's calling will respond with message <a href="../asm/6A44.html">0x2E</a> (I DUNNO NO {name}).
 </div>
 </div>
 </td>
@@ -550,10 +550,10 @@ Used by the routine at <a href="../asm/6E1A.html">6E1A</a>.
 <td class="map-t"><span id="7fd0"></span><a href="../asm/7FD0.html">7FD0</a></td>
 <td class="map-length-1">2</td>
 <td class="map-t-desc">
-<div class="map-entry-title-11">Message 1: '{tens digit}/{name}'</div>
+<div class="map-entry-title-11">Message 0x01: '{tens digit}/{name}'</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Used as a submessage of messages <a href="../asm/69B1.html">36</a>, <a href="../asm/69F2.html">40</a>, <a href="../asm/6A44.html">46</a> and <a href="../asm/6AA8.html">52</a>. The message number of the name is inserted by the routine at <a href="../asm/776F.html">776F</a>; the tens digit of the number of bucks is inserted by the routine at <a href="../asm/7B6A.html">7B6A</a> or <a href="../asm/FB52.html">FB52</a>.
+Used as a submessage of messages <a href="../asm/69B1.html">0x24</a>, <a href="../asm/69F2.html">0x28</a>, <a href="../asm/6A44.html">0x2E</a> and <a href="../asm/6AA8.html">0x34</a>. The message number of the name is inserted by the routine at <a href="../asm/776F.html">776F</a>; the tens digit of the number of bucks is inserted by the routine at <a href="../asm/7B6A.html">7B6A</a> or <a href="../asm/FB52.html">FB52</a>.
 </div>
 </div>
 </td>
@@ -957,7 +957,7 @@ Used by the routines at <a href="../asm/76BC.html">76BC</a>, <a href="../asm/F14
 <div class="map-entry-title-11">Input device indicator</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
-Set by the routine at <a href="../asm/6177.html">6177</a>, and used by the routine at <a href="../asm/EAB2.html">EAB2</a>. Holds 107 ('k') if the Kempston joystick is being used, or 0 otherwise.
+Set by the routine at <a href="../asm/6177.html">6177</a>, and used by the routine at <a href="../asm/EAB2.html">EAB2</a>. Holds 0x6B ('k') if the Kempston joystick is being used, or 0x00 otherwise.
 </div>
 </div>
 </td>
@@ -968,7 +968,7 @@ Set by the routine at <a href="../asm/6177.html">6177</a>, and used by the routi
 <td class="map-g"><span id="7ffb"></span><a href="../asm/7FFB.html">7FFB</a></td>
 <td class="map-length-1">1</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11">Number of the character just moved (215-229)</div>
+<div class="map-entry-title-11">Number of the character just moved (0xD7-0xE5)</div>
 <div class="map-entry-desc-1">
 <div class="paragraph">
 Used by the routine at <a href="../asm/F1FC.html">F1FC</a>.
@@ -1095,9 +1095,9 @@ Checked by many routines, and modified by the routines at <a href="../asm/E87C.h
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

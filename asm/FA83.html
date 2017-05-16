@@ -35,7 +35,7 @@ Used by the routine at <a href="FA05.html">FA05</a>. Controls a character from t
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the routine at <a href="FA05.html">FA05</a>. Controls a character from t
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa83"></span>FA83</td>
 <td class="instruction">CALL <a href="F9FA.html">$F9FA</a></td>
-<td class="comment-11" rowspan="1">Place the address of the next instruction into bytes 18 and 19 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Place the address of the next instruction into bytes 0x12 and 0x13 of the character's buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -66,7 +66,7 @@ The apparent intention of the remainder of this routine is to make the character
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa86"></span>FA86</td>
 <td class="instruction">LD L,$15</td>
-<td class="comment-11" rowspan="2">Collect the character's pre-knockout x-coordinate from byte 21 of his buffer</td>
+<td class="comment-11" rowspan="2">Collect the character's pre-knockout x-coordinate from byte 0x15 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -136,7 +136,7 @@ Restore the character's pre-knockout animatory state and terminate this subcomma
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa99"></span>FA99</td>
 <td class="instruction">LD L,$0D</td>
-<td class="comment-11" rowspan="2">Collect the character's pre-knockout animatory state from byte 13 of his buffer</td>
+<td class="comment-11" rowspan="2">Collect the character's pre-knockout animatory state from byte 0x0D of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -165,9 +165,9 @@ Restore the character's pre-knockout animatory state and terminate this subcomma
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -103,7 +103,7 @@ This entry point is used by the routines at <a href="6152.html">6152</a> and <a 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f03f"></span>F03F</td>
 <td class="instruction">LD HL,$0005</td>
-<td class="comment-11" rowspan="2">Reset Sam's main action timer and midstride/mid-action timer (in bytes 8 and 9 of his buffer) to 5 and 0 now that he's finished the action</td>
+<td class="comment-11" rowspan="2">Reset Sam's main action timer and midstride/mid-action timer (in bytes 0x08 and 0x09 of his buffer) to 5 and 0 now that he's finished the action</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -115,7 +115,7 @@ This entry point is used by the routines at <a href="6152.html">6152</a> and <a 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f045"></span>F045</td>
 <td class="instruction">LD HL,$E609</td>
-<td class="comment-11" rowspan="2">Collect Sam's midstride/mid-action timer from byte 9 of his buffer</td>
+<td class="comment-11" rowspan="2">Collect Sam's midstride/mid-action timer from byte 0x09 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -139,7 +139,7 @@ This entry point is used by the routines at <a href="6152.html">6152</a> and <a 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f04c"></span>F04C</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at Sam's main action timer in byte 8 of his buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at Sam's main action timer in byte 0x08 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -229,7 +229,7 @@ This entry point is used by the routines at <a href="6152.html">6152</a> and <a 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f065"></span>F065</td>
 <td class="instruction">LD HL,$E600</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of Sam's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -251,7 +251,7 @@ Sam is midstride or in the middle of a short action (which involves raising his 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f069"></span>F069</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement Sam's midstride/mid-action timer in byte 9 of his buffer</td>
+<td class="comment-11" rowspan="1">Decrement Sam's midstride/mid-action timer in byte 0x09 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -342,9 +342,9 @@ This next section of code ensures that we don't pass through the main loop more 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

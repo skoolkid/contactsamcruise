@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="F8AE.html">F8AE</a>. Note that the last byte in each set of parameters is effectively unused, but because it is non-zero, the routine at <a href="F87E.html">F87E</a> will needlessly copy the whole set of parameters into bytes 0, 1, 2, 4, 23 and 24 of Sam's buffer; the parameters are correctly used to initialise Sam upon return from that routine by the routine at <a href="F8AE.html">F8AE</a>.
+Used by the routine at <a href="F8AE.html">F8AE</a>. Note that the last byte in each set of parameters is effectively unused, but because it is non-zero, the routine at <a href="F87E.html">F87E</a> will needlessly copy the whole set of parameters into bytes 0x00, 0x01, 0x02, 0x04, 0x17 and 0x18 of Sam's buffer; the parameters are correctly used to initialise Sam upon return from that routine by the routine at <a href="F8AE.html">F8AE</a>.
 </div>
 <div class="paragraph">
 The first set of parameters is used in demo mode.
@@ -74,7 +74,7 @@ The first set of parameters is used in demo mode.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e624"></span>E624</td>
 <td class="instruction">DEFB $20</td>
-<td class="comment-11" rowspan="1">Message <a href="6900.html">32</a>: '...I'M WORKING ON A CASE RIGHT NOW...'</td>
+<td class="comment-11" rowspan="1">Message <a href="6900.html">0x20</a>: '...I'M WORKING ON A CASE RIGHT NOW...'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -120,7 +120,7 @@ The next set of parameters is used in game mode 1.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e62a"></span>E62A</td>
 <td class="instruction">DEFB $21</td>
-<td class="comment-11" rowspan="1">Message <a href="692D.html">33</a>: '...SO BEGAN THE CASE OF THE BALI BUDGIE'</td>
+<td class="comment-11" rowspan="1">Message <a href="692D.html">0x21</a>: '...SO BEGAN THE CASE OF THE BALI BUDGIE'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -166,7 +166,7 @@ The next set of parameters is used in game mode 2.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e630"></span>E630</td>
 <td class="instruction">DEFB $3E</td>
-<td class="comment-11" rowspan="1">Message <a href="7DAB.html">62</a>: 'IT ALL WENT BLACK. AS I FELL SOMEONE FAT PUSHED PAST ME...'</td>
+<td class="comment-11" rowspan="1">Message <a href="7DAB.html">0x3E</a>: 'IT ALL WENT BLACK. AS I FELL SOMEONE FAT PUSHED PAST ME...'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -212,7 +212,7 @@ The next set of parameters is used in game mode 3.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e636"></span>E636</td>
 <td class="instruction">DEFB $43</td>
-<td class="comment-11" rowspan="1">Message <a href="5E05.html">67</a>: 'SOMEONE HIT ME. I PLAYED DEAD. TWO MEN WALKED OFF...'</td>
+<td class="comment-11" rowspan="1">Message <a href="5E05.html">0x43</a>: 'SOMEONE HIT ME. I PLAYED DEAD. TWO MEN WALKED OFF...'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -258,7 +258,7 @@ The next set of parameters is used in game mode 4.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e63c"></span>E63C</td>
 <td class="instruction">DEFB $4A</td>
-<td class="comment-11" rowspan="1">Message <a href="5F69.html">74</a>: 'SHE'S IN JAIL NOW. ANOTHER CASE SOLVED...'</td>
+<td class="comment-11" rowspan="1">Message <a href="5F69.html">0x4A</a>: 'SHE'S IN JAIL NOW. ANOTHER CASE SOLVED...'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -275,9 +275,9 @@ The next set of parameters is used in game mode 4.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

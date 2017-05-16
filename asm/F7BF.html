@@ -35,7 +35,7 @@ Used by the command lists at <a href="FD4E.html">FD4E</a>, <a href="FE23.html">F
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -68,13 +68,13 @@ Used by the command lists at <a href="FD4E.html">FD4E</a>, <a href="FE23.html">F
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7c4"></span>F7C4</td>
 <td class="instruction">LD L,$16</td>
-<td class="comment-11" rowspan="1">Byte 22 of the character's buffer holds the offset of the point reached in the command list</td>
+<td class="comment-11" rowspan="1">Byte 0x16 of the character's buffer holds the offset of the point reached in the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7c6"></span>F7C6</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="3">Subtract 14 from this offset; this has the effect of sending the character back to the spot where he was walking up and down before answering the door</td>
+<td class="comment-11" rowspan="3">Subtract 0x0E from this offset; this has the effect of sending the character back to the spot where he was walking up and down before answering the door</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -103,9 +103,9 @@ Used by the command lists at <a href="FD4E.html">FD4E</a>, <a href="FE23.html">F
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

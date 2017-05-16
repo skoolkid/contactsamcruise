@@ -102,7 +102,7 @@ The loop that follows makes Sam pace up and down until the cutscene is over.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7920"></span>7920</td>
 <td class="instruction">LD HL,$E609</td>
-<td class="comment-11" rowspan="3">Reset the midstride/mid-action timer in byte 9 of Sam's buffer</td>
+<td class="comment-11" rowspan="3">Reset the midstride/mid-action timer in byte 0x09 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -120,7 +120,7 @@ The loop that follows makes Sam pace up and down until the cutscene is over.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7925"></span>7925</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -296,7 +296,7 @@ The cutscene is not over yet. Check whether Sam should turn round before pacing 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="795b"></span>795B</td>
 <td class="instruction">LD HL,$E601</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of Sam's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -308,7 +308,7 @@ The cutscene is not over yet. Check whether Sam should turn round before pacing 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="795f"></span>795F</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -397,9 +397,9 @@ The cutscene is not over yet. Check whether Sam should turn round before pacing 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

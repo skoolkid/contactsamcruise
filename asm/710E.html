@@ -35,7 +35,7 @@ Used by the routines at <a href="61F2.html">61F2</a> and <a href="72B1.html">72B
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -84,7 +84,7 @@ Sam is not being carried at the moment. Compare his x- and y-coordinates with th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7114"></span>7114</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -132,7 +132,7 @@ Sam is not being carried at the moment. Compare his x- and y-coordinates with th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7120"></span>7120</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -144,7 +144,7 @@ Sam is not being carried at the moment. Compare his x- and y-coordinates with th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7122"></span>7122</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -242,7 +242,7 @@ The z-coordinates don't match. However, the character will still be able to pick
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7136"></span>7136</td>
 <td class="instruction">LD H,$E6</td>
-<td class="comment-11" rowspan="1">230=Sam</td>
+<td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -319,9 +319,9 @@ The z-coordinates don't match. However, the character will still be able to pick
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

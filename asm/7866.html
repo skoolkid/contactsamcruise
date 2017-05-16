@@ -190,19 +190,19 @@ Used by the routine at <a href="7AB6.html">7AB6</a>. On entry, <span class="regi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7884"></span>7884</td>
 <td class="instruction">LD HL,$E600</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of Sam's character buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of Sam's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7887"></span>7887</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-11" rowspan="1">Set Sam's animatory state to <a href="../graphics/as.html#0">0</a> (standing/walking phase 1)</td>
+<td class="comment-11" rowspan="1">Set Sam's animatory state to <a href="../graphics/as.html#0">0x00</a> (standing/walking phase 1)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7889"></span>7889</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -214,7 +214,7 @@ Used by the routine at <a href="7AB6.html">7AB6</a>. On entry, <span class="regi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="788b"></span>788B</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -226,7 +226,7 @@ Used by the routine at <a href="7AB6.html">7AB6</a>. On entry, <span class="regi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="788d"></span>788D</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2"><span class="register">L</span>=4</td>
+<td class="comment-11" rowspan="2"><span class="register">L</span>=0x04</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -414,7 +414,7 @@ Next we determine whether any lights near Sam need to be switched on and any win
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="78c0"></span>78C0</td>
 <td class="instruction">LD H,$E6</td>
-<td class="comment-11" rowspan="1">230=Sam</td>
+<td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -603,9 +603,9 @@ Finally we can reveal the portion of the play area in which Sam will walk up and
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

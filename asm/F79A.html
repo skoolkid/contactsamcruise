@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="F82A.html">F82A</a>. Places the address of the interruptible subcommand routine at <a href="F846.html">F846</a> into bytes 14 and 15 of the cat's buffer, and then jumps to it.
+Used by the routine at <a href="F82A.html">F82A</a>. Places the address of the interruptible subcommand routine at <a href="F846.html">F846</a> into bytes 0x0E and 0x0F of the cat's buffer, and then jumps to it.
 </div>
 </div>
 <table class="input-1">
@@ -39,7 +39,7 @@ Used by the routine at <a href="F82A.html">F82A</a>. Places the address of the i
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">218 (Cat)</td>
+<td class="register-desc">0xDA (Cat)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -54,7 +54,7 @@ Used by the routine at <a href="F82A.html">F82A</a>. Places the address of the i
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f79a"></span>F79A</td>
 <td class="instruction">LD L,$0E</td>
-<td class="comment-11" rowspan="4">Copy the address of the interruptible subcommand routine at <a href="F846.html">F846</a> into bytes 14 and 15 of the cat's buffer</td>
+<td class="comment-11" rowspan="4">Copy the address of the interruptible subcommand routine at <a href="F846.html">F846</a> into bytes 0x0E and 0x0F of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -96,7 +96,7 @@ Used by the routine at <a href="F82A.html">F82A</a>. Places the address of the i
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a2"></span>F7A2</td>
 <td class="instruction">LD C,L</td>
-<td class="comment-11" rowspan="4">Set <span class="register">BC</span> to the original return address, and point <span class="register">HL</span> at byte 8 of the cat's buffer</td>
+<td class="comment-11" rowspan="4">Set <span class="register">BC</span> to the original return address, and point <span class="register">HL</span> at byte 0x08 of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -121,7 +121,7 @@ Used by the routine at <a href="F82A.html">F82A</a>. Places the address of the i
 <span id="f7a7"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="F7AB.html">F7AB</a> with an interruptible subcommand routine address in <span class="register">BC</span>, and <span class="register">HL</span> pointing at byte 14 of the character's buffer.
+This entry point is used by the routine at <a href="F7AB.html">F7AB</a> with an interruptible subcommand routine address in <span class="register">BC</span>, and <span class="register">HL</span> pointing at byte 0x0E of the character's buffer.
 </div>
 </div>
 </td>
@@ -159,9 +159,9 @@ This entry point is used by the routine at <a href="F7AB.html">F7AB</a> with an 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

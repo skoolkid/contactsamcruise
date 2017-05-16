@@ -35,7 +35,7 @@ Used by many command lists to make a character go to a specified place.
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -78,7 +78,7 @@ This entry point is used by the command lists at <a href="61EA.html">61EA</a>, <
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f608"></span>F608</td>
 <td class="instruction">LD (HL),$0A</td>
-<td class="comment-11" rowspan="1">Change the address of the primary command routine in bytes 8 and 9 of the character's buffer to <a href="F600.html#f60a">F60A</a> (below)</td>
+<td class="comment-11" rowspan="1">Change the address of the primary command routine in bytes 0x08 and 0x09 of the character's buffer to <a href="F600.html#f60a">F60A</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -124,7 +124,7 @@ The character is not carrying Sam.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f616"></span>F616</td>
 <td class="instruction">LD (HL),$18</td>
-<td class="comment-11" rowspan="1">Change the address of the primary command routine in bytes 8 and 9 of the character's buffer to <a href="F600.html#f618">F618</a> (below)</td>
+<td class="comment-11" rowspan="1">Change the address of the primary command routine in bytes 0x08 and 0x09 of the character's buffer to <a href="F600.html#f618">F618</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -178,7 +178,7 @@ The character is not carrying Sam.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f62a"></span>F62A</td>
 <td class="instruction">LD L,$0D</td>
-<td class="comment-11" rowspan="2">Pick up the location/destination indicator from byte 13 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Pick up the location/destination indicator from byte 0x0D of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -208,7 +208,7 @@ The character is not carrying Sam.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f633"></span>F633</td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="2">Place the x- or y-coordinate of the character's intermediate destination into byte 16 of his buffer</td>
+<td class="comment-11" rowspan="2">Place the x- or y-coordinate of the character's intermediate destination into byte 0x10 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -220,7 +220,7 @@ The character is not carrying Sam.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f636"></span>F636</td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="4">Copy the interruptible subcommand routine address in <span class="register">BC</span> (<a href="F5AC.html">F5AC</a>, <a href="F5CE.html">F5CE</a> or <a href="F5FB.html">F5FB</a>) into bytes 14 and 15 of the character's buffer</td>
+<td class="comment-11" rowspan="4">Copy the interruptible subcommand routine address in <span class="register">BC</span> (<a href="F5AC.html">F5AC</a>, <a href="F5CE.html">F5CE</a> or <a href="F5FB.html">F5FB</a>) into bytes 0x0E and 0x0F of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -324,7 +324,7 @@ The character is not on the sidewalk or road.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f64e"></span>F64E</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="2">Collect the character's y-coordinate from byte 2 of his buffer</td>
+<td class="comment-11" rowspan="2">Collect the character's y-coordinate from byte 0x02 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -348,7 +348,7 @@ The character is not on the sidewalk or road.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f655"></span>F655</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 10 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x0A of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -360,7 +360,7 @@ The character is not on the sidewalk or road.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f658"></span>F658</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=11</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0B</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -406,7 +406,7 @@ The character is in the same region as his destination, and on or below the leve
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f662"></span>F662</td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="1">Byte 4 of the character's buffer holds his z-coordinate</td>
+<td class="comment-11" rowspan="1">Byte 0x04 of the character's buffer holds his z-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -440,7 +440,7 @@ The character's destination is in a region other than the one he's in at the mom
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f66b"></span>F66B</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="2">Collect the character's y-coordinate from byte 2 of his buffer</td>
+<td class="comment-11" rowspan="2">Collect the character's y-coordinate from byte 0x02 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -452,7 +452,7 @@ The character's destination is in a region other than the one he's in at the mom
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f66e"></span>F66E</td>
 <td class="instruction">LD E,$1F</td>
-<td class="comment-11" rowspan="1">31 is the y-coordinate of the first floor</td>
+<td class="comment-11" rowspan="1">This is the y-coordinate of the first floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -470,7 +470,7 @@ The character's destination is in a region other than the one he's in at the mom
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f673"></span>F673</td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="1">Byte 4 of the character's buffer holds his z-coordinate</td>
+<td class="comment-11" rowspan="1">Byte 0x04 of the character's buffer holds his z-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -510,7 +510,7 @@ The character is standing next to a closed door. This entry point is used by the
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f67f"></span>F67F</td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="2">Prepare the MSB of the address of the interruptible subcommand routine at <a href="F346.html">F346</a> in byte 15 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Prepare the MSB of the address of the interruptible subcommand routine at <a href="F346.html">F346</a> in byte 0x0F of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -533,9 +533,9 @@ The character is standing next to a closed door. This entry point is used by the
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

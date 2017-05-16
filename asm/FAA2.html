@@ -35,7 +35,7 @@ Used by the routine at <a href="FAE3.html">FAE3</a>. Returns with the zero flag 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-230)</td>
+<td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the routine at <a href="FAE3.html">FAE3</a>. Returns with the zero flag 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="faa2"></span>FAA2</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the falling character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the falling character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -68,7 +68,7 @@ Used by the routine at <a href="FAE3.html">FAE3</a>. Returns with the zero flag 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faa6"></span>FAA6</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -98,7 +98,7 @@ Used by the routine at <a href="FAE3.html">FAE3</a>. Returns with the zero flag 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faab"></span>FAAB</td>
 <td class="instruction">LD HL,$D702</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=215 (first potential target character to check), <span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0xD7 (first potential target character to check), <span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -132,7 +132,7 @@ The following loop compares the falling character's coordinates with those of ev
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fab2"></span>FAB2</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -186,7 +186,7 @@ The following loop compares the falling character's coordinates with those of ev
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fac1"></span>FAC1</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -222,7 +222,7 @@ The following loop compares the falling character's coordinates with those of ev
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faca"></span>FACA</td>
 <td class="instruction">CALL <a href="F9ED.html">$F9ED</a></td>
-<td class="comment-11" rowspan="1">Attempt to place the address of the uninterruptible subcommand routine at <a href="FA05.html">FA05</a> (if T=x-1 or x+1) or <a href="FA05.html#fa09">FA09</a> (if T=x) into bytes 18 and 19 of the target character's buffer</td>
+<td class="comment-11" rowspan="1">Attempt to place the address of the uninterruptible subcommand routine at <a href="FA05.html">FA05</a> (if T=x-1 or x+1) or <a href="FA05.html#fa09">FA09</a> (if T=x) into bytes 0x12 and 0x13 of the target character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -234,7 +234,7 @@ The following loop compares the falling character's coordinates with those of ev
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="face"></span>FACE</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the target character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the target character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -281,9 +281,9 @@ The following loop compares the falling character's coordinates with those of ev
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

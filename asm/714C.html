@@ -35,7 +35,7 @@ Used by the routine at <a href="F1FC.html">F1FC</a>. Returns with the carry flag
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the routine at <a href="F1FC.html">F1FC</a>. Returns with the carry flag
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="714c"></span>714C</td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 4 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x04 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -68,7 +68,7 @@ Used by the routine at <a href="F1FC.html">F1FC</a>. Returns with the carry flag
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7151"></span>7151</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -164,13 +164,13 @@ Used by the routine at <a href="F1FC.html">F1FC</a>. Returns with the carry flag
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7166"></span>7166</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7167"></span>7167</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=162-167</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0xA2-0xA7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -253,9 +253,9 @@ Used by the routine at <a href="F1FC.html">F1FC</a>. Returns with the carry flag
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="77D3.html">77D3</a>. On entry, <span class="register">A</span> holds the identifier of either the telephone that Sam is holding (which was ringing when he picked it up), or the telephone that Sam is calling. If there is a message for Sam, it will be queued unless Sam needs to identify himself first, in which case message <a href="69C5.html">37</a> ('A VOICE SAID 'WHO'S THERE?'') will be queued instead. If there is no message for Sam, the message that is queued will depend on who Sam is calling (Daisy, the police, or someone else).
+Used by the routine at <a href="77D3.html">77D3</a>. On entry, <span class="register">A</span> holds the identifier of either the telephone that Sam is holding (which was ringing when he picked it up), or the telephone that Sam is calling. If there is a message for Sam, it will be queued unless Sam needs to identify himself first, in which case message <a href="69C5.html">0x25</a> ('A VOICE SAID 'WHO'S THERE?'') will be queued instead. If there is no message for Sam, the message that is queued will depend on who Sam is calling (Daisy, the police, or someone else).
 </div>
 </div>
 <table class="input-1">
@@ -114,13 +114,13 @@ Used by the routine at <a href="77D3.html">77D3</a>. On entry, <span class="regi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77b5"></span>77B5</td>
 <td class="instruction">CP $5C</td>
-<td class="comment-11" rowspan="1">92 is the identifier of Sam's telephone</td>
+<td class="comment-11" rowspan="1">0x5C is the identifier of Sam's telephone</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77b7"></span>77B7</td>
 <td class="instruction">LD A,$32</td>
-<td class="comment-11" rowspan="1">Message <a href="6A87.html">50</a>: 'DAISY SAID 'NO MESSAGES SAM ''</td>
+<td class="comment-11" rowspan="1">Message <a href="6A87.html">0x32</a>: 'DAISY SAID 'NO MESSAGES SAM ''</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -138,7 +138,7 @@ Used by the routine at <a href="77D3.html">77D3</a>. On entry, <span class="regi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77bc"></span>77BC</td>
 <td class="instruction">CP $70</td>
-<td class="comment-11" rowspan="1">112 is the identifier of the telephone in the police station</td>
+<td class="comment-11" rowspan="1">0x70 is the identifier of the telephone in the police station</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -156,7 +156,7 @@ Used by the routine at <a href="77D3.html">77D3</a>. On entry, <span class="regi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77c3"></span>77C3</td>
 <td class="instruction">LD A,$33</td>
-<td class="comment-11" rowspan="1">Message <a href="6A97.html">51</a>: 'A VOICE SAID 'OK CRUISE WE'RE COMING''</td>
+<td class="comment-11" rowspan="1">Message <a href="6A97.html">0x33</a>: 'A VOICE SAID 'OK CRUISE WE'RE COMING''</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -186,7 +186,7 @@ Used by the routine at <a href="77D3.html">77D3</a>. On entry, <span class="regi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77ce"></span>77CE</td>
 <td class="instruction">ADD A,$2A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="6A0E.html">43</a> (A VOICE SAID 'THERES NOONE HERE'), <a href="6A1D.html">44</a> (A VOICE SAID 'GET LOST - I'M TRYING TO SLEEP') or <a href="6A39.html">45</a> (A VOICE SAID 'BE RIGHT WITH YOU')</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="6A0E.html">0x2B</a> (A VOICE SAID 'THERES NOONE HERE'), <a href="6A1D.html">0x2C</a> (A VOICE SAID 'GET LOST - I'M TRYING TO SLEEP') or <a href="6A39.html">0x2D</a> (A VOICE SAID 'BE RIGHT WITH YOU')</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -203,9 +203,9 @@ Used by the routine at <a href="77D3.html">77D3</a>. On entry, <span class="regi
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

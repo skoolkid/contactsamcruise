@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="71A0.html">71A0</a> and <a href="7A82.html">7A82</a>. Copies Sam's coordinates and location identifier into bytes 10, 11 and 12 of the character's buffer.
+Used by the routines at <a href="71A0.html">71A0</a> and <a href="7A82.html">7A82</a>. Copies Sam's coordinates and location identifier into bytes 0x0A, 0x0B and 0x0C of the character's buffer.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by the routines at <a href="71A0.html">71A0</a> and <a href="7A82.html">7A8
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -63,7 +63,7 @@ Used by the routines at <a href="71A0.html">71A0</a> and <a href="7A82.html">7A8
 <span id="7194"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="71AC.html">71AC</a> and <a href="72B1.html">72B1</a> with <span class="register">H</span>=222 or 223 (a policeman) and <span class="register">E</span>, <span class="register">D</span> and <span class="register">C</span> holding the destination x-, y- and z-coordinates.
+This entry point is used by the routines at <a href="71AC.html">71AC</a> and <a href="72B1.html">72B1</a> with <span class="register">H</span>=0xDE or 0xDF (a policeman) and <span class="register">E</span>, <span class="register">D</span> and <span class="register">C</span> holding the destination x-, y- and z-coordinates.
 </div>
 </div>
 </td>
@@ -72,7 +72,7 @@ This entry point is used by the routines at <a href="71AC.html">71AC</a> and <a 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7194"></span>7194</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="4">Copy the coordinates into bytes 10 and 11 of the character's buffer, thus making it his destination</td>
+<td class="comment-11" rowspan="4">Copy the coordinates into bytes 0x0A and 0x0B of the character's buffer, thus making it his destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -112,7 +112,7 @@ This entry point is used by the routine at <a href="7CC8.html">7CC8</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="719c"></span>719C</td>
 <td class="instruction">LD L,$0C</td>
-<td class="comment-11" rowspan="2">Copy the location identifier into byte 12 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Copy the location identifier into byte 0x0C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -135,9 +135,9 @@ This entry point is used by the routine at <a href="7CC8.html">7CC8</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

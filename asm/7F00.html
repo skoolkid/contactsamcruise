@@ -29,7 +29,7 @@
 Used by the routines at <a href="E9D5.html">E9D5</a>, <a href="EA80.html">EA80</a>, <a href="F0BE.html">F0BE</a>, <a href="F100.html">F100</a>, <a href="F3A0.html">F3A0</a> and <a href="FC57.html">FC57</a>. Each byte of the screen refresh buffer (SRB) corresponds to a segment of 8 character squares on the screen, the leftmost of which will be at x=0, x=8, x=16 or x=24. Each bit set in an SRB byte corresponds to a character square in the segment that needs refreshing. Bit 7 corresponds to the leftmost character square in the segment, bit 0 to the rightmost character square.
 </div>
 <div class="paragraph">
-Note that, owing to a quirk in the way the SRB-updating routine at <a href="E9D5.html">E9D5</a> works, the first 16 bytes of the screen refresh buffer correspond not to any part of the screen, but to the four rows of the play area that are immediately above the currently visible portion of the play area. Therefore, the screen-updating routine at <a href="EA80.html">EA80</a> ignores those bytes and starts inspecting SRB bytes at 32528 instead.
+Note that, owing to a quirk in the way the SRB-updating routine at <a href="E9D5.html">E9D5</a> works, the first 16 bytes of the screen refresh buffer correspond not to any part of the screen, but to the four rows of the play area that are immediately above the currently visible portion of the play area. Therefore, the screen-updating routine at <a href="EA80.html">EA80</a> ignores those bytes and starts inspecting SRB bytes at 7F10 instead.
 </div>
 <div class="paragraph">
 Note also that the routine at <a href="6EC5.html">6EC5</a> uses the first 16 bytes of the SRB as a temporary backup store for the submessage indicator and submessage addresses at <a href="7F81.html">7F81</a>, and the routine at <a href="FC6A.html">FC6A</a> uses the first 32 bytes of the SRB as a temporary store for the top row of attribute bytes when scrolling the screen up and down.
@@ -64,9 +64,9 @@ Note also that the routine at <a href="6EC5.html">6EC5</a> uses the first 16 byt
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

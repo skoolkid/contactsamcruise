@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 14 and 15 of a character's buffer by the routine at <a href="F346.html">F346</a>. It makes the character continue to wait for someone to open the door, or give up and move on if he's already waited long enough.
+The address of this interruptible subcommand routine is placed into bytes 0x0E and 0x0F of a character's buffer by the routine at <a href="F346.html">F346</a>. It makes the character continue to wait for someone to open the door, or give up and move on if he's already waited long enough.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -74,7 +74,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f361"></span>F361</td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="2">Decrement the wait counter in byte 17 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Decrement the wait counter in byte 0x11 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -92,13 +92,13 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f365"></span>F365</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Set the wait counter in byte 17 to 255; since it could just as well be left at 0, this instruction is redundant</td>
+<td class="comment-11" rowspan="1">Set the wait counter in byte 0x11 to 0xFF; since it could just as well be left at 0, this instruction is redundant</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f366"></span>F366</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=16</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x10</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -144,7 +144,7 @@ The character has waited long enough for someone to open the door, and will now 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f36e"></span>F36E</td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="2">Remove the address of this routine from bytes 14 and 15 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Remove the address of this routine from bytes 0x0E and 0x0F of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -167,9 +167,9 @@ The character has waited long enough for someone to open the door, and will now 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

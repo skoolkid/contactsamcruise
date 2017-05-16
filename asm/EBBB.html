@@ -35,7 +35,7 @@ Used by the routines at <a href="ECE1.html">ECE1</a>, <a href="F5CE.html">F5CE</
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-230)</td>
+<td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -219,7 +219,7 @@ This entry point is used by the routine at <a href="EB9B.html">EB9B</a> (with <s
 <span id="ebe2"></span>
 <div class="comments">
 <div class="paragraph">
-Now <span class="register">A</span>=128, 64, 32, 16, 8 or 4; the bit set in <span class="register">A</span> indicates the direction in which the character has chosen to move next:
+Now <span class="register">A</span>=0x80, 0x40, 0x20, 0x10, 0x08 or 0x04; the bit set in <span class="register">A</span> indicates the direction in which the character has chosen to move next:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -260,7 +260,7 @@ Now <span class="register">A</span>=128, 64, 32, 16, 8 or 4; the bit set in <spa
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="ebe2"></span>EBE2</td>
 <td class="instruction">LD D,A</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=direction indicator (128, 64, 32, 16, 8 or 4)</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=direction indicator (0x80, 0x40, 0x20, 0x10, 0x08 or 0x04)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -278,7 +278,7 @@ Now <span class="register">A</span>=128, 64, 32, 16, 8 or 4; the bit set in <spa
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ebe6"></span>EBE6</td>
 <td class="instruction">LD A,$54</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=84: bits 6 (right), 4 (up/right) and 2 (down/right) set</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x54: bits 6 (right), 4 (up/right) and 2 (down/right) set</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -290,7 +290,7 @@ Now <span class="register">A</span>=128, 64, 32, 16, 8 or 4; the bit set in <spa
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ebea"></span>EBEA</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=168: bits 7 (left), 5 (up/left) and 3 (down/left) set</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0xA8: bits 7 (left), 5 (up/left) and 3 (down/left) set</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -318,7 +318,7 @@ The character is facing the direction in which he wants to move. Now we examine 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ebee"></span>EBEE</td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 4 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x04 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -352,7 +352,7 @@ The character is on the sidewalk or the road. In this case we need to check whet
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ebf4"></span>EBF4</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=direction indicator (128, 64, 32, 16, 8 or 4)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=direction indicator (0x80, 0x40, 0x20, 0x10, 0x08 or 0x04)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -450,13 +450,13 @@ Finally we can move the character midstride in the desired direction and update 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="ec07"></span>EC07</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec09"></span>EC09</td>
 <td class="instruction">LD C,$05</td>
-<td class="comment-11" rowspan="2">Point <span class="register">BC</span> at byte 5 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Point <span class="register">BC</span> at byte 0x05 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -480,19 +480,19 @@ Finally we can move the character midstride in the desired direction and update 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec0f"></span>EC0F</td>
 <td class="instruction">LD (BC),A</td>
-<td class="comment-11" rowspan="1">Save this in byte 5 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Save this in byte 0x05 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec10"></span>EC10</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec11"></span>EC11</td>
 <td class="instruction">INC C</td>
-<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 6 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 0x06 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -528,25 +528,25 @@ Finally we can move the character midstride in the desired direction and update 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec17"></span>EC17</td>
 <td class="instruction">LD (BC),A</td>
-<td class="comment-11" rowspan="1">Save this in byte 6 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Save this in byte 0x06 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec18"></span>EC18</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec19"></span>EC19</td>
 <td class="instruction">INC C</td>
-<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 7 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 0x07 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec1a"></span>EC1A</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=direction indicator (128, 64, 32, 16, 8 or 4)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=direction indicator (0x80, 0x40, 0x20, 0x10, 0x08 or 0x04)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -594,13 +594,13 @@ Finally we can move the character midstride in the desired direction and update 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec27"></span>EC27</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec29"></span>EC29</td>
 <td class="instruction">LD (BC),A</td>
-<td class="comment-11" rowspan="1">Save the character's post-midstride y-coordinate in byte 7 of his buffer</td>
+<td class="comment-11" rowspan="1">Save the character's post-midstride y-coordinate in byte 0x07 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -710,7 +710,7 @@ The character is standing at the open entrance to a building.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec3f"></span>EC3F</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=direction indicator (128, 64, 32, 16, 8 or 4)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=direction indicator (0x80, 0x40, 0x20, 0x10, 0x08 or 0x04)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -738,7 +738,7 @@ The character is at a location that may require special handling depending on th
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="ec45"></span>EC45</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=direction indicator (128, 64, 32, 16, 8 or 4)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=direction indicator (0x80, 0x40, 0x20, 0x10, 0x08 or 0x04)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -784,7 +784,7 @@ The character's next move requires special handling.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec4c"></span>EC4C</td>
 <td class="instruction">ADD A,$9F</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=160-166</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0xA0-0xA6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -849,9 +849,9 @@ The character's next move requires special handling.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

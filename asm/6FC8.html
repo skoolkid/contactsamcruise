@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with a randomly chosen message number (different from the last one used) in <span class="register">A</span>. On entry, <span class="register">A</span> holds 197 or 198 depending on the type of message required: 197 for a person or group of people, 198 for a verb.
+Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with a randomly chosen message number (different from the last one used) in <span class="register">A</span>. On entry, <span class="register">A</span> holds 0xC5 or 0xC6 depending on the type of message required: 0xC5 for a person or group of people, 0xC6 for a verb.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with a randomly cho
 </tr>
 <tr>
 <td class="register">A</td>
-<td class="register-desc">197 or 198</td>
+<td class="register-desc">0xC5 or 0xC6</td>
 </tr>
 </table>
 <table class="output-0">
@@ -62,7 +62,7 @@ Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with a randomly cho
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6fcb"></span>6FCB</td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-11" rowspan="2"><span class="register">E</span>=last used message number (8-15, 16-23)</td>
+<td class="comment-11" rowspan="2"><span class="register">E</span>=last used message number (0x08-0x0F, 0x10-0x17)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -80,7 +80,7 @@ Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with a randomly cho
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6fcf"></span>6FCF</td>
 <td class="instruction">LD D,A</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=8 or 16</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=0x08 or 0x10</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -92,7 +92,7 @@ Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with a randomly cho
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6fd3"></span>6FD3</td>
 <td class="instruction">AND $07</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=message number (8-15, 16-23)</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=message number (0x08-0x0F, 0x10-0x17)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -133,9 +133,9 @@ Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with a randomly cho
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

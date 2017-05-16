@@ -35,7 +35,7 @@ Used by the command list at <a href="FCFC.html">FCFC</a>. Does nothing if Sam is
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">219 (Jailer)</td>
+<td class="register-desc">0xDB (Jailer)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the command list at <a href="FCFC.html">FCFC</a>. Does nothing if Sam is
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7b6a"></span>7B6A</td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="3">Remove the address of this primary command routine from bytes 8 and 9 of the jailer's buffer, triggering a move to the next command in the command list after we are finished here</td>
+<td class="comment-11" rowspan="3">Remove the address of this primary command routine from bytes 0x08 and 0x09 of the jailer's buffer, triggering a move to the next command in the command list after we are finished here</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -200,7 +200,7 @@ Used by the command list at <a href="FCFC.html">FCFC</a>. Does nothing if Sam is
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b95"></span>7B95</td>
 <td class="instruction">LD A,$34</td>
-<td class="comment-11" rowspan="1">Message <a href="6AA8.html">52</a>: ' THE BAIL WAS ${tens digit}0'</td>
+<td class="comment-11" rowspan="1">Message <a href="6AA8.html">0x34</a>: ' THE BAIL WAS ${tens digit}0'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -217,9 +217,9 @@ Used by the command list at <a href="FCFC.html">FCFC</a>. Does nothing if Sam is
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -50,10 +50,15 @@
 <div class="box box-1">
 <div class="box-title">Hidden sky</div>
 <div class="paragraph">
-The play area is 42 character squares high, but only the middle 38 (y-coordinates 2-39) are ever displayed. Which means that the top two rows (y-coordinates 0 and 1) of the play area are always hidden - even though the graphic data for them exists and is not garbage.
+The play area is 42 character squares high, but only the middle 38
+(y-coordinates 2-39) are ever displayed. Which means that the top two rows
+(y-coordinates 0 and 1) of the play area are always hidden - even though the
+graphic data for them exists and is not garbage.
 </div>
 <div class="paragraph">
-However, the top two rows of the play area are not very interesting; for the most part they are the same as the third and fourth rows. The only exception is the area above the Hotel Royale. Normally that area looks like this:
+However, the top two rows of the play area are not very interesting; for the
+most part they are the same as the third and fourth rows. The only exception is
+the area above the Hotel Royale. Normally that area looks like this:
 </div>
 <div class="paragraph">
 <table class="">
@@ -63,7 +68,8 @@ However, the top two rows of the play area are not very interesting; for the mos
 </table>
 </div>
 <div class="paragraph">
-But if you could see all the way up to the top row (y=0), it would look like this:
+But if you could see all the way up to the top row (y=0), it would look like
+this:
 </div>
 <div class="paragraph">
 <table class="">
@@ -77,10 +83,17 @@ But if you could see all the way up to the top row (y=0), it would look like thi
 <div class="box box-2">
 <div class="box-title">Hidden ground</div>
 <div class="paragraph">
-As noted in the item above, the play area is 42 character squares high, but only the middle 38 (y-coordinates 2-39) are ever displayed. Which means that the bottom two rows (y-coordinates 40 and 41) of the play area are always hidden - even though the graphic data for them exists and is not garbage.
+As noted in the item above, the play area is 42 character squares high, but
+only the middle 38 (y-coordinates 2-39) are ever displayed. Which means that
+the bottom two rows (y-coordinates 40 and 41) of the play area are always
+hidden - even though the graphic data for them exists and is not garbage.
 </div>
 <div class="paragraph">
-However, the bottom two rows of the play area are not very interesting; the very bottom row (y=41) is completely blank, and the next row up (y=40) is mostly blank, except for some extra minor detail at the bottom of the staircases leading up into the apartment buildings next to no. 74 and no. 19. Normally those areas looks like this:
+However, the bottom two rows of the play area are not very interesting; the
+very bottom row (y=41) is completely blank, and the next row up (y=40) is
+mostly blank, except for some extra minor detail at the bottom of the
+staircases leading up into the apartment buildings next to no. 74 and
+no. 19. Normally those areas looks like this:
 </div>
 <div class="paragraph">
 <table class="">
@@ -91,7 +104,8 @@ However, the bottom two rows of the play area are not very interesting; the very
 </table>
 </div>
 <div class="paragraph">
-But if you could see all the way down to the bottom row (y=41), they would look like this:
+But if you could see all the way down to the bottom row (y=41), they would look
+like this:
 </div>
 <div class="paragraph">
 <table class="">
@@ -106,14 +120,19 @@ But if you could see all the way down to the bottom row (y=41), they would look 
 <div class="box box-1">
 <div class="box-title">$46 or bust</div>
 <div class="paragraph">
-Sam must have at least $46 when he's arrested, otherwise the game will end immediately (see <a href="../asm/7B9A.html">7B9A</a>). When Sam is released from jail, the bail amount is set low enough that Sam can pay it (see <a href="../asm/7B6A.html">7B6A</a>).
+Sam must have at least $46 when he's arrested, otherwise the game will end
+immediately (see <a href="../asm/7B9A.html">7B9A</a>). When Sam is released from jail, the bail amount is
+set low enough that Sam can pay it (see <a href="../asm/7B6A.html">7B6A</a>).
 </div>
 </div>
 <div><span id="cashChances"></span></div>
 <div class="box box-2">
 <div class="box-title">Cash chances</div>
 <div class="paragraph">
-The banknotes flying through the city streets are denominated in $1, $5, $10 and $20 amounts. However, they are not distributed evenly across those amounts. The probabilities of obtaining a banknote of a particular value are as follows (see <a href="../asm/61CF.html">61CF</a>):
+The banknotes flying through the city streets are denominated in $1, $5, $10
+and $20 amounts. However, they are not distributed evenly across those
+amounts. The probabilities of obtaining a banknote of a particular value are as
+follows (see <a href="../asm/61CF.html">61CF</a>):
 </div>
 <div class="paragraph">
 <div>$1 - 1 in 2 (0.5)</div>
@@ -126,14 +145,19 @@ The banknotes flying through the city streets are denominated in $1, $5, $10 and
 <div class="box box-1">
 <div class="box-title">The policeman always knocks twice (or more)</div>
 <div class="paragraph">
-When a policeman knocks on a door, he knocks continuously until someone answers (or the door is busted open); other characters knock once and wait for a while before knocking again (see <a href="../asm/F375.html">F375</a>).
+When a policeman knocks on a door, he knocks continuously until someone answers
+(or the door is busted open); other characters knock once and wait for a while
+before knocking again (see <a href="../asm/F375.html">F375</a>).
 </div>
 </div>
 <div><span id="theEdgeOfTown"></span></div>
 <div class="box box-2">
 <div class="box-title">The edge of town</div>
 <div class="paragraph">
-Although Sam cannot get to the location at coordinates (254,34) (at the far right edge of the play area, outside no. 15) by approaching it directly on the sidewalk, he can get there by going to (252,34) first, going up a step to (253,33), and then going down a step.
+Although Sam cannot get to the location at coordinates (254,34) (at the far
+right edge of the play area, outside no. 15) by approaching it directly on the
+sidewalk, he can get there by going to (252,34) first, going up a step to
+(253,33), and then going down a step.
 </div>
 <div class="paragraph">
 <table class="gallery">
@@ -154,38 +178,54 @@ Although Sam cannot get to the location at coordinates (254,34) (at the far righ
 <div class="box box-1">
 <div class="box-title">Talk is expensive</div>
 <div class="paragraph">
-Whenever Sam picks up a telephone that is not ringing, he is charged $2 - even before he starts dialling (see <a href="../asm/76FA.html">76FA</a>).
+Whenever Sam picks up a telephone that is not ringing, he is charged $2 - even
+before he starts dialling (see <a href="../asm/76FA.html">76FA</a>).
 </div>
 </div>
 <div><span id="telephonicDistribution"></span></div>
 <div class="box box-2">
 <div class="box-title">Telephonic distribution</div>
 <div class="paragraph">
-No. 27 is the only building that does not contain a telephone; the building with the most telephones is no. 74, which has four (if you count the room past the catwalk as part of no. 74). See the <a href="../graphics/playarea_objects.html">play area objects page</a> for the location of every telephone in the city.
+No. 27 is the only building that does not contain a telephone; the building
+with the most telephones is no. 74, which has four (if you count the room past
+the catwalk as part of no. 74). See the <a href="../graphics/playarea_objects.html">play area objects
+page</a> for the location of every telephone in the city.
 </div>
 <div class="paragraph">
-POKE <a href="../asm/F500.html#f540">62803</a>,34 places a telephone on the third floor of no. 27; the phone will have no number itself but can be used to make outgoing calls.
+POKE <a href="../asm/F500.html#f540">62803</a>,34 places a telephone on the third floor of no. 27; the
+phone will have no number itself but can be used to make outgoing calls.
 </div>
 </div>
 <div><span id="lanaRings"></span></div>
 <div class="box box-1">
 <div class="box-title">Lana rings in a hurry</div>
 <div class="paragraph">
-The phone message entry at <a href="../asm/6B72.html">6B72</a> (DAISY SAID 'LANA RANG - SHE HAD TO GET OUT IN A HURRY - OH AND I HEARD NOISES IN THE CEILING') is activated before a new game starts. This means that Sam can phone Daisy before going to the top floor of the hotel (where the man's body is on the floor) and still get the message.
+The phone message entry at <a href="../asm/6B72.html">6B72</a> (DAISY SAID 'LANA RANG - SHE HAD TO GET OUT
+IN A HURRY - OH AND I HEARD NOISES IN THE CEILING') is activated before a new
+game starts. This means that Sam can phone Daisy before going to the top floor
+of the hotel (where the man's body is on the floor) and still get the message.
 </div>
 </div>
 <div><span id="gangstersWhoGetAMoveOn"></span></div>
 <div class="box box-2">
 <div class="box-title">Gangsters who get a move on</div>
 <div class="paragraph">
-The gangster who hangs around at no. 15 in game mode 1 (waiting for Sam to enter without a key) and the gangster who watches for Sam outside the police station in game modes 2 and 3 are different in one significant respect from the other gangsters in the game: after the gangster has dropped Sam off the roof of no. 19, he is immediately teleported back to his base location (see <a href="../asm/615D.html">615D</a>), thus foiling any plans Sam might have to sneak past the police station or into no. 15 while the gangster is on his return journey.
+The gangster who hangs around at no. 15 in game mode 1 (waiting for Sam to
+enter without a key) and the gangster who watches for Sam outside the police
+station in game modes 2 and 3 are different in one significant respect from the
+other gangsters in the game: after the gangster has dropped Sam off the roof of
+no. 19, he is immediately teleported back to his base location (see <a href="../asm/615D.html">615D</a>),
+thus foiling any plans Sam might have to sneak past the police station or into
+no. 15 while the gangster is on his return journey.
 </div>
 </div>
 <div><span id="darkRoom"></span></div>
 <div class="box box-1">
 <div class="box-title">Dark room</div>
 <div class="paragraph">
-The right-hand jail cell in the police station is unique among all the rooms in the play area in that it is always dark and has no light switch. To add a light switch to the room:
+The right-hand jail cell in the police station is unique among all the rooms in
+the play area in that it is always dark and has no light switch. To add a light
+switch to the room:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/F500.html#f590">62866</a>,128
@@ -202,35 +242,46 @@ POKE <a href="../asm/F500.html#f590">62866</a>,128
 <div class="box box-2">
 <div class="box-title">Missing key</div>
 <div class="paragraph">
-There is no key to no. 19 to be found anywhere in the game, but setting bit 7 at <a href="../asm/7FEA.html">7FEA</a> gives Sam access to that house without knocking.
+There is no key to no. 19 to be found anywhere in the game, but setting bit 7
+at <a href="../asm/7FEA.html">7FEA</a> gives Sam access to that house without knocking.
 </div>
 </div>
 <div><span id="mForMessages"></span></div>
 <div class="box box-1">
 <div class="box-title">'M' for messages</div>
 <div class="paragraph">
-The 'M' key toggles the speed at which messages are displayed on the screen, but according to the original instructions, the 'I' key is supposed to do that. 'POKE <a href="../asm/C330.html#c349">49993</a>,27' would make 'I' do the same as 'M'.
+The 'M' key toggles the speed at which messages are displayed on the screen,
+but according to the original instructions, the 'I' key is supposed to do
+that. 'POKE <a href="../asm/C330.html#c349">49993</a>,27' would make 'I' do the same as 'M'.
 </div>
 </div>
 <div><span id="firstAidShortage"></span></div>
 <div class="box box-2">
 <div class="box-title">First aid shortage</div>
 <div class="paragraph">
-The game instructions state that Sam has ten first aid kits to start with, but in fact he has only eight.
+The game instructions state that Sam has ten first aid kits to start with, but
+in fact he has only eight.
 </div>
 </div>
 <div><span id="theGarbageHypothesis"></span></div>
 <div class="box box-1">
 <div class="box-title">The garbage hypothesis</div>
 <div class="paragraph">
-The section of code at <a href="../asm/63C3.html#63da">63DA</a> checks whether the object that Sam has landed on after completing a somersault looks like a banknote. This check is redundant - there is no other kind of object that Sam could land on - but was it always so? Perhaps at some stage during the development of the game, non-banknote objects may have been seen blowing along the streets. And perhaps those non-banknote objects were bits of garbage. There is, after all, a line in the game instructions that says "A gust of wind disturbs the garbage on the sidewalk".
+The section of code at <a href="../asm/63C3.html#63da">63DA</a> checks whether the object that Sam has landed on
+after completing a somersault looks like a banknote. This check is redundant -
+there is no other kind of object that Sam could land on - but was it always so?
+Perhaps at some stage during the development of the game, non-banknote objects
+may have been seen blowing along the streets. And perhaps those non-banknote
+objects were bits of garbage. There is, after all, a line in the game
+instructions that says "A gust of wind disturbs the garbage on the sidewalk".
 </div>
 </div>
 <div><span id="lanasLegs"></span></div>
 <div class="box box-2">
 <div class="box-title">Lana's legs</div>
 <div class="paragraph">
-To save memory, phases 1 and 3 of each character's walking animation are identical; for example, here are Daisy's walking animation phases:
+To save memory, phases 1 and 3 of each character's walking animation are
+identical; for example, here are Daisy's walking animation phases:
 </div>
 <div class="paragraph">
 <table class="gallery">
@@ -249,7 +300,9 @@ To save memory, phases 1 and 3 of each character's walking animation are identic
 </table>
 </div>
 <div class="paragraph">
-Lana, however, goes one step further than all the other characters in her memory-saving effort by having phases 2 and 4 of her walking animation identical too:
+Lana, however, goes one step further than all the other characters in her
+memory-saving effort by having phases 2 and 4 of her walking animation
+identical too:
 </div>
 <div class="paragraph">
 <table class="gallery">
@@ -272,28 +325,49 @@ Lana, however, goes one step further than all the other characters in her memory
 <div class="box box-1">
 <div class="box-title">Return to BASIC?</div>
 <div class="paragraph">
-The unused routine at <a href="../asm/F0B2.html">F0B2</a> is found in the table of keypress handling routines at <a href="../asm/ED00.html">ED00</a>, but is not bound to any key - so what does it do? Perhaps during development it <em>was</em> bound to some key, and was used to quit the game and return to BASIC. Note also the unused routine at <a href="../asm/F0AC.html">F0AC</a>, which sets the operand of the 'LD SP' instruction in the routine at 61618, sets up the bottom 4 lines of the screen, and then starts the game in demo mode; could it be the tail end of a routine that was used during development to start the game for testing?
+The unused routine at <a href="../asm/F0B2.html">F0B2</a> is found in the table of keypress handling
+routines at <a href="../asm/ED00.html">ED00</a>, but is not bound to any key - so what does it do? Perhaps
+during development it <em>was</em> bound to some key, and was used to quit the
+game and return to BASIC. Note also the unused routine at <a href="../asm/F0AC.html">F0AC</a>, which sets
+the operand of the 'LD SP' instruction in the routine at F0B2, sets up
+the bottom 4 lines of the screen, and then starts the game in demo mode; could
+it be the tail end of a routine that was used during development to start the
+game for testing?
 </div>
 </div>
 <div><span id="silentHangup"></span></div>
 <div class="box box-2">
 <div class="box-title">Silent hangup</div>
 <div class="paragraph">
-Pressing 'H' while Sam is on the phone makes him hang up. No message is displayed to confirm that event, but the unused message at <a href="../asm/69E9.html">69E9</a> (I HUNG UP) indicates that there probably used to be. That unused message is used by the unused routine at <a href="../asm/7A34.html">7A34</a>, which queues the message urgently and plays a sound effect. Perhaps this feature was removed before the game was released because pressing 'H' while reading a phone message would make the message fly by too quickly, making it difficult to take in.
+Pressing 'H' while Sam is on the phone makes him hang up. No message is
+displayed to confirm that event, but the unused message at <a href="../asm/69E9.html">69E9</a> (I HUNG UP)
+indicates that there probably used to be. That unused message is used by the
+unused routine at <a href="../asm/7A34.html">7A34</a>, which queues the message urgently and plays a sound
+effect. Perhaps this feature was removed before the game was released because
+pressing 'H' while reading a phone message would make the message fly by too
+quickly, making it difficult to take in.
 </div>
 </div>
 <div><span id="dontCallDaisy"></span></div>
 <div class="box box-1">
 <div class="box-title">Don't call Daisy - she'll call you</div>
 <div class="paragraph">
-The only phone message from Daisy that Sam doesn't have to call the office to receive is message <a href="../asm/5D60.html">63</a>: 'DAISY SAID 'SAM - A GANGSTER'S WATCHING FOR YOU OUTSIDE THE POLICE STATION''. It is the first message received on the phone on the third floor of no. 15 after Sam has entered that house using the key. Exactly how Daisy knows where Sam is at that time remains a mystery, however.
+The only phone message from Daisy that Sam doesn't have to call the office to
+receive is message <a href="../asm/5D60.html">0x3F</a>: 'DAISY SAID 'SAM - A GANGSTER'S WATCHING FOR
+YOU OUTSIDE THE POLICE STATION''. It is the first message received on the phone
+on the third floor of no. 15 after Sam has entered that house using the
+key. Exactly how Daisy knows where Sam is at that time remains a mystery,
+however.
 </div>
 </div>
 <div><span id="gluttonForPunishment"></span></div>
 <div class="box box-2">
 <div class="box-title">Glutton for punishment</div>
 <div class="paragraph">
-The gangster who watches for Sam outside the police station can be repeatedly knocked out at will. First, tease the gangster by approaching him from the left and then running away - he will run to the left edge of the police station and then freeze:
+The gangster who watches for Sam outside the police station can be repeatedly
+knocked out at will. First, tease the gangster by approaching him from the left
+and then running away - he will run to the left edge of the police station and
+then freeze:
 </div>
 <div class="paragraph">
 <table class="">
@@ -303,97 +377,162 @@ The gangster who watches for Sam outside the police station can be repeatedly kn
 </table>
 </div>
 <div class="paragraph">
-Now enter no. 31 (POKE <a href="../asm/7FEA.html">32746</a>,16 gives Sam the key to that house), go up to the roof, and walk off the edge - Sam will land on the gangster's head and knock him out. Move a few steps to the left, wait for the gangster to recover and return to the knockout location, and do it all over again.
+Now enter no. 31 (POKE <a href="../asm/7FEA.html">32746</a>,16 gives Sam the key to that house), go
+up to the roof, and walk off the edge - Sam will land on the gangster's head
+and knock him out. Move a few steps to the left, wait for the gangster to
+recover and return to the knockout location, and do it all over again.
 </div>
 <div class="paragraph">
-Note that because of a <a href="bugs.html#pttd">bug</a> in the routine that controls a character who's been knocked over, the gangster may, after recovering, freeze in a location that is to the left of the knockout location. In that case, Sam won't land on his head by jumping off the roof of no. 31. However, after Sam has landed on the sidewalk (and recovered from the fall), the gangster will remain frozen, completely unaware of Sam a few steps behind him.
+Note that because of a <a href="bugs.html#pttd">bug</a> in the routine that controls a character
+who's been knocked over, the gangster may, after recovering, freeze in a
+location that is to the left of the knockout location. In that case, Sam won't
+land on his head by jumping off the roof of no. 31. However, after Sam has
+landed on the sidewalk (and recovered from the fall), the gangster will remain
+frozen, completely unaware of Sam a few steps behind him.
 </div>
 </div>
 <div><span id="snipersAndKeys"></span></div>
 <div class="box box-1">
 <div class="box-title">Snipers and keys</div>
 <div class="paragraph">
-The probability that a sniper will appear at any moment depends partly on how many keys Sam has collected - the more keys, the more likely it is that a sniper will rear his head and start shooting (see <a href="../asm/62DB.html">62DB</a>).
+The probability that a sniper will appear at any moment depends partly on how
+many keys Sam has collected - the more keys, the more likely it is that a
+sniper will rear his head and start shooting (see <a href="../asm/62DB.html">62DB</a>).
 </div>
 </div>
 <div><span id="bulletSpeed"></span></div>
 <div class="box box-2">
 <div class="box-title">Bullet speed</div>
 <div class="paragraph">
-As Sam gets more money, the snipers' bullets fly faster through the air (see <a href="../asm/65DB.html">65DB</a>).
+As Sam gets more money, the snipers' bullets fly faster through the air (see
+<a href="../asm/65DB.html">65DB</a>).
 </div>
 <div class="paragraph">
-The bullets are slowest when Sam has less than $256; they are bit faster when Sam has between $256 and $511; they are a bit faster still when Sam has between $512 and $767; and they are fastest when Sam has between $768 and $1023 (twice as fast as when Sam has less than $256, in fact).
+The bullets are slowest when Sam has less than $256; they are bit faster when
+Sam has between $256 and $511; they are a bit faster still when Sam has between
+$512 and $767; and they are fastest when Sam has between $768 and $1023 (twice
+as fast as when Sam has less than $256, in fact).
 </div>
 <div class="paragraph">
-The good news is that should Sam be lucky enough to get past the $1023 barrier - a difficult task given that the sum total of the cash available in the game, not including banknotes, is only $950 ($550 in bonuses plus $100 for each of the four keys) - the bullets return to their slowest speed.
+The good news is that should Sam be lucky enough to get past the $1023 barrier
+- a difficult task given that the sum total of the cash available in the game,
+not including banknotes, is only $950 ($550 in bonuses plus $100 for each of
+the four keys) - the bullets return to their slowest speed.
 </div>
 </div>
 <div><span id="stunSettings"></span></div>
 <div class="box box-1">
 <div class="box-title">Stun settings</div>
 <div class="paragraph">
-Exactly where Sam hits a character by falling onto his head determines how long that character will stay down and stagger afterwards before recovering. If Sam's x-coordinate matches the character's x-coordinate at the time of collision, the stricken character will stay down for twice as long and subsequently stagger around for twice as long as when the x-coordinates differ by 1 (see <a href="../asm/FAA2.html">FAA2</a> and <a href="../asm/FA05.html">FA05</a>).
+Exactly where Sam hits a character by falling onto his head determines how long
+that character will stay down and stagger afterwards before recovering. If
+Sam's x-coordinate matches the character's x-coordinate at the time of
+collision, the stricken character will stay down for twice as long and
+subsequently stagger around for twice as long as when the x-coordinates differ
+by 1 (see <a href="../asm/FAA2.html">FAA2</a> and <a href="../asm/FA05.html">FA05</a>).
 </div>
 </div>
 <div><span id="deckMeIfYouCan"></span></div>
 <div class="box box-2">
 <div class="box-title">Deck me if you can</div>
 <div class="paragraph">
-The routine at <a href="../asm/FAA2.html">FAA2</a> checks whether anyone (including Sam) has been struck by a falling character, but because it simply places the address of the uninterruptible subcommand routine at <a href="../asm/FA05.html">FA05</a> or <a href="../asm/FA05.html#fa09">FA09</a> into bytes 18 and 19 of the stricken character's buffer, this has no effect on Sam; thus Sam is the only character who cannot be knocked over by another character landing on his head.
+The routine at <a href="../asm/FAA2.html">FAA2</a> checks whether anyone (including Sam) has been struck by
+a falling character, but because it simply places the address of the
+uninterruptible subcommand routine at <a href="../asm/FA05.html">FA05</a> or <a href="../asm/FA05.html#fa09">FA09</a> into bytes 0x12 and
+0x13 of the stricken character's buffer, this has no effect on Sam; thus Sam is
+the only character who cannot be knocked over by another character landing on
+his head.
 </div>
 <div class="paragraph">
-Note that the only occasion on which a character other than Sam will step off the roof of a building (and therefore possibly strike another character) is when that character is chasing Sam, and Sam has just stepped off the right edge of the roof of the apartment building next to no. 19 onto the roof of no. 19: the chasing character will jump down onto the roof of no. 19 too.
+Note that the only occasion on which a character other than Sam will step off
+the roof of a building (and therefore possibly strike another character) is
+when that character is chasing Sam, and Sam has just stepped off the right edge
+of the roof of the apartment building next to no. 19 onto the roof of no. 19:
+the chasing character will jump down onto the roof of no. 19 too.
 </div>
 </div>
 <div><span id="gangstersAndDisguises"></span></div>
 <div class="box box-1">
 <div class="box-title">Gangsters and disguises</div>
 <div class="paragraph">
-The gangsters at no. 19 will allow Sam to enter their house and roam freely inside if he uses disguise no. 7 (the oil man):
+The gangsters at no. 19 will allow Sam to enter their house and roam freely
+inside if he uses disguise no. 7 (the oil man):
 </div>
 <div class="paragraph">
 <img alt="disguise7" src="../images/udgs/disguise7.png" />
 </div>
 <div class="paragraph">
-This disguise enables Sam to pick up the ringing phone on the top floor of no. 19; if he answers it as ED (press 'E' when asked who's there), a voice says 'OK ED - THE FAT MAN HAS THE KEY TO NO 27'. The disguise doesn't fool the gangsters for ever, though: after Sam has crossed the roof of no. 19 using the hook (and someone below says 'CRUISE WAS DRESSED AS THE OIL MAN. DONT LET ANYONE PAST'), the disguise becomes useless (see <a href="../asm/FD44.html">FD44</a>).
+This disguise enables Sam to pick up the ringing phone on the top floor of
+no. 19; if he answers it as ED (press 'E' when asked who's there), a voice says
+'OK ED - THE FAT MAN HAS THE KEY TO NO 27'. The disguise doesn't fool the
+gangsters for ever, though: after Sam has crossed the roof of no. 19 using the
+hook (and someone below says 'CRUISE WAS DRESSED AS THE OIL MAN. DONT LET
+ANYONE PAST'), the disguise becomes useless (see <a href="../asm/FD44.html">FD44</a>).
 </div>
 <div class="paragraph">
-Unfortunately, none of the other gangsters are ever fooled by any of Sam's disguises.
+Unfortunately, none of the other gangsters are ever fooled by any of Sam's
+disguises.
 </div>
 </div>
 <div><span id="policemenAndDisguises"></span></div>
 <div class="box box-2">
 <div class="box-title">Policemen and disguises</div>
 <div class="paragraph">
-If Sam is being chased by the police, the best strategy for making a getaway is to wait until the chasing policeman is almost close enough to arrest him, and then quickly don a disguise that is not yet known to the police. This will give Sam a chance to scoot past the officer without being picked up, which is useful if you're just not quite ready to go to jail yet.
+If Sam is being chased by the police, the best strategy for making a getaway is
+to wait until the chasing policeman is almost close enough to arrest him, and
+then quickly don a disguise that is not yet known to the police. This will give
+Sam a chance to scoot past the officer without being picked up, which is useful
+if you're just not quite ready to go to jail yet.
 </div>
 <div class="paragraph">
-However, as soon as Sam has been seen in disguise by either policeman, it is only a matter of time before that disguise becomes known to both officers, and Sam will be on the run again. Also note that it's a bad idea to hang around after changing disguise: when a disguise becomes known to the police, any policeman who has already seen Sam in that disguise will return to where he first saw him (see <a href="../asm/7377.html">7377</a>).
+However, as soon as Sam has been seen in disguise by either policeman, it is
+only a matter of time before that disguise becomes known to both officers, and
+Sam will be on the run again. Also note that it's a bad idea to hang around
+after changing disguise: when a disguise becomes known to the police, any
+policeman who has already seen Sam in that disguise will return to where he
+first saw him (see <a href="../asm/7377.html">7377</a>).
 </div>
 </div>
 <div><span id="daisysDiversion"></span></div>
 <div class="box box-1">
 <div class="box-title">Daisy's diversion</div>
 <div class="paragraph">
-Contrary to popular belief - and perhaps her employment contract as well - Daisy doesn't spend all her time pacing up and down in Sam's office waiting for telephone calls. In fact, every so often she leaves the office and wanders over to the right-hand green room on the top floor of the apartment building next to no. 19 (see <a href="../asm/FE34.html">FE34</a>). What possible business could she have there? Even worse, during demo mode, Daisy walks up and down on the roof of the apartment building next to no. 19 for ever (see <a href="../asm/E220.html">E220</a>). Strange behaviour for a secretary, to be sure.
+Contrary to popular belief - and perhaps her employment contract as well -
+Daisy doesn't spend all her time pacing up and down in Sam's office waiting for
+telephone calls. In fact, every so often she leaves the office and wanders over
+to the right-hand green room on the top floor of the apartment building next to
+no. 19 (see <a href="../asm/FE34.html">FE34</a>). What possible business could she have there? Even worse,
+during demo mode, Daisy walks up and down on the roof of the apartment building
+next to no. 19 for ever (see <a href="../asm/E220.html">E220</a>). Strange behaviour for a secretary, to be
+sure.
 </div>
 </div>
 <div><span id="ordinarySpecialLocations"></span></div>
 <div class="box box-2">
 <div class="box-title">Ordinary special locations</div>
 <div class="paragraph">
-The location descriptors that invoke the special location handler routine whose address is at <a href="../asm/A016.html">A016</a> are redundant, because the special location handler routine itself (at <a href="../asm/EBBB.html#ec07">EC07</a>) actually does nothing special.
+The location descriptors that invoke the special location handler routine whose
+address is at <a href="../asm/A016.html">A016</a> are redundant, because the special location handler
+routine itself (at <a href="../asm/EBBB.html#ec07">EC07</a>) actually does nothing special.
 </div>
 <div class="paragraph">
-But could these ordinary special locations have been used, at some time during the development of the game, to trigger a special location handler routine that actually did something interesting? One thing that the locations have in common (except perhaps for the ones at no. 74) is that they each mark the entrance to a room: an apartment, the room past the catwalk, Sam's office (for example). Maybe these locations triggered a handler routine that made the character switch on the lights before entering the room? That is one possibility, but we may never know for sure.
+But could these ordinary special locations have been used, at some time during
+the development of the game, to trigger a special location handler routine that
+actually did something interesting? One thing that the locations have in common
+(except perhaps for the ones at no. 74) is that they each mark the entrance to
+a room: an apartment, the room past the catwalk, Sam's office (for
+example). Maybe these locations triggered a handler routine that made the
+character switch on the lights before entering the room? That is one
+possibility, but we may never know for sure.
 </div>
 </div>
 <div><span id="aCatsTale"></span></div>
 <div class="box box-1">
 <div class="box-title">A cat's tale</div>
 <div class="paragraph">
-The two cats in the game use a simple two-phase animation sequence (animatory states <a href="../graphics/as.html#118">118</a> and <a href="../graphics/as.html#117">117</a>) in which the tail is always pointing upwards at an angle:
+The two cats in the game use a simple two-phase animation sequence (animatory
+states <a href="../graphics/as.html#118">0x76</a> and <a href="../graphics/as.html#117">0x75</a>) in which the tail is always pointing upwards at an
+angle:
 </div>
 <div class="paragraph">
 <table class="">
@@ -404,7 +543,10 @@ The two cats in the game use a simple two-phase animation sequence (animatory st
 </table>
 </div>
 <div class="paragraph">
-But sprite tiles 215 and 216 (which are unused) also look like the body and tail of a cat - this time with the tail pointing horizontally - and may once have been used as an alternative second phase (or additional phase) of animation for that creature:
+But sprite tiles 0xD7 and 0xD8 (which are unused) also look like the body and
+tail of a cat - this time with the tail pointing horizontally - and may once
+have been used as an alternative second phase (or additional phase) of
+animation for that creature:
 </div>
 <div class="paragraph">
 <table class="">
@@ -414,7 +556,7 @@ But sprite tiles 215 and 216 (which are unused) also look like the body and tail
 </table>
 </div>
 <div class="paragraph">
-To modify animatory state <a href="../graphics/as.html#118">118</a> to show this phase:
+To modify animatory state <a href="../graphics/as.html#118">0x76</a> to show this phase:
 </div>
 <div class="paragraph">
 POKE 58614,0: POKE 57590,215: POKE 58870,216
@@ -432,7 +574,8 @@ POKE 58614,0: POKE 57590,215: POKE 58870,216
 <div class="box box-2">
 <div class="box-title">Skinny Man</div>
 <div class="paragraph">
-The graphic data contains unused sprites (animatory states <a href="../graphics/as.html#64">64-68/192-196</a>) of a skinny man wearing a hat:
+The graphic data contains unused sprites (animatory states
+<a href="../graphics/as.html#64">0x40-0x44/0xC0-0xC4</a>) of a skinny man wearing a hat:
 </div>
 <div class="paragraph">
 <table class="">
@@ -446,20 +589,27 @@ The graphic data contains unused sprites (animatory states <a href="../graphics/
 </table>
 </div>
 <div class="paragraph">
-To bring Skinny Man into the game, use one of the following POKEs (which must be made before the game starts):
+To bring Skinny Man into the game, use one of the following POKEs (which must
+be made before the game starts):
 </div>
 <div class="paragraph">
-POKE <a href="../asm/FF08.html#ff20">65312</a>,64 (makes Skinny Man walk up and down in the shops below no. 15 and no. 17)
+POKE <a href="../asm/FF08.html#ff20">65312</a>,64 (makes Skinny Man walk up and down in the shops below
+no. 15 and no. 17)
 </div>
 <div class="paragraph">
-POKE <a href="../asm/FEEA.html#ff02">65282</a>,192 (makes Skinny Man walk between the sidewalk outside the first-floor window of no. 19 and the third floor of no. 15)
+POKE <a href="../asm/FEEA.html#ff02">65282</a>,192 (makes Skinny Man walk between the sidewalk outside the
+first-floor window of no. 19 and the third floor of no. 15)
 </div>
 </div>
 <div><span id="lurkingLana"></span></div>
 <div class="box box-1">
 <div class="box-title">Lurking Lana</div>
 <div class="paragraph">
-In game mode 3 (after Sam has had the phone call about the key to no. 74 and gone to the top of the apartment building at the far left of town), Lana hides on the far left of the first floor of the apartment building next to no. 19 (see <a href="../asm/E120.html#e132">E132</a>) until Sam phones her while in possession of the budgie. To see her emerge, call her (on 7162) using the phone in that location.
+In game mode 3 (after Sam has had the phone call about the key to no. 74 and
+gone to the top of the apartment building at the far left of town), Lana hides
+on the far left of the first floor of the apartment building next to no. 19
+(see <a href="../asm/E120.html#e132">E132</a>) until Sam phones her while in possession of the budgie. To see
+her emerge, call her (on 7162) using the phone in that location.
 </div>
 <div class="paragraph">
 <table class="">
@@ -470,9 +620,9 @@ In game mode 3 (after Sam has had the phone call about the key to no. 74 and gon
 </div>
 </div>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

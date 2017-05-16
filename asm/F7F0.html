@@ -20,13 +20,13 @@
 <td class="next"><span class="next-1">Next: <a href="F81F.html">F81F</a></span></td>
 </tr>
 </table>
-<div class="description">F7F0: Initialise the character buffers for character groups 215-221</div>
+<div class="description">F7F0: Initialise the character buffers for character groups 0xD7-0xDD</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory state, location and command list address for every character in character groups 215-221.
+Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory state, location and command list address for every character in character groups 0xD7-0xDD.
 </div>
 </div>
 <table class="input-0">
@@ -47,13 +47,13 @@ Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory s
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f7f0"></span>F7F0</td>
 <td class="instruction">LD HL,$FEAE</td>
-<td class="comment-11" rowspan="1">The initialisation parameters for character groups 215-221 are located at <a href="FEAE.html">FEAE</a> onwards</td>
+<td class="comment-11" rowspan="1">The initialisation parameters for character groups 0xD7-0xDD are located at <a href="FEAE.html">FEAE</a> onwards</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7f3"></span>F7F3</td>
 <td class="instruction">LD D,$D7</td>
-<td class="comment-11" rowspan="1">Begin with the buffers for character group <a href="D700.html">215</a></td>
+<td class="comment-11" rowspan="1">Begin with the buffers for character group <a href="D700.html">0xD7</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -107,7 +107,7 @@ Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory s
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f801"></span>F801</td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="2">Reset the flags in byte 3 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Reset the flags in byte 0x03 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -137,7 +137,7 @@ Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory s
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f807"></span>F807</td>
 <td class="instruction">LD B,$12</td>
-<td class="comment-11" rowspan="4">Zero out bytes 5-22 of the character's buffer</td>
+<td class="comment-11" rowspan="4">Zero out bytes 0x05-0x16 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -161,7 +161,7 @@ Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory s
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f80d"></span>F80D</td>
 <td class="instruction">LD B,$02</td>
-<td class="comment-11" rowspan="6">Copy the command list address into bytes 23 and 24 of the character's buffer</td>
+<td class="comment-11" rowspan="6">Copy the command list address into bytes 0x17 and 0x18 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -244,9 +244,9 @@ Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory s
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

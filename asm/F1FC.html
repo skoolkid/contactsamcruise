@@ -131,7 +131,7 @@ Called from the main loop at <a href="F02B.html">F02B</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f218"></span>F218</td>
 <td class="instruction">LD A,$D7</td>
-<td class="comment-11" rowspan="1">Rewind to character 215 (we don't want to move Sam)</td>
+<td class="comment-11" rowspan="1">Rewind to character 0xD7 (we don't want to move Sam)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -143,7 +143,7 @@ Called from the main loop at <a href="F02B.html">F02B</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f21b"></span>F21B</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=number of the character to move next (215-229)</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=number of the character to move next (0xD7-0xE5)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -184,7 +184,7 @@ First check whether the character is immobilised by a blown fuse.
 <span id="f224"></span>
 <div class="comments">
 <div class="paragraph">
-Now to determine whether to move the character this time round. The answer will be yes if bit 7 of byte 3 of the character's buffer is set (indicating that he is running), or if bit 6 of byte 3 (which is flipped on each pass through this routine) is set.
+Now to determine whether to move the character this time round. The answer will be yes if bit 7 of byte 0x03 of the character's buffer is set (indicating that he is running), or if bit 6 of byte 0x03 (which is flipped on each pass through this routine) is set.
 </div>
 </div>
 </td>
@@ -193,7 +193,7 @@ Now to determine whether to move the character this time round. The answer will 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f224"></span>F224</td>
 <td class="instruction">LD L,$03</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 3 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x03 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -211,7 +211,7 @@ Now to determine whether to move the character this time round. The answer will 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f22a"></span>F22A</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="3">Flip bit 6 of byte 3 of the character's buffer</td>
+<td class="comment-11" rowspan="3">Flip bit 6 of byte 0x03 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -252,36 +252,36 @@ The character will be moved. From this point, the following steps are taken:
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">1</td>
-<td class="" colspan="1" rowspan="1">If there is an uninterruptible subcommand routine address in bytes 18 and 19 of the character's buffer, jump to it</td>
+<td class="" colspan="1" rowspan="1">If there is an uninterruptible subcommand routine address in bytes 0x12 and 0x13 of the character's buffer, jump to it</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">2</td>
-<td class="" colspan="1" rowspan="1">If there is a continual subcommand routine address in bytes 27 and 28 of the character's buffer - which there never is - call it (and then return to step 3)</td>
+<td class="" colspan="1" rowspan="1">If there is a continual subcommand routine address in bytes 0x1B and 0x1C of the character's buffer - which there never is - call it (and then return to step 3)</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">3</td>
-<td class="" colspan="1" rowspan="1">If there is an interruptible subcommand routine address in bytes 14 and 15 of the character's buffer, jump to it</td>
+<td class="" colspan="1" rowspan="1">If there is an interruptible subcommand routine address in bytes 0x0E and 0x0F of the character's buffer, jump to it</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">4</td>
-<td class="" colspan="1" rowspan="1">Restart the command list if bit 4 of byte 3 of the character's buffer is set (and carry on to step 5)</td>
+<td class="" colspan="1" rowspan="1">Restart the command list if bit 4 of byte 0x03 of the character's buffer is set (and carry on to step 5)</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">5</td>
-<td class="" colspan="1" rowspan="1">If there is a primary command routine address in bytes 8 and 9 of the character's buffer, jump to it</td>
+<td class="" colspan="1" rowspan="1">If there is a primary command routine address in bytes 0x08 and 0x09 of the character's buffer, jump to it</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">6</td>
-<td class="" colspan="1" rowspan="1">Remove any continual subcommand routine address from bytes 27 and 28 of the character's buffer</td>
+<td class="" colspan="1" rowspan="1">Remove any continual subcommand routine address from bytes 0x1B and 0x1C of the character's buffer</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">7</td>
-<td class="" colspan="1" rowspan="1">Collect the next primary command routine address from the command list, place it into bytes 8 and 9 of the character's buffer, and jump to it</td>
+<td class="" colspan="1" rowspan="1">Collect the next primary command routine address from the command list, place it into bytes 0x08 and 0x09 of the character's buffer, and jump to it</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-The address of one of the following uninterruptible subcommand routines (or an entry point thereof) may be present in bytes 18 and 19 of the character's buffer:
+The address of one of the following uninterruptible subcommand routines (or an entry point thereof) may be present in bytes 0x12 and 0x13 of the character's buffer:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -308,7 +308,7 @@ The address of one of the following uninterruptible subcommand routines (or an e
 </table>
 </div>
 <div class="paragraph">
-The address of one of the following interruptible subcommand routines (or an entry point thereof) may be present in bytes 14 and 15 of the character's buffer:
+The address of one of the following interruptible subcommand routines (or an entry point thereof) may be present in bytes 0x0E and 0x0F of the character's buffer:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -359,7 +359,7 @@ The address of one of the following interruptible subcommand routines (or an ent
 </table>
 </div>
 <div class="paragraph">
-The address of one of the following primary command routines (or an entry point thereof) may be present in bytes 8 and 9 of the character's buffer:
+The address of one of the following primary command routines (or an entry point thereof) may be present in bytes 0x08 and 0x09 of the character's buffer:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -444,7 +444,7 @@ The address of one of the following primary command routines (or an entry point 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f231"></span>F231</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="3">Is there an uninterruptible subcommand routine address in bytes 18 and 19 of the character's buffer?</td>
+<td class="comment-11" rowspan="3">Is there an uninterruptible subcommand routine address in bytes 0x12 and 0x13 of the character's buffer?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -468,13 +468,13 @@ The address of one of the following primary command routines (or an entry point 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f237"></span>F237</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character being moved (215-229)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character being moved (0xD7-0xE5)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f238"></span>F238</td>
 <td class="instruction">CP $DE</td>
-<td class="comment-11" rowspan="1">Does the character belong to one of the character groups 215-221?</td>
+<td class="comment-11" rowspan="1">Does the character belong to one of the character groups 0xD7-0xDD?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -487,7 +487,7 @@ The address of one of the following primary command routines (or an entry point 
 <span id="f23c"></span>
 <div class="comments">
 <div class="paragraph">
-We're dealing with one of the primary characters (222-229). Here we check whether there is a continual subcommand routine address in bytes 27 and 28 of the character's buffer. The answer is always no.
+We're dealing with one of the primary characters (0xDE-0xE5). Here we check whether there is a continual subcommand routine address in bytes 0x1B and 0x1C of the character's buffer. The answer is always no.
 </div>
 </div>
 </td>
@@ -496,7 +496,7 @@ We're dealing with one of the primary characters (222-229). Here we check whethe
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f23c"></span>F23C</td>
 <td class="instruction">LD L,$1C</td>
-<td class="comment-11" rowspan="3">Byte 28 is unused and always holds 0</td>
+<td class="comment-11" rowspan="3">Byte 0x1C is unused and always holds 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -584,7 +584,7 @@ This entry point is used by the routine at <a href="F280.html">F280</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f24d"></span>F24D</td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="3">Is there an interruptible subcommand routine address in bytes 14 and 15 of the character's buffer?</td>
+<td class="comment-11" rowspan="3">Is there an interruptible subcommand routine address in bytes 0x0E and 0x0F of the character's buffer?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -609,7 +609,7 @@ This entry point is used by the routine at <a href="F280.html">F280</a>.
 <span id="f253"></span>
 <div class="comments">
 <div class="paragraph">
-Bit 4 of byte 3 of the character's buffer is never set, but if it were, it would mean that the character's command list should be restarted. Check bit 4 of byte 3 now.
+Bit 4 of byte 0x03 of the character's buffer is never set, but if it were, it would mean that the character's command list should be restarted. Check bit 4 of byte 0x03 now.
 </div>
 </div>
 </td>
@@ -618,7 +618,7 @@ Bit 4 of byte 3 of the character's buffer is never set, but if it were, it would
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f253"></span>F253</td>
 <td class="instruction">LD L,$03</td>
-<td class="comment-11" rowspan="2">Bit 4 of byte 3 is unused and always reset</td>
+<td class="comment-11" rowspan="2">Bit 4 of byte 0x03 is unused and always reset</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -636,13 +636,13 @@ Bit 4 of byte 3 of the character's buffer is never set, but if it were, it would
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f259"></span>F259</td>
 <td class="instruction">RES 4,(HL)</td>
-<td class="comment-11" rowspan="1">Reset bit 4 of byte 3</td>
+<td class="comment-11" rowspan="1">Reset bit 4 of byte 0x03</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f25b"></span>F25B</td>
 <td class="instruction">LD L,$1A</td>
-<td class="comment-11" rowspan="5">Copy the command list address from bytes 25 and 26 of the character's buffer into bytes 23 and 24</td>
+<td class="comment-11" rowspan="5">Copy the command list address from bytes 0x19 and 0x1A of the character's buffer into bytes 0x17 and 0x18</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -672,7 +672,7 @@ Bit 4 of byte 3 of the character's buffer is never set, but if it were, it would
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f264"></span>F264</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-11" rowspan="1">Set byte 22 of the character's buffer (which holds the offset reached in the command list) to 0</td>
+<td class="comment-11" rowspan="1">Set byte 0x16 of the character's buffer (which holds the offset reached in the command list) to 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -694,7 +694,7 @@ Now we look for a primary command routine address.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f267"></span>F267</td>
 <td class="instruction">LD L,$09</td>
-<td class="comment-11" rowspan="3">Is there a primary command routine address in bytes 8 and 9 of the character's buffer?</td>
+<td class="comment-11" rowspan="3">Is there a primary command routine address in bytes 0x08 and 0x09 of the character's buffer?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -718,13 +718,13 @@ Now we look for a primary command routine address.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f26d"></span>F26D</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character being moved (215-229)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character being moved (0xD7-0xE5)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f26e"></span>F26E</td>
 <td class="instruction">CP $DE</td>
-<td class="comment-11" rowspan="1">Does the character belong to one of the character groups 215-221?</td>
+<td class="comment-11" rowspan="1">Does the character belong to one of the character groups 0xD7-0xDD?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -736,7 +736,7 @@ Now we look for a primary command routine address.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f272"></span>F272</td>
 <td class="instruction">LD L,$1C</td>
-<td class="comment-11" rowspan="2">Remove any continual subcommand routine address from bytes 27 and 28 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Remove any continual subcommand routine address from bytes 0x1B and 0x1C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -748,7 +748,7 @@ Now we look for a primary command routine address.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f276"></span>F276</td>
 <td class="instruction">LD L,$08</td>
-<td class="comment-11" rowspan="2">Copy the next primary command routine address from the command list into bytes 8 and 9 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Copy the next primary command routine address from the command list into bytes 0x08 and 0x09 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -795,9 +795,9 @@ Now we look for a primary command routine address.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

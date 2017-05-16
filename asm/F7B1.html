@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="634C.html">634C</a>, <a href="7A6A.html">7A6A</a> and <a href="F748.html">F748</a>. Places the address of the instruction following the CALL to this routine into bytes 8 and 9 of the character's buffer, thus making it the address of the character's primary command routine.
+Used by the routines at <a href="634C.html">634C</a>, <a href="7A6A.html">7A6A</a> and <a href="F748.html">F748</a>. Places the address of the instruction following the CALL to this routine into bytes 0x08 and 0x09 of the character's buffer, thus making it the address of the character's primary command routine.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by the routines at <a href="634C.html">634C</a>, <a href="7A6A.html">7A6A</
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -74,7 +74,7 @@ Used by the routines at <a href="634C.html">634C</a>, <a href="7A6A.html">7A6A</
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7b5"></span>F7B5</td>
 <td class="instruction">LD L,$08</td>
-<td class="comment-11" rowspan="4">Copy the return address into bytes 8 and 9 of the character's buffer</td>
+<td class="comment-11" rowspan="4">Copy the return address into bytes 0x08 and 0x09 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -133,9 +133,9 @@ Used by the routines at <a href="634C.html">634C</a>, <a href="7A6A.html">7A6A</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

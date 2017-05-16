@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="FA83.html">FA83</a>. Places the return address into bytes 18 and 19 of the character's buffer, thus making it the address of the character's uninterruptible subcommand routine.
+Used by the routine at <a href="FA83.html">FA83</a>. Places the return address into bytes 0x12 and 0x13 of the character's buffer, thus making it the address of the character's uninterruptible subcommand routine.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by the routine at <a href="FA83.html">FA83</a>. Places the return address i
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -78,7 +78,7 @@ This entry point is used by the routine at <a href="FA05.html">FA05</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f9fd"></span>F9FD</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 19 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -90,7 +90,7 @@ This entry point is used by the routine at <a href="FA05.html">FA05</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa00"></span>FA00</td>
 <td class="instruction">LD (HL),B</td>
-<td class="comment-11" rowspan="3">Copy the address from <span class="register">BC</span> into bytes 18 and 19 of the character's buffer, thus setting his uninterruptible subcommand</td>
+<td class="comment-11" rowspan="3">Copy the address from <span class="register">BC</span> into bytes 0x12 and 0x13 of the character's buffer, thus setting his uninterruptible subcommand</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -119,9 +119,9 @@ This entry point is used by the routine at <a href="FA05.html">FA05</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

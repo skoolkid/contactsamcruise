@@ -47,7 +47,7 @@ Called from the main loop at <a href="F02B.html">F02B</a> when one of Sam's stat
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="74d8"></span>74D8</td>
 <td class="instruction">LD HL,$E608</td>
-<td class="comment-11" rowspan="2">Decrement Sam's main action timer in  byte 8 of his buffer</td>
+<td class="comment-11" rowspan="2">Decrement Sam's main action timer in byte 0x08 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -77,7 +77,7 @@ Called from the main loop at <a href="F02B.html">F02B</a> when one of Sam's stat
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74e1"></span>74E1</td>
 <td class="instruction">LD L,$C6</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=29894</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=74C6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -137,7 +137,7 @@ Called from the main loop at <a href="F02B.html">F02B</a> when one of Sam's stat
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74ef"></span>74EF</td>
 <td class="instruction">LD HL,$E600</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of Sam's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -183,7 +183,7 @@ We come here after the Sam-handling routine has returned.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74f9"></span>74F9</td>
 <td class="instruction">LD A,($E608)</td>
-<td class="comment-11" rowspan="1">Collect Sam's main action timer from byte 8 of his buffer</td>
+<td class="comment-11" rowspan="1">Collect Sam's main action timer from byte 0x08 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -218,9 +218,9 @@ We come here after the Sam-handling routine has returned.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

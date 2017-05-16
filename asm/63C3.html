@@ -35,7 +35,7 @@ Used by the routine at <a href="64BD.html">64BD</a>. Compares Sam's location wit
 </tr>
 <tr>
 <td class="register">HL</td>
-<td class="register-desc">58892 (byte 12 of Sam's buffer)</td>
+<td class="register-desc">E60C (byte 0x0C of Sam's buffer)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the routine at <a href="64BD.html">64BD</a>. Compares Sam's location wit
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="63c3"></span>63C3</td>
 <td class="instruction">BIT 5,(HL)</td>
-<td class="comment-11" rowspan="1">Byte 12 of Sam's buffer holds the LSB of the current roll/somersault animation phase table entry</td>
+<td class="comment-11" rowspan="1">Byte 0x0C of Sam's buffer holds the LSB of the current roll/somersault animation phase table entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -92,7 +92,7 @@ Used by the routine at <a href="64BD.html">64BD</a>. Compares Sam's location wit
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="63cc"></span>63CC</td>
 <td class="instruction">DEC H</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=228 or 229</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0xE4 or 0xE5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -110,7 +110,7 @@ Used by the routine at <a href="64BD.html">64BD</a>. Compares Sam's location wit
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63cf"></span>63CF</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the banknote's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the banknote's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -140,7 +140,7 @@ Used by the routine at <a href="64BD.html">64BD</a>. Compares Sam's location wit
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="63d6"></span>63D6</td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the banknote's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the banknote's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -159,7 +159,7 @@ Used by the routine at <a href="64BD.html">64BD</a>. Compares Sam's location wit
 <span id="63da"></span>
 <div class="comments">
 <div class="paragraph">
-Sam has landed on something that is using one of the banknote buffers. Here we check that the object looks like a banknote. But this check is redundant, since no object except a banknote or the hook can use buffer 228 or 229, and Sam cannot land on the hook.
+Sam has landed on something that is using one of the banknote buffers. Here we check that the object looks like a banknote. But this check is redundant, since no object except a banknote or the hook can use buffer 0xE4 or 0xE5, and Sam cannot land on the hook.
 </div>
 </div>
 </td>
@@ -168,7 +168,7 @@ Sam has landed on something that is using one of the banknote buffers. Here we c
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="63da"></span>63DA</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -186,7 +186,7 @@ Sam has landed on something that is using one of the banknote buffers. Here we c
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63de"></span>63DE</td>
 <td class="instruction">SUB $3E</td>
-<td class="comment-11" rowspan="1">Is the banknote's animatory state <a href="../graphics/as.html#62">62 or 190</a>?</td>
+<td class="comment-11" rowspan="1">Is the banknote's animatory state <a href="../graphics/as.html#62">0x3E or 0xBE</a>?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -198,7 +198,7 @@ Sam has landed on something that is using one of the banknote buffers. Here we c
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63e2"></span>63E2</td>
 <td class="instruction">SUB $08</td>
-<td class="comment-11" rowspan="1">Is the banknote's animatory state <a href="../graphics/as.html#70">70 or 198</a>?</td>
+<td class="comment-11" rowspan="1">Is the banknote's animatory state <a href="../graphics/as.html#70">0x46 or 0xC6</a>?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -220,7 +220,7 @@ Sam has landed on something that looks like a banknote.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="63e5"></span>63E5</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="2">Set byte 10 of the banknote's buffer to 1 to indicate that Sam's just landed on it (see <a href="634C.html">634C</a>)</td>
+<td class="comment-11" rowspan="2">Set byte 0x0A of the banknote's buffer to 1 to indicate that Sam's just landed on it (see <a href="634C.html">634C</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -248,7 +248,7 @@ Finally we make an appropriate sound effect.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63eb"></span>63EB</td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="2">Prepare the sound effect parameters: <span class="register">A</span>=0 (initial border colour), <span class="register">D</span>=5 (duration), <span class="register">E</span>=249 (initial pitch)</td>
+<td class="comment-11" rowspan="2">Prepare the sound effect parameters: <span class="register">A</span>=0x00 (initial border colour), <span class="register">D</span>=0x05 (duration), <span class="register">E</span>=0xF9 (initial pitch)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -331,9 +331,9 @@ Finally we make an appropriate sound effect.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

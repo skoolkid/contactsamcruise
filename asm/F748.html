@@ -35,7 +35,7 @@ Used by the command lists at <a href="FCFC.html">FCFC</a>, <a href="FE23.html">F
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the command lists at <a href="FCFC.html">FCFC</a>, <a href="FE23.html">F
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f748"></span>F748</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2">Copy the door identifier (168, 172, 173 or 179) and walkabout duration indicator (0 or 255) from the command list into bytes 11 and 12 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Copy the door identifier (0xA8, 0xAC, 0xAD or 0xB3) and walkabout duration indicator (0x00 or 0xFF) from the command list into bytes 0x0B and 0x0C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -90,7 +90,7 @@ This entry point is used by the routine at <a href="F820.html">F820</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f754"></span>F754</td>
 <td class="instruction">LD L,$0D</td>
-<td class="comment-11" rowspan="2">Store this number in byte 13 of the character's buffer; it is the number of mini-walkabouts the character will perform (if the walkabout duration indicator in byte 12 is 255)</td>
+<td class="comment-11" rowspan="2">Store this number in byte 0x0D of the character's buffer; it is the number of mini-walkabouts the character will perform (if the walkabout duration indicator in byte 0x0C is 0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -102,7 +102,7 @@ This entry point is used by the routine at <a href="F820.html">F820</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f757"></span>F757</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -114,7 +114,7 @@ This entry point is used by the routine at <a href="F820.html">F820</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f75a"></span>F75A</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="2">Copy this into byte 10 of the character's buffer (it will be the walkabout origin)</td>
+<td class="comment-11" rowspan="2">Copy this into byte 0x0A of the character's buffer (it will be the walkabout origin)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -148,7 +148,7 @@ This entry point is used by the routine at <a href="7A6A.html">7A6A</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f763"></span>F763</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2">Collect the door identifier (168, 172, 173, 175 or 179) from byte 11 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Collect the door identifier (0xA8, 0xAC, 0xAD, 0xAF or 0xB3) from byte 0x0B of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -230,7 +230,7 @@ Either nobody has knocked on the door, or the character is not on door duty.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f776"></span>F776</td>
 <td class="instruction">LD L,$0C</td>
-<td class="comment-11" rowspan="2">Collect the walkabout duration indicator (0 or 255) from byte 12 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Collect the walkabout duration indicator (0x00 or 0xFF) from byte 0x0C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -242,13 +242,13 @@ Either nobody has knocked on the door, or the character is not on door duty.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f779"></span>F779</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=13</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0D</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f77a"></span>F77A</td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-11" rowspan="2">Decrement the walkabout counter in byte 13 of the character's buffer, or leave it unchanged</td>
+<td class="comment-11" rowspan="2">Decrement the walkabout counter in byte 0x0D of the character's buffer, or leave it unchanged</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -260,7 +260,7 @@ Either nobody has knocked on the door, or the character is not on door duty.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f77c"></span>F77C</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 10 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x0A of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -282,7 +282,7 @@ The character has finished walking up and down. If the character is not on door 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f780"></span>F780</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Collect the door identifier (168, 172, 173, 175 or 179) from byte 11 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Collect the door identifier (0xA8, 0xAC, 0xAD, 0xAF or 0xB3) from byte 0x0B of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -294,7 +294,7 @@ The character has finished walking up and down. If the character is not on door 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f782"></span>F782</td>
 <td class="instruction">ADD A,$57</td>
-<td class="comment-11" rowspan="1">Set the carry flag if it's &gt; 168 (meaning the character was on door duty)</td>
+<td class="comment-11" rowspan="1">Set the carry flag if it's &gt; 0xA8 (meaning the character was on door duty)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -312,7 +312,7 @@ The character has finished walking up and down. If the character is not on door 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f787"></span>F787</td>
 <td class="instruction">LD L,$16</td>
-<td class="comment-11" rowspan="3">Add 0 or 6 to the character's command list offset (in byte 22 of his buffer)</td>
+<td class="comment-11" rowspan="3">Add 0 or 6 to the character's command list offset (in byte 0x16 of his buffer)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -370,7 +370,7 @@ It's time to set another walkabout destination for this character.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f794"></span>F794</td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="2">Store this x-coordinate in byte 16 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Store this x-coordinate in byte 0x10 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -382,7 +382,7 @@ It's time to set another walkabout destination for this character.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f797"></span>F797</td>
 <td class="instruction">JP <a href="F7AB.html">$F7AB</a></td>
-<td class="comment-11" rowspan="1">Copy the interruptible subcommand routine address (<a href="7A57.html">7A57</a> or <a href="F6E9.html">F6E9</a>) from <span class="register">BC</span> into bytes 14 and 15 of the character's buffer, and then jump to it</td>
+<td class="comment-11" rowspan="1">Copy the interruptible subcommand routine address (<a href="7A57.html">7A57</a> or <a href="F6E9.html">F6E9</a>) from <span class="register">BC</span> into bytes 0x0E and 0x0F of the character's buffer, and then jump to it</td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -393,9 +393,9 @@ It's time to set another walkabout destination for this character.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

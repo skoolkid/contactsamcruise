@@ -47,7 +47,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6177"></span>6177</td>
 <td class="instruction">LD A,$60</td>
-<td class="comment-11" rowspan="1">Message 96: newline</td>
+<td class="comment-11" rowspan="1">Message 0x60: newline</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -65,7 +65,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="617f"></span>617F</td>
 <td class="instruction">LD A,$61</td>
-<td class="comment-11" rowspan="1">Message <a href="5FCC.html">97</a>: 'JOYSTICK?'</td>
+<td class="comment-11" rowspan="1">Message <a href="5FCC.html">0x61</a>: 'JOYSTICK?'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -77,7 +77,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6184"></span>6184</td>
 <td class="instruction">CALL <a href="78FC.html">$78FC</a></td>
-<td class="comment-11" rowspan="2">Wait until message 96 (newline) has left the queue (and therefore 'JOYSTICK?' is displayed)</td>
+<td class="comment-11" rowspan="2">Wait until message 0x60 (newline) has left the queue (and therefore 'JOYSTICK?' is displayed)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -138,7 +138,7 @@ The address of this routine is found in the table of keypress handling routines 
 <span id="619d"></span>
 <div class="comments">
 <div class="paragraph">
-Now <span class="register">HL</span> points at the appropriate keypress offset patch table (<a href="61C5.html">61C5</a> if 'i' (Int2) was pressed, or <a href="61BB.html">61BB</a> otherwise), and <span class="register">A</span> holds the input device indicator (107 if 'k' (Kempston) was pressed, or 0 otherwise).
+Now <span class="register">HL</span> points at the appropriate keypress offset patch table (<a href="61C5.html">61C5</a> if 'i' (Int2) was pressed, or <a href="61BB.html">61BB</a> otherwise), and <span class="register">A</span> holds the input device indicator (0x6B if 'k' (Kempston) was pressed, or 0x00 otherwise).
 </div>
 </div>
 </td>
@@ -264,9 +264,9 @@ Some key other than 'k' (Kempston) was pressed.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

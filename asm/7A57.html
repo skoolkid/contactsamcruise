@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 14 and 15 of a gangster's buffer by the primary command routine at <a href="7A6A.html">7A6A</a>. It makes the gangster start or continue walking up or down a few paces unless he spots Sam, in which case the subcommand and current primary command are terminated.
+The address of this interruptible subcommand routine is placed into bytes 0x0E and 0x0F of a gangster's buffer by the primary command routine at <a href="7A6A.html">7A6A</a>. It makes the gangster start or continue walking up or down a few paces unless he spots Sam, in which case the subcommand and current primary command are terminated.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Gangster's character number (215-224)</td>
+<td class="register-desc">Gangster's character number (0xD7-0xE0)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -68,7 +68,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a60"></span>7A60</td>
 <td class="instruction">LD L,$16</td>
-<td class="comment-11" rowspan="2">Copy the command list offset (from the gangster's region definition table) into byte 22 of the gangster's buffer</td>
+<td class="comment-11" rowspan="2">Copy the command list offset (from the gangster's region definition table) into byte 0x16 of the gangster's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -80,7 +80,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a63"></span>7A63</td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="2">Remove the address of this interruptible subcommand routine from bytes 14 and 15 of the gangster's buffer</td>
+<td class="comment-11" rowspan="2">Remove the address of this interruptible subcommand routine from bytes 0x0E and 0x0F of the gangster's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -103,9 +103,9 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

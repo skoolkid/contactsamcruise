@@ -53,19 +53,19 @@ Continues from <a href="5DF7.html">5DF7</a> (to load the fast code block) and <a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8032"></span>8032</td>
 <td class="instruction">LD IX,$81AB</td>
-<td class="comment-11" rowspan="1">The fast code block loads backwards from address 33195; after the fast code block has loaded, this instruction is changed to 'LD IX,16384' for the standard speed code block</td>
+<td class="comment-11" rowspan="1">The fast code block loads backwards from address 81AB; after the fast code block has loaded, this instruction is changed to 'LD IX,$4000' for the standard speed code block</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8036"></span>8036</td>
 <td class="instruction">LD DE,$C000</td>
-<td class="comment-11" rowspan="1">Set <span class="register">DE</span> (the byte counter) to a high enough value that it won't reach 0 before (a) 241 bytes have been loaded from the fast code block, or (b) the first 16572 bytes (16384-32955) have been loaded from the standard speed code block</td>
+<td class="comment-11" rowspan="1">Set <span class="register">DE</span> (the byte counter) to a high enough value that it won't reach 0 before (a) 241 bytes have been loaded from the fast code block, or (b) the first 16572 bytes (4000-80BB) have been loaded from the standard speed code block</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8039"></span>8039</td>
 <td class="instruction">LD A,$FF</td>
-<td class="comment-11" rowspan="1">We expect the first byte loaded (the flag byte) to be 255</td>
+<td class="comment-11" rowspan="1">We expect the first byte loaded (the flag byte) to be 0xFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -385,7 +385,7 @@ Prepare to load the data block.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8087"></span>8087</td>
 <td class="instruction">LD B,$E1</td>
-<td class="comment-11" rowspan="1">Set the timing constant for the flag byte; after the fast code block has loaded, this instruction is changed to 'LD B,176' for the standard speed code block</td>
+<td class="comment-11" rowspan="1">Set the timing constant for the flag byte; after the fast code block has loaded, this instruction is changed to 'LD B,$B0' for the standard speed code block</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -455,7 +455,7 @@ This is the byte-loading loop. The first byte loaded is the flag byte.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8098"></span>8098</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Reset the Spectrum if it wasn't 255</td>
+<td class="comment-11" rowspan="1">Reset the Spectrum if it wasn't 0xFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -509,7 +509,7 @@ This is the byte-loading loop. The first byte loaded is the flag byte.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="80a3"></span>80A3</td>
 <td class="instruction">LD B,$E3</td>
-<td class="comment-11" rowspan="1">Set the timing constant; after the fast code block has loaded, this instruction is changed to 'LD B,178' for the standard speed code block</td>
+<td class="comment-11" rowspan="1">Set the timing constant; after the fast code block has loaded, this instruction is changed to 'LD B,$B2' for the standard speed code block</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -533,7 +533,7 @@ This is the byte-loading loop. The first byte loaded is the flag byte.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="80ab"></span>80AB</td>
 <td class="instruction">LD A,$ED</td>
-<td class="comment-11" rowspan="2">Set the carry flag if a '1' was read from the tape, or reset it if a '0' was read; after the fast code block has loaded, the 'LD A,237' instruction is changed to 'LD A,203' for the standard speed code block</td>
+<td class="comment-11" rowspan="2">Set the carry flag if a '1' was read from the tape, or reset it if a '0' was read; after the fast code block has loaded, the 'LD A,$ED' instruction is changed to 'LD A,$CB' for the standard speed code block</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -551,7 +551,7 @@ This is the byte-loading loop. The first byte loaded is the flag byte.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="80b0"></span>80B0</td>
 <td class="instruction">LD B,$E1</td>
-<td class="comment-11" rowspan="1">Set the timing constant for the next bit; after the fast code block has loaded, this instruction is changed to 'LD B,176' for the standard speed code block</td>
+<td class="comment-11" rowspan="1">Set the timing constant for the next bit; after the fast code block has loaded, this instruction is changed to 'LD B,$B0' for the standard speed code block</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -610,7 +610,7 @@ A full byte has just been read from the tape.
 <span id="80ba"></span>
 <div class="comments">
 <div class="paragraph">
-When the bytes from 33195 downwards to 32955 have loaded from the fast code block, the instruction at 32954 above becomes:
+When the bytes from 81AB downwards to 80BB have loaded from the fast code block, the instruction at 80BA above becomes:
 </div>
 </div>
 </td>
@@ -629,7 +629,7 @@ When the bytes from 33195 downwards to 32955 have loaded from the fast code bloc
 And the code continues at <a href="80BC.html">80BC</a>.
 </div>
 <div class="paragraph">
-When the bytes from 16384 to 32955 have loaded from the standard speed code block, the instruction at 32954 becomes:
+When the bytes from 4000 to 80BB have loaded from the standard speed code block, the instruction at 80BA becomes:
 </div>
 </div>
 </td>
@@ -645,7 +645,7 @@ When the bytes from 16384 to 32955 have loaded from the standard speed code bloc
 <span id="807a"></span>
 <div class="comments">
 <div class="paragraph">
-At this stage, 32890 reads as follows:
+At this stage, 807A reads as follows:
 </div>
 </div>
 </td>
@@ -678,7 +678,7 @@ At this stage, 32890 reads as follows:
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8081"></span>8081</td>
 <td class="instruction">JR NC,$8085</td>
-<td class="comment-11" rowspan="1">Jump unless <span class="register">IX</span> was incremented beyond 65535</td>
+<td class="comment-11" rowspan="1">Jump unless <span class="register">IX</span> was incremented beyond FFFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -697,7 +697,7 @@ At this stage, 32890 reads as follows:
 <span id="8086"></span>
 <div class="comments">
 <div class="paragraph">
-Now 32890 more bytes are loaded, the first at 33223 and the last at 32902 (even though there is one more byte, 33149, left on the tape: see the <a href="../save/80F2.html">save routine</a>). Then 32902 reads as follows:
+Now 32890 more bytes are loaded, the first at 81C7 and the last at 8086 (even though there is one more byte, 817D, left on the tape: see the <a href="../save/80F2.html">save routine</a>). Then 8086 reads as follows:
 </div>
 </div>
 </td>
@@ -706,7 +706,7 @@ Now 32890 more bytes are loaded, the first at 33223 and the last at 32902 (even 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8086"></span>8086</td>
 <td class="instruction">LD SP,$5D1B</td>
-<td class="comment-11" rowspan="1">Point the stack pointer at the game start address that was placed at 23835 by the <a href="../save/80F2.html">save routine</a></td>
+<td class="comment-11" rowspan="1">Point the stack pointer at the game start address that was placed at 5D1B by the <a href="../save/80F2.html">save routine</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -718,7 +718,7 @@ Now 32890 more bytes are loaded, the first at 33223 and the last at 32902 (even 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="808a"></span>808A</td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">To (23835)=<a href="../start/81C8.html">81C8</a></td>
+<td class="comment-11" rowspan="1">To ($5D1B)=<a href="../start/81C8.html">81C8</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -729,9 +729,9 @@ Now 32890 more bytes are loaded, the first at 33223 and the last at 32902 (even 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -35,7 +35,7 @@ The address of this routine is found in the table of keypress handling routines 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">230 (Sam)</td>
+<td class="register-desc">0xE6 (Sam)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -118,7 +118,7 @@ This entry point is used by the routines at <a href="6FDB.html">6FDB</a>, <a hre
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecf3"></span>ECF3</td>
 <td class="instruction">LD L,$07</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 7 of Sam's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x07 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -130,7 +130,7 @@ This entry point is used by the routines at <a href="6FDB.html">6FDB</a>, <a hre
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecf6"></span>ECF6</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Set Sam's main action timer in byte 8 of his buffer to either 4 (fast) or 8 (slow)</td>
+<td class="comment-11" rowspan="2">Set Sam's main action timer in byte 0x08 of his buffer to either 4 (fast) or 8 (slow)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -154,7 +154,7 @@ This entry point is used by the routines at <a href="6FDB.html">6FDB</a>, <a hre
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecfa"></span>ECFA</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Set Sam's midstride/mid-action timer in byte 9 of his buffer to either 4 (fast) or 8 (slow)</td>
+<td class="comment-11" rowspan="2">Set Sam's midstride/mid-action timer in byte 0x09 of his buffer to either 4 (fast) or 8 (slow)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -177,9 +177,9 @@ This entry point is used by the routines at <a href="6FDB.html">6FDB</a>, <a hre
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -35,7 +35,7 @@ Used by the command list at <a href="FE92.html">FE92</a>. Makes the cat run up a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">218 (Cat)</td>
+<td class="register-desc">0xDA (Cat)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the command list at <a href="FE92.html">FE92</a>. Makes the cat run up a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f82a"></span>F82A</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the cat's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -62,7 +62,7 @@ Used by the command list at <a href="FE92.html">FE92</a>. Makes the cat run up a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f82d"></span>F82D</td>
 <td class="instruction">LD L,$03</td>
-<td class="comment-11" rowspan="2">Set bit 7 of byte 3 of the cat's buffer (cats always run)</td>
+<td class="comment-11" rowspan="2">Set bit 7 of byte 0x03 of the cat's buffer (cats always run)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -74,7 +74,7 @@ Used by the command list at <a href="FE92.html">FE92</a>. Makes the cat run up a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f831"></span>F831</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="2">The cat's initial x-coordinate will be its walkabout origin; store it in byte 10 of the cat's buffer</td>
+<td class="comment-11" rowspan="2">The cat's initial x-coordinate will be its walkabout origin; store it in byte 0x0A of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -120,7 +120,7 @@ The following loop controls the cat from now on.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f83c"></span>F83C</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Store this in byte 11 of the cat's buffer</td>
+<td class="comment-11" rowspan="2">Store this in byte 0x0B of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -132,7 +132,7 @@ The following loop controls the cat from now on.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f83e"></span>F83E</td>
 <td class="instruction">LD BC,$F846</td>
-<td class="comment-11" rowspan="2">Copy the address of the interruptible subcommand routine at <a href="F846.html">F846</a> into bytes 14 and 15 of the cat's buffer, and change the address of the primary command routine to <a href="F82A.html#f844">F844</a> (below)</td>
+<td class="comment-11" rowspan="2">Copy the address of the interruptible subcommand routine at <a href="F846.html">F846</a> into bytes 0x0E and 0x0F of the cat's buffer, and change the address of the primary command routine to <a href="F82A.html#f844">F844</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -155,9 +155,9 @@ The following loop controls the cat from now on.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

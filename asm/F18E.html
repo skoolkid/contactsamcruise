@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="7866.html">7866</a> and <a href="EC7B.html">EC7B</a>. Cycles one of the character buffer groups in pages 215-221 forwards depending on the current leftmost column of the play area that is on screen (X=(<a href="7FFE.html">7FFE</a>)):
+Used by the routines at <a href="7866.html">7866</a> and <a href="EC7B.html">EC7B</a>. Cycles one of the character buffer groups in pages 0xD7-0xDD forwards depending on the current leftmost column of the play area that is on screen (X=(<a href="7FFE.html">7FFE</a>)):
 </div>
 <div class="paragraph">
 <table class="default">
@@ -36,31 +36,31 @@ Used by the routines at <a href="7866.html">7866</a> and <a href="EC7B.html">EC7
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">8, 64, 120, 176</td>
-<td class="centre" colspan="1" rowspan="1"><a href="D700.html">215</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D700.html">0xD7</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">16, 72, 128, 184</td>
-<td class="centre" colspan="1" rowspan="1"><a href="D800.html">216</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D800.html">0xD8</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">24, 80, 136, 192</td>
-<td class="centre" colspan="1" rowspan="1"><a href="D900.html">217</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D900.html">0xD9</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">32, 88, 144, 200</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DA00.html">218</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="DA00.html">0xDA</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">40, 96, 152, 208</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DB00.html">219</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="DB00.html">0xDB</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">48, 104, 160, 216</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DC00.html">220</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="DC00.html">0xDC</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">56, 112, 168, 224</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DD00.html">221</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="DD00.html">0xDD</a></td>
 </tr>
 </table>
 </div>
@@ -89,7 +89,7 @@ Used by the routines at <a href="7866.html">7866</a> and <a href="EC7B.html">EC7
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f191"></span>F191</td>
 <td class="instruction">SUB $08</td>
-<td class="comment-11" rowspan="4"><span class="register">A</span>=0, 8, 16, 24, 32, 40 or 48 (depending on the value of X)</td>
+<td class="comment-11" rowspan="4"><span class="register">A</span>=0x00, 0x08, 0x10, 0x18, 0x20, 0x28 or 0x30 (depending on the value of X)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -113,7 +113,7 @@ Used by the routines at <a href="7866.html">7866</a> and <a href="EC7B.html">EC7
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f199"></span>F199</td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="4"><span class="register">A</span>=215-221</td>
+<td class="comment-11" rowspan="4"><span class="register">A</span>=0xD7-0xDD</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -220,9 +220,9 @@ Used by the routines at <a href="7866.html">7866</a> and <a href="EC7B.html">EC7
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

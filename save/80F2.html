@@ -34,10 +34,10 @@
 </table>
 </div>
 <div class="paragraph">
-The standard speed code block consists of two sections of data. The first section contains the 16572 bytes of data for addresses 16384-32955. The second section contains 32892 bytes of data starting at address 32976, moving forward in steps of 247 bytes (rolling back to page 127 every time the 64K boundary is reached), and ending at 33149.
+The standard speed code block consists of two sections of data. The first section contains the 16572 bytes of data for addresses 4000-80BB. The second section contains 32892 bytes of data starting at address 80D0, moving forward in steps of 247 bytes (rolling back to page 0x7F every time the 64K boundary is reached), and ending at 817D.
 </div>
 <div class="paragraph">
-Note that the second section does not contain data for addresses 33396-65506 (step 247); these addresses are filled in by the routine at <a href="../load/8116.html">8116</a> after the fast code block has loaded. Also note that although the byte for address 33149 is saved to tape, it is not loaded by the <a href="../load/802F.html">load routine</a>; instead, it is also filled in by the routine at <a href="../load/8116.html">8116</a>.
+Note that the second section does not contain data for addresses 8274-FFE2 (step 247); these addresses are filled in by the routine at <a href="../load/8116.html">8116</a> after the fast code block has loaded. Also note that although the byte for address 817D is saved to tape, it is not loaded by the <a href="../load/802F.html">load routine</a>; instead, it is also filled in by the routine at <a href="../load/8116.html">8116</a>.
 </div>
 </div>
 <table class="input-0">
@@ -94,7 +94,7 @@ Note that the second section does not contain data for addresses 33396-65506 (st
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8100"></span>8100</td>
 <td class="instruction">LD IX,$4000</td>
-<td class="comment-11" rowspan="2">16384 to 32955 will be saved first</td>
+<td class="comment-11" rowspan="2">4000 to 80BB will be saved first</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -106,7 +106,7 @@ Note that the second section does not contain data for addresses 33396-65506 (st
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8107"></span>8107</td>
 <td class="instruction">LD A,$FF</td>
-<td class="comment-11" rowspan="1">A flag byte of 255 (the first byte saved) indicates a data block</td>
+<td class="comment-11" rowspan="1">A flag byte of 0xFF (the first byte saved) indicates a data block</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -271,7 +271,7 @@ Then create the sync pulse.
 <span id="8132"></span>
 <div class="comments">
 <div class="paragraph">
-It's time to save the first byte, which will be the flag byte (255).
+It's time to save the first byte, which will be the flag byte (0xFF).
 </div>
 </div>
 </td>
@@ -280,19 +280,19 @@ It's time to save the first byte, which will be the flag byte (255).
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8132"></span>8132</td>
 <td class="instruction">LD BC,$3B0E</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=59 (timing constant), <span class="register">C</span>=14 (MIC off, border yellow)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=0x3B (timing constant), <span class="register">C</span>=0x0E (MIC off, border yellow)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8135"></span>8135</td>
 <td class="instruction">EX AF,AF'</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=255</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0xFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8136"></span>8136</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=255</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0xFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -356,7 +356,7 @@ This is the main byte-saving loop.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8144"></span>8144</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (MIC on, border blue)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x01 (MIC on, border blue)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -397,7 +397,7 @@ This section of code, if it were used, would save the parity byte.
 <span id="814d"></span>
 <div class="comments">
 <div class="paragraph">
-This is the bit-saving loop for the first section of data (16384-32955).
+This is the bit-saving loop for the first section of data (4000-80BB).
 </div>
 </div>
 </td>
@@ -406,7 +406,7 @@ This is the bit-saving loop for the first section of data (16384-32955).
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="814d"></span>814D</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=14 (MIC off, border yellow) for the second pass</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x0E (MIC off, border yellow) for the second pass</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -472,7 +472,7 @@ This is the bit-saving loop for the first section of data (16384-32955).
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8160"></span>8160</td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (MIC on, border blue)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x01 (MIC on, border blue)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -491,7 +491,7 @@ This is the bit-saving loop for the first section of data (16384-32955).
 <span id="8166"></span>
 <div class="comments">
 <div class="paragraph">
-A byte from the first section (16384-32955) has just been saved. Are there any more left?
+A byte from the first section (4000-80BB) has just been saved. Are there any more left?
 </div>
 </div>
 </td>
@@ -542,7 +542,7 @@ A byte from the first section (16384-32955) has just been saved. Are there any m
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8171"></span>8171</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="2">Have we saved 16384 to 32955 yet?</td>
+<td class="comment-11" rowspan="2">Have we saved 4000 to 80BB yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -561,7 +561,7 @@ A byte from the first section (16384-32955) has just been saved. Are there any m
 <span id="8176"></span>
 <div class="comments">
 <div class="paragraph">
-Now a further 32892 bytes are saved: starting at 32976, moving forward in steps of 247 bytes, rolling back to page 127 whenever the 64K boundary is hit, and ending at 33149.
+Now a further 32892 bytes are saved: starting at 80D0, moving forward in steps of 247 bytes, rolling back to page 0x7F whenever the 64K boundary is hit, and ending at 817D.
 </div>
 </div>
 </td>
@@ -582,7 +582,7 @@ Now a further 32892 bytes are saved: starting at 32976, moving forward in steps 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="817a"></span>817A</td>
 <td class="instruction">LD A,$31</td>
-<td class="comment-11" rowspan="2">Change the instruction at 32902 (in the <a href="../load/802F.html">load routine</a>) to LD SP,23835</td>
+<td class="comment-11" rowspan="2">Change the instruction at 8086 (in the <a href="../load/802F.html">load routine</a>) to LD SP,$5D1B</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -642,7 +642,7 @@ Now a further 32892 bytes are saved: starting at 32976, moving forward in steps 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="818b"></span>818B</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (MIC on, border blue)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x01 (MIC on, border blue)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -692,7 +692,7 @@ This is the bit-saving loop for the second section of data.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="8194"></span>8194</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=14 (MIC off, border yellow) for the second pass</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x0E (MIC off, border yellow) for the second pass</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -758,7 +758,7 @@ This is the bit-saving loop for the second section of data.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="81a7"></span>81A7</td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (MIC on, border blue)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x01 (MIC on, border blue)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -875,9 +875,9 @@ A byte from the second section has just been saved. Are there any more left?
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

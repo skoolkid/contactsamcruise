@@ -53,7 +53,7 @@ Used by the routine at <a href="63C3.html">63C3</a>. Adds $1, $5, $10 or $20 to 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61d2"></span>61D2</td>
 <td class="instruction">LD E,$01</td>
-<td class="comment-11" rowspan="3">Sam will get $1 if <span class="register">A</span>&lt;=127</td>
+<td class="comment-11" rowspan="3">Sam will get $1 if <span class="register">A</span>&lt;=0x7F</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -71,7 +71,7 @@ Used by the routine at <a href="63C3.html">63C3</a>. Adds $1, $5, $10 or $20 to 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61d8"></span>61D8</td>
 <td class="instruction">LD E,$05</td>
-<td class="comment-11" rowspan="3">Sam will get $5 if 128&lt;=<span class="register">A</span>&lt;=209</td>
+<td class="comment-11" rowspan="3">Sam will get $5 if 0x80&lt;=<span class="register">A</span>&lt;=0xD1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -89,7 +89,7 @@ Used by the routine at <a href="63C3.html">63C3</a>. Adds $1, $5, $10 or $20 to 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61de"></span>61DE</td>
 <td class="instruction">CP $F8</td>
-<td class="comment-11" rowspan="3">Sam will get $10 if 210&lt;=<span class="register">A</span>&lt;=247</td>
+<td class="comment-11" rowspan="3">Sam will get $10 if 0xD2&lt;=<span class="register">A</span>&lt;=0xF7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -107,7 +107,7 @@ Used by the routine at <a href="63C3.html">63C3</a>. Adds $1, $5, $10 or $20 to 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61e4"></span>61E4</td>
 <td class="instruction">LD E,$14</td>
-<td class="comment-11" rowspan="1">Sam will get $20 if <span class="register">A</span>&gt;=248</td>
+<td class="comment-11" rowspan="1">Sam will get $20 if <span class="register">A</span>&gt;=0xF8</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -130,9 +130,9 @@ Used by the routine at <a href="63C3.html">63C3</a>. Adds $1, $5, $10 or $20 to 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

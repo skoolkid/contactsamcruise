@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 14 and 15 of a character's buffer by the routine at <a href="F375.html">F375</a>. At this point, either the character has opened the door already (in which case this routine does nothing more than verify that the door is still open and then terminate the subcommand), or he is knocking on the door repeatedly (in which case he must be a policeman).
+The address of this interruptible subcommand routine is placed into bytes 0x0E and 0x0F of a character's buffer by the routine at <a href="F375.html">F375</a>. At this point, either the character has opened the door already (in which case this routine does nothing more than verify that the door is still open and then terminate the subcommand), or he is knocking on the door repeatedly (in which case he must be a policeman).
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f383"></span>F383</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -102,7 +102,7 @@ This character must be a policeman. In this case, he will knock repeatedly for a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f391"></span>F391</td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="2">Decrement the counter in byte 16 of the policeman's buffer</td>
+<td class="comment-11" rowspan="2">Decrement the counter in byte 0x10 of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -137,9 +137,9 @@ This character must be a policeman. In this case, he will knock repeatedly for a
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

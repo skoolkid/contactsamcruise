@@ -43,12 +43,21 @@ POKE <a href="../asm/6E87.html#6e95">28310</a>,254
 <div class="box box-2">
 <div class="box-title">Easy money</div>
 <div class="paragraph">
-If the infinite money POKE feels like too much of a cheat, try one or more of these sets of POKEs, which make it a bit easier for Sam to augment his cash supply with the proceeds of the recent bank robbery:
+If the infinite money POKE feels like too much of a cheat, try one or more of
+these sets of POKEs, which make it a bit easier for Sam to augment his cash
+supply with the proceeds of the recent bank robbery:
 </div>
 <div class="paragraph">
-<div>POKE <a href="../asm/6333.html#6338">25401</a>,0: POKE 25404,0: POKE 25406,0: POKE 25409,0 (prevents a banknote from fluttering up and down once it has hit the ground)</div>
-<div>POKE <a href="../asm/634C.html#63b6">25526</a>,0 (prevents a banknote from moving down the street)</div>
-<div>POKE <a href="../asm/61CF.html#61d2">25043</a>,100: POKE 25046,24 (makes every banknote worth $100)</div>
+<div>
+POKE <a href="../asm/6333.html#6338">25401</a>,0: POKE 25404,0: POKE 25406,0: POKE 25409,0 (prevents a
+banknote from fluttering up and down once it has hit the ground)
+</div>
+<div>
+POKE <a href="../asm/634C.html#63b6">25526</a>,0 (prevents a banknote from moving down the street)
+</div>
+<div>
+POKE <a href="../asm/61CF.html#61d2">25043</a>,100: POKE 25046,24 (makes every banknote worth $100)
+</div>
 </div>
 </div>
 <div><span id="infiniteFirstAid"></span></div>
@@ -81,14 +90,19 @@ To enable Sam to leave the jail cell at any time (even after being arrested):
 POKE <a href="../asm/7B5C.html#7b5f">31583</a>,195
 </div>
 <div class="paragraph">
-Note, however, that if Sam leaves the jail cell and the vicinity of the police station after being arrested and before being officially released, and then later returns to the vicinity of the police station with $20 or less on his person, the game will freeze when the jailer next enters the cell (see <a href="../asm/7B6A.html">7B6A</a>).
+Note, however, that if Sam leaves the jail cell and the vicinity of the police
+station after being arrested and before being officially released, and then
+later returns to the vicinity of the police station with $20 or less on his
+person, the game will freeze when the jailer next enters the cell (see
+<a href="../asm/7B6A.html">7B6A</a>).
 </div>
 </div>
 <div><span id="getOutOfJailFree"></span></div>
 <div class="box box-2">
 <div class="box-title">Get out of jail free</div>
 <div class="paragraph">
-If you're happy for Sam to serve time in jail, but would prefer him to be released without having to pay bail:
+If you're happy for Sam to serve time in jail, but would prefer him to be
+released without having to pay bail:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/7B6A.html#7b75">31605</a>,201
@@ -98,7 +112,9 @@ POKE <a href="../asm/7B6A.html#7b75">31605</a>,201
 <div class="box box-1">
 <div class="box-title">Everybody out</div>
 <div class="paragraph">
-When characters (including Sam) are indoors, it's difficult to see where they are as they move up or down staircases and between windows. To make it so that characters are always drawn in front of buildings, even when they are inside:
+When characters (including Sam) are indoors, it's difficult to see where they
+are as they move up or down staircases and between windows. To make it so that
+characters are always drawn in front of buildings, even when they are inside:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/E8F3.html#e8fe">59646</a>,125
@@ -108,7 +124,8 @@ POKE <a href="../asm/E8F3.html#e8fe">59646</a>,125
 <div class="box box-2">
 <div class="box-title">Perfect disguises</div>
 <div class="paragraph">
-Sam's disguises can be useful for evading the law now and then, but the police soon catch on to them; to make the disguises effective for ever:
+Sam's disguises can be useful for evading the law now and then, but the police
+soon catch on to them; to make the disguises effective for ever:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/71AC.html#71d9">29145</a>,0
@@ -118,7 +135,9 @@ POKE <a href="../asm/71AC.html#71d9">29145</a>,0
 <div class="box box-1">
 <div class="box-title">Private rooms</div>
 <div class="paragraph">
-The rooms on the ground floor of the hotel are not accessible: neither Sam nor any other character can enter them. In fact, they are the only rooms in the entire play area that are off limits.
+The rooms on the ground floor of the hotel are not accessible: neither Sam nor
+any other character can enter them. In fact, they are the only rooms in the
+entire play area that are off limits.
 </div>
 <div class="paragraph">
 To make the room on the left accessible to Sam:
@@ -144,7 +163,8 @@ And finally, to add light switches and usable window blinds to each room:
 <div>POKE <a href="../asm/F500.html#f587">62860</a>,132</div>
 </div>
 <div class="paragraph">
-Now Sam can enter either one of these rooms by first going to the hotel entrance and then walking left or right until he passes through the wall.
+Now Sam can enter either one of these rooms by first going to the hotel
+entrance and then walking left or right until he passes through the wall.
 </div>
 <div class="paragraph">
 <table class="">
@@ -158,7 +178,9 @@ Now Sam can enter either one of these rooms by first going to the hotel entrance
 <div class="box box-2">
 <div class="box-title">Stairway to the safe</div>
 <div class="paragraph">
-For some reason, the builders forgot to add a staircase leading from the third floor of no. 17 (where Sam's office is) to the top floor (where the safe containing the budgie is). To correct this omission:
+For some reason, the builders forgot to add a staircase leading from the third
+floor of no. 17 (where Sam's office is) to the top floor (where the safe
+containing the budgie is). To correct this omission:
 </div>
 <div class="paragraph">
 <div>POKE <a href="../asm/C500.html#c5e8">50664</a>,93</div>
@@ -180,13 +202,18 @@ POKE <a href="../asm/62DB.html">25307</a>,201
 <div class="box box-2">
 <div class="box-title">Mobstopper</div>
 <div class="paragraph">
-In game modes 1-3, there are various gangsters who will chase Sam with the intent of throwing him off the roof of a building if he gets too close to them. To make these gangsters completely unaware of Sam's presence:
+In game modes 1-3, there are various gangsters who will chase Sam with the
+intent of throwing him off the roof of a building if he gets too close to
+them. To make these gangsters completely unaware of Sam's presence:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/7A57.html#7a5d">31325</a>,195
 </div>
 <div class="paragraph">
-In game mode 4, after Lana has been put in jail, Sam is chased relentlessly by one of the mob, who will keep dumping him off the roof of the apartment building next to no. 19 until he runs out of money. To disable this gangster and enable Sam to walk freely around the city with the budgie:
+In game mode 4, after Lana has been put in jail, Sam is chased relentlessly by
+one of the mob, who will keep dumping him off the roof of the apartment
+building next to no. 19 until he runs out of money. To disable this gangster
+and enable Sam to walk freely around the city with the budgie:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/FD6E.html">64878</a>,49
@@ -196,7 +223,8 @@ POKE <a href="../asm/FD6E.html">64878</a>,49
 <div class="box box-1">
 <div class="box-title">All keys</div>
 <div class="paragraph">
-To give Sam the keys to no. 15, no. 27, no. 31 and no. 74 while a game is in progress:
+To give Sam the keys to no. 15, no. 27, no. 31 and no. 74 while a game is in
+progress:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/7FEA.html">32746</a>,120
@@ -208,14 +236,19 @@ To give Sam the key to no. 19 as well:
 POKE <a href="../asm/7FEA.html">32746</a>,248
 </div>
 <div class="paragraph">
-Note, however, that Sam will not be able to get the budgie while he has the key to no. 19; this is because the event table entry at <a href="../asm/5FE0.html#6097">6097</a> checks whether Sam has the keys to no. 15, no. 27, no. 31 and no. 74 only before making the budgie available.
+Note, however, that Sam will not be able to get the budgie while he has the key
+to no. 19; this is because the event table entry at <a href="../asm/5FE0.html#6097">6097</a> checks whether Sam
+has the keys to no. 15, no. 27, no. 31 and no. 74 only before making the budgie
+available.
 </div>
 </div>
 <div><span id="keepTheLightsOn"></span></div>
 <div class="box box-2">
 <div class="box-title">Keep the lights on</div>
 <div class="paragraph">
-People have an annoying tendency to flip light switches off as they walk past them, which can make it tricky to navigate inside a building. To ensure that the lights stay on (even when a fuse is blown):
+People have an annoying tendency to flip light switches off as they walk past
+them, which can make it tricky to navigate inside a building. To ensure that
+the lights stay on (even when a fuse is blown):
 </div>
 <div class="paragraph">
 <div>POKE <a href="../asm/F7DA.html">63465</a>,0</div>
@@ -223,9 +256,9 @@ People have an annoying tendency to flip light switches off as they walk past th
 </div>
 </div>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

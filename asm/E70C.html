@@ -172,10 +172,10 @@ Used by the routines at <a href="65DB.html">65DB</a>, <a href="E80E.html">E80E</
 In order to find the graphic data and attribute byte for the play area tile(s) to be printed at (X,Y), we need the T and T' values for that location; these values can be found in turn from the Z, Z' and Z'' values for the location.
 </div>
 <div class="paragraph">
-The Z value (0&lt;=Z&lt;=101) for the play area location (X,Y) is found in byte INT(X/8) of page 184+INT(Y/6). Then the Z' value is found in byte Z of page <a href="BF00.html">191</a>, and the Z'' value in byte 128+Z of page 184+X%8.
+The Z value (0x00&lt;=Z&lt;=0x65) for the play area location (X,Y) is found in byte INT(X/8) of page 0xB8+INT(Y/6). Then the Z' value is found in byte Z of page <a href="BF00.html">0xBF</a>, and the Z'' value in byte 0x80+Z of page 0xB8+X%8.
 </div>
 <div class="paragraph">
-Z'' and bit 7-(X%8) of Z' determine the address, P, of the T value for the play area location (X,Y): Z'' is the LSB, and the MSB is either 160+2*(Y%6) or 172+2*(Y%6), depending on whether bit 7-(X%8) of Z' is reset or set. The address of the T' value is P+256.
+Z'' and bit 7-(X%8) of Z' determine the address, P, of the T value for the play area location (X,Y): Z'' is the LSB, and the MSB is either 0xA0+2*(Y%6) or 0xAC+2*(Y%6), depending on whether bit 7-(X%8) of Z' is reset or set. The address of the T' value is P+256.
 </div>
 </div>
 </td>
@@ -190,7 +190,7 @@ Z'' and bit 7-(X%8) of Z' determine the address, P, of the T value for the play 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e726"></span>E726</td>
 <td class="instruction">LD D,$B7</td>
-<td class="comment-11" rowspan="4">Set <span class="register">D</span>=184+INT(Y/6) (184-190)</td>
+<td class="comment-11" rowspan="4">Set <span class="register">D</span>=0xB8+INT(Y/6) (0xB8-0xBE)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -214,19 +214,19 @@ Z'' and bit 7-(X%8) of Z' determine the address, P, of the T value for the play 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e72d"></span>E72D</td>
 <td class="instruction">ADD A,$56</td>
-<td class="comment-11" rowspan="1">80&lt;=<span class="register">A</span>&lt;=85</td>
+<td class="comment-11" rowspan="1">0x50&lt;=<span class="register">A</span>&lt;=0x55</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e72f"></span>E72F</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=160, 162, 164, 166, 168 or 170</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0xA0, 0xA2, 0xA4, 0xA6, 0xA8 or 0xAA</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e730"></span>E730</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=160+2*(Y%6)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=0xA0+2*(Y%6)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -286,37 +286,37 @@ Z'' and bit 7-(X%8) of Z' determine the address, P, of the T value for the play 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e73c"></span>E73C</td>
 <td class="instruction">ADD A,$A0</td>
-<td class="comment-11" rowspan="1">160&lt;=<span class="register">A</span>&lt;=167</td>
+<td class="comment-11" rowspan="1">0xA0&lt;=<span class="register">A</span>&lt;=0xA7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e73e"></span>E73E</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=160+(X%8)</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0xA0+(X%8)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e73f"></span>E73F</td>
 <td class="instruction">LD L,$15</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 21 of page 160+(X%8)</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x15 of page 0xA0+(X%8)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e741"></span>E741</td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-11" rowspan="1">Now <span class="register">C</span>=128 (if X%8=0), 64, 32, 16, 8, 4, 2, or 1 (if X%8=7)</td>
+<td class="comment-11" rowspan="1">Now <span class="register">C</span>=0x80 (if X%8=0), 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, or 0x01 (if X%8=7)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e742"></span>E742</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=Z (value of byte INT(X/8) of page 184+INT(Y/6))</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Z (value of byte INT(X/8) of page 0xB8+INT(Y/6))</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e743"></span>E743</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=Z (0-101)</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=Z (0x00-0x65)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -328,7 +328,7 @@ Z'' and bit 7-(X%8) of Z' determine the address, P, of the T value for the play 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e746"></span>E746</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=Z' (0, 1, 3, 7, 14, 31, 128, 134, 199, 215, 240, 252, or 255)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Z' (0x00, 0x01, 0x03, 0x07, 0x0E, 0x1F, 0x80, 0x86, 0xC7, 0xD7, 0xF0, 0xFC, or 0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -346,7 +346,7 @@ Z'' and bit 7-(X%8) of Z' determine the address, P, of the T value for the play 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e74a"></span>E74A</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="3">Otherwise set <span class="register">B</span>=172+2*(Y%6)</td>
+<td class="comment-11" rowspan="3">Otherwise set <span class="register">B</span>=0xAC+2*(Y%6)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -364,7 +364,7 @@ Z'' and bit 7-(X%8) of Z' determine the address, P, of the T value for the play 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e74e"></span>E74E</td>
 <td class="instruction">SET 7,L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=128+Z (128-229)</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x80+Z (0x80-0xE5)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -376,7 +376,7 @@ Z'' and bit 7-(X%8) of Z' determine the address, P, of the T value for the play 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e751"></span>E751</td>
 <td class="instruction">ADD A,$B8</td>
-<td class="comment-11" rowspan="2"><span class="register">H</span>=184+X%8</td>
+<td class="comment-11" rowspan="2"><span class="register">H</span>=0xB8+X%8</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -388,37 +388,37 @@ Z'' and bit 7-(X%8) of Z' determine the address, P, of the T value for the play 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e754"></span>E754</td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">C</span>=Z'' (value of byte 128+Z of page 184+X%8)</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=Z'' (value of byte 0x80+Z of page 0xB8+X%8)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e755"></span>E755</td>
 <td class="instruction">SET 5,E</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=32+INT(X/8)</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=0x20+INT(X/8)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e757"></span>E757</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=value of byte 32+INT(X/8) of page 184+INT(Y/6)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=value of byte 0x20+INT(X/8) of page 0xB8+INT(Y/6)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e758"></span>E758</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=attribute byte address LSB (0-27)</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=attribute byte address LSB (0x00-0x1B)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e759"></span>E759</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=32+INT(X/8)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x20+INT(X/8)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e75a"></span>E75A</td>
 <td class="instruction">XOR $60</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=64+INT(X/8)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x40+INT(X/8)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -430,7 +430,7 @@ Z'' and bit 7-(X%8) of Z' determine the address, P, of the T value for the play 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e75d"></span>E75D</td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=T (value of byte Z'' of page 160+2*(Y%6) or 172+2*(Y%6))</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=T (value of byte Z'' of page 0xA0+2*(Y%6) or 0xAC+2*(Y%6))</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -464,16 +464,16 @@ Z'' and bit 7-(X%8) of Z' determine the address, P, of the T value for the play 
 </table>
 </div>
 <div class="paragraph">
-When bits 7 and 6 of T are both set (11), bits 2-5 of T and bit 7 of T' indicate the LSB of the address of the background tile's graphic data; the MSB is always 128. The LSBs of the addresses of the graphic data for the two half-tiles that make up the foreground tile are derived from bits 0-6 of T'; the MSBs are always 128.
+When bits 7 and 6 of T are both set (11), bits 2-5 of T and bit 7 of T' indicate the LSB of the address of the background tile's graphic data; the MSB is always 0x80. The LSBs of the addresses of the graphic data for the two half-tiles that make up the foreground tile are derived from bits 0-6 of T'; the MSBs are always 0x80.
 </div>
 <div class="paragraph">
-When bit 7 of T is set and bit 6 is reset (10), bits 3-5 are unused, and bit 2 is set only if the right-hand window of a pair is at this location. The LSBs of the addresses of the graphic data for the two half-tiles that make up the foreground tile are derived from T' (0-31) and the window flags; the MSBs are always 128.
+When bit 7 of T is set and bit 6 is reset (10), bits 3-5 are unused, and bit 2 is set only if the right-hand window of a pair is at this location. The LSBs of the addresses of the graphic data for the two half-tiles that make up the foreground tile are derived from T' (0x00-0x1F) and the window flags; the MSBs are always 0x80.
 </div>
 <div class="paragraph">
-When bit 7 of T is reset, bit 5 is unused (always reset), and bits 2-4 indicate the MSB of the address of the tile's graphic data (128, 136, 144, 152 or 160); the LSB is equal to T'.
+When bit 7 of T is reset, bit 5 is unused (always reset), and bits 2-4 indicate the MSB of the address of the tile's graphic data (0x80, 0x88, 0x90, 0x98 or 0xA0); the LSB is equal to T'.
 </div>
 <div class="paragraph">
-Finally, bits 1 and 0 of T indicate the MSB of the address of the tile's attribute byte (168, 169, 170 or 171); the LSB (0-27, already collected in <span class="register">L</span> at this point) is found in byte 32+INT(X/8) of page 184+INT(Y/6).
+Finally, bits 1 and 0 of T indicate the MSB of the address of the tile's attribute byte (0xA8, 0xA9, 0xAA or 0xAB); the LSB (0x00-0x1B, already collected in <span class="register">L</span> at this point) is found in byte 0x20+INT(X/8) of page 0xB8+INT(Y/6).
 </div>
 </div>
 </td>
@@ -488,13 +488,13 @@ Finally, bits 1 and 0 of T indicate the MSB of the address of the tile's attribu
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e760"></span>E760</td>
 <td class="instruction">ADD A,$A8</td>
-<td class="comment-11" rowspan="1">168&lt;=<span class="register">A</span>&lt;=171</td>
+<td class="comment-11" rowspan="1">0xA8&lt;=<span class="register">A</span>&lt;=0xAB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e762"></span>E762</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-11" rowspan="1">168&lt;=<span class="register">H</span>&lt;=171</td>
+<td class="comment-11" rowspan="1">0xA8&lt;=<span class="register">H</span>&lt;=0xAB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -518,7 +518,7 @@ Finally, bits 1 and 0 of T indicate the MSB of the address of the tile's attribu
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e768"></span>E768</td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=161+2*(Y%6) or 173+2*(Y%6); now <span class="register">BC</span> points at the T' value</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=0xA1+2*(Y%6) or 0xAD+2*(Y%6); now <span class="register">BC</span> points at the T' value</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -616,7 +616,7 @@ There is a window or a house number sign at this location.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e77e"></span>E77E</td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=T' (0-31 for window tiles and house number sign tiles)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=T' (0x00-0x1F for window tiles and house number sign tiles)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -628,7 +628,7 @@ There is a window or a house number sign at this location.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e780"></span>E780</td>
 <td class="instruction">LD L,$9F</td>
-<td class="comment-11" rowspan="1">Use tile 159 in page 128 (which is blank) as the background tile</td>
+<td class="comment-11" rowspan="1">Use tile 0x9F in page 0x80 (which is blank) as the background tile</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -674,7 +674,7 @@ There is no window or house number sign at this location, and it has a backgroun
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e789"></span>E789</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=background tile reference (even number &gt;= 128)</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=background tile reference (even number &gt;= 0x80)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -698,7 +698,7 @@ There is no window or house number sign at this location, and it has a backgroun
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e78e"></span>E78E</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Increment the background tile reference (to an odd number &gt;= 129)</td>
+<td class="comment-11" rowspan="1">Increment the background tile reference (to an odd number &gt;= 0x81)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -769,7 +769,7 @@ Now <span class="register">HL</span> holds the base address of the background ti
 <span id="e79e"></span>
 <div class="comments">
 <div class="paragraph">
-Now we superimpose the foreground tile. The 16 graphic and mask bytes for the foreground tile are found in two groups of 8 bytes in pages 128-135.
+Now we superimpose the foreground tile. The 16 graphic and mask bytes for the foreground tile are found in two groups of 8 bytes in pages 0x80-0x87.
 </div>
 </div>
 </td>
@@ -778,7 +778,7 @@ Now we superimpose the foreground tile. The 16 graphic and mask bytes for the fo
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e79e"></span>E79E</td>
 <td class="instruction">LD B,$C0</td>
-<td class="comment-11" rowspan="1">The LSB of the first group of 8 bytes is found in page <a href="C000.html">192</a></td>
+<td class="comment-11" rowspan="1">The LSB of the first group of 8 bytes is found in page <a href="C000.html">0xC0</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -862,7 +862,7 @@ Now we superimpose the foreground tile. The 16 graphic and mask bytes for the fo
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e7b2"></span>E7B2</td>
 <td class="instruction">LD B,$C1</td>
-<td class="comment-11" rowspan="1">The LSB of the second group of 8 bytes is found in page <a href="C100.html">193</a></td>
+<td class="comment-11" rowspan="1">The LSB of the second group of 8 bytes is found in page <a href="C100.html">0xC1</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -938,7 +938,7 @@ The play area location under consideration has only one tile: either a backgroun
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e7c2"></span>E7C2</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=128, 136, 144, 152 or 160</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0x80, 0x88, 0x90, 0x98 or 0xA0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -1024,7 +1024,7 @@ The tile in the back buffer is now ready to be drawn.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e7d5"></span>E7D5</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=display file address MSB (64, 72 or 80)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=display file address MSB (0x40, 0x48 or 0x50)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -1036,7 +1036,7 @@ The tile in the back buffer is now ready to be drawn.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e7d9"></span>E7D9</td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="4"><span class="register">A</span>=88, 89 or 90</td>
+<td class="comment-11" rowspan="4"><span class="register">A</span>=0x58, 0x59 or 0x5A</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -1089,9 +1089,9 @@ The tile in the back buffer is now ready to be drawn.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

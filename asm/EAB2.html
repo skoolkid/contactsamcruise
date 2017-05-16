@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="7996.html">7996</a>. Returns with the zero flag set if no game keys were pressed. Otherwise returns with <span class="register">A</span> holding the value from the <a href="C330.html">keypress offset table</a> corresponding to the last key pressed or joystick movement made. This offset (an odd number from 1 to 39) points at an entry in the table of keypress handling routines at <a href="ED00.html">ED00</a>.
+Used by the routine at <a href="7996.html">7996</a>. Returns with the zero flag set if no game keys were pressed. Otherwise returns with <span class="register">A</span> holding the value from the <a href="C330.html">keypress offset table</a> corresponding to the last key pressed or joystick movement made. This offset (an odd number from 0x01 to 0x27) points at an entry in the table of keypress handling routines at <a href="ED00.html">ED00</a>.
 </div>
 </div>
 <table class="input-0">
@@ -105,7 +105,7 @@ We are using the Kempston joystick.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eac1"></span>EAC1</td>
 <td class="instruction">LD L,$50</td>
-<td class="comment-11" rowspan="1">80='P' (RIGHT)</td>
+<td class="comment-11" rowspan="1">0x50='P' (RIGHT)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -123,7 +123,7 @@ We are using the Kempston joystick.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eac6"></span>EAC6</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=79='O' (LEFT)</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x4F='O' (LEFT)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -141,7 +141,7 @@ We are using the Kempston joystick.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eaca"></span>EACA</td>
 <td class="instruction">LD L,$41</td>
-<td class="comment-11" rowspan="1">65='A' (DOWN)</td>
+<td class="comment-11" rowspan="1">0x41='A' (DOWN)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -159,7 +159,7 @@ We are using the Kempston joystick.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eacf"></span>EACF</td>
 <td class="instruction">LD L,$51</td>
-<td class="comment-11" rowspan="1">81='Q' (UP)</td>
+<td class="comment-11" rowspan="1">0x51='Q' (UP)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -177,7 +177,7 @@ We are using the Kempston joystick.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ead4"></span>EAD4</td>
 <td class="instruction">LD L,$6B</td>
-<td class="comment-11" rowspan="1">107='k' (knock on or open a door)</td>
+<td class="comment-11" rowspan="1">0x6B='k' (knock on or open a door)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -194,9 +194,9 @@ We are using the Kempston joystick.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

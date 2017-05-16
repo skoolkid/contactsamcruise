@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 18 and 19 of the hook's buffer by the routine at <a href="7BE1.html">7BE1</a>. It controls the hook until the end of its flight, at which point it places a rope above the roof of no. 19 if necessary, or else restores the hook to its original location on the top floor of no. 74.
+The address of this uninterruptible subcommand routine is placed into bytes 0x12 and 0x13 of the hook's buffer by the routine at <a href="7BE1.html">7BE1</a>. It controls the hook until the end of its flight, at which point it places a rope above the roof of no. 19 if necessary, or else restores the hook to its original location on the top floor of no. 74.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 18 a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">229 (hook)</td>
+<td class="register-desc">0xE5 (hook)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -56,7 +56,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 18 a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7bb9"></span>7BB9</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="1">Byte 20 of the hook's buffer holds the distance remaining in the hook's flight</td>
+<td class="comment-11" rowspan="1">Byte 0x14 of the hook's buffer holds the distance remaining in the hook's flight</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -126,13 +126,13 @@ The hook's flight has ended (either naturally or by escaping the play area). Che
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7bc8"></span>7BC8</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=19</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x13</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7bc9"></span>7BC9</td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="2">Remove the address of this routine from bytes 18 and 19 of the hook's buffer</td>
+<td class="comment-11" rowspan="2">Remove the address of this routine from bytes 0x12 and 0x13 of the hook's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -144,7 +144,7 @@ The hook's flight has ended (either naturally or by escaping the play area). Che
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7bcb"></span>7BCB</td>
 <td class="instruction">LD L,$03</td>
-<td class="comment-11" rowspan="2">Clear all flags in byte 3 of the hook's buffer</td>
+<td class="comment-11" rowspan="2">Clear all flags in byte 0x03 of the hook's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -227,9 +227,9 @@ The hook's flight has ended (either naturally or by escaping the play area). Che
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

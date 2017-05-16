@@ -35,7 +35,7 @@ Used by the command list at <a href="FD7A.html">FD7A</a>. Checks whether conditi
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">227 (sniper)</td>
+<td class="register-desc">0xE3 (sniper)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -86,7 +86,7 @@ Used by the command list at <a href="FD7A.html">FD7A</a>. Checks whether conditi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="62e7"></span>62E7</td>
 <td class="instruction">LD L,$03</td>
-<td class="comment-11" rowspan="2">Set bit 7 of byte 3 of the sniper's buffer, making him move quickly</td>
+<td class="comment-11" rowspan="2">Set bit 7 of byte 0x03 of the sniper's buffer, making him move quickly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -98,7 +98,7 @@ Used by the command list at <a href="FD7A.html">FD7A</a>. Checks whether conditi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="62eb"></span>62EB</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="3">Decrement and then collect byte 10 of the sniper's buffer</td>
+<td class="comment-11" rowspan="3">Decrement and then collect byte 0x0A of the sniper's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -144,7 +144,7 @@ Now we check how many keys Sam has collected. The exact number in Sam's possessi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="62f5"></span>62F5</td>
 <td class="instruction">LD B,$1F</td>
-<td class="comment-11" rowspan="6"><span class="register">B</span>=31 if Sam has no keys or one key, 63 if he has two keys, 127 if he has three, or 255 if he has all four</td>
+<td class="comment-11" rowspan="6"><span class="register">B</span>=0x1F if Sam has no keys or one key, 0x3F if he has two keys, 0x7F if he has three, or 0xFF if he has all four</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -214,7 +214,7 @@ The dice are telling us that the sniper should appear. But can we find a suitabl
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6308"></span>6308</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the sniper's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the sniper's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -278,7 +278,7 @@ We have found a suitable place for the sniper to emerge from.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6317"></span>6317</td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="2">Byte 17 of the sniper's buffer is used to regulate the delay between shots; initialise it to 0</td>
+<td class="comment-11" rowspan="2">Byte 0x11 of the sniper's buffer is used to regulate the delay between shots; initialise it to 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -290,7 +290,7 @@ We have found a suitable place for the sniper to emerge from.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="631a"></span>631A</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=16</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x10</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -302,7 +302,7 @@ We have found a suitable place for the sniper to emerge from.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="631e"></span>631E</td>
 <td class="instruction">AND $0F</td>
-<td class="comment-11" rowspan="3">Byte 16 of the sniper's buffer is used to decide when to duck and when to shoot; initialise it to a number between 10 and 25</td>
+<td class="comment-11" rowspan="3">Byte 0x10 of the sniper's buffer is used to decide when to duck and when to shoot; initialise it to a number between 0x0A and 0x19</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -320,7 +320,7 @@ We have found a suitable place for the sniper to emerge from.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6323"></span>6323</td>
 <td class="instruction">LD BC,$621E</td>
-<td class="comment-11" rowspan="2">Copy the address of the interruptible subcommand routine at <a href="621E.html">621E</a> into bytes 14 and 15 of the sniper's buffer, and then jump to it</td>
+<td class="comment-11" rowspan="2">Copy the address of the interruptible subcommand routine at <a href="621E.html">621E</a> into bytes 0x0E and 0x0F of the sniper's buffer, and then jump to it</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -337,9 +337,9 @@ We have found a suitable place for the sniper to emerge from.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 14 and 15 of the sniper's buffer by the routine at <a href="62DB.html">62DB</a>. It controls the sniper from the moment he appears until he hides again.
+The address of this interruptible subcommand routine is placed into bytes 0x0E and 0x0F of the sniper's buffer by the routine at <a href="62DB.html">62DB</a>. It controls the sniper from the moment he appears until he hides again.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">227 (sniper)</td>
+<td class="register-desc">0xE3 (sniper)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -62,7 +62,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6221"></span>6221</td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 17 of the sniper's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x11 of the sniper's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -86,13 +86,13 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6227"></span>6227</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Otherwise decrement byte 17</td>
+<td class="comment-11" rowspan="1">Otherwise decrement byte 0x11</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6228"></span>6228</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=16</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x10</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -120,13 +120,13 @@ The sniper is currently inactive.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="622d"></span>622D</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement byte 16 of the sniper's buffer</td>
+<td class="comment-11" rowspan="1">Decrement byte 0x10 of the sniper's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="622e"></span>622E</td>
 <td class="instruction">JP Z,<a href="F280.html#f284">$F284</a></td>
-<td class="comment-11" rowspan="1">Terminate this subcommand if byte 16 is now 0</td>
+<td class="comment-11" rowspan="1">Terminate this subcommand if byte 0x10 is now 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -150,7 +150,7 @@ The sniper is currently inactive.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6238"></span>6238</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the sniper's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the sniper's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -168,7 +168,7 @@ The sniper is currently inactive.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="623e"></span>623E</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -180,7 +180,7 @@ The sniper is currently inactive.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6240"></span>6240</td>
 <td class="instruction">CCF</td>
-<td class="comment-11" rowspan="3">Compute the appropriate animatory state for the sniper: <a href="../graphics/as.html#54">54</a> if he's to the right of Sam, <a href="../graphics/as.html#182">182</a> if he's to the left</td>
+<td class="comment-11" rowspan="3">Compute the appropriate animatory state for the sniper: <a href="../graphics/as.html#54">0x36</a> if he's to the right of Sam, <a href="../graphics/as.html#182">0xB6</a> if he's to the left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -272,7 +272,7 @@ The sniper is currently active (his y-coordinate is 34-37).
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6250"></span>6250</td>
 <td class="instruction">LD A,($DEB6)</td>
-<td class="comment-11" rowspan="1">Collect the sprite tile reference for tile 7 of animatory states <a href="../graphics/as.html#54">54/182</a>; this will be 235 if the sniper is firing, or 0, 110, 111 or 113 otherwise</td>
+<td class="comment-11" rowspan="1">Collect the sprite tile reference for tile 7 of animatory states <a href="../graphics/as.html#54">0x36/0xB6</a>; this will be 0xEB if the sniper is firing, or 0x00, 0x6E, 0x6F or 0x71 otherwise</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -308,20 +308,20 @@ The sniper is currently active (his y-coordinate is 34-37).
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="625e"></span>625E</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement byte 16 of the sniper's buffer</td>
+<td class="comment-11" rowspan="1">Decrement byte 0x10 of the sniper's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="625f"></span>625F</td>
 <td class="instruction">JR NZ,$627A</td>
-<td class="comment-11" rowspan="1">Jump unless byte 16 is now zero</td>
+<td class="comment-11" rowspan="1">Jump unless byte 0x10 is now zero</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="6261"></span>
 <div class="comments">
 <div class="paragraph">
-Byte 16 of the sniper's buffer has been decremented to zero. The apparent intention here is to make the sniper duck out of sight and terminate this subcommand; however, if the sniper is not already out of sight, he will duck briefly but remain in view, and byte 16 will be decremented to 255 on the next pass through this routine. This is a <a href="../reference/bugs.html#conspicuousSniper">bug</a>.
+Byte 0x10 of the sniper's buffer has been decremented to zero. The apparent intention here is to make the sniper duck out of sight and terminate this subcommand; however, if the sniper is not already out of sight, he will duck briefly but remain in view, and byte 0x10 will be decremented to 0xFF on the next pass through this routine. This is a <a href="../reference/bugs.html#conspicuousSniper">bug</a>.
 </div>
 </div>
 </td>
@@ -354,7 +354,7 @@ Byte 16 of the sniper's buffer has been decremented to zero. The apparent intent
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6269"></span>6269</td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="2">Remove the address of this routine from byte 14 and 15 of the sniper's buffer</td>
+<td class="comment-11" rowspan="2">Remove the address of this routine from bytes 0x0E and 0x0F of the sniper's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -400,7 +400,7 @@ The sniper is in the process of ducking.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6273"></span>6273</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the sniper's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the sniper's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -492,7 +492,7 @@ The sniper is on screen and at least 8 x-coordinates away from Sam. If he's alre
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="628b"></span>628B</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the sniper's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the sniper's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -544,7 +544,7 @@ At least half of the sniper is visible (his y-coordinate is 34 or 35), which mea
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6298"></span>6298</td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="2">Collect byte 16 of the sniper's buffer</td>
+<td class="comment-11" rowspan="2">Collect byte 0x10 of the sniper's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -662,7 +662,7 @@ The sniper will consider shooting.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="62ba"></span>62BA</td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="2">Collect byte 17 of the sniper's buffer</td>
+<td class="comment-11" rowspan="2">Collect byte 0x11 of the sniper's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -762,7 +762,7 @@ The sniper has decided to shoot, and a bullet buffer is available.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="62d1"></span>62D1</td>
 <td class="instruction">LD (HL),$0C</td>
-<td class="comment-11" rowspan="1">Place 12 into byte 17 of the sniper's buffer (indicating that he's just fired)</td>
+<td class="comment-11" rowspan="1">Place 0x0C into byte 0x11 of the sniper's buffer (indicating that he's just fired)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -791,9 +791,9 @@ The sniper has decided to shoot, and a bullet buffer is available.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

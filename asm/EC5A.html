@@ -35,7 +35,7 @@ Used by the routines at <a href="71DD.html">71DD</a>, <a href="EC7B.html">EC7B</
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-230)</td>
+<td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -56,7 +56,7 @@ Used by the routines at <a href="71DD.html">71DD</a>, <a href="EC7B.html">EC7B</
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec5d"></span>EC5D</td>
 <td class="instruction">LD L,$05</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 5 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x05 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -68,7 +68,7 @@ Used by the routines at <a href="71DD.html">71DD</a>, <a href="EC7B.html">EC7B</
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec60"></span>EC60</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="4">Collect the character's post-midstride/post-action coordinates in <span class="register">DE</span> from bytes 6 and 7 of his buffer</td>
+<td class="comment-11" rowspan="4">Collect the character's post-midstride/post-action coordinates in <span class="register">DE</span> from bytes 0x06 and 0x07 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -92,7 +92,7 @@ Used by the routines at <a href="71DD.html">71DD</a>, <a href="EC7B.html">EC7B</
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ec64"></span>EC64</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-11" rowspan="1">Set byte 7 of the character's buffer to 0 (to indicate that he is neither midstride nor mid-action now)</td>
+<td class="comment-11" rowspan="1">Set byte 0x07 of the character's buffer to 0 (to indicate that he is neither midstride nor mid-action now)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -109,9 +109,9 @@ Used by the routines at <a href="71DD.html">71DD</a>, <a href="EC7B.html">EC7B</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

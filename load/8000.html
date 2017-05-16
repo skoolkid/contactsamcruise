@@ -47,7 +47,7 @@ Used by the routine at <a href="802F.html">802F</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="8000"></span>8000</td>
 <td class="instruction">INC SP</td>
-<td class="comment-11" rowspan="8">Place the address 0 on the stack above the current return address, so the Spectrum will reset if there's a loading error</td>
+<td class="comment-11" rowspan="8">Place the address 0000 on the stack above the current return address, so the Spectrum will reset if there's a loading error</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -95,7 +95,7 @@ Used by the routine at <a href="802F.html">802F</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8009"></span>8009</td>
 <td class="instruction">LD A,$06</td>
-<td class="comment-11" rowspan="1">After the fast code block has loaded, this instruction is changed to 'LD A,17' for the standard speed code block</td>
+<td class="comment-11" rowspan="1">After the fast code block has loaded, this instruction is changed to 'LD A,$11' for the standard speed code block</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -123,7 +123,7 @@ This entry point is also used by the routine at <a href="802F.html">802F</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="800f"></span>800F</td>
 <td class="instruction">LD A,$0B</td>
-<td class="comment-11" rowspan="3">Wait a bit; after the fast code block has loaded, this instruction is changed to 'LD A,22' for the standard speed code block</td>
+<td class="comment-11" rowspan="3">Wait a bit; after the fast code block has loaded, this instruction is changed to 'LD A,$16' for the standard speed code block</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -254,9 +254,9 @@ This entry point is also used by the routine at <a href="802F.html">802F</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

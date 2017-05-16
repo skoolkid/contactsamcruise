@@ -70,7 +70,7 @@ Also on entry, the zero flag is set if the character is indoors. If the characte
 </tr>
 <tr>
 <td class="register">A</td>
-<td class="register-desc">Direction indicator (128, 64, 32, 16, 8 or 4)</td>
+<td class="register-desc">Direction indicator (0x80, 0x40, 0x20, 0x10, 0x08 or 0x04)</td>
 </tr>
 <tr>
 <td class="register">B</td>
@@ -78,7 +78,7 @@ Also on entry, the zero flag is set if the character is indoors. If the characte
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-230)</td>
+<td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 <tr>
 <td class="register">L</td>
@@ -175,7 +175,7 @@ Also on entry, the zero flag is set if the character is indoors. If the characte
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76cf"></span>76CF</td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=LSB of the address of the door status flags (240-249)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=LSB of the address of the door status flags (0xF0-0xF9)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -205,7 +205,7 @@ Also on entry, the zero flag is set if the character is indoors. If the characte
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76d7"></span>76D7</td>
 <td class="instruction">LD H,$E6</td>
-<td class="comment-11" rowspan="1">230=Sam</td>
+<td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -228,9 +228,9 @@ Also on entry, the zero flag is set if the character is indoors. If the characte
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 14 and 15 of a character's buffer by the routine at <a href="F338.html">F338</a>. It makes the character open the door if he can, or knock and begin waiting for an answer.
+The address of this interruptible subcommand routine is placed into bytes 0x0E and 0x0F of a character's buffer by the routine at <a href="F338.html">F338</a>. It makes the character open the door if he can, or knock and begin waiting for an answer.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -56,7 +56,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f349"></span>F349</td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 16 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x10 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -84,13 +84,13 @@ This character (who is not a policeman) has knocked on the door.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f34f"></span>F34F</td>
 <td class="instruction">LD (HL),E</td>
-<td class="comment-11" rowspan="1">Store the LSB of the address of the door knock status flags (see <a href="7FAA.html">7FAA</a>) for the door in byte 16 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Store the LSB of the address of the door knock status flags (see <a href="7FAA.html">7FAA</a>) for the door in byte 0x10 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f350"></span>F350</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Initialise the counter in byte 17 of the character's buffer to 30; this determines how long the character will wait for someone to open the door before giving up</td>
+<td class="comment-11" rowspan="2">Initialise the counter in byte 0x11 of the character's buffer to 0x1E; this determines how long the character will wait for someone to open the door before giving up</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -102,7 +102,7 @@ This character (who is not a policeman) has knocked on the door.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f353"></span>F353</td>
 <td class="instruction">LD L,$0E</td>
-<td class="comment-11" rowspan="2">Change the address of the interruptible subcommand routine in bytes 14 and 15 of the character's buffer to <a href="F359.html">F359</a></td>
+<td class="comment-11" rowspan="2">Change the address of the interruptible subcommand routine in bytes 0x0E and 0x0F of the character's buffer to <a href="F359.html">F359</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -125,9 +125,9 @@ This character (who is not a policeman) has knocked on the door.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

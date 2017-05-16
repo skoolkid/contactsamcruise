@@ -108,7 +108,7 @@ Used by the routine at <a href="65DB.html">65DB</a>. Returns with the carry flag
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="659d"></span>659D</td>
 <td class="instruction">LD HL,$E604</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 4 of Sam's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x04 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -150,7 +150,7 @@ Used by the routine at <a href="65DB.html">65DB</a>. Returns with the carry flag
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65a9"></span>65A9</td>
 <td class="instruction">CP $10</td>
-<td class="comment-11" rowspan="1">Was the sprite tile reference in the range 1-15?</td>
+<td class="comment-11" rowspan="1">Was the sprite tile reference in the range 0x01-0x0F?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -162,7 +162,7 @@ Used by the routine at <a href="65DB.html">65DB</a>. Returns with the carry flag
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65ad"></span>65AD</td>
 <td class="instruction">CP $1A</td>
-<td class="comment-11" rowspan="1">Was the sprite tile reference in the range 16-25?</td>
+<td class="comment-11" rowspan="1">Was the sprite tile reference in the range 0x10-0x19?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -175,7 +175,7 @@ Used by the routine at <a href="65DB.html">65DB</a>. Returns with the carry flag
 <span id="65b1"></span>
 <div class="comments">
 <div class="paragraph">
-The reference of the sprite tile upon which the bullet impinged was in the range 1-15 or greater than 25. Closer examination is required to determine whether Sam was hit.
+The reference of the sprite tile upon which the bullet impinged was in the range 0x01-0x0F or greater than 0x19. Closer examination is required to determine whether Sam was hit.
 </div>
 </div>
 </td>
@@ -312,7 +312,7 @@ Sam has already used all his first aid kits. Game over.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65cf"></span>65CF</td>
 <td class="instruction">LD A,$63</td>
-<td class="comment-11" rowspan="1">Message <a href="6ACB.html">99</a>: 'I HAD TO GO TO HOSPITAL...'</td>
+<td class="comment-11" rowspan="1">Message <a href="6ACB.html">0x63</a>: 'I HAD TO GO TO HOSPITAL...'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -369,9 +369,9 @@ Sam had a first aid kit left.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

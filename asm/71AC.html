@@ -35,7 +35,7 @@ Continues from the routine at <a href="7377.html">7377</a>. The policeman recent
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">222 or 223 (policeman)</td>
+<td class="register-desc">0xDE or 0xDF (policeman)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Continues from the routine at <a href="7377.html">7377</a>. The policeman recent
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="71ac"></span>71AC</td>
 <td class="instruction">LD L,$1F</td>
-<td class="comment-11" rowspan="2">Pick up byte 31 of the policeman's buffer</td>
+<td class="comment-11" rowspan="2">Pick up byte 0x1F of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -74,7 +74,7 @@ Continues from the routine at <a href="7377.html">7377</a>. The policeman recent
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="71b2"></span>71B2</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up byte 31 again</td>
+<td class="comment-11" rowspan="1">Pick up byte 0x1F again</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -116,7 +116,7 @@ Continues from the routine at <a href="7377.html">7377</a>. The policeman recent
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="71bc"></span>71BC</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=30</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x1E</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -140,7 +140,7 @@ Continues from the routine at <a href="7377.html">7377</a>. The policeman recent
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="71c4"></span>71C4</td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 29 of the policeman's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x1D of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -156,13 +156,13 @@ This entry point is used by the routine at <a href="7222.html">7222</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="71c6"></span>71C6</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up byte 29 of the policeman's buffer</td>
+<td class="comment-11" rowspan="1">Pick up byte 0x1D of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="71c7"></span>71C7</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-11" rowspan="1">Set byte 29 of the policeman's buffer to 0 now that the disguise Sam was wearing is known to the police</td>
+<td class="comment-11" rowspan="1">Set byte 0x1D of the policeman's buffer to 0 now that the disguise Sam was wearing is known to the police</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -192,7 +192,7 @@ This entry point is used by the routine at <a href="7222.html">7222</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="71ce"></span>71CE</td>
 <td class="instruction">ADD A,$A0</td>
-<td class="comment-11" rowspan="4">Now <span class="register">A</span>=64, 32, 16, 8, 4, 2, or 1, with the set bit corresponding to the disguise that Sam was wearing</td>
+<td class="comment-11" rowspan="4">Now <span class="register">A</span>=0x40, 0x20, 0x10, 0x08, 0x04, 0x02, or 0x01, with the set bit corresponding to the disguise that Sam was wearing</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -251,9 +251,9 @@ This entry point is used by the routine at <a href="7222.html">7222</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

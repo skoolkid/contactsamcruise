@@ -20,13 +20,13 @@
 <td class="next"><span class="next-1">Next: <a href="F8AE.html">F8AE</a></span></td>
 </tr>
 </table>
-<div class="description">F87E: Initialise the character buffers for characters 222-230</div>
+<div class="description">F87E: Initialise the character buffers for characters 0xDE-0xE6</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory states, locations and command list addresses for characters 222-230 for the next game mode.
+Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory states, locations and command list addresses for characters 0xDE-0xE6 for the next game mode.
 </div>
 </div>
 <table class="input-1">
@@ -50,7 +50,7 @@ Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory s
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f87e"></span>F87E</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-11" rowspan="7">Point <span class="register">HL</span> at the last byte in the set of initialisation parameters for the current game mode for character 222 (see <a href="DE20.html">DE20</a>)</td>
+<td class="comment-11" rowspan="7">Point <span class="register">HL</span> at the last byte in the set of initialisation parameters for the current game mode for character 0xDE (see <a href="DE20.html">DE20</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -92,7 +92,7 @@ Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory s
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f887"></span>F887</td>
 <td class="instruction">LD D,H</td>
-<td class="comment-11" rowspan="2">Point <span class="register">DE</span> at byte 31 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Point <span class="register">DE</span> at byte 0x1F of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -140,7 +140,7 @@ Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory s
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f893"></span>F893</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-11" rowspan="3">Fill bytes 25-31 of the character's buffer with zeroes</td>
+<td class="comment-11" rowspan="3">Fill bytes 0x19-0x1F of the character's buffer with zeroes</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -158,7 +158,7 @@ Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory s
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f897"></span>F897</td>
 <td class="instruction">LDDR</td>
-<td class="comment-11" rowspan="1">Copy the command list address (or message number and 1 if dealing with Sam) into bytes 23 and 24 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Copy the command list address (or message number and 1 if dealing with Sam) into bytes 0x17 and 0x18 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -170,7 +170,7 @@ Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory s
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f89c"></span>F89C</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-11" rowspan="3">Fill bytes 5-22 of the character's buffer with zeroes</td>
+<td class="comment-11" rowspan="3">Fill bytes 0x05-0x16 of the character's buffer with zeroes</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -188,25 +188,25 @@ Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory s
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8a0"></span>F8A0</td>
 <td class="instruction">LDD</td>
-<td class="comment-11" rowspan="1">Copy the z-coordinate (or y-coordinate of the topmost row of the play area on screen if dealing with Sam) into byte 4 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Copy the z-coordinate (or y-coordinate of the topmost row of the play area on screen if dealing with Sam) into byte 0x04 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8a2"></span>F8A2</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-11" rowspan="1">Reset all flags in byte 3 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Reset all flags in byte 0x03 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8a3"></span>F8A3</td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 2 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8a4"></span>F8A4</td>
 <td class="instruction">LDDR</td>
-<td class="comment-11" rowspan="1">Copy the x- and y-coordinates and animatory state  (or, if dealing with Sam, the x-coordinate of the leftmost column of the play area on screen, 32 or 34, and 0) into bytes 0-2 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Copy the x- and y-coordinates and animatory state  (or, if dealing with Sam, the x-coordinate of the leftmost column of the play area on screen, 32 or 34, and 0) into bytes 0x00-0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -253,9 +253,9 @@ Used by the routine at <a href="F8AE.html">F8AE</a>. Initialises the animatory s
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

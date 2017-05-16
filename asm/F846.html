@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 14 and 15 of a cat's buffer by the routine at <a href="F82A.html">F82A</a>. It makes a cat run up or down to his next walkabout destination, and then terminates.
+The address of this interruptible subcommand routine is placed into bytes 0x0E and 0x0F of a cat's buffer by the routine at <a href="F82A.html">F82A</a>. It makes a cat run up or down to his next walkabout destination, and then terminates.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">218 (Cat)</td>
+<td class="register-desc">0xDA (Cat)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,20 +50,20 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f846"></span>F846</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the cat's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f848"></span>F848</td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="1">Is the cat in running phase 2 (animatory state <a href="../graphics/as.html#118">118/246</a>)?</td>
+<td class="comment-11" rowspan="1">Is the cat in running phase 2 (animatory state <a href="../graphics/as.html#118">0x76/0xF6</a>)?</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="f84a"></span>
 <div class="comments">
 <div class="paragraph">
-The cat's animatory state is <a href="../graphics/as.html#117">117 or 245</a> (running phase 1). Move him forward and advance his animatory state.
+The cat's animatory state is <a href="../graphics/as.html#117">0x75 or 0xF5</a> (running phase 1). Move him forward and advance his animatory state.
 </div>
 </div>
 </td>
@@ -84,7 +84,7 @@ The cat's animatory state is <a href="../graphics/as.html#117">117 or 245</a> (r
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f84f"></span>F84F</td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#118">118/246</a> (cat running phase 2)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#118">0x76/0xF6</a> (cat running phase 2)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -151,7 +151,7 @@ The cat's animatory state is <a href="../graphics/as.html#117">117 or 245</a> (r
 <span id="f85c"></span>
 <div class="comments">
 <div class="paragraph">
-The cat's animatory state is <a href="../graphics/as.html#118">118 or 246</a> (running phase 2). Either advance his animatory state, or turn him round.
+The cat's animatory state is <a href="../graphics/as.html#118">0x76 or 0xF6</a> (running phase 2). Either advance his animatory state, or turn him round.
 </div>
 </div>
 </td>
@@ -160,7 +160,7 @@ The cat's animatory state is <a href="../graphics/as.html#118">118 or 246</a> (r
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f85c"></span>F85C</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the cat's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -172,7 +172,7 @@ The cat's animatory state is <a href="../graphics/as.html#118">118 or 246</a> (r
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f85f"></span>F85F</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="1">The cat's walkabout destination x-coordinate is stored in byte 11 of the cat's buffer</td>
+<td class="comment-11" rowspan="1">The cat's walkabout destination x-coordinate is stored in byte 0x0B of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -196,7 +196,7 @@ The cat's animatory state is <a href="../graphics/as.html#118">118 or 246</a> (r
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f867"></span>F867</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the cat's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -220,7 +220,7 @@ The cat's animatory state is <a href="../graphics/as.html#118">118 or 246</a> (r
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f86f"></span>F86F</td>
 <td class="instruction">LD B,$80</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=128 (which will turn the cat round)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=0x80 (which will turn the cat round)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -273,9 +273,9 @@ The cat's animatory state is <a href="../graphics/as.html#118">118 or 246</a> (r
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

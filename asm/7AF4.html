@@ -69,13 +69,13 @@ First we need to determine who is carrying Sam.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7afa"></span>7AFA</td>
 <td class="instruction">LD HL,$D700</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of character 215's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of character 0xD7's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7afd"></span>7AFD</td>
 <td class="instruction">LD B,$0F</td>
-<td class="comment-11" rowspan="1">We will check characters 215-229</td>
+<td class="comment-11" rowspan="1">We will check characters 0xD7-0xE5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -93,7 +93,7 @@ First we need to determine who is carrying Sam.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b02"></span>7B02</td>
 <td class="instruction">CP $18</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#24">24</a>: Is this character a policeman carrying Sam?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#24">0x18</a>: Is this character a policeman carrying Sam?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -105,7 +105,7 @@ First we need to determine who is carrying Sam.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b06"></span>7B06</td>
 <td class="instruction">CP $28</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#40">40</a>: Is this character a gangster carrying Sam?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#40">0x28</a>: Is this character a gangster carrying Sam?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -139,7 +139,7 @@ No one is carrying Sam at the moment. Whoever was carrying him must have just dr
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b0d"></span>7B0D</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of Sam's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -209,7 +209,7 @@ Sam is being dropped by a policeman onto the floor of the jail cell.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b22"></span>7B22</td>
 <td class="instruction">AND $80</td>
-<td class="comment-11" rowspan="1">Sam's new animatory state is <a href="../graphics/as.html#0">0</a> (bit 7 of <span class="register">A</span> is reset, because Sam's always facing left when he's dropped here)</td>
+<td class="comment-11" rowspan="1">Sam's new animatory state is <a href="../graphics/as.html#0">0x00</a> (bit 7 of <span class="register">A</span> is reset, because Sam's always facing left when he's dropped here)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -237,7 +237,7 @@ Sam is still being carried by a gangster or policeman. Calculate Sam's new anima
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7b28"></span>7B28</td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 4 of Sam's carrier's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x04 of Sam's carrier's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -255,13 +255,13 @@ Sam is still being carried by a gangster or policeman. Calculate Sam's new anima
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b2e"></span>7B2E</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of Sam's carrier's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of Sam's carrier's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b30"></span>7B30</td>
 <td class="instruction">LD C,$05</td>
-<td class="comment-11" rowspan="1">Animatory state <a href="../graphics/as.html#5">5</a>: Sam being carried (facing left)</td>
+<td class="comment-11" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05</a>: Sam being carried (facing left)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -291,7 +291,7 @@ Sam is still being carried by a gangster or policeman. Calculate Sam's new anima
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b39"></span>7B39</td>
 <td class="instruction">LD C,$02</td>
-<td class="comment-11" rowspan="1">Animatory state <a href="../graphics/as.html#2">2</a>: Sam standing (facing left)</td>
+<td class="comment-11" rowspan="1">Animatory state <a href="../graphics/as.html#2">0x02</a>: Sam standing (facing left)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -315,7 +315,7 @@ Sam is still being carried by a gangster or policeman. Calculate Sam's new anima
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b40"></span>7B40</td>
 <td class="instruction">SET 7,C</td>
-<td class="comment-11" rowspan="1"><span class="register">C</span>=<a href="../graphics/as.html#2">130</a> or <a href="../graphics/as.html#5">133</a> (animatory states of Sam being carried, facing right)</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=<a href="../graphics/as.html#2">0x82</a> or <a href="../graphics/as.html#5">0x85</a> (animatory states of Sam being carried, facing right)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -381,7 +381,7 @@ Sam is still being carried by a gangster or policeman. Calculate Sam's new anima
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b4d"></span>7B4D</td>
 <td class="instruction">LD H,$E6</td>
-<td class="comment-11" rowspan="1">230=Sam</td>
+<td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -422,9 +422,9 @@ Sam is still being carried by a gangster or policeman. Calculate Sam's new anima
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

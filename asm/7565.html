@@ -35,23 +35,23 @@ Used by the routine at <a href="7603.html">7603</a>.
 </tr>
 <tr>
 <td class="register">A</td>
-<td class="register-desc">2 (initial border colour)</td>
+<td class="register-desc">0x02 (initial border colour)</td>
 </tr>
 <tr>
 <td class="register">C</td>
-<td class="register-desc">144 (pitch)</td>
+<td class="register-desc">0x90 (pitch)</td>
 </tr>
 <tr>
 <td class="register">DE</td>
-<td class="register-desc">509 (duration)</td>
+<td class="register-desc">01FD (duration)</td>
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">20 (repetitions)</td>
+<td class="register-desc">0x14 (repetitions)</td>
 </tr>
 <tr>
 <td class="register">L</td>
-<td class="register-desc">6 (border XOR value)</td>
+<td class="register-desc">0x06 (border XOR value)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -90,7 +90,7 @@ Used by the routine at <a href="7603.html">7603</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="756b"></span>756B</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-11" rowspan="4">Modify the pitch for the next mini-sound effect (it is 144 for the first, and then toggles between 111 and 16 for the remainder)</td>
+<td class="comment-11" rowspan="4">Modify the pitch for the next mini-sound effect (it is 0x90 for the first, and then toggles between 0x6F and 0x10 for the remainder)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -149,9 +149,9 @@ Used by the routine at <a href="7603.html">7603</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

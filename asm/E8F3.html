@@ -92,13 +92,13 @@ This entry point is used by the routine at <a href="E70C.html">E70C</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e8fa"></span>E8FA</td>
 <td class="instruction">LD H,$D7</td>
-<td class="comment-11" rowspan="1">215 is the first character</td>
+<td class="comment-11" rowspan="1">0xD7 is the first character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e8fc"></span>E8FC</td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 4 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 0x04 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -117,7 +117,7 @@ This entry point is used by the routine at <a href="E70C.html">E70C</a> with <sp
 <span id="e900"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="6592.html">6592</a> with <span class="register">H</span>=230 (Sam), <span class="register">DE</span> holding the play area coordinates of a bullet, and the zero flag reset unless Sam's indoors.
+This entry point is used by the routine at <a href="6592.html">6592</a> with <span class="register">H</span>=0xE6 (Sam), <span class="register">DE</span> holding the play area coordinates of a bullet, and the zero flag reset unless Sam's indoors.
 </div>
 </div>
 </td>
@@ -132,7 +132,7 @@ This entry point is used by the routine at <a href="6592.html">6592</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e902"></span>E902</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -150,7 +150,7 @@ This entry point is used by the routine at <a href="6592.html">6592</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e907"></span>E907</td>
 <td class="instruction">CP $78</td>
-<td class="comment-11" rowspan="1">Is this character's animatory state &gt;= 120?</td>
+<td class="comment-11" rowspan="1">Is this character's animatory state &gt;= 0x78?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -163,7 +163,7 @@ This entry point is used by the routine at <a href="6592.html">6592</a> with <sp
 <span id="e90b"></span>
 <div class="comments">
 <div class="paragraph">
-The character's animatory state is &lt; 120, which means he has a 5x3 sprite.
+The character's animatory state is &lt; 0x78, which means he has a 5x3 sprite.
 </div>
 </div>
 </td>
@@ -172,7 +172,7 @@ The character's animatory state is &lt; 120, which means he has a 5x3 sprite.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e90b"></span>E90B</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L'</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L'</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -230,7 +230,7 @@ The character's animatory state is congruent to 0-6 mod 8, which means he has a 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e917"></span>E917</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L'</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L'</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -290,7 +290,7 @@ The character's animatory state is congruent to 0-6 mod 8, which means he has a 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e924"></span>E924</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 2 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -348,7 +348,7 @@ The character's animatory state is congruent to 7 mod 8, which means he has a sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e931"></span>E931</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L'</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L'</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -402,7 +402,7 @@ The character's animatory state is congruent to 7 mod 8, which means he has a sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e93d"></span>E93D</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 2 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -433,7 +433,7 @@ The character's animatory state is congruent to 7 mod 8, which means he has a sp
 <span id="e945"></span>
 <div class="comments">
 <div class="paragraph">
-The character's animatory state is &gt;= 120, which means he has a sprite with 2 rows and 2 columns. Check whether any part of the sprite impinges on the tile at (X,Y).
+The character's animatory state is &gt;= 0x78, which means he has a sprite with 2 rows and 2 columns. Check whether any part of the sprite impinges on the tile at (X,Y).
 </div>
 </div>
 </td>
@@ -442,7 +442,7 @@ The character's animatory state is &gt;= 120, which means he has a sprite with 2
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e945"></span>E945</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 1 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -472,7 +472,7 @@ The character's animatory state is &gt;= 120, which means he has a sprite with 2
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e94d"></span>E94D</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L'</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L'</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -508,7 +508,7 @@ The character's animatory state is &gt;= 120, which means he has a sprite with 2
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e956"></span>E956</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 2 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -550,7 +550,7 @@ The character's animatory state is &gt;= 120, which means he has a sprite with 2
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e960"></span>E960</td>
 <td class="instruction">CP $E7</td>
-<td class="comment-11" rowspan="1">Have we done all the characters (215-230)?</td>
+<td class="comment-11" rowspan="1">Have we done all the characters (0xD7-0xE6)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -590,7 +590,7 @@ The character's sprite impinges on the tile at coordinates (X,Y).
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e967"></span>E967</td>
 <td class="instruction">ADD A,$D7</td>
-<td class="comment-11" rowspan="1">215&lt;=<span class="register">A</span>&lt;=229</td>
+<td class="comment-11" rowspan="1">0xD7&lt;=<span class="register">A</span>&lt;=0xE5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -602,7 +602,7 @@ The character's sprite impinges on the tile at coordinates (X,Y).
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e96a"></span>E96A</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-11" rowspan="1">215&lt;=<span class="register">H</span>&lt;=229</td>
+<td class="comment-11" rowspan="1">0xD7&lt;=<span class="register">H</span>&lt;=0xE5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -614,7 +614,7 @@ The character's sprite impinges on the tile at coordinates (X,Y).
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e96c"></span>E96C</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -650,7 +650,7 @@ The character's sprite impinges on the tile at coordinates (X,Y).
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e976"></span>E976</td>
 <td class="instruction">OR $80</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>&gt;=129</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>&gt;=0x81</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -662,13 +662,13 @@ The character's sprite impinges on the tile at coordinates (X,Y).
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e979"></span>E979</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>&gt;=129, 215&lt;=<span class="register">H</span>&lt;=229</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>&gt;=0x81, 0xD7&lt;=<span class="register">H</span>&lt;=0xE5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e97a"></span>E97A</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=sprite tile reference (0-214, 217-255)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=sprite tile reference (0x00-0xD6, 0xD9-0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -699,7 +699,7 @@ The character's sprite impinges on the tile at coordinates (X,Y).
 <span id="e980"></span>
 <div class="comments">
 <div class="paragraph">
-A tile of this character's sprite needs to be printed at (X,Y). The apparent intention of the next section of code is to treat animatory states <a href="../graphics/as.html#120">120-127/248-255</a> (used only by the hook) specially, but the next instruction copies <span class="register">L'</span> (which holds 0) instead of <span class="register">L</span> (which holds the adjusted animatory state) into <span class="register">A</span>.
+A tile of this character's sprite needs to be printed at (X,Y). The apparent intention of the next section of code is to treat animatory states <a href="../graphics/as.html#120">0x78-0x7F/0xF8-0xFF</a> (used only by the hook) specially, but the next instruction copies <span class="register">L'</span> (which holds 0) instead of <span class="register">L</span> (which holds the adjusted animatory state) into <span class="register">A</span>.
 </div>
 </div>
 </td>
@@ -916,7 +916,7 @@ The character is facing right, so we need to flip the tile.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e9a9"></span>E9A9</td>
 <td class="instruction">LD B,$7E</td>
-<td class="comment-11" rowspan="1">The table of mirror bytes is in <a href="7E00.html">page 126</a></td>
+<td class="comment-11" rowspan="1">The table of mirror bytes is in <a href="7E00.html">page 0x7E</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -1029,9 +1029,9 @@ The character is facing right, so we need to flip the tile.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -35,7 +35,7 @@ Used by the command lists at <a href="FDA0.html">FDA0</a>, <a href="FDB4.html">F
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the command lists at <a href="FDA0.html">FDA0</a>, <a href="FDB4.html">F
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f820"></span>F820</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2">Set the door identifier in byte 11 of the character's buffer to 168 (which corresponds to no door, meaning the character will not be on door duty)</td>
+<td class="comment-11" rowspan="2">Set the door identifier in byte 0x0B of the character's buffer to 0xA8 (which corresponds to no door, meaning the character will not be on door duty)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -62,7 +62,7 @@ Used by the command lists at <a href="FDA0.html">FDA0</a>, <a href="FDB4.html">F
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f824"></span>F824</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Set the walkabout duration counter in byte 12 of the character's buffer to 255 (meaning the character will walk up and down for a finite period instead of indefinitely)</td>
+<td class="comment-11" rowspan="2">Set the walkabout duration counter in byte 0x0C of the character's buffer to 0xFF (meaning the character will walk up and down for a finite period instead of indefinitely)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -85,9 +85,9 @@ Used by the command lists at <a href="FDA0.html">FDA0</a>, <a href="FDB4.html">F
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

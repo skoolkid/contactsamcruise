@@ -35,7 +35,7 @@ The address of this routine is found in the table of keypress handling routines 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">230 (Sam)</td>
+<td class="register-desc">0xE6 (Sam)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -98,7 +98,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="770a"></span>770A</td>
 <td class="instruction">CCF</td>
-<td class="comment-11" rowspan="3"><span class="register">A</span>=128 if the phone is ringing, 0 otherwise</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=0x80 if the phone is ringing, 0x00 otherwise</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -198,14 +198,14 @@ Sam has picked up a telephone that is ringing.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7725"></span>7725</td>
 <td class="instruction">LD A,$29</td>
-<td class="comment-11" rowspan="1">Message <a href="69F9.html">41</a>: 'I LIFTED THE PHONE '</td>
+<td class="comment-11" rowspan="1">Message <a href="69F9.html">0x29</a>: 'I LIFTED THE PHONE '</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="7727"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the unused routine at <a href="7A34.html">7A34</a> with <span class="register">A</span>=<a href="69E9.html">39</a>: 'I HUNG UP'.
+This entry point is used by the unused routine at <a href="7A34.html">7A34</a> with <span class="register">A</span>=<a href="69E9.html">0x27</a>: 'I HUNG UP'.
 </div>
 </div>
 </td>
@@ -230,7 +230,7 @@ This entry point is used by the routine at <a href="F1E3.html">F1E3</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="772a"></span>772A</td>
 <td class="instruction">LD H,$E6</td>
-<td class="comment-11" rowspan="1">230=Sam</td>
+<td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -247,9 +247,9 @@ This entry point is used by the routine at <a href="F1E3.html">F1E3</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

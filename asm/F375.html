@@ -35,11 +35,11 @@ Continues from the routine at <a href="F346.html">F346</a>. Lowers the character
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 <tr>
 <td class="register">L</td>
-<td class="register-desc">16</td>
+<td class="register-desc">0x10</td>
 </tr>
 </table>
 <table class="output-0">
@@ -54,13 +54,13 @@ Continues from the routine at <a href="F346.html">F346</a>. Lowers the character
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f375"></span>F375</td>
 <td class="instruction">LD (HL),$14</td>
-<td class="comment-11" rowspan="1">Initialise the counter in byte 16 of the character's buffer to 20; this determines how long a policeman will keep knocking before busting the door open</td>
+<td class="comment-11" rowspan="1">Initialise the counter in byte 0x10 of the character's buffer to 0x14; this determines how long a policeman will keep knocking before busting the door open</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f377"></span>F377</td>
 <td class="instruction">LD L,$0E</td>
-<td class="comment-11" rowspan="2">Change the address of the interruptible subcommand routine in bytes 14 and 15 of the character's buffer to <a href="F383.html">F383</a></td>
+<td class="comment-11" rowspan="2">Change the address of the interruptible subcommand routine in bytes 0x0E and 0x0F of the character's buffer to <a href="F383.html">F383</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -105,9 +105,9 @@ This entry point is used by the routines at <a href="F346.html">F346</a>, <a hre
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -39,7 +39,7 @@ Used by the routine at <a href="ED8C.html">ED8C</a>. The character in question i
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-230)</td>
+<td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -54,7 +54,7 @@ Used by the routine at <a href="ED8C.html">ED8C</a>. The character in question i
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f905"></span>F905</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -90,7 +90,7 @@ Used by the routine at <a href="ED8C.html">ED8C</a>. The character in question i
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f90e"></span>F90E</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -102,7 +102,7 @@ Used by the routine at <a href="ED8C.html">ED8C</a>. The character in question i
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f911"></span>F911</td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -158,7 +158,7 @@ The character is either standing at the doorway of the shop at the far left of t
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f917"></span>F917</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -170,7 +170,7 @@ The character is either standing at the doorway of the shop at the far left of t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f919"></span>F919</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -205,9 +205,9 @@ The character is either standing at the doorway of the shop at the far left of t
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

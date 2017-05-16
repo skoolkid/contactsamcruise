@@ -35,7 +35,7 @@ Used by the routine at <a href="7377.html">7377</a>. Returns with the carry flag
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">222 or 223 (policeman)</td>
+<td class="register-desc">0xDE or 0xDF (policeman)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -80,7 +80,7 @@ Used by the routine at <a href="7377.html">7377</a>. Returns with the carry flag
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7229"></span>7229</td>
 <td class="instruction">LD H,$E6</td>
-<td class="comment-11" rowspan="1">230=Sam</td>
+<td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -342,7 +342,7 @@ Now <span class="register">B</span>=6 (if Sam is visible to passers-by), or 4 (i
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7268"></span>7268</td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 29 of the policeman's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x1D of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -394,7 +394,7 @@ Sam has been spotted by the policeman, but he's wearing a disguise that is not (
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7273"></span>7273</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up byte 29 of the policeman's buffer</td>
+<td class="comment-11" rowspan="1">Pick up byte 0x1D of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -412,7 +412,7 @@ Sam has been spotted by the policeman, but he's wearing a disguise that is not (
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7278"></span>7278</td>
 <td class="instruction">LD A,$10</td>
-<td class="comment-11" rowspan="1">The disguise timeout counter will be initialised to 16</td>
+<td class="comment-11" rowspan="1">The disguise timeout counter will be initialised to 0x10</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -424,13 +424,13 @@ Sam has been spotted by the policeman, but he's wearing a disguise that is not (
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="727b"></span>727B</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Copy the disguise identifier bits and the timeout counter into byte 29 of the policeman's buffer</td>
+<td class="comment-11" rowspan="1">Copy the disguise identifier bits and the timeout counter into byte 0x1D of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="727c"></span>727C</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=30</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x1E</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -442,13 +442,13 @@ Sam has been spotted by the policeman, but he's wearing a disguise that is not (
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7280"></span>7280</td>
 <td class="instruction">LD (HL),E</td>
-<td class="comment-11" rowspan="1">Copy Sam's x-coordinate into byte 30 of the policeman's buffer</td>
+<td class="comment-11" rowspan="1">Copy Sam's x-coordinate into byte 0x1E of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7281"></span>7281</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=31</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x1F</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -460,7 +460,7 @@ Sam has been spotted by the policeman, but he's wearing a disguise that is not (
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7284"></span>7284</td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=0 if z=4, 128 (bit 7 set) if z=2, or 64 (bit 6 set) if z=1</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=0x00 if z=4, 0x80 (bit 7 set) if z=2, or 0x40 (bit 6 set) if z=1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -478,7 +478,7 @@ Sam has been spotted by the policeman, but he's wearing a disguise that is not (
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7287"></span>7287</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Copy this value into byte 31 of the policeman's buffer</td>
+<td class="comment-11" rowspan="1">Copy this value into byte 0x1F of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -506,7 +506,7 @@ Sam has been spotted by the policeman, and his current disguise (if any) is know
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="728a"></span>728A</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Collect byte 29 of the policeman's buffer</td>
+<td class="comment-11" rowspan="1">Collect byte 0x1D of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -547,9 +547,9 @@ Sam has been spotted by the policeman, and his current disguise (if any) is know
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

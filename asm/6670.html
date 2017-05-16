@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="621E.html">621E</a>. Updates the sprite tile references for animatory states <a href="../graphics/as.html#54">54/182</a>. On entry, the carry flag is set if the sniper is firing, in which case a new bullet will be initialised.
+Used by the routine at <a href="621E.html">621E</a>. Updates the sprite tile references for animatory states <a href="../graphics/as.html#54">0x36/0xB6</a>. On entry, the carry flag is set if the sniper is firing, in which case a new bullet will be initialised.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by the routine at <a href="621E.html">621E</a>. Updates the sprite tile ref
 </tr>
 <tr>
 <td class="register">A</td>
-<td class="register-desc">Sniper's animatory state (<a href="../graphics/as.html#54">54/182</a>)</td>
+<td class="register-desc">Sniper's animatory state (<a href="../graphics/as.html#54">0x36/0xB6</a>)</td>
 </tr>
 <tr>
 <td class="register">D</td>
@@ -47,7 +47,7 @@ Used by the routine at <a href="621E.html">621E</a>. Updates the sprite tile ref
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">227 (sniper)</td>
+<td class="register-desc">0xE3 (sniper)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -123,7 +123,7 @@ Used by the routine at <a href="621E.html">621E</a>. Updates the sprite tile ref
 <span id="667d"></span>
 <div class="comments">
 <div class="paragraph">
-The next section of code modifies the sprite tile references for animatory states <a href="../graphics/as.html#54">54/182</a> column by column.
+The next section of code modifies the sprite tile references for animatory states <a href="../graphics/as.html#54">0x36/0xB6</a> column by column.
 </div>
 </div>
 </td>
@@ -132,7 +132,7 @@ The next section of code modifies the sprite tile references for animatory state
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="667d"></span>667D</td>
 <td class="instruction">LD H,$D7</td>
-<td class="comment-11" rowspan="1">215 is the base page for sprite tile references</td>
+<td class="comment-11" rowspan="1">0xD7 is the base page for sprite tile references</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -144,7 +144,7 @@ The next section of code modifies the sprite tile references for animatory state
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6680"></span>6680</td>
 <td class="instruction">LD L,$A2</td>
-<td class="comment-11" rowspan="1">Animatory state <a href="../graphics/as.html#34">162</a> (gangster) will be used as a template for the sniper's sprite</td>
+<td class="comment-11" rowspan="1">Animatory state <a href="../graphics/as.html#34">0xA2</a> (gangster) will be used as a template for the sniper's sprite</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -256,7 +256,7 @@ The sniper is firing, so some further modifications to the sniper's sprite are r
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6699"></span>6699</td>
 <td class="instruction">LD H,$D9</td>
-<td class="comment-11" rowspan="2">Set the reference for tile 2 to 234</td>
+<td class="comment-11" rowspan="2">Set the reference for tile 2 to 0xEA</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -268,7 +268,7 @@ The sniper is firing, so some further modifications to the sniper's sprite are r
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="669d"></span>669D</td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="2">Set the reference for tile 3 to 0 (blank tile)</td>
+<td class="comment-11" rowspan="2">Set the reference for tile 3 to 0x00 (blank tile)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -280,7 +280,7 @@ The sniper is firing, so some further modifications to the sniper's sprite are r
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="66a0"></span>66A0</td>
 <td class="instruction">LD H,$DE</td>
-<td class="comment-11" rowspan="2">Set the reference for tile 7 to 235</td>
+<td class="comment-11" rowspan="2">Set the reference for tile 7 to 0xEB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -529,9 +529,9 @@ Now we initialise a bullet.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

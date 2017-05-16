@@ -35,11 +35,11 @@ Used by the routines at <a href="F404.html">F404</a> and <a href="F485.html">F48
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">185-189 (corresponding to the 5th, 4th, 3rd, 2nd or 1st floor)</td>
+<td class="register-desc">0xB9-0xBD (corresponding to the 5th, 4th, 3rd, 2nd or 1st floor)</td>
 </tr>
 <tr>
 <td class="register">L</td>
-<td class="register-desc">0-31 or 64-95 (corresponding to the x-coordinate of the window)</td>
+<td class="register-desc">0x00-0x1F or 0x40-0x5F (corresponding to the x-coordinate of the window)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -222,7 +222,7 @@ Used by the routines at <a href="F404.html">F404</a> and <a href="F485.html">F48
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3c5"></span>F3C5</td>
 <td class="instruction">LD C,$80</td>
-<td class="comment-11" rowspan="1"><span class="register">C</span>=128 (10000000)</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=0x80 (10000000)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -310,7 +310,7 @@ The following loop examines the 8x6 block of tiles that contains the window and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3d8"></span>F3D8</td>
 <td class="instruction">AND C</td>
-<td class="comment-11" rowspan="1">Set the zero flag if we should use the T values in pages 160, 162, 164, 166, 168 and 170</td>
+<td class="comment-11" rowspan="1">Set the zero flag if we should use the T values in pages 0xA0, 0xA2, 0xA4, 0xA6, 0xA8 and 0xAA</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -334,19 +334,19 @@ The following loop examines the 8x6 block of tiles that contains the window and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3dc"></span>F3DC</td>
 <td class="instruction">LD H,$A0</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the T value in page 160</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the T value in page 0xA0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3de"></span>F3DE</td>
 <td class="instruction">JR Z,$F3E2</td>
-<td class="comment-11" rowspan="1">Jump unless we should use the T values in pages 172, 174, 176, 178, 180 and 182</td>
+<td class="comment-11" rowspan="1">Jump unless we should use the T values in pages 0xAC, 0xAE, 0xB0, 0xB2, 0xB4 and 0xB6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3e0"></span>F3E0</td>
 <td class="instruction">LD H,$AC</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the T value in page 172</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the T value in page 0xAC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -400,7 +400,7 @@ The following loop examines the 8x6 block of tiles that contains the window and 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f3ee"></span>F3EE</td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the next T value (in page 162, 164, 166, 168, 170, 174, 176, 178, 180 or 182)</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the next T value (in page 0xA2, 0xA4, 0xA6, 0xA8, 0xAA, 0xAE, 0xB0, 0xB2, 0xB4 or 0xB6)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -460,7 +460,7 @@ The following loop examines the 8x6 block of tiles that contains the window and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3fb"></span>F3FB</td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the Z'' value for the next column of tiles to the right (in page 185-191)</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the Z'' value for the next column of tiles to the right (in page 0xB9-0xBF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -489,9 +489,9 @@ The following loop examines the 8x6 block of tiles that contains the window and 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

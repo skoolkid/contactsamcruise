@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="7C40.html">7C40</a>. Returns with <span class="register">A</span>=255 if the character's z-coordinate is 2 or 4, and his y-coordinate is less than 31 (meaning he is on the fire escape of the apartment building next to no. 19, or falling from the roof of a building); with <span class="register">A</span>=0 if he's on the sidewalk or the road; or with certain bits of <span class="register">A</span> set or reset depending on the location:
+Used by the routine at <a href="7C40.html">7C40</a>. Returns with <span class="register">A</span>=0xFF if the character's z-coordinate is 2 or 4, and his y-coordinate is less than 31 (meaning he is on the fire escape of the apartment building next to no. 19, or falling from the roof of a building); with <span class="register">A</span>=0x00 if he's on the sidewalk or the road; or with certain bits of <span class="register">A</span> set or reset depending on the location:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -150,7 +150,7 @@ In addition, on return <span class="register">E</span> holds the x-coordinate of
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-230)</td>
+<td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -229,7 +229,7 @@ This entry point is used by the routine at <a href="7190.html">7190</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ed43"></span>ED43</td>
 <td class="instruction">CP $1F</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=255 if the y-coordinate is less than 31, 0 otherwise</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=0xFF if the y-coordinate is less than 31, 0x00 otherwise</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -241,7 +241,7 @@ This entry point is used by the routine at <a href="7190.html">7190</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ed46"></span>ED46</td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return with <span class="register">A</span>=255 if the y-coordinate is less than 31, and the z-coordinate is 2 or 4</td>
+<td class="comment-11" rowspan="1">Return with <span class="register">A</span>=0xFF if the y-coordinate is less than 31, and the z-coordinate is 2 or 4</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -291,7 +291,7 @@ At this point we have determined that the character is on the front steps of or 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ed4e"></span>ED4E</td>
 <td class="instruction">LD A,$25</td>
-<td class="comment-11" rowspan="6"><span class="register">L</span>=10 (if 31&lt;<span class="register">D</span>), 11 (25&lt;<span class="register">D</span>&lt;=31), 12 (19&lt;<span class="register">D</span>&lt;=25), 13 (13&lt;<span class="register">D</span>&lt;=19), 14 (7&lt;<span class="register">D</span>&lt;=13) or 15 (1&lt;<span class="register">D</span>&lt;=7)</td>
+<td class="comment-11" rowspan="6"><span class="register">L</span>=0x0A (if 31&lt;<span class="register">D</span>), 0x0B (25&lt;<span class="register">D</span>&lt;=31), 0x0C (19&lt;<span class="register">D</span>&lt;=25), 0x0D (13&lt;<span class="register">D</span>&lt;=19), 0x0E (7&lt;<span class="register">D</span>&lt;=13) or 0x0F (1&lt;<span class="register">D</span>&lt;=7)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -345,7 +345,7 @@ At this point we have determined that the character is on the front steps of or 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ed5c"></span>ED5C</td>
 <td class="instruction">LD H,$EF</td>
-<td class="comment-11" rowspan="1">The region identifier tables are in page 239</td>
+<td class="comment-11" rowspan="1">The region identifier tables are in page 0xEF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -435,7 +435,7 @@ At this point we have determined that the character is on the front steps of or 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ed6d"></span>ED6D</td>
 <td class="instruction">CP $50</td>
-<td class="comment-11" rowspan="1">Is the second byte of the entry less than 80?</td>
+<td class="comment-11" rowspan="1">Is the second byte of the entry less than 0x50?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -448,7 +448,7 @@ At this point we have determined that the character is on the front steps of or 
 <span id="ed71"></span>
 <div class="comments">
 <div class="paragraph">
-The second byte of the entry is less than 80, which is true only for the four entries in the region identifier table at <a href="EF0A.html#ef10">EF10</a> that correspond to the shops.
+The second byte of the entry is less than 0x50, which is true only for the four entries in the region identifier table at <a href="EF0A.html#ef10">EF10</a> that correspond to the shops.
 </div>
 </div>
 </td>
@@ -500,7 +500,7 @@ The second byte of the entry is less than 80, which is true only for the four en
 <span id="ed7a"></span>
 <div class="comments">
 <div class="paragraph">
-The second byte of the entry (held in <span class="register">A</span>) is at least 80, which means it corresponds to a location other than one of the four shops.
+The second byte of the entry (held in <span class="register">A</span>) is at least 0x50, which means it corresponds to a location other than one of the four shops.
 </div>
 </div>
 </td>
@@ -586,9 +586,9 @@ The second byte of the entry (held in <span class="register">A</span>) is at lea
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

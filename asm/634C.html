@@ -35,7 +35,7 @@ Used by the command list at <a href="FD78.html">FD78</a>. Calculates and sets th
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">228 or 229 (banknote)</td>
+<td class="register-desc">0xE4 or 0xE5 (banknote)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -112,7 +112,7 @@ This entry point is used by the command list at <a href="FD76.html">FD76</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="635a"></span>635A</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="2">Collect byte 10 of the banknote's buffer</td>
+<td class="comment-11" rowspan="2">Collect byte 0x0A of the banknote's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -130,7 +130,7 @@ This entry point is used by the command list at <a href="FD76.html">FD76</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="635e"></span>635E</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-11" rowspan="1">Set byte 10 to zero</td>
+<td class="comment-11" rowspan="1">Set byte 0x0A to zero</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -152,7 +152,7 @@ First we check whether the banknote is far off-screen to the left or right.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6362"></span>6362</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the banknote's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the banknote's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -252,13 +252,13 @@ The banknote is off-screen to the left by at least 12 x-coordinates, or it's off
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6381"></span>6381</td>
 <td class="instruction">SBC A,A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=255</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0xFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6382"></span>6382</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=255 (if X&lt;=8) or X-11</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=0xFF (if X&lt;=8) or X-11</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -310,7 +310,7 @@ The banknote is on-screen or not far off it. Now we calculate the banknote's nex
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="638f"></span>638F</td>
 <td class="instruction">ADD A,$3E</td>
-<td class="comment-11" rowspan="2"><span class="register">B</span>=<a href="../graphics/as.html#62">62</a>, <a href="../graphics/as.html#70">70</a>, <a href="../graphics/as.html#190">190</a>, or <a href="../graphics/as.html#198">198</a> (banknote animatory states)</td>
+<td class="comment-11" rowspan="2"><span class="register">B</span>=<a href="../graphics/as.html#62">0x3E</a>, <a href="../graphics/as.html#70">0x46</a>, <a href="../graphics/as.html#190">0xBE</a>, or <a href="../graphics/as.html#198">0xC6</a> (banknote animatory states)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -553,9 +553,9 @@ At this point <span class="register">B</span> holds the banknote's next animator
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

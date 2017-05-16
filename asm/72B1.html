@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this primary command routine is placed into bytes 8 and 9 of a policeman's buffer by the routine at <a href="72AA.html">72AA</a>. It makes the policeman continue patrol duty, and chase and pick up Sam when appropriate.
+The address of this primary command routine is placed into bytes 0x08 and 0x09 of a policeman's buffer by the routine at <a href="72AA.html">72AA</a>. It makes the policeman continue patrol duty, and chase and pick up Sam when appropriate.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this primary command routine is placed into bytes 8 and 9 of a po
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">222 or 223 (policeman)</td>
+<td class="register-desc">0xDE or 0xDF (policeman)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -74,7 +74,7 @@ The address of this primary command routine is placed into bytes 8 and 9 of a po
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72ba"></span>72BA</td>
 <td class="instruction">LD L,$08</td>
-<td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 8 and 9 of the policeman's buffer to <a href="72B1.html#72be">72BE</a> (below)</td>
+<td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 0x08 and 0x09 of the policeman's buffer to <a href="72B1.html#72be">72BE</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -120,7 +120,7 @@ This entry point is used when the policeman is not chasing Sam.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72c7"></span>72C7</td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="2">Clear any disguise identifier and timeout counter in byte 29 of the policeman's buffer</td>
+<td class="comment-11" rowspan="2">Clear any disguise identifier and timeout counter in byte 0x1D of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -132,7 +132,7 @@ This entry point is used when the policeman is not chasing Sam.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72cb"></span>72CB</td>
 <td class="instruction">LD L,$03</td>
-<td class="comment-11" rowspan="2">Reset bit 7 of byte 3 of the policeman's buffer (no need to run if Sam's not wanted by the police)</td>
+<td class="comment-11" rowspan="2">Reset bit 7 of byte 0x03 of the policeman's buffer (no need to run if Sam's not wanted by the police)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -144,7 +144,7 @@ This entry point is used when the policeman is not chasing Sam.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72cf"></span>72CF</td>
 <td class="instruction">LD L,$08</td>
-<td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 8 and 9 of the policeman's buffer to <a href="72B1.html">72B1</a></td>
+<td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 0x08 and 0x09 of the policeman's buffer to <a href="72B1.html">72B1</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -214,7 +214,7 @@ Sam is wanted by the police.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72e2"></span>72E2</td>
 <td class="instruction">LD BC,$0003</td>
-<td class="comment-11" rowspan="5">Copy the coordinates and location identifier of the spot to which the police should be heading to get Sam into byte 10-12 of the policeman's buffer, thus making it his destination</td>
+<td class="comment-11" rowspan="5">Copy the coordinates and location identifier of the spot to which the police should be heading to get Sam into byte 0x0A-0x0C of the policeman's buffer, thus making it his destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -244,7 +244,7 @@ Sam is wanted by the police.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="72eb"></span>72EB</td>
 <td class="instruction">LD L,$03</td>
-<td class="comment-11" rowspan="2">Set bit 7 of byte 3 of the policeman's buffer (to make him run)</td>
+<td class="comment-11" rowspan="2">Set bit 7 of byte 0x03 of the policeman's buffer (to make him run)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -256,7 +256,7 @@ Sam is wanted by the police.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72ef"></span>72EF</td>
 <td class="instruction">LD L,$08</td>
-<td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 8 and 9 of the policeman's buffer to <a href="72B1.html#72f5">72F5</a> (below)</td>
+<td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 0x08 and 0x09 of the policeman's buffer to <a href="72B1.html#72f5">72F5</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -308,7 +308,7 @@ This entry point is used when the policeman is chasing Sam or heading to his las
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72fe"></span>72FE</td>
 <td class="instruction">ADD A,$A0</td>
-<td class="comment-11" rowspan="2"><span class="register">B</span>=160-167</td>
+<td class="comment-11" rowspan="2"><span class="register">B</span>=0xA0-0xA7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -326,7 +326,7 @@ This entry point is used when the policeman is chasing Sam or heading to his las
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7302"></span>7302</td>
 <td class="instruction">LD C,$15</td>
-<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 21 of one of the pages 160-167, which hold the values 128, 64, 32, 16, 8, 4, 2 and 1</td>
+<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 0x15 of one of the pages 0xA0-0xA7, which hold the values 0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02 and 0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -386,7 +386,7 @@ This entry point is used when the policeman is chasing Sam or heading to his las
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7315"></span>7315</td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="2">Clear any disguise ID and timeout counter in byte 29 of the policeman's buffer</td>
+<td class="comment-11" rowspan="2">Clear any disguise ID and timeout counter in byte 0x1D of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -482,7 +482,7 @@ The policeman has reached his destination.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7330"></span>7330</td>
 <td class="instruction">LD L,$08</td>
-<td class="comment-11" rowspan="2">Collect the LSB of the primary command routine address from byte 8 of the policeman's buffer</td>
+<td class="comment-11" rowspan="2">Collect the LSB of the primary command routine address from byte 0x08 of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -530,7 +530,7 @@ The policeman has reached his destination.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="733e"></span>733E</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the policeman's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -542,7 +542,7 @@ The policeman has reached his destination.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7341"></span>7341</td>
 <td class="instruction">DEC DE</td>
-<td class="comment-11" rowspan="1"><span class="register">DE</span>=32731</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=7FDB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -554,7 +554,7 @@ The policeman has reached his destination.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7344"></span>7344</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -590,7 +590,7 @@ The policeman has reached his destination.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="734b"></span>734B</td>
 <td class="instruction">LD L,$03</td>
-<td class="comment-11" rowspan="2">Reset bit 7 of byte 3 of the policeman's buffer (to make him stop running)</td>
+<td class="comment-11" rowspan="2">Reset bit 7 of byte 0x03 of the policeman's buffer (to make him stop running)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -602,7 +602,7 @@ The policeman has reached his destination.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="734f"></span>734F</td>
 <td class="instruction">LD L,$08</td>
-<td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 8 and 9 of the policeman's buffer to <a href="72B1.html#72be">72BE</a> (above)</td>
+<td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 0x08 and 0x09 of the policeman's buffer to <a href="72B1.html#72be">72BE</a> (above)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -620,7 +620,7 @@ The policeman has reached his destination.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7355"></span>7355</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="4">Copy the coordinates and location identifier of the spot to which the police should run to get Sam from <a href="7FDB.html">7FDB</a> into bytes 10-12 of the policeman's buffer, thus making it his destination</td>
+<td class="comment-11" rowspan="4">Copy the coordinates and location identifier of the spot to which the police should run to get Sam from <a href="7FDB.html">7FDB</a> into bytes 0x0A-0x0C of the policeman's buffer, thus making it his destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -672,7 +672,7 @@ This entry point is used by the routine at <a href="72AA.html">72AA</a>. It sets
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7363"></span>7363</td>
 <td class="instruction">OR $00</td>
-<td class="comment-11" rowspan="1">The operand of this OR instruction is changed by the routine at <a href="7500.html">7500</a>: to 0 (using the event entry at <a href="5FE0.html">5FE0</a>), or to 192 (using the event entry at <a href="5FE0.html#6097">6097</a>) to keep the policeman close to Sam's office</td>
+<td class="comment-11" rowspan="1">The operand of this OR instruction is changed by the routine at <a href="7500.html">7500</a>: to 0x00 (using the event entry at <a href="5FE0.html">5FE0</a>), or to 0xC0 (using the event entry at <a href="5FE0.html#6097">6097</a>) to keep the policeman close to Sam's office</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -737,9 +737,9 @@ This entry point is used by the routine at <a href="72AA.html">72AA</a>. It sets
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

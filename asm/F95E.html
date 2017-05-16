@@ -35,7 +35,7 @@ Continues from the routine at <a href="FADA.html">FADA</a>. Replaces certain spr
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">230 (Sam)</td>
+<td class="register-desc">0xE6 (Sam)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Continues from the routine at <a href="FADA.html">FADA</a>. Replaces certain spr
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f95e"></span>F95E</td>
 <td class="instruction">LD L,$08</td>
-<td class="comment-11" rowspan="2">Set Sam's main action timer (in byte 8 of his buffer) to 8</td>
+<td class="comment-11" rowspan="2">Set Sam's main action timer (in byte 0x08 of his buffer) to 8</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -210,7 +210,7 @@ This entry point is used by the routine at <a href="790D.html">790D</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f985"></span>F985</td>
 <td class="instruction">CP $7E</td>
-<td class="comment-11" rowspan="1">Set the carry flag if the tile reference is &lt; 126</td>
+<td class="comment-11" rowspan="1">Set the carry flag if the tile reference is &lt; 0x7E</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -222,14 +222,14 @@ This entry point is used by the routine at <a href="790D.html">790D</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f988"></span>F988</td>
 <td class="instruction">JR NC,$F99C</td>
-<td class="comment-11" rowspan="1">Jump if we're dealing with a tile reference &gt;= 126</td>
+<td class="comment-11" rowspan="1">Jump if we're dealing with a tile reference &gt;= 0x7E</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="f98a"></span>
 <div class="comments">
 <div class="paragraph">
-We're dealing with a replacement tile (of Sam in disguise) whose reference is &lt; 126. The graphic data for such tiles is arranged in 8 pairs (graphic byte, mask byte) in bytes 80-125 across pages 223-230.
+We're dealing with a replacement tile (of Sam in disguise) whose reference is &lt; 0x7E. The graphic data for such tiles is arranged in 8 pairs (graphic byte, mask byte) in bytes 0x50-0x7D across pages 0xDF-0xE6.
 </div>
 </div>
 </td>
@@ -323,7 +323,7 @@ We're dealing with a replacement tile (of Sam in disguise) whose reference is &l
 <span id="f99c"></span>
 <div class="comments">
 <div class="paragraph">
-We're dealing with a replacement tile whose reference is &gt;= 126. The graphic data for such tiles is arranged in groups of 16 (8 pairs of graphic bytes and mask bytes) across pages 215-230.
+We're dealing with a replacement tile whose reference is &gt;= 0x7E. The graphic data for such tiles is arranged in groups of 16 (8 pairs of graphic bytes and mask bytes) across pages 0xD7-0xE6.
 </div>
 </div>
 </td>
@@ -402,13 +402,13 @@ Now we can draw Sam's disguise in the bottom right of the screen.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f9aa"></span>F9AA</td>
 <td class="instruction">LD HL,$D782</td>
-<td class="comment-11" rowspan="1">This is the address of the tile reference for the top-left tile in Sam's sprite (animatory state <a href="../graphics/as.html#0">0</a>)</td>
+<td class="comment-11" rowspan="1">This is the address of the tile reference for the top-left tile in Sam's sprite (animatory state <a href="../graphics/as.html#0">0x00</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ad"></span>F9AD</td>
 <td class="instruction">LD DE,$50BD</td>
-<td class="comment-11" rowspan="1">20669 is the display file address for the leftmost byte in the top row of pixels of Sam's disguise in the bottom right of the screen</td>
+<td class="comment-11" rowspan="1">50BD is the display file address for the leftmost byte in the top row of pixels of Sam's disguise in the bottom right of the screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -563,9 +563,9 @@ Now we can draw Sam's disguise in the bottom right of the screen.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

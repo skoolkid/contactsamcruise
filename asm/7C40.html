@@ -35,7 +35,7 @@ Used by the routine at <a href="ED8C.html">ED8C</a>. Checks whether a character 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-230)</td>
+<td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -84,7 +84,7 @@ The character is on the sidewalk or the road.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c47"></span>7C47</td>
 <td class="instruction">LD L,$0C</td>
-<td class="comment-11" rowspan="2">Collect the character's destination location identifier from byte 12 of his buffer</td>
+<td class="comment-11" rowspan="2">Collect the character's destination location identifier from byte 0x0C of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -136,7 +136,7 @@ The character is on the sidewalk or road, and destined for somewhere inside or o
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c53"></span>7C53</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 10 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x0A of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -184,7 +184,7 @@ The character is on the sidewalk or road, and destined for somewhere inside or o
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c60"></span>7C60</td>
 <td class="instruction">LD A,$58</td>
-<td class="comment-11" rowspan="1">88 is the x-coordinate of the rightmost front doorstep of the hotel</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the rightmost front doorstep of the hotel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -196,7 +196,7 @@ The character is on the sidewalk or road, and destined for somewhere inside or o
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c64"></span>7C64</td>
 <td class="instruction">LD A,$43</td>
-<td class="comment-11" rowspan="1">67 is the x-coordinate of the leftmost front doorstep of the hotel</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the leftmost front doorstep of the hotel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -208,13 +208,13 @@ The character is on the sidewalk or road, and destined for somewhere inside or o
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c69"></span>7C69</td>
 <td class="instruction">LD (BC),A</td>
-<td class="comment-11" rowspan="1">Set the first byte to 67 or 88</td>
+<td class="comment-11" rowspan="1">Set the first byte to 0x43 or 0x58</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c6a"></span>7C6A</td>
 <td class="instruction">ADD A,$02</td>
-<td class="comment-11" rowspan="3">Set the second byte of the entry to 69 or 90</td>
+<td class="comment-11" rowspan="3">Set the second byte of the entry to 0x45 or 0x5A</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -254,7 +254,7 @@ The character is not on the sidewalk or the road.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7c70"></span>7C70</td>
 <td class="instruction">CP $95</td>
-<td class="comment-11" rowspan="1">If the character's location identifier is at least 149, then he's not on the first floor or the front steps of the hotel</td>
+<td class="comment-11" rowspan="1">If the character's location identifier is at least 0x95, then he's not on the first floor or the front steps of the hotel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -306,7 +306,7 @@ The character is on the first floor of the hotel.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c7e"></span>7C7E</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 10 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x0A of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -354,7 +354,7 @@ The character is on the first floor of the hotel.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c8b"></span>7C8B</td>
 <td class="instruction">LD D,$51</td>
-<td class="comment-11" rowspan="1">81 is the x-coordinate of the right-hand entrance of the hotel</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the right-hand entrance of the hotel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -376,7 +376,7 @@ The character is on the front steps of the hotel (below the level of the first f
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7c8f"></span>7C8F</td>
 <td class="instruction">LD L,$0D</td>
-<td class="comment-11" rowspan="2">Set the location/destination indicator in byte 13 of the character's buffer to 0 (the front steps of the hotel count as part of the sidewalk if the character is going somewhere other than the hotel)</td>
+<td class="comment-11" rowspan="2">Set the location/destination indicator in byte 0x0D of the character's buffer to 0 (the front steps of the hotel count as part of the sidewalk if the character is going somewhere other than the hotel)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -388,7 +388,7 @@ The character is on the front steps of the hotel (below the level of the first f
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c93"></span>7C93</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=12</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0C</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -428,7 +428,7 @@ The character is on the front steps of the hotel (below the level of the first f
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c9b"></span>7C9B</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Set byte 13 of the character's buffer to 1 (indicating that the character is not on the sidewalk or the road, and is in the same region as his destination)</td>
+<td class="comment-11" rowspan="2">Set byte 0x0D of the character's buffer to 1 (indicating that the character is not on the sidewalk or the road, and is in the same region as his destination)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -440,7 +440,7 @@ The character is on the front steps of the hotel (below the level of the first f
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c9d"></span>7C9D</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=12</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0C</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -474,7 +474,7 @@ The character is on the front steps of the hotel (below the level of the first f
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7ca3"></span>7CA3</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -498,7 +498,7 @@ The character is on the front steps of the hotel (below the level of the first f
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7ca9"></span>7CA9</td>
 <td class="instruction">LD A,$4C</td>
-<td class="comment-11" rowspan="1">76 is the x-coordinate of the left edge of the front door of the hotel</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the left edge of the front door of the hotel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -510,7 +510,7 @@ The character is on the front steps of the hotel (below the level of the first f
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cad"></span>7CAD</td>
 <td class="instruction">LD A,$52</td>
-<td class="comment-11" rowspan="1">82 is the x-coordinate of the right edge of the front door of the hotel</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the right edge of the front door of the hotel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -522,7 +522,7 @@ The character is on the front steps of the hotel (below the level of the first f
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cb0"></span>7CB0</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -627,9 +627,9 @@ The character is on the front steps of the hotel (below the level of the first f
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

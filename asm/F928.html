@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="F9D2.html">F9D2</a>. Builds rotated copies of the sprite tiles in the bottom four rows of the leftmost and middle columns of the character's base animatory state and places them in the slots for sprite tiles 248-255 (which are used by the animatory state of the character lying down).
+Used by the routine at <a href="F9D2.html">F9D2</a>. Builds rotated copies of the sprite tiles in the bottom four rows of the leftmost and middle columns of the character's base animatory state and places them in the slots for sprite tiles 0xF8-0xFF (which are used by the animatory state of the character lying down).
 </div>
 </div>
 <table class="input-1">
@@ -68,7 +68,7 @@ Used by the routine at <a href="F9D2.html">F9D2</a>. Builds rotated copies of th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f92d"></span>F92D</td>
 <td class="instruction">LD E,$F7</td>
-<td class="comment-11" rowspan="1">The animatory states of the characters lying down use sprite tiles 248-255; initialise the tile reference counter now</td>
+<td class="comment-11" rowspan="1">The animatory states of the characters lying down use sprite tiles 0xF8-0xFF; initialise the tile reference counter now</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -92,7 +92,7 @@ Used by the routine at <a href="F9D2.html">F9D2</a>. Builds rotated copies of th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f932"></span>F932</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=target sprite tile reference (248-255)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=target sprite tile reference (0xF8-0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -110,7 +110,7 @@ Used by the routine at <a href="F9D2.html">F9D2</a>. Builds rotated copies of th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f937"></span>F937</td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=221 (where the reference for sprite tile 6 is located)</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0xDD (where the reference for sprite tile 6 is located)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -271,9 +271,9 @@ Used by the routine at <a href="F9D2.html">F9D2</a>. Builds rotated copies of th
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

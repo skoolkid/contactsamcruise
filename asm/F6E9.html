@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 14 and 15 of a character's buffer by the routine at <a href="F748.html">F748</a>. It makes a character start or continue walking up or down towards his walkabout destination, stopping occasionally on the way to flip a light switch or raise or lower a window blind.
+The address of this interruptible subcommand routine is placed into bytes 0x0E and 0x0F of a character's buffer by the routine at <a href="F748.html">F748</a>. It makes a character start or continue walking up or down towards his walkabout destination, stopping occasionally on the way to flip a light switch or raise or lower a window blind.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -78,7 +78,7 @@ This entry point is used by the routine at <a href="7A57.html">7A57</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f6f1"></span>F6F1</td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="1">The counter in byte 17 of the character's buffer determines the delay until the character will next consider flipping a light switch or raising or lowering a window blind</td>
+<td class="comment-11" rowspan="1">The counter in byte 0x11 of the character's buffer determines the delay until the character will next consider flipping a light switch or raising or lowering a window blind</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -196,7 +196,7 @@ The character is standing next to a light switch or window blind.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f715"></span>F715</td>
 <td class="instruction">CALL <a href="F17F.html">$F17F</a></td>
-<td class="comment-11" rowspan="3">Get a random number between 32 and 159 in <span class="register">A</span></td>
+<td class="comment-11" rowspan="3">Get a random number between 0x20 and 0x9F in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -214,7 +214,7 @@ The character is standing next to a light switch or window blind.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f71c"></span>F71C</td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="2">Reset the counter in byte 17 of the character's buffer to this number</td>
+<td class="comment-11" rowspan="2">Reset the counter in byte 0x11 of the character's buffer to this number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -242,7 +242,7 @@ The character will not be flipping any light switches or raising or lowering any
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f722"></span>F722</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="2">Collect the character's x-coordinate from byte 1 of his buffer</td>
+<td class="comment-11" rowspan="2">Collect the character's x-coordinate from byte 0x01 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -254,7 +254,7 @@ The character will not be flipping any light switches or raising or lowering any
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f725"></span>F725</td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="1">Byte 16 of the character's buffer holds his walkabout destination x-coordinate</td>
+<td class="comment-11" rowspan="1">Byte 0x10 of the character's buffer holds his walkabout destination x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -289,9 +289,9 @@ The character will not be flipping any light switches or raising or lowering any
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

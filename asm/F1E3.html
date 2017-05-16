@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="776F.html">776F</a> and <a href="77D3.html">77D3</a>. Returns with the zero flag set if no key with an ASCII code in the range 48-127 has been pressed. Otherwise returns with the ASCII code of the last keypress (converted to lower case) in <span class="register">A</span>, or hangs up if 'h' was pressed.
+Used by the routines at <a href="776F.html">776F</a> and <a href="77D3.html">77D3</a>. Returns with the zero flag set if no key with an ASCII code in the range 0x30-0x7F has been pressed. Otherwise returns with the ASCII code of the last keypress (converted to lower case) in <span class="register">A</span>, or hangs up if 'h' was pressed.
 </div>
 </div>
 <table class="input-0">
@@ -47,7 +47,7 @@ Used by the routines at <a href="776F.html">776F</a> and <a href="77D3.html">77D
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f1e3"></span>F1E3</td>
 <td class="instruction">LD HL,$E608</td>
-<td class="comment-11" rowspan="2">Reset Sam's main action timer (in byte 8 of his buffer) to 4</td>
+<td class="comment-11" rowspan="2">Reset Sam's main action timer (in byte 0x08 of his buffer) to 4</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -65,7 +65,7 @@ Used by the routines at <a href="776F.html">776F</a> and <a href="77D3.html">77D
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1eb"></span>F1EB</td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if no key with an ASCII code in the range 48-127 was pressed</td>
+<td class="comment-11" rowspan="1">Return if no key with an ASCII code in the range 0x30-0x7F was pressed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -124,9 +124,9 @@ Used by the routines at <a href="776F.html">776F</a> and <a href="77D3.html">77D
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

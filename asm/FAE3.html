@@ -35,7 +35,7 @@ Used by the routines at <a href="FB4B.html">FB4B</a> and <a href="FB52.html">FB5
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-230)</td>
+<td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the routines at <a href="FB4B.html">FB4B</a> and <a href="FB52.html">FB5
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fae3"></span>FAE3</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -62,7 +62,7 @@ Used by the routines at <a href="FB4B.html">FB4B</a> and <a href="FB52.html">FB5
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fae6"></span>FAE6</td>
 <td class="instruction">LD L,$15</td>
-<td class="comment-11" rowspan="1">Byte 21 of the character's buffer holds his landing y-coordinate</td>
+<td class="comment-11" rowspan="1">Byte 0x15 of the character's buffer holds his landing y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -168,7 +168,7 @@ The character has not landed yet.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb00"></span>FB00</td>
 <td class="instruction">LD L,$0D</td>
-<td class="comment-11" rowspan="2">Set byte 13 of the character's buffer to 0: he will not be knocked out upon landing</td>
+<td class="comment-11" rowspan="2">Set byte 0x0D of the character's buffer to 0: he will not be knocked out upon landing</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -210,7 +210,7 @@ The character has not landed yet.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fb0d"></span>FB0D</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Pick up byte 20 of the character's buffer; this will be non-zero if the character is still moving to the left or right just after stepping off the roof of a building</td>
+<td class="comment-11" rowspan="2">Pick up byte 0x14 of the character's buffer; this will be non-zero if the character is still moving to the left or right just after stepping off the roof of a building</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -222,7 +222,7 @@ The character has not landed yet.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb10"></span>FB10</td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Set the zero flag if byte 20 is zero</td>
+<td class="comment-11" rowspan="1">Set the zero flag if byte 0x14 is zero</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -240,13 +240,13 @@ The character has not landed yet.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb16"></span>FB16</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement byte 20 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Decrement byte 0x14 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb17"></span>FB17</td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="2">Set the carry flag if byte 20 is less than 5</td>
+<td class="comment-11" rowspan="2">Set the carry flag if byte 0x14 is less than 5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -264,7 +264,7 @@ The character has not landed yet.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb1b"></span>FB1B</td>
 <td class="instruction">JR C,$FB27</td>
-<td class="comment-11" rowspan="1">Jump if byte 20 of the character's buffer is less than 5</td>
+<td class="comment-11" rowspan="1">Jump if byte 0x14 of the character's buffer is less than 5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -276,7 +276,7 @@ The character has not landed yet.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb1f"></span>FB1F</td>
 <td class="instruction">JR Z,$FB27</td>
-<td class="comment-11" rowspan="1">Jump if byte 20 of the character's buffer is 5</td>
+<td class="comment-11" rowspan="1">Jump if byte 0x14 of the character's buffer is 5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -432,7 +432,7 @@ Now <span class="register">A</span>, <span class="register">E</span> and <span c
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb40"></span>FB40</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (215-230)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (0xD7-0xE6)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -455,9 +455,9 @@ Now <span class="register">A</span>, <span class="register">E</span> and <span c
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

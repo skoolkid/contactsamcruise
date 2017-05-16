@@ -35,7 +35,7 @@ Used by the routine at <a href="F171.html">F171</a>. Collects a byte from a char
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -62,7 +62,7 @@ Used by the routine at <a href="F171.html">F171</a>. Collects a byte from a char
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f161"></span>F161</td>
 <td class="instruction">LD L,$16</td>
-<td class="comment-11" rowspan="1">Byte 22 of the character's buffer holds the offset of the point reached in the command list (relative to the start)</td>
+<td class="comment-11" rowspan="1">Byte 0x16 of the character's buffer holds the offset of the point reached in the command list (relative to the start)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -80,7 +80,7 @@ Used by the routine at <a href="F171.html">F171</a>. Collects a byte from a char
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f165"></span>F165</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="5">Collect the start address of the command list from bytes 23 and 24 of the character's buffer into <span class="register">HL</span></td>
+<td class="comment-11" rowspan="5">Collect the start address of the command list from bytes 0x17 and 0x18 of the character's buffer into <span class="register">HL</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -151,9 +151,9 @@ Used by the routine at <a href="F171.html">F171</a>. Collects a byte from a char
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

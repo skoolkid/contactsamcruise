@@ -47,7 +47,7 @@ Used by the routine at <a href="F0BE.html">F0BE</a>. Prepares everything for dem
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f8ae"></span>F8AE</td>
 <td class="instruction">CALL <a href="FC46.html">$FC46</a></td>
-<td class="comment-11" rowspan="1">Generate the table of mirrored values of 0-255 at <a href="7E00.html">7E00</a></td>
+<td class="comment-11" rowspan="1">Generate the table of mirrored values of 0x00-0xFF at <a href="7E00.html">7E00</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -63,7 +63,7 @@ Now we initialise the game status buffer.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8b1"></span>F8B1</td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=32512</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=7F00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -93,7 +93,7 @@ Now we initialise the game status buffer.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8ba"></span>F8BA</td>
 <td class="instruction">LD E,$E0</td>
-<td class="comment-11" rowspan="1"><span class="register">DE</span>=32736</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=7FE0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -145,7 +145,7 @@ Next we ensure that all the shop and house doors are closed.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8c9"></span>F8C9</td>
 <td class="instruction">CP $53</td>
-<td class="comment-11" rowspan="4">Jump unless the Z value corresponds to the open door of a shop (80) or house (81 or 82)</td>
+<td class="comment-11" rowspan="4">Jump unless the Z value corresponds to the open door of a shop (0x50) or house (0x51 or 0x52)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -212,7 +212,7 @@ Next we ensure that all the shop and house doors are closed.
 <span id="f8dc"></span>
 <div class="comments">
 <div class="paragraph">
-Next we initialise characters 215-221, the icon panel, the score box, the message line, the phone messages, the event table at <a href="5FE0.html">5FE0</a> and the object table at <a href="7D1C.html">7D1C</a>.
+Next we initialise characters 0xD7-0xDD, the icon panel, the score box, the message line, the phone messages, the event table at <a href="5FE0.html">5FE0</a> and the object table at <a href="7D1C.html">7D1C</a>.
 </div>
 </div>
 </td>
@@ -221,7 +221,7 @@ Next we initialise characters 215-221, the icon panel, the score box, the messag
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8dc"></span>F8DC</td>
 <td class="instruction">CALL <a href="F7F0.html">$F7F0</a></td>
-<td class="comment-11" rowspan="1">Initialise the character buffers for character groups 215-221</td>
+<td class="comment-11" rowspan="1">Initialise the character buffers for character groups 0xD7-0xDD</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -262,7 +262,7 @@ Let's not forget about the rope that may be above the roof of no. 19.
 <span id="f8eb"></span>
 <div class="comments">
 <div class="paragraph">
-And finally we initialise the main characters (222-230) before displaying the introductory cutscene.
+And finally we initialise the main characters (0xDE-0xE6) before displaying the introductory cutscene.
 </div>
 </div>
 </td>
@@ -311,7 +311,7 @@ This entry point is used by the routine at <a href="6100.html">6100</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f8f5"></span>F8F5</td>
 <td class="instruction">CALL <a href="F87E.html">$F87E</a></td>
-<td class="comment-11" rowspan="1">Initialise the character buffers for characters 222-230</td>
+<td class="comment-11" rowspan="1">Initialise the character buffers for characters 0xDE-0xE6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -388,9 +388,9 @@ This entry point is used by the routine at <a href="6100.html">6100</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

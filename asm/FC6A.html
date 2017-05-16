@@ -71,7 +71,7 @@ Used by the routine at <a href="FB52.html">FB52</a> to scroll the screen up and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fc73"></span>FC73</td>
 <td class="instruction">LD HL,$E7EC</td>
-<td class="comment-11" rowspan="2">Set the instruction at <a href="E7E8.html#e7eb">E7EB</a> to 'LD BC,32'</td>
+<td class="comment-11" rowspan="2">Set the instruction at <a href="E7E8.html#e7eb">E7EB</a> to 'LD BC,$0020'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -107,7 +107,7 @@ Used by the routine at <a href="FB52.html">FB52</a> to scroll the screen up and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fc7f"></span>FC7F</td>
 <td class="instruction">LD HL,$4000</td>
-<td class="comment-11" rowspan="10">Save the top 8 rows of pixels on the screen in <a href="7E00.html">page 126</a></td>
+<td class="comment-11" rowspan="10">Save the top 8 rows of pixels on the screen in <a href="7E00.html">page 0x7E</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -167,7 +167,7 @@ Used by the routine at <a href="FB52.html">FB52</a> to scroll the screen up and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fc93"></span>FC93</td>
 <td class="instruction">LD H,$58</td>
-<td class="comment-11" rowspan="2">Save the top row of attribute bytes (22528-22559) in the first 32 bytes of the screen refresh buffer at <a href="7F00.html">7F00</a></td>
+<td class="comment-11" rowspan="2">Save the top row of attribute bytes (5800-581F) in the first 32 bytes of the screen refresh buffer at <a href="7F00.html">7F00</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -257,7 +257,7 @@ Used by the routine at <a href="FB52.html">FB52</a> to scroll the screen up and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fcb2"></span>FCB2</td>
 <td class="instruction">LD HL,$7E00</td>
-<td class="comment-11" rowspan="10">Restore the top 8 rows of pixels on the screen from <a href="7E00.html">page 126</a></td>
+<td class="comment-11" rowspan="10">Restore the top 8 rows of pixels on the screen from <a href="7E00.html">page 0x7E</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -317,7 +317,7 @@ Used by the routine at <a href="FB52.html">FB52</a> to scroll the screen up and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fcc5"></span>FCC5</td>
 <td class="instruction">LD D,$58</td>
-<td class="comment-11" rowspan="2">Restore the top row of attribute bytes (22528-22559) from where they were saved earlier</td>
+<td class="comment-11" rowspan="2">Restore the top row of attribute bytes (5800-581F) from where they were saved earlier</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -371,7 +371,7 @@ Used by the routine at <a href="FB52.html">FB52</a> to scroll the screen up and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fcd6"></span>FCD6</td>
 <td class="instruction">LD HL,$E8A0</td>
-<td class="comment-11" rowspan="2">Change the instruction at <a href="E87C.html#e8a0">E8A0</a> back to 'LD HL,32767'</td>
+<td class="comment-11" rowspan="2">Change the instruction at <a href="E87C.html#e8a0">E8A0</a> back to 'LD HL,$7FFF'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -383,7 +383,7 @@ Used by the routine at <a href="FB52.html">FB52</a> to scroll the screen up and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fcdb"></span>FCDB</td>
 <td class="instruction">LD L,$DC</td>
-<td class="comment-11" rowspan="2">Change the instruction at <a href="E8B7.html#e8dc">E8DC</a> back to 'LD HL,32767'</td>
+<td class="comment-11" rowspan="2">Change the instruction at <a href="E8B7.html#e8dc">E8DC</a> back to 'LD HL,$7FFF'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -395,7 +395,7 @@ Used by the routine at <a href="FB52.html">FB52</a> to scroll the screen up and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fcdf"></span>FCDF</td>
 <td class="instruction">JP <a href="FC46.html">$FC46</a></td>
-<td class="comment-11" rowspan="1">Regenerate the table of mirrored values of 0-255 at <a href="7E00.html">7E00</a></td>
+<td class="comment-11" rowspan="1">Regenerate the table of mirrored values of 0x00-0xFF at <a href="7E00.html">7E00</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -406,9 +406,9 @@ Used by the routine at <a href="FB52.html">FB52</a> to scroll the screen up and 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

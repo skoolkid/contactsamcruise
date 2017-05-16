@@ -87,7 +87,7 @@ It's demo mode.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79a3"></span>79A3</td>
 <td class="instruction">LD A,$26</td>
-<td class="comment-11" rowspan="1">Message <a href="69D1.html">38</a>: 'PRESS A KEY TO PLAY'</td>
+<td class="comment-11" rowspan="1">Message <a href="69D1.html">0x26</a>: 'PRESS A KEY TO PLAY'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -123,7 +123,7 @@ It's demo mode.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79b3"></span>79B3</td>
 <td class="instruction">LD A,($E60B)</td>
-<td class="comment-11" rowspan="1">Pick up byte 11 of Sam's buffer (which holds his destination y-coordinate)</td>
+<td class="comment-11" rowspan="1">Pick up byte 0x0B of Sam's buffer (which holds his destination y-coordinate)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -151,7 +151,7 @@ We need to set a new destination for Sam.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="79b9"></span>79B9</td>
 <td class="instruction">CALL <a href="F17F.html">$F17F</a></td>
-<td class="comment-11" rowspan="3">Get an even random number between 134 and 148 in <span class="register">A</span></td>
+<td class="comment-11" rowspan="3">Get an even random number between 0x86 and 0x94 in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -199,7 +199,7 @@ We need to set a new destination for Sam.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79c6"></span>79C6</td>
 <td class="instruction">LD HL,$E60A</td>
-<td class="comment-11" rowspan="4">Copy the location coordinates into bytes 10 and 11 of Sam's buffer</td>
+<td class="comment-11" rowspan="4">Copy the location coordinates into bytes 0x0A and 0x0B of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -235,7 +235,7 @@ We need to set a new destination for Sam.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79d1"></span>79D1</td>
 <td class="instruction">LD L,$0C</td>
-<td class="comment-11" rowspan="2">Copy the destination location identifier into byte 12 of Sam's buffer</td>
+<td class="comment-11" rowspan="2">Copy the destination location identifier into byte 0x0C of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -247,7 +247,7 @@ We need to set a new destination for Sam.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="79d4"></span>79D4</td>
 <td class="instruction">LD H,$E6</td>
-<td class="comment-11" rowspan="1">230=Sam</td>
+<td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -322,9 +322,9 @@ Sam's destination has been set. Now to simulate a keypress that will make him ta
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

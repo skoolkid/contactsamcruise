@@ -82,7 +82,7 @@ Used by the routine at <a href="EBBB.html">EBBB</a>. On entry, <span class="regi
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-230)</td>
+<td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -104,7 +104,7 @@ Used by the routine at <a href="EBBB.html">EBBB</a>. On entry, <span class="regi
 <span id="fb55"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="7AF4.html">7AF4</a> with <span class="register">H</span>=230 (Sam) and <span class="register">B</span>=1.
+This entry point is used by the routine at <a href="7AF4.html">7AF4</a> with <span class="register">H</span>=0xE6 (Sam) and <span class="register">B</span>=1.
 </div>
 </div>
 </td>
@@ -113,7 +113,7 @@ This entry point is used by the routine at <a href="7AF4.html">7AF4</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fb55"></span>FB55</td>
 <td class="instruction">LD L,$0D</td>
-<td class="comment-11" rowspan="2">Initialise byte 13 of the character's buffer to 0 on the assumption that he will land safely</td>
+<td class="comment-11" rowspan="2">Initialise byte 0x0D of the character's buffer to 0 on the assumption that he will land safely</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -155,7 +155,7 @@ This entry point is used by the routine at <a href="7AF4.html">7AF4</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb61"></span>FB61</td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-11" rowspan="1">Set byte 13 of Sam's buffer to 1 to indicate that he's stepping off or being dropped off the roof of a building from a great enough height that he could be knocked out when he lands (<span class="register">B</span>=1, 3 or 5)</td>
+<td class="comment-11" rowspan="1">Set byte 0x0D of Sam's buffer to 1 to indicate that he's stepping off or being dropped off the roof of a building from a great enough height that he could be knocked out when he lands (<span class="register">B</span>=1, 3 or 5)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -203,7 +203,7 @@ This entry point is used by the routine at <a href="7AF4.html">7AF4</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb6c"></span>FB6C</td>
 <td class="instruction">LD B,$07</td>
-<td class="comment-11" rowspan="1">Prepare to initialise byte 20 of the character's buffer to 7</td>
+<td class="comment-11" rowspan="1">Prepare to initialise byte 0x14 of the character's buffer to 7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -265,7 +265,7 @@ At this point <span class="register">A</span> holds the character's landing y-co
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fb79"></span>FB79</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Set byte 20 of the character's buffer to 0 or 7</td>
+<td class="comment-11" rowspan="2">Set byte 0x14 of the character's buffer to 0 or 7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -277,7 +277,7 @@ At this point <span class="register">A</span> holds the character's landing y-co
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb7c"></span>FB7C</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Store the character's landing y-coordinate in byte 21 of his buffer</td>
+<td class="comment-11" rowspan="2">Store the character's landing y-coordinate in byte 0x15 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -307,7 +307,7 @@ At this point <span class="register">A</span> holds the character's landing y-co
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb83"></span>FB83</td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="2">Remove the address of any interruptible subcommand routine from bytes 14 and 15 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Remove the address of any interruptible subcommand routine from bytes 0x0E and 0x0F of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -375,7 +375,7 @@ This entry point is used by the routine at <a href="74D8.html">74D8</a> when bit
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb96"></span>FB96</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Collect byte 20 of Sam's buffer</td>
+<td class="comment-11" rowspan="2">Collect byte 0x14 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -405,7 +405,7 @@ This entry point is used by the routine at <a href="74D8.html">74D8</a> when bit
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fb9d"></span>FB9D</td>
 <td class="instruction">LD L,$08</td>
-<td class="comment-11" rowspan="2">Set Sam's main action timer (in byte 8 of his buffer) to 1 if he's falling straight downwards now, or to the value of byte 20 of his buffer (1-7) if he's still moving left or right at the beginning of his descent</td>
+<td class="comment-11" rowspan="2">Set Sam's main action timer (in byte 0x08 of his buffer) to 1 if he's falling straight downwards now, or to the value of byte 0x14 of his buffer (1-7) if he's still moving left or right at the beginning of his descent</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -429,7 +429,7 @@ This entry point is used by the routine at <a href="74D8.html">74D8</a> when bit
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fba6"></span>FBA6</td>
 <td class="instruction">LD HL,$0000</td>
-<td class="comment-11" rowspan="2">Set Sam's post-midstride y-coordinate (in byte 7 of his buffer) to 0 to indicate that he is neither midstride nor mid-action, and his main action timer (in byte 8) to 0 to indicate to the routine at <a href="74D8.html">74D8</a> that Sam has finished falling</td>
+<td class="comment-11" rowspan="2">Set Sam's post-midstride y-coordinate (in byte 0x07 of his buffer) to 0 to indicate that he is neither midstride nor mid-action, and his main action timer (in byte 0x08) to 0 to indicate to the routine at <a href="74D8.html">74D8</a> that Sam has finished falling</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -469,7 +469,7 @@ Sam has landed, and been knocked out by the fall.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fbb3"></span>FBB3</td>
 <td class="instruction">LD H,$E6</td>
-<td class="comment-11" rowspan="1">230=Sam</td>
+<td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -487,7 +487,7 @@ Sam has landed, and been knocked out by the fall.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fbbb"></span>FBBB</td>
 <td class="instruction">CALL <a href="F17F.html">$F17F</a></td>
-<td class="comment-11" rowspan="3">Get a random number between 50 and 57 (ASCII codes for the digits 2-9) in <span class="register">A</span></td>
+<td class="comment-11" rowspan="3">Get a random number between 0x32 and 0x39 (ASCII codes for the digits 2-9) in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -523,7 +523,7 @@ Sam has landed, and been knocked out by the fall.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fbca"></span>FBCA</td>
 <td class="instruction">LD A,$23</td>
-<td class="comment-11" rowspan="1">Message <a href="69A1.html">35</a>: ' WHEN I CAME TO MY WALLET WAS GONE...'</td>
+<td class="comment-11" rowspan="1">Message <a href="69A1.html">0x23</a>: ' WHEN I CAME TO MY WALLET WAS GONE...'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -535,7 +535,7 @@ Sam has landed, and been knocked out by the fall.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fbcf"></span>FBCF</td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="69B1.html">36</a>: ' WHEN I CAME TO SOMEONE HAD TAKEN ${tens digit}0'</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="69B1.html">0x24</a>: ' WHEN I CAME TO SOMEONE HAD TAKEN ${tens digit}0'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -611,7 +611,7 @@ Now we reveal the play area one row of tiles at a time from the bottom up, with 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fbe4"></span>FBE4</td>
 <td class="instruction">LD A,$64</td>
-<td class="comment-11" rowspan="3"><span class="register">E</span>=100-<span class="register">L</span> (where <span class="register">L</span> is the LSB of the SRB address); this value determines the pitch of the sound effect</td>
+<td class="comment-11" rowspan="3"><span class="register">E</span>=0x64-<span class="register">L</span> (where <span class="register">L</span> is the LSB of the SRB address); this value determines the pitch of the sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -736,9 +736,9 @@ Now we reveal the play area one row of tiles at a time from the bottom up, with 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

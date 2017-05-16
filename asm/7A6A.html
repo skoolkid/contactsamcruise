@@ -35,7 +35,7 @@ Used by the command lists at <a href="FD16.html">FD16</a>, <a href="FD30.html">F
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Gangster's character number (215-224)</td>
+<td class="register-desc">Gangster's character number (0xD7-0xE0)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the command lists at <a href="FD16.html">FD16</a>, <a href="FD30.html">F
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7a6a"></span>7A6A</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2">Copy the door identifier (168 or 175) and walkabout duration indicator (always 0) from the command list into bytes 11 and 12 of the gangster's buffer</td>
+<td class="comment-11" rowspan="2">Copy the door identifier (0xA8 or 0xAF) and walkabout duration indicator (always 0) from the command list into bytes 0x0B and 0x0C of the gangster's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -62,7 +62,7 @@ Used by the command lists at <a href="FD16.html">FD16</a>, <a href="FD30.html">F
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a6f"></span>7A6F</td>
 <td class="instruction">LD L,$0D</td>
-<td class="comment-11" rowspan="2">Set byte 13 of the gangster's buffer to a non-zero value to ensure that he walks up and down indefinitely</td>
+<td class="comment-11" rowspan="2">Set byte 0x0D of the gangster's buffer to a non-zero value to ensure that he walks up and down indefinitely</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -86,7 +86,7 @@ Used by the command lists at <a href="FD16.html">FD16</a>, <a href="FD30.html">F
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a76"></span>7A76</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="2">Copy this to byte 10 of the gangster's buffer, thus making it his walkabout origin x-coordinate</td>
+<td class="comment-11" rowspan="2">Copy this to byte 0x0A of the gangster's buffer, thus making it his walkabout origin x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -121,9 +121,9 @@ Used by the command lists at <a href="FD16.html">FD16</a>, <a href="FD30.html">F
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

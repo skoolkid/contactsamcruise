@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 18 and 19 of a character's buffer (by the routine at <a href="FAA2.html">FAA2</a>) when he's been hit on the head by a falling character with an x-coordinate that differs from his by 1. It controls the character from the moment he is knocked over until he has finished staggering from being dazed by the collision.
+The address of this uninterruptible subcommand routine is placed into bytes 0x12 and 0x13 of a character's buffer (by the routine at <a href="FAA2.html">FAA2</a>) when he's been hit on the head by a falling character with an x-coordinate that differs from his by 1. It controls the character from the moment he is knocked over until he has finished staggering from being dazed by the collision.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 18 a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 18 a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa05"></span>FA05</td>
 <td class="instruction">LD A,$8A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=10 (short knockout delay) + 128 (quick recovery)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x0A (short knockout delay) + 0x80 (quick recovery)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -63,7 +63,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 18 a
 <span id="fa09"></span>
 <div class="comments">
 <div class="paragraph">
-The address of this entry point is placed into bytes 18 and 19 of a character's buffer (by the routine at <a href="FAA2.html">FAA2</a>) when he's been hit on the head by a falling character with the same x-coordinate.
+The address of this entry point is placed into bytes 0x12 and 0x13 of a character's buffer (by the routine at <a href="FAA2.html">FAA2</a>) when he's been hit on the head by a falling character with the same x-coordinate.
 </div>
 </div>
 </td>
@@ -72,13 +72,13 @@ The address of this entry point is placed into bytes 18 and 19 of a character's 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa09"></span>FA09</td>
 <td class="instruction">LD A,$14</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=20 (long knockout delay) + 0*128 (slow recovery)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x14 (long knockout delay) + 0x00 (slow recovery)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa0b"></span>FA0B</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Initialise the character's knockout delay counter in byte 20 of his buffer</td>
+<td class="comment-11" rowspan="2">Initialise the character's knockout delay counter in byte 0x14 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -90,7 +90,7 @@ The address of this entry point is placed into bytes 18 and 19 of a character's 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa0e"></span>FA0E</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -102,7 +102,7 @@ The address of this entry point is placed into bytes 18 and 19 of a character's 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa11"></span>FA11</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -114,7 +114,7 @@ The address of this entry point is placed into bytes 18 and 19 of a character's 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa13"></span>FA13</td>
 <td class="instruction">LD L,$0D</td>
-<td class="comment-11" rowspan="2">Store the character's pre-knockout animatory state in byte 13 of his buffer</td>
+<td class="comment-11" rowspan="2">Store the character's pre-knockout animatory state in byte 0x0D of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -126,7 +126,7 @@ The address of this entry point is placed into bytes 18 and 19 of a character's 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa16"></span>FA16</td>
 <td class="instruction">LD L,$15</td>
-<td class="comment-11" rowspan="2">Store the character's current x-coordinate in byte 21 of his buffer</td>
+<td class="comment-11" rowspan="2">Store the character's current x-coordinate in byte 0x15 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -144,7 +144,7 @@ The address of this entry point is placed into bytes 18 and 19 of a character's 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa1c"></span>FA1C</td>
 <td class="instruction">CALL <a href="F9FA.html#f9fd">$F9FD</a></td>
-<td class="comment-11" rowspan="1">Place the address of the following instruction into bytes 18 and 19 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Place the address of the following instruction into bytes 0x12 and 0x13 of the character's buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -160,7 +160,7 @@ This entry point is used after the character has been knocked over and until he 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa1f"></span>FA1F</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="1">Byte 20 of the character's buffer holds the knockout delay counter</td>
+<td class="comment-11" rowspan="1">Byte 0x14 of the character's buffer holds the knockout delay counter</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -214,7 +214,7 @@ This entry point is used after the character has been knocked over and until he 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa2c"></span>FA2C</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Initialise the recovery delay counter (in byte 20 of the character's buffer) to 40 (if the character was hit by another with the same x-coordinate) or 20</td>
+<td class="comment-11" rowspan="1">Initialise the recovery delay counter (in byte 0x14 of the character's buffer) to 40 (if the character was hit by another with the same x-coordinate) or 20</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -226,7 +226,7 @@ This entry point is used after the character has been knocked over and until he 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa30"></span>FA30</td>
 <td class="instruction">CALL <a href="F9FA.html#f9fd">$F9FD</a></td>
-<td class="comment-11" rowspan="1">Place the address of the following instruction (64051) into bytes 18 and 19 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Place the address of the following instruction into bytes 0x12 and 0x13 of the character's buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -260,7 +260,7 @@ This entry point is used after the character has stood up again and while he is 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa38"></span>FA38</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -565,9 +565,9 @@ The character is going to take a step backwards.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

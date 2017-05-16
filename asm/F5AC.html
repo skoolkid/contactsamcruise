@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 14 and 15 of a character's buffer by the routine at <a href="F600.html">F600</a>. It guides the character down to the first floor of a building (so that he can then leave it on the way to his final destination), or up to the floor he is heading for.
+The address of this interruptible subcommand routine is placed into bytes 0x0E and 0x0F of a character's buffer by the routine at <a href="F600.html">F600</a>. It guides the character down to the first floor of a building (so that he can then leave it on the way to his final destination), or up to the floor he is heading for.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (215-229)</td>
+<td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f5ac"></span>F5AC</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -80,7 +80,7 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5b7"></span>F5B7</td>
 <td class="instruction">JP NZ,<a href="F280.html#f284">$F284</a></td>
-<td class="comment-11" rowspan="1">Terminate this subcommand if so (this jump is never made because bit 4 of byte 3 is unused)</td>
+<td class="comment-11" rowspan="1">Terminate this subcommand if so (this jump is never made because bit 4 of byte 0x03 is unused)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -151,9 +151,9 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

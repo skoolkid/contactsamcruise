@@ -35,7 +35,7 @@ The address of this routine is found in the table of keypress handling routines 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">230 (Sam)</td>
+<td class="register-desc">0xE6 (Sam)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -72,13 +72,13 @@ This entry point is used by the routine at <a href="F304.html">F304</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f2f5"></span>F2F5</td>
 <td class="instruction">LD DE,$E605</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 5 of Sam's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 0x05 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f2f8"></span>F2F8</td>
 <td class="instruction">LD BC,$0003</td>
-<td class="comment-11" rowspan="3">Copy bytes 0-2 of Sam's buffer (which hold his current animatory state and location) into bytes 5-7 for later retrieval</td>
+<td class="comment-11" rowspan="3">Copy bytes 0x00-0x02 of Sam's buffer (which hold his current animatory state and location) into bytes 0x05-0x07 for later retrieval</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -113,9 +113,9 @@ This entry point is used by the routine at <a href="F304.html">F304</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20160123</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd (Contact Sam Cruise). &#169; 2016 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20170516</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>
