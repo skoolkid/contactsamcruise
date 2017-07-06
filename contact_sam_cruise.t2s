@@ -27,6 +27,29 @@ contact_sam_cruise.z80
 --ram move=22496,32,24384
 --ram move=32256,512,32768       # 32256-32767 TO 32768-33279
 --ram poke=54144,134             # The self-modifying data table bug
+--ram poke=27473-27479-3,0       # Deactivate phone messages
+--ram poke=27509-27527-3,0
+--ram poke=32032,193             # Deactivate budgie
+--ram poke=32036,145             # Deactivate key to no. 74
+--ram poke=32044,145             # Deactivate key to no. 27
+--ram poke=32512-32767,0         # Clear the game status buffer
+--ram poke=32670,50              # Bucks
+--ram poke=32734,17              # Random number seed
+--ram poke=32735,254
+--ram poke=32754,8               # Door flags
+--ram poke=32755,16
+--ram poke=32756,32
+--ram poke=32757,128
+--ram poke=32761,64
+--ram poke=47964,158             # Raise blind of Sam's office window
+--ram poke=48384,84              # Close doors
+--ram poke=48386,84
+--ram poke=48412,84
+--ram poke=48413,85
+--ram poke=48414,84
+--ram poke=48640,83
+--ram poke=48642,83
+--ram poke=48670,83
 --ram poke=32256,0               # Begin flip table at 32256-32511
 --ram poke=32257,128
 --ram poke=32258,64
@@ -284,5 +307,5 @@ contact_sam_cruise.z80
 --ram poke=32510,127
 --ram poke=32511,255             # End flip table at 32256-32511
 --ram poke=23611,8               # Set bit 3 of FLAGS
---reg sp=23898                   # Stack pointer at 23898
---reg pc=61668                   # Start at 61668
+--stack 23898                    # Stack pointer at 23898
+--start 61668                    # Start at 61668
