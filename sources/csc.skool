@@ -7021,13 +7021,13 @@ c30989 LD (32722),A  ; Store the cutscene message number at #R32722 so that it
  31067 LD HL,58881   ; Point #REGhl at byte #b1 of Sam's buffer
  31070 LD A,(HL)     ; #REGa=Sam's x-coordinate
  31071 DEC L         ; #REGl=#b0
- 31072 AND 7         ; Does Sam's x-coordinate divide 8 exactly?
+ 31072 AND 7         ; Is Sam's x-coordinate exactly divisible by 8?
  31074 JR NZ,31087   ; Jump if not
  31076 BIT 7,(HL)    ; Is Sam facing right?
  31078 JR NZ,31095   ; Jump if so
 *31080 CALL 59848    ; Update the SRB for Sam's current animatory state and
                      ; location
- 31083 XOR 128       ; Flip bit 7 of Sam's animatory state, this turning him
+ 31083 XOR 128       ; Flip bit 7 of Sam's animatory state, thus turning him
                      ; round
  31085 JR 31031      ; Jump back to update Sam's animatory state and the SRB
 *31087 CP 5          ; Is Sam's x-coordinate congruent to 5 mod 8?
