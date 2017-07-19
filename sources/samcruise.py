@@ -18,7 +18,7 @@ import html
 from skoolkit.graphics import Frame, Udg as BaseUdg
 from skoolkit.skoolhtml import HtmlWriter, join
 from skoolkit.skoolasm import AsmWriter
-from skoolkit.skoolmacro import (parse_ints, parse_brackets, parse_image_macro,
+from skoolkit.skoolmacro import (parse_ints, parse_brackets, parse_image_macro, parse_strings,
                                  MacroParsingError, UnsupportedMacroError)
 
 # Sniper's animatory state
@@ -29,10 +29,9 @@ def parse_as(text, index):
     end, link_text = parse_brackets(text, end, '#N({},,,1)(0x)'.format(state))
     return end, state, link_text
 
-def parse_s(text, index):
-    sep = text[index]
-    end, s = parse_brackets(text, index, '', sep, sep)
-    return end, '#IF({{case}}==1){0}{0}{1}{0}{2}{0}{0}'.format(sep, s.lower(), s)
+def parse_s(text, index, case):
+    end, s = parse_strings(text, index, 1)
+    return end, s.lower() if case == 1 else s
 
 class ContactSamCruiseHtmlWriter(HtmlWriter):
     def init(self):
@@ -792,7 +791,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
 
     def expand_s(self, text, index, cwd):
         # #S/text/
-        return parse_s(text, index)
+        return parse_s(text, index, self.case)
 
     def _build_segment(self, x, y):
         self.push_snapshot()
@@ -823,7 +822,7 @@ class ContactSamCruiseAsmWriter(AsmWriter):
 
     def expand_s(self, text, index):
         # #S/text/
-        return parse_s(text, index)
+        return parse_s(text, index, self.case)
 
     def expand_segment(self, text, index):
         raise UnsupportedMacroError()
