@@ -8,7 +8,6 @@ GameDir=contact_sam_cruise
 [Game]
 Game=Contact Sam Cruise
 Logo=#SCR2,0,21,8,3(/images/logo|Contact Sam Cruise)
-GameStatusBufferIncludes=32658,32720
 StyleSheet=skoolkit.css;csc.css
 Release=The complete Contact Sam Cruise RAM disassembly 20170516
 Copyright=&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.
@@ -131,3 +130,6 @@ The LSB and MSB of the address of message number N can be found at
 
 [MemoryMap:UnusedMap]
 Write=0
+
+[MemoryMap:GameStatusBuffer]
+Includes=32658,32720
