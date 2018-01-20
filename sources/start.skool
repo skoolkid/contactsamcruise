@@ -1,10 +1,12 @@
-; Copyright 2010-2013, 2015, 2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2013, 2015, 2017, 2018 Richard Dymond (rjdymond@gmail.com)
 
 @start
+@remote=main:61600
+@remote=main:61630,61668
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2013, 2015, 2017 Richard Dymond (this disassembly)
+; Copyright 2010-2013, 2015, 2017, 2018 Richard Dymond (this disassembly)
 @org=32972
 
 ; Copy data from a row of the screen
@@ -211,8 +213,3 @@ c56576 NOP           ;
  56672 DEC C         ; Have we done all 3 lines at the bottom of the screen?
  56673 JR NZ,56644   ; Jump back to do the next line if not
  56675 RET           ;
-
-r61600 main
-
-r61630 main
- 61668
