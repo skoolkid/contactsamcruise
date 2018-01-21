@@ -7,7 +7,7 @@
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
 ; Copyright 2010-2013, 2015, 2017, 2018 Richard Dymond (this disassembly)
-@org=32972
+@org
 
 ; Copy data from a row of the screen
 ;
@@ -26,7 +26,7 @@ c32972 PUSH HL       ;
  32982 JR Z,32972    ; Jump back if not
  32984 RET           ;
 
-@org=33224
+@org
 
 ; Start
 ;
@@ -50,7 +50,7 @@ c33224 LD SP,23898   ; Put the stack somewhere safe
  33254 EI            ; Enable interrupts
  33255 JP 61600      ; Jump to perform the LDIR
 
-@org=55040
+@org
 
 ; Logo, icon panel and score box graphic data (segment 1/5)
 ;
@@ -65,7 +65,7 @@ b55040 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
  55136 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,195,196,196
  55152 DEFB 68,68,67,0,0,0,0,0,0,0,0,0,0,0
 
-@org=55296
+@org
 
 ; Logo, icon panel and score box graphic data (segment 2/5)
 ;
@@ -80,7 +80,7 @@ b55296 DEFB 0,0,0,0,0,0,0,189,37,37,57,37,37,0,0,0
  55392 DEFB 118,20,20,119,0,33,86,136,0,0,0,24,24,126,126,24
  55408 DEFB 24,0,31,16,23,21,21,23,16,16,23,21,21,21
 
-@org=55552
+@org
 
 ; Logo, icon panel and score box graphic data (segment 3/5)
 ;
@@ -95,7 +95,7 @@ b55552 DEFB 23,16,31,0,0,24,24,126,126,24,24,0,252,4,116,84
  55648 DEFB 28,1,3,3,0,24,24,126,126,24,24,0,192,176,112,176
  55664 DEFB 192,192,192,192,192,192,192,192,192,224,240,240,0,24
 
-@org=55808
+@org
 
 ; Logo, icon panel and score box graphic data (segment 4/5)
 ;
@@ -110,7 +110,7 @@ b55808 DEFB 24,126,126,24,24,0,0,48,72,76,35,41,8,8,24,36
  55904 DEFB 224,16,8,5,2,1,144,144,148,244,148,148,148,0,240,128
  55920 DEFB 135,244,20,20,247,0,240,144,149,229,149,149,247,0
 
-@org=56064
+@org
 
 ; Logo, icon panel and score box graphic data (segment 5/5)
 ;
@@ -122,7 +122,7 @@ b56064 DEFB 0,0,119,68,116,20,119,0,0,0,119,84,84,84,116,0
  56112 DEFB 0,0,112,80,112,64,112,0,0,0,0,0,0,0,0,0
  56128 DEFB 0,0,0,0,0,0,0,0
 
-@org=56576
+@org
 
 ; Prepare the bottom 4 lines of the screen
 ;
