@@ -1,4 +1,4 @@
-; Copyright 2010-2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2018 Richard Dymond (rjdymond@gmail.com)
 
 [Config]
 RefFiles=bugs.ref;changelog.ref;data.ref;facts.ref;glossary.ref;graphics.ref;pages.ref;pokes.ref
@@ -7,7 +7,7 @@ GameDir=contact_sam_cruise
 
 [Game]
 Game=Contact Sam Cruise
-Logo=#SCR2,0,21,8,3(/images/logo|Contact Sam Cruise)
+Logo=#SCR2,0,21,8,3({ImagePath}/logo|Contact Sam Cruise)
 StyleSheet=skoolkit.css;csc.css
 Release=The complete Contact Sam Cruise RAM disassembly 20170516
 Copyright=&#169; 1986 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.
