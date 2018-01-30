@@ -12,16 +12,16 @@ if not os.path.isdir(SKOOLKIT_HOME):
 sys.path.insert(0, '{}/tools'.format(SKOOLKIT_HOME))
 from testwriter import write_tests
 
-SKOOL = 'sources/csc.skool'
+SKOOL = 'csc.skool'
 
 SNAPSHOT = 'build/contact_sam_cruise.z80'
 
-OUTPUT = """Using skool file: sources/csc.skool
-Using ref files: sources/csc.ref, sources/bugs.ref, sources/changelog.ref, sources/data.ref, sources/facts.ref, sources/glossary.ref, sources/graphics.ref, sources/pages.ref, sources/pokes.ref
-Parsing sources/csc.skool
+OUTPUT = """Using skool file: csc.skool
+Using ref files: csc.ref, bugs.ref, changelog.ref, data.ref, facts.ref, glossary.ref, graphics.ref, pages.ref, pokes.ref
+Parsing csc.skool
 Creating directory {odir}/contact_sam_cruise
 Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to {odir}/contact_sam_cruise/skoolkit.css
-Copying sources/csc.css to {odir}/contact_sam_cruise/csc.css
+Copying csc.css to {odir}/contact_sam_cruise/csc.css
   Writing disassembly files in contact_sam_cruise/asm
   Writing contact_sam_cruise/maps/all.html
   Writing contact_sam_cruise/maps/routines.html
@@ -43,25 +43,21 @@ Copying sources/csc.css to {odir}/contact_sam_cruise/csc.css
   Writing contact_sam_cruise/graphics/asstart4.html
   Writing contact_sam_cruise/graphics/playarea_objects.html
   Writing contact_sam_cruise/graphics/as.html
-  Copying sources/tiles.js to {odir}/contact_sam_cruise/tiles.js
+  Copying tiles.js to {odir}/contact_sam_cruise/tiles.js
   Writing contact_sam_cruise/graphics/astiles/astiles.html
   Writing contact_sam_cruise/buffers/cbuffer.html
   Writing contact_sam_cruise/tables/keys.html
   Writing contact_sam_cruise/maps/command_lists.html
   Writing contact_sam_cruise/reference/walkthrough.html
-  Parsing sources/load.skool
+  Parsing load.skool
     Writing contact_sam_cruise/load/load.html
     Writing disassembly files in contact_sam_cruise/load
-  Parsing sources/save.skool
+  Parsing save.skool
     Writing contact_sam_cruise/save/save.html
     Writing disassembly files in contact_sam_cruise/save
-  Parsing sources/start.skool
+  Parsing start.skool
     Writing contact_sam_cruise/start/start.html
     Writing disassembly files in contact_sam_cruise/start
   Writing contact_sam_cruise/index.html"""
 
-HTML_WRITER = 'sources:samcruise.ContactSamCruiseHtmlWriter'
-
-ASM_WRITER = 'sources:samcruise.ContactSamCruiseAsmWriter'
-
-write_tests(SKOOL, SNAPSHOT, OUTPUT, HTML_WRITER, ASM_WRITER)
+write_tests(SKOOL, SNAPSHOT, OUTPUT)
