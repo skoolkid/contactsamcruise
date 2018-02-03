@@ -1,4 +1,4 @@
-# Copyright 2008-2015, 2017 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2015, 2017, 2018 Richard Dymond (rjdymond@gmail.com)
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -187,9 +187,8 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
                             bubble_id_suffix = '{0:02x}'.format(udg_page) if udg_page is not None else ''
                             bubble_id = 'B{0:02x}{1:x}{2}'.format(state, row_num + num_rows * col_num, bubble_id_suffix)
                             img_fname = self._get_sprite_tile_img_fname(tile, state)
-                            img_path = join(cwd, img_fname)
-                            if self.need_image(img_path):
-                                self.write_image(img_path, [[tile]], scale=4, mask=1)
+                            img_path = '/' + join(cwd, img_fname)
+                            self.handle_image([Frame([[tile]], 4, 1)], img_path, cwd)
                             template_name = 'astile' if tile.ref else 'astile_null'
                             astile_subs = {
                                 'bubble_id': bubble_id,
