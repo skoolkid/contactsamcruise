@@ -16,48 +16,47 @@ SKOOL = 'csc.skool'
 
 SNAPSHOT = 'build/contact_sam_cruise.z80'
 
-OUTPUT = """Using skool file: csc.skool
-Using ref files: csc.ref, bugs.ref, changelog.ref, data.ref, facts.ref, glossary.ref, graphics.ref, pages.ref, pokes.ref
+OUTPUT = """Using ref files: csc.ref, bugs.ref, changelog.ref, data.ref, facts.ref, glossary.ref, graphics.ref, pages.ref, pokes.ref
 Parsing csc.skool
-Creating directory {odir}/contact_sam_cruise
-Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to {odir}/contact_sam_cruise/skoolkit.css
-Copying csc.css to {odir}/contact_sam_cruise/csc.css
-  Writing disassembly files in contact_sam_cruise/asm
-  Writing contact_sam_cruise/maps/all.html
-  Writing contact_sam_cruise/maps/routines.html
-  Writing contact_sam_cruise/maps/data.html
-  Writing contact_sam_cruise/maps/messages.html
-  Writing contact_sam_cruise/buffers/gbuffer.html
-  Writing contact_sam_cruise/reference/bugs.html
-  Writing contact_sam_cruise/reference/changelog.html
-  Writing contact_sam_cruise/reference/facts.html
-  Writing contact_sam_cruise/reference/glossary.html
-  Writing contact_sam_cruise/graphics/glitches.html
-  Writing contact_sam_cruise/reference/pokes.html
-  Writing contact_sam_cruise/graphics/graphics.html
-  Writing contact_sam_cruise/graphics/playarea.html
-  Writing contact_sam_cruise/graphics/asstart0.html
-  Writing contact_sam_cruise/graphics/asstart1.html
-  Writing contact_sam_cruise/graphics/asstart2.html
-  Writing contact_sam_cruise/graphics/asstart3.html
-  Writing contact_sam_cruise/graphics/asstart4.html
-  Writing contact_sam_cruise/graphics/playarea_objects.html
-  Writing contact_sam_cruise/graphics/as.html
-  Copying tiles.js to {odir}/contact_sam_cruise/tiles.js
-  Writing contact_sam_cruise/graphics/astiles/astiles.html
-  Writing contact_sam_cruise/buffers/cbuffer.html
-  Writing contact_sam_cruise/tables/keys.html
-  Writing contact_sam_cruise/maps/command_lists.html
-  Writing contact_sam_cruise/reference/walkthrough.html
-  Parsing load.skool
-    Writing contact_sam_cruise/load/load.html
-    Writing disassembly files in contact_sam_cruise/load
-  Parsing save.skool
-    Writing contact_sam_cruise/save/save.html
-    Writing disassembly files in contact_sam_cruise/save
-  Parsing start.skool
-    Writing contact_sam_cruise/start/start.html
-    Writing disassembly files in contact_sam_cruise/start
-  Writing contact_sam_cruise/index.html"""
+Output directory: {odir}/contact_sam_cruise
+Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to skoolkit.css
+Copying csc.css to csc.css
+Writing disassembly files in asm
+Writing maps/all.html
+Writing maps/routines.html
+Writing maps/data.html
+Writing maps/messages.html
+Writing buffers/gbuffer.html
+Writing reference/bugs.html
+Writing reference/changelog.html
+Writing reference/facts.html
+Writing reference/glossary.html
+Writing graphics/glitches.html
+Writing reference/pokes.html
+Writing graphics/graphics.html
+Writing graphics/playarea.html
+Writing graphics/asstart0.html
+Writing graphics/asstart1.html
+Writing graphics/asstart2.html
+Writing graphics/asstart3.html
+Writing graphics/asstart4.html
+Writing graphics/playarea_objects.html
+Writing graphics/as.html
+Copying tiles.js to tiles.js
+Writing graphics/astiles/astiles.html
+Writing buffers/cbuffer.html
+Writing tables/keys.html
+Writing maps/command_lists.html
+Writing reference/walkthrough.html
+Parsing load.skool
+Writing load/load.html
+Writing disassembly files in load
+Parsing save.skool
+Writing save/save.html
+Writing disassembly files in save
+Parsing start.skool
+Writing start/start.html
+Writing disassembly files in start
+Writing index.html"""
 
 write_tests(SKOOL, SNAPSHOT, OUTPUT)
