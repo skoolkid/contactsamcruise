@@ -807,14 +807,10 @@ b24544 DEFB 0
  24764 DEFB 10    ; 10 bytes until the next entry
  24765 DEFB 1     ; 1 condition follows
  24766 DEFW 32745 ; #R32745 holds the object inventory
-@bfix-begin
+@bfix=DEFB 56     ; #S/JR C/ (for the instruction at #R29986)
  24768 DEFB 32    ; #S/JR NZ/ (for the instruction at #R29986)
- 24769 DEFB 128   ; Bit 7 set: Sam has the budgie (and only the budgie; this is
-                  ; a #BUG#hookVBird(bug))
-@bfix+else
- 24768 DEFB 56    ; #S/JR C/ (for the instruction at #R29986)
- 24769 DEFB 128   ; Bit 7 set: Sam has the budgie
-@bfix+end
+ 24769 DEFB 128   ; Bit 7 set: Sam has the budgie#IF({fix}<2)// (and only the
+                  ; budgie; this is a #BUG#hookVBird(bug))//
  24770 DEFB 1     ; 1 POKE follows
  24771 DEFW 27527 ; {Disable phone message #R24230(#b72): 'LANA ANSWERED 'OOH
  24773 DEFB 0     ; SAM! YOUVE GOT THE BIRD. SEE YOU IN YOUR OFFICE''}
