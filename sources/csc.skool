@@ -821,14 +821,10 @@ b24544 DEFB 0
  24775 DEFB 17    ; 17 bytes until the next entry
  24776 DEFB 2     ; 2 conditions follow
  24777 DEFW 32745 ; #R32745 holds the object inventory
-@bfix-begin
+@bfix=DEFB 48     ; #S/JR NC/ (for the instruction at #R29986)
  24779 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
- 24780 DEFB 128   ; Bit 7 set: Sam has the budgie (and only the budgie; this is
-                  ; a #BUG#hookVBird(bug))
-@bfix+else
- 24779 DEFB 48    ; #S/JR NC/ (for the instruction at #R29986)
- 24780 DEFB 128   ; Bit 7 set: Sam has the budgie
-@bfix+end
+ 24780 DEFB 128   ; Bit 7 set: Sam has the budgie #IF({fix}<2)//(and only the
+                  ; budgie; this is a #BUG#hookVBird(bug))//
  24781 DEFW 27527 ; This is the entry for phone message #R24230(#b72) for Sam
  24783 DEFB 40    ; #S/JR Z/ (for the instruction at #R29986)
  24784 DEFB 0     ; 0 means the phone message has been received by Sam
