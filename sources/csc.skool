@@ -1272,11 +1272,8 @@ c25118 LD L,2        ; {#REGa=sniper's y-coordinate
                      ; and location
  25188 LD A,D        ; #REGa=sniper's y-coordinate
  25189 CP 37         ; Is the sniper currently out of sight?
-@bfix-begin
+@bfix=JR NZ,25113    ; Jump if not to make him start or continue ducking
  25191 JR NZ,25202   ; Jump if not to make him duck
-@bfix+else
- 25191 JR NZ,25113   ; Jump if not to make him start or continue ducking
-@bfix+end
 *25193 LD L,15       ; {Remove the address of this routine from bytes #b14 and
  25195 LD (HL),0     ; #b15 of the sniper's buffer}
 *25197 LD L,2        ; {Set the sniper's y-coordinate to 50 (inactive)
