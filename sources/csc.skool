@@ -4646,11 +4646,8 @@ c28660 LD HL,28722   ; Point #REGhl at the graphic data for the telephone when
  28687 INC D         ;
  28688 LD A,(HL)     ;
  28689 LD (DE),A     ; }
-@bfix-begin
+@bfix=LD B,5         ; There are five more pixel rows to update
  28690 LD B,3        ; There are three more pixel rows to update
-@bfix+else
- 28690 LD B,5        ; There are five more pixel rows to update
-@bfix+end
 @nowarn
  28692 LD DE,20686   ; Point #REGde at the display file address of the top
                      ; pixel row of the bottom-left tile of the telephone icon
