@@ -16827,6 +16827,7 @@ b56446 DEFB 253,18,237                ; Graphic data for sprite tiles
                                       ; (used for Sam's disguises)
  56561 DEFB 0,0,0,0,0,0,254           ; Sprite tile references for animatory
                                       ; states #b112-#b119
+
 @bfix-begin
 ; Unused
 s56568 DEFS 8
