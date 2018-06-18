@@ -1177,13 +1177,14 @@ b25106 DEFB 39,46 ; Left and right sides of the doorsteps of no. 74
  25111 DEFB 233   ; No. 17
  25112 DEFB 249   ; No. 15
 
-@bfix-begin
 ; Unused
 ;
 ; The bytes here look like remnants of the table of potential sniper
 ; x-coordinates at #R25106.
+@if({fix}>1)(remove=25113)
 u25113 DEFB 207,241,233,255,249
-@bfix+else
+
+@bfix+begin
 ; Make a sniper start or continue to duck out of sight
 ;
 ; Byte #b16 of the sniper's buffer has been decremented to 0, which means that
@@ -4700,9 +4701,12 @@ b28722 DEFB 129,194 ; {Top six pixel rows of the top two tiles of the telephone
  28732 DEFB 156,194 ; }
  28734 DEFB 8       ; {Bottom two pixel rows of the top-left tile
  28735 DEFB 12      ; }
-@bfix-begin
+@bfix=              ; {Top five pixel rows of the bottom-left tile
  28736 DEFB 10      ; {Top three pixel rows of the bottom-left tile
  28737 DEFB 9       ;
+@bfix=              ;
+@bfix=DEFB 28
+@bfix=DEFB 0        ; }
  28738 DEFB 28      ; }
 
 ; Unused
@@ -4710,14 +4714,8 @@ b28722 DEFB 129,194 ; {Top six pixel rows of the top two tiles of the telephone
 ; These bytes are probably remnants of the graphic data for the telephone when
 ; ringing (see #R28722). That these bytes are unused may be a
 ; #BUG#extendedEarpiece(bug).
+@if({fix}>1)(remove=28739)
 u28739 DEFB 28,0
-@bfix+else
- 28736 DEFB 10      ; {Top five pixel rows of the bottom-left tile
- 28737 DEFB 9       ;
- 28738 DEFB 28      ;
- 28739 DEFB 28      ;
- 28740 DEFB 0       ; }
-@bfix+end
 
 ; Graphic data for the telephone when not ringing
 ;
@@ -4731,9 +4729,12 @@ b28741 DEFB 1,192  ; {Top six pixel rows of the top two tiles of the telephone
  28751 DEFB 28,192 ; }
  28753 DEFB 28     ; {Bottom two pixel rows of the top-left tile
  28754 DEFB 12     ; }
-@bfix-begin
+@bfix=             ; {Top five pixel rows of the bottom-left tile
  28755 DEFB 10     ; {Top three pixel rows of the bottom-left tile
  28756 DEFB 9      ;
+@bfix=             ;
+@bfix=DEFB 28
+@bfix=DEFB 28      ; }
  28757 DEFB 8      ; }
 
 ; Unused
@@ -4741,14 +4742,8 @@ b28741 DEFB 1,192  ; {Top six pixel rows of the top two tiles of the telephone
 ; These bytes are probably remnants of the graphic data for the telephone when
 ; not ringing (see #R28741). That these bytes are unused may be a
 ; #BUG#extendedEarpiece(bug).
+@if({fix}>1)(remove=28758)
 u28758 DEFB 28,28
-@bfix+else
- 28755 DEFB 10     ; {Top five pixel rows of the bottom-left tile
- 28756 DEFB 9      ;
- 28757 DEFB 8      ;
- 28758 DEFB 28     ;
- 28759 DEFB 28     ; }
-@bfix+end
 
 ; Initialise the icon panel, score box and message line
 ;
@@ -16828,10 +16823,11 @@ b56446 DEFB 253,18,237                ; Graphic data for sprite tiles
  56561 DEFB 0,0,0,0,0,0,254           ; Sprite tile references for animatory
                                       ; states #b112-#b119
 
-@bfix-begin
 ; Unused
+@if({fix}>1)(remove=56568)
 s56568 DEFS 8
-@bfix+else
+
+@bfix+begin
 ; Location descriptors (x-coordinate 222)
 ;
 ; Used by the routine at #R60179. These descriptors correspond to the rightmost
