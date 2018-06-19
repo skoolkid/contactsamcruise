@@ -1259,16 +1259,14 @@ c25118 LD L,2        ; {#REGa=sniper's y-coordinate
                      ; subcommand
  25182 DEC (HL)      ; Decrement byte #b16 of the sniper's buffer
  25183 JR NZ,25210   ; Jump unless byte #b16 is now zero
-@bfix-begin
-; Byte #b16 of the sniper's buffer has been decremented to zero. The apparent
-; intention here is to make the sniper duck out of sight and terminate this
-; subcommand; however, if the sniper is not already out of sight, he will duck
-; briefly but remain in view, and byte #b16 will be decremented to #b255 on the
-; next pass through this routine. This is a #BUG#conspicuousSniper(bug).
-@bfix+else
-; Byte #b16 of the sniper's buffer has been decremented to zero, which means he
-; should start or continue to duck out of sight.
-@bfix+end
+; #IF({fix}<2)//Byte #b16 of the sniper's buffer has been decremented to zero.
+; The apparent intention here is to make the sniper duck out of sight and
+; terminate this subcommand; however, if the sniper is not already out of
+; sight, he will duck briefly but remain in view, and byte #b16 will be
+; decremented to #b255 on the next pass through this routine. This is a
+; #BUG#conspicuousSniper(bug)./Byte #b16 of the sniper's buffer has been
+; decremented to zero, which means he should start or continue to duck out of
+; sight.//
  25185 CALL 59848    ; Update the SRB for the sniper's current animatory state
                      ; and location
  25188 LD A,D        ; #REGa=sniper's y-coordinate
@@ -4903,12 +4901,9 @@ c28886 LD L,4        ; Point #REGhl at byte #b4 of the character's buffer
 ; The character is neither on the catwalk, nor in a stairwell that is visible
 ; from outside.
  28909 LD A,(HL)     ; #REGa=x (the character's x-coordinate)
-@bfix-begin
+@bfix=/INC L         ; #REGl=#b2
  28910 DEC L         ; #REGl=#b0 (this should be '#S/INC L/', so that #REGhl
                      ; points at the character's y-coordinate)
-@bfix+else
- 28910 INC L         ; #REGl=#b2
-@bfix+end
  28911 CP 56         ; {Jump if x<56 (the character is in no. 74 or the
  28913 JR C,28930    ; apartment building next to it)}
  28915 CP 104        ; {Return with the zero flag reset if 56<=x<=103 (the
@@ -4929,18 +4924,15 @@ c28886 LD L,4        ; Point #REGhl at byte #b4 of the character's buffer
 ; If we get here, then the character is in no. 31 or no. 19.
 *28934 LD A,14       ; If the character's y-coordinate is greater than this,
                      ; he's inside (as opposed to on the roof)
-@bfix-begin
-; The next instruction is supposed to compare #REGa with the character's
-; y-coordinate to see whether he's on the roof of a building (as opposed to
-; inside it), but because of the erroneous '#S/DEC L/' instruction above, it
-; instead compares #REGa with the character's animatory state. This is a
-; #BUG#troubleHiding(bug).
+; #IF({fix}<2)||The next instruction is supposed to compare #REGa with the
+; character's y-coordinate to see whether he's on the roof of a building (as
+; opposed to inside it), but because of the erroneous '#S/DEC L/' instruction
+; above, it instead compares #REGa with the character's animatory state. This
+; is a #BUG#troubleHiding(bug).||
+@bfix=               ; Compare #REGa (8 or 14) with the character's
+@bfix=               ; y-coordinate
 *28936 CP (HL)       ; Compare #REGa (8 or 14) with the character's animatory
                      ; state
-@bfix+else
-*28936 CP (HL)       ; Compare #REGa (8 or 14) with the character's
-                     ; y-coordinate
-@bfix+end
  28937 RET C         ; Return with the zero flag reset if #REGa is smaller
  28938 XOR A         ; Set the zero flag (the character is visible)
  28939 RET           ;
@@ -10646,10 +10638,10 @@ b47488 DEFB 255,253,250,244,241,241,241,232,228,222,220,218,216,216,211,209
 ; } TABLE#
 @label=LOCDESCS149
 b47590 DEFB 2,12   ; y=5, z=1; down/left, down/right
-@bfix-begin
 ; The next descriptor corresponds to the rightmost edges on the top floor of
-; the police station (x=149), the top floor of the apartment building next to
-; no. 19 (x=205), and the roof of no. 19 (x=222).
+; the police station (x=149)#IF({fix}<2)//, the top floor of the apartment
+; building next to no. 19 (x=205), and the roof of no. 19 (x=222)/ and the top
+; floor of the apartment building next to no. 19 (x=205)//.
 ; .
 ; #UDGTABLE(locdesc) {
 ; #CALL:ld_img(149,13,4,128) |
@@ -10659,8 +10651,9 @@ b47590 DEFB 2,12   ; y=5, z=1; down/left, down/right
 @label=LOCDESCS205
  47592 DEFB 18,128 ; y=13, z=1; left
 ; The next descriptor corresponds to the rightmost edges on the first floor of
-; the police station (x=149), the apartment building next to no. 19 (x=205),
-; and no. 19 (x=222).
+; the police station (x=149)#IF({fix}<2)//, the apartment building next to no.
+; 19 (x=205), and no. 19 (x=222)/ and the apartment building next to no. 19
+; (x=205)//.
 ; .
 ; #UDGTABLE(locdesc) {
 ; #CALL:ld_img(149,31,4,128) |
@@ -10669,10 +10662,13 @@ b47590 DEFB 2,12   ; y=5, z=1; down/left, down/right
 ; } TABLE#
  47594 DEFB 54,128 ; y=31, z=1; left
 ; The next descriptor corresponds to the spot just to the left of the top-right
-; edge of the roof of the apartment building next to no. 74 (x=22), the spot
-; just to the left of the top-right edge of the roof of the apartment building
-; next to no. 19 (x=205), and the right end of the rope across the roof of no.
-; 19 (x=222); the location at (x,y,z)=(149,6,1) is not accessible.
+; edge of the roof of the apartment building next to no. 74 (x=22),
+; #IF({fix}<2)//the spot just to the left of the top-right edge of the roof of
+; the apartment building next to no. 19 (x=205), and the right end of the rope
+; across the roof of no. 19 (x=222); the location at (x,y,z)=(149,6,1) is not
+; accessible/and the spot just to the left of the top-right edge of the roof of
+; the apartment building next to no. 19 (x=205); the location at
+; (x,y,z)=(149,6,1) is not accessible//.
 ; .
 ; #UDGTABLE(locdesc) {
 ; #CALL:ld_img(22,6,1,128,,,,9) |
@@ -10685,10 +10681,12 @@ b47590 DEFB 2,12   ; y=5, z=1; down/left, down/right
 @label=LOCDESCS22
  47596 DEFB 4,72   ; y=6, z=1; right, down/left
 ; The next descriptor corresponds to the right edge of the roof of the
-; apartment building next to no. 74 (x=22), the right edge of the roof of the
-; apartment building next to no. 19 (x=205), and the spot just to the left of
-; the right end of the rope across the roof of no. 19 (x=222); the location at
-; (x,y,z)=(149,7,1) is not accessible.
+; apartment building next to no. 74 (x=22), #IF({fix}<2)//the right edge of the
+; roof of the apartment building next to no. 19 (x=205), and the spot just to
+; the left of the right end of the rope across the roof of no. 19 (x=222); the
+; location at (x,y,z)=(149,7,1) is not accessible/and the right edge of the
+; roof of the apartment building next to no. 19 (x=205); the location at
+; (x,y,z)=(149,7,1) is not accessible//.
 ; .
 ; #UDGTABLE(locdesc) {
 ; #CALL:ld_img(22,7,1,128,,5,,9) |
@@ -10700,8 +10698,9 @@ b47590 DEFB 2,12   ; y=5, z=1; down/left, down/right
 ; } TABLE#
  47598 DEFB 6,128  ; y=7, z=1; left
 ; The next descriptor corresponds to the rightmost edges on the third floor of
-; the apartment building next to no. 74 (x=22), the police station (x=149), the
-; apartment building next to no. 19 (x=205), and no. 19 (x=222).
+; the apartment building next to no. 74 (x=22), the police station (x=149),
+; #IF({fix}<2)//the apartment building next to no. 19 (x=205), and no. 19
+; (x=222)/and the apartment building next to no. 19 (x=205)//.
 ; .
 ; #UDGTABLE(locdesc) {
 ; #CALL:ld_img(22,19,4,128,,17) |
@@ -10711,8 +10710,9 @@ b47590 DEFB 2,12   ; y=5, z=1; down/left, down/right
 ; } TABLE#
  47600 DEFB 30,128 ; y=19, z=1; left
 ; The next descriptor corresponds to the rightmost edges on the second floor of
-; the apartment building next to no. 74 (x=22), the police station (x=149), the
-; apartment building next to no. 19 (x=205), and no. 19 (x=222).
+; the apartment building next to no. 74 (x=22), the police station (x=149),
+; #IF({fix}<2)//the apartment building next to no. 19 (x=205), and no. 19
+; (x=222)/and the apartment building next to no. 19 (x=205)//.
 ; .
 ; #UDGTABLE(locdesc) {
 ; #CALL:ld_img(22,25,4,128,,23) |
@@ -10723,48 +10723,14 @@ b47590 DEFB 2,12   ; y=5, z=1; down/left, down/right
  47602 DEFB 42,128 ; y=25, z=1; left
 ; The next descriptor corresponds to the rightmost edge of the right-hand shop
 ; under the apartments next to no. 74 (x=22); the locations at
-; (x,y,z)=(149,33,1), (205,33,1) and (222,33,1) are not accessible.
+; (x,y,z)=(149,33,1)#IF({fix}<2)//, (205,33,1) and (222,33,1)/ and (205,33,1)//
+; are not accessible.
 ; .
 ; #UDGTABLE(locdesc) {
 ; #CALL:ld_img(22,33,1,128)
 ; } TABLE#
  47604 DEFB 58,128 ; y=33, z=1; left
  47606 DEFB 255    ; End marker
-@bfix+else
-; The next descriptor corresponds to the rightmost edges on the top floor of
-; the police station (x=149) and the top floor of the apartment building next
-; to no. 19 (x=205).
-@label=LOCDESCS205
- 47592 DEFB 18,128 ; y=13, z=1; left
-; The next descriptor corresponds to the rightmost edges on the first floor of
-; the police station (x=149) and the apartment building next to no. 19 (x=205).
- 47594 DEFB 54,128 ; y=31, z=1; left
-; The next descriptor corresponds to the spot just to the left of the top-right
-; edge of the roof of the apartment building next to no. 74 (x=22), and the
-; spot just to the left of the top-right edge of the roof of the apartment
-; building next to no. 19 (x=205); the location at (x,y,z)=(149,6,1) is not
-; accessible.
-@label=LOCDESCS22
- 47596 DEFB 4,72   ; y=6, z=1; right, down/left
-; The next descriptor corresponds to the right edge of the roof of the
-; apartment building next to no. 74 (x=22), and the right edge of the roof of
-; the apartment building next to no. 19 (x=205); the location at
-; (x,y,z)=(149,7,1) is not accessible.
- 47598 DEFB 6,128  ; y=7, z=1; left
-; The next descriptor corresponds to the rightmost edges on the third floor of
-; the apartment building next to no. 74 (x=22), the police station (x=149), and
-; the apartment building next to no. 19 (x=205).
- 47600 DEFB 30,128 ; y=19, z=1; left
-; The next descriptor corresponds to the rightmost edges on the second floor of
-; the apartment building next to no. 74 (x=22), the police station (x=149), and
-; the apartment building next to no. 19 (x=205).
- 47602 DEFB 42,128 ; y=25, z=1; left
-; The next descriptor corresponds to the rightmost edge of the right-hand shop
-; under the apartments next to no. 74 (x=22); the locations at
-; (x,y,z)=(149,33,1) and (205,33,1) are not accessible.
- 47604 DEFB 58,128 ; y=33, z=1; left
- 47606 DEFB 255    ; End marker
-@bfix+end
 
 ; Location descriptors (x-coordinate 39)
 ;
@@ -15001,13 +14967,9 @@ b50432 DEFB 32  ; x=0: #R49952
  50652 DEFB 47  ; x=220: #R49967
 @ssub=DEFB 49967%256
  50653 DEFB 47  ; x=221: #R49967
-@bfix-begin
 @ssub=DEFB 47592%256
- 50654 DEFB 232 ; x=222: #R47592
-@bfix+else
-@ssub=DEFB 56568%256
- 50654 DEFB 248 ; x=222: #R56568
-@bfix+end
+@if({asm}<2)(bfix=DEFB 248,bfix=DEFB 56568%256)
+ 50654 DEFB 232 ; x=222: #IF({fix}<2)(#R47592,#R56568)
 @ssub=DEFB 50048%256
  50655 DEFB 128 ; x=223: #R50048
 @ssub=DEFB 50133%256
