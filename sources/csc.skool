@@ -15486,13 +15486,9 @@ b50688 DEFB 195 ; x=0: #R49952
  50908 DEFB 195 ; x=220: #R49967
 @ssub=DEFB 49967/256
  50909 DEFB 195 ; x=221: #R49967
-@bfix-begin
 @ssub=DEFB 47592/256
- 50910 DEFB 185 ; x=222: #R47592
-@bfix+else
-@ssub=DEFB 56568/256
- 50910 DEFB 220 ; x=222: #R56568
-@bfix+end
+@if({asm}<2)(bfix=DEFB 220,bfix=DEFB 56568/256)
+ 50910 DEFB 185 ; x=222: #IF({fix}<2)(#R47592,#R56568)
 @ssub=DEFB 50048/256
  50911 DEFB 195 ; x=223: #R50048
 @ssub=DEFB 50133/256
@@ -21047,15 +21043,11 @@ b61194 DEFB 16 ; LSB of #R61200
  61412 DEFB 255,234,249,250 ; 238<=x<=254: No. 15 (top floor)
 ; The next table corresponds to y-coordinates 2-7.
 @label=REGIDS5
-@bfix-begin
+@bfix=DEFB 24,92,11,21      ; 0<=x<=23: Apartment building next to no. 74
  61416 DEFB 23,92,11,20     ; 0<=x<=22: Apartment building next to no. 74
                             ; (roof)
+@bfix=                      ; 24<=x<=102: No. 74 (roof) and hotel (top floor)
  61420 DEFB 103,156,88,157  ; 23<=x<=102: No. 74 (roof) and hotel (top floor)
-@bfix+else
- 61416 DEFB 24,92,11,21     ; 0<=x<=23: Apartment building next to no. 74
-                            ; (roof)
- 61420 DEFB 103,156,88,157  ; 24<=x<=102: No. 74 (roof) and hotel (top floor)
-@bfix+end
  61424 DEFB 150,108,137,147 ; 103<=x<=149: Police station (roof)
  61428 DEFB 159,124,156,151 ; 150<=x<=158: No. 27 (roof)
  61432 DEFB 207,252,195,182 ; 159<=x<=206: Apartment building next to no. 19
@@ -21865,15 +21857,12 @@ u62173 DEFS 4
 ;
 ; Used by the routine at #R62120.
 @label=KEYOWNERS
-@bfix-begin
+@bfix=DEFB 136  ; Character #R55040(#b215) (bits 3 and 8 set: keys to no. 74
+@bfix=          ; and no. 19)
 b62177 DEFB 8   ; Character #R55040(#b215) (bit 3 set: key to no. 74)
+@bfix=DEFB 144  ; Character #R55296(#b216) (bits 4 and 8 set: keys to no. 31
+@bfix=          ; and no. 19)
  62178 DEFB 16  ; Character #R55296(#b216) (bit 4 set: key to no. 31)
-@bfix+else
-b62177 DEFB 136 ; Character #R55040(#b215) (bits 3 and 8 set: keys to no. 74
-                ; and no. 19)
- 62178 DEFB 144 ; Character #R55296(#b216) (bits 4 and 8 set: keys to no. 31
-                ; and no. 19)
-@bfix+end
  62179 DEFB 8   ; Character #R55552(#b217) (bit 3 set: key to no. 74)
  62180 DEFB 16  ; Character #R55808(#b218) (bit 4 set: key to no. 31)
  62181 DEFB 8   ; Character #R56064(#b219) (bit 3 set: key to no. 74)
@@ -23954,33 +23943,24 @@ s64130 DEFB 0
 @label=KNOCKED2
 c64131 CALL 63994    ; Place the address of the next instruction into bytes
                      ; #b18 and #b19 of the character's buffer
-@bfix-begin
-; The apparent intention of the remainder of this routine is to make the
-; character return (by walking backwards or forwards as required) to the spot
-; where he was hit, but this fails to happen because of the faulty '#S/JR NZ/'
-; instruction below, which should be a '#S/JR Z/' instead.
-@bfix+else
-; The remainder of this routine makes the character return (by walking
-; backwards or forwards as required) to the spot where he was hit.
-@bfix+end
+; #IF({fix}<2)||The apparent intention of the remainder of this routine is to
+; make the character return (by walking backwards or forwards as required) to
+; the spot where he was hit, but this fails to happen because of the faulty
+; '#S/JR NZ/' instruction below, which should be a '#S/JR Z/' instead.|The
+; remainder of this routine makes the character return (by walking backwards or
+; forwards as required) to the spot where he was hit.||
  64134 LD L,21       ; {Collect the character's pre-knockout x-coordinate from
  64136 LD A,(HL)     ; byte #b21 of his buffer}
  64137 LD L,1        ; {Does it match the character's current x-coordinate?
  64139 CP (HL)       ; }
-@bfix-begin
+@bfix=JR Z,64150     ; Jump if so
  64140 JR NZ,64150   ; Jump if not (this is a #BUG#pttd(bug))
-@bfix+else
- 64140 JR Z,64150    ; Jump if so
-@bfix+end
  64142 LD C,128      ; Bit 7 set, bit 6 reset: the character will move left
-@bfix-begin
+@bfix=               ; Jump if the character's current x-coordinate is greater
+@bfix=/              ; than his pre-knockout x-coordinate
  64144 JR C,64080    ; This jump is never made, but the intention was to make
                      ; it if the character's current x-coordinate is greater
                      ; than his pre-knockout x-coordinate
-@bfix+else
- 64144 JR C,64080    ; Jump if the character's current x-coordinate is greater
-                     ; than his pre-knockout x-coordinate
-@bfix+end
  64146 LD C,64       ; Bit 7 reset, bit 6 set: the character will move right
  64148 JR 64080      ; Move the character right
 ; Restore the character's pre-knockout animatory state and terminate this
@@ -24510,14 +24490,10 @@ c64618 LD HL,59552   ; {Change the instruction at #R59552 to #S/RET/
  64661 LDIR          ; in the first 32 bytes of the screen refresh buffer at
                      ; #R32512}
  64663 CALL 59528    ; Scroll the screen up a row
-@bfix-begin
+@bfix=LD HL,23136    ; {Fill the 20th row of the screen with solid blue squares
  64666 LD HL,20576   ; {Fill the top line of bytes on the 20th row of the
+@bfix=               ;
  64669 LD B,32       ; screen with 9s; this is a #BUG#missingBlueLine(bug)
-@bfix+else
-@nowarn
- 64666 LD HL,23136   ; {Fill the 20th row of the screen with solid blue squares
- 64669 LD B,32       ;
-@bfix+end
 *64671 LD (HL),9     ;
  64673 INC L         ;
  64674 DJNZ 64671    ; }
@@ -24666,17 +24642,14 @@ w64816 DEFW 62976    ; Go to...
 ; Used by the routine at #R29578. Defines the regions watched by the gangsters
 ; at no. 19 (who use the command list that follows at #R64846).
 @label=HOODREG3
-@bfix-begin
+@bfix=              ; {207<=x<222, 13<=y<33 (the gangster will give up the
 b64836 DEFB 207,222 ; {207<=x<222, 13<=y<32 (the gangster will give up the
+@bfix=DEFB 13,33
  64838 DEFB 13,32   ; chase if Sam leaves this region)}
+@bfix=              ; {207<=x<222, 15<=y<33 (the gangster will remain inside
  64840 DEFB 207,222 ; {207<=x<222, 15<=y<32 (the gangster will remain inside
+@bfix=DEFB 15,33
  64842 DEFB 15,32   ; this region, and start chasing Sam if he enters it)}
-@bfix+else
-b64836 DEFB 207,222 ; {207<=x<222, 13<=y<33 (the gangster will give up the
- 64838 DEFB 13,33   ; chase if Sam leaves this region)}
- 64840 DEFB 207,222 ; {207<=x<222, 15<=y<33 (the gangster will remain inside
- 64842 DEFB 15,33   ; this region, and start chasing Sam if he enters it)}
-@bfix+end
 @label=DISGUISE19
  64844 DEFB 7       ; Disguise ID (oil man); this is set by the routine at
                     ; #R29952: to #b7 (using the event entry at #R24544), and
