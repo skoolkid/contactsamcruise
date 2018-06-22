@@ -19287,17 +19287,14 @@ c59635 CALL 59640    ; Superimpose sprite tiles for characters whose
  59837 JR 59742      ; Jump back to consider the next character
 
 ; Unused
-@isub+begin
-u59839 DEFB 203,92,40,239,217,24,159,0,0
-@isub-else
 ;
-; Remnants of an old version of the routine at #R59635.
+; #IF({asm}<1)(Remnants of an old version of the routine at #R59635.)
+@isub=|DEFB 203,92,40,239,217,24,159,0,0
 u59839 BIT 3,H       ;
  59841 JR Z,59826    ;
  59843 EXX           ;
  59844 JR 59749      ;
  59846 DEFS 2
-@isub-end
 
 ; Update the SRB for a character's current animatory state and location
 ;
