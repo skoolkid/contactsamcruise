@@ -1181,7 +1181,7 @@ b25106 DEFB 39,46 ; Left and right sides of the doorsteps of no. 74
 ;
 ; The bytes here look like remnants of the table of potential sniper
 ; x-coordinates at #R25106.
-@if({fix}>1)(remove=25113)
+@bfix=!25113
 u25113 DEFB 207,241,233,255,249
 
 @bfix+begin
@@ -4712,7 +4712,7 @@ b28722 DEFB 129,194 ; {Top six pixel rows of the top two tiles of the telephone
 ; These bytes are probably remnants of the graphic data for the telephone when
 ; ringing (see #R28722). That these bytes are unused may be a
 ; #BUG#extendedEarpiece(bug).
-@if({fix}>1)(remove=28739)
+@bfix=!28739
 u28739 DEFB 28,0
 
 ; Graphic data for the telephone when not ringing
@@ -4740,7 +4740,7 @@ b28741 DEFB 1,192  ; {Top six pixel rows of the top two tiles of the telephone
 ; These bytes are probably remnants of the graphic data for the telephone when
 ; not ringing (see #R28741). That these bytes are unused may be a
 ; #BUG#extendedEarpiece(bug).
-@if({fix}>1)(remove=28758)
+@bfix=!28758
 u28758 DEFB 28,28
 
 ; Initialise the icon panel, score box and message line
@@ -16782,7 +16782,7 @@ b56446 DEFB 253,18,237                ; Graphic data for sprite tiles
                                       ; states #b112-#b119
 
 ; Unused
-@if({fix}>1)(remove=56568)
+@bfix=!56568
 s56568 DEFS 8
 
 @bfix+begin
