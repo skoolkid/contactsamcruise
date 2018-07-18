@@ -798,7 +798,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
             raise MacroParsingError('Filename missing: #DISGUISE{}'.format(text[index:end]))
         udgs = self._build_disguise(disguise_id)
         frames = [Frame(udgs, scale, 0, *crop_rect, name=frame)]
-        return end, self.handle_image(frames, fname, cwd, alt)
+        return end, self.handle_image(frames, fname, cwd, alt, 'UDGImagePath')
 
     def expand_s(self, text, index, cwd):
         # #S/text/
