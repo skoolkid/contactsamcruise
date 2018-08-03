@@ -455,9 +455,8 @@ t24230 DEFB 27          ; #R27360(#b27): 'LANA ANSWERED 'OOH SAM! '
  24262 DEFB 0           ; End marker
 
 ; Message #b73: 'I STARED AT THE LOVELY LANA#SPACE2WAS IT THOSE RUBY LIPS OR
-; THE SLIM AUTOMATIC THAT TRANSFIXED ME? SHE SAID 'THANK YOU FOR THE BUDGIE
-; SAM . ITS PRICELESS. IVE ALREADY KILLED ONCE FOR IT. AND NOW ITS GOODBYE
-; SAM ''
+; THE SLIM AUTOMATIC THAT TRANSFIXED ME? SHE SAID 'THANK YOU FOR THE BUDGIE SAM
+; . ITS PRICELESS. IVE ALREADY KILLED ONCE FOR IT. AND NOW ITS GOODBYE SAM ''
 ;
 ; Used by the routine at #R24832.
 @label=MSG073
@@ -1525,8 +1524,8 @@ c25420 LD A,(32745)  ; #R32745 holds Sam's object inventory
 ; the banknote is not removed from view, which is a #BUG#frozenFiver(bug).
  25427 CALL 59848    ; Update the SRB for the banknote's current animatory
                      ; state and location
- 25430 CALL 63409    ; Change the banknote's primary command routine address
-                     ; to #R25433 (below)
+ 25430 CALL 63409    ; Change the banknote's primary command routine address to
+                     ; #R25433 (below)
 @label=FREEZENOTE
  25433 RET           ;
 ; This entry point is used by the command list at #R64886.
@@ -1618,9 +1617,9 @@ c25420 LD A,(32745)  ; #R32745 holds Sam's object inventory
 
 ; Check whether Sam has somersaulted onto a banknote
 ;
-; Used by the routine at #R25789. Compares Sam's location with those of the
-; two banknotes. If there's a match, and Sam has just finished a somersault,
-; the banknote is added to Sam's cash supply.
+; Used by the routine at #R25789. Compares Sam's location with those of the two
+; banknotes. If there's a match, and Sam has just finished a somersault, the
+; banknote is added to Sam's cash supply.
 ;
 @ignoreua
 ; HL #w58892 (byte #b12 of Sam's buffer)
@@ -1705,11 +1704,11 @@ c25600 LD H,199      ; This is the base page of the graphic data for the source
 
 ; Prepare sprite tiles used by Sam when somersaulting or rolling
 ;
-; Used by the routine at #R25789. Animatory states #AS9, #AS10, #AS15 and
-; #AS31 - corresponding to the sprites of Sam rolling and somersaulting - use
-; sprite tiles #b239-#b247. These sprite tiles are initialised before Sam
-; starts his acrobatic manoeuvre, and later rotated as he moves through each
-; phase of animation.
+; Used by the routine at #R25789. Animatory states #AS9, #AS10, #AS15 and #AS31
+; - corresponding to the sprites of Sam rolling and somersaulting - use sprite
+; tiles #b239-#b247. These sprite tiles are initialised before Sam starts his
+; acrobatic manoeuvre, and later rotated as he moves through each phase of
+; animation.
 @label=PREPTILES
 c25618 LD L,2        ; {Copy sprite tiles #b2-#b7 over sprite tiles #b239-#b244
  25620 LD E,239      ;
@@ -2327,8 +2326,8 @@ c26224 PUSH AF       ; Save the sniper's animatory state
  26237 LD H,215      ; #b215 is the base page for sprite tile references
 *26239 LD B,D        ; #REGb=number of non-blank tiles to initialise in this
                      ; column
-*26240 LD L,162      ; Animatory state #AS34(#b162) (gangster)
-                     ; will be used as a template for the sniper's sprite
+*26240 LD L,162      ; Animatory state #AS34(#b162) (gangster) will be used as
+                     ; a template for the sniper's sprite
  26242 LD A,(HL)     ; Collect a sprite tile reference from the template
  26243 LD L,182      ; {Copy the sprite tile reference into place
  26245 LD (HL),A     ; }
@@ -4196,8 +4195,8 @@ c28186 PUSH DE       ; Save the display file address
  28219 LD BC,65436   ; #REGbc=-100
  28222 ADD HL,BC     ; Is #REGhl>=100?
  28223 JR C,28261    ; Jump if so to compute and store the 100s digit
- 28225 INC E         ; Point #REGde at the slot for the 10s digit in the
-                     ; number string buffer
+ 28225 INC E         ; Point #REGde at the slot for the 10s digit in the number
+                     ; string buffer
  28226 SBC HL,BC     ; Add the 100 back
  28228 LD C,246      ; #REGbc=-10
  28230 ADD HL,BC     ; Is #REGhl>=10?
@@ -4673,8 +4672,8 @@ c28703 LD A,48       ; #b48=PAPER 6: INK 0
 ; This entry point is used by the routine at #R29668 to hide an icon in the
 ; icon panel.
 *28707 LD A,54       ; #b54=PAPER 6: INK 6
-; This entry point is used by the routine at #R30339 with #REGa=6 (PAPER 0:
-; INK 6) to show an icon for an object that can be picked up (by pressing 'G').
+; This entry point is used by the routine at #R30339 with #REGa=6 (PAPER 0: INK
+; 6) to show an icon for an object that can be picked up (by pressing 'G').
 *28709 LD D,90       ; Point #REGde at the attribute file address for the
                      ; top-left tile of the icon
  28711 LD (DE),A     ; {Set the attributes for the top two tiles of the icon
@@ -5137,8 +5136,8 @@ c29088 CALL 29072    ; Set the policeman's destination to Sam's current
 c29100 LD L,31       ; {Pick up byte #b31 of the policeman's buffer
  29102 LD A,(HL)     ; }
  29103 AND 63        ; {#REGd=Sam's y-coordinate when he was spotted by the
- 29105 LD D,A        ; policeman while wearing a disguise unknown to the
-                     ; police}
+ 29105 LD D,A        ; policeman while wearing a disguise unknown to the police
+                     ; }
  29106 LD A,(HL)     ; Pick up byte #b31 again
  29107 LD C,4        ; Initialise the destination z-coordinate to 4
  29109 AND 192       ; Was Sam's z-coordinate 4 (on the sidewalk or road) when
@@ -6077,9 +6076,9 @@ c30053 PUSH DE       ; Save the duration
  30054 XOR L         ; Toggle the border colour between 2 (red) and 4 (green)
  30055 CALL 64740    ; Make a mini-sound effect
  30058 LD B,A        ; Save the border colour in #REGb briefly
- 30059 LD A,C        ; {Modify the pitch for the next mini-sound effect (it
- 30060 CPL           ; is #b144 for the first, and then toggles between #b111
- 30061 AND 127       ; and #b16 for the remainder)
+ 30059 LD A,C        ; {Modify the pitch for the next mini-sound effect (it is
+ 30060 CPL           ; #b144 for the first, and then toggles between #b111 and
+ 30061 AND 127       ; #b16 for the remainder)
  30063 LD C,A        ; }
  30064 LD A,B        ; Restore the border colour to #REGa
  30065 POP DE        ; Restore the duration to #REGde
@@ -7521,9 +7520,9 @@ c31642 PUSH HL       ; Save the policeman's character number
                      ; AT ME...'
  31661 LD DE,5232    ; #REGd=20, #REGe=112
  31664 PUSH AF       ; Save the message number
- 31665 LD A,58       ; {Combined with (#REGe,#REGd)=(112,20), this places the
+ 31665 LD A,58       ; Combined with (#REGe,#REGd)=(112,20), this places the
                      ; top-left corner of the cutscene window at (128,31) and
-                     ; Sam at (133,31) (in the jail cell)}
+                     ; Sam at (133,31) (in the jail cell)
  31667 JP 31451      ; Display the cutscene and end the game
 
 ; Control the hook while it's flying
@@ -9957,8 +9956,8 @@ b43807 DEFB 194
 @ignoreua
 ; Used by the routines at #R59148 and #R62368. T values in this block may be
 ; (and in practice are) used by play area tiles at y-coordinates 0, 6, 12, 18,
-; 24, 30 and 36. The T values at addresses #w44255-#w44260, #w44265-#w44277
-; and #w44284-#w44287 are used only by tiles at y-coordinate 0 (which are never
+; 24, 30 and 36. The T values at addresses #w44255-#w44260, #w44265-#w44277 and
+; #w44284-#w44287 are used only by tiles at y-coordinate 0 (which are never
 ; displayed), and are therefore effectively unused.
 @label=Z3VALUES0B
 b44032 DEFB 11,64,64,64,64,64,64,64,64,64,64,64,64,0,9,9
@@ -10008,8 +10007,8 @@ b44288 DEFB 47,194,194,194,194,194,194,194,194,194,194,194,194,128,25,24
 @ignoreua
 ; Used by the routines at #R59148 and #R62368. T values in this block may be
 ; (and in practice are) used by play area tiles at y-coordinates 1, 7, 13, 19,
-; 25, 31 and 37. The T values at addresses #w44767-#w44772, #w44777-#w44789
-; and #w44796-#w44799 are used only by tiles at y-coordinate 1 (which are never
+; 25, 31 and 37. The T values at addresses #w44767-#w44772, #w44777-#w44789 and
+; #w44796-#w44799 are used only by tiles at y-coordinate 1 (which are never
 ; displayed), and are therefore effectively unused.
 b44544 DEFB 3,129,129,129,129,64,64,64,64,129,129,129,129,0,9,9
  44560 DEFB 9,5,0,0,2,75,72,64,64,133,133,75,129,129,75,2
@@ -11574,8 +11573,8 @@ u48505 DEFB 172,255
 ; Location descriptor (x-coordinate 124)
 ;
 ; Used by the routine at #R60179. This descriptor corresponds to the top-left
-; edge of the roof of the police station. It is used to check whether Sam
-; is going to step off the roof (see #R41750).
+; edge of the roof of the police station. It is used to check whether Sam is
+; going to step off the roof (see #R41750).
 ; .
 ; #UDGTABLE(locdesc) {
 ; #CALL:ld_img(124,5,1,0)
@@ -18704,9 +18703,8 @@ c59148 PUSH HL       ; Put the screen coordinates onto the stack
                      ; location (X,Y)
  59229 LD A,(BC)     ; #REGa=T (value of byte Z'' of page #b160+2*(Y%6) or
                      ; #b172+2*(Y%6))
-; #HTML(<span id="tValue" />)
-; We have collected the T value for the play area location (X,Y). Bits 7 and 6
-; of T have the following meanings:
+; #HTML(<span id="tValue" />) We have collected the T value for the play area
+; location (X,Y). Bits 7 and 6 of T have the following meanings:
 ; .
 ; #TABLE(default,centre,:w)
 ; { =h Value | =h Meaning }
@@ -18952,7 +18950,7 @@ c59406 LD HL,59372   ; {Set the instruction at #R59371 to '#S/LD BC/,#nn31'
 ; Unused
 s59458 DEFS 3
 
-;  Scroll the screen right 8 columns
+; Scroll the screen right 8 columns
 ;
 ; Used by the routine at #R61838.
 @label=RSCROLL8
@@ -19476,8 +19474,8 @@ c59861 LD L,2        ; Point #REGhl at byte #b2 of the character's buffer
 *60007 INC H         ; Point #REGhl' at the reference for the next tile in the
                      ; sprite (one row down)
  60008 INC E         ; Next row down in this column of the sprite
- 60009 DJNZ 59993    ; Jump back until we've set all the SRB bits for this
-                     ; tile column of the sprite
+ 60009 DJNZ 59993    ; Jump back until we've set all the SRB bits for this tile
+                     ; column of the sprite
  60011 LD A,H        ; {Point #REGhl' at the reference for the tile in the top
  60012 ADD A,D       ; row of the next column of the sprite
  60013 POP BC        ;
@@ -19680,8 +19678,8 @@ c60152 LD L,1        ; Point #REGhl at byte #b1 of the character's buffer
 ; values derived from that descriptor.
 ; .
 ; A location descriptor is a single byte (Q) if the location is on the sidewalk
-; or road, or a sequence of two bytes ((Q,Q'), where bit 7 of Q is reset), or
-; a sequence of three bytes ((Q,Q',Q''), where bit 7 of Q is set). For the
+; or road, or a sequence of two bytes ((Q,Q'), where bit 7 of Q is reset), or a
+; sequence of three bytes ((Q,Q',Q''), where bit 7 of Q is set). For the
 ; location it corresponds to, a descriptor indicates the directions in which a
 ; character may move, and the directions that would require a change of
 ; z-coordinate; it may also indicate whether there is a door that can close at
@@ -19848,8 +19846,8 @@ c60179 CALL 60152    ; Is the character on the sidewalk or the road?
  60261 CP C          ; Is the character at the location to which the location
                      ; descriptor corresponds?
  60262 JR NZ,60221   ; Move along to the next location descriptor if not
-; The character is standing next to the entrance to a building. Check whether
-; a closed door is in his way.
+; The character is standing next to the entrance to a building. Check whether a
+; closed door is in his way.
  60264 INC L         ; Point #REGhl at the third byte of the location
                      ; descriptor
  60265 BIT 0,(HL)    ; Is there a door at this location?
@@ -20134,13 +20132,13 @@ c60347 CALL 60293    ; Make the character stand up if he's lying down
                      ; dealing with Sam, check whether he is entering a house
                      ; without a key
  60483 JR 60423      ; Move the character midstride
-; The character is at a location that may require special handling depending
-; on the direction in which he is going.
+; The character is at a location that may require special handling depending on
+; the direction in which he is going.
 *60485 LD A,D        ; #REGa=direction indicator (#b128, #b64, #b32, #b16, #b8
                      ; or #b4)
- 60486 RLCA          ; {Move bits 7 (left) and 6 (right) into bits 1 and 0
- 60487 RLCA          ; for comparison with bits 1 and 0 of the direction
-                     ; descriptor in #REGc}
+ 60486 RLCA          ; {Move bits 7 (left) and 6 (right) into bits 1 and 0 for
+ 60487 RLCA          ; comparison with bits 1 and 0 of the direction descriptor
+                     ; in #REGc}
  60488 AND C         ; Is the character moving in a direction that requires
                      ; special handling (e.g. off the edge of a roof)?
  60489 JR Z,60423    ; Jump if not to move the character midstride
@@ -22926,8 +22924,8 @@ c63209 CALL 63128    ; Exit now if the character is midstride
  63229 CP 64         ; Is the character standing next to a window blind?
  63231 JR C,63242    ; Jump if so
  63233 LD A,(DE)     ; #REGa=fixture location flags
- 63234 BIT 5,A       ; Does the light switch affect the lights in more than
-                     ; one window or window pair?
+ 63234 BIT 5,A       ; Does the light switch affect the lights in more than one
+                     ; window or window pair?
  63236 JR NZ,63266   ; Jump if so (the character will not flip the switch)
  63238 LD A,32       ; Bit 5 set: light switch toggle
  63240 JR 63250      ;
@@ -23869,8 +23867,8 @@ c64005 LD A,138      ; #REGa=#b10 (short knockout delay) + #b128 (quick
  64073 JR Z,64080    ; Jump if not
 *64075 CALL 61823    ; Get a random number in #REGa
  64078 RRCA          ; Rotate bit 0 into bit 7 for no apparent reason
- 64079 LD C,A        ; {Bit 7 of #REGc will be used to decide whether the
-                     ; character should move left next}
+ 64079 LD C,A        ; Bit 7 of #REGc will be used to decide whether the
+                     ; character should move left next
 ; This entry point is used by the routine at #R64131.
 @nowarn
 *64080 LD DE,59861   ; {Load the address of the routine at #R59861 onto the
@@ -23908,8 +23906,8 @@ c64005 LD A,138      ; #REGa=#b10 (short knockout delay) + #b128 (quick
  64112 BIT 0,A       ; Is it midstride?
  64114 RET Z         ; Return (to #R59861) if not
  64115 INC A         ; {Add 4 to #REGa (without affecting the carry flag) to
- 64116 INC A         ; obtain the correct midstride animatory state (though
- 64117 INC A         ; bit 2 may need to be reset)
+ 64116 INC A         ; obtain the correct midstride animatory state (though bit
+ 64117 INC A         ; 2 may need to be reset)
  64118 INC A         ; }
  64119 JR 64101      ;
 
@@ -24074,8 +24072,8 @@ c64227 LD L,2        ; Point #REGhl at byte #b2 of the character's buffer
  64245 RET           ;
 ; The character has not landed yet.
 *64246 ADD A,3       ; {Set the zero flag if the character is at the right
- 64248 CP (HL)       ; height above the roof or ground to hit another
-                     ; character}
+ 64248 CP (HL)       ; height above the roof or ground to hit another character
+                     ; }
  64249 PUSH HL       ; Save the character number briefly
  64250 CALL Z,64162  ; Check whether the character has landed on someone
  64253 POP HL        ; Restore the character number to #REGh
@@ -24083,8 +24081,8 @@ c64227 LD L,2        ; Point #REGhl at byte #b2 of the character's buffer
  64256 LD L,13       ; {Set byte #b13 of the character's buffer to 0: he will
  64258 LD (HL),0     ; not be knocked out upon landing}
 *64260 LD L,13       ; {Is the character Sam, and was he dropped from a great
- 64262 BIT 0,(HL)    ; enough height that he could be knocked out upon
-                     ; landing?}
+ 64262 BIT 0,(HL)    ; enough height that he could be knocked out upon landing?
+                     ; }
  64264 JR Z,64269    ; Jump if not
  64266 LD L,4        ; {Set Sam's z-coordinate to 4 (outside)
  64268 LD (HL),L     ; }
@@ -24522,11 +24520,11 @@ c64618 LD HL,59552   ; {Change the instruction at #R59552 to #S/RET/
  64724 JR NZ,64638   ; Jump back until we've scrolled the screen up and down 7
                      ; times
 @nowarn
- 64726 LD HL,59552   ; {Change the instruction at #R59552 back to
- 64729 LD (HL),33    ; '#S/LD HL/,#n32767'}
+ 64726 LD HL,59552   ; {Change the instruction at #R59552 back to '#S/LD
+ 64729 LD (HL),33    ; HL/,#n32767'}
 @ssub=LD L,59612%256
- 64731 LD L,220      ; {Change the instruction at #R59612 back to
- 64733 LD (HL),33    ; '#S/LD HL/,#n32767'}
+ 64731 LD L,220      ; {Change the instruction at #R59612 back to '#S/LD
+ 64733 LD (HL),33    ; HL/,#n32767'}
  64735 JP 64582      ; Regenerate the table of mirrored values of #b0-#b255 at
                      ; #R32256
 
