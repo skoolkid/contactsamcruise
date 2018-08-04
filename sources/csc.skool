@@ -10254,9 +10254,9 @@ b47104 DEFB 0,0,0       ; 0<=x<24: apartment building next to no. 74
  47123 DEFB 0           ; 152<=x<160: no. 27
  47124 DEFB 0,0         ; 160<=x<176
  47126 DEFB 0,0,0,0     ; 176<=x<208: apartment building next to no. 19
- 47140 DEFB 0,0         ; 208<=x<224: no. 19
- 47142 DEFB 0,0         ; 224<=x<240: no. 17
- 47144 DEFB 0,0         ; 240<=x<256: no. 15
+ 47130 DEFB 0,0         ; 208<=x<224: no. 19
+ 47132 DEFB 0,0         ; 224<=x<240: no. 17
+ 47134 DEFB 0,0         ; 240<=x<256: no. 15
 
 ; Play area tile attribute address LSBs (0<=y<=5)
 ;
