@@ -7,7 +7,7 @@ SectionType=BulletPoints
 -
 
 - Ported the disassembly to SkoolKit 7
-- Fixed incorrect addresses in the entry at #R47104
+- Fixed incorrect addresses in the entries at #R47104 and #R50944
 
 [Changelog:20170516]
 -
