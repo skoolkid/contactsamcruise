@@ -5973,7 +5973,7 @@ c29952 LD HL,30051   ; {Set the operand of the #S/JP/ instruction at #R29963
 ; routine) using entries in the event table at #R24544 during the game as
 ; follows:
 ; .
-; #TABLE(default,centre,centre,:w)
+; #TABLE(default,centre,centre,:w)<wrapalign>
 ; { =h Operand | =h Entry | =h Occasion }
 ; { #R31236    | #R24626  | Sam finds the dead body in the hotel }
 ; { #R24914    | #R24586  | Sam enters no. 15 using the key (in game mode 1) }
@@ -8576,7 +8576,7 @@ g32748 DEFW 0
 ; the event entry at #R24544), #R31126, #R31414 and #R61568, and updated by the
 ; routine at #R63662.
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Mode | =h Meaning }
 ; { 0       | Demo mode }
 ; { 1       | The game has just started }
@@ -9258,8 +9258,8 @@ b40981 DEFB 128      ; Bit 7 set
 ; { Between the second and third windows from the left on the second, third and
 ; top floors of no. 15 }
 ; { Between the stairwell and the first window to the right of the stairwell on
-; each floor of the apartment building next to no. 19 | =r3 Right | =r3
-; #R50139 }
+; each floor of the apartment building next to no. 19 | =r3 Right | =r3 #R50139
+; }
 ; { Between the stairwell and the first window to the right of the stairwell on
 ; the second, third and top floors of the apartment building next to no. 74 }
 ; { The right end of the catwalk }
@@ -15755,7 +15755,7 @@ b50944 DEFB 0,0,0,60,0,0,192,128,1,9,128,0,255,0,0,0
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
 ; how the buffers are used. These buffers belong to the following characters:
 ; .
-; #TABLE(default,,:w)
+; #TABLE(default,,:w)<wrapalign>
 ; { =h Character          | =h Initial location }
 ; { Lady in a hat         | Third floor of the apartment building next to no.
 ;                           74 }
@@ -15910,7 +15910,7 @@ b55166 DEFB 0,64,3              ; Graphic data for sprite tiles #b126-#b128
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
 ; how the buffers are used. These buffers belong to the following characters:
 ; .
-; #TABLE(default,,:w)
+; #TABLE(default,,:w)<wrapalign>
 ; { =h Character          | =h Initial location }
 ; { Girl with a pony tail | Third floor of the apartment building next to no.
 ;                           74 }
@@ -16231,14 +16231,14 @@ b55678 DEFB 0,160,2                 ; Graphic data for sprite tiles #b126-#b128
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
 ; how the buffers are used. These buffers belong to the following characters:
 ; .
-; #TABLE(default,,:w)
+; #TABLE(default,,:w)<wrapalign>
 ; { =h Character          | =h Initial location }
 ; { Cat                   | Outside the shop on the right-hand side under the
 ;                           apartments next to no. 74 }
 ; { Lady in a hat         | Second floor of the hotel }
 ; { None                  | Out of sight }
-; { Cat                   | Left edge of the apartment building next to no.
-;                           19 }
+; { Cat                   | Left edge of the apartment building next to no. 19
+;                           }
 ; { Lady in a hat         | Sidewalk outside no. 17 }
 ; TABLE#
 ; .
@@ -16391,10 +16391,10 @@ b55934 DEFB 254,160,242               ; Graphic data for sprite tiles
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
 ; how the buffers are used. These buffers belong to the following characters:
 ; .
-; #TABLE(default,,:w)
+; #TABLE(default,,:w)<wrapalign>
 ; { =h Character          | =h Initial location }
-; { Gangster              | Top floor of the apartment building next to no.
-;                           74 }
+; { Gangster              | Top floor of the apartment building next to no. 74
+;                           }
 ; { Man in a baseball cap | Third floor of the hotel }
 ; { Policeman (jailer)    | Third floor of the police station }
 ; { Lady with big hair    | Third floor of the apartment building next to no.
@@ -16549,7 +16549,7 @@ s56312 DEFS 8
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
 ; how the buffers are used. These buffers belong to the following characters:
 ; .
-; #TABLE(default,,:w)
+; #TABLE(default,,:w)<wrapalign>
 ; { =h Character          | =h Initial location }
 ; { Lady with big hair    | Sidewalk by the left edge of no. 74 }
 ; { Lady with big hair    | Third floor of the hotel }
@@ -16717,7 +16717,7 @@ b56568 DEFB 18,128 ; y=13, z=1; left (roof)
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
 ; how the buffers are used. These buffers belong to the following characters:
 ; .
-; #TABLE(default,,:w)
+; #TABLE(default,,:w)<wrapalign>
 ; { =h Character          | =h Initial location }
 ; { Gangster              | Second floor of no. 74 }
 ; { Man in a bowler hat   | Second floor of the hotel }
@@ -21504,7 +21504,7 @@ c61948 LD HL,32674   ; The blown fuse delay counters are stored at #R32674
  62000 RET Z         ; Return if not
 ; The character will be moved. From this point, the following steps are taken:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Step | =h Action }
 ; { 1       | If there is an uninterruptible subcommand routine address in
 ;             bytes #b18 and #b19 of the character's buffer, jump to it }
@@ -22365,7 +22365,7 @@ s62715 DEFS 5
 ; tiles wide, and level with the floor of a building. A bit set in any byte
 ; indicates the presence of an object in that segment.
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Bit | =h Meaning if set }
 ; { 7      | Light switch on the left side of the room }
 ; { 6      | Light switch on the right side of the room }
@@ -23082,7 +23082,7 @@ c63437 PUSH HL       ; Save the address of the door status flags
 ; #R47168, #R47424, #R47680, #R47936, #R48192, #R48448 and #R48704). The window
 ; flags have the following meanings:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Bit(s) | =h Meaning }
 ; { 6,7       | Decorations for the only window, or the left-hand window of a
 ;               pair: 11=blind is down; 10=blind is up; 01=other; 00=none }
@@ -24092,7 +24092,7 @@ c64331 CALL 64227    ; Move the character to the next point in his descent
 ; byte of the character's location descriptor (see #R60179), which indicates
 ; the set of locations the character's current location belongs to:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h #REGb | =h Location(s) (x,y,z) }
 ; { =r3 2    | (23,6,1)=right edge of the roof of the apartment building next
 ;              to no. 74 (see #R50165) }
