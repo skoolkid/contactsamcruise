@@ -1921,6 +1921,7 @@ c25789 LD HL,25748   ; The animation phase table for Sam when somersaulting is
                      ; #b12 and #b13 of Sam's buffer
 ; This entry point is used by the routine at #R29912 when bit 3 at #R32764 is
 ; set (by this routine - see above).
+@label=*
 @ssub=LD HL,58880+8
 *25805 LD HL,58888   ; {Reset Sam's main action timer (in byte #b8 of his
  25808 LD (HL),6     ; buffer) to 6}
@@ -5943,6 +5944,7 @@ c29912 LD HL,58888   ; {Decrement Sam's main action timer in byte #b8 of his
  29935 LD HL,58880   ; Point #REGhl at byte #b0 of Sam's buffer
  29938 RET           ; Make an indirect jump to the Sam-handling routine
 ; We come here after the Sam-handling routine has returned.
+@label=*
 *29939 LD HL,32764   ; #R32764 holds Sam's status flags
  29942 LD A,(HL)     ; Pick them up in #REGa
  29943 AND A         ; Has Sam finished the action yet?
@@ -24179,6 +24181,7 @@ c64338 CALL 64512    ; Deal with the case where #REGb=2 and the character is
  64400 LD (32764),A  ; that he's falling from the roof of a building}
 ; This entry point is used by the routine at #R29912 when bit 7 at #R32764 is
 ; set (by this routine - see above).
+@label=*
 *64403 CALL 60521    ; Make a sound effect
  64406 LD L,20       ; {Collect byte #b20 of Sam's buffer
  64408 LD A,(HL)     ; }
