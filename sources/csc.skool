@@ -5129,8 +5129,8 @@ c29088 CALL 29072    ; Set the policeman's destination to Sam's current
                      ; location (when coming from #R29218)
 ; This entry point is used by the routine at #R29100 with #REGhl pointing at
 ; byte #b12 of a policeman's buffer.
-@ignoreua
 @ssub=LD DE,32731+2
+@ignoreua
 *29091 LD DE,32733   ; {Copy either (a) bytes #b10, #b11 and #b12 of the
  29094 LD BC,3       ; policeman's buffer (which hold his destination
  29097 LDDR          ; coordinates and location identifier), or (b) Sam's
@@ -11977,8 +11977,7 @@ b48896 DEFB 255
 ; The next Z' value is used by the segments at (32,6), (40,6), (48,6), (152,6),
 ; (208,6), (216,6), (224,6), (232,6), (240,6) and (248,6).
 ; .
-; #PUSHS
-; #POKES47386,9,2
+; #PUSHS #POKES47386,9,2
 ; #UDGTABLE
 ; { #SEGMENT32,6 | #SEGMENT40,6 | #SEGMENT48,6 | #SEGMENT152,6 |
 ; #SEGMENT208,6(segment-208-6-rope) | #SEGMENT216,6(segment-216-6-rope) |
@@ -12308,8 +12307,7 @@ b48896 DEFB 255
 ; The next Z' value is used by the segments at (0,36), (16,36), (224,36) and
 ; (240,36).
 ; .
-; #PUSHS
-; #POKES48640,79;48642,79;48668,79;48670,79
+; #PUSHS #POKES48640,79;48642,79;48668,79;48670,79
 ; #UDGTABLE
 ; { #SEGMENT0,36(segment-0-36-open) | #SEGMENT16,36(segment-16-36-open) |
 ; #SEGMENT224,36(segment-224-36-open) | #SEGMENT240,36(segment-240-36-open) }
@@ -12319,8 +12317,7 @@ b48896 DEFB 255
 ; The next Z' value is used by the segments at (0,30), (16,30), (224,30) and
 ; (240,30).
 ; .
-; #PUSHS
-; #POKES48384,80;48386,80;48412,80;48414,80
+; #PUSHS #POKES48384,80;48386,80;48412,80;48414,80
 ; #UDGTABLE
 ; { #SEGMENT0,30(segment-0-30-open) | #SEGMENT16,30(segment-16-30-open) |
 ; #SEGMENT224,30(segment-224-30-open) | #SEGMENT240,30(segment-240-30-open) }
@@ -12329,8 +12326,7 @@ b48896 DEFB 255
  48976 DEFB 0
 ; The next Z' value is used by the segments at (152,30), (232,30) and (248,30).
 ; .
-; #PUSHS
-; #POKES48403,81;48413,81;48415,81
+; #PUSHS #POKES48403,81;48413,81;48415,81
 ; #UDGTABLE
 ; { #SEGMENT152,30(segment-152-30-open) | #SEGMENT232,30(segment-232-30-open) |
 ; #SEGMENT248,30(segment-248-30-open) }
@@ -12339,8 +12335,7 @@ b48896 DEFB 255
  48977 DEFB 0
 ; The next Z' value is used by the segments at (40,30), (112,30) and (208,30).
 ; .
-; #PUSHS
-; #POKES48389,82;48398,82;48410,82
+; #PUSHS #POKES48389,82;48398,82;48410,82
 ; #UDGTABLE
 ; { #SEGMENT40,30(segment-40-30-open) | #SEGMENT112,30(segment-112-30-open) |
 ; #SEGMENT208,30(segment-208-30-open) }
@@ -13583,7 +13578,6 @@ b49968 DEFB 19       ; '0': Knock on or open a door
 ; TABLE#
 @label=LOCDESCS223
 b50048 DEFB 130,195,2 ; y=6, z=1; left, right
-@label=LOCDESCS239
 ; The next three descriptors correspond to the far left walls of no. 17 (x=223)
 ; and no. 15 (x=239).
 ; .
@@ -13592,6 +13586,7 @@ b50048 DEFB 130,195,2 ; y=6, z=1; left, right
 ; #CALL:ld_img(223,25,4,0) | #CALL:ld_img(239,13,4,0) |
 ; #CALL:ld_img(239,19,4,0) | #CALL:ld_img(239,25,4,0) }
 ; TABLE#
+@label=LOCDESCS239
  50051 DEFB 18,64     ; y=13, z=1; right (top floor)
  50053 DEFB 30,64     ; y=19, z=1; right (third floor)
  50055 DEFB 42,64     ; y=25, z=1; right (second floor)
