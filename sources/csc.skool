@@ -13622,8 +13622,8 @@ b50065 DEFB 4,132    ; y=6, z=1; left, down/right
 
 ; Location descriptor (x-coordinate 226)
 ;
-; Used by the routine at #R60179. This descriptor corresponds to the step up
-; to the top edge of the roof of no. 17.
+; Used by the routine at #R60179. This descriptor corresponds to the step up to
+; the top edge of the roof of no. 17.
 ; .
 ; #UDGTABLE(locdesc)
 ; { #CALL:ld_img(226,7,1,0) }
