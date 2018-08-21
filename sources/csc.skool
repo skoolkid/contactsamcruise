@@ -1451,17 +1451,17 @@ u25394 DEFB 201
 ; bytes each, which are used to determine how far up, down or to the right the
 ; banknote should move next. The algorithm used is as follows:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Step | =h Description }
 ; { 1       | Determine which entry to use based on the banknote's height above
-; the ground }
+;             the ground }
 ; { 2       | Generate a random number, R, between #b0 and #b255 }
 ; { 3       | Find the index, J, of the first byte in the entry that is greater
-; than R (J=0-4, or 5 if there is no such byte) }
+;             than R (J=0-4, or 5 if there is no such byte) }
 ; { 4       | Increment the banknote's x-coordinate if J<=2, or leave it alone
-; if J>2 }
+;             if J>2 }
 ; { 5       | Increment the banknote's y-coordinate if J=0 or 3, decrement it
-; if J=1 or 4, or leave it alone if J=2 or 5 }
+;             if J=1 or 4, or leave it alone if J=2 or 5 }
 ; TABLE#
 ; .
 ; The first entry is used when the banknote's height above the ground is -1.
@@ -8356,17 +8356,17 @@ g32704 DEFB 0        ; x-coordinate of the leftmost column of the play area on
 ; The bits in the fourth byte of the bullet buffer have the following
 ; significance:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Bit(s) | =h Description }
 ; { 7         | Reset if the bullet is flying leftwards, set otherwise }
 ; { 6         | Reset if the bullet is flying perfectly horizontally, set
-; otherwise (in which case bit 4 is also used) }
+;               otherwise (in which case bit 4 is also used) }
 ; { 5         | Unused }
 ; { 4         | Reset if the bullet is flying towards the ground, set if it's
-; flying towards the sky }
+;               flying towards the sky }
 ; { 3         | Unused }
 ; { 0-2       | Pixel row at which the bullet should be drawn in the screen
-; cell at (x,y) }
+;               cell at (x,y) }
 ; TABLE#
  32707 DEFB 0
 
@@ -8382,17 +8382,17 @@ g32708 DEFB 0        ; x-coordinate of the leftmost column of the play area on
 ; The bits in the fourth byte of the bullet buffer have the following
 ; significance:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Bit(s) | =h Description }
 ; { 7         | Reset if the bullet is flying leftwards, set otherwise }
 ; { 6         | Reset if the bullet is flying perfectly horizontally, set
-; otherwise (in which case bit 4 is also used) }
+;               otherwise (in which case bit 4 is also used) }
 ; { 5         | Unused }
 ; { 4         | Reset if the bullet is flying towards the ground, set if it's
-; flying towards the sky }
+;               flying towards the sky }
 ; { 3         | Unused }
 ; { 0-2       | Pixel row at which the bullet should be drawn in the screen
-; cell at (x,y) }
+;               cell at (x,y) }
 ; TABLE#
  32711 DEFB 0
 
@@ -18617,16 +18617,16 @@ c59148 PUSH HL       ; Put the screen coordinates onto the stack
 ; #HTML(<span id="tValue" />) We have collected the T value for the play area
 ; location (X,Y). Bits 7 and 6 of T have the following meanings:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Value | =h Meaning }
 ; { 11       | This location has a background tile and a transparent foreground
-; tile }
+;              tile }
 ; { 10       | This location has a blank background tile and a transparent
-; foreground tile (used by windows and house number signs) }
+;              foreground tile (used by windows and house number signs) }
 ; { 01       | This location has an opaque foreground tile only (characters
-; with a z-coordinate of 1 will appear behind it) }
+;              with a z-coordinate of 1 will appear behind it) }
 ; { 00       | This location has a background tile only (characters with a
-; z-coordinate of 1 will appear in front of it) }
+;              z-coordinate of 1 will appear in front of it) }
 ; TABLE#
 ; .
 ; When bits 7 and 6 of T are both set (11), bits 2-5 of T and bit 7 of T'
@@ -19630,7 +19630,7 @@ c60152 LD L,1        ; Point #REGhl at byte #b1 of the character's buffer
 ; directions that are available, and (when #REGa=1 or 5) the directions that
 ; require special handling:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Bit | =h Meaning if set }
 ; { 7      | Access to the left is granted }
 ; { 6      | Access to the right is granted }
@@ -19639,11 +19639,11 @@ c60152 LD L,1        ; Point #REGhl at byte #b1 of the character's buffer
 ; { 3      | There is a step going down to the left }
 ; { 2      | There is a step going down to the right }
 ; { 1      | Character's z-coordinate will be 2 after going up to the left
-; (when #REGa=1), or moving left requires special handling (when #REGa=5; see
-; #R60485) }
+;            (when #REGa=1), or moving left requires special handling (when
+;            #REGa=5; see #R60485) }
 ; { 0      | Character's z-coordinate will be 2 after going up to the right
-; (when #REGa=1), or moving right requires special handling (when #REGa=5; see
-; #R60485) }
+;            (when #REGa=1), or moving right requires special handling (when
+;            #REGa=5; see #R60485) }
 ; TABLE#
 ; .
 ; When #REGa=3, #REGb returns holding Q'', the third byte of the location
@@ -19821,10 +19821,10 @@ c60293 LD L,0        ; Point #REGhl at byte #b0 of the character's buffer
 ; character in the following ways, in the given order, depending on the
 ; directions that are available at the character's current location:
 ; .
-; #TABLE(default,,:w)
+; #TABLE(default,,:w)<wrapalign>
 ; { =h Move    | =h Condition }
 ; { Up         | There is a step going up in the direction the character is
-; facing }
+;                facing }
 ; { Turn round | There is a step going up in the other direction }
 ; { Forwards   | There is no step going up }
 ; { Down       | The character can only step down from his current location }
@@ -19841,10 +19841,10 @@ c60315 LD DE,41496   ; Point #REGde at the direction indicator table at #R41496
 ; character in the following ways, in the given order, depending on the
 ; directions that are available at the character's current location:
 ; .
-; #TABLE(default,,:w)
+; #TABLE(default,,:w)<wrapalign>
 ; { =h Move    | =h Condition }
 ; { Down       | There is a step going down in the direction the character is
-; facing }
+;                facing }
 ; { Turn round | There is a step going down in the other direction }
 ; { Forwards   | There is no step going down }
 ; { Up         | The character can only step up from his current location }
@@ -20327,14 +20327,14 @@ c60720 CALL 60222    ; Process the remaining location descriptors for the
 ; the roof of a building); with #REGa=#b0 if he's on the sidewalk or the road;
 ; or with certain bits of #REGa set or reset depending on the location:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Bit(s) | =h Meaning }
 ; { =r2 0     | 0: On the floor of a shop or other building }
 ; {             1: On a staircase between floors, or on the front steps of a
-; building below the first floor, or on the rim of a roof }
+;               building below the first floor, or on the rim of a roof }
 ; { =r7 1-3   | 000: On the front steps of a building below the first floor }
 ; {             001: Next to the entrance to a shop or other building (outside)
-; }
+;               }
 ; {             010: Shop or first floor of other building (inside) }
 ; {             011: Second floor of a building }
 ; {             100: Third floor of a building }
