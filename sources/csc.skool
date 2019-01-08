@@ -1,4 +1,4 @@
-; Copyright 2010-2018 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2019 Richard Dymond (rjdymond@gmail.com)
 
 @start
 @defb=20648:8,136,31,252,3,128,1,192,0,12,0,8,144
@@ -63,7 +63,7 @@
 ; http://skoolkit.ca/
 ;
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2018 Richard Dymond (this disassembly)
+; Copyright 2010-2019 Richard Dymond (this disassembly)
 @bfix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -284,17 +284,20 @@ t23528 DEFB 122                 ; #R26846(#b122): 'THE'
  23533 DEFM "SAFE WITH 4 LOCKS"
  23550 DEFB 0                   ; End marker
 
+@defs=23551:10
 i23551 DEFS 10
 
 ; System variables REPDEL and REPPER
 i23561 DEFB 35       ; Set REPDEL to 35
  23562 DEFB 5        ; Set REPPER to 5
 
+@defs=23563:48
 i23563 DEFS 48
 
 ; System variable FLAGS
 i23611 DEFB 8        ; Set bit 3 so that the keyboard is read in 'L' mode
 
+@defs=23612:292
 i23612 DEFS 292
 
 ; Message #b63: 'DAISY SAID 'SAM - A GANGSTER'S WATCHING FOR YOU OUTSIDE THE
@@ -15747,6 +15750,7 @@ b50944 DEFB 0,0,0,60,0,0,192,128,1,9,128,0,255,0,0,0
  55008 DEFB 253,170,220,255,247,248,50,112,237,255,253,245,183,255,0,0
  55024 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
+@defs=55040:125
 ; Character buffers for character group #b215
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -15902,6 +15906,7 @@ b55166 DEFB 0,64,3              ; Graphic data for sprite tiles #b126-#b128
  55290 DEFB 0,0,0,0,0,0         ; Sprite tile references for unused animatory
                                 ; states #b120 and #b122-#b127
 
+@defs=55296:125
 ; Character buffers for character group #b216
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -16066,6 +16071,7 @@ b55422 DEFB 254,64,251              ; Graphic data for sprite tiles #b126-#b128
  55546 DEFB 0,0,0,0,0,0             ; Sprite tile references for unused
                                     ; animatory states #b120 and #b122-#b127
 
+@defs=55552:125
 ; Character buffers for character group #b217
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -16223,6 +16229,7 @@ b55678 DEFB 0,160,2                 ; Graphic data for sprite tiles #b126-#b128
  55802 DEFB 0,0,0,0,0,0             ; Sprite tile references for unused
                                     ; animatory states #b120 and #b122-#b127
 
+@defs=55808:125
 ; Character buffers for character group #b218
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -16383,6 +16390,7 @@ b55934 DEFB 254,160,242               ; Graphic data for sprite tiles
  56058 DEFB 0,0,0,0,0,0               ; Sprite tile references for unused
                                       ; animatory states #b120 and #b122-127
 
+@defs=56064:125
 ; Character buffers for character group #b219
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -16541,6 +16549,7 @@ b56190 DEFB 1,18,13                 ; Graphic data for sprite tiles #b126-#b128
 @label=OBJATTR
 s56312 DEFS 8
 
+@defs=56320:125
 ; Character buffers for character group #b220
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -16709,6 +16718,7 @@ b56568 DEFB 18,128 ; y=13, z=1; left (roof)
 ; boundary.
 @bfix+end
 
+@defs=56576:125
 ; Character buffers for character group #b221
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -16859,6 +16869,7 @@ b56702 DEFB 1,82,7                ; Graphic data for sprite tiles #b126-#b128
 ; Unused
 s56824 DEFS 8
 
+@defs=56832:32
 ; Character buffer for character #b222
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -17044,6 +17055,7 @@ b56958 DEFB 253,82,247              ; Graphic data for sprite tiles #b126-#b128
 ; Unused
 s57080 DEFS 8
 
+@defs=57088:32
 ; Character buffer for character #b223
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -17232,6 +17244,7 @@ b57214 DEFB 1,18,6                    ; Graphic data for sprite tiles
 ; Unused
 s57336 DEFS 8
 
+@defs=57344:32
 ; Character buffer for character #b224
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -17423,6 +17436,7 @@ b57470 DEFB 253,18,246            ; Graphic data for sprite tiles #b126-#b128
 ; Unused
 s57592 DEFS 8
 
+@defs=57600:32
 ; Character buffer for character #b225
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -17600,6 +17614,7 @@ b57726 DEFB 0,163,6         ; Graphic data for sprite tiles #b126-#b128 (used
 ; Unused
 s57848 DEFS 8
 
+@defs=57856:32
 ; Character buffer for character #b226
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -17775,6 +17790,7 @@ b57982 DEFB 254,163,246     ; Graphic data for sprite tiles #b126-#b128 (used
 ; Unused
 s58104 DEFS 8
 
+@defs=58112:32
 ; Character buffer for character #b227
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -17947,6 +17963,7 @@ b58238 DEFB 0,66,7          ; Graphic data for sprite tiles #b126-#b128 (used
 ; Unused
 s58360 DEFS 8
 
+@defs=58368:32
 ; Character buffer for character #b228
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -18120,6 +18137,7 @@ b58494 DEFB 254,66,247      ; Graphic data for sprite tiles #b126-#b128 (used
 ; Unused
 s58616 DEFS 8
 
+@defs=58624:32
 ; Character buffer for character #b229
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -18299,6 +18317,7 @@ b58750 DEFB 1,28,11           ; Graphic data for sprite tiles #b126-#b128 (used
 ; Unused
 s58872 DEFS 8
 
+@defs=58880:32
 ; Character buffer for Sam
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
