@@ -16388,7 +16388,7 @@ b55934 DEFB 254,160,242               ; Graphic data for sprite tiles
  56057 DEFB 233                       ; Sprite tile reference for animatory
                                       ; state #b121
  56058 DEFB 0,0,0,0,0,0               ; Sprite tile references for unused
-                                      ; animatory states #b120 and #b122-127
+                                      ; animatory states #b120 and #b122-#b127
 
 @defs=56064:125
 ; Character buffers for character group #b219
