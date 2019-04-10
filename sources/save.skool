@@ -1,4 +1,4 @@
-; Copyright 2010-2013, 2015, 2017, 2018 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2013, 2015, 2017-2019 Richard Dymond (rjdymond@gmail.com)
 
 @defb=00258:24,60,0,60,64,126,60,124,0,60,8,8,24,8,0,0,64,60,60,120
 @defb=00279:36,36,60,60,120,126,0,0,0,64,60,60,120,0,36,36,60,60,120,126
@@ -55,14 +55,14 @@
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2013, 2015, 2017, 2018 Richard Dymond (this disassembly)
+; Copyright 2010-2013, 2015, 2017-2019 Richard Dymond (this disassembly)
 @org
 
 ; Save Contact Sam Cruise to tape
 ;
 @ignoreua
 ; #UDGTABLE
-; { #SCRdf=0,af=6144(saver.gif) | This is the program used to save the standard
+; { #SCRdf=0,af=6144(saver) | This is the program used to save the standard
 ; speed code block for Contact Sam Cruise. }
 ; TABLE#
 ; .
