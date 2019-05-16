@@ -4,7 +4,7 @@
 ;
 ; to create a Z80 snapshot.
 
-http://www.worldofspectrum.org/pub/sinclair/games/c/ContactSamCruise.tzx.zip
+https://www.worldofspectrum.org/pub/sinclair/games/c/ContactSamCruise.tzx.zip
 contact_sam_cruise.z80
 --ram load=4,65506,132,-247      # 65506 TO 33149 STEP -247
 --ram load=5,16384,16572         # 16384 TO 32955

@@ -60,7 +60,7 @@
 @replace=/#w\i/#N(\1,4)/ (word)
 @writer=:samcruise.ContactSamCruiseAsmWriter
 ; Contact Sam Cruise disassembly
-; http://skoolkit.ca/
+; https://skoolkit.ca
 ;
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
 ; Copyright 2010-2019 Richard Dymond (this disassembly)
@@ -78,11 +78,11 @@
 ;   * Blank tiles behaving badly
 ;   * Extended earpiece
 ;   * The missing blue line
-; See http://skoolkit.ca/disassemblies/contact_sam_cruise/reference/bugs.html
+; See https://skoolkit.ca/disassemblies/contact_sam_cruise/reference/bugs.html
 ; for full descriptions of these bugs.
 ;
 ; This disassembly also contains fixes for the graphic glitches described at
-; http://skoolkit.ca/disassemblies/contact_sam_cruise/graphics/glitches.html
+; https://skoolkit.ca/disassemblies/contact_sam_cruise/graphics/glitches.html
 @bfix+end
 
 @isub+begin
