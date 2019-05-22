@@ -1,4 +1,4 @@
-# Copyright 2008-2015, 2017, 2018 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2015, 2017-2019 Richard Dymond (rjdymond@gmail.com)
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -92,7 +92,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
                     path = path.replace(addr_str, str(int(addr_str, 16)))
                 else:
                     path = path.replace(addr_str, '{:04X}'.format(int(addr_str)))
-            skoolkit['Path'] = path
+            skoolkit['Path'] = skoolkit['index_href'][:-10] + game['alt_dir'] + path
 
     def _get_sprite_udg(self, state, attr, ref_page, udg_page):
         ref_addr = state + 256 * ref_page
