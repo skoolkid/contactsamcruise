@@ -174,7 +174,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         fname = 'as{0:03d}_{1}x{2}{3}{4}{5}{6}'.format(num & 255, attr, scale, mask_infix, udg_page_infix, snapshot_infix, fname_suffix)
         frame = Frame(lambda: self.build_sprite(num, attr, udg_page), scale, mask)
         alt = "Animatory state {}".format(num & 255)
-        return self.handle_image([frame], fname, cwd, alt, 'AnimatoryStateImagePath')
+        return self.handle_image(frame, fname, cwd, alt, 'AnimatoryStateImagePath')
 
     def animatory_states(self, cwd):
         return '\n'.join([self._animatory_state_row(cwd, n) for n in range(128)])
@@ -198,16 +198,16 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
                             tile = row[col_num]
                             bubble_id_suffix = '{0:02x}'.format(udg_page) if udg_page is not None else ''
                             bubble_id = 'B{0:02x}{1:x}{2}'.format(state, row_num + num_rows * col_num, bubble_id_suffix)
-                            img_fname = self._get_sprite_tile_img_fname(tile, state)
-                            img_path = '/' + join(cwd, img_fname)
-                            self.handle_image([Frame([[tile]], 4, 1)], img_path, cwd)
+                            fname = self._get_sprite_tile_img_fname(tile, state)
+                            alt = '{}:{},{}'.format(self.b_fmt.format(state), row_num, col_num)
+                            img = self.handle_image(Frame([[tile]], 4, 1), fname, cwd, alt, 'AnimatoryStateTileImagePath')
                             template_name = 'astile' if tile.ref else 'astile_null'
                             astile_subs = {
                                 'bubble_id': bubble_id,
                                 'state': self.b_fmt.format(state),
                                 'row': row_num,
                                 'column': col_num,
-                                'img_fname': img_fname,
+                                'img': img,
                                 'lsb': self.b_fmt.format(tile.ref_addr % 256),
                                 'ref_page': self.b_fmt.format(tile.ref_addr // 256),
                                 'ref_addr': w_fmt.format(tile.ref_addr),
@@ -513,7 +513,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
 
     def play_area(self, cwd, fname, x, y, w=1, h=1, scale=2, show_chars=0, show_x=0, game_mode=None, lights=1, blinds=1):
         frame = Frame(lambda: self._play_area_udgs(x, y, w, h, show_chars, show_x, game_mode, lights, blinds), scale)
-        return self.handle_image([frame], fname, cwd, path_id='PlayAreaImagePath')
+        return self.handle_image(frame, fname, cwd, path_id='PlayAreaImagePath')
 
     def ld_img(self, cwd, sam_x=None, sam_y=None, sam_z=None, sam_as=None, x=None, y=None, w=None, h=None):
         self.push_snapshot()
@@ -553,7 +553,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
     def _write_ld_img(self, cwd, fname, x, y, w, h):
         self._adjust_lights_and_blinds(1, 1)
         frame = Frame(lambda: self.get_play_area_udgs(x, y, w, h, True), 2)
-        return self.handle_image([frame], fname, cwd, path_id='LocationDescriptorImagePath')
+        return self.handle_image(frame, fname, cwd, path_id='LocationDescriptorImagePath')
 
     def _play_area_objects_udgs(self, x, y, w, h, show_chars, show_x):
         udgs = self.get_play_area_udgs(x, y, w, h, show_chars, show_x)
@@ -562,7 +562,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
 
     def play_area_objects(self, cwd, fname, x=0, y=2, w=256, h=38, scale=2, show_chars=0, show_x=8):
         frame = Frame(lambda: self._play_area_objects_udgs(x, y, w, h, show_chars, show_x), scale)
-        return self.handle_image([frame], fname, cwd, path_id='PlayAreaImagePath')
+        return self.handle_image(frame, fname, cwd, path_id='PlayAreaImagePath')
 
     def command_lists(self, cwd):
         rows = []
@@ -797,8 +797,8 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         if fname is None:
             raise MacroParsingError('Filename missing: #DISGUISE{}'.format(text[index:end]))
         udgs = self._build_disguise(disguise_id)
-        frames = [Frame(udgs, scale, 0, *crop_rect, name=frame)]
-        return end, self.handle_image(frames, fname, cwd, alt, 'UDGImagePath')
+        frame = Frame(udgs, scale, 0, *crop_rect, name=frame)
+        return end, self.handle_image(frame, fname, cwd, alt, 'UDGImagePath')
 
     def expand_s(self, text, index, cwd):
         # #S/text/
@@ -819,8 +819,8 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
             if frame == '':
                 frame = fname
         udgs = self._build_segment(x, y)
-        frames = [Frame(udgs, scale, 0, *crop_rect, name=frame)]
-        return end, self.handle_image(frames, fname, cwd, alt, 'ScreenshotImagePath')
+        frame = Frame(udgs, scale, 0, *crop_rect, name=frame)
+        return end, self.handle_image(frame, fname, cwd, alt, 'ScreenshotImagePath')
 
 class ContactSamCruiseAsmWriter(AsmWriter):
     def expand_as(self, text, index):

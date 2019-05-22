@@ -1,4 +1,4 @@
-; Copyright 2010, 2012-2015, 2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010, 2012-2015, 2017, 2019 Richard Dymond (rjdymond@gmail.com)
 
 [Page:PlayArea]
 PageContent=<div>#CALL:play_area(play_area,0,2,256,38,2,0,8,,0,0)</div>
@@ -106,7 +106,7 @@ PageContent=#INCLUDE(AnimatoryStateTiles)
 <div class="H">#b0: row 1, column 1</div>
 <table>
 <tr>
-<td><img alt="#b0:1,1" src="c703.png"/></td>
+<td><img alt="#b0:1,1" src="#IF({vars[pub]}>2)(../)../images/astiles/c703.png"/></td>
 <td>
 <i>lsb</i>=#b130, <i>ref_page</i>=#b221<br/>
 <i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)=#w56706<br/>
@@ -336,13 +336,13 @@ state N-#b128 (see #R59635).
 
 [Template:astile]
 <div class="T" onclick="s('{bubble_id}')">
-<img alt="{state}:{row},{column}" src="{img_fname}"/>
+{img}
 </div>
 <div id="{bubble_id}" class="B P" onclick="h(this)">
 <div class="H">{state}: row {row}, column {column}</div>
 <table>
 <tr>
-<td><img alt="{state}:{row},{column}" src="{img_fname}"/></td>
+<td>{img}</td>
 <td>
 <i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/>
 <i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={ref_addr}<br/>
@@ -355,13 +355,13 @@ state N-#b128 (see #R59635).
 
 [Template:astile_null]
 <div class="T" onclick="s('{bubble_id}')">
-<img alt="{state}:{row},{column}" src="{img_fname}"/>
+{img}
 </div>
 <div id="{bubble_id}" class="B P" onclick="h(this)">
 <div class="H">{state}: row {row}, column {column}</div>
 <table>
 <tr>
-<td><img alt="{state}:{row},{column}" src="{img_fname}"/></td>
+<td>{img}</td>
 <td>
 <i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/>
 <i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={ref_addr}<br/>
