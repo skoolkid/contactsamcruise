@@ -43,7 +43,7 @@ Writing graphics/asstart4.html
 Writing graphics/playarea_objects.html
 Writing graphics/as.html
 Copying tiles.js to tiles.js
-Writing graphics/astiles/astiles.html
+Writing graphics/astiles.html
 Writing buffers/cbuffer.html
 Writing tables/keys.html
 Writing maps/command_lists.html
