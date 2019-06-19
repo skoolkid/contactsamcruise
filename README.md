@@ -9,7 +9,7 @@ Decide which number base you prefer and then click the corresponding link below
 to browse the latest release:
 
 * [Contact Sam Cruise disassembly](https://skoolkid.github.io/contactsamcruise/) (hexadecimal; mirror [here](https://skoolkid.gitlab.io/contactsamcruise/))
-* [Contact Sam Cruise disassembly](https://skoolkit.ca/disassemblies/contact_sam_cruise/) (decimal)
+* [Contact Sam Cruise disassembly](https://skoolkid.github.io/contactsamcruise/dec/) (decimal; mirror [here](https://skoolkid.gitlab.io/contactsamcruise/dec/))
 
 To build the current development version, first either install SkoolKit, or
 make a clone of the [SkoolKit repository](https://github.com/skoolkid/skoolkit)

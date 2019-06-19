@@ -9,8 +9,8 @@ GameDir=contact_sam_cruise
 Game=Contact Sam Cruise
 Logo=#SCR2,0,21,8,3({ImagePath}/logo|Contact Sam Cruise)
 StyleSheet=skoolkit.css;csc.css
-Release=The complete Contact Sam Cruise RAM disassembly 20181020
-Copyright=&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.
+Release=The complete Contact Sam Cruise RAM disassembly 20190619
+Copyright=&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.
 AddressAnchor={address#IF({base}==16)(:04x)}
 
 [ImageWriter]
