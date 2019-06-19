@@ -23,7 +23,7 @@
 <div class="description">76BC: Deal with a character who is at the entrance to a building</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="EBBB.html">EBBB</a>. On entry, the bit set in <span class="register">A</span> indicates the direction in which the character is going to move next:
@@ -96,126 +96,147 @@ Also on entry, the zero flag is set if the character is indoors. If the characte
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76bc"></span>76BC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$76C2</td>
 <td class="comment-11" rowspan="1">Jump unless the character is indoors</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76be"></span>76BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND B</td>
 <td class="comment-11" rowspan="1">Is the character going to leave the building?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76bf"></span>76BF</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76c0"></span>76C0</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-11" rowspan="1">Set the character's z-coordinate to 2</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c1"></span>76C1</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76c2"></span>76C2</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND B</td>
 <td class="comment-11" rowspan="1">Is the character going to enter the building?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c3"></span>76C3</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$76C0</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c5"></span>76C5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c6"></span>76C6</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $E6</td>
 <td class="comment-11" rowspan="1">Is this Sam?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c8"></span>76C8</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c9"></span>76C9</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,B</td>
 <td class="comment-11" rowspan="1">Does the entrance have a door?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76cb"></span>76CB</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76cc"></span>76CC</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F293.html">$F293</a></td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the status flags for the door that Sam is standing next to (see <a href="7FF0.html">7FF0</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76cf"></span>76CF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=LSB of the address of the door status flags (0xF0-0xF9)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76d0"></span>76D0</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $F5</td>
 <td class="comment-11" rowspan="1">Is Sam standing in the doorway of no. 19?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76d2"></span>76D2</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$76D7</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76d4"></span>76D4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the door status flags for the doorway Sam is standing in</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76d5"></span>76D5</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
 <td class="comment-11" rowspan="1">Set the zero flag if the door requires no key to unlock it</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76d7"></span>76D7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$E6</td>
 <td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76d9"></span>76D9</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if the door requires no key to unlock it</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76da"></span>76DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7A39.html">$7A39</a></td>
 <td class="comment-11" rowspan="1">Check whether Sam has entered a house through the front door without a key</td>
 </tr>
@@ -228,10 +249,10 @@ Also on entry, the zero flag is set if the character is indoors. If the characte
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/30396.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/30396.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

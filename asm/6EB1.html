@@ -23,7 +23,7 @@
 <div class="description">6EB1: Increment the score and decrement Sam's cash supply</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="7AB6.html">7AB6</a>.
@@ -46,42 +46,49 @@ Used by the routine at <a href="7AB6.html">7AB6</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6eb1"></span>6EB1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,($7F9C)</td>
 <td class="comment-11" rowspan="1">Collect the score from <a href="7F9C.html">7F9C</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6eb4"></span>6EB4</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1">Increment it</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6eb5"></span>6EB5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7F9C),HL</td>
 <td class="comment-11" rowspan="1">Store the new score</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6eb8"></span>6EB8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$50D8</td>
 <td class="comment-11" rowspan="1"><span class="register">DE</span>=display file address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ebb"></span>6EBB</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6E1A.html">$6E1A</a></td>
 <td class="comment-11" rowspan="1">Print the score</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ebe"></span>6EBE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$FFFF</td>
 <td class="comment-11" rowspan="1"><span class="register">DE</span>=-1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ec1"></span>6EC1</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR <a href="6E87.html#6e95">$6E95</a></td>
 <td class="comment-11" rowspan="1">Decrement Sam's cash supply and print the new amount</td>
 </tr>
@@ -94,10 +101,10 @@ Used by the routine at <a href="7AB6.html">7AB6</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/28337.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/28337.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">6333: Banknote animation table</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="634C.html">634C</a>. This animation table contains 5 entries of 5 bytes each, which are used to determine how far up, down or to the right the banknote should move next. The algorithm used is as follows:
@@ -95,11 +95,12 @@ The first entry is used when the banknote's height above the ground is -1. This 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6333"></span>6333</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $00,$C0,$C0,$C0,$FF</td>
 <td class="comment-11" rowspan="1">J will be 1 (with probability 3/4), 4 (63/256) or 5 (1/256)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6338"></span>
 <div class="comments">
 <div class="paragraph">
@@ -129,11 +130,12 @@ The next entry is used when the banknote's height above the ground is 0 (i.e. it
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6338"></span>6338</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $00,$30,$D0,$D0,$D8</td>
 <td class="comment-11" rowspan="1">J will be 1 (with probability 3/16), 2 (5/8), 4 (1/32) or 5 (5/32)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="633d"></span>
 <div class="comments">
 <div class="paragraph">
@@ -163,11 +165,12 @@ The next entry is used when the banknote's height above the ground is 1.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="633d"></span>633D</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $48,$58,$A0,$C0,$D0</td>
 <td class="comment-11" rowspan="1">J will be 0 (with probability 9/32), 1 (1/16), 2 (9/32), 3 (1/8), 4 (1/16) or 5 (3/16)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6342"></span>
 <div class="comments">
 <div class="paragraph">
@@ -197,11 +200,12 @@ The next entry is used when the banknote's height above the ground is 2.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6342"></span>6342</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $80,$80,$A0,$E0,$E0</td>
 <td class="comment-11" rowspan="1">J will be 0 (with probability 1/2), 2 (1/8), 3 (1/4) or 5 (1/8)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6347"></span>
 <div class="comments">
 <div class="paragraph">
@@ -231,6 +235,7 @@ The final entry is used when the banknote's height above the ground is 3. This c
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6347"></span>6347</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $C0,$C0,$C0,$FF,$FF</td>
 <td class="comment-11" rowspan="1">J will be 0 (with probability 3/4), 3 (63/256) or 5 (1/256)</td>
 </tr>
@@ -243,10 +248,10 @@ The final entry is used when the banknote's height above the ground is 3. This c
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/25395.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/25395.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

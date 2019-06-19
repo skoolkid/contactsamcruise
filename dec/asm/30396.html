@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 30396</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="30211.html">30211</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30396">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30429.html">30429</a></span></td>
+</tr>
+</table>
+<div class="description">30396: Deal with a character who is at the entrance to a building</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="60347.html">60347</a>. On entry, the bit set in <span class="register">A</span> indicates the direction in which the character is going to move next:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Direction</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1">Left</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1">Right</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">Up and to the left</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Up and to the right</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Down and to the left</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Down and to the right</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+Also on entry, the zero flag is set if the character is indoors. If the character is Sam, we also check whether he's entering a house other than no. 19 without a key.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Direction indicator (128, 64, 32, 16, 8 or 4)</td>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">Third byte of the character's location descriptor (see <a href="60179.html">60179</a>)</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-230)</td>
+</tr>
+<tr>
+<td class="register">L</td>
+<td class="register-desc">4</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30396"></span>30396</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,30402</td>
+<td class="comment-11" rowspan="1">Jump unless the character is indoors</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30398"></span>30398</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND B</td>
+<td class="comment-11" rowspan="1">Is the character going to leave the building?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30399"></span>30399</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30400"></span>30400</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="1">Set the character's z-coordinate to 2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30401"></span>30401</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30402"></span>30402</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND B</td>
+<td class="comment-11" rowspan="1">Is the character going to enter the building?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30403"></span>30403</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30400</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30405"></span>30405</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30406"></span>30406</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 230</td>
+<td class="comment-11" rowspan="1">Is this Sam?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30408"></span>30408</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30409"></span>30409</td>
+<td class="bytes-0"></td>
+<td class="instruction">BIT 0,B</td>
+<td class="comment-11" rowspan="1">Does the entrance have a door?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30411"></span>30411</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30412"></span>30412</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="62099.html">62099</a></td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the status flags for the door that Sam is standing next to (see <a href="32752.html">32752</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30415"></span>30415</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=LSB of the address of the door status flags (240-249)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30416"></span>30416</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 245</td>
+<td class="comment-11" rowspan="1">Is Sam standing in the doorway of no. 19?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30418"></span>30418</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30423</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30420"></span>30420</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the door status flags for the doorway Sam is standing in</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30421"></span>30421</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 248</td>
+<td class="comment-11" rowspan="1">Set the zero flag if the door requires no key to unlock it</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30423"></span>30423</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,230</td>
+<td class="comment-11" rowspan="1">230=Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30425"></span>30425</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if the door requires no key to unlock it</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30426"></span>30426</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP <a href="31289.html">31289</a></td>
+<td class="comment-11" rowspan="1">Check whether Sam has entered a house through the front door without a key</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="30211.html">30211</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30396">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30429.html">30429</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/76BC.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

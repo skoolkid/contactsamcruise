@@ -23,7 +23,7 @@
 <div class="description">7541: Initialise the events and objects for a new game</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Continues from the routine at <a href="7AE2.html">7AE2</a>. First we initialise the entries in the event table at <a href="5FE0.html">5FE0</a>.
@@ -46,47 +46,54 @@ Continues from the routine at <a href="7AE2.html">7AE2</a>. First we initialise 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7541"></span>7541</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5FE0</td>
 <td class="comment-11" rowspan="1">The event table starts at <a href="5FE0.html">5FE0</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7544"></span>7544</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$0000</td>
 <td class="comment-11" rowspan="1"><span class="register">DE</span> will be used to move <span class="register">HL</span> from one entry to the next; initialise it to 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7547"></span>7547</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD HL,DE</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next entry in the table</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7548"></span>7548</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="755B.html">$755B</a></td>
 <td class="comment-11" rowspan="1">Initialise the entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="754b"></span>754B</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="2">Prepare <span class="register">DE</span> to point <span class="register">HL</span> at the next event entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="754c"></span>754C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="754d"></span>754D</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7547</td>
 <td class="comment-11" rowspan="1">Jump back until every entry has been processed</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="754f"></span>
 <div class="comments">
 <div class="paragraph">
@@ -98,36 +105,42 @@ Now we initialise the entries in the object location table at <a href="7D1C.html
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="754f"></span>754F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$04</td>
 <td class="comment-11" rowspan="1">Each entry is 4 bytes long</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7551"></span>7551</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7D1C</td>
 <td class="comment-11" rowspan="1">The object location table starts at <a href="7D1C.html">7D1C</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7554"></span>7554</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="755B.html">$755B</a></td>
 <td class="comment-11" rowspan="1">Initialise the entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7557"></span>7557</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if we've reached the end of the table</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7558"></span>7558</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD HL,DE</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7559"></span>7559</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $7554</td>
 <td class="comment-11" rowspan="1">Jump back to process the next entry</td>
 </tr>
@@ -140,10 +153,10 @@ Now we initialise the entries in the object location table at <a href="7D1C.html
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/30017.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/30017.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">EBAE: Make a character move right</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="ECDC.html">ECDC</a>, <a href="F5CE.html">F5CE</a>, <a href="F600.html">F600</a> and <a href="F6E9.html">F6E9</a>. Turns the character round if he's facing left; otherwise moves him right, or up and to the right, or down and to the right (in that order of preference).
@@ -49,36 +49,42 @@ Used by the routines at <a href="ECDC.html">ECDC</a>, <a href="F5CE.html">F5CE</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="ebae"></span>EBAE</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB85.html">$EB85</a></td>
 <td class="comment-11" rowspan="1">Make the character stand up if he's lying down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ebb1"></span>EBB1</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if the character was lying down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ebb2"></span>EBB2</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Is the character facing left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ebb4"></span>EBB4</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,<a href="EBBB.html#ebc6">$EBC6</a></td>
 <td class="comment-11" rowspan="1">Make him turn round if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ebb6"></span>EBB6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$A119</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the direction indicator table at <a href="A119.html">A119</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ebb9"></span>EBB9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR <a href="EBBB.html#ebd0">$EBD0</a></td>
 <td class="comment-11" rowspan="1">Move the character and update the SRB accordingly</td>
 </tr>
@@ -91,10 +97,10 @@ Used by the routines at <a href="ECDC.html">ECDC</a>, <a href="F5CE.html">F5CE</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/60334.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/60334.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">7B5C: Deal with a character who is standing next to the jail cell door</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="EBBB.html">EBBB</a>. Deals with a character who is standing just behind the jail cell door and trying to move right. If the character is Sam, this routine prevents him from escaping from the jail cell while he's imprisoned there.
@@ -49,42 +49,49 @@ Used by the routine at <a href="EBBB.html">EBBB</a>. Deals with a character who 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7b5c"></span>7B5C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b5d"></span>7B5D</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $E6</td>
 <td class="comment-11" rowspan="1">Are we dealing with Sam?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b5f"></span>7B5F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="EBBB.html#ec07">$EC07</a></td>
 <td class="comment-11" rowspan="1">Jump back into the calling routine if not (and allow the character to move right)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b62"></span>7B62</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FEB)</td>
 <td class="comment-11" rowspan="1">Collect the police flags from <a href="7FEB.html">7FEB</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b65"></span>7B65</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="1">Is Sam in jail?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b66"></span>7B66</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NC,<a href="EBBB.html#ec07">$EC07</a></td>
 <td class="comment-11" rowspan="1">Jump back into the calling routine if not (and allow Sam to move right)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b69"></span>7B69</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -97,10 +104,10 @@ Used by the routine at <a href="EBBB.html">EBBB</a>. Deals with a character who 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/31580.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/31580.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

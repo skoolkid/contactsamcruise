@@ -23,7 +23,7 @@
 <div class="description">75D0: Determine the interval between the last message and the next</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with the interval in <span class="register">A</span>, which indicates the minimum number of subintervals of 0.64s that the current message should be displayed for.
@@ -46,126 +46,147 @@ Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with the interval i
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="75d0"></span>75D0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($75C9)</td>
 <td class="comment-11" rowspan="1">Collect the urgent message number from <a href="75C9.html">75C9</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75d3"></span>75D3</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is it 0 (no message)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75d4"></span>75D4</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$75F2</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75d6"></span>75D6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FB7</td>
 <td class="comment-11" rowspan="2">Collect the index of the current message in the queue from <a href="7FB7.html">7FB7</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75d9"></span>75D9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75da"></span>75DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=index of the next message in the queue</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75db"></span>75DB</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75dd"></span>75DD</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$B8</td>
 <td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the slot for the next message in the queue</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75df"></span>75DF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75e0"></span>75E0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$07</td>
 <td class="comment-11" rowspan="1">There are up to 7 messages ahead in the queue</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75e2"></span>75E2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($75C9)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=urgent message number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="75e5"></span>75E5</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Set the zero flag if the urgent message is in this slot in the queue</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75e6"></span>75E6</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1">Move <span class="register">HL</span> along to the next slot in the message queue (or past the end of the queue and into the bullet buffers at <a href="7FC0.html">7FC0</a> and <a href="7FC4.html">7FC4</a>, which is a <a href="../reference/bugs.html#anUrgentMessageDelayed">bug</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75e7"></span>75E7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$75EC</td>
 <td class="comment-11" rowspan="1">Jump unless the urgent message is at this position in the queue</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75e9"></span>75E9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
 <td class="comment-11" rowspan="1">Set <span class="register">A</span>=1 so that the next message is displayed as soon as possible</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75eb"></span>75EB</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="75ec"></span>75EC</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $75E5</td>
 <td class="comment-11" rowspan="1">Jump back until all messages in the queue have been checked</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75ee"></span>75EE</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="2">Clear the urgent message number at <a href="75C9.html">75C9</a>: it was not in the queue</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75ef"></span>75EF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($75C9),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="75f2"></span>75F2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($6FC4)</td>
 <td class="comment-11" rowspan="1">Collect the normal message display interval from <a href="6FC4.html">6FC4</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75f5"></span>75F5</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -178,10 +199,10 @@ Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with the interval i
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/30160.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/30160.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

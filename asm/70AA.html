@@ -23,7 +23,7 @@
 <div class="description">70AA: Check whether a policeman can spot Sam</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="7222.html">7222</a>. Compares the policeman's coordinates with Sam's, and returns with the carry flag set if they are close enough that the policeman has a chance of spotting Sam (if other conditions are favourable).
@@ -49,95 +49,110 @@ Used by the routine at <a href="7222.html">7222</a>. Compares the policeman's co
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="70aa"></span>70AA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70ac"></span>70AC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($E601)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70af"></span>70AF</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB (HL)</td>
 <td class="comment-11" rowspan="1">Subtract the policeman's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70b0"></span>70B0</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70b1"></span>70B1</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$70BB</td>
 <td class="comment-11" rowspan="1">Jump if the policeman's x-coordinate is less than or equal to Sam's</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70b3"></span>70B3</td>
+<td class="bytes-0"></td>
 <td class="instruction">NEG</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=horizontal distance between Sam and the policeman</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70b5"></span>70B5</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Is the policeman facing left (and thus facing Sam)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70b7"></span>70B7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$70C2</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70b9"></span>70B9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $70BF</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="70bb"></span>70BB</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Is the policeman facing right (and thus facing Sam)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70bd"></span>70BD</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$70C2</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="70bf"></span>70BF</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $03</td>
 <td class="comment-11" rowspan="1">Is the policeman (who is not facing Sam) at least 3 x-coordinates away from Sam?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70c1"></span>70C1</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return with the carry flag reset if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="70c2"></span>70C2</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $10</td>
 <td class="comment-11" rowspan="1">Is the policeman at least 16 x-coordinates away from Sam?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70c4"></span>70C4</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return with the carry flag reset if so</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="70c5"></span>
 <div class="comments">
 <div class="paragraph">
@@ -149,60 +164,70 @@ At this point, the policeman is either facing Sam and located less than 16 x-coo
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70c5"></span>70C5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=horizontal distance between Sam and the policeman</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70c6"></span>70C6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70c8"></span>70C8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($E602)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70cb"></span>70CB</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB (HL)</td>
 <td class="comment-11" rowspan="1">Subtract the policeman's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70cc"></span>70CC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$70D0</td>
 <td class="comment-11" rowspan="1">Jump if the policeman's y-coordinate is less than or equal to Sam's</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70ce"></span>70CE</td>
+<td class="bytes-0"></td>
 <td class="instruction">NEG</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="70d0"></span>70D0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=vertical distance between Sam and the policeman</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70d1"></span>70D1</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,E</td>
 <td class="comment-11" rowspan="1">Add the horizontal distance between Sam and the policeman</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70d2"></span>70D2</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $21</td>
 <td class="comment-11" rowspan="1">Set the carry flag if the result is less than 33</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70d4"></span>70D4</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -215,10 +240,10 @@ At this point, the policeman is either facing Sam and located less than 16 x-coo
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/28842.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/28842.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

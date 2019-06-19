@@ -23,7 +23,7 @@
 <div class="description">64BD: 'S' pressed - somersault</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this routine is found in the table of keypress handling routines at <a href="ED00.html">ED00</a>. It is called from the main loop at <a href="F02B.html">F02B</a> when 'S' is pressed.
@@ -46,11 +46,12 @@ The address of this routine is found in the table of keypress handling routines 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="64bd"></span>64BD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$6494</td>
 <td class="comment-11" rowspan="1">The animation phase table for Sam when somersaulting is at <a href="6494.html">6494</a></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="64c0"></span>
 <div class="comments">
 <div class="paragraph">
@@ -62,41 +63,47 @@ This entry point is used by the routine at <a href="64B8.html">64B8</a> with <sp
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="64c0"></span>64C0</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1">Save the address of the animation phase table</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64c1"></span>64C1</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="653E.html">$653E</a></td>
 <td class="comment-11" rowspan="1">Return to the main loop if Sam cannot roll or somersault from his current location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64c4"></span>64C4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$08</td>
 <td class="comment-11" rowspan="2">Set bit 3 of Sam's status flags at <a href="7FFC.html">7FFC</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64c6"></span>64C6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FFC),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64c9"></span>64C9</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Restore the address of the animation phase table to <span class="register">HL</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ca"></span>64CA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($E60C),HL</td>
 <td class="comment-11" rowspan="1">Copy the address of the animation phase table into bytes 0x0C and 0x0D of Sam's buffer</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="64cd"></span>
 <div class="comments">
 <div class="paragraph">
@@ -108,155 +115,180 @@ This entry point is used by the routine at <a href="74D8.html">74D8</a> when bit
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="64cd"></span>64CD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$E608</td>
 <td class="comment-11" rowspan="2">Reset Sam's main action timer (in byte 0x08 of his buffer) to 6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64d0"></span>64D0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$06</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64d2"></span>64D2</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for Sam's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64d5"></span>64D5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,($E60C)</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first byte of the current entry in the animation phase table</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64d8"></span>64D8</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $80</td>
 <td class="comment-11" rowspan="1">Set the zero flag if Sam is facing left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64da"></span>64DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=0x00 if Sam is facing left, 0x80 if facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64db"></span>64DB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=first byte of the animation phase table entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64dc"></span>64DC</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the second byte in the entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64dd"></span>64DD</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$64E0</td>
 <td class="comment-11" rowspan="1">Jump if Sam is facing left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64df"></span>64DF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=second byte of the animation phase table entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="64e0"></span>64E0</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,E</td>
 <td class="comment-11" rowspan="1">Add Sam's current x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e1"></span>64E1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=Sam's next x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e2"></span>64E2</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=third byte of the animation phase table entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e3"></span>64E3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e4"></span>64E4</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-11" rowspan="1">Add Sam's current y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e5"></span>64E5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=Sam's next y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e6"></span>64E6</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=fourth byte of the animation phase table entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e7"></span>64E7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e8"></span>64E8</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first byte of the next entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e9"></span>64E9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($E60C),HL</td>
 <td class="comment-11" rowspan="1">Store this address in bytes 0x0C and 0x0D of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ec"></span>64EC</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="4"><span class="register">C</span>=Sam's next base animatory state (bit 7 reset)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ed"></span>64ED</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ee"></span>64EE</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ef"></span>64EF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64f0"></span>64F0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6515</td>
 <td class="comment-11" rowspan="1">Jump unless it's time to check whether Sam has landed</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="64f2"></span>
 <div class="comments">
 <div class="paragraph">
@@ -268,264 +300,308 @@ It's time to check whether Sam has landed on his feet yet.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64f2"></span>64F2</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1">Save Sam's new coordinates briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64f3"></span>64F3</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is Sam's next animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a> (standing upright)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64f4"></span>64F4</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$64FD</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64f6"></span>64F6</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1">Subtract 1 from Sam's new x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64f7"></span>64F7</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,B</td>
 <td class="comment-11" rowspan="1">Is Sam facing left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64f9"></span>64F9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$64FD</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64fb"></span>64FB</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="2">Add 1 to Sam's new x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64fc"></span>64FC</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="64fd"></span>64FD</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EAF8.html#eaff">$EAFF</a></td>
 <td class="comment-11" rowspan="1">Has Sam landed on the sidewalk or the road yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6500"></span>6500</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$650A</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6502"></span>6502</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's adjusted new x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6503"></span>6503</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore Sam's new x-coordinate to <span class="register">E</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6504"></span>6504</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Add 1 to Sam's new y-coordinate (move him down a level)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6505"></span>6505</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1">Save Sam's adjusted new coordinates briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6506"></span>6506</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=Sam's adjusted new x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6507"></span>6507</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EAF8.html#eaff">$EAFF</a></td>
 <td class="comment-11" rowspan="1">Set the carry flag unless Sam has landed on the sidewalk or road</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="650a"></span>650A</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore Sam's adjusted new y-coordinate to <span class="register">D</span>, and his new x-coordinate to <span class="register">E</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="650b"></span>650B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$6514</td>
 <td class="comment-11" rowspan="1">Jump if Sam has not landed yet</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="650d"></span>650D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's next base animatory state (bit 7 reset)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="650e"></span>650E</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is it <a href="../graphics/as.html#0">0x00 or 0x80</a> (standing upright)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="650f"></span>650F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$6514</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6511"></span>6511</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FFC),A</td>
 <td class="comment-11" rowspan="1">Clear all of Sam's status flags at <a href="7FFC.html">7FFC</a> (Sam has landed)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6514"></span>6514</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's next base animatory state (bit 7 reset)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6515"></span>6515</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $09</td>
 <td class="comment-11" rowspan="1">Is the new base animatory state &lt; 0x09 (meaning Sam has just started or is just finishing a roll or somersault)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6517"></span>6517</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$6525</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6519"></span>6519</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1">Save Sam's direction indicator and next base animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="651a"></span>651A</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1">Save Sam's next x- and y-coordinates</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="651b"></span>651B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $0F</td>
 <td class="comment-11" rowspan="1">Is the new base animatory state <a href="../graphics/as.html#15">0x0F</a> (meaning Sam is going to rotate 90 degrees for the first part of the roll or somersault)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="651d"></span>651D</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL Z,<a href="6412.html">$6412</a></td>
 <td class="comment-11" rowspan="1">If so, prepare sprite tiles 0xEF-0xF7 for this animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6520"></span>6520</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL NZ,<a href="6412.html#6448">$6448</a></td>
 <td class="comment-11" rowspan="1">Otherwise, rotate sprite tiles 0xEF-0xF7 for animatory state <a href="../graphics/as.html#9">0x09</a>, <a href="../graphics/as.html#31">0x1F</a> or <a href="../graphics/as.html#10">0x0A</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6523"></span>6523</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore Sam's next x- and y-coordinates to <span class="register">E</span> and <span class="register">D</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6524"></span>6524</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1">Restore Sam's direction indicator and next base animatory state to <span class="register">B</span> and <span class="register">C</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6525"></span>6525</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$E6</td>
 <td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6527"></span>6527</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=Sam's new animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6528"></span>6528</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6529"></span>6529</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9D5.html">$E9D5</a></td>
 <td class="comment-11" rowspan="1">Update Sam's animatory state and location and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="652c"></span>652C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFC)</td>
 <td class="comment-11" rowspan="1">Collect Sam's status flags from <a href="7FFC.html">7FFC</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="652f"></span>652F</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Has Sam landed yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6530"></span>6530</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6531"></span>6531</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EC69.html">$EC69</a></td>
 <td class="comment-11" rowspan="1">Make a sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6534"></span>6534</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0C</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x0C of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6536"></span>6536</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63C3.html">$63C3</a></td>
 <td class="comment-11" rowspan="1">Check whether Sam has somersaulted onto a banknote</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6539"></span>6539</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$E6</td>
 <td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="653b"></span>653B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="EC7B.html#ec83">$EC83</a></td>
 <td class="comment-11" rowspan="1">Now that Sam has landed, scroll the screen left or right if necessary</td>
 </tr>
@@ -538,10 +614,10 @@ It's time to check whether Sam has landed on his feet yet.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/25789.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/25789.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

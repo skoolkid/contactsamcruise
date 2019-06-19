@@ -23,7 +23,7 @@
 <div class="description">EAF2: Get the keypress offset of the last key pressed (2)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Continues from the routine at <a href="EAB2.html">EAB2</a>. Returns with <span class="register">A</span> holding the entry from the <a href="C330.html">keypress offset table</a> corresponding to the key just pressed, and the zero flag set if it wasn't a game key.
@@ -49,11 +49,12 @@ Continues from the routine at <a href="EAB2.html">EAB2</a>. Returns with <span c
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="eaf2"></span>EAF2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-11" rowspan="1">Transfer the ASCII code to <span class="register">L</span></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="eaf3"></span>
 <div class="comments">
 <div class="paragraph">
@@ -65,24 +66,28 @@ This entry point is used by the routine at <a href="EAB2.html">EAB2</a> with <sp
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="eaf3"></span>EAF3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$C3</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the entry in the <a href="C330.html">keypress offset table</a> corresponding to the last keypress or joystick movement</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eaf5"></span>EAF5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the entry in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eaf6"></span>EAF6</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Set the zero flag if it wasn't a game key</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eaf7"></span>EAF7</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -95,10 +100,10 @@ This entry point is used by the routine at <a href="EAB2.html">EAB2</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/60146.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/60146.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

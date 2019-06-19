@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 63981</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="63954.html">63954</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#63981">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="63994.html">63994</a></span></td>
+</tr>
+</table>
+<div class="description">63981: Initialise an uninterruptible subcommand if possible</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="64162.html">64162</a> and <a href="64338.html">64338</a>. Places the address of an uninterruptible subcommand routine into bytes 18 and 19 of a character's buffer if there's not one there already, and returns with the zero flag set in that case.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Character number (215-229)</td>
+</tr>
+<tr>
+<td class="register">BC</td>
+<td class="register-desc">Uninterruptible subcommand routine address</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="63981"></span>63981</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63982"></span>63982</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,A</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at byte 19 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63983"></span>63983</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,19</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63985"></span>63985</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="2">Is there already an uninterruptible subcommand routine address MSB there?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63986"></span>63986</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63987"></span>63987</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,63992</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63989"></span>63989</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),B</td>
+<td class="comment-11" rowspan="3">Otherwise copy the routine address from <span class="register">BC</span> into bytes 18 and 19 of the character's buffer, thus setting his uninterruptible subcommand</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63990"></span>63990</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63991"></span>63991</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="63992"></span>63992</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63993"></span>63993</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="63954.html">63954</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#63981">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="63994.html">63994</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/F9ED.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

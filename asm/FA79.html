@@ -23,7 +23,7 @@
 <div class="description">FA79: Check whether there are any messages remaining in the message queue</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with the zero flag set if there are no messages remaining in the message queue.
@@ -49,42 +49,49 @@ Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with the zero flag 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa79"></span>FA79</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="4">Point <span class="register">HL</span> at the next message in the message queue</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa7a"></span>FA7A</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $07</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa7c"></span>FA7C</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR $08</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa7e"></span>FA7E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa7f"></span>FA7F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the number of the next message in the queue</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa80"></span>FA80</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Set the zero flag if it's zero (no message)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa81"></span>FA81</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -97,10 +104,10 @@ Used by the routine at <a href="6EC5.html">6EC5</a>. Returns with the zero flag 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/64121.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/64121.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

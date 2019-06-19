@@ -23,7 +23,7 @@
 <div class="description">7D09: Set the attribute bytes for Sam's current disguise</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="71AC.html">71AC</a>. Sets the attribute bytes for Sam's disguise in the bottom right corner of the screen.
@@ -46,11 +46,12 @@ Used by the routine at <a href="71AC.html">71AC</a>. Sets the attribute bytes fo
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7d09"></span>7D09</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7d0a"></span>
 <div class="comments">
 <div class="paragraph">
@@ -62,66 +63,77 @@ This entry point is used by the routine at <a href="F95E.html">F95E</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7d0a"></span>7D0A</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d0b"></span>7D0B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7294.html">$7294</a></td>
 <td class="comment-11" rowspan="1">Get the attribute byte to use for Sam's disguise</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7d0e"></span>7D0E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$031D</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=3, <span class="register">C</span>=29</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7d11"></span>7D11</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="3">Set a row of attribute bytes for Sam's disguise in the bottom right of the screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d12"></span>7D12</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d13"></span>7D13</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $7D11</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d15"></span>7D15</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7D1A</td>
 <td class="comment-11" rowspan="1">Jump if we've done all 3 rows</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d17"></span>7D17</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the attribute byte for the first tile in the next row down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d18"></span>7D18</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $7D0E</td>
 <td class="comment-11" rowspan="1">Jump back to set the attribute bytes in this row</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7d1a"></span>7D1A</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d1b"></span>7D1B</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -134,10 +146,10 @@ This entry point is used by the routine at <a href="F95E.html">F95E</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/32009.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/32009.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

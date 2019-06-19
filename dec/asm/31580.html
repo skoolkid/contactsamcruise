@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 31580</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="31578.html">31578</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31580">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31594.html">31594</a></span></td>
+</tr>
+</table>
+<div class="description">31580: Deal with a character who is standing next to the jail cell door</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="60347.html">60347</a>. Deals with a character who is standing just behind the jail cell door and trying to move right. If the character is Sam, this routine prevents him from escaping from the jail cell while he's imprisoned there.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-230)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="31580"></span>31580</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31581"></span>31581</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 230</td>
+<td class="comment-11" rowspan="1">Are we dealing with Sam?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31583"></span>31583</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP NZ,<a href="60347.html#60423">60423</a></td>
+<td class="comment-11" rowspan="1">Jump back into the calling routine if not (and allow the character to move right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31586"></span>31586</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(32747)</td>
+<td class="comment-11" rowspan="1">Collect the police flags from <a href="32747.html">32747</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31589"></span>31589</td>
+<td class="bytes-0"></td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Is Sam in jail?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31590"></span>31590</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP NC,<a href="60347.html#60423">60423</a></td>
+<td class="comment-11" rowspan="1">Jump back into the calling routine if not (and allow Sam to move right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31593"></span>31593</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="31578.html">31578</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31580">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31594.html">31594</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/7B5C.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

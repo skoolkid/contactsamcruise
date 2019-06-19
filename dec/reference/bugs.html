@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Bugs</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Bugs">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Bugs</td>
+</tr>
+</table>
+<ul class="contents">
+<li><a href="#troubleHiding">The trouble with hiding</a></li>
+<li><a href="#hidingInPlainSight">Hiding in plain sight</a></li>
+<li><a href="#hidingInTheCeiling">Hiding in the ceiling</a></li>
+<li><a href="#insideAndOut">Inside and out</a></li>
+<li><a href="#underTheRope">Under the rope</a></li>
+<li><a href="#plightOfTheNonArrestingPoliceman1">The plight of the non-arresting policeman (1)</a></li>
+<li><a href="#plightOfTheNonArrestingPoliceman2">The plight of the non-arresting policeman (2)</a></li>
+<li><a href="#lanaNoAnswer">Lana doesn't answer</a></li>
+<li><a href="#hookVBird">Hook v. bird</a></li>
+<li><a href="#okCruise">OK Cruise we're not coming</a></li>
+<li><a href="#lifeSentence">Life sentence</a></li>
+<li><a href="#pttd">Post-traumatic teleportation disorder</a></li>
+<li><a href="#samTheEscapeArtist">Sam the escape artist</a></li>
+<li><a href="#persistentSniper">The persistent sniper</a></li>
+<li><a href="#conspicuousSniper">The conspicuous sniper</a></li>
+<li><a href="#no19Lockout">No. 19 lockout</a></li>
+<li><a href="#frozenGangster">Frozen gangster</a></li>
+<li><a href="#anUrgentMessageDelayed">An urgent message delayed</a></li>
+<li><a href="#blankTilesBehavingBadly">Blank tiles behaving badly</a></li>
+<li><a href="#extendedEarpiece">Extended earpiece</a></li>
+<li><a href="#missingBlueLine">The missing blue line</a></li>
+<li><a href="#zCoordinateConfusion">z-coordinate confusion</a></li>
+<li><a href="#frozenFiver">Frozen fiver</a></li>
+<li><a href="#runGangsterRun">Run, gangster, run</a></li>
+<li><a href="#selfModifyingDataTable">The self-modifying data table</a></li>
+<li><a href="#tricksWithLightSwitches">Tricks with light switches</a></li>
+<li><a href="#displacedDame">Displaced dame</a></li>
+<li><a href="#displacedDude">Displaced dude</a></li>
+</ul>
+<div><span id="troubleHiding"></span></div>
+<div class="box box-1">
+<div class="box-title">The trouble with hiding</div>
+<div class="paragraph">
+When Sam is wanted by the police, he is supposed to be able to hide inside
+buildings (but not on roofs or in stairwells that are visible from outside) in
+order to evade arrest. However, because of a bug in the routine that checks
+whether Sam can be spotted by the police in his current location (see <a href="../asm/28886.html">28886</a>),
+Sam's attempts at hiding may be either futile or undeservedly successful. In
+particular, if Sam is on the roof of or inside a building other than the hotel
+(and not in a stairwell that is visible from outside), he will be invisible to
+the police if he's facing right, but visible if he's facing left.
+</div>
+<div class="paragraph">
+POKE <a href="../asm/28886.html#28910">28910</a>,44
+</div>
+</div>
+<div><span id="hidingInPlainSight"></span></div>
+<div class="box box-2">
+<div class="box-title">Hiding in plain sight</div>
+<div class="paragraph">
+If Sam is wanted by the police, one place he can go and be certain that the
+cops will not get him is the far right edge of the roof of the apartment
+building next to no. 74. As soon as Sam reaches that spot - at coordinates
+(23,6), to be precise - any policemen who are chasing him will turn round and
+head for the top floor of the hotel instead.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="hiding_in_plain_sight" src="../../images/play_area/hiding_in_plain_sight.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The reason for this is that the region containing the roof of the apartment
+building next to no. 74 is defined such that it extends only to x-coordinate 22
+instead of 23, and the region adjacent to it (beginning at x-coordinate 23)
+corresponds to the top floor of the hotel (see <a href="../asm/61194.html#61416">61416</a>).
+</div>
+<div class="paragraph">
+In addition, when the cops reach the top floor of the hotel, they will proceed
+to the wall of the room on the far right and then freeze.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="hiding_in_plain_sight2" src="../../images/play_area/hiding_in_plain_sight2.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+When Sam feels that the time is right to turn himself in, he can unfreeze the
+policemen by approaching them. When he gets close enough, one of them will pick
+him up.
+</div>
+<div class="paragraph">
+POKE <a href="../asm/61194.html#61416">61416</a>,24
+</div>
+</div>
+<div><span id="hidingInTheCeiling"></span></div>
+<div class="box box-1">
+<div class="box-title">Hiding in the ceiling</div>
+<div class="paragraph">
+Another place Sam can go and be certain that the cops will not get him is the
+room above his office. First you'll need to get the hook (POKE
+<a href="../asm/32745.html">32745</a>,64 while a game is in progress). Then go to the top-floor cyan
+room in the apartments next to no. 19, call the police, hang up, go to the
+right edge of the roof of the apartments, throw the hook over the roof of
+no. 19, make your way across the rope to the roof of no. 17, and go down into
+the room above Sam's office. Instead of following Sam there, the police will go
+to Sam's office instead and run up and down continuously.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="hiding_in_the_ceiling" src="../../images/play_area/hiding_in_the_ceiling.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The reason for this is that the routine at <a href="../asm/60812.html">60812</a> assumes that every level of
+a building is reachable by climbing staircases going up from the ground
+floor. This is true for every building in the city except no. 17: there is no
+staircase leading up to the top floor from Sam's office below. So the police
+make their way to Sam's office only to find that there is no route up to their
+destination.
+</div>
+</div>
+<div><span id="insideAndOut"></span></div>
+<div class="box box-2">
+<div class="box-title">Inside and out</div>
+<div class="paragraph">
+Go to the far left of the room above Sam's office (to do which you'll need the
+hook: POKE <a href="../asm/32745.html">32745</a>,64) and turn round to face right; part of Sam's
+sprite will appear outside the room.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="inside_and_out" src="../../images/play_area/inside_and_out.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="underTheRope"></span></div>
+<div class="box box-1">
+<div class="box-title">Under the rope</div>
+<div class="paragraph">
+After throwing the hook (POKE <a href="../asm/32745.html">32745</a>,64 while a game is in progress
+gives Sam the hook) over the roof of no. 19, cross the rope to the extreme left
+edge of the roof of no. 17, turn round, and press 'A' ('down') or 'O' ('left')
+twice - Sam will step down below the level of the rope so that his feet are
+hidden. From here it's possible to walk below the level of the rope all the way
+back to the roof of the apartment building.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="under_the_rope" src="../../images/play_area/under_the_rope.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+This bug is caused by the location descriptors at <a href="../asm/47590.html">47590</a>. In particular, the
+descriptors at <a href="../asm/47590.html#47596">47596</a> (y=6) and <a href="../asm/47590.html#47598">47598</a> (y=7) should not apply to x-coordinate
+222. One way around this is to give x-coordinate 222 its own set of location
+descriptors for y-coordinates 13, 19, 25, and 31:
+</div>
+<div class="paragraph">
+<div>POKE 56568,18: POKE 56569,128 (y=13, z=1; left)</div>
+<div>POKE 56570,30: POKE 56571,128 (y=19, z=1; left)</div>
+<div>POKE 56572,42: POKE 56573,128 (y=25, z=1; left)</div>
+<div>POKE 56574,54: POKE 56575,128 (y=31, z=1; left)</div>
+<div>POKE <a href="../asm/50432.html#50654">50654</a>,248: POKE <a href="../asm/50688.html#50910">50910</a>,220</div>
+</div>
+</div>
+<div><span id="plightOfTheNonArrestingPoliceman1"></span></div>
+<div class="box box-2">
+<div class="box-title">The plight of the non-arresting policeman (1)</div>
+<div class="paragraph">
+If Sam stands on the right edge of the roof of the apartment building next to
+no. 19 while the rope is there and both policemen are chasing him, one
+policeman will pick him up, and the other will then walk onto the rope and
+eventually get stuck at the right end, next to the edge of the roof of no. 17.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="potnap1_1" src="../../images/play_area/potnap1_1.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+(POKE <a href="../asm/32745.html">32745</a>,64 gives Sam the hook while a game is in progress, and
+there is a phone in the far left room on the top floor of the apartment
+building from which Sam can call the police.)
+</div>
+<div class="paragraph">
+The key to reproducing this bug is to keep the policemen at bay until both of
+them have spotted Sam on the edge of the roof and are heading there to catch
+him. This can be done by stepping off the edge of the roof and onto the rope
+(which makes a chasing policeman turn round and head the other way), staying
+there for a few seconds, and then turning round and stepping off the rope and
+back onto the edge of the roof (which makes a chasing policeman turn round
+again and head for Sam's location).
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="potnap1_2" src="../../images/play_area/potnap1_2.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+Using this technique, Sam can keep one policeman busy until the other shows up,
+and then allow himself to be arrested.
+</div>
+<div class="paragraph">
+The non-arresting policeman proceeds to the edge of the roof even after Sam has
+been arrested because of a quirk in the routine at <a href="../asm/29361.html">29361</a>, which makes the
+policeman complete his journey to the spot he was heading for while chasing Sam
+before resuming normal patrol duty on the sidewalk.
+</div>
+<div class="paragraph">
+But why doesn't the non-arresting policeman then simply step down from the edge
+of the roof and return to the sidewalk? Here is where the story gets
+complicated.
+</div>
+<div class="paragraph">
+The policeman is standing at (206,6,1) (on the top-right edge of the roof),
+facing right. His destination is somewhere on the sidewalk or road. Under these
+conditions, the routine at <a href="../asm/60812.html">60812</a> returns with <span class="register">A</span>=4 (go down) at
+<a href="../asm/60812.html#61026">61026</a>. The routine at <a href="../asm/62976.html">62976</a> takes this return value and jumps to the
+routine at <a href="../asm/60320.html">60320</a>. This routine then moves the policeman forwards (and
+therefore onto the rope), because there is no step going down at (206,6): the
+location descriptor for (206,6,1) at <a href="../asm/50165.html">50165</a> says 'left, right' only.
+</div>
+<div class="paragraph">
+The policeman keeps moving forwards in search of a way down, until he finds one
+at the right end of the rope, and takes it. With the policeman now at
+(221,7,1), the routine at <a href="../asm/60812.html">60812</a> returns with <span class="register">A</span>=1 (go right) at <a href="../asm/60812.html#61019">61019</a>,
+because his x-coordinate (221) is less than the x-coordinate of the top of the
+staircase leading down to the floor below (236, as defined by the third byte of
+the region identifier entry at <a href="../asm/61194.html#61436">61436</a>; this is the staircase leading down from
+the roof of no. 17 to the room above Sam's office). Then the policeman turns
+round, heads right, and gets stuck at (222,7,1), because the only available
+direction at that location is left (as defined by the location descriptor at
+<a href="../asm/47590.html#47598">47598</a>).
+</div>
+<div class="paragraph">
+Note, however, that the policeman who gets stuck in this way can still arrest
+Sam (if Sam later becomes wanted by the police, and tries to make his way
+across the rope). If that happens, Sam gets stuck too, and the game is
+effectively over.
+</div>
+</div>
+<div><span id="plightOfTheNonArrestingPoliceman2"></span></div>
+<div class="box box-1">
+<div class="box-title">The plight of the non-arresting policeman (2)</div>
+<div class="paragraph">
+Further evidence that policemen and roofs don't mix can be found on the roof of
+the apartment building next to no. 74. If Sam stands in the spot just to the
+left of the right edge of this roof when both policemen are chasing him, one
+policeman will pick him up, and the other will then pace up and down the roof
+continuously, unable to find his way back to the sidewalk and regular patrol
+duty.
+</div>
+<div class="paragraph">
+(There is a phone in the right-hand magenta room on the third floor of the
+apartment building from which Sam can call the police.)
+</div>
+<div class="paragraph">
+Again, the key to reproducing this bug is to keep the policemen at bay until
+both of them have spotted Sam near the edge of the roof and are heading there
+to catch him. This can be done by stepping towards the far right edge of the
+roof (which makes a chasing policeman turn round and head the other way),
+staying there for a few seconds, and then turning round and stepping back to
+the spot just to the left of the edge of the roof (which makes a chasing
+policeman turn round again and head for Sam's location).
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="potnap2" src="../../images/play_area/potnap2.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+So what prevents the non-arresting policeman from returning to the sidewalk
+after Sam has been arrested in this case? As noted in the previous bug, there
+is a quirk in the routine at <a href="../asm/29361.html">29361</a>, which makes the policeman complete his
+journey to the spot he was heading for while chasing Sam before resuming normal
+patrol duty on the sidewalk. So first of all, the policeman heads for (22,6),
+just to the left of the top-right edge of the roof. Unfortunately, however, he
+never makes it there.
+</div>
+<div class="paragraph">
+Before any character can reach the location at (22,6), he must first pass the
+location at (21,7). When the policeman reaches that spot, the routine at
+<a href="../asm/60812.html">60812</a> returns with <span class="register">A</span>=2 (go left) at <a href="../asm/60812.html#61099">61099</a>, because his x-coordinate
+(21) is greater than the x-coordinate of the bottom of the (non-existent)
+staircase leading to the floor above (20, as defined - incorrectly - by the
+fourth byte of the region identifier entry at <a href="../asm/61194.html#61416">61416</a>). Therefore the policeman
+turns round and walks left instead of stepping up onto the top edge of the
+roof.
+</div>
+<div class="paragraph">
+Then, when the policeman reaches (19,7), the routine at <a href="../asm/60812.html">60812</a> returns with
+<span class="register">A</span>=1 (go right) at <a href="../asm/60812.html#61097">61097</a>, because his x-coordinate (19) is now less than
+20. Therefore the policeman turns round and walks right, back to (21,7). And so
+on and so forth, until Sam is once again wanted by the police, and the
+policeman's destination changes to wherever Sam is.
+</div>
+<div class="paragraph">
+POKE <a href="../asm/61194.html#61416">61419</a>,21
+</div>
+</div>
+<div><span id="lanaNoAnswer"></span></div>
+<div class="box box-2">
+<div class="box-title">Lana doesn't answer</div>
+<div class="paragraph">
+When Sam's score hits 50, the first phone message from Lana (message
+<a href="../asm/32089.html">59</a>: LANA ANSWERED 'OOH SAM! THEY KILLED MY FIANCE AND STOLE THE
+BUDGIE') is activated (see <a href="../asm/24544.html#24569">24569</a>). However, if Sam calls Lana (on 7162) from
+the phone in the third-floor magenta room in the apartments next to no. 74
+while the room past the catwalk is on-screen, no one answers.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="lana_no_answer" src="../../images/play_area/lana_no_answer.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The reason no one answers is that (a) a phone in a room that is currently
+on-screen will be answered only if a character is nearby (see <a href="../asm/30511.html">30511</a>), and (b)
+Lana's phone is the one in the room past the catwalk (see <a href="../asm/27392.html">27392</a>).
+</div>
+</div>
+<div><span id="hookVBird"></span></div>
+<div class="box box-1">
+<div class="box-title">Hook v. bird</div>
+<div class="paragraph">
+When Sam phones Lana while in possession of the budgie, he should receive the
+message 'LANA ANSWERED 'OOH SAM! YOUVE GOT THE BIRD. SEE YOU IN YOUR
+OFFICE''. However, if Sam phones Lana while he has both the hook <em>and</em>
+the budgie, he will get no message; this is because the event table entry at
+<a href="../asm/24544.html#24763">24763</a> checks that Sam has the budgie and only the budgie. (POKE
+<a href="../asm/32745.html">32745</a>,192 gives Sam the hook and the budgie while a game is in
+progress.)
+</div>
+<div class="paragraph">
+POKE <a href="../asm/24544.html#24768">24768</a>,56: POKE <a href="../asm/24544.html#24779">24779</a>,48
+</div>
+</div>
+<div><span id="okCruise"></span></div>
+<div class="box box-2">
+<div class="box-title">OK Cruise we're not coming</div>
+<div class="paragraph">
+In game mode 4 - after Lana has been put in jail and the mob is after Sam - Sam
+can call 999 and hear the message 'OK CRUISE WE'RE COMING'. However, no
+policeman ever arrives, because there are no police on patrol duty in game mode
+4.
+</div>
+</div>
+<div><span id="lifeSentence"></span></div>
+<div class="box box-1">
+<div class="box-title">Life sentence</div>
+<div class="paragraph">
+Sam must have at least $46 when he's arrested, otherwise the game will end
+immediately (see <a href="../asm/31642.html">31642</a>). In addition, if Sam has $20 or less when the jailer
+comes to let him out of the cell, the routine at <a href="../asm/31594.html">31594</a> will enter an infinite
+loop by trying to find a bail amount of $20 or more that Sam can afford,
+effectively ending the game and sentencing Sam to a life of suspended animation
+in jail.
+</div>
+<div class="paragraph">
+But can this actually happen? Is it possible for the jailer to come down from
+his office too late to save Sam from a life sentence? Let's do the maths and
+see.
+</div>
+<div class="paragraph">
+First, let's assume that Sam does have only $46 when he's arrested, and that
+he's arrested in the location that is farthest from the police station: the
+roof of the apartment building next to no. 74. It takes the arresting policeman
+about 1m14s to get to the jail cell (with Sam) from that location. Since Sam
+loses a dollar every 5.12s (see <a href="../asm/31414.html">31414</a>), that means he will have no more than
+$32 left by the time he's dropped off. And 1m2s later, he will have no more
+than $20 - the critical amount. The question thus becomes: is it possible for
+the jailer to take more than 1m2s to come down and let Sam out?
+</div>
+<div class="paragraph">
+The jailer's routine involves walking up and down in his office for a while,
+going down to the cell to let Sam out (if he's there), going back up to the
+office, and starting all over again. The number of walkabouts he performs will
+be anywhere from 32 to 63 (see <a href="../asm/63304.html">63304</a>). Each walkabout consists of walking to
+a randomly chosen spot that is 6, 4, 2 or 0 x-coordinates to the left of the
+walkabout origin. Travelling one x-coordinate requires two movements. So the
+number of movements the jailer will make while walking up and down in his
+office could be as high as 63*12=756, but will be 47.5*5=237.5 on average.
+</div>
+<div class="paragraph">
+Now to translate that into actual time. The character-moving routine at <a href="../asm/61948.html">61948</a>
+moves three characters at once, and there are 16 characters to be
+moved. Therefore each character is moved on one in every 5.33 passes through
+the main loop when running, and one in every 10.66 passes when walking. Passes
+through the main loop are made at least 0.02s apart, so a walking character is
+moved once every 0.21s. This means that the jailer could spend as much as
+756*0.21=158.76s walking up and down in his office, but will on average spend
+237.5*0.21=49.875s doing so. To those figures we would need to add the time
+taken to walk down to the jail cell from the office.
+</div>
+<div class="paragraph">
+So it is possible for the jailer to spend too long in his office before coming
+down to let Sam out. Unlikely, but certainly possible.
+</div>
+</div>
+<div><span id="pttd"></span></div>
+<div class="box box-2">
+<div class="box-title">Post-traumatic teleportation disorder</div>
+<div class="paragraph">
+When Sam knocks a character over by landing on his head from above, that
+character is supposed to:
+</div>
+<div class="paragraph">
+<div>(1) drop to the the floor and remain there for a brief period</div>
+<div>(2) stand up and stagger around for another brief period</div>
+<div>(3) walk back to the spot where he was hit on the head</div>
+<div>(4) resume whatever he was doing at the time he was struck</div>
+</div>
+<div class="paragraph">
+But because of a bug in the routine at <a href="../asm/64131.html">64131</a>, the walking back part of step
+(3) is omitted. Worse than that, if the character was midstride at the time of
+the collision, step (3) is replaced by an immediate teleportation to the
+character's pre-knockout, post-midstride coordinates. As a result, you might
+see the recovering character zip from A (the point where he stops staggering
+around) to B (the spot just to the left or right of where he was hit on the
+head) without passing through the intervening space.
+</div>
+<div class="paragraph">
+POKE <a href="../asm/64131.html#64140">64140</a>,40
+</div>
+</div>
+<div><span id="samTheEscapeArtist"></span></div>
+<div class="box box-1">
+<div class="box-title">Sam the escape artist</div>
+<div class="paragraph">
+If Sam moves midstride just before being picked up by a policeman, then he can
+escape from the jail cell after being dropped there by the simple act of
+turning round (to face right). As soon as he does that, he will teleport back
+to the spot where he was arrested.
+</div>
+<div class="paragraph">
+Whenever Sam (or indeed any character) moves midstride, his post-midstride
+animatory state, x-coordinate and y-coordinate are calculated and stored in
+bytes 5, 6 and 7 of his buffer by the section of code at <a href="../asm/60347.html#60423">60423</a>, to be
+retrieved later (usually soon after) by the routine at <a href="../asm/60506.html">60506</a>. However, if Sam
+is picked up by a policeman while he's midstride, his post-midstride movement
+is delayed. When 'P' is pressed after he's been dropped in the cell, the
+routine at <a href="../asm/60636.html">60636</a> is called, which first turns Sam round (because he's facing
+left). Then that routine jumps to the code at <a href="../asm/60641.html#60644">60644</a>, which detects the
+post-midstride y-coordinate stored in byte 7 of Sam's buffer, and accordingly
+sets the midstride timer in byte 9 of his buffer to a non-zero value. A few
+passes through the main loop later, the midstride timer is decremented to zero
+by the code at <a href="../asm/61483.html#61545">61545</a>, and Sam is belatedly moved to the post-midstride
+coordinates that were calculated just before he was arrested.
+</div>
+<div class="paragraph">
+The following POKEs fix this bug by making sure that Sam's post-midstride
+y-coordinate is cleared when he's picked up by a policeman:
+</div>
+<div class="paragraph">
+POKE <a href="../asm/29149.html#29187">29188</a>,0: POKE 29189,1: POKE 29191,7
+</div>
+<div class="paragraph">
+Note that the midstride trick does not work with gangsters, because the code at
+<a href="../asm/64338.html#64422">64422</a> sets byte 7 of Sam's buffer (which holds his post-midstride
+y-coordinate) to zero when he lands after being dropped off the roof of a
+building. To enable the midstride trick to be used with gangsters:
+</div>
+<div class="paragraph">
+POKE <a href="../asm/64338.html#64422">64426</a>,8
+</div>
+<div class="paragraph">
+Now when Sam turns round after coming to, he will teleport back to the spot
+where he was picked up by the gangster.
+</div>
+</div>
+<div><span id="persistentSniper"></span></div>
+<div class="box box-2">
+<div class="box-title">The persistent sniper</div>
+<div class="paragraph">
+It's possible for part of the sniper's sprite to remain on screen after the
+screen has scrolled the sniper's body out of view. To see this, go to the first
+floor of the apartments next to no. 19, and position Sam so that the doorsteps
+of no. 19 are visible on the left side of the screen.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="persistent_sniper1" src="../../images/play_area/persistent_sniper1.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+When the sniper appears on the left side of the doorsteps, move Sam left so
+that the screen scrolls right. The brim of the sniper's hat and maybe also his
+gun will remain visible at the right edge of the screen until wiped away by
+other characters passing by on the sidewalk.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="persistent_sniper2" src="../../images/play_area/persistent_sniper2.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="conspicuousSniper"></span></div>
+<div class="box box-1">
+<div class="box-title">The conspicuous sniper</div>
+<div class="paragraph">
+One of the defining characteristics of a sniper is that he should remain
+concealed or inconspicuous when aiming at his target. However, because of a bug
+in the sniper-controlling routine at <a href="../asm/25118.html">25118</a>, the sniper will, after emerging
+to take aim, remain brazenly out in the open for all to see until Sam gets too
+close. The apparent intention of the sniper-controlling routine is that the
+sniper should emerge, shoot once or twice, and then hide again when byte 16
+of the sniper's buffer has been decremented to zero from its original value
+between 10 and 25 (see <a href="../asm/25307.html">25307</a>).
+</div>
+<div class="paragraph">
+<div>POKE 25113,46</div>
+<div>POKE 25114,16</div>
+<div>POKE 25115,52</div>
+<div>POKE 25116,24</div>
+<div>POKE 25117,84</div>
+<div>POKE 25192,176</div>
+</div>
+</div>
+<div><span id="no19Lockout"></span></div>
+<div class="box box-2">
+<div class="box-title">No. 19 lockout</div>
+<div class="paragraph">
+It's possible to lock the gangsters at no. 19 out of their house, leaving Sam
+free to enter via the roof and explore the mob stronghold with impunity. To
+achieve this feat, proceed to no. 19 and stand on the right edge of the front
+doorstep.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="no_19_lockout1" src="../../images/play_area/no_19_lockout1.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+When the door opens, the gangsters will walk out onto the doorstep and then
+freeze, as if uncertain where to go next to grab Sam.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="no_19_lockout2" src="../../images/play_area/no_19_lockout2.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+If Sam then goes back down to the sidewalk, the gangsters will unfreeze and
+start knocking on the front door - but because there's no one at home to answer
+it, they'll never get in.
+</div>
+<div class="paragraph">
+If, on the other hand, Sam approaches the gangsters on the doorstep, one of
+them will pick him up with the intent of carrying him to the roof, but will
+instead get stuck at the front door, unable to get in.
+</div>
+<div class="paragraph">
+The reason that the gangsters freeze on the doorstep of no. 19 is a combination
+of a quirk in the routine at <a href="../asm/60812.html">60812</a> (which determines the next move a
+character should make to reach his destination), the boundary of the inner
+region that is watched by the gangsters (as defined at <a href="../asm/64836.html">64836</a>), and the logic
+in the routine at <a href="../asm/31362.html">31362</a> (which controls a gangster who is chasing Sam). When
+a gangster arrives at the front door his coordinates are (211,31,1) and Sam's
+are (212,31,2). The routine at <a href="../asm/60812.html">60812</a> then sends the gangster down a step to
+(210,32,2) instead of simply turning him round and changing his z-coordinate
+from 1 to 2. But (210,32,2) is outside the inner region watched by the gangster
+(which extends only to y-coordinate 31), which means the routine at <a href="../asm/31362.html">31362</a>
+will abort without moving the gangster anywhere while Sam remains inside the
+inner region.
+</div>
+<div class="paragraph">
+<div>POKE <a href="../asm/62177.html">62177</a>,136: POKE <a href="../asm/62177.html">62178</a>,144 (to give each gangster a
+key to no. 19)</div>
+<div>POKE <a href="../asm/64836.html">64839</a>,33: POKE <a href="../asm/64836.html">64843</a>,33 (to extend the inner region
+and prevent the gangsters from freezing on the doorstep)</div>
+</div>
+</div>
+<div><span id="frozenGangster"></span></div>
+<div class="box box-1">
+<div class="box-title">Frozen gangster</div>
+<div class="paragraph">
+The gangsters at no. 19 are not the only ones who can become confused and
+freeze while chasing Sam: the gangster who watches for Sam outside the police
+station in game modes 2 and 3 is susceptible to the same trick as well.
+</div>
+<div class="paragraph">
+To see this, Sam first needs to get to the right edge of the police station
+steps, just above the sidewalk:
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="frozen_gangster1" src="../../images/play_area/frozen_gangster1.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+(Sam can get here without being caught by the gangster either by going via the
+roof of no. 27 - assuming he has the key to that house - or by calling the
+police and enduring a brief stint in jail first.)  When the gangster is beyond
+the left edge of the police station steps, step down onto the sidewalk, and
+then quickly back up onto the police station steps. The gangster will follow
+Sam onto the first step above the sidewalk and then freeze:
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="frozen_gangster2" src="../../images/play_area/frozen_gangster2.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The gangster will remain frozen until Sam leaves the outer region
+(0&lt;=x&lt;255, 10&lt;=y&lt;36) by going to y=9 (between the 4th and 5th
+floors of a building). It's possible for Sam to run past the gangster (towards
+no. 31 on the left) while he's frozen without being picked up, but this
+manoeuvre requires perfect timing that's impossible to judge from just watching
+the screen, and will fail more often than not.
+</div>
+</div>
+<div><span id="anUrgentMessageDelayed"></span></div>
+<div class="box box-2">
+<div class="box-title">An urgent message delayed</div>
+<div class="paragraph">
+The routine at <a href="../asm/30160.html">30160</a> is supposed to determine the amount of time for which
+the current message (or message portion) should remain on screen before the
+next one is displayed. This interval is normally 2.56s, but is reduced to 0.64s
+if an urgent message has been queued (see <a href="../asm/30154.html">30154</a>). However, if the urgent
+message number is stored at a lower address in the 8-byte message queue at
+<a href="../asm/32696.html">32696</a> than the number of the message currently being displayed, the routine
+at <a href="../asm/30160.html">30160</a> will fail to find it, and so messages will continue to be displayed
+at normal speed. To demonstrate this:
+</div>
+<div class="paragraph">
+<div>1. When a new game starts, the message index (held in bits 0-2 at <a href="../asm/32695.html">32695</a>)
+is 3; increase it to 7 by picking up a phone and hanging up twice.</div>
+<div>2. Pick up a phone other than Sam's, dial 7337, and wait for Daisy to
+start relaying the message to Sam; now the message index is 7 (again).</div>
+<div>3. While Daisy is relaying the message to Sam, quickly hang up and then
+press 'J'; this queues an urgent message (see <a href="../asm/24951.html">24951</a>) with index 0, which is
+less than the index of the message currently being displayed (7).</div>
+<div>4. Note how the game pauses, but the message from Daisy continues to
+display at normal speed, until finally 'JOYSTICK?' appears.</div>
+</div>
+</div>
+<div><span id="blankTilesBehavingBadly"></span></div>
+<div class="box box-1">
+<div class="box-title">Blank tiles behaving badly</div>
+<div class="paragraph">
+The knocked-out sprites for certain characters contain blank tiles that should
+be transparent:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 39" src="../../images/animatory_states/as039_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 55" src="../../images/animatory_states/as055_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 79" src="../../images/animatory_states/as079_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 87" src="../../images/animatory_states/as087_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 95" src="../../images/animatory_states/as095_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 103" src="../../images/animatory_states/as103_120x2m.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The reason for this is that the routine at <a href="../asm/63784.html">63784</a>, which prepares the tiles
+for a knocked-out sprite by making rotated copies of tiles 1-4 and 6-9
+of the character's base sprite, needlessly makes rotated copies of blank tiles
+(those with a tile reference of 0) too. However, the blank tile (the graphic
+and mask data for which are located at addresses 50944 TO 54784 STEP 256)
+does not contain the correct mask data - it is all zeroes instead of 255s.
+This is not normally a problem because the sprite-tile-printing routine at
+<a href="../asm/59635.html">59635</a> is optimised to ignore sprite tiles with a tile reference of 0. But
+the rotated copies of the blank tile have non-zero tile references, and are
+therefore drawn.
+</div>
+<div class="paragraph">
+This bug is noticeable if Sam knocks over one of the affected characters on the
+sidewalk: the blank tiles will obscure parts of the building (and possibly
+other characters) behind the stunned character, as shown here where Sam has
+just landed on Daisy after being dropped from the roof of no. 19:
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="daisy_ko" src="../../images/play_area/daisy_ko.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The simplest fix is to set the mask data for the blank tile to all 255s:
+</div>
+<div class="paragraph">
+<div>POKE 51200,255</div>
+<div>POKE 51712,255</div>
+<div>POKE 52224,255</div>
+<div>POKE 52736,255</div>
+<div>POKE 53248,255</div>
+<div>POKE 53760,255</div>
+<div>POKE 54272,255</div>
+<div>POKE 54784,255</div>
+</div>
+<div class="paragraph">
+Another fix (which leaves the graphic and mask data for the blank tile
+completely unused) is to set the relevant tile references in the affected
+sprites to 0:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 39" src="../../images/animatory_states/as039_120x2m_btbh.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 55" src="../../images/animatory_states/as055_120x2m_btbh.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 79" src="../../images/animatory_states/as079_120x2m_btbh.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 87" src="../../images/animatory_states/as087_120x2m_btbh.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 95" src="../../images/animatory_states/as095_120x2m_btbh.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 103" src="../../images/animatory_states/as103_120x2m_btbh.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">POKE 55463,0</td>
+<td class="" colspan="1" rowspan="1"><div>POKE 55479,0</div><div>POKE 57783,0</div></td>
+<td class="" colspan="1" rowspan="1">POKE 55503,0</td>
+<td class="" colspan="1" rowspan="1">POKE 55511,0</td>
+<td class="" colspan="1" rowspan="1"><div>POKE 55519,0</div><div>POKE 57823,0</div></td>
+<td class="" colspan="1" rowspan="1">POKE 55527,0</td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="extendedEarpiece"></span></div>
+<div class="box box-2">
+<div class="box-title">Extended earpiece</div>
+<div class="paragraph">
+The icon for the ringing telephone is perhaps not as it should be. Note how the
+business end of the earpiece is 3 pixels long, compared with 2 pixels when the
+phone is not ringing:
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="phone" src="../../images/scr/phone.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="extended_earpiece" src="../../images/scr/extended_earpiece.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+However, this is probably not a bug in the graphic data itself. If the routine
+at <a href="../asm/28660.html">28660</a> is modified so that it copies the otherwise unused two bytes of
+graphic data (which correspond to the earpiece) from <a href="../asm/28739.html">28739</a> to the screen, the
+ringing telephone icon looks like this instead:
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="phone" src="../../images/scr/phone.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="extended_earpiece2" src="../../images/scr/extended_earpiece2.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+POKE <a href="../asm/28660.html#28690">28691</a>,5
+</div>
+</div>
+<div><span id="missingBlueLine"></span></div>
+<div class="box box-1">
+<div class="box-title">The missing blue line</div>
+<div class="paragraph">
+When Sam hits the ground after being dropped from the roof of a building by a
+gangster, the portion of the screen containing the play area (that is, the top
+20 rows) is scrolled up and down seven times, with an accompanying sound
+effect. On each upward scroll, the 20th row of the screen is supposed to be
+replaced by a solid blue line (attribute value 9). However, because of a bug in
+the scrolling routine (see <a href="../asm/64618.html">64618</a>), instead of the 20th row of the attribute
+file being POKEd with 9s, the top pixel line of the 20th row of the display
+file is POKEd with 9s, which produces quite a different - and visually jarring
+- effect.
+</div>
+<div class="paragraph">
+POKE <a href="../asm/64618.html#64666">64668</a>,90
+</div>
+</div>
+<div><span id="zCoordinateConfusion"></span></div>
+<div class="box box-2">
+<div class="box-title">z-coordinate confusion</div>
+<div class="paragraph">
+When Sam moves up from the sidewalk onto the front steps of a building, his
+z-coordinate remains at 4 instead of changing to 2, which means that people
+walking past on the sidewalk below will be drawn behind him instead of in front
+of him:
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="z_confusion" src="../../images/play_area/z_confusion.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The reason for this is that the location descriptors for z=4 (see <a href="../asm/50176.html">50176</a>) that
+correspond to the front steps of buildings don't have bit 0 or bit 1 set to
+indicate that a z-coordinate transition should occur, and so the section of
+code at <a href="../asm/60347.html#60404">60404</a> leaves Sam's z-coordinate unchanged upon climbing the step.
+</div>
+<div class="paragraph">
+Conversely, the location descriptors for z=4 that correspond to the places
+where there is a step up from the road to the sidewalk (at x=7, 14, 164 and
+198) do have bit 0 or bit 1 set. So when Sam moves up from the road to the
+sidewalk, his z-coordinate will change from 4 to 2, which means that other
+characters on the sidewalk will be drawn not behind him (as is the norm) but in
+front of him.
+</div>
+</div>
+<div><span id="frozenFiver"></span></div>
+<div class="box box-1">
+<div class="box-title">Frozen fiver</div>
+<div class="paragraph">
+After Sam has collected the hook from no. 74, an immobilised banknote can be
+seen on the sidewalk outside that building or the hotel. The banknote can be
+somersaulted onto repeatedly (to gain extra cash) without disappearing.
+</div>
+<div class="paragraph">
+The reason this happens is that the routine at <a href="../asm/25420.html">25420</a> brings the banknote out
+of service when Sam collects the hook - thus leaving character buffer 229
+available for use by the hook when it's thrown - but doesn't remove the
+banknote from view.
+</div>
+</div>
+<div><span id="runGangsterRun"></span></div>
+<div class="box box-2">
+<div class="box-title">Run, gangster, run</div>
+<div class="paragraph">
+Approach the gangster on the catwalk from the left, and stop at the point where
+moving right once would make the gangster starting chasing Sam (who is shown
+outside here for clarity):
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="run_gangster_run" src="../../images/play_area/run_gangster_run.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+Now quickly take one step right, and then turn round and run up to the roof of
+the apartment building. After briefly chasing Sam, the gangster will return to
+the catwalk, but now he is running continuously instead of walking.
+</div>
+</div>
+<div><span id="selfModifyingDataTable"></span></div>
+<div class="box box-1">
+<div class="box-title">The self-modifying data table</div>
+<div class="paragraph">
+The first entry in the data table at <a href="../load/33064.html">33064</a> in the loader code results in
+33149 being POKEd with 134 (replacing the original contents: 124); but
+33149 is in the data table itself, and corresponds to address 54144, which
+means that 54144 ends up being POKEd with 134 instead of 124, thus
+leading to the graphic glitch <a href="../graphics/glitches.html#lanasWaist">Lana's waist</a>.
+</div>
+<div class="paragraph">
+POKEing 33149 with 134 is actually redundant, since 33149 is in an area
+of memory that is overwritten soon after loading (33149 contains the LSB of
+the operand of the 'LD (32902),A' instruction at <a href="../save/33010.html#33148">33148</a> in the
+save routine).
+</div>
+<div class="paragraph">
+This bug is not present in the re-release of Contact Sam Cruise by Summit
+Software in 1988, which uses a different loading scheme.
+</div>
+</div>
+<div><span id="tricksWithLightSwitches"></span></div>
+<div class="box box-2">
+<div class="box-title">Tricks with light switches</div>
+<div class="paragraph">
+Some light switches are accessible in places they're probably not supposed to
+be: when flipped, they affect lights in places other than where the
+light-switch-flipper is standing.
+</div>
+<div class="paragraph">
+For example, go to the right-hand side of the shop underneath no. 17 and flip
+the light switch - it switches on the lights on the second and third floors on
+the right-hand side of no. 17.
+</div>
+<div class="paragraph">
+Now go into the door of no. 17 and move as far right as you can; flip the light
+switch there and the light in the shop underneath no. 15 comes on.
+</div>
+<div class="paragraph">
+This time, go into the door of no. 17 and move as far left as you can; flip the
+light switch there and the light in the shop underneath no. 17 comes on.
+</div>
+</div>
+<div><span id="displacedDame"></span></div>
+<div class="box box-1">
+<div class="box-title">Displaced dame</div>
+<div class="paragraph">
+When the screen scrolls left or right as Sam moves through the play area,
+certain members of character groups 215-221 are moved in and out of
+operation, depending on the portion of the play area that is visible. In
+particular, the lady in a hat who is a member of character group 215 is in
+operation only when the far left edge of the play area is on screen (see
+<a href="../asm/65198.html">65198</a>). That is a rather small range of operation - so small, in fact, that
+it's possible to see her move out of operation (and become motionless) when the
+left edge of the play area scrolls out of view:
+</div>
+<div class="paragraph">
+<div>1. Go to the right-hand magenta room on the third floor of the apartment
+building at the far left of town.</div>
+<div>2. Stand at the location such that moving right once will scroll the
+screen left (see the image below).</div>
+<div>3. Wait until the lady in a hat in the room on the left on the same floor
+is at the rightmost extremity of her orbit, so that she is partially visible in
+the stairwell (see the image below).</div>
+<div>4. Quickly move right so that the screen scrolls left before the lady
+turns round and heads back into the room.</div>
+<div>5. Note that the portion of the sprite of the lady in a hat that is
+visible in the stairwell remains visible but motionless either until it's wiped
+away by another character moving past it, or until the screen scrolls right and
+the lady starts moving again.</div>
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="displaced_dame" src="../../images/play_area/displaced_dame.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="displacedDude"></span></div>
+<div class="box box-2">
+<div class="box-title">Displaced dude</div>
+<div class="paragraph">
+Like the displaced dame described above, the man in a bowler hat who is a
+member of character group 221 and walks up and down on the second and third
+floors of the apartment building next to no. 19 can be seen becoming motionless
+when the screen scrolls too far to the right:
+</div>
+<div class="paragraph">
+<div>1. Go to the road outside the apartment building next to no. 19 and stand
+at the location shown in the image below such that no part of no. 27 is visible
+on the left.</div>
+<div>2. Wait until the man in a bowler hat comes into the cyan room on the
+second floor of the apartment building and is visible through one of the
+windows.</div>
+<div>3. Quickly move left so that the screen scrolls right (bringing the
+traffic lights and the left side of no. 27 into view).</div>
+<div>4. Note that the man in a bowler hat remains visible but motionless
+through the window.</div>
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="displaced_dude" src="../../images/play_area/displaced_dude.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../reference/bugs.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

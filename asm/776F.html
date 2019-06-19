@@ -23,7 +23,7 @@
 <div class="description">776F: Deal with Sam when he's on the phone and has been asked 'WHO'S THERE?'</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="77D3.html">77D3</a>. Waits for a keypress, and then queues message <a href="69F2.html">0x28</a> (''{name}' I SAID ') followed by either message <a href="6A44.html">0x2E</a> ('I DUNNO NO {name}') or the message Sam is supposed to receive upon giving the correct name.
@@ -46,119 +46,138 @@ Used by the routine at <a href="77D3.html">77D3</a>. Waits for a keypress, and t
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="776f"></span>776F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F1E3.html">$F1E3</a></td>
 <td class="comment-11" rowspan="1">Check for keypresses or hang up the phone</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7772"></span>7772</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if no key with an ASCII code in the range 0x30-0x7F was pressed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7773"></span>7773</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $61</td>
 <td class="comment-11" rowspan="1">Is the ASCII code of the keypress less than 0x61 ('a')?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7775"></span>7775</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7776"></span>7776</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $68</td>
 <td class="comment-11" rowspan="1">Is the ASCII code of the keypress less than 0x68 ('h')?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7778"></span>7778</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$777F</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="777a"></span>777A</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $73</td>
 <td class="comment-11" rowspan="1">Was 's' pressed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="777c"></span>777C</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="777d"></span>777D</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $0B</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0x68</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="777f"></span>777F</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$07</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0x68-0x6F (message number of a name)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7781"></span>7781</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FD0),A</td>
 <td class="comment-11" rowspan="1">Store this at <a href="7FD0.html">7FD0</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7784"></span>7784</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1">Save the name message number briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7785"></span>7785</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$28</td>
 <td class="comment-11" rowspan="1">Message <a href="69F2.html">0x28</a>: ''{name}' I SAID '</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7787"></span>7787</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="75CA.html">$75CA</a></td>
 <td class="comment-11" rowspan="1">Queue this message urgently</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="778a"></span>778A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,($7F97)</td>
 <td class="comment-11" rowspan="1">Collect from <a href="7F97.html">7F97</a> the address of either the second byte of the relevant phone table entry (if the phone was ringing, or the person Sam's calling has a message for him), or the final byte of the phone message table at <a href="6B72.html">6B72</a> (if the person Sam's calling has no message for him); the final byte of the phone message table is 0xFF, which does not match the message number of any name</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="778d"></span>778D</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1">Restore the name message number to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="778e"></span>778E</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Set the zero flag if Sam has used the correct name</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="778f"></span>778F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$2E</td>
 <td class="comment-11" rowspan="1">Message <a href="6A44.html">0x2E</a>: 'I DUNNO NO {name}'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7791"></span>7791</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7799</td>
 <td class="comment-11" rowspan="1">Jump unless Sam has used the correct name</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7793"></span>
 <div class="comments">
 <div class="paragraph">
@@ -170,35 +189,40 @@ This entry point is used by the routine at <a href="77A3.html">77A3</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7793"></span>7793</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first byte of the phone entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7794"></span>7794</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-11" rowspan="1">Mark the phone entry inactive</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7796"></span>7796</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the third byte of the phone entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7797"></span>7797</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7798"></span>7798</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=telephone message number</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7799"></span>
 <div class="comments">
 <div class="paragraph">
@@ -210,18 +234,21 @@ This entry point is used by the routines at <a href="77A3.html">77A3</a> (with <
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7799"></span>7799</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$0200</td>
 <td class="comment-11" rowspan="2">Clear <a href="7F9A.html">7F9A</a> and set bit 1 of the telephone call status flags at <a href="7F9B.html">7F9B</a> (to disconnect the call)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="779c"></span>779C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7F9A),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="779f"></span>779F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="75CA.html">$75CA</a></td>
 <td class="comment-11" rowspan="1">Queue the telephone message urgently</td>
 </tr>
@@ -234,10 +261,10 @@ This entry point is used by the routines at <a href="77A3.html">77A3</a> (with <
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/30575.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/30575.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

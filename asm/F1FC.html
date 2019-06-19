@@ -23,7 +23,7 @@
 <div class="description">F1FC: Move the characters</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Called from the main loop at <a href="F02B.html">F02B</a>.
@@ -46,107 +46,124 @@ Called from the main loop at <a href="F02B.html">F02B</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f1fc"></span>F1FC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FA2</td>
 <td class="comment-11" rowspan="1">The blown fuse delay counters are stored at <a href="7FA2.html">7FA2</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1ff"></span>F1FF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$05</td>
 <td class="comment-11" rowspan="5">Set <span class="register">A</span> to a non-zero value if any of the fuses are currently blown</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f201"></span>F201</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f202"></span>F202</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f203"></span>F203</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR (HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f204"></span>F204</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $F202</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f206"></span>F206</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FB4),A</td>
 <td class="comment-11" rowspan="1">Store this value at <a href="7FB4.html">7FB4</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f209"></span>F209</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL $F20F</td>
 <td class="comment-11" rowspan="1">Move one character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f20c"></span>F20C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL $F20F</td>
 <td class="comment-11" rowspan="1">Move the next character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f20f"></span>F20F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FFB</td>
 <td class="comment-11" rowspan="1"><a href="7FFB.html">7FFB</a> holds the number of the character just moved</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f212"></span>F212</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-11" rowspan="1">Increment this</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f213"></span>F213</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character to move next</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f214"></span>F214</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $E6</td>
 <td class="comment-11" rowspan="1">Is it Sam?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f216"></span>F216</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F21B</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f218"></span>F218</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$D7</td>
 <td class="comment-11" rowspan="1">Rewind to character 0xD7 (we don't want to move Sam)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f21a"></span>F21A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Store the number of the character to be moved next</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f21b"></span>F21B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,A</td>
 <td class="comment-11" rowspan="1"><span class="register">H</span>=number of the character to move next (0xD7-0xE5)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f21c"></span>
 <div class="comments">
 <div class="paragraph">
@@ -158,29 +175,33 @@ First check whether the character is immobilised by a blown fuse.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f21c"></span>F21C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FB4)</td>
 <td class="comment-11" rowspan="1">Collect the blown fuse indicator from <a href="7FB4.html">7FB4</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f21f"></span>F21F</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Are any fuses currently blown?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f220"></span>F220</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL NZ,<a href="714C.html">$714C</a></td>
 <td class="comment-11" rowspan="1">If so, check to see whether the character is immobilised by a blown fuse</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f223"></span>F223</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if the character is immobilised</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f224"></span>
 <div class="comments">
 <div class="paragraph">
@@ -192,53 +213,61 @@ Now to determine whether to move the character this time round. The answer will 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f224"></span>F224</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x03 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f226"></span>F226</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Is the character running?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f228"></span>F228</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F231</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f22a"></span>F22A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="3">Flip bit 6 of byte 0x03 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f22b"></span>F22B</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR $40</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f22d"></span>F22D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f22e"></span>F22E</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $40</td>
 <td class="comment-11" rowspan="1">Is bit 6 set now?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f230"></span>F230</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f231"></span>
 <div class="comments">
 <div class="paragraph">
@@ -443,47 +472,54 @@ The address of one of the following primary command routines (or an entry point 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f231"></span>F231</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
 <td class="comment-11" rowspan="3">Is there an uninterruptible subcommand routine address in bytes 0x12 and 0x13 of the character's buffer?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f233"></span>F233</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f234"></span>F234</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f235"></span>F235</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F27B</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f237"></span>F237</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character being moved (0xD7-0xE5)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f238"></span>F238</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $DE</td>
 <td class="comment-11" rowspan="1">Does the character belong to one of the character groups 0xD7-0xDD?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f23a"></span>F23A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$F24D</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f23c"></span>
 <div class="comments">
 <div class="paragraph">
@@ -495,83 +531,96 @@ We're dealing with one of the primary characters (0xDE-0xE5). Here we check whet
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f23c"></span>F23C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$1C</td>
 <td class="comment-11" rowspan="3">Byte 0x1C is unused and always holds 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f23e"></span>F23E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f23f"></span>F23F</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f240"></span>F240</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F24D</td>
 <td class="comment-11" rowspan="1">This jump is always made</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f242"></span>F242</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1">Save the character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f243"></span>F243</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$F24C</td>
 <td class="comment-11" rowspan="2">We will return to <a href="F1FC.html#f24c">F24C</a> (below) after calling the subcommand routine</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f246"></span>F246</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f247"></span>F247</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-11" rowspan="3">Collect the continual subcommand routine address into <span class="register">BC</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f248"></span>F248</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f249"></span>F249</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f24a"></span>F24A</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1">Push it onto the stack</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f24b"></span>F24B</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Call the continual subcommand routine and then return to <a href="F1FC.html#f24c">F24C</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f24c"></span>F24C</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f24d"></span>
 <div class="comments">
 <div class="paragraph">
@@ -583,29 +632,33 @@ This entry point is used by the routine at <a href="F280.html">F280</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f24d"></span>F24D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0F</td>
 <td class="comment-11" rowspan="3">Is there an interruptible subcommand routine address in bytes 0x0E and 0x0F of the character's buffer?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f24f"></span>F24F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f250"></span>F250</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f251"></span>F251</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F27B</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f253"></span>
 <div class="comments">
 <div class="paragraph">
@@ -617,71 +670,82 @@ Bit 4 of byte 0x03 of the character's buffer is never set, but if it were, it wo
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f253"></span>F253</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
 <td class="comment-11" rowspan="2">Bit 4 of byte 0x03 is unused and always reset</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f255"></span>F255</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 4,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f257"></span>F257</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F267</td>
 <td class="comment-11" rowspan="1">This jump is always made</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f259"></span>F259</td>
+<td class="bytes-0"></td>
 <td class="instruction">RES 4,(HL)</td>
 <td class="comment-11" rowspan="1">Reset bit 4 of byte 0x03</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f25b"></span>F25B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$1A</td>
 <td class="comment-11" rowspan="5">Copy the command list address from bytes 0x19 and 0x1A of the character's buffer into bytes 0x17 and 0x18</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f25d"></span>F25D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f25e"></span>F25E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$18</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f260"></span>F260</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDD</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f262"></span>F262</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDD</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f264"></span>F264</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-11" rowspan="1">Set byte 0x16 of the character's buffer (which holds the offset reached in the command list) to 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f265"></span>F265</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $F26D</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f267"></span>
 <div class="comments">
 <div class="paragraph">
@@ -693,96 +757,112 @@ Now we look for a primary command routine address.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f267"></span>F267</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$09</td>
 <td class="comment-11" rowspan="3">Is there a primary command routine address in bytes 0x08 and 0x09 of the character's buffer?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f269"></span>F269</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f26a"></span>F26A</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f26b"></span>F26B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F27B</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f26d"></span>F26D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character being moved (0xD7-0xE5)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f26e"></span>F26E</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $DE</td>
 <td class="comment-11" rowspan="1">Does the character belong to one of the character groups 0xD7-0xDD?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f270"></span>F270</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$F276</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f272"></span>F272</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$1C</td>
 <td class="comment-11" rowspan="2">Remove any continual subcommand routine address from bytes 0x1B and 0x1C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f274"></span>F274</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f276"></span>F276</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$08</td>
 <td class="comment-11" rowspan="2">Copy the next primary command routine address from the command list into bytes 0x08 and 0x09 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f278"></span>F278</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F171.html">$F171</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f27b"></span>F27B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,(HL)</td>
 <td class="comment-11" rowspan="3">Copy the address of the primary command or subcommand routine into <span class="register">BC</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f27c"></span>F27C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f27d"></span>F27D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f27e"></span>F27E</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="2">Make an indirect jump to the routine</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f27f"></span>F27F</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
@@ -795,10 +875,10 @@ Now we look for a primary command routine address.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/61948.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/61948.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

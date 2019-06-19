@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Keypress table</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Keys">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Keypress table</td>
+</tr>
+</table>
+<div class="details">
+<div>Key = CHR$(Index + 48)</div>
+<div>Address = Index + <a href="../asm/49968.html">49968</a></div>
+<div>Offset = PEEK(Address)</div>
+<div>
+Lookup = Offset + 60671 (points to an entry in the table at <a href="../asm/60672.html">60672</a>)
+</div>
+<div>Routine = address at (Lookup, Lookup + 1)</div>
+</div>
+<table class="keytable">
+<tr>
+<th>Index</th>
+<th>Key</th>
+<th>Address</th>
+<th>Offset</th>
+<th>Lookup</th>
+<th>Routine</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td class="keyIndex">0</td>
+<td class="key">0</td>
+<td class="keyAddress">49968</td>
+<td class="keyOffset">19</td>
+<td class="keyAddress">60690</td>
+<td class="keyAddress"><a href="../asm/62192.html">62192</a></td>
+<td class="keyPurpose">Knock on or open a door</td>
+</tr>
+<tr>
+<td class="keyIndex">1</td>
+<td class="key">1</td>
+<td class="keyAddress">49969</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">2</td>
+<td class="key">2</td>
+<td class="keyAddress">49970</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">3</td>
+<td class="key">3</td>
+<td class="keyAddress">49971</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">4</td>
+<td class="key">4</td>
+<td class="keyAddress">49972</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">5</td>
+<td class="key">5</td>
+<td class="keyAddress">49973</td>
+<td class="keyOffset">7</td>
+<td class="keyAddress">60678</td>
+<td class="keyAddress"><a href="../asm/60641.html">60641</a></td>
+<td class="keyPurpose">Left</td>
+</tr>
+<tr>
+<td class="keyIndex">6</td>
+<td class="key">6</td>
+<td class="keyAddress">49974</td>
+<td class="keyOffset">3</td>
+<td class="keyAddress">60674</td>
+<td class="keyAddress"><a href="../asm/60631.html">60631</a></td>
+<td class="keyPurpose">Down</td>
+</tr>
+<tr>
+<td class="keyIndex">7</td>
+<td class="key">7</td>
+<td class="keyAddress">49975</td>
+<td class="keyOffset">1</td>
+<td class="keyAddress">60672</td>
+<td class="keyAddress"><a href="../asm/60626.html">60626</a></td>
+<td class="keyPurpose">Up</td>
+</tr>
+<tr>
+<td class="keyIndex">8</td>
+<td class="key">8</td>
+<td class="keyAddress">49976</td>
+<td class="keyOffset">5</td>
+<td class="keyAddress">60676</td>
+<td class="keyAddress"><a href="../asm/60636.html">60636</a></td>
+<td class="keyPurpose">Right</td>
+</tr>
+<tr>
+<td class="keyIndex">9</td>
+<td class="key">9</td>
+<td class="keyAddress">49977</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">10</td>
+<td class="key">:</td>
+<td class="keyAddress">49978</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">11</td>
+<td class="key">;</td>
+<td class="keyAddress">49979</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">12</td>
+<td class="key">&lt;</td>
+<td class="keyAddress">49980</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">13</td>
+<td class="key">=</td>
+<td class="keyAddress">49981</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">14</td>
+<td class="key">&gt;</td>
+<td class="keyAddress">49982</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">15</td>
+<td class="key">?</td>
+<td class="keyAddress">49983</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">16</td>
+<td class="key">@</td>
+<td class="keyAddress">49984</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">17</td>
+<td class="key">A</td>
+<td class="keyAddress">49985</td>
+<td class="keyOffset">3</td>
+<td class="keyAddress">60674</td>
+<td class="keyAddress"><a href="../asm/60631.html">60631</a></td>
+<td class="keyPurpose">Down</td>
+</tr>
+<tr>
+<td class="keyIndex">18</td>
+<td class="key">B</td>
+<td class="keyAddress">49986</td>
+<td class="keyOffset">23</td>
+<td class="keyAddress">60694</td>
+<td class="keyAddress"><a href="../asm/30092.html">30092</a></td>
+<td class="keyPurpose">Raise/lower blind</td>
+</tr>
+<tr>
+<td class="keyIndex">19</td>
+<td class="key">C</td>
+<td class="keyAddress">49987</td>
+<td class="keyOffset">35</td>
+<td class="keyAddress">60706</td>
+<td class="keyAddress"><a href="../asm/31713.html">31713</a></td>
+<td class="keyPurpose">Use hook</td>
+</tr>
+<tr>
+<td class="keyIndex">20</td>
+<td class="key">D</td>
+<td class="keyAddress">49988</td>
+<td class="keyOffset">17</td>
+<td class="keyAddress">60688</td>
+<td class="keyAddress"><a href="../asm/64218.html">64218</a></td>
+<td class="keyPurpose">Change disguise</td>
+</tr>
+<tr>
+<td class="keyIndex">21</td>
+<td class="key">E</td>
+<td class="keyAddress">49989</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">22</td>
+<td class="key">F</td>
+<td class="keyAddress">49990</td>
+<td class="keyOffset">25</td>
+<td class="keyAddress">60696</td>
+<td class="keyAddress"><a href="../asm/29866.html">29866</a></td>
+<td class="keyPurpose">Fuse</td>
+</tr>
+<tr>
+<td class="keyIndex">23</td>
+<td class="key">G</td>
+<td class="keyAddress">49991</td>
+<td class="keyOffset">33</td>
+<td class="keyAddress">60704</td>
+<td class="keyAddress"><a href="../asm/31204.html">31204</a></td>
+<td class="keyPurpose">Get object</td>
+</tr>
+<tr>
+<td class="keyIndex">24</td>
+<td class="key">H</td>
+<td class="keyAddress">49992</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">25</td>
+<td class="key">I</td>
+<td class="keyAddress">49993</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">26</td>
+<td class="key">J</td>
+<td class="keyAddress">49994</td>
+<td class="keyOffset">29</td>
+<td class="keyAddress">60700</td>
+<td class="keyAddress"><a href="../asm/24951.html">24951</a></td>
+<td class="keyPurpose">Joystick</td>
+</tr>
+<tr>
+<td class="keyIndex">27</td>
+<td class="key">K</td>
+<td class="keyAddress">49995</td>
+<td class="keyOffset">19</td>
+<td class="keyAddress">60690</td>
+<td class="keyAddress"><a href="../asm/62192.html">62192</a></td>
+<td class="keyPurpose">Knock on or open a door</td>
+</tr>
+<tr>
+<td class="keyIndex">28</td>
+<td class="key">L</td>
+<td class="keyAddress">49996</td>
+<td class="keyOffset">21</td>
+<td class="keyAddress">60692</td>
+<td class="keyAddress"><a href="../asm/30070.html">30070</a></td>
+<td class="keyPurpose">Light on/off</td>
+</tr>
+<tr>
+<td class="keyIndex">29</td>
+<td class="key">M</td>
+<td class="keyAddress">49997</td>
+<td class="keyOffset">27</td>
+<td class="keyAddress">60698</td>
+<td class="keyAddress"><a href="../asm/28635.html">28635</a></td>
+<td class="keyPurpose">Toggle message speed</td>
+</tr>
+<tr>
+<td class="keyIndex">30</td>
+<td class="key">N</td>
+<td class="keyAddress">49998</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">31</td>
+<td class="key">O</td>
+<td class="keyAddress">49999</td>
+<td class="keyOffset">7</td>
+<td class="keyAddress">60678</td>
+<td class="keyAddress"><a href="../asm/60641.html">60641</a></td>
+<td class="keyPurpose">Left</td>
+</tr>
+<tr>
+<td class="keyIndex">32</td>
+<td class="key">P</td>
+<td class="keyAddress">50000</td>
+<td class="keyOffset">5</td>
+<td class="keyAddress">60676</td>
+<td class="keyAddress"><a href="../asm/60636.html">60636</a></td>
+<td class="keyPurpose">Right</td>
+</tr>
+<tr>
+<td class="keyIndex">33</td>
+<td class="key">Q</td>
+<td class="keyAddress">50001</td>
+<td class="keyOffset">1</td>
+<td class="keyAddress">60672</td>
+<td class="keyAddress"><a href="../asm/60626.html">60626</a></td>
+<td class="keyPurpose">Up</td>
+</tr>
+<tr>
+<td class="keyIndex">34</td>
+<td class="key">R</td>
+<td class="keyAddress">50002</td>
+<td class="keyOffset">37</td>
+<td class="keyAddress">60708</td>
+<td class="keyAddress"><a href="../asm/25784.html">25784</a></td>
+<td class="keyPurpose">Forward roll</td>
+</tr>
+<tr>
+<td class="keyIndex">35</td>
+<td class="key">S</td>
+<td class="keyAddress">50003</td>
+<td class="keyOffset">39</td>
+<td class="keyAddress">60710</td>
+<td class="keyAddress"><a href="../asm/25789.html">25789</a></td>
+<td class="keyPurpose">Somersault</td>
+</tr>
+<tr>
+<td class="keyIndex">36</td>
+<td class="key">T</td>
+<td class="keyAddress">50004</td>
+<td class="keyOffset">31</td>
+<td class="keyAddress">60702</td>
+<td class="keyAddress"><a href="../asm/30458.html">30458</a></td>
+<td class="keyPurpose">Telephone</td>
+</tr>
+<tr>
+<td class="keyIndex">37</td>
+<td class="key">U</td>
+<td class="keyAddress">50005</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">38</td>
+<td class="key">V</td>
+<td class="keyAddress">50006</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">39</td>
+<td class="key">W</td>
+<td class="keyAddress">50007</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">40</td>
+<td class="key">X</td>
+<td class="keyAddress">50008</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">41</td>
+<td class="key">Y</td>
+<td class="keyAddress">50009</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">42</td>
+<td class="key">Z</td>
+<td class="keyAddress">50010</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">43</td>
+<td class="key">[</td>
+<td class="keyAddress">50011</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">44</td>
+<td class="key">\</td>
+<td class="keyAddress">50012</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">45</td>
+<td class="key">]</td>
+<td class="keyAddress">50013</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">46</td>
+<td class="key">&#8593;</td>
+<td class="keyAddress">50014</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">47</td>
+<td class="key">_</td>
+<td class="keyAddress">50015</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">48</td>
+<td class="key">&#163;</td>
+<td class="keyAddress">50016</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">49</td>
+<td class="key">a</td>
+<td class="keyAddress">50017</td>
+<td class="keyOffset">11</td>
+<td class="keyAddress">60682</td>
+<td class="keyAddress"><a href="../asm/60631.html">60631</a></td>
+<td class="keyPurpose">Down</td>
+</tr>
+<tr>
+<td class="keyIndex">50</td>
+<td class="key">b</td>
+<td class="keyAddress">50018</td>
+<td class="keyOffset">23</td>
+<td class="keyAddress">60694</td>
+<td class="keyAddress"><a href="../asm/30092.html">30092</a></td>
+<td class="keyPurpose">Raise/lower blind</td>
+</tr>
+<tr>
+<td class="keyIndex">51</td>
+<td class="key">c</td>
+<td class="keyAddress">50019</td>
+<td class="keyOffset">35</td>
+<td class="keyAddress">60706</td>
+<td class="keyAddress"><a href="../asm/31713.html">31713</a></td>
+<td class="keyPurpose">Use hook</td>
+</tr>
+<tr>
+<td class="keyIndex">52</td>
+<td class="key">d</td>
+<td class="keyAddress">50020</td>
+<td class="keyOffset">17</td>
+<td class="keyAddress">60688</td>
+<td class="keyAddress"><a href="../asm/64218.html">64218</a></td>
+<td class="keyPurpose">Change disguise</td>
+</tr>
+<tr>
+<td class="keyIndex">53</td>
+<td class="key">e</td>
+<td class="keyAddress">50021</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">54</td>
+<td class="key">f</td>
+<td class="keyAddress">50022</td>
+<td class="keyOffset">25</td>
+<td class="keyAddress">60696</td>
+<td class="keyAddress"><a href="../asm/29866.html">29866</a></td>
+<td class="keyPurpose">Fuse</td>
+</tr>
+<tr>
+<td class="keyIndex">55</td>
+<td class="key">g</td>
+<td class="keyAddress">50023</td>
+<td class="keyOffset">33</td>
+<td class="keyAddress">60704</td>
+<td class="keyAddress"><a href="../asm/31204.html">31204</a></td>
+<td class="keyPurpose">Get object</td>
+</tr>
+<tr>
+<td class="keyIndex">56</td>
+<td class="key">h</td>
+<td class="keyAddress">50024</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">57</td>
+<td class="key">i</td>
+<td class="keyAddress">50025</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">58</td>
+<td class="key">j</td>
+<td class="keyAddress">50026</td>
+<td class="keyOffset">29</td>
+<td class="keyAddress">60700</td>
+<td class="keyAddress"><a href="../asm/24951.html">24951</a></td>
+<td class="keyPurpose">Joystick</td>
+</tr>
+<tr>
+<td class="keyIndex">59</td>
+<td class="key">k</td>
+<td class="keyAddress">50027</td>
+<td class="keyOffset">19</td>
+<td class="keyAddress">60690</td>
+<td class="keyAddress"><a href="../asm/62192.html">62192</a></td>
+<td class="keyPurpose">Knock on or open a door</td>
+</tr>
+<tr>
+<td class="keyIndex">60</td>
+<td class="key">l</td>
+<td class="keyAddress">50028</td>
+<td class="keyOffset">21</td>
+<td class="keyAddress">60692</td>
+<td class="keyAddress"><a href="../asm/30070.html">30070</a></td>
+<td class="keyPurpose">Light on/off</td>
+</tr>
+<tr>
+<td class="keyIndex">61</td>
+<td class="key">m</td>
+<td class="keyAddress">50029</td>
+<td class="keyOffset">27</td>
+<td class="keyAddress">60698</td>
+<td class="keyAddress"><a href="../asm/28635.html">28635</a></td>
+<td class="keyPurpose">Toggle message speed</td>
+</tr>
+<tr>
+<td class="keyIndex">62</td>
+<td class="key">n</td>
+<td class="keyAddress">50030</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">63</td>
+<td class="key">o</td>
+<td class="keyAddress">50031</td>
+<td class="keyOffset">15</td>
+<td class="keyAddress">60686</td>
+<td class="keyAddress"><a href="../asm/60641.html">60641</a></td>
+<td class="keyPurpose">Left</td>
+</tr>
+<tr>
+<td class="keyIndex">64</td>
+<td class="key">p</td>
+<td class="keyAddress">50032</td>
+<td class="keyOffset">13</td>
+<td class="keyAddress">60684</td>
+<td class="keyAddress"><a href="../asm/60636.html">60636</a></td>
+<td class="keyPurpose">Right</td>
+</tr>
+<tr>
+<td class="keyIndex">65</td>
+<td class="key">q</td>
+<td class="keyAddress">50033</td>
+<td class="keyOffset">9</td>
+<td class="keyAddress">60680</td>
+<td class="keyAddress"><a href="../asm/60626.html">60626</a></td>
+<td class="keyPurpose">Up</td>
+</tr>
+<tr>
+<td class="keyIndex">66</td>
+<td class="key">r</td>
+<td class="keyAddress">50034</td>
+<td class="keyOffset">37</td>
+<td class="keyAddress">60708</td>
+<td class="keyAddress"><a href="../asm/25784.html">25784</a></td>
+<td class="keyPurpose">Forward roll</td>
+</tr>
+<tr>
+<td class="keyIndex">67</td>
+<td class="key">s</td>
+<td class="keyAddress">50035</td>
+<td class="keyOffset">39</td>
+<td class="keyAddress">60710</td>
+<td class="keyAddress"><a href="../asm/25789.html">25789</a></td>
+<td class="keyPurpose">Somersault</td>
+</tr>
+<tr>
+<td class="keyIndex">68</td>
+<td class="key">t</td>
+<td class="keyAddress">50036</td>
+<td class="keyOffset">31</td>
+<td class="keyAddress">60702</td>
+<td class="keyAddress"><a href="../asm/30458.html">30458</a></td>
+<td class="keyPurpose">Telephone</td>
+</tr>
+<tr>
+<td class="keyIndex">69</td>
+<td class="key">u</td>
+<td class="keyAddress">50037</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">70</td>
+<td class="key">v</td>
+<td class="keyAddress">50038</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">71</td>
+<td class="key">w</td>
+<td class="keyAddress">50039</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">72</td>
+<td class="key">x</td>
+<td class="keyAddress">50040</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">73</td>
+<td class="key">y</td>
+<td class="keyAddress">50041</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">74</td>
+<td class="key">z</td>
+<td class="keyAddress">50042</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">75</td>
+<td class="key">{</td>
+<td class="keyAddress">50043</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">76</td>
+<td class="key">|</td>
+<td class="keyAddress">50044</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">77</td>
+<td class="key">}</td>
+<td class="keyAddress">50045</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">78</td>
+<td class="key">~</td>
+<td class="keyAddress">50046</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+<tr>
+<td class="keyIndex">79</td>
+<td class="key">&#169;</td>
+<td class="keyAddress">50047</td>
+<td class="keyOffset">0</td>
+<td class="keyAddress"></td>
+<td class="keyAddress"></td>
+<td class="keyPurpose"></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../tables/keys.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

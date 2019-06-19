@@ -23,7 +23,7 @@
 <div class="description">F7CD: Open a door</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="F2A8.html">F2A8</a>. Updates the play area graphics and <a href="7F00.html">screen refresh buffer</a> (SRB) for a door so that it appears open.
@@ -49,54 +49,63 @@ Used by the routine at <a href="F2A8.html">F2A8</a>. Updates the play area graph
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f7cd"></span>F7CD</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1">Save the address of the door status flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7ce"></span>F7CE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0xF0-0xF9</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7cf"></span>F7CF</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $46</td>
 <td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the door knock status flags for the door (see <a href="7FAA.html">7FAA</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7d1"></span>F7D1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7d2"></span>F7D2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="3">Reset the door knock status flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7d3"></span>F7D3</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $3F</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7d5"></span>F7D5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7d6"></span>F7D6</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Restore the address of the door status flags to <span class="register">HL</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7d7"></span>F7D7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F100.html">$F100</a></td>
 <td class="comment-11" rowspan="1">Update the play area graphics and the SRB for the door</td>
 </tr>
@@ -109,10 +118,10 @@ Used by the routine at <a href="F2A8.html">F2A8</a>. Updates the play area graph
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/63437.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63437.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">7A57: Make a gangster walk up or down until Sam arrives</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this interruptible subcommand routine is placed into bytes 0x0E and 0x0F of a gangster's buffer by the primary command routine at <a href="7A6A.html">7A6A</a>. It makes the gangster start or continue walking up or down a few paces unless he spots Sam, in which case the subcommand and current primary command are terminated.
@@ -49,48 +49,56 @@ The address of this interruptible subcommand routine is placed into bytes 0x0E a
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7a57"></span>7A57</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F68E.html">$F68E</a></td>
 <td class="comment-11" rowspan="1">Abort now if the gangster is midstride or has his arm up</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a5a"></span>7A5A</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="739D.html">$739D</a></td>
 <td class="comment-11" rowspan="1">Is Sam nearby, and should the gangster go after him?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a5d"></span>7A5D</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP C,<a href="F6E9.html#f6f1">$F6F1</a></td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a60"></span>7A60</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$16</td>
 <td class="comment-11" rowspan="2">Copy the command list offset (from the gangster's region definition table) into byte 0x16 of the gangster's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a62"></span>7A62</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a63"></span>7A63</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0F</td>
 <td class="comment-11" rowspan="2">Remove the address of this interruptible subcommand routine from bytes 0x0E and 0x0F of the gangster's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a65"></span>7A65</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a67"></span>7A67</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F280.html">$F280</a></td>
 <td class="comment-11" rowspan="1">Terminate the current primary command, and move to the portion of the command list that deals with catching Sam</td>
 </tr>
@@ -103,10 +111,10 @@ The address of this interruptible subcommand routine is placed into bytes 0x0E a
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/31319.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/31319.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

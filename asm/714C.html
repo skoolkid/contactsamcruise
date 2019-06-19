@@ -23,7 +23,7 @@
 <div class="description">714C: Check whether a character is immobilised by a blown fuse</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="F1FC.html">F1FC</a>. Returns with the carry flag set if the character is in an area affected by a blown fuse.
@@ -49,198 +49,231 @@ Used by the routine at <a href="F1FC.html">F1FC</a>. Returns with the carry flag
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="714c"></span>714C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x04 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="714e"></span>714E</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is the character indoors?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7150"></span>7150</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7151"></span>7151</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7153"></span>7153</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7154"></span>7154</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="8">Point <span class="register">DE</span> at the entry in the table at <a href="FFC0.html">FFC0</a> that corresponds to the 8-tile wide column of the play area containing the character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7155"></span>7155</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7157"></span>7157</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7158"></span>7158</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7159"></span>7159</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="715a"></span>715A</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$C0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="715c"></span>715C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="715d"></span>715D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$FF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="715f"></span>715F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="3">Point <span class="register">DE</span> at the delay counter for the fuse that is in the same building as the character (see <a href="7FA2.html">7FA2</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7160"></span>7160</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7161"></span>7161</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$7F</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7163"></span>7163</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1">Pick up the blown fuse delay counter in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7164"></span>7164</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="2">Return with the carry flag reset if there is no fuse here, or the fuse is not currently blown</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7165"></span>7165</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7166"></span>7166</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7167"></span>7167</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0xA2-0xA7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7168"></span>7168</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$00</td>
 <td class="comment-11" rowspan="1">For no. 74 or the hotel, use this y-coordinate for comparison (the roofs of these buildings are inaccessible)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="716a"></span>716A</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $A4</td>
 <td class="comment-11" rowspan="1">Is it the fuse at no. 74 or the hotel?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="716c"></span>716C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$7176</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="716e"></span>716E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$10</td>
 <td class="comment-11" rowspan="1">For no. 31 or no. 19, use this y-coordinate for comparison (any character on the roof will be unaffected by a blown fuse)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7170"></span>7170</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $A6</td>
 <td class="comment-11" rowspan="1">Is it the fuse at no. 31 or no. 19?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7172"></span>7172</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$7176</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7174"></span>7174</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$0A</td>
 <td class="comment-11" rowspan="1">For no. 17 or no. 15, use this y-coordinate for comparison (any character on the roof will be unaffected by a blown fuse)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7176"></span>7176</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0 (no. 74 or the hotel), 16 (no. 31 or no. 19), or 10 (no. 17 or no. 15)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7177"></span>7177</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Compare this value with the character's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7178"></span>7178</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return with the carry flag set if the character is inside the building (as opposed to on the roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7179"></span>7179</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="1">Clear the carry flag</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="717a"></span>717A</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -253,10 +286,10 @@ Used by the routine at <a href="F1FC.html">F1FC</a>. Returns with the carry flag
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/29004.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/29004.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

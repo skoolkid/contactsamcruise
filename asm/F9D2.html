@@ -23,7 +23,7 @@
 <div class="description">F9D2: Knock a character over</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="FA05.html">FA05</a> and <a href="FAE3.html">FAE3</a>. Knocks the character to the ground and updates the SRB accordingly.
@@ -49,102 +49,119 @@ Used by the routines at <a href="FA05.html">FA05</a> and <a href="FAE3.html">FAE
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f9d2"></span>F9D2</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9d5"></span>F9D5</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,A</td>
 <td class="comment-11" rowspan="1">Is the character facing left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9d7"></span>F9D7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F9DB</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9d9"></span>F9D9</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="2">Subtract 2 from the character's x-coordinate if he's facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9da"></span>F9DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f9db"></span>F9DB</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="2">Add 2 to the character's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9dc"></span>F9DC</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9dd"></span>F9DD</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1">Save the character's new coordinates</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9de"></span>F9DE</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e0"></span>F9E0</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1">Save the character number briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e1"></span>F9E1</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1">Save the character's base animatory state briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e2"></span>F9E2</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F928.html">$F928</a></td>
 <td class="comment-11" rowspan="1">Prepare the sprite tiles used by the character when lying down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e5"></span>F9E5</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1">Restore the character's base animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e6"></span>F9E6</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e7"></span>F9E7</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$07</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the character lying down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e9"></span>F9E9</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore the character's new coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ea"></span>F9EA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="E9D5.html">$E9D5</a></td>
 <td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
 </tr>
@@ -157,10 +174,10 @@ Used by the routines at <a href="FA05.html">FA05</a> and <a href="FAE3.html">FAE
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/63954.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63954.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">61CF: Add a random number of bucks to Sam's total</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="63C3.html">63C3</a>. Adds $1, $5, $10 or $20 to Sam's cash supply, and prints the new total.
@@ -46,78 +46,91 @@ Used by the routine at <a href="63C3.html">63C3</a>. Adds $1, $5, $10 or $20 to 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="61cf"></span>61CF</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F17F.html">$F17F</a></td>
 <td class="comment-11" rowspan="1">Get a random number in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61d2"></span>61D2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$01</td>
 <td class="comment-11" rowspan="3">Sam will get $1 if <span class="register">A</span>&lt;=0x7F</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61d4"></span>61D4</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $80</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61d6"></span>61D6</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$61E6</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61d8"></span>61D8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$05</td>
 <td class="comment-11" rowspan="3">Sam will get $5 if 0x80&lt;=<span class="register">A</span>&lt;=0xD1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61da"></span>61DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $D2</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61dc"></span>61DC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$61E6</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61de"></span>61DE</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $F8</td>
 <td class="comment-11" rowspan="3">Sam will get $10 if 0xD2&lt;=<span class="register">A</span>&lt;=0xF7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61e0"></span>61E0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$0A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61e2"></span>61E2</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$61E6</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61e4"></span>61E4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$14</td>
 <td class="comment-11" rowspan="1">Sam will get $20 if <span class="register">A</span>&gt;=0xF8</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="61e6"></span>61E6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=1, 5, 10 or 20</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61e7"></span>61E7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6E87.html#6e92">$6E92</a></td>
 <td class="comment-11" rowspan="1">Add this number of bucks to Sam's total and print the new total</td>
 </tr>
@@ -130,10 +143,10 @@ Used by the routine at <a href="63C3.html">63C3</a>. Adds $1, $5, $10 or $20 to 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/25039.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/25039.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

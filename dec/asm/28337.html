@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 28337</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="28334.html">28334</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#28337">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28355.html">28355</a></span></td>
+</tr>
+</table>
+<div class="description">28337: Increment the score and decrement Sam's cash supply</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="31414.html">31414</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="28337"></span>28337</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,(32668)</td>
+<td class="comment-11" rowspan="1">Collect the score from <a href="32668.html">32668</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="28340"></span>28340</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Increment it</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="28341"></span>28341</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (32668),HL</td>
+<td class="comment-11" rowspan="1">Store the new score</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="28344"></span>28344</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD DE,20696</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=display file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="28347"></span>28347</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="28186.html">28186</a></td>
+<td class="comment-11" rowspan="1">Print the score</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="28350"></span>28350</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD DE,65535</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=-1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="28353"></span>28353</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR <a href="28295.html#28309">28309</a></td>
+<td class="comment-11" rowspan="1">Decrement Sam's cash supply and print the new amount</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="28334.html">28334</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#28337">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28355.html">28355</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/6EB1.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

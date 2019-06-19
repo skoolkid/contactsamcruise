@@ -23,7 +23,7 @@
 <div class="description">ED30: Obtain location descriptors for a character standing next to a closed door</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="EB13.html">EB13</a>. A location descriptor for the character's current location has been found, and it corresponds to a location that is next to a door that happens to be closed. In this case we process the remaining location descriptors for the character's x-coordinate, one of which may be specific to the character's z-coordinate (1=behind the closed door, or 2=in front of it), and thus provide the appropriate direction descriptors (which are returned in <span class="register">C</span>). For an example of where this can happen, see the three descriptors in the location descriptor table at <a href="C320.html">C320</a> that correspond to the entrance to the shop at the far left of town.
@@ -57,18 +57,21 @@ Used by the routine at <a href="EB13.html">EB13</a>. A location descriptor for t
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="ed30"></span>ED30</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB13.html#eb3e">$EB3E</a></td>
 <td class="comment-11" rowspan="1">Process the remaining location descriptors for the character's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ed33"></span>ED33</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=4: the character is standing behind or in front of a closed door</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ed35"></span>ED35</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -81,10 +84,10 @@ Used by the routine at <a href="EB13.html">EB13</a>. A location descriptor for t
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/60720.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/60720.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

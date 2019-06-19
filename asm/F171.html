@@ -23,7 +23,7 @@
 <div class="description">F171: Copy two bytes from a command list into a character's buffer</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="7A6A.html">7A6A</a>, <a href="7CC8.html">7CC8</a>, <a href="F1FC.html">F1FC</a> and <a href="F748.html">F748</a>. Copies two bytes from a character's current command list into his buffer. Returns with <span class="register">HL</span> pointing at the second byte of the pair in the character's buffer.
@@ -53,60 +53,70 @@ Used by the routines at <a href="7A6A.html">7A6A</a>, <a href="7CC8.html">7CC8</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f171"></span>F171</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$02</td>
 <td class="comment-11" rowspan="1">Two bytes will be copied</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f173"></span>F173</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1">Save the byte counter</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f174"></span>F174</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F15F.html">$F15F</a></td>
 <td class="comment-11" rowspan="1">Collect one byte from the character's command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f177"></span>F177</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Copy it to the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f178"></span>F178</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1">Restore the byte counter to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f179"></span>F179</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the destination for the second byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f17a"></span>F17A</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="1">Have we copied both bytes yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f17b"></span>F17B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F173</td>
 <td class="comment-11" rowspan="1">Jump back to copy the second one if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f17d"></span>F17D</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the second byte that was copied</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f17e"></span>F17E</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -119,10 +129,10 @@ Used by the routines at <a href="7A6A.html">7A6A</a>, <a href="7CC8.html">7CC8</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/61809.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/61809.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

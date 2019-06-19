@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 62468</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="62465.html">62465</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#62468">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="62518.html">62518</a></span></td>
+</tr>
+</table>
+<div class="description">62468: Decrement and check the blown fuse delay counters</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="61440.html">61440</a>. Checks each fuse to see whether it was recently blown and should now be fixed, and updates the SRB for the windows affected by the fuse accordingly.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62468"></span>62468</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,32674</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first of the blown fuse delay counters at <a href="32674.html">32674</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62471"></span>62471</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up a delay counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62472"></span>62472</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is it 0?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62473"></span>62473</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,62478</td>
+<td class="comment-11" rowspan="1">Jump if so to examine the next fuse</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62475"></span>62475</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Otherwise decrement the delay counter (this fuse was recently blown)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62476"></span>62476</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,62484</td>
+<td class="comment-11" rowspan="1">Jump if it's time to fix this fuse</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62478"></span>62478</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Move to the next fuse</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62479"></span>62479</td>
+<td class="bytes-0"></td>
+<td class="instruction">BIT 3,L</td>
+<td class="comment-11" rowspan="1">Have we examined all the fuses yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62481"></span>62481</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,62471</td>
+<td class="comment-11" rowspan="1">Jump back if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62483"></span>62483</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62484"></span>
+<div class="comments">
+<div class="paragraph">
+If we're entering here from the loop above, it's time to fix a fuse that was recently blown. This entry point is also used by the routine at <a href="29866.html">29866</a> to blow a fuse.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62484"></span>62484</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=162-167, corresponding to the fuse</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62485"></span>62485</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,65471</td>
+<td class="comment-11" rowspan="1">Prepare <span class="register">HL</span> to scan the table at <a href="65472.html">65472</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62488"></span>62488</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next byte in the table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62489"></span>62489</td>
+<td class="bytes-0"></td>
+<td class="instruction">BIT 5,L</td>
+<td class="comment-11" rowspan="1">Have we reached the end of the table yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62491"></span>62491</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62492"></span>62492</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Does this byte correspond to a segment that is affected by the fuse?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62493"></span>62493</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,62488</td>
+<td class="comment-11" rowspan="1">Jump back to check the next byte if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62495"></span>62495</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save the LSB of the address of the blown fuse delay counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62496"></span>62496</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the table pointer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62497"></span>62497</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=x/8 (where x is the x-coordinate of the leftmost column of the 8-tile wide segment that is affected by the fuse)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62498"></span>62498</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 31</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62500"></span>62500</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the Z value for the 5th floor in this segment</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62501"></span>62501</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,185</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62503"></span>62503</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the Z value pointer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62504"></span>62504</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="62368.html">62368</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for any windows on this floor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62507"></span>62507</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the Z value pointer to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62508"></span>62508</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the Z value for the next floor down in this segment</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62509"></span>62509</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="2">Have we done every floor down to the first yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62510"></span>62510</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 190</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62512"></span>62512</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,62503</td>
+<td class="comment-11" rowspan="1">Jump back if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62514"></span>62514</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the table pointer to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62515"></span>62515</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the LSB of the address of the blown fuse delay counter to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62516"></span>62516</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR 62488</td>
+<td class="comment-11" rowspan="1">Check the next byte in the table</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="62465.html">62465</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#62468">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="62518.html">62518</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/F404.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

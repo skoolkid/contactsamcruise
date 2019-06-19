@@ -23,7 +23,7 @@
 <div class="description">ECE1: 'O' pressed - left</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this routine is found in the table of keypress handling routines at <a href="ED00.html">ED00</a>. It is called from the main loop at <a href="F02B.html">F02B</a> when 'O' is pressed.
@@ -49,11 +49,12 @@ The address of this routine is found in the table of keypress handling routines 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="ece1"></span>ECE1</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EBBB.html">$EBBB</a></td>
 <td class="comment-11" rowspan="1">Move Sam left (or in the next best direction) if possible</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="ece4"></span>
 <div class="comments">
 <div class="paragraph">
@@ -65,35 +66,40 @@ This entry point is used by the routines at <a href="ECD2.html">ECD2</a>, <a hre
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="ece4"></span>ECE4</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return if Sam could not move in the desired direction</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ece5"></span>ECE5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFD)</td>
 <td class="comment-11" rowspan="1">Collect the offset of the last key pressed from <a href="7FFD.html">7FFD</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ece8"></span>ECE8</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 3,A</td>
 <td class="comment-11" rowspan="1">Set the zero flag if a 'fast' key (upper case Q, A, O or P) was pressed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecea"></span>ECEA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$04</td>
 <td class="comment-11" rowspan="1">4=fast</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecec"></span>ECEC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$ECF0</td>
 <td class="comment-11" rowspan="1">Jump if a 'fast' key was pressed</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="ecee"></span>
 <div class="comments">
 <div class="paragraph">
@@ -105,66 +111,77 @@ This entry point is used by the routines at <a href="6FDB.html">6FDB</a>, <a hre
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="ecee"></span>ECEE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$08</td>
 <td class="comment-11" rowspan="1">8=slow</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="ecf0"></span>ECF0</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EC69.html">$EC69</a></td>
 <td class="comment-11" rowspan="1">Make a sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecf3"></span>ECF3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$07</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x07 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecf5"></span>ECF5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0 if Sam is neither midstride nor mid-action now</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecf6"></span>ECF6</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="2">Set Sam's main action timer in byte 0x08 of his buffer to either 4 (fast) or 8 (slow)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecf7"></span>ECF7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecf8"></span>ECF8</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is Sam midstride or mid-action?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecf9"></span>ECF9</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecfa"></span>ECFA</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="2">Set Sam's midstride/mid-action timer in byte 0x09 of his buffer to either 4 (fast) or 8 (slow)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecfb"></span>ECFB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ecfc"></span>ECFC</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -177,10 +194,10 @@ This entry point is used by the routines at <a href="6FDB.html">6FDB</a>, <a hre
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/60641.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/60641.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

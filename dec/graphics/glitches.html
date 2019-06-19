@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Graphic glitches</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="GraphicGlitches">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Graphic glitches</td>
+</tr>
+</table>
+<ul class="contents">
+<li><a href="#samsCoat">Sam's coat</a></li>
+<li><a href="#mensShoes">Men's shoes</a></li>
+<li><a href="#gangstersKnee">Gangster's knee</a></li>
+<li><a href="#lanasWaist">Lana's waist</a></li>
+<li><a href="#fatMansWaist">Fat Man's waist</a></li>
+<li><a href="#daisysHead">Daisy's head</a></li>
+<li><a href="#daisysHand">Daisy's hand</a></li>
+<li><a href="#ladiesArms">Ladies' arms</a></li>
+<li><a href="#ladiesWaists">Ladies' waists</a></li>
+<li><a href="#baseballCapMansFace">Baseball cap man's face</a></li>
+<li><a href="#brokenBanister">Broken banister</a></li>
+</ul>
+<div><span id="samsCoat"></span></div>
+<div class="box box-1">
+<div class="box-title">Sam's coat</div>
+<div class="paragraph">
+There is a misplaced transparent pixel at the base of Sam's coat when he's
+midstride:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 1" src="../../images/animatory_states/as001_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 3" src="../../images/animatory_states/as003_120x4m.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To fix these pixels:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 1" src="../../images/animatory_states/as001_120x4m_sc.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 3" src="../../images/animatory_states/as003_120x4m_sc.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">POKE 51223,247</td>
+<td class="" colspan="1" rowspan="1">POKE 51225,247</td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="mensShoes"></span></div>
+<div class="box box-2">
+<div class="box-title">Men's shoes</div>
+<div class="paragraph">
+There is a transparent pixel that should be blank at the bottom front edge of
+the shoe in various animatory states of the policeman, the Fat Man, the man in
+a bowler hat, and the man in a baseball cap:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 16" src="../../images/animatory_states/as016_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 56" src="../../images/animatory_states/as056_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 104" src="../../images/animatory_states/as104_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 112" src="../../images/animatory_states/as112_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 19" src="../../images/animatory_states/as019_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 107" src="../../images/animatory_states/as107_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 115" src="../../images/animatory_states/as115_120x4m.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To make these pixels blank:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 16" src="../../images/animatory_states/as016_120x4m_ms.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 56" src="../../images/animatory_states/as056_120x4m_ms.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 104" src="../../images/animatory_states/as104_120x4m_ms.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 112" src="../../images/animatory_states/as112_120x4m_ms.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 19" src="../../images/animatory_states/as019_120x4m_ms.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 107" src="../../images/animatory_states/as107_120x4m_ms.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 115" src="../../images/animatory_states/as115_120x4m_ms.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="4" rowspan="1">POKE 54830,253</td>
+<td class="" colspan="3" rowspan="1">POKE 54859,223</td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="gangstersKnee"></span></div>
+<div class="box box-1">
+<div class="box-title">Gangster's knee</div>
+<div class="paragraph">
+There are erroneous transparent pixels and a misplaced blank pixel in and near
+the gangster's knee when he's midstride:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 35" src="../../images/animatory_states/as035_120x4m.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To fix these pixels:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 35" src="../../images/animatory_states/as035_120x4m_gk.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">POKE 51819,233</td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="lanasWaist"></span></div>
+<div class="box box-2">
+<div class="box-title">Lana's waist</div>
+<div class="paragraph">
+There are erroneous transparent pixels and extraneous blank pixels across and
+near Lana's waist when she has her arm raised:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 52" src="../../images/animatory_states/as052_120x4m.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To fix these pixels:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 52" src="../../images/animatory_states/as052_120x4m_lw.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1"><div>POKE 54144,124</div><div>POKE 55988,0</div></td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="fatMansWaist"></span></div>
+<div class="box box-1">
+<div class="box-title">Fat Man's waist</div>
+<div class="paragraph">
+There is a misplaced blank pixel near the Fat Man's waist when he's midstride:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 57" src="../../images/animatory_states/as057_120x4m.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To move this pixel to the right spot:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 57" src="../../images/animatory_states/as057_120x4m_fmw.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">POKE 53300,211</td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="daisysHead"></span></div>
+<div class="box box-2">
+<div class="box-title">Daisy's head</div>
+<div class="paragraph">
+There is a transparent pixel that should be blank on top of Daisy's head:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 72" src="../../images/animatory_states/as072_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 76" src="../../images/animatory_states/as076_120x4m.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To make this pixel blank:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 72" src="../../images/animatory_states/as072_120x4m_dh.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 76" src="../../images/animatory_states/as076_120x4m_dh.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="2" rowspan="1">POKE 51789,131</td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="daisysHand"></span></div>
+<div class="box box-1">
+<div class="box-title">Daisy's hand</div>
+<div class="paragraph">
+There are transparent pixels that should be blank and also a misplaced blank
+pixel on and near Daisy's hand when she's midstride:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 73" src="../../images/animatory_states/as073_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 75" src="../../images/animatory_states/as075_120x4m.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To fix these pixels:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 73" src="../../images/animatory_states/as073_120x4m_dh2.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 75" src="../../images/animatory_states/as075_120x4m_dh2.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">POKE 51284,233</td>
+<td class="" colspan="1" rowspan="1">POKE 51287,233</td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="ladiesArms"></span></div>
+<div class="box box-2">
+<div class="box-title">Ladies' arms</div>
+<div class="paragraph">
+When Daisy and the girl with a pony tail have their arms raised, there is a
+transparent pixel that should be blank under their hands, and another near
+their armpits:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 76" src="../../images/animatory_states/as076_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 100" src="../../images/animatory_states/as100_120x4m.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To make these pixels blank:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 76" src="../../images/animatory_states/as076_120x4m_la.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 100" src="../../images/animatory_states/as100_120x4m_la.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="2" rowspan="1"><div>POKE 52871,203</div><div>POKE 54408,37</div></td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="ladiesWaists"></span></div>
+<div class="box box-1">
+<div class="box-title">Ladies' waists</div>
+<div class="paragraph">
+There are extraneous blank pixels near both Daisy's waist and the waist of the
+girl with a pony tail when they are midstride:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 73" src="../../images/animatory_states/as073_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 75" src="../../images/animatory_states/as075_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 97" src="../../images/animatory_states/as097_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 99" src="../../images/animatory_states/as099_120x4m.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To remove these blank pixels:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 73" src="../../images/animatory_states/as073_120x4m_lw.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 75" src="../../images/animatory_states/as075_120x4m_lw.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 97" src="../../images/animatory_states/as097_120x4m_lw.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 99" src="../../images/animatory_states/as099_120x4m_lw.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="4" rowspan="1">POKE 54354,250</td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="baseballCapMansFace"></span></div>
+<div class="box box-2">
+<div class="box-title">Baseball cap man's face</div>
+<div class="paragraph">
+There are extraneous blank pixels and transparent pixels that should be blank
+in front of and on the face of the man in a baseball cap when he's midstride:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 113" src="../../images/animatory_states/as113_120x4m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 115" src="../../images/animatory_states/as115_120x4m.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To fix these pixels:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 113" src="../../images/animatory_states/as113_120x4m_bcmf.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 115" src="../../images/animatory_states/as115_120x4m_bcmf.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="2" rowspan="1"><div>POKE 53444,241</div><div>POKE 53956,233</div></td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="brokenBanister"></span></div>
+<div class="box box-1">
+<div class="box-title">Broken banister</div>
+<div class="paragraph">
+In the open doorways of no. 74, no. 31 and no. 19, a line of blank pixels can
+be seen running through the banister at the bottom of the staircase:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="banister_74" src="../../images/play_area/banister_74.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="banister_31" src="../../images/play_area/banister_31.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="banister_19" src="../../images/play_area/banister_19.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To fix these pixels:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="banister_74_fixed" src="../../images/play_area/banister_74_fixed.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="banister_31_fixed" src="../../images/play_area/banister_31_fixed.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="banister_19_fixed" src="../../images/play_area/banister_19_fixed.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="3" rowspan="1">POKE 39254,137</td>
+</tr>
+</table>
+</div>
+</div>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../graphics/glitches.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

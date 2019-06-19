@@ -23,7 +23,7 @@
 <div class="description">7A39: Check whether Sam has entered a house through the front door without a key</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Continues from the routine at <a href="76BC.html">76BC</a>. Sends the police after Sam if he has entered a house through the front door without a key.
@@ -53,29 +53,33 @@ Continues from the routine at <a href="76BC.html">76BC</a>. Sends the police aft
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7a39"></span>7A39</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-11" rowspan="1"><span class="register">C</span>=door status flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a3a"></span>7A3A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FEA)</td>
 <td class="comment-11" rowspan="1">Collect the key inventory flags from <a href="7FEA.html">7FEA</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a3d"></span>7A3D</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND C</td>
 <td class="comment-11" rowspan="1">Does Sam have the key to the door?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a3e"></span>7A3E</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7a3f"></span>
 <div class="comments">
 <div class="paragraph">
@@ -87,60 +91,70 @@ Sam is entering a house through the front door without a key. The police will ne
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a3f"></span>7A3F</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a40"></span>7A40</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,($E601)</td>
 <td class="comment-11" rowspan="2">Copy Sam's coordinates to <a href="7FDB.html">7FDB</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a44"></span>7A44</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FDB),DE</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a48"></span>7A48</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,$01</td>
 <td class="comment-11" rowspan="1">Assume a z-coordinate of 1 (indoors)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a4a"></span>7A4A</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="ED36.html#ed47">$ED47</a></td>
 <td class="comment-11" rowspan="1">Obtain an identifier for Sam's current location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a4d"></span>7A4D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FDD),A</td>
 <td class="comment-11" rowspan="1">Store it at <a href="7FDB.html#7fdd">7FDD</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a50"></span>7A50</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
 <td class="comment-11" rowspan="2">Set bit 0 at <a href="7FEB.html">7FEB</a>: Sam is wanted by the police</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a52"></span>7A52</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FEB),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a55"></span>7A55</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a56"></span>7A56</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -153,10 +167,10 @@ Sam is entering a house through the front door without a key. The police will ne
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/31289.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/31289.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

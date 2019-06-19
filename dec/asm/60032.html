@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 60032</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="59861.html">59861</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#60032">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="60082.html">60082</a></span></td>
+</tr>
+</table>
+<div class="description">60032: Update the display</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="30822.html">30822</a>, <a href="30989.html">30989</a>, <a href="60539.html">60539</a>, <a href="61483.html">61483</a>, <a href="61630.html">61630</a> and <a href="64338.html">64338</a>. Goes through the <a href="32512.html">screen refresh buffer</a> (SRB) and for every set bit found, updates the corresponding character square on-screen.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="60032"></span>60032</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,80</td>
+<td class="comment-11" rowspan="1">20 screen rows, 4 bytes (32 bits) per row</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60034"></span>60034</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,32528</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the start of the portion of the <a href="32512.html">screen refresh buffer</a> that corresponds to the visible part of the play area</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="60037"></span>60037</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up a byte from the screen refresh buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60038"></span>60038</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Does anything need updating in this particular 8-tile segment?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60039"></span>60039</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,60078</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60041"></span>60041</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Save the SRB byte counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60042"></span>60042</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="6">For this particular byte of the SRB, compute the corresponding screen row number (0-19) in <span class="register">D</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60043"></span>60043</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 16</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60045"></span>60045</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 252</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60047"></span>60047</td>
+<td class="bytes-0"></td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60048"></span>60048</td>
+<td class="bytes-0"></td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60049"></span>60049</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60050"></span>60050</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="5">Also for this particular SRB byte, compute the column of the screen (0, 8, 16 or 24) corresponding to bit 7</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60051"></span>60051</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 3</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60053"></span>60053</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60054"></span>60054</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60055"></span>60055</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60056"></span>60056</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="2">Initialise <span class="register">E</span>, which will hold the screen column number of the character square to be checked</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60057"></span>60057</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="60058"></span>60058</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Set <span class="register">DE</span> to the screen coordinates of the next character square to be checked</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60059"></span>60059</td>
+<td class="bytes-0"></td>
+<td class="instruction">SLA (HL)</td>
+<td class="comment-11" rowspan="1">Does this character square need updating?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60061"></span>60061</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,60067</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60063"></span>60063</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,60058</td>
+<td class="comment-11" rowspan="1">Jump back if there are still non-zero bits left in this SRB byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60065"></span>60065</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR 60077</td>
+<td class="comment-11" rowspan="1">Jump forward to consider the next SRB byte</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60067"></span>
+<div class="comments">
+<div class="paragraph">
+We found a set bit in the current SRB byte. Print the corresponding character square.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="60067"></span>60067</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the SRB pointer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60068"></span>60068</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the screen (row,column) pointer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60069"></span>60069</td>
+<td class="bytes-0"></td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Switch the screen (row,column) pointer to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60070"></span>60070</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="59148.html">59148</a></td>
+<td class="comment-11" rowspan="1">Print the character square at this row and column</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60073"></span>60073</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1">Restore the screen (row,column) pointer to <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60074"></span>60074</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the SRB pointer to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60075"></span>60075</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR 60058</td>
+<td class="comment-11" rowspan="1">Examine the next bit of the current SRB byte</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60077"></span>
+<div class="comments">
+<div class="paragraph">
+There are no set bits remaining in the current SRB byte. Move to the next SRB byte.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="60077"></span>60077</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Restore the SRB byte counter to <span class="register">B</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="60078"></span>60078</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next SRB byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60079"></span>60079</td>
+<td class="bytes-0"></td>
+<td class="instruction">DJNZ 60037</td>
+<td class="comment-11" rowspan="1">Jump back until all 80 SRB bytes have been dealt with</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="60081"></span>60081</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="59861.html">59861</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#60032">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="60082.html">60082</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/EA80.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

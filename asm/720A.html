@@ -23,7 +23,7 @@
 <div class="description">720A: Vertical and horizontal ranges within which Sam can be spotted by a policeman</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="7222.html">7222</a>. This data table consists of eight entries of three bytes each. The exact entry used depends on Sam's and the policeman's locations, and whether Sam's disguise is known to the police. A policeman will be able to spot Sam if the vertical distance between them is no greater than the first byte, the horizontal distance between them is no greater than the second byte, and the sum of the horizontal and vertical distances between them is no greater than the third byte.
@@ -49,17 +49,19 @@ One of the first two entries is used when Sam is neither visible to passers-by (
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="720a"></span>720A</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $01,$07,$07</td>
 <td class="comment-11" rowspan="1">This entry is used when Sam's disguise is unknown to the police</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="720d"></span>720D</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $03,$0E,$0E</td>
 <td class="comment-11" rowspan="1">This entry is used when Sam's disguise is known to the police</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7210"></span>
 <div class="comments">
 <div class="paragraph">
@@ -71,17 +73,19 @@ One of the next two entries is used when Sam is neither visible to passers-by no
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7210"></span>7210</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $02,$02,$02</td>
 <td class="comment-11" rowspan="1">This entry is used when Sam's disguise is unknown to the police</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7213"></span>7213</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $03,$09,$09</td>
 <td class="comment-11" rowspan="1">This entry is used when Sam's disguise is known to the police</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7216"></span>
 <div class="comments">
 <div class="paragraph">
@@ -93,17 +97,19 @@ One of the next two entries is used when Sam is standing next to a light switch 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7216"></span>7216</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $04,$0C,$0C</td>
 <td class="comment-11" rowspan="1">This entry is used when Sam's disguise is unknown to the police</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7219"></span>7219</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $04,$14,$14</td>
 <td class="comment-11" rowspan="1">This entry is used when Sam's disguise is known to the police</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="721c"></span>
 <div class="comments">
 <div class="paragraph">
@@ -115,12 +121,14 @@ One of the next two entries is used when either (a) Sam is visible to passers-by
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="721c"></span>721C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $09,$09,$09</td>
 <td class="comment-11" rowspan="1">This entry is used when Sam's disguise is unknown to the police</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="721f"></span>721F</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $20,$18,$20</td>
 <td class="comment-11" rowspan="1">This entry is used when Sam's disguise is known to the police</td>
 </tr>
@@ -133,10 +141,10 @@ One of the next two entries is used when either (a) Sam is visible to passers-by
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/29194.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/29194.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

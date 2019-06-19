@@ -23,7 +23,7 @@
 <div class="description">75F6: Ask Sam 'WHO'S THERE?' when he takes or makes a phone call</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="77A3.html">77A3</a>.
@@ -46,42 +46,49 @@ Used by the routine at <a href="77A3.html">77A3</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="75f6"></span>75F6</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75f7"></span>75F7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$25</td>
 <td class="comment-11" rowspan="1">Message <a href="69C5.html">0x25</a>: 'A VOICE SAID 'WHO'S THERE?''</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75f9"></span>75F9</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="75CA.html">$75CA</a></td>
 <td class="comment-11" rowspan="1">Queue this message urgently</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75fc"></span>75FC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7F9B</td>
 <td class="comment-11" rowspan="2">Set bit 6 of the telephone call status flags at <a href="7F9B.html">7F9B</a>, indicating that Sam must give a name</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75ff"></span>75FF</td>
+<td class="bytes-0"></td>
 <td class="instruction">SET 6,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7601"></span>7601</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7602"></span>7602</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -94,10 +101,10 @@ Used by the routine at <a href="77A3.html">77A3</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/30198.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/30198.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

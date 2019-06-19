@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 30053</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="30052.html">30052</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30053">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30070.html">30070</a></span></td>
+</tr>
+</table>
+<div class="description">30053: Make the cash bonus/key sound effect</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="30211.html">30211</a>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">2 (initial border colour)</td>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">144 (pitch)</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">509 (duration)</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">20 (repetitions)</td>
+</tr>
+<tr>
+<td class="register">L</td>
+<td class="register-desc">6 (border XOR value)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30053"></span>30053</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the duration</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30054"></span>30054</td>
+<td class="bytes-0"></td>
+<td class="instruction">XOR L</td>
+<td class="comment-11" rowspan="1">Toggle the border colour between 2 (red) and 4 (green)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30055"></span>30055</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="64740.html">64740</a></td>
+<td class="comment-11" rowspan="1">Make a mini-sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30058"></span>30058</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,A</td>
+<td class="comment-11" rowspan="1">Save the border colour in <span class="register">B</span> briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30059"></span>30059</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="4">Modify the pitch for the next mini-sound effect (it is 144 for the first, and then toggles between 111 and 16 for the remainder)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30060"></span>30060</td>
+<td class="bytes-0"></td>
+<td class="instruction">CPL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30061"></span>30061</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 127</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30063"></span>30063</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30064"></span>30064</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,B</td>
+<td class="comment-11" rowspan="1">Restore the border colour to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30065"></span>30065</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1">Restore the duration to <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30066"></span>30066</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC H</td>
+<td class="comment-11" rowspan="1">Have we played 20 mini-sound effects yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30067"></span>30067</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,30053</td>
+<td class="comment-11" rowspan="1">Jump back if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30069"></span>30069</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="30052.html">30052</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30053">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30070.html">30070</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/7565.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

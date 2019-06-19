@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 59575</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="59572.html">59572</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#59575">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="59632.html">59632</a></span></td>
+</tr>
+</table>
+<div class="description">59575: Scroll the screen down 6 rows</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="60539.html">60539</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="59575"></span>59575</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,59372</td>
+<td class="comment-11" rowspan="2">Set the instruction at <a href="59368.html#59371">59371</a> to 'LD BC,32'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59578"></span>59578</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),32</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59580"></span>59580</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,239</td>
+<td class="comment-11" rowspan="2">Set the instruction at <a href="59368.html#59374">59374</a> to 'LDIR'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59582"></span>59582</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),176</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59584"></span>59584</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,6</td>
+<td class="comment-11" rowspan="1">6 rows will be scrolled on</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="59586"></span>59586</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Save the primary screen row counter</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59587"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="64618.html">64618</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="59587"></span>59587</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,19</td>
+<td class="comment-11" rowspan="1">There are 19 screen rows to move down</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59589"></span>59589</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD DE,23136</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=destination attribute file address (bottom row)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59592"></span>59592</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,23104</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=source attribute file address (second row from the bottom)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="59595"></span>59595</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Save the secondary screen row counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59596"></span>59596</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the source attribute file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59597"></span>59597</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the destination attribute file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59598"></span>59598</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="59368.html">59368</a></td>
+<td class="comment-11" rowspan="1">Move one screen row down</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59601"></span>59601</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=source attribute file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59602"></span>59602</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,65504</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the next row up in the attribute file</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59605"></span>59605</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59606"></span>59606</td>
+<td class="bytes-0"></td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Transfer this address to <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59607"></span>59607</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=destination attribute file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59608"></span>59608</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next row up in the attribute file</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59609"></span>59609</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Restore the secondary screen row counter to <span class="register">B</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59610"></span>59610</td>
+<td class="bytes-0"></td>
+<td class="instruction">DJNZ 59595</td>
+<td class="comment-11" rowspan="1">Jump back until all 19 screen rows have been moved down</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59612"></span>59612</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,32767</td>
+<td class="comment-11" rowspan="1"><a href="32767.html">32767</a> holds the y-coordinate of the topmost row of the play area on screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59615"></span>59615</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Decrement this</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59616"></span>59616</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,31</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=31 (rightmost screen column), <span class="register">H</span>=0 (top row of the screen)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="59619"></span>59619</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the screen coordinates briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59620"></span>59620</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="59148.html">59148</a></td>
+<td class="comment-11" rowspan="1">Print a tile at screen coordinates (<span class="register">L</span>,0)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59623"></span>59623</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the screen coordinates to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59624"></span>59624</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1">Have we printed every tile in the row yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59625"></span>59625</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP P,59619</td>
+<td class="comment-11" rowspan="1">Jump back if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59628"></span>59628</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Restore the primary screen row counter to <span class="register">B</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59629"></span>59629</td>
+<td class="bytes-0"></td>
+<td class="instruction">DJNZ 59586</td>
+<td class="comment-11" rowspan="1">Jump back until 6 rows have been scrolled on</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="59631"></span>59631</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="59572.html">59572</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#59575">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="59632.html">59632</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/E8B7.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

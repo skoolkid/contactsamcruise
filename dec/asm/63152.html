@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 63152</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="63138.html">63138</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#63152">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="63196.html">63196</a></span></td>
+</tr>
+</table>
+<div class="description">63152: Check whether a character is standing next to a light switch or window blind</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="30092.html">30092</a> and <a href="63209.html">63209</a>. Returns with the zero flag reset if the character is standing next to a light switch or a window that has a blind, and with the bit set in <span class="register">A</span> identifying the fixture that was found.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (215-230)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="63152"></span>63152</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,4</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 4 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63154"></span>63154</td>
+<td class="bytes-0"></td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Is the character indoors?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63156"></span>63156</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63157"></span>63157</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="63138.html">63138</a></td>
+<td class="comment-11" rowspan="1">Collect in <span class="register">C</span> the x-coordinate of the front column of the character's sprite</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63160"></span>63160</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,128</td>
+<td class="comment-11" rowspan="1">Bit 7 set: check for a light switch at the left side of the room</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63162"></span>63162</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,63184</td>
+<td class="comment-11" rowspan="1">Jump if <span class="register">C</span>=0 mod 8</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63164"></span>63164</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,16</td>
+<td class="comment-11" rowspan="1">Bit 4 set: check for a blind on the left-hand window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63166"></span>63166</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 3</td>
+<td class="comment-11" rowspan="1">Does <span class="register">C</span>=1 or 2 mod 8?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63168"></span>63168</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,63184</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63170"></span>63170</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,4</td>
+<td class="comment-11" rowspan="1">Bit 2 set: check for a blind on a large central window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63172"></span>63172</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 2</td>
+<td class="comment-11" rowspan="1">Does <span class="register">C</span>=3 or 4 mod 8?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63174"></span>63174</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,63184</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63176"></span>63176</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,8</td>
+<td class="comment-11" rowspan="1">Bit 3 set: check for a blind on the right-hand window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63178"></span>63178</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 2</td>
+<td class="comment-11" rowspan="1">Does <span class="register">C</span>=5 or 6 mod 8?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63180"></span>63180</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,63184</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63182"></span>63182</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,64</td>
+<td class="comment-11" rowspan="1">Bit 6 set: check for a light switch at the right side of the room (when <span class="register">C</span>=7 mod 8)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="63184"></span>63184</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Save the fixture identifier bit (in <span class="register">B</span>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63185"></span>63185</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="62518.html#62548">62548</a></td>
+<td class="comment-11" rowspan="1">Is the character standing next to a light switch or a window that has a blind?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63188"></span>63188</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,63193</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63190"></span>63190</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the fixture identifier bit to <span class="register">A</span> (though we don't need it now)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63191"></span>63191</td>
+<td class="bytes-0"></td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="1">Set the zero flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63192"></span>63192</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="63193"></span>63193</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the fixture identifier bit to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63194"></span>63194</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Reset the zero flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63195"></span>63195</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="63138.html">63138</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#63152">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="63196.html">63196</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/F6B0.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

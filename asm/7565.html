@@ -23,7 +23,7 @@
 <div class="description">7565: Make the cash bonus/key sound effect</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="7603.html">7603</a>.
@@ -65,78 +65,91 @@ Used by the routine at <a href="7603.html">7603</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7565"></span>7565</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1">Save the duration</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7566"></span>7566</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR L</td>
 <td class="comment-11" rowspan="1">Toggle the border colour between 2 (red) and 4 (green)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7567"></span>7567</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="FCE4.html">$FCE4</a></td>
 <td class="comment-11" rowspan="1">Make a mini-sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="756a"></span>756A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-11" rowspan="1">Save the border colour in <span class="register">B</span> briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="756b"></span>756B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="4">Modify the pitch for the next mini-sound effect (it is 0x90 for the first, and then toggles between 0x6F and 0x10 for the remainder)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="756c"></span>756C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CPL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="756d"></span>756D</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $7F</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="756f"></span>756F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7570"></span>7570</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
 <td class="comment-11" rowspan="1">Restore the border colour to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7571"></span>7571</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore the duration to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7572"></span>7572</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC H</td>
 <td class="comment-11" rowspan="1">Have we played 20 mini-sound effects yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7573"></span>7573</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7565</td>
 <td class="comment-11" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7575"></span>7575</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -149,10 +162,10 @@ Used by the routine at <a href="7603.html">7603</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/30053.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/30053.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

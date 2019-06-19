@@ -23,7 +23,7 @@
 <div class="description">6100: Deal with Sam while he's transfixed by Lana</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="74D8.html">74D8</a> when bit 1 at <a href="7FFC.html">7FFC</a> is set (by the routine at <a href="7500.html">7500</a>, using the event entry at <a href="5FE0.html#60d8">60D8</a>), indicating that Sam has been immobilised after meeting Lana in his office.
@@ -49,65 +49,75 @@ Used by the routine at <a href="74D8.html">74D8</a> when bit 1 at <a href="7FFC.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6100"></span>6100</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$08</td>
 <td class="comment-11" rowspan="2">Set Sam's main action timer (in byte 0x08 of his buffer) to 8</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6102"></span>6102</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6103"></span>6103</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0D</td>
 <td class="comment-11" rowspan="2">Byte 0x0D of Sam's buffer holds 0 if Sam has only just met Lana, or 1 otherwise</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6105"></span>6105</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6106"></span>6106</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Has Sam only just met Lana in his office?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6107"></span>6107</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$6112</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6109"></span>6109</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-11" rowspan="1">Increment byte 0x0D of Sam's buffer so that we don't come here again</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="610a"></span>610A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$49</td>
 <td class="comment-11" rowspan="1">Message <a href="5EC7.html">0x49</a>: 'I STARED AT THE LOVELY LANA...'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="610c"></span>610C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FD2),A</td>
 <td class="comment-11" rowspan="1">Store the message number at <a href="7FD2.html">7FD2</a> (so that we can check when it has been displayed)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="610f"></span>610F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="75CA.html">$75CA</a></td>
 <td class="comment-11" rowspan="1">Queue the message urgently</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6112"></span>
 <div class="comments">
 <div class="paragraph">
@@ -119,161 +129,187 @@ While Lana is transfixing Sam, we count the policemen who have shown up at Sam's
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6112"></span>6112</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0200</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=2 (2 policemen), <span class="register">C</span>=0 (will count the number of immobilised policemen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6115"></span>6115</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$DE</td>
 <td class="comment-11" rowspan="1">Character 0xDE is the first policeman</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6117"></span>6117</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$09</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 0x09 of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6119"></span>6119</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC C</td>
 <td class="comment-11" rowspan="1">Assume that this policeman is already immobilised</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="611a"></span>611A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=MSB of the policeman's current primary command routine</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="611b"></span>611B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $E7</td>
 <td class="comment-11" rowspan="1">Is it the MSB of <a href="E700.html#e70b">E70B</a> (RET)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="611d"></span>611D</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$613A</td>
 <td class="comment-11" rowspan="1">Jump if so (this policeman is already immobilised)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="611f"></span>611F</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
 <td class="comment-11" rowspan="1">Decrement <span class="register">C</span> because this policeman is not yet immobilised</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6120"></span>6120</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$02</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=policeman's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6122"></span>6122</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6123"></span>6123</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $13</td>
 <td class="comment-11" rowspan="1">Is the policeman on the third floor of a building?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6125"></span>6125</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$613A</td>
 <td class="comment-11" rowspan="1">Jump to consider the next policeman if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6127"></span>6127</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6128"></span>6128</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=policeman's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6129"></span>6129</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $EF</td>
 <td class="comment-11" rowspan="4">Consider the next policeman unless this one is in Sam's office</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="612b"></span>612B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$613A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="612d"></span>612D</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $E0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="612f"></span>612F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$613A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6131"></span>6131</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$E7</td>
 <td class="comment-11" rowspan="6">Place <a href="E700.html#e70b">E70B</a> (RET) into bytes 0x08 and 0x09 of the policeman's buffer, thus immobilising him</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6133"></span>6133</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$09</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6135"></span>6135</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6136"></span>6136</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$0B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6138"></span>6138</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6139"></span>6139</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="613a"></span>613A</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the next policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="613b"></span>613B</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $6117</td>
 <td class="comment-11" rowspan="1">Jump back until both policemen have been checked</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="613d"></span>
 <div class="comments">
 <div class="paragraph">
@@ -285,66 +321,77 @@ Now <span class="register">C</span> holds the number of policemen that have been
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="613d"></span>613D</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1">Save the number of immobilised policemen briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="613e"></span>613E</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="78FC.html">$78FC</a></td>
 <td class="comment-11" rowspan="1">Check whether message <a href="5EC7.html">0x49</a> ('I STARED AT THE LOVELY LANA...') is still in the message queue</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6141"></span>6141</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1">Restore the number of immobilised policemen to <span class="register">C</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6142"></span>6142</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return unless the entire message has been displayed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6143"></span>6143</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=number of immobilised policemen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6144"></span>6144</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is it at least one?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6145"></span>6145</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,<a href="6152.html">$6152</a></td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6147"></span>6147</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$0000</td>
 <td class="comment-11" rowspan="2">Set the number of bucks (stored at <a href="7F9E.html">7F9E</a>) to 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="614a"></span>614A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7F9E),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="614d"></span>614D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$4B</td>
 <td class="comment-11" rowspan="1">Message <a href="5FC2.html">0x4B</a>: 'SHE FIRED'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="614f"></span>614F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7AB6.html#7ad5">$7AD5</a></td>
 <td class="comment-11" rowspan="1">Display the cutscene with this message, and then prepare to enter demo mode</td>
 </tr>
@@ -357,10 +404,10 @@ Now <span class="register">C</span> holds the number of policemen that have been
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/24832.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/24832.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

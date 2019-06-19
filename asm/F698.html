@@ -23,7 +23,7 @@
 <div class="description">F698: Check whether a character is midstride</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="72B1.html">72B1</a>, <a href="7A82.html">7A82</a>, <a href="F600.html">F600</a> and <a href="F6E9.html">F6E9</a>. Returns to the caller unless the character is midstride; otherwise moves the character from the midstride position and returns to the routine at <a href="F1FC.html">F1FC</a> to move the next character.
@@ -49,11 +49,12 @@ Used by the routines at <a href="72B1.html">72B1</a>, <a href="7A82.html">7A82</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f698"></span>F698</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f69a"></span>
 <div class="comments">
 <div class="paragraph">
@@ -65,24 +66,28 @@ This entry point is used by the routine at <a href="F68E.html">F68E</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f69a"></span>F69A</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is the character midstride?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f69c"></span>F69C</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f69d"></span>F69D</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1">Drop the return address from the stack</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f69e"></span>F69E</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="EC5A.html">$EC5A</a></td>
 <td class="comment-11" rowspan="1">Move the character from the midstride position and update the SRB</td>
 </tr>
@@ -95,10 +100,10 @@ This entry point is used by the routine at <a href="F68E.html">F68E</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/63128.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63128.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

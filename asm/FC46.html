@@ -23,7 +23,7 @@
 <div class="description">FC46: Generate the table of mirrored values of 0x00-0xFF</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="F8AE.html">F8AE</a> and <a href="FC6A.html">FC6A</a>. Generates the table of mirrored values of 0x00-0xFF at <a href="7E00.html">7E00</a>.
@@ -46,60 +46,70 @@ Used by the routines at <a href="F8AE.html">F8AE</a> and <a href="FC6A.html">FC6
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fc46"></span>FC46</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7E00</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first slot in the table</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fc49"></span>FC49</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=byte that will be mirrored</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fc4a"></span>FC4A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0800</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=8, <span class="register">C</span>=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fc4d"></span>FC4D</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="3">Generate the mirror byte in <span class="register">C</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fc4e"></span>FC4E</td>
+<td class="bytes-0"></td>
 <td class="instruction">RR C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fc50"></span>FC50</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $FC4D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fc52"></span>FC52</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),C</td>
 <td class="comment-11" rowspan="1">Store the mirror byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fc53"></span>FC53</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next slot in the table</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fc54"></span>FC54</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FC49</td>
 <td class="comment-11" rowspan="1">Jump back until the table is complete</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fc56"></span>FC56</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -112,10 +122,10 @@ Used by the routines at <a href="F8AE.html">F8AE</a> and <a href="FC6A.html">FC6
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/64582.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/64582.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

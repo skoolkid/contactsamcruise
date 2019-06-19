@@ -23,7 +23,7 @@
 <div class="description">F080: Update the icon panel, draw the bullets, and scan the event table</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Called from the main loop at <a href="F02B.html">F02B</a>. Updates the icon panel, draws the bullets, scans the event table at <a href="5FE0.html">5FE0</a> for events to trigger, and checks whether Sam has found the hook, the budgie, a key, some money, or a location that requires a message to be displayed.
@@ -46,78 +46,91 @@ Called from the main loop at <a href="F02B.html">F02B</a>. Updates the icon pane
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f080"></span>F080</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="73E4.html">$73E4</a></td>
 <td class="comment-11" rowspan="1">Show or hide the fuse, door, light bulb or phone in the icon panel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f083"></span>F083</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FEE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=current game mode (0-4)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f086"></span>F086</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is it demo mode?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f087"></span>F087</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f088"></span>F088</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="65DB.html">$65DB</a></td>
 <td class="comment-11" rowspan="1">Move and draw the bullets</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f08b"></span>F08B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFC)</td>
 <td class="comment-11" rowspan="1">Collect Sam's status flags from <a href="7FFC.html">7FFC</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f08e"></span>F08E</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $81</td>
 <td class="comment-11" rowspan="1">Is Sam being carried or falling from a building?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f090"></span>F090</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f091"></span>F091</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7500.html">$7500</a></td>
 <td class="comment-11" rowspan="1">Scan the event table at <a href="5FE0.html">5FE0</a> for events to trigger</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f094"></span>F094</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($E600)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f097"></span>F097</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $1D</td>
 <td class="comment-11" rowspan="1">Is Sam's animation phase standing/walking phase 1 or 3?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f099"></span>F099</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f09a"></span>F09A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7603.html">$7603</a></td>
 <td class="comment-11" rowspan="1">Check whether Sam has found something and update the icon panel</td>
 </tr>
@@ -130,10 +143,10 @@ Called from the main loop at <a href="F02B.html">F02B</a>. Updates the icon pane
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/61568.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/61568.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">F000: Perform various main loop tasks</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Called from the main loop at <a href="F02B.html">F02B</a>. Closes any doors that need closing, decrements and checks the blown fuse delay counters, updates the on-screen message if necessary, and increments the score and decrements Sam's cash supply at regular intervals.
@@ -46,72 +46,84 @@ Called from the main loop at <a href="F02B.html">F02B</a>. Closes any doors that
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f000"></span>F000</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FA9</td>
 <td class="comment-11" rowspan="1">The main loop task timer is at <a href="7FA9.html">7FA9</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f003"></span>F003</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Decrement it</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f004"></span>F004</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the new value</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f005"></span>F005</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
 <td class="comment-11" rowspan="1">Is the value 0 mod 8?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f007"></span>F007</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="F144.html">$F144</a></td>
 <td class="comment-11" rowspan="1">If so, close any doors that need closing</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f00a"></span>F00A</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $04</td>
 <td class="comment-11" rowspan="1">Is the value 4 mod 8?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f00c"></span>F00C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="F404.html">$F404</a></td>
 <td class="comment-11" rowspan="1">If so, decrement and check the blown fuse delay counters</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f00f"></span>F00F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $02</td>
 <td class="comment-11" rowspan="1">Is the value 2 mod 8?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f011"></span>F011</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="6EC5.html#6ef4">$6EF4</a></td>
 <td class="comment-11" rowspan="1">If so, update the on-screen message if necessary</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f014"></span>F014</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $06</td>
 <td class="comment-11" rowspan="1">Is the value 6 mod 8?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f016"></span>F016</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="7AB6.html">$7AB6</a></td>
 <td class="comment-11" rowspan="1">If so, increment the score and decrement Sam's cash supply at regular intervals</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f019"></span>F019</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -124,10 +136,10 @@ Called from the main loop at <a href="F02B.html">F02B</a>. Closes any doors that
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/61440.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/61440.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

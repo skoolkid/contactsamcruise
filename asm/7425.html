@@ -23,7 +23,7 @@
 <div class="description">7425: Show or hide the fuse, door, light bulb or phone in the icon panel (2)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Continues from the routine at <a href="73E4.html">73E4</a>. Checks whether Sam is standing next to a fuse, door, light switch or telephone, and updates the icon panel as appropriate.
@@ -49,95 +49,110 @@ Continues from the routine at <a href="73E4.html">73E4</a>. Checks whether Sam i
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7425"></span>7425</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7426"></span>7426</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$73CF</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the list of x-coordinates of the house doors (at <a href="73CF.html">73CF</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7429"></span>7429</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $1F</td>
 <td class="comment-11" rowspan="1">31 is the y-coordinate of the house doors</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="742b"></span>742B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7433</td>
 <td class="comment-11" rowspan="1">Jump if Sam's y-coordinate is 31</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="742d"></span>742D</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $21</td>
 <td class="comment-11" rowspan="1">33 is the y-coordinate of the shop doors</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="742f"></span>742F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7445</td>
 <td class="comment-11" rowspan="1">Jump unless Sam's y-coordinate is 33</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7431"></span>7431</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$DC</td>
 <td class="comment-11" rowspan="1"><span class="register">DE</span>=<a href="73CF.html#73dc">73DC</a> (list of x-coordinates of shop doors)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7433"></span>7433</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7434"></span>7434</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of a door (or 0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7435"></span>7435</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the next x-coordinate in the list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7436"></span>7436</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="1">Have we reached the end of the list?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7437"></span>7437</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7445</td>
 <td class="comment-11" rowspan="1">Jump if so (Sam's not standing next to a door)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7439"></span>7439</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the door</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="743a"></span>743A</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is Sam's x-coordinate the same?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="743b"></span>743B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7434</td>
 <td class="comment-11" rowspan="1">Jump back if not to check the next door</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="743d"></span>
 <div class="comments">
 <div class="paragraph">
@@ -149,161 +164,187 @@ This entry point is used by the routine at <a href="73E4.html">73E4</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="743d"></span>743D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FA8)</td>
 <td class="comment-11" rowspan="3">Set bit 6 at <a href="7FA8.html">7FA8</a>: door icon</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7440"></span>7440</td>
+<td class="bytes-0"></td>
 <td class="instruction">SET 6,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7442"></span>7442</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FA8),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7445"></span>7445</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x04 of Sam's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7447"></span>7447</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is Sam indoors?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7449"></span>7449</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="73E4.html#73f0">$73F0</a></td>
 <td class="comment-11" rowspan="1">Update the icon panel now if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="744c"></span>744C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=Sam's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="744e"></span>744E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="744f"></span>744F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $21</td>
 <td class="comment-11" rowspan="1">Is Sam inside a shop?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7451"></span>7451</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7468</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7453"></span>7453</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $06</td>
 <td class="comment-11" rowspan="2">Keep subtracting 6 (the height of a floor) from Sam's y-coordinate until it's negative</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7455"></span>7455</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$7453</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7457"></span>7457</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $FB</td>
 <td class="comment-11" rowspan="1">Is Sam's y-coordinate 1, 7, 13, 19, 25 or 31?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7459"></span>7459</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="73E4.html#73f0">$73F0</a></td>
 <td class="comment-11" rowspan="1">Update the icon panel now if not (Sam's on a staircase)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="745c"></span>745C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="75A4.html">$75A4</a></td>
 <td class="comment-11" rowspan="1">Is Sam standing next to a fuse that has not been blown yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="745f"></span>745F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7468</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7461"></span>7461</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FA8</td>
 <td class="comment-11" rowspan="2">Set bit 7 at <a href="7FA8.html">7FA8</a>: fuse icon</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7464"></span>7464</td>
+<td class="bytes-0"></td>
 <td class="instruction">SET 7,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7466"></span>7466</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$E6</td>
 <td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7468"></span>7468</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F436.html">$F436</a></td>
 <td class="comment-11" rowspan="1">Is Sam standing next to a light switch?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="746b"></span>746B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7474</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="746d"></span>746D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FA8</td>
 <td class="comment-11" rowspan="2">Set bit 5 at <a href="7FA8.html">7FA8</a>: light bulb icon</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7470"></span>7470</td>
+<td class="bytes-0"></td>
 <td class="instruction">SET 5,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7472"></span>7472</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$E6</td>
 <td class="comment-11" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7474"></span>7474</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="749E.html">$749E</a></td>
 <td class="comment-11" rowspan="1">Is Sam standing next to a telephone?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7477"></span>7477</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="73E4.html#73f0">$73F0</a></td>
 <td class="comment-11" rowspan="1">Update the icon panel now if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="747a"></span>
 <div class="comments">
 <div class="paragraph">
@@ -315,84 +356,98 @@ Sam is standing next to a telephone. Before showing the telephone icon, we need 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="747a"></span>747A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FA8</td>
 <td class="comment-11" rowspan="2">Set bit 4 at <a href="7FA8.html">7FA8</a>: telephone icon</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="747d"></span>747D</td>
+<td class="bytes-0"></td>
 <td class="instruction">SET 4,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="747f"></span>747F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$7491</td>
 <td class="comment-11" rowspan="1">Jump if the telephone is not ringing</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7481"></span>7481</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($5C78)</td>
 <td class="comment-11" rowspan="1">Collect the value of the system variable FRAMES, which is incremented every 20ms</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7484"></span>7484</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 5,A</td>
 <td class="comment-11" rowspan="1">Bit 5 of FRAMES alternates every 0.64s</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7486"></span>7486</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7491</td>
 <td class="comment-11" rowspan="1">Jump if it's zero now</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7488"></span>7488</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($50AE)</td>
 <td class="comment-11" rowspan="1">This is the display file address for the byte in the top-left corner of the telephone icon</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="748b"></span>748B</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="1">Is the telephone icon in the ringing phase at the moment?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="748c"></span>748C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL Z,<a href="6FF4.html">$6FF4</a></td>
 <td class="comment-11" rowspan="1">If not, make it so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="748f"></span>748F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $7498</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7491"></span>7491</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($50AE)</td>
 <td class="comment-11" rowspan="1">This is the display file address for the byte in the top-left corner of the telephone icon</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7494"></span>7494</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="1">Is the telephone icon in the ringing phase at the moment?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7495"></span>7495</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL NZ,<a href="6FF4.html#6ffa">$6FFA</a></td>
 <td class="comment-11" rowspan="1">If so, make it appear still (as when between rings)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7498"></span>7498</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="73E4.html#73f0">$73F0</a></td>
 <td class="comment-11" rowspan="1">Update the icon panel</td>
 </tr>
@@ -405,10 +460,10 @@ Sam is standing next to a telephone. Before showing the telephone icon, we need 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/29733.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/29733.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

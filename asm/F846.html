@@ -23,7 +23,7 @@
 <div class="description">F846: Make a cat run up or down</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this interruptible subcommand routine is placed into bytes 0x0E and 0x0F of a cat's buffer by the routine at <a href="F82A.html">F82A</a>. It makes a cat run up or down to his next walkabout destination, and then terminates.
@@ -49,17 +49,19 @@ The address of this interruptible subcommand routine is placed into bytes 0x0E a
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f846"></span>F846</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f848"></span>F848</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is the cat in running phase 2 (animatory state <a href="../graphics/as.html#118">0x76/0xF6</a>)?</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f84a"></span>
 <div class="comments">
 <div class="paragraph">
@@ -71,83 +73,96 @@ The cat's animatory state is <a href="../graphics/as.html#117">0x75 or 0xF5</a> 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f84a"></span>F84A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F85C</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f84c"></span>F84C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the cat's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f84f"></span>F84F</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#118">0x76/0xF6</a> (cat running phase 2)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f850"></span>F850</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1">Save this animatory state briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f851"></span>F851</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="5"><span class="register">A</span>=-1 if the cat is facing left, 1 if he's facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f852"></span>F852</td>
+<td class="bytes-0"></td>
 <td class="instruction">CCF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f853"></span>F853</td>
+<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f854"></span>F854</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f855"></span>F855</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f856"></span>F856</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,E</td>
 <td class="comment-11" rowspan="2">Adjust the cat's x-coordinate appropriately</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f857"></span>F857</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f858"></span>F858</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1">Restore the cat's next animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f859"></span>F859</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="E9D5.html">$E9D5</a></td>
 <td class="comment-11" rowspan="1">Update the cat's animatory state and location and update the SRB</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f85c"></span>
 <div class="comments">
 <div class="paragraph">
@@ -159,108 +174,126 @@ The cat's animatory state is <a href="../graphics/as.html#118">0x76 or 0xF6</a> 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f85c"></span>F85C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f85e"></span>F85E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=cat's current x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f85f"></span>F85F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0B</td>
 <td class="comment-11" rowspan="1">The cat's walkabout destination x-coordinate is stored in byte 0x0B of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f861"></span>F861</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Has the cat reached his walkabout destination?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f862"></span>F862</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="F280.html#f284">$F284</a></td>
 <td class="comment-11" rowspan="1">Terminate this subcommand if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f865"></span>F865</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$FF</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=-1 (which will set the cat's animatory state to running phase 1)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f867"></span>F867</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the cat's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f869"></span>F869</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Set the zero flag if the cat is facing left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f86b"></span>F86B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$F87A</td>
 <td class="comment-11" rowspan="1">Jump if the cat is to the left of his walkabout destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f86d"></span>F86D</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F871</td>
 <td class="comment-11" rowspan="1">Jump if the cat is facing left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f86f"></span>F86F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$80</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=0x80 (which will turn the cat round)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f871"></span>F871</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1">Save the animatory state adjustment</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f872"></span>F872</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the cat's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f875"></span>F875</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1">Restore the animatory state adjustment to <span class="register">B</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f876"></span>F876</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,B</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=cat's next animatory state (running phase 1, or turned round)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f877"></span>F877</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="E9D5.html">$E9D5</a></td>
 <td class="comment-11" rowspan="1">Update the cat's animatory state and location and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f87a"></span>F87A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F871</td>
 <td class="comment-11" rowspan="1">Jump if the cat is facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f87c"></span>F87C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $F86F</td>
 <td class="comment-11" rowspan="1">Turn the cat round</td>
 </tr>
@@ -273,10 +306,10 @@ The cat's animatory state is <a href="../graphics/as.html#118">0x76 or 0xF6</a> 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/63558.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63558.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

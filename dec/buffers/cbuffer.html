@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Character buffers</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="CharacterBuffers">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Character buffers</td>
+</tr>
+</table>
+<p>The character buffers occupy bytes 0-24 in pages 215-221 and bytes
+0-31 in pages 222-230.</p>
+<p>The buffers in pages 215-221 are each shared by a group of five minor
+characters. Which one of the five characters 'owns' the buffer at any one time
+depends on the portion of the play area that is currently on screen. When the
+screen scrolls left or right, ownership of one of the buffers switches to the
+next or previous character in the group. See the routines at <a href="../asm/61838.html">61838</a> and
+<a href="../asm/61882.html">61882</a>.</p>
+<p>The buffers in pages 222-230 are used mostly by the principal
+characters, depending on the current <a href="../asm/32750.html">game mode</a> (0-4).</p>
+<table class="cbuffer">
+<tr>
+<th colspan="1" rowspan="1">Page</th>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Character</th>
+<td class="transparent" colspan="1" rowspan="1"></td>
+<th colspan="1" rowspan="1">Page</th>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Character</th>
+<td class="transparent" colspan="1" rowspan="1"></td>
+<th colspan="1" rowspan="1">Page</th>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Character</th>
+</tr>
+<tr>
+<td class="cbufPage" colspan="1" rowspan="1">215</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/55040.html">55040</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Various</td>
+<td class="transparent" colspan="1" rowspan="1"></td>
+<td class="cbufPage" colspan="1" rowspan="1">221</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/56576.html">56576</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Various</td>
+<td class="transparent" colspan="1" rowspan="1"></td>
+<td class="cbufPage" colspan="1" rowspan="1">227</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/58112.html">58112</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Sniper (modes 1-4)</td>
+</tr>
+<tr>
+<td class="cbufPage" colspan="1" rowspan="1">216</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/55296.html">55296</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Various</td>
+<td class="transparent" colspan="1" rowspan="1"></td>
+<td class="cbufPage" colspan="1" rowspan="1">222</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/56832.html">56832</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Policeman (modes 0-3)</td>
+<td class="transparent" colspan="1" rowspan="1"></td>
+<td class="cbufPage" colspan="1" rowspan="1">228</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/58368.html">58368</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Banknote</td>
+</tr>
+<tr>
+<td class="cbufPage" colspan="1" rowspan="1">217</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/55552.html">55552</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Various</td>
+<td class="transparent" colspan="1" rowspan="1"></td>
+<td class="cbufPage" colspan="1" rowspan="1">223</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/57088.html">57088</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Policeman (modes 1-3)</td>
+<td class="transparent" colspan="1" rowspan="1"></td>
+<td class="cbufPage" colspan="1" rowspan="1">229</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/58624.html">58624</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Banknote; hook</td>
+</tr>
+<tr>
+<td class="cbufPage" colspan="1" rowspan="1">218</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/55808.html">55808</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Various</td>
+<td class="transparent" colspan="1" rowspan="1"></td>
+<td class="cbufPage" colspan="1" rowspan="1">224</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/57344.html">57344</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Gangster</td>
+<td class="transparent" colspan="1" rowspan="1"></td>
+<td class="cbufPage" colspan="1" rowspan="1">230</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/58880.html">58880</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Sam</td>
+</tr>
+<tr>
+<td class="cbufPage" colspan="1" rowspan="1">219</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/56064.html">56064</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Various</td>
+<td class="transparent" colspan="1" rowspan="1"></td>
+<td class="cbufPage" colspan="1" rowspan="1">225</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/57600.html">57600</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Fat Man (mode 2); Lana (mode 3)</td>
+</tr>
+<tr>
+<td class="cbufPage" colspan="1" rowspan="1">220</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/56320.html">56320</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Various</td>
+<td class="transparent" colspan="1" rowspan="1"></td>
+<td class="cbufPage" colspan="1" rowspan="1">226</td>
+<td class="cbufAddress" colspan="1" rowspan="1"><a href="../asm/57856.html">57856</a></td>
+<td class="cbufCharacter" colspan="1" rowspan="1">Daisy (modes 0-3)</td>
+</tr>
+</table>
+<p>The bytes in each character buffer are used as follows:</p>
+<table class="cbuffer">
+<tr>
+<th>Byte(s)</th>
+<th>Contents</th>
+</tr>
+<tr>
+<td class="cbufBytes" rowspan="1">0</td>
+<td class="cbufByteDesc">
+Animatory state
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="1">1,2</td>
+<td class="cbufByteDesc">
+Location (x, y)
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="1">3</td>
+<td class="cbufByteDesc">
+Various flags:
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit(s)</th>
+<th colspan="1" rowspan="1">Meaning if set</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0-3</td>
+<td class="" colspan="1" rowspan="1">Unused</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Unused (always reset, but checked by <a href="../asm/61948.html">61948</a>)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">Unused</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1">Character should be moved (see <a href="../asm/61948.html">61948</a>)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1">Character is running (see <a href="../asm/61948.html">61948</a>)</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="1">4</td>
+<td class="cbufByteDesc">
+z-coordinate: 1=indoors; 2=outside, behind people on the sidewalk; 4=on the
+sidewalk or road; 8=invisible
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="1">5</td>
+<td class="cbufByteDesc">
+Post-midstride animatory state (see <a href="../asm/60347.html">60347</a>, <a href="../asm/60506.html">60506</a>)
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="1">6</td>
+<td class="cbufByteDesc">
+Post-midstride x-coordinate  (see <a href="../asm/60347.html">60347</a>, <a href="../asm/60506.html">60506</a>)
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="1">7</td>
+<td class="cbufByteDesc">
+Post-midstride y-coordinate  (see <a href="../asm/60347.html">60347</a>, <a href="../asm/60506.html">60506</a>, <a href="../asm/60641.html">60641</a>, <a href="../asm/64338.html">64338</a>)
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="2">8</td>
+<td class="cbufByteDesc">
+LSB of the primary command routine address (see <a href="../asm/61948.html">61948</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Sam's main action timer (see <a href="../asm/24832.html">24832</a>, <a href="../asm/25789.html">25789</a>, <a href="../asm/29149.html">29149</a>, <a href="../asm/29912.html">29912</a>, <a href="../asm/30675.html">30675</a>,
+<a href="../asm/60641.html">60641</a>, <a href="../asm/61483.html">61483</a>, <a href="../asm/64338.html">64338</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufBytes" rowspan="2">9</td>
+<td class="cbufByteDesc">
+MSB of the primary command routine address (see <a href="../asm/61948.html">61948</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Sam's midstride/mid-action timer (see <a href="../asm/29149.html">29149</a>, <a href="../asm/60641.html">60641</a>, <a href="../asm/61483.html">61483</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufBytes" rowspan="4">10</td>
+<td class="cbufByteDesc">
+Destination x-coordinate (see <a href="../asm/28803.html">28803</a>, <a href="../asm/29072.html">29072</a>, <a href="../asm/29361.html">29361</a>, <a href="../asm/31126.html">31126</a>, <a href="../asm/31808.html">31808</a>,
+<a href="../asm/31944.html">31944</a>, <a href="../asm/60812.html">60812</a>, <a href="../asm/62976.html">62976</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Walkabout origin x-coordinate (see <a href="../asm/63304.html">63304</a>, <a href="../asm/63530.html">63530</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Counter used by the sniper to decide when to appear (see <a href="../asm/25307.html">25307</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+1 if the banknote has just been landed on by Sam, 0 otherwise (see <a href="../asm/25420.html">25420</a>,
+<a href="../asm/25539.html">25539</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufBytes" rowspan="3">11</td>
+<td class="cbufByteDesc">
+Destination y-coordinate (see <a href="../asm/29072.html">29072</a>, <a href="../asm/29361.html">29361</a>, <a href="../asm/31126.html">31126</a>, <a href="../asm/31944.html">31944</a>, <a href="../asm/60812.html">60812</a>,
+<a href="../asm/62976.html">62976</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Walkabout destination x-coordinate for a cat (see <a href="../asm/63530.html">63530</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+LSB of the address of the door knock status flags for the door (if any) that
+the character is on duty for (see <a href="../asm/31338.html">31338</a>, <a href="../asm/63304.html">63304</a>, <a href="../asm/63520.html">63520</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufBytes" rowspan="3">12</td>
+<td class="cbufByteDesc">
+Roll/somersault animation phase table entry address LSB (see <a href="../asm/25789.html">25789</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Destination location identifier (see <a href="../asm/28803.html">28803</a>, <a href="../asm/29072.html">29072</a>, <a href="../asm/29361.html">29361</a>, <a href="../asm/31126.html">31126</a>,
+<a href="../asm/31808.html">31808</a>, <a href="../asm/31944.html">31944</a>, <a href="../asm/60812.html">60812</a>, <a href="../asm/62976.html">62976</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Walkabout duration indicator (0=indefinite, 255=finite) (see <a href="../asm/31338.html">31338</a>,
+<a href="../asm/63304.html">63304</a>, <a href="../asm/63520.html">63520</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufBytes" rowspan="6">13</td>
+<td class="cbufByteDesc">
+Roll/somersault animation phase table entry address MSB (see <a href="../asm/25789.html">25789</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+0 if Sam has only just met Lana, 1 otherwise (see <a href="../asm/24832.html">24832</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Pre-knockout animatory state (see <a href="../asm/64005.html">64005</a>, <a href="../asm/64131.html">64131</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Number of mini-walkabouts remaining (see <a href="../asm/31338.html">31338</a>, <a href="../asm/63304.html">63304</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Location/destination indicator: 2 if the character is not on the sidewalk or
+the road, and is not in the same region as his destination; 1 if the character
+is not on the sidewalk or the road, and is in the same region as his
+destination; 0 if the character is on the sidewalk or the road, or on the front
+steps of the hotel but heading somewhere other than the hotel (see <a href="../asm/31808.html">31808</a>,
+<a href="../asm/60812.html">60812</a>, <a href="../asm/62976.html">62976</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+1 if Sam has stepped off or been dropped off the the roof of a building to the
+ground from a great enough height that he could be knocked out when he lands; 0
+otherwise (see <a href="../asm/64227.html">64227</a>, <a href="../asm/64338.html">64338</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufBytes" rowspan="1">14,15</td>
+<td class="cbufByteDesc">
+Interruptible subcommand routine address (see <a href="../asm/61948.html">61948</a>)
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="6">16</td>
+<td class="cbufByteDesc">
+Walkabout destination x-coordinate (see <a href="../asm/63209.html">63209</a>, <a href="../asm/63304.html">63304</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Intermediate destination x-coordinate (see <a href="../asm/62926.html">62926</a>, <a href="../asm/62976.html">62976</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Intermediate destination y-coordinate (see <a href="../asm/62892.html">62892</a>, <a href="../asm/62976.html">62976</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Counter used by the sniper to decide when to duck and when to shoot (see
+<a href="../asm/25118.html">25118</a>, <a href="../asm/25307.html">25307</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+LSB of the address of the door knock status flags (see <a href="../asm/32682.html">32682</a>) for the door
+the character has knocked on (see <a href="../asm/62278.html">62278</a>, <a href="../asm/62297.html">62297</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Counter that determines how much longer a policeman will keep knocking on a
+door before busting it open (see <a href="../asm/62325.html">62325</a>, <a href="../asm/62339.html">62339</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufBytes" rowspan="3">17</td>
+<td class="cbufByteDesc">
+Delay counter used by the sniper after firing a bullet (see <a href="../asm/25118.html">25118</a>, <a href="../asm/25307.html">25307</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Counter that determines how much longer the character will wait for a door to
+be opened before giving up (see <a href="../asm/62278.html">62278</a>, <a href="../asm/62297.html">62297</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Counter that determines the delay until the character will consider flipping a
+light switch or raising or lowering a window blind (see <a href="../asm/63209.html">63209</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufBytes" rowspan="1">18,19</td>
+<td class="cbufByteDesc">
+Uninterruptible subcommand routine address (see <a href="../asm/61948.html">61948</a>)
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="4">20</td>
+<td class="cbufByteDesc">
+Telephone dialling sound effect counter (see <a href="../asm/30675.html">30675</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Distance remaining for the hook to fly (see <a href="../asm/31713.html">31713</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Knockout and recovery delay counter (see <a href="../asm/64005.html">64005</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Animation phase counter used when a character has just stepped off the roof of
+a building (see <a href="../asm/64227.html">64227</a>, <a href="../asm/64338.html">64338</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufBytes" rowspan="2">21</td>
+<td class="cbufByteDesc">
+Pre-knockout x-coordinate (see <a href="../asm/64005.html">64005</a>, <a href="../asm/64131.html">64131</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufByteDesc">
+Landing y-coordinate (see <a href="../asm/64338.html">64338</a>)
+</td>
+</tr>
+<tr>
+<td class="cbufBytes" rowspan="1">22</td>
+<td class="cbufByteDesc">
+Offset of the point reached in the current command list (relative to the start)
+(see <a href="../asm/61791.html">61791</a>)
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="1">23,24</td>
+<td class="cbufByteDesc">
+Start address of the command list (see <a href="../asm/61791.html">61791</a>, <a href="../asm/61948.html">61948</a>)
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="1">25,26</td>
+<td class="cbufByteDesc">
+Unused (but see <a href="../asm/61948.html">61948</a>)
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="1">27,28</td>
+<td class="cbufByteDesc">
+Unused (but checked by <a href="../asm/61948.html">61948</a> for a continual subcommand routine address)
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="1">29</td>
+<td class="cbufByteDesc">
+ID of Sam's disguise (bits 5-7) when he was last spotted (but not recognised)
+by the policeman, and the corresponding disguise timeout counter (bits 0-4)
+(see <a href="../asm/29100.html">29100</a>, <a href="../asm/29218.html">29218</a>, <a href="../asm/29361.html">29361</a>, <a href="../asm/29559.html">29559</a>)
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="1">30</td>
+<td class="cbufByteDesc">
+Sam's x-coordinate when he was last spotted by the policeman while wearing a
+disguise unknown to the police (see <a href="../asm/29100.html">29100</a>, <a href="../asm/29218.html">29218</a>)
+</td>
+</tr>
+
+<tr>
+<td class="cbufBytes" rowspan="1">31</td>
+<td class="cbufByteDesc">
+Sam's y-coordinate (bits 0-5) and z-coordinate (bits 6-7) when he was last
+spotted by the policeman while wearing a disguise unknown to the police (see
+<a href="../asm/29100.html">29100</a>, <a href="../asm/29218.html">29218</a>)
+</td>
+</tr>
+
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../buffers/cbuffer.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

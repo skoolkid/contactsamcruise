@@ -23,7 +23,7 @@
 <div class="description">F6DE: Restart the command list</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="615D.html">615D</a>, <a href="7A82.html">7A82</a>, <a href="F359.html">F359</a> and <a href="F686.html">F686</a>, and by the command lists at <a href="FCFC.html">FCFC</a>, <a href="FD96.html">FD96</a>, <a href="FDA0.html">FDA0</a>, <a href="FDB4.html">FDB4</a>, <a href="FDC4.html">FDC4</a>, <a href="FDD0.html">FDD0</a>, <a href="FDDF.html">FDDF</a>, <a href="FDEA.html">FDEA</a>, <a href="FDF8.html">FDF8</a>, <a href="FE06.html">FE06</a>, <a href="FE0A.html">FE0A</a>, <a href="FE14.html">FE14</a>, <a href="FE23.html">FE23</a>, <a href="FE34.html">FE34</a>, <a href="FE49.html">FE49</a>, <a href="FE58.html">FE58</a>, <a href="FE77.html">FE77</a> and <a href="FEA0.html">FEA0</a>.
@@ -49,18 +49,21 @@ Used by the routines at <a href="615D.html">615D</a>, <a href="7A82.html">7A82</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f6de"></span>F6DE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$16</td>
 <td class="comment-11" rowspan="1">Byte 0x16 of the character's buffer holds the offset of the point reached in the command list (relative to the start)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6e0"></span>F6E0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-11" rowspan="1">Set this offset to 0, thus restarting the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6e2"></span>F6E2</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F280.html">$F280</a></td>
 <td class="comment-11" rowspan="1">Remove any existing primary command routine address from the character's buffer</td>
 </tr>
@@ -73,10 +76,10 @@ Used by the routines at <a href="615D.html">615D</a>, <a href="7A82.html">7A82</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/63198.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63198.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

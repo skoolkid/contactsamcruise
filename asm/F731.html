@@ -23,7 +23,7 @@
 <div class="description">F731: Make a character drop Sam</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the command lists at <a href="FCF4.html">FCF4</a>, <a href="FD16.html">FD16</a>, <a href="FD30.html">FD30</a>, <a href="FD4E.html">FD4E</a> and <a href="FD6E.html">FD6E</a>. Makes the character drop Sam and stop running, and restarts the command list.
@@ -49,60 +49,70 @@ Used by the command lists at <a href="FCF4.html">FCF4</a>, <a href="FD16.html">F
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f731"></span>F731</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f734"></span>F734</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $F2</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the character in phase 1 or 3 of his walking animation</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f736"></span>F736</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9D5.html">$E9D5</a></td>
 <td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f739"></span>F739</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f73a"></span>F73A</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $70</td>
 <td class="comment-11" rowspan="1">Keep only bits 4-6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f73c"></span>F73C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $10</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#16">0x10</a>: Is this character a policeman?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f73e"></span>F73E</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F745</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f740"></span>F740</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$80</td>
 <td class="comment-11" rowspan="2">Set bit 7 at <a href="7FEB.html">7FEB</a>: Sam is in jail</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f742"></span>F742</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FEB),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f745"></span>F745</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F686.html">$F686</a></td>
 <td class="comment-11" rowspan="1">Make the character stop running and restart the command list</td>
 </tr>
@@ -115,10 +125,10 @@ Used by the command lists at <a href="FCF4.html">FCF4</a>, <a href="FD16.html">F
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/63281.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63281.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

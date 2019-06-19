@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 29597</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="29578.html">29578</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29597">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29632.html">29632</a></span></td>
+</tr>
+</table>
+<div class="description">29597: Check whether a gangster should start chasing Sam</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="31319.html">31319</a>. Returns with the carry flag reset if Sam is close enough (and not disguised well enough) that the gangster should start chasing him, and the appropriate command list offset in <span class="register">A</span>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Gangster's character number (215-224)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="29597"></span>29597</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="28150.html">28150</a></td>
+<td class="comment-11" rowspan="1">Set <span class="register">A</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29600"></span>29600</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="1">Set the zero flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29601"></span>29601</td>
+<td class="bytes-0"></td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Set the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29602"></span>29602</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">This return never happens</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29603"></span>29603</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,23</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 23 of the gangster's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29605"></span>29605</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-11" rowspan="3">Collect the command list start address in <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29606"></span>29606</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29607"></span>29607</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29608"></span>29608</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,H</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=gangster's character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29609"></span>29609</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,65530</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the second entry in the relevant table of region definitions at <a href="64780.html">64780</a>, <a href="64806.html">64806</a>, <a href="64836.html">64836</a>, <a href="64868.html">64868</a> or <a href="64892.html">64892</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29612"></span>29612</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29613"></span>29613</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,230</td>
+<td class="comment-11" rowspan="1">230=Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29615"></span>29615</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="29578.html">29578</a></td>
+<td class="comment-11" rowspan="1">Is Sam inside the region?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29618"></span>29618</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,29630</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29620"></span>29620</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(32713)</td>
+<td class="comment-11" rowspan="1">Collect the ID of Sam's current disguise (0-7) from <a href="32713.html">32713</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29623"></span>29623</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Compare it with the disguise ID in the region definition table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29624"></span>29624</td>
+<td class="bytes-0"></td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Set the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29625"></span>29625</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,29630</td>
+<td class="comment-11" rowspan="1">Jump if Sam's current disguise matches (the gangster will let Sam pass)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29627"></span>29627</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="2">Collect the command list offset from the region definition table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29628"></span>29628</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29629"></span>29629</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Clear the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="29630"></span>29630</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,B</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=gangster's character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29631"></span>29631</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="29578.html">29578</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29597">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29632.html">29632</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/739D.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

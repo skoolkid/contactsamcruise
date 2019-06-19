@@ -23,7 +23,7 @@
 <div class="description">8116: Copy data into addresses 817D-FFE2 (step 247)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="80BC.html">80BC</a>. Copies the 132 bytes from the data table at <a href="8128.html">8128</a> into addresses 817D-FFE2 (step 247). This is done before loading the standard speed code block because the data for those addresses is not present in that code block (except for 817D, which is present on the tape, but is not loaded).
@@ -53,72 +53,84 @@ Used by the routine at <a href="80BC.html">80BC</a>. Copies the 132 bytes from t
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="8116"></span>8116</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="3">Set <span class="register">HL'</span> to the first destination address (minus 247)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8117"></span>8117</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$8086</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="811a"></span>811A</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="811b"></span>811B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$84</td>
 <td class="comment-11" rowspan="1">There are 132 bytes to copy</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="811d"></span>811D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up a byte from the data table at <a href="8128.html">8128</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="811e"></span>811E</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="811f"></span>811F</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-11" rowspan="1">Add 247 to <span class="register">HL'</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8120"></span>8120</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Copy the byte to its destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8121"></span>8121</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8122"></span>8122</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1">Move <span class="register">HL</span> along to the next byte in the data table</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8123"></span>8123</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $811D</td>
 <td class="comment-11" rowspan="1">Jump back until all 132 bytes have been copied</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8125"></span>8125</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="802F.html">$802F</a></td>
 <td class="comment-11" rowspan="1">Load the standard speed code block</td>
 </tr>
@@ -131,10 +143,10 @@ Used by the routine at <a href="80BC.html">80BC</a>. Copies the 132 bytes from t
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/load/33046.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/load/33046.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

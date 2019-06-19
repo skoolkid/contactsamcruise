@@ -23,7 +23,7 @@
 <div class="description">6400: Copy source sprite tiles over target sprite tiles</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="6412.html">6412</a> to prepare sprite tiles 0xEF-0xF7, which are used by animatory states <a href="../graphics/as.html#9">0x09</a>, <a href="../graphics/as.html#10">0x0A</a>, <a href="../graphics/as.html#15">0x0F</a> and <a href="../graphics/as.html#31">0x1F</a> (corresponding to the sprites of Sam rolling and somersaulting).
@@ -57,11 +57,12 @@ Used by the routine at <a href="6412.html">6412</a> to prepare sprite tiles 0xEF
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6400"></span>6400</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$C7</td>
 <td class="comment-11" rowspan="1">This is the base page of the graphic data for the source tile</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6402"></span>
 <div class="comments">
 <div class="paragraph">
@@ -73,72 +74,84 @@ This entry point is used by the routine at <a href="6412.html">6412</a> with <sp
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6402"></span>6402</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$C7</td>
 <td class="comment-11" rowspan="1">This is the base page of the graphic data for the target tile</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6404"></span>6404</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$10</td>
 <td class="comment-11" rowspan="6">Copy the source sprite tile over the target sprite tile (8 bytes of graphic data interleaved with 8 bytes of mask data)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6406"></span>6406</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6407"></span>6407</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6408"></span>6408</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6409"></span>6409</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="640a"></span>640A</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $6406</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="640c"></span>640C</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1">Move to the next source sprite tile reference</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="640d"></span>640D</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1">Move to the next target sprite tile reference</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="640e"></span>640E</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
 <td class="comment-11" rowspan="1">Have all the sprite tiles been copied yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="640f"></span>640F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$6400</td>
 <td class="comment-11" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6411"></span>6411</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -151,10 +164,10 @@ This entry point is used by the routine at <a href="6412.html">6412</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/25600.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/25600.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

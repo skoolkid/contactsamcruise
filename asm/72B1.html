@@ -23,7 +23,7 @@
 <div class="description">72B1: Control a policeman (2)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this primary command routine is placed into bytes 0x08 and 0x09 of a policeman's buffer by the routine at <a href="72AA.html">72AA</a>. It makes the policeman continue patrol duty, and chase and pick up Sam when appropriate.
@@ -49,41 +49,47 @@ The address of this primary command routine is placed into bytes 0x08 and 0x09 o
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="72b1"></span>72B1</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F698.html">$F698</a></td>
 <td class="comment-11" rowspan="1">Exit now if the policeman is midstride</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72b4"></span>72B4</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7CFE.html">$7CFE</a></td>
 <td class="comment-11" rowspan="2">Is Sam wanted by the police at the moment?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72b7"></span>72B7</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72b8"></span>72B8</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$7324</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72ba"></span>72BA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$08</td>
 <td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 0x08 and 0x09 of the policeman's buffer to <a href="72B1.html#72be">72BE</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72bc"></span>72BC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$BE</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="72be"></span>
 <div class="comments">
 <div class="paragraph">
@@ -95,71 +101,82 @@ This entry point is used when the policeman is not chasing Sam.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="72be"></span>72BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F698.html">$F698</a></td>
 <td class="comment-11" rowspan="1">Exit now if the policeman is midstride</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72c1"></span>72C1</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7CFE.html">$7CFE</a></td>
 <td class="comment-11" rowspan="2">Is Sam wanted by the police at the moment?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72c4"></span>72C4</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72c5"></span>72C5</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$72D5</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72c7"></span>72C7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$1D</td>
 <td class="comment-11" rowspan="2">Clear any disguise identifier and timeout counter in byte 0x1D of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72c9"></span>72C9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72cb"></span>72CB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
 <td class="comment-11" rowspan="2">Reset bit 7 of byte 0x03 of the policeman's buffer (no need to run if Sam's not wanted by the police)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72cd"></span>72CD</td>
+<td class="bytes-0"></td>
 <td class="instruction">RES 7,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72cf"></span>72CF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$08</td>
 <td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 0x08 and 0x09 of the policeman's buffer to <a href="72B1.html">72B1</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72d1"></span>72D1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$B1</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72d3"></span>72D3</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $7324</td>
 <td class="comment-11" rowspan="1">Determine the policeman's next move</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="72d5"></span>
 <div class="comments">
 <div class="paragraph">
@@ -171,107 +188,124 @@ Sam is wanted by the police.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="72d5"></span>72D5</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7377.html">$7377</a></td>
 <td class="comment-11" rowspan="1">Make the policeman start chasing Sam if he spots him, or go to Sam's last known whereabouts if Sam's disguise has become known to the police</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72d8"></span>72D8</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$72EB</td>
 <td class="comment-11" rowspan="1">Jump if the policeman is now doing either of those things</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72da"></span>72DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$7FDC</td>
 <td class="comment-11" rowspan="1"><a href="7FDB.html#7fdc">7FDC</a> holds the y-coordinate of the location the police should be heading for to get Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72dd"></span>72DD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1">Pick it up in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72de"></span>72DE</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Do the police know where they should be heading to get Sam?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72df"></span>72DF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7324</td>
 <td class="comment-11" rowspan="1">Jump if not to make the policeman continue to go about his normal business</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72e1"></span>72E1</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"><span class="register">DE</span>=<a href="7FDB.html">7FDB</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72e2"></span>72E2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0003</td>
 <td class="comment-11" rowspan="5">Copy the coordinates and location identifier of the spot to which the police should be heading to get Sam into byte 0x0A-0x0C of the policeman's buffer, thus making it his destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72e5"></span>72E5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72e7"></span>72E7</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72e8"></span>72E8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72ea"></span>72EA</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="72eb"></span>72EB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
 <td class="comment-11" rowspan="2">Set bit 7 of byte 0x03 of the policeman's buffer (to make him run)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72ed"></span>72ED</td>
+<td class="bytes-0"></td>
 <td class="instruction">SET 7,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72ef"></span>72EF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$08</td>
 <td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 0x08 and 0x09 of the policeman's buffer to <a href="72B1.html#72f5">72F5</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72f1"></span>72F1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$F5</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72f3"></span>72F3</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $7324</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="72f5"></span>
 <div class="comments">
 <div class="paragraph">
@@ -283,125 +317,145 @@ This entry point is used when the policeman is chasing Sam or heading to his las
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72f5"></span>72F5</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7CFE.html">$7CFE</a></td>
 <td class="comment-11" rowspan="2">Should the police be chasing Sam at the moment?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72f8"></span>72F8</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72f9"></span>72F9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$72BE</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72fb"></span>72FB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FC9)</td>
 <td class="comment-11" rowspan="1">Collect the ID of Sam's current disguise from <a href="7FC9.html">7FC9</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72fe"></span>72FE</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$A0</td>
 <td class="comment-11" rowspan="2"><span class="register">B</span>=0xA0-0xA7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7300"></span>7300</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7301"></span>7301</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Transfer the policeman's character number to <span class="register">D</span> briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7302"></span>7302</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,$15</td>
 <td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 0x15 of one of the pages 0xA0-0xA7, which hold the values 0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02 and 0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7304"></span>7304</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FE8</td>
 <td class="comment-11" rowspan="1">The disguise status flags are stored at <a href="7FE8.html">7FE8</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7307"></span>7307</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(BC)</td>
 <td class="comment-11" rowspan="2">Set the zero flag if Sam's disguise is unknown to the police</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7308"></span>7308</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND (HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7309"></span>7309</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Transfer the policeman's character number back to <span class="register">H</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="730a"></span>730A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$731B</td>
 <td class="comment-11" rowspan="1">Jump if Sam's disguise is unknown to the police</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="730c"></span>730C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="710E.html">$710E</a></td>
 <td class="comment-11" rowspan="1">Is the policeman close enough to Sam to pick him up?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="730f"></span>730F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$731B</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7311"></span>7311</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="2">Clear the y-coordinate of the spot to which the police should run to get Sam at <a href="7FDB.html#7fdc">7FDC</a> (Sam has been caught)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7312"></span>7312</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FDC),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7315"></span>7315</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$1D</td>
 <td class="comment-11" rowspan="2">Clear any disguise ID and timeout counter in byte 0x1D of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7317"></span>7317</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7318"></span>7318</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7B9A.html">$7B9A</a></td>
 <td class="comment-11" rowspan="1">End the game if Sam has less than $46, or make the policeman pick Sam up</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="731b"></span>
 <div class="comments">
 <div class="paragraph">
@@ -413,29 +467,33 @@ Sam's disguise is unknown to the police, or the policeman is not close enough to
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="731b"></span>731B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F698.html">$F698</a></td>
 <td class="comment-11" rowspan="1">Exit now if the policeman is midstride</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="731e"></span>731E</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7377.html">$7377</a></td>
 <td class="comment-11" rowspan="1">Make the policeman start chasing Sam if his disguise becomes known</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7321"></span>7321</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="717C.html">$717C</a></td>
 <td class="comment-11" rowspan="1">Make the policeman switch a light on if possible</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7324"></span>7324</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="ED8C.html">$ED8C</a></td>
 <td class="comment-11" rowspan="1">Determine the next move the policeman should make to reach his destination</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7327"></span>
 <div class="comments">
 <div class="paragraph">
@@ -447,29 +505,33 @@ This entry point is used by the routine at <a href="F600.html">F600</a> with <sp
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7327"></span>7327</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $05</td>
 <td class="comment-11" rowspan="1">Is the character standing behind or in front of a closed door?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7329"></span>7329</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NC,<a href="F600.html#f67c">$F67C</a></td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="732c"></span>732C</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is the character already at his destination?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="732d"></span>732D</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="F600.html#f63c">$F63C</a></td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7330"></span>
 <div class="comments">
 <div class="paragraph">
@@ -481,179 +543,208 @@ The policeman has reached his destination.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7330"></span>7330</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$08</td>
 <td class="comment-11" rowspan="2">Collect the LSB of the primary command routine address from byte 0x08 of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7332"></span>7332</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7333"></span>7333</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $F5</td>
 <td class="comment-11" rowspan="1">Is the primary command routine address <a href="72B1.html#72f5">72F5</a> (which is true if the policeman was either chasing Sam or heading towards his last known whereabouts)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7335"></span>7335</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$7360</td>
 <td class="comment-11" rowspan="1">If not, send the policeman to a randomly chosen spot on the sidewalk or road</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7337"></span>7337</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$7FDC</td>
 <td class="comment-11" rowspan="2">Collect the y-coordinate of the location to which the police should run to get Sam from <a href="7FDB.html#7fdc">7FDC</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="733a"></span>733A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="733b"></span>733B</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Do the police know where to run to get Sam?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="733c"></span>733C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$734B</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="733e"></span>733E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7340"></span>7340</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Compare the policeman's y-coordinate with that of the spot to which the police should run to get Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7341"></span>7341</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC DE</td>
 <td class="comment-11" rowspan="1"><span class="register">DE</span>=7FDB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7342"></span>7342</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7355</td>
 <td class="comment-11" rowspan="1">Jump unless the policeman's y-coordinate matches</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7344"></span>7344</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7345"></span>7345</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the spot to which the police should run to get Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7346"></span>7346</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB (HL)</td>
 <td class="comment-11" rowspan="1">Does it match the policeman's x-coordinate?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7347"></span>7347</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7355</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7349"></span>7349</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="2">Set <a href="7FDB.html#7fdc">7FDC</a> to 0 now that a policeman has made it to the spot to which the police should run to get Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="734a"></span>734A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="734b"></span>734B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
 <td class="comment-11" rowspan="2">Reset bit 7 of byte 0x03 of the policeman's buffer (to make him stop running)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="734d"></span>734D</td>
+<td class="bytes-0"></td>
 <td class="instruction">RES 7,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="734f"></span>734F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$08</td>
 <td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 0x08 and 0x09 of the policeman's buffer to <a href="72B1.html#72be">72BE</a> (above)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7351"></span>7351</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$BE</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7353"></span>7353</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $7360</td>
 <td class="comment-11" rowspan="1">Send the policeman to a randomly chosen spot on the sidewalk or road</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7355"></span>7355</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0A</td>
 <td class="comment-11" rowspan="4">Copy the coordinates and location identifier of the spot to which the police should run to get Sam from <a href="7FDB.html">7FDB</a> into bytes 0x0A-0x0C of the policeman's buffer, thus making it his destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7357"></span>7357</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0003</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="735a"></span>735A</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="735b"></span>735B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="735d"></span>735D</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> back at the policeman's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="735e"></span>735E</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $7324</td>
 <td class="comment-11" rowspan="1">Determine the policeman's next move</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7360"></span>
 <div class="comments">
 <div class="paragraph">
@@ -665,66 +756,77 @@ This entry point is used by the routine at <a href="72AA.html">72AA</a>. It sets
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7360"></span>7360</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F17F.html">$F17F</a></td>
 <td class="comment-11" rowspan="1">Get a random number in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7363"></span>7363</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR $00</td>
 <td class="comment-11" rowspan="1">The operand of this OR instruction is changed by the routine at <a href="7500.html">7500</a>: to 0x00 (using the event entry at <a href="5FE0.html">5FE0</a>), or to 0xC0 (using the event entry at <a href="5FE0.html#6097">6097</a>) to keep the policeman close to Sam's office</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7365"></span>7365</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $FD</td>
 <td class="comment-11" rowspan="1">Discard bit 1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7367"></span>7367</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="1">Copy this x-coordinate to <span class="register">E</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7368"></span>7368</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EAF8.html#eb05">$EB05</a></td>
 <td class="comment-11" rowspan="1">Set the carry flag if there is no sidewalk at this x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="736b"></span>736B</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADC A,$22</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=34 (if there is sidewalk) or 35 (if there is no sidewalk)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="736d"></span>736D</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="736e"></span>736E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
 <td class="comment-11" rowspan="1">Copy this y-coordinate to <span class="register">D</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="736f"></span>736F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,$00</td>
 <td class="comment-11" rowspan="1">Clear bit 0 of <span class="register">C</span> to indicate that the destination is not indoors</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7371"></span>7371</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7190.html#7194">$7194</a></td>
 <td class="comment-11" rowspan="1">Set the policeman's destination to the coordinates in <span class="register">E</span>, <span class="register">D</span> and <span class="register">C</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7374"></span>7374</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $7324</td>
 <td class="comment-11" rowspan="1">Determine the policeman's next move</td>
 </tr>
@@ -737,10 +839,10 @@ This entry point is used by the routine at <a href="72AA.html">72AA</a>. It sets
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/29361.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/29361.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

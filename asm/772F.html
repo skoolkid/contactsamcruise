@@ -23,7 +23,7 @@
 <div class="description">772F: Check whether a character can answer the telephone that Sam is calling</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="77D3.html">77D3</a>. Returns with the carry flag set if the telephone that Sam is calling is both off-screen and not his own, or if there is a character close enough to the telephone to pick it up.
@@ -46,119 +46,138 @@ Used by the routine at <a href="77D3.html">77D3</a>. Returns with the carry flag
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="772f"></span>772F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7F9A</td>
 <td class="comment-11" rowspan="1"><a href="7F9A.html">7F9A</a> holds the identifier of the telephone that Sam is calling</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7732"></span>7732</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7733"></span>7733</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $1F</td>
 <td class="comment-11" rowspan="5"><span class="register">E</span>=x-coordinate of the leftmost column of the 8-tile-wide segment of the play area that contains the telephone (0, 8, 16,...248)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7735"></span>7735</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7736"></span>7736</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7737"></span>7737</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7738"></span>7738</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7739"></span>7739</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=telephone identifier</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="773a"></span>773A</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $5C</td>
 <td class="comment-11" rowspan="1">Is Sam calling his office?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="773c"></span>773C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$774A</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="773e"></span>773E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=telephone's x-coordinate (0, 8, 16,...248)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="773f"></span>773F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$FE</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FFE.html">7FFE</a>, which holds the leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7741"></span>7741</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is the telephone that Sam is calling off screen to the left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7742"></span>7742</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return with the carry flag set if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7743"></span>7743</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $20</td>
 <td class="comment-11" rowspan="1">Does the telephone that Sam is calling have an x-coordinate that is less than 32?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7745"></span>7745</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$774A</td>
 <td class="comment-11" rowspan="1">Jump if so (it's on screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7747"></span>7747</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is the telephone that Sam is calling off screen to the right?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7748"></span>7748</td>
+<td class="bytes-0"></td>
 <td class="instruction">CCF</td>
 <td class="comment-11" rowspan="2">Return with the carry flag set if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7749"></span>7749</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="774a"></span>
 <div class="comments">
 <div class="paragraph">
@@ -170,162 +189,189 @@ Sam has called his office, or a telephone that is on screen. In this case, Sam w
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="774a"></span>774A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$9A</td>
 <td class="comment-11" rowspan="2">Collect the telephone identifier from <a href="7F9A.html">7F9A</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="774c"></span>774C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="774d"></span>774D</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $E0</td>
 <td class="comment-11" rowspan="9"><span class="register">D</span>=y-coordinate of the telephone (7, 13, 19, 25 or 31)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="774f"></span>774F</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7750"></span>7750</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7751"></span>7751</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7752"></span>7752</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7753"></span>7753</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7754"></span>7754</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7755"></span>7755</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$07</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7757"></span>7757</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7758"></span>7758</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$D702</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of character buffer 0xD7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="775b"></span>775B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$0F</td>
 <td class="comment-11" rowspan="1">We will check the locations of characters 0xD7-0xE5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="775d"></span>775D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="775e"></span>775E</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP D</td>
 <td class="comment-11" rowspan="1">Does it match that of the telephone?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="775f"></span>775F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7769</td>
 <td class="comment-11" rowspan="1">Jump to consider the next character if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7761"></span>7761</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7762"></span>7762</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7763"></span>7763</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7764"></span>7764</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
 <td class="comment-11" rowspan="2">Set the zero flag if the character is in the same 8-tile-wide segment of the play area as the telephone</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7766"></span>7766</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7767"></span>7767</td>
+<td class="bytes-0"></td>
 <td class="instruction">SCF</td>
 <td class="comment-11" rowspan="1">Set the carry flag</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7768"></span>7768</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the carry flag set if the character is close to the telephone</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7769"></span>7769</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="1">Next character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="776a"></span>776A</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $775D</td>
 <td class="comment-11" rowspan="1">Jump back until every character has been checked</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="776c"></span>776C</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Reset the carry flag (there is no one close to the telephone)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="776d"></span>776D</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -338,10 +384,10 @@ Sam has called his office, or a telephone that is on screen. In this case, Sam w
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/30511.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/30511.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

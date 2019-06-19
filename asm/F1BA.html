@@ -23,7 +23,7 @@
 <div class="description">F1BA: Cycle a character buffer group backwards and scroll the screen left 8 columns</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="7866.html">7866</a> and <a href="EC7B.html">EC7B</a>. Cycles one of the character buffer groups in pages 0xD7-0xDD backwards depending on the current leftmost column of the play area that is on screen (X=(<a href="7FFE.html">7FFE</a>)):
@@ -82,126 +82,147 @@ Used by the routines at <a href="7866.html">7866</a> and <a href="EC7B.html">EC7
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f1ba"></span>F1BA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFE)</td>
 <td class="comment-11" rowspan="1"><a href="7FFE.html">7FFE</a> holds X, the x-coordinate of the leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f1bd"></span>F1BD</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $38</td>
 <td class="comment-11" rowspan="3"><span class="register">A</span>=0x00, 0x08, 0x10, 0x18, 0x20, 0x28 or 0x30 (depending on the value of X)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1bf"></span>F1BF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$F1BD</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1c1"></span>F1C1</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$38</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1c3"></span>F1C3</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="4"><span class="register">A</span>=0xD7-0xDD</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1c4"></span>F1C4</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1c5"></span>F1C5</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1c6"></span>F1C6</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$D7</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1c8"></span>F1C8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,A</td>
 <td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the first byte of the first buffer in the group</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1c9"></span>F1C9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1cb"></span>F1CB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$7F60</td>
 <td class="comment-11" rowspan="3">Copy the first buffer in the group (buffer 1) to <a href="7F60.html">7F60</a> temporarily</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1ce"></span>F1CE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0019</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1d1"></span>F1D1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1d3"></span>F1D3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,B</td>
 <td class="comment-11" rowspan="2">Point <span class="register">DE</span> at the first byte of the first buffer in the group</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1d4"></span>F1D4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1d5"></span>F1D5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,$64</td>
 <td class="comment-11" rowspan="2">Move buffers 2-5 down into slots 1-4 (thus overwriting buffer 1)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1d7"></span>F1D7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1d9"></span>F1D9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7F60</td>
 <td class="comment-11" rowspan="3">Copy buffer 1 from its temporary storage location into slot 5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1dc"></span>F1DC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,$19</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1de"></span>F1DE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1e0"></span>F1E0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="E80E.html">$E80E</a></td>
 <td class="comment-11" rowspan="1">Scroll the screen left 8 columns (the routine at <a href="7866.html">7866</a> replaces this instruction with a RET)</td>
 </tr>
@@ -214,10 +235,10 @@ Used by the routines at <a href="7866.html">7866</a> and <a href="EC7B.html">EC7
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/61882.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/61882.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

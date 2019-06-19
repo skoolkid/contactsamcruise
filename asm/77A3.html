@@ -23,7 +23,7 @@
 <div class="description">77A3: Check whether there is a telephone message for Sam</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="77D3.html">77D3</a>. On entry, <span class="register">A</span> holds the identifier of either the telephone that Sam is holding (which was ringing when he picked it up), or the telephone that Sam is calling. If there is a message for Sam, it will be queued unless Sam needs to identify himself first, in which case message <a href="69C5.html">0x25</a> ('A VOICE SAID 'WHO'S THERE?'') will be queued instead. If there is no message for Sam, the message that is queued will depend on who Sam is calling (Daisy, the police, or someone else).
@@ -53,144 +53,168 @@ Used by the routine at <a href="77D3.html">77D3</a>. On entry, <span class="regi
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="77a3"></span>77A3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=telephone identifier</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77a4"></span>77A4</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="76DD.html#76ea">$76EA</a></td>
 <td class="comment-11" rowspan="1">Is the telephone ringing, or does the person on the other end have a message for Sam?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77a7"></span>77A7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$77AE</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77a9"></span>77A9</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the second byte of the entry in the phone table</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77aa"></span>77AA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77ab"></span>77AB</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Does Sam need to identify himself in order to receive the message?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77ac"></span>77AC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,<a href="776F.html#7793">$7793</a></td>
 <td class="comment-11" rowspan="1">Jump if not to queue the message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="77ae"></span>77AE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7F97),HL</td>
 <td class="comment-11" rowspan="1">Store at <a href="7F97.html">7F97</a> the address of either the second byte of the relevant phone table entry (if the phone was ringing, or the person Sam's calling has a message for him), or the final byte of the phone message table at <a href="6B72.html">6B72</a> (if the person Sam's calling has no message for him)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="77b1"></span>77B1</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NC,<a href="75F6.html">$75F6</a></td>
 <td class="comment-11" rowspan="1">Jump if Sam must be asked to identify himself</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77b4"></span>77B4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=telephone identifier</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77b5"></span>77B5</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $5C</td>
 <td class="comment-11" rowspan="1">0x5C is the identifier of Sam's telephone</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77b7"></span>77B7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$32</td>
 <td class="comment-11" rowspan="1">Message <a href="6A87.html">0x32</a>: 'DAISY SAID 'NO MESSAGES SAM ''</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77b9"></span>77B9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$77D0</td>
 <td class="comment-11" rowspan="1">Jump if Sam called his office</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77bb"></span>77BB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=telephone identifier</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77bc"></span>77BC</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $70</td>
 <td class="comment-11" rowspan="1">0x70 is the identifier of the telephone in the police station</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77be"></span>77BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$77C7</td>
 <td class="comment-11" rowspan="1">Jump unless Sam called the police</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77c0"></span>77C0</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7A04.html">$7A04</a></td>
 <td class="comment-11" rowspan="1">Send the police after Sam</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77c3"></span>77C3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$33</td>
 <td class="comment-11" rowspan="1">Message <a href="6A97.html">0x33</a>: 'A VOICE SAID 'OK CRUISE WE'RE COMING''</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77c5"></span>77C5</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $77D0</td>
 <td class="comment-11" rowspan="1">Queue this message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="77c7"></span>77C7</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F17F.html">$F17F</a></td>
 <td class="comment-11" rowspan="1">Get a random number in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77ca"></span>77CA</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $03</td>
 <td class="comment-11" rowspan="1">Keep only bits 0 and 1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77cc"></span>77CC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$77B1</td>
 <td class="comment-11" rowspan="1">Jump if the result is 0 (25% of the time): ask Sam 'WHO'S THERE?'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77ce"></span>77CE</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$2A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="6A0E.html">0x2B</a> (A VOICE SAID 'THERES NOONE HERE'), <a href="6A1D.html">0x2C</a> (A VOICE SAID 'GET LOST - I'M TRYING TO SLEEP') or <a href="6A39.html">0x2D</a> (A VOICE SAID 'BE RIGHT WITH YOU')</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="77d0"></span>77D0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="776F.html#7799">$7799</a></td>
 <td class="comment-11" rowspan="1">Queue this message</td>
 </tr>
@@ -203,10 +227,10 @@ Used by the routine at <a href="77D3.html">77D3</a>. On entry, <span class="regi
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/30627.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/30627.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

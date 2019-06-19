@@ -23,7 +23,7 @@
 <div class="description">E620: Initialisation parameters for Sam</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="F8AE.html">F8AE</a>. Note that the last byte in each set of parameters is effectively unused, but because it is non-zero, the routine at <a href="F87E.html">F87E</a> will needlessly copy the whole set of parameters into bytes 0x00, 0x01, 0x02, 0x04, 0x17 and 0x18 of Sam's buffer; the parameters are correctly used to initialise Sam upon return from that routine by the routine at <a href="F8AE.html">F8AE</a>.
@@ -49,41 +49,47 @@ The first set of parameters is used in demo mode.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e620"></span>E620</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-11" rowspan="1">Unused</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e621"></span>E621</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $22</td>
 <td class="comment-11" rowspan="1">LSB of the address of the screen refresh buffer byte that corresponds to the top row of the cutscene window (see <a href="7866.html">7866</a>); combined with the coordinates below, this places the top-left corner of the cutscene window at (224,19) with Sam at (229,19) (in his office)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e622"></span>E622</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $D0</td>
 <td class="comment-11" rowspan="1">New x-coordinate for the leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e623"></span>E623</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $0E</td>
 <td class="comment-11" rowspan="1">New y-coordinate for the topmost row of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e624"></span>E624</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $20</td>
 <td class="comment-11" rowspan="1">Message <a href="6900.html">0x20</a>: '...I'M WORKING ON A CASE RIGHT NOW...'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e625"></span>E625</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $01</td>
 <td class="comment-11" rowspan="1">Unused</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="e626"></span>
 <div class="comments">
 <div class="paragraph">
@@ -95,41 +101,47 @@ The next set of parameters is used in game mode 1.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e626"></span>E626</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-11" rowspan="1">Unused</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e627"></span>E627</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $22</td>
 <td class="comment-11" rowspan="1">LSB of the address of the screen refresh buffer byte that corresponds to the top row of the cutscene window (see <a href="7866.html">7866</a>); combined with the coordinates below, this places the top-left corner of the cutscene window at (224,19) with Sam at (229,19) (in his office)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e628"></span>E628</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $D0</td>
 <td class="comment-11" rowspan="1">New x-coordinate for the leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e629"></span>E629</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $0E</td>
 <td class="comment-11" rowspan="1">New y-coordinate for the topmost row of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e62a"></span>E62A</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $21</td>
 <td class="comment-11" rowspan="1">Message <a href="692D.html">0x21</a>: '...SO BEGAN THE CASE OF THE BALI BUDGIE'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e62b"></span>E62B</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $01</td>
 <td class="comment-11" rowspan="1">Unused</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="e62c"></span>
 <div class="comments">
 <div class="paragraph">
@@ -141,41 +153,47 @@ The next set of parameters is used in game mode 2.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e62c"></span>E62C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-11" rowspan="1">Unused</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e62d"></span>E62D</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $22</td>
 <td class="comment-11" rowspan="1">LSB of the address of the screen refresh buffer byte that corresponds to the top row of the cutscene window (see <a href="7866.html">7866</a>); combined with the coordinates below, this places the top-left corner of the cutscene window at (240,19) with Sam at (245,19) (third floor of no. 15)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e62e"></span>E62E</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $E0</td>
 <td class="comment-11" rowspan="1">New x-coordinate for the leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e62f"></span>E62F</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $0E</td>
 <td class="comment-11" rowspan="1">New y-coordinate for the topmost row of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e630"></span>E630</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $3E</td>
 <td class="comment-11" rowspan="1">Message <a href="7DAB.html">0x3E</a>: 'IT ALL WENT BLACK. AS I FELL SOMEONE FAT PUSHED PAST ME...'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e631"></span>E631</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $01</td>
 <td class="comment-11" rowspan="1">Unused</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="e632"></span>
 <div class="comments">
 <div class="paragraph">
@@ -187,41 +205,47 @@ The next set of parameters is used in game mode 3.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e632"></span>E632</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-11" rowspan="1">Unused</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e633"></span>E633</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $20</td>
 <td class="comment-11" rowspan="1">LSB of the address of the screen refresh buffer byte that corresponds to the top row of the cutscene window (see <a href="7866.html">7866</a>); combined with the coordinates below, this places the top-left corner of the cutscene window at (0,7) with Sam at (5,7) (on the roof of the apartment building next to no. 74)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e634"></span>E634</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-11" rowspan="1">New x-coordinate for the leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e635"></span>E635</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $02</td>
 <td class="comment-11" rowspan="1">New y-coordinate for the topmost row of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e636"></span>E636</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $43</td>
 <td class="comment-11" rowspan="1">Message <a href="5E05.html">0x43</a>: 'SOMEONE HIT ME. I PLAYED DEAD. TWO MEN WALKED OFF...'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e637"></span>E637</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $01</td>
 <td class="comment-11" rowspan="1">Unused</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="e638"></span>
 <div class="comments">
 <div class="paragraph">
@@ -233,36 +257,42 @@ The next set of parameters is used in game mode 4.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e638"></span>E638</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-11" rowspan="1">Unused</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e639"></span>E639</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $22</td>
 <td class="comment-11" rowspan="1">LSB of the address of the screen refresh buffer byte that corresponds to the top row of the cutscene window (see <a href="7866.html">7866</a>); combined with the coordinates below, this places the top-left corner of the cutscene window at (224,19) with Sam at (229,19) (in his office)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e63a"></span>E63A</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $D0</td>
 <td class="comment-11" rowspan="1">New x-coordinate for the leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e63b"></span>E63B</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $0E</td>
 <td class="comment-11" rowspan="1">New y-coordinate for the topmost row of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e63c"></span>E63C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $4A</td>
 <td class="comment-11" rowspan="1">Message <a href="5F69.html">0x4A</a>: 'SHE'S IN JAIL NOW. ANOTHER CASE SOLVED...'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e63d"></span>E63D</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $01</td>
 <td class="comment-11" rowspan="1">Unused</td>
 </tr>
@@ -275,10 +305,10 @@ The next set of parameters is used in game mode 4.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/58912.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/58912.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

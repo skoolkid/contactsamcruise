@@ -23,7 +23,7 @@
 <div class="description">EAB2: Get the keypress offset of the last key pressed (1)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="7996.html">7996</a>. Returns with the zero flag set if no game keys were pressed. Otherwise returns with <span class="register">A</span> holding the value from the <a href="C330.html">keypress offset table</a> corresponding to the last key pressed or joystick movement made. This offset (an odd number from 0x01 to 0x27) points at an entry in the table of keypress handling routines at <a href="ED00.html">ED00</a>.
@@ -46,35 +46,40 @@ Used by the routine at <a href="7996.html">7996</a>. Returns with the zero flag 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="eab2"></span>EAB2</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EAD9.html">$EAD9</a></td>
 <td class="comment-11" rowspan="1">Collect the ASCII code of the last key pressed in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eab5"></span>EAB5</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,<a href="EAF2.html">$EAF2</a></td>
 <td class="comment-11" rowspan="1">Jump if a key was pressed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eab7"></span>EAB7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFA)</td>
 <td class="comment-11" rowspan="1">Collect the input device indicator from <a href="7FFA.html">7FFA</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eaba"></span>EABA</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Are we using the Kempston joystick?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eabb"></span>EABB</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="eabc"></span>
 <div class="comments">
 <div class="paragraph">
@@ -86,102 +91,119 @@ We are using the Kempston joystick.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eabc"></span>EABC</td>
+<td class="bytes-0"></td>
 <td class="instruction">IN A,($1F)</td>
 <td class="comment-11" rowspan="1">Take a reading from the joystick port</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eabe"></span>EABE</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $1F</td>
 <td class="comment-11" rowspan="1">Any input from the joystick?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eac0"></span>EAC0</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eac1"></span>EAC1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$50</td>
 <td class="comment-11" rowspan="1">0x50='P' (RIGHT)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eac3"></span>EAC3</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="1">Was the joystick moved right?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eac4"></span>EAC4</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,<a href="EAF2.html#eaf3">$EAF3</a></td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eac6"></span>EAC6</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x4F='O' (LEFT)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eac7"></span>EAC7</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="1">Was the joystick moved left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eac8"></span>EAC8</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,<a href="EAF2.html#eaf3">$EAF3</a></td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eaca"></span>EACA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$41</td>
 <td class="comment-11" rowspan="1">0x41='A' (DOWN)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eacc"></span>EACC</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="1">Was the joystick moved down?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eacd"></span>EACD</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,<a href="EAF2.html#eaf3">$EAF3</a></td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eacf"></span>EACF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$51</td>
 <td class="comment-11" rowspan="1">0x51='Q' (UP)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ead1"></span>EAD1</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="1">Was the joystick moved up?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ead2"></span>EAD2</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,<a href="EAF2.html#eaf3">$EAF3</a></td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ead4"></span>EAD4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$6B</td>
 <td class="comment-11" rowspan="1">0x6B='k' (knock on or open a door)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ead6"></span>EAD6</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR <a href="EAF2.html#eaf3">$EAF3</a></td>
 <td class="comment-11" rowspan="1">Collect and return the keypress offset that corresponds to the joystick movement</td>
 </tr>
@@ -194,10 +216,10 @@ We are using the Kempston joystick.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/60082.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/60082.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

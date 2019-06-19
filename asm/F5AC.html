@@ -23,7 +23,7 @@
 <div class="description">F5AC: Guide a character up or down staircases</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this interruptible subcommand routine is placed into bytes 0x0E and 0x0F of a character's buffer by the routine at <a href="F600.html">F600</a>. It guides the character down to the first floor of a building (so that he can then leave it on the way to his final destination), or up to the floor he is heading for.
@@ -49,96 +49,112 @@ The address of this interruptible subcommand routine is placed into bytes 0x0E a
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f5ac"></span>F5AC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5ae"></span>F5AE</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is the character midstride?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5b0"></span>F5B0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="EC5A.html">$EC5A</a></td>
 <td class="comment-11" rowspan="1">If so, move the character from the midstride position and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5b3"></span>F5B3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
 <td class="comment-11" rowspan="2">Has this character's command list been marked for a restart?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5b5"></span>F5B5</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 4,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5b7"></span>F5B7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="F280.html#f284">$F284</a></td>
 <td class="comment-11" rowspan="1">Terminate this subcommand if so (this jump is never made because bit 4 of byte 0x03 is unused)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5ba"></span>F5BA</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5bb"></span>F5BB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5bc"></span>F5BC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$10</td>
 <td class="comment-11" rowspan="2">Compare it with the y-coordinate of the character's intermediate or final destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5be"></span>F5BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5bf"></span>F5BF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="F280.html#f284">$F284</a></td>
 <td class="comment-11" rowspan="1">Terminate this subcommand if they match</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5c2"></span>F5C2</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1">Save the carry flag</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5c3"></span>F5C3</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F485.html">$F485</a></td>
 <td class="comment-11" rowspan="1">Make the character consider flipping a light switch</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5c6"></span>F5C6</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1">Restore the carry flag</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5c7"></span>F5C7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP C,<a href="EBA0.html">$EBA0</a></td>
 <td class="comment-11" rowspan="1">Make the character move down if he's above the level of his destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5ca"></span>F5CA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="EB9B.html">$EB9B</a></td>
 <td class="comment-11" rowspan="1">Otherwise make the character move up</td>
 </tr>
@@ -151,10 +167,10 @@ The address of this interruptible subcommand routine is placed into bytes 0x0E a
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/62892.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/62892.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

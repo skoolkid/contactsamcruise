@@ -23,7 +23,7 @@
 <div class="description">6CF4: Check whether Sam is at the right place to pick up a telephone</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="749E.html">749E</a>. Returns with the zero flag reset if the x-coordinate of the front column of Sam's sprite is between 1 and 6 mod 8 (which is where telephones are located in rooms).
@@ -49,48 +49,56 @@ Used by the routine at <a href="749E.html">749E</a>. Returns with the zero flag 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6cf4"></span>6CF4</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F6A2.html">$F6A2</a></td>
 <td class="comment-11" rowspan="1">Calculate the x-coordinate of the front column of Sam's sprite (x)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6cf7"></span>6CF7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=x%8</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6cf8"></span>6CF8</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="3">Set the zero flag if x is 0 or 7 mod 8 (telephones are located at x-coordinates between 1 and 6 mod 8)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6cf9"></span>6CF9</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $06</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6cfb"></span>6CFB</td>
+<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6cfc"></span>6CFC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x%8</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6cfd"></span>6CFD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$02</td>
 <td class="comment-11" rowspan="1">Bit 1 set: check for the presence of a telephone</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6cff"></span>6CFF</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -103,10 +111,10 @@ Used by the routine at <a href="749E.html">749E</a>. Returns with the zero flag 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/27892.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/27892.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

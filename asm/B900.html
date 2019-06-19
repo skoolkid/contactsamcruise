@@ -23,7 +23,7 @@
 <div class="description">B900: Z values (6&lt;=y&lt;=11)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="E70C.html">E70C</a>, <a href="F3A0.html">F3A0</a>, <a href="F404.html">F404</a>, <a href="F8AE.html">F8AE</a>, <a href="FC00.html">FC00</a> and <a href="FC25.html">FC25</a>. Each byte here corresponds to a segment of the play area that is eight tiles wide and six tiles high, and level with the 5th floor of a building (6&lt;=y&lt;=11).
@@ -46,78 +46,91 @@ Used by the routines at <a href="E70C.html">E70C</a>, <a href="F3A0.html">F3A0</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b900"></span>B900</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $0D,$0E,$0D</td>
 <td class="comment-11" rowspan="1">0&lt;=x&lt;24: apartment building next to no. 74 (roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b903"></span>B903</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $0F</td>
 <td class="comment-11" rowspan="1">24&lt;=x&lt;32</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b904"></span>B904</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $09,$09,$09</td>
 <td class="comment-11" rowspan="1">32&lt;=x&lt;56: no. 74 (roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b907"></span>B907</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $10,$12,$13,$14,$15,$17</td>
 <td class="comment-11" rowspan="1">56&lt;=x&lt;104: hotel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b90d"></span>B90D</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $0B,$0B</td>
 <td class="comment-11" rowspan="1">104&lt;=x&lt;120: above the roof of no. 31</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b90f"></span>B90F</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $18</td>
 <td class="comment-11" rowspan="1">120&lt;=x&lt;128</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b910"></span>B910</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $19,$1A,$1B</td>
 <td class="comment-11" rowspan="1">128&lt;=x&lt;152: police station (roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b913"></span>B913</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $09</td>
 <td class="comment-11" rowspan="1">152&lt;=x&lt;160: no. 27 (roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b914"></span>B914</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $0A,$0B</td>
 <td class="comment-11" rowspan="1">160&lt;=x&lt;176</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b916"></span>B916</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $0C,$0D,$0E,$0D</td>
 <td class="comment-11" rowspan="1">176&lt;=x&lt;208: apartment building next to no. 19 (roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b91a"></span>B91A</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $0B,$0B</td>
 <td class="comment-11" rowspan="1">208&lt;=x&lt;224: above the roof of no. 19 (these Z values are checked by the routine at <a href="FC00.html">FC00</a> and changed by the routines at <a href="F8AE.html">F8AE</a> and <a href="FC25.html">FC25</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b91c"></span>B91C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $09,$09</td>
 <td class="comment-11" rowspan="1">224&lt;=x&lt;240: no. 17 (roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="b91e"></span>B91E</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $09,$09</td>
 <td class="comment-11" rowspan="1">240&lt;=x&lt;256: no. 15 (roof)</td>
 </tr>
@@ -130,10 +143,10 @@ Used by the routines at <a href="E70C.html">E70C</a>, <a href="F3A0.html">F3A0</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/47360.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/47360.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

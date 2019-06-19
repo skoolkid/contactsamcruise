@@ -23,7 +23,7 @@
 <div class="description">7A6A: Make a gangster walk up and down while watching for Sam</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the command lists at <a href="FD16.html">FD16</a>, <a href="FD30.html">FD30</a>, <a href="FD4E.html">FD4E</a> and <a href="FD86.html">FD86</a>.
@@ -49,66 +49,77 @@ Used by the command lists at <a href="FD16.html">FD16</a>, <a href="FD30.html">F
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7a6a"></span>7A6A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0B</td>
 <td class="comment-11" rowspan="2">Copy the door identifier (0xA8 or 0xAF) and walkabout duration indicator (always 0) from the command list into bytes 0x0B and 0x0C of the gangster's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a6c"></span>7A6C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F171.html">$F171</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a6f"></span>7A6F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0D</td>
 <td class="comment-11" rowspan="2">Set byte 0x0D of the gangster's buffer to a non-zero value to ensure that he walks up and down indefinitely</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a71"></span>7A71</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$3F</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a73"></span>7A73</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=gangster's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a75"></span>7A75</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a76"></span>7A76</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0A</td>
 <td class="comment-11" rowspan="2">Copy this to byte 0x0A of the gangster's buffer, thus making it his walkabout origin x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a78"></span>7A78</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a79"></span>7A79</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F7B1.html">$F7B1</a></td>
 <td class="comment-11" rowspan="1">Change the gangster's primary command routine address to <a href="7A6A.html#7a7c">7A7C</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a7c"></span>7A7C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$7A57</td>
 <td class="comment-11" rowspan="1">The routine at <a href="7A57.html">7A57</a> makes the gangster walk up or down until Sam arrives</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a7f"></span>7A7F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F748.html#f763">$F763</a></td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -121,10 +132,10 @@ Used by the command lists at <a href="FD16.html">FD16</a>, <a href="FD30.html">F
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/31338.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/31338.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

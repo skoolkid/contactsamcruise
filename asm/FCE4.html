@@ -23,7 +23,7 @@
 <div class="description">FCE4: Make a sound effect</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="7565.html">7565</a> (to make the cash bonus/key sound effect) and <a href="FC6A.html">FC6A</a> (to make the sound effect for when Sam hits the ground after being dropped by a gangster).
@@ -57,54 +57,63 @@ Used by the routines at <a href="7565.html">7565</a> (to make the cash bonus/key
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fce4"></span>FCE4</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR $10</td>
 <td class="comment-11" rowspan="1">Flip bit 4 of <span class="register">A</span> (the speaker bit)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fce6"></span>FCE6</td>
+<td class="bytes-0"></td>
 <td class="instruction">OUT ($FE),A</td>
 <td class="comment-11" rowspan="1">Set the border colour and change the speaker state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fce8"></span>FCE8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,C</td>
 <td class="comment-11" rowspan="2">Perform the pitch delay</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fce9"></span>FCE9</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $FCE9</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fceb"></span>FCEB</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="4">Jump back until the sound effect is finished</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fcec"></span>FCEC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FCE4</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fcee"></span>FCEE</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fcef"></span>FCEF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FCE4</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fcf1"></span>FCF1</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -117,10 +126,10 @@ Used by the routines at <a href="7565.html">7565</a> (to make the cash bonus/key
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/64740.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/64740.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

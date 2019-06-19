@@ -23,7 +23,7 @@
 <div class="description">E9C8: Update the SRB for a character's current animatory state and location</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="621E.html">621E</a>, <a href="634C.html">634C</a>, <a href="64BD.html">64BD</a>, <a href="71DD.html">71DD</a>, <a href="790D.html">790D</a>, <a href="79E4.html">79E4</a>, <a href="7AF4.html">7AF4</a>, <a href="7BB6.html">7BB6</a>, <a href="EB85.html">EB85</a>, <a href="EBBB.html">EBBB</a>, <a href="EC5A.html">EC5A</a>, <a href="F338.html">F338</a>, <a href="F375.html">F375</a>, <a href="F731.html">F731</a>, <a href="F846.html">F846</a>, <a href="F9D2.html">F9D2</a>, <a href="FA05.html">FA05</a>, <a href="FA83.html">FA83</a>, <a href="FADA.html">FADA</a> and <a href="FAE3.html">FAE3</a>. Updates the <a href="7F00.html">screen refresh buffer</a> (SRB) for a character's current animatory state and location. Returns with the character's current coordinates in <span class="register">DE</span> and animatory state in <span class="register">A</span>.
@@ -49,60 +49,70 @@ Used by the routines at <a href="621E.html">621E</a>, <a href="634C.html">634C</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e9c8"></span>E9C8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e9ca"></span>E9CA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=character's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e9cb"></span>E9CB</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e9cc"></span>E9CC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=character's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e9cd"></span>E9CD</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e9ce"></span>E9CE</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1">Save the character's coordinates briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e9cf"></span>E9CF</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9D5.html#e9dc">$E9DC</a></td>
 <td class="comment-11" rowspan="1">Set the appropriate bits in the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e9d2"></span>E9D2</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore the character's coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e9d3"></span>E9D3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e9d4"></span>E9D4</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -115,10 +125,10 @@ Used by the routines at <a href="621E.html">621E</a>, <a href="634C.html">634C</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/59848.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/59848.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 30092</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="30070.html">30070</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30092">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30115.html">30115</a></span></td>
+</tr>
+</table>
+<div class="description">30092: 'B' pressed - raise/lower blind</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+The address of this routine is found in the table of keypress handling routines at <a href="60672.html">60672</a>. It is called from the main loop at <a href="61483.html">61483</a> when 'B' is pressed.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">230 (Sam)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30092"></span>30092</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="63152.html">63152</a></td>
+<td class="comment-11" rowspan="1">Is Sam standing next to a light switch or a window blind?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30095"></span>30095</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30112</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30097"></span>30097</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 28</td>
+<td class="comment-11" rowspan="1">Is Sam standing next to a window blind?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30099"></span>30099</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30112</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30101"></span>30101</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 8</td>
+<td class="comment-11" rowspan="1">Set the zero flag if Sam is standing next to the right-hand window of a pair</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30103"></span>30103</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,1</td>
+<td class="comment-11" rowspan="1">Bit 0 set: right-hand window blind toggle</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30105"></span>30105</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30109</td>
+<td class="comment-11" rowspan="1">Jump if Sam is standing next to the right-hand window of a pair</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30107"></span>30107</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,64</td>
+<td class="comment-11" rowspan="1">Bit 6 set: left-hand window blind toggle</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30109"></span>30109</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="62597.html#62617">62617</a></td>
+<td class="comment-11" rowspan="1">Raise or lower the window blind</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30112"></span>30112</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP <a href="62212.html">62212</a></td>
+<td class="comment-11" rowspan="1">Raise Sam's arm and make a sound effect</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="30070.html">30070</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30092">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30115.html">30115</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/758C.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

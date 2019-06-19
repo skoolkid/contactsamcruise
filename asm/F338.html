@@ -23,7 +23,7 @@
 <div class="description">F338: Make a character knock on a door or open it with a key</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Continues from the routine at <a href="F600.html">F600</a>. Raises the character's arm and then hands control over to the interruptible subcommand routine at <a href="F346.html">F346</a>.
@@ -49,17 +49,19 @@ Continues from the routine at <a href="F600.html">F600</a>. Raises the character
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f338"></span>F338</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0E</td>
 <td class="comment-11" rowspan="2">Set the address of the interruptible subcommand routine in bytes 0x0E and 0x0F of the character's buffer to <a href="F346.html">F346</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f33a"></span>F33A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$46</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f33c"></span>
 <div class="comments">
 <div class="paragraph">
@@ -71,24 +73,28 @@ This entry point is used by the routines at <a href="F2F0.html">F2F0</a>, <a hre
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f33c"></span>F33C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f33f"></span>F33F</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f341"></span>F341</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$04</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the character with his arm up</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f343"></span>F343</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="E9D5.html">$E9D5</a></td>
 <td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
 </tr>
@@ -101,10 +107,10 @@ This entry point is used by the routines at <a href="F2F0.html">F2F0</a>, <a hre
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/62264.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/62264.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

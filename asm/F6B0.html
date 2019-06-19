@@ -23,7 +23,7 @@
 <div class="description">F6B0: Check whether a character is standing next to a light switch or window blind</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="758C.html">758C</a> and <a href="F6E9.html">F6E9</a>. Returns with the zero flag reset if the character is standing next to a light switch or a window that has a blind, and with the bit set in <span class="register">A</span> identifying the fixture that was found.
@@ -49,150 +49,175 @@ Used by the routines at <a href="758C.html">758C</a> and <a href="F6E9.html">F6E
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f6b0"></span>F6B0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x04 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6b2"></span>F6B2</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is the character indoors?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6b4"></span>F6B4</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6b5"></span>F6B5</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F6A2.html">$F6A2</a></td>
 <td class="comment-11" rowspan="1">Collect in <span class="register">C</span> the x-coordinate of the front column of the character's sprite</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6b8"></span>F6B8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$80</td>
 <td class="comment-11" rowspan="1">Bit 7 set: check for a light switch at the left side of the room</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6ba"></span>F6BA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F6D0</td>
 <td class="comment-11" rowspan="1">Jump if <span class="register">C</span>=0 mod 8</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6bc"></span>F6BC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$10</td>
 <td class="comment-11" rowspan="1">Bit 4 set: check for a blind on the left-hand window</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6be"></span>F6BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $03</td>
 <td class="comment-11" rowspan="1">Does <span class="register">C</span>=1 or 2 mod 8?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6c0"></span>F6C0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$F6D0</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6c2"></span>F6C2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$04</td>
 <td class="comment-11" rowspan="1">Bit 2 set: check for a blind on a large central window</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6c4"></span>F6C4</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $02</td>
 <td class="comment-11" rowspan="1">Does <span class="register">C</span>=3 or 4 mod 8?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6c6"></span>F6C6</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$F6D0</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6c8"></span>F6C8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$08</td>
 <td class="comment-11" rowspan="1">Bit 3 set: check for a blind on the right-hand window</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6ca"></span>F6CA</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $02</td>
 <td class="comment-11" rowspan="1">Does <span class="register">C</span>=5 or 6 mod 8?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6cc"></span>F6CC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$F6D0</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6ce"></span>F6CE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$40</td>
 <td class="comment-11" rowspan="1">Bit 6 set: check for a light switch at the right side of the room (when <span class="register">C</span>=7 mod 8)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f6d0"></span>F6D0</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1">Save the fixture identifier bit (in <span class="register">B</span>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6d1"></span>F6D1</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F436.html#f454">$F454</a></td>
 <td class="comment-11" rowspan="1">Is the character standing next to a light switch or a window that has a blind?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6d4"></span>F6D4</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F6D9</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6d6"></span>F6D6</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1">Restore the fixture identifier bit to <span class="register">A</span> (though we don't need it now)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6d7"></span>F6D7</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="1">Set the zero flag</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6d8"></span>F6D8</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f6d9"></span>F6D9</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1">Restore the fixture identifier bit to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6da"></span>F6DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Reset the zero flag</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6db"></span>F6DB</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -205,10 +230,10 @@ Used by the routines at <a href="758C.html">758C</a> and <a href="F6E9.html">F6E
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/63152.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63152.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">BCE6: Location descriptors (x-coordinates 42, 114, 210)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="EB13.html">EB13</a>.
@@ -58,11 +58,12 @@ The first descriptor corresponds to the top of the staircase between the third a
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="bce6"></span>BCE6</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $12,$C8</td>
 <td class="comment-11" rowspan="1">y=13, z=1; left, right, down/left</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="bce8"></span>
 <div class="comments">
 <div class="paragraph">
@@ -83,11 +84,12 @@ The next descriptor corresponds to the staircase between the third and fourth fl
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="bce8"></span>BCE8</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $16,$24</td>
 <td class="comment-11" rowspan="1">y=15, z=1; up/left, down/right</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="bcea"></span>
 <div class="comments">
 <div class="paragraph">
@@ -108,11 +110,12 @@ The next descriptor corresponds to the staircases between the second and third f
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="bcea"></span>BCEA</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $26,$18</td>
 <td class="comment-11" rowspan="1">y=23, z=1; up/right, down/left</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="bcec"></span>
 <div class="comments">
 <div class="paragraph">
@@ -133,17 +136,19 @@ The next two descriptors correspond to the front doors of no. 74 (x=42), no. 31 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="bcec"></span>BCEC</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $DB,$CC,$C1</td>
 <td class="comment-11" rowspan="1">y=31, z=1 or 2; left, right, down/left, down/right (door open)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="bcef"></span>BCEF</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $76,$CC</td>
 <td class="comment-11" rowspan="1">y=31, z=2; left, right, down/left, down/right (outside, door closed)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="bcf1"></span>
 <div class="comments">
 <div class="paragraph">
@@ -164,11 +169,12 @@ The next descriptor corresponds to the front steps of no. 74 (x=42), no. 31 (x=1
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="bcf1"></span>BCF1</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $78,$FC</td>
 <td class="comment-11" rowspan="1">y=32, z=2; left, right, up/left, up/right, down/left, down/right</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="bcf3"></span>
 <div class="comments">
 <div class="paragraph">
@@ -189,11 +195,12 @@ The next descriptor also corresponds to the front steps of no. 74 (x=42), no. 31
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="bcf3"></span>BCF3</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $7A,$FC</td>
 <td class="comment-11" rowspan="1">y=33, z=2; left, right, up/left, up/right, down/left, down/right</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="bcf5"></span>
 <div class="comments">
 <div class="paragraph">
@@ -214,12 +221,14 @@ The next descriptor corresponds to the bottoms of the staircases between the sec
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="bcf5"></span>BCF5</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $2A,$E0</td>
 <td class="comment-11" rowspan="1">y=25, z=1; left, right, up/left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="bcf7"></span>BCF7</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $FF</td>
 <td class="comment-11" rowspan="1">End marker</td>
 </tr>
@@ -232,10 +241,10 @@ The next descriptor corresponds to the bottoms of the staircases between the sec
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/48358.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/48358.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

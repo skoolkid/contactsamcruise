@@ -23,7 +23,7 @@
 <div class="description">F0BE: End a cutscene</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="790D.html">790D</a>. Ends the cutscene by entering demo mode or resuming the game in the next mode.
@@ -46,65 +46,75 @@ Used by the routine at <a href="790D.html">790D</a>. Ends the cutscene by enteri
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f0be"></span>F0BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EAD9.html">$EAD9</a></td>
 <td class="comment-11" rowspan="1">Check the keyboard (to flush any recent keypress)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0c1"></span>F0C1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,($7F9E)</td>
 <td class="comment-11" rowspan="1"><a href="7F9E.html">7F9E</a> holds the number of bucks Sam has left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0c4"></span>F0C4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="2">Has Sam's cash supply run out?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0c5"></span>F0C5</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0c6"></span>F0C6</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F0D3</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0c8"></span>F0C8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7F5F</td>
 <td class="comment-11" rowspan="4">Set every bit of the <a href="7F00.html">screen refresh buffer</a> so that the entire display will be updated</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f0cb"></span>F0CB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$FF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0cd"></span>F0CD</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0ce"></span>F0CE</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F0CB</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0d0"></span>F0D0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="EA80.html">$EA80</a></td>
 <td class="comment-11" rowspan="1">Update the display</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f0d3"></span>
 <div class="comments">
 <div class="paragraph">
@@ -116,41 +126,47 @@ Sam is out of money, so it must be the end of the game. Time to check for a new 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f0d3"></span>F0D3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,($FFEC)</td>
 <td class="comment-11" rowspan="1">Collect the old high score from <a href="FFE0.html#ffec">FFEC</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0d6"></span>F0D6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,($7F9C)</td>
 <td class="comment-11" rowspan="1">Collect the score from <a href="7F9C.html">7F9C</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0da"></span>F0DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">SBC HL,DE</td>
 <td class="comment-11" rowspan="1">Do we have a new high score?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0dc"></span>F0DC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$F0E7</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0de"></span>F0DE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($FFEC),DE</td>
 <td class="comment-11" rowspan="1">Otherwise set the new high score</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0e2"></span>F0E2</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $F0E7</td>
 <td class="comment-11" rowspan="1">Jump forward to enter demo mode</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f0e4"></span>
 <div class="comments">
 <div class="paragraph">
@@ -162,23 +178,26 @@ This entry point is used by the routine at <a href="F0A0.html">F0A0</a> and by t
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f0e4"></span>F0E4</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL $DD00</td>
 <td class="comment-11" rowspan="1">This <a href="../start/DD00.html">startup routine</a> prepares the bottom 4 lines of the screen just after the game has loaded</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f0e7"></span>F0E7</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0 (demo mode)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0e8"></span>F0E8</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $F0EC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f0ea"></span>
 <div class="comments">
 <div class="paragraph">
@@ -190,36 +209,42 @@ This entry point is used by the routine at <a href="7996.html">7996</a> to start
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f0ea"></span>F0EA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=1 (new game)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f0ec"></span>F0EC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($FFEE),A</td>
 <td class="comment-11" rowspan="1">Store the game mode (0 or 1) at <a href="FFE0.html#ffee">FFEE</a>, from where it will be copied to <a href="7FEE.html">7FEE</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0ef"></span>F0EF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD SP,$5D5A</td>
 <td class="comment-11" rowspan="1">Reset the stack pointer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0f2"></span>F0F2</td>
+<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0f3"></span>F0F3</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F8AE.html">$F8AE</a></td>
 <td class="comment-11" rowspan="1">Prepare for demo mode or a new game</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0f6"></span>F0F6</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F02B.html#f03f">$F03F</a></td>
 <td class="comment-11" rowspan="1">Enter the main loop</td>
 </tr>
@@ -232,10 +257,10 @@ This entry point is used by the routine at <a href="7996.html">7996</a> to start
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/61630.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/61630.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

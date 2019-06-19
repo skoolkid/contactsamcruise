@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Sam Cruise: Routine at 31476</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Contact Sam Cruise" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="31458.html">31458</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31476">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31578.html">31578</a></span></td>
+</tr>
+</table>
+<div class="description">31476: Deal with Sam when he's being carried by a gangster or policeman</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29912.html">29912</a> when bit 0 at <a href="32764.html">32764</a> is set (by the routine at <a href="29149.html">29149</a>), indicating that Sam is being carried by a gangster or policeman.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="31476"></span>31476</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,1</td>
+<td class="comment-11" rowspan="2">Set Sam's main action timer to 1 (so that we come here on the next pass through the main loop) and his midstride/mid-action timer to 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31479"></span>31479</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (58888),HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="31482"></span>
+<div class="comments">
+<div class="paragraph">
+First we need to determine who is carrying Sam.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31482"></span>31482</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,55040</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of character 215's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31485"></span>31485</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,15</td>
+<td class="comment-11" rowspan="1">We will check characters 215-229</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="31487"></span>31487</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31488"></span>31488</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 120</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's base animatory state (bits 0-2 and 7 reset)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31490"></span>31490</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 24</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#24">24</a>: Is this character a policeman carrying Sam?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31492"></span>31492</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,31528</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31494"></span>31494</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 40</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#40">40</a>: Is this character a gangster carrying Sam?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31496"></span>31496</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,31528</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31498"></span>31498</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Next character</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31499"></span>31499</td>
+<td class="bytes-0"></td>
+<td class="instruction">DJNZ 31487</td>
+<td class="comment-11" rowspan="1">Jump back until we find who's carrying Sam</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="31501"></span>
+<div class="comments">
+<div class="paragraph">
+No one is carrying Sam at the moment. Whoever was carrying him must have just dropped him.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31501"></span>31501</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,2</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of Sam's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31503"></span>31503</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31504"></span>31504</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 19</td>
+<td class="comment-11" rowspan="1">Set the carry flag if it's less than 19</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31506"></span>31506</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,1</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=1 indicates that Sam is being dropped off the roof of a building</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31508"></span>31508</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP C,<a href="64338.html#64341">64341</a></td>
+<td class="comment-11" rowspan="1">Jump if Sam's being dropped off the roof of a building</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="31511"></span>
+<div class="comments">
+<div class="paragraph">
+Sam is being dropped by a policeman onto the floor of the jail cell.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31511"></span>31511</td>
+<td class="bytes-0"></td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="2">Clear all of Sam's status flags at <a href="32764.html">32764</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31512"></span>31512</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (32764),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31515"></span>31515</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,8</td>
+<td class="comment-11" rowspan="2">Set Sam's main action timer to 8</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31517"></span>31517</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),8</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31519"></span>31519</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="59848.html">59848</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for Sam's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31522"></span>31522</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 128</td>
+<td class="comment-11" rowspan="1">Sam's new animatory state is <a href="../graphics/as.html#0">0</a> (bit 7 of <span class="register">A</span> is reset, because Sam's always facing left when he's dropped here)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31524"></span>31524</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="1">Drop him one level (to the floor)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31525"></span>31525</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP <a href="59861.html">59861</a></td>
+<td class="comment-11" rowspan="1">Update Sam's animatory state and location and update the SRB</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="31528"></span>
+<div class="comments">
+<div class="paragraph">
+Sam is still being carried by a gangster or policeman. Calculate Sam's new animatory state and location (which depend on those of his carrier).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="31528"></span>31528</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,4</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 4 of Sam's carrier's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31530"></span>31530</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=carrier's z-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31531"></span>31531</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (58884),A</td>
+<td class="comment-11" rowspan="1">Set Sam's z-coordinate to the same value</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31534"></span>31534</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,0</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of Sam's carrier's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31536"></span>31536</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,5</td>
+<td class="comment-11" rowspan="1">Animatory state <a href="../graphics/as.html#5">5</a>: Sam being carried (facing left)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31538"></span>31538</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,255</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=-1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31540"></span>31540</td>
+<td class="bytes-0"></td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Is Sam's carrier midstride?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31542"></span>31542</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,31547</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31544"></span>31544</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC E</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=-2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31545"></span>31545</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,2</td>
+<td class="comment-11" rowspan="1">Animatory state <a href="../graphics/as.html#2">2</a>: Sam standing (facing left)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="31547"></span>31547</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=-2 if Sam's carrier is midstride, -1 otherwise</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31548"></span>31548</td>
+<td class="bytes-0"></td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Is Sam's carrier facing left?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31550"></span>31550</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,31556</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31552"></span>31552</td>
+<td class="bytes-0"></td>
+<td class="instruction">SET 7,C</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=<a href="../graphics/as.html#2">130</a> or <a href="../graphics/as.html#5">133</a> (animatory states of Sam being carried, facing right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31554"></span>31554</td>
+<td class="bytes-0"></td>
+<td class="instruction">NEG</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=2 if Sam's carrier is midstride, 1 otherwise</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="31556"></span>31556</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Add Sam's carrier's x-coordinate to obtain Sam's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31557"></span>31557</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31558"></span>31558</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1">Copy this to <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31559"></span>31559</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2"><span class="register">D</span>=Sam's carrier's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31560"></span>31560</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31561"></span>31561</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC D</td>
+<td class="comment-11" rowspan="1">Decrement it to obtain Sam's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31562"></span>31562</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31563"></span>31563</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save Sam's animatory state briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31564"></span>31564</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save Sam's new coordinates</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31565"></span>31565</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,230</td>
+<td class="comment-11" rowspan="1">230=Sam</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31567"></span>31567</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="59848.html">59848</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for Sam's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31570"></span>31570</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1">Restore Sam's new coordinates to <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31571"></span>31571</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore Sam's animatory state to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31572"></span>31572</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="59861.html">59861</a></td>
+<td class="comment-11" rowspan="1">Update Sam's animatory state and location and update the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31575"></span>31575</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP <a href="60539.html#60547">60547</a></td>
+<td class="comment-11" rowspan="1">Scroll the screen left, right, up or down if necessary</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="31458.html">31458</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31476">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31578.html">31578</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/7AF4.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

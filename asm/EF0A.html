@@ -23,7 +23,7 @@
 <div class="description">EF0A: Region identifier tables</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="ED36.html">ED36</a>. The first six bytes here are the LSBs of the addresses of the tables that follow at <a href="EF0A.html#ef10">EF10</a>, <a href="EF0A.html#ef48">EF48</a>, <a href="EF0A.html#ef70">EF70</a>, <a href="EF0A.html#ef98">EF98</a>, <a href="EF0A.html#efc0">EFC0</a> and <a href="EF0A.html#efe8">EFE8</a>.
@@ -46,41 +46,47 @@ Used by the routine at <a href="ED36.html">ED36</a>. The first six bytes here ar
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef0a"></span>EF0A</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $10</td>
 <td class="comment-11" rowspan="1">LSB of <a href="EF0A.html#ef10">EF10</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef0b"></span>EF0B</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $48</td>
 <td class="comment-11" rowspan="1">LSB of <a href="EF0A.html#ef48">EF48</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef0c"></span>EF0C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $70</td>
 <td class="comment-11" rowspan="1">LSB of <a href="EF0A.html#ef70">EF70</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef0d"></span>EF0D</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $98</td>
 <td class="comment-11" rowspan="1">LSB of <a href="EF0A.html#ef98">EF98</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef0e"></span>EF0E</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $C0</td>
 <td class="comment-11" rowspan="1">LSB of <a href="EF0A.html#efc0">EFC0</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef0f"></span>EF0F</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $E8</td>
 <td class="comment-11" rowspan="1">LSB of <a href="EF0A.html#efe8">EFE8</a></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="ef10"></span>
 <div class="comments">
 <div class="paragraph">
@@ -119,89 +125,103 @@ The first table corresponds to y-coordinates 32 and 33 (shops and doorsteps).
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef10"></span>EF10</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $07,$14,$00,$00</td>
 <td class="comment-11" rowspan="1">0&lt;=x&lt;=6: Left-hand shop under the apartments next to no. 74</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef14"></span>EF14</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $0F,$50,$0C,$0C</td>
 <td class="comment-11" rowspan="1">7&lt;=x&lt;=14: Stairwell of the apartment building next to no. 74</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef18"></span>EF18</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $17,$24,$10,$10</td>
 <td class="comment-11" rowspan="1">15&lt;=x&lt;=22: Right-hand shop under the apartments next to no. 74</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef1c"></span>EF1C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $37,$80,$2B,$2B</td>
 <td class="comment-11" rowspan="1">23&lt;=x&lt;=54: No. 74</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef20"></span>EF20</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $67,$90,$4D,$4D</td>
 <td class="comment-11" rowspan="1">55&lt;=x&lt;=102: Hotel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef24"></span>EF24</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $77,$A0,$73,$73</td>
 <td class="comment-11" rowspan="1">103&lt;=x&lt;=118: No. 31</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef28"></span>EF28</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $97,$60,$8A,$8A</td>
 <td class="comment-11" rowspan="1">119&lt;=x&lt;=150: Police station</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef2c"></span>EF2C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $9F,$70,$9C,$9C</td>
 <td class="comment-11" rowspan="1">151&lt;=x&lt;=158: No. 27</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef30"></span>EF30</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $CF,$F0,$C4,$C4</td>
 <td class="comment-11" rowspan="1">159&lt;=x&lt;=206: Apartment building next to no. 19</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef34"></span>EF34</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $DF,$B0,$D3,$D3</td>
 <td class="comment-11" rowspan="1">207&lt;=x&lt;=222: No. 19</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef38"></span>EF38</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $E7,$34,$E0,$E0</td>
 <td class="comment-11" rowspan="1">223&lt;=x&lt;=230: Shop under no. 17</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef3c"></span>EF3C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $EF,$C0,$EC,$EC</td>
 <td class="comment-11" rowspan="1">231&lt;=x&lt;=238: No. 17 (door)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef40"></span>EF40</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $F7,$44,$F0,$F0</td>
 <td class="comment-11" rowspan="1">239&lt;=x&lt;=246: Shop under no. 15</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef44"></span>EF44</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $FF,$E0,$FC,$FC</td>
 <td class="comment-11" rowspan="1">247&lt;=x&lt;=254: No. 15 (door)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="ef48"></span>
 <div class="comments">
 <div class="paragraph">
@@ -213,65 +233,75 @@ The next table corresponds to y-coordinates 26-31 (first floor).
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef48"></span>EF48</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $17,$54,$0C,$0D</td>
 <td class="comment-11" rowspan="1">0&lt;=x&lt;=22: Apartment building next to no. 74</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef4c"></span>EF4C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $37,$84,$2B,$2B</td>
 <td class="comment-11" rowspan="1">23&lt;=x&lt;=54: No. 74</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef50"></span>EF50</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $67,$94,$4C,$4D</td>
 <td class="comment-11" rowspan="1">55&lt;=x&lt;=102: Hotel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef54"></span>EF54</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $77,$A4,$73,$73</td>
 <td class="comment-11" rowspan="1">103&lt;=x&lt;=118: No. 31</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef58"></span>EF58</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $96,$64,$8A,$89</td>
 <td class="comment-11" rowspan="1">119&lt;=x&lt;=149: Police station</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef5c"></span>EF5C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $9F,$74,$9C,$9B</td>
 <td class="comment-11" rowspan="1">150&lt;=x&lt;=158: No. 27</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef60"></span>EF60</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $CF,$F4,$C4,$C5</td>
 <td class="comment-11" rowspan="1">159&lt;=x&lt;=206: Apartment building next to no. 19</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef64"></span>EF64</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $DF,$B4,$D3,$D3</td>
 <td class="comment-11" rowspan="1">207&lt;=x&lt;=222: No. 19</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef68"></span>EF68</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $EF,$C4,$EC,$EB</td>
 <td class="comment-11" rowspan="1">223&lt;=x&lt;=238: No. 17</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef6c"></span>EF6C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $FF,$E4,$FC,$FB</td>
 <td class="comment-11" rowspan="1">238&lt;=x&lt;=254: No. 15</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="ef70"></span>
 <div class="comments">
 <div class="paragraph">
@@ -283,65 +313,75 @@ The next table corresponds to y-coordinates 20-25 (second floor).
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef70"></span>EF70</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $17,$56,$0B,$0D</td>
 <td class="comment-11" rowspan="1">0&lt;=x&lt;=22: Apartment building next to no. 74</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef74"></span>EF74</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $37,$86,$2B,$2A</td>
 <td class="comment-11" rowspan="1">23&lt;=x&lt;=54: No. 74</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef78"></span>EF78</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $67,$96,$51,$59</td>
 <td class="comment-11" rowspan="1">55&lt;=x&lt;=102: Hotel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef7c"></span>EF7C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $77,$A6,$73,$72</td>
 <td class="comment-11" rowspan="1">103&lt;=x&lt;=118: No. 31</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef80"></span>EF80</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $96,$66,$89,$89</td>
 <td class="comment-11" rowspan="1">119&lt;=x&lt;=149: Police station</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef84"></span>EF84</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $9F,$76,$99,$9A</td>
 <td class="comment-11" rowspan="1">150&lt;=x&lt;=158: No. 27</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef88"></span>EF88</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $CF,$F6,$C3,$C5</td>
 <td class="comment-11" rowspan="1">159&lt;=x&lt;=206: Apartment building next to no. 19</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef8c"></span>EF8C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $DF,$B6,$D3,$D2</td>
 <td class="comment-11" rowspan="1">207&lt;=x&lt;=222: No. 19</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef90"></span>EF90</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $EF,$C6,$E9,$EA</td>
 <td class="comment-11" rowspan="1">223&lt;=x&lt;=238: No. 17</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef94"></span>EF94</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $FF,$E6,$F9,$FA</td>
 <td class="comment-11" rowspan="1">238&lt;=x&lt;=254: No. 15</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="ef98"></span>
 <div class="comments">
 <div class="paragraph">
@@ -353,65 +393,75 @@ The next table corresponds to y-coordinates 14-19 (third floor).
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef98"></span>EF98</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $17,$58,$0B,$0D</td>
 <td class="comment-11" rowspan="1">0&lt;=x&lt;=22: Apartment building next to no. 74 (third floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ef9c"></span>EF9C</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $37,$88,$2C,$2C</td>
 <td class="comment-11" rowspan="1">23&lt;=x&lt;=54: No. 74 (third floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efa0"></span>EFA0</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $67,$98,$58,$44</td>
 <td class="comment-11" rowspan="1">55&lt;=x&lt;=102: Hotel (third floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efa4"></span>EFA4</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $77,$A8,$74,$74</td>
 <td class="comment-11" rowspan="1">103&lt;=x&lt;=118: No. 31 (top floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efa8"></span>EFA8</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $96,$68,$89,$89</td>
 <td class="comment-11" rowspan="1">119&lt;=x&lt;=149: Police station (third floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efac"></span>EFAC</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $9F,$78,$9C,$9B</td>
 <td class="comment-11" rowspan="1">150&lt;=x&lt;=158: No. 27 (third floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efb0"></span>EFB0</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $CF,$F8,$C3,$C5</td>
 <td class="comment-11" rowspan="1">159&lt;=x&lt;=206: Apartment building next to no. 19 (third floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efb4"></span>EFB4</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $DF,$B8,$D4,$D4</td>
 <td class="comment-11" rowspan="1">207&lt;=x&lt;=222: No. 19 (top floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efb8"></span>EFB8</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $EF,$C8,$EC,$EB</td>
 <td class="comment-11" rowspan="1">223&lt;=x&lt;=238: No. 17 (third floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efbc"></span>EFBC</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $FF,$E8,$FC,$FB</td>
 <td class="comment-11" rowspan="1">238&lt;=x&lt;=254: No. 15 (third floor)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="efc0"></span>
 <div class="comments">
 <div class="paragraph">
@@ -423,65 +473,75 @@ The next table corresponds to y-coordinates 8-13.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efc0"></span>EFC0</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $27,$5A,$0B,$0D</td>
 <td class="comment-11" rowspan="1">0&lt;=x&lt;=38: Apartment building next to no. 74 (top floor), through the catwalk, into the room at the top left of no. 74</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efc4"></span>EFC4</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $37,$8A,$2A,$38</td>
 <td class="comment-11" rowspan="1">39&lt;=x&lt;=54: No. 74 (top floor, right-hand side)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efc8"></span>EFC8</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $67,$9A,$45,$59</td>
 <td class="comment-11" rowspan="1">55&lt;=x&lt;=102: Hotel (fourth floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efcc"></span>EFCC</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $77,$AA,$72,$74</td>
 <td class="comment-11" rowspan="1">103&lt;=x&lt;=118: No. 31 (roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efd0"></span>EFD0</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $96,$6A,$89,$89</td>
 <td class="comment-11" rowspan="1">119&lt;=x&lt;=149: Police station (top floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efd4"></span>EFD4</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $9F,$7A,$99,$9A</td>
 <td class="comment-11" rowspan="1">150&lt;=x&lt;=158: No. 27 (top floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efd8"></span>EFD8</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $CF,$FA,$C3,$C5</td>
 <td class="comment-11" rowspan="1">159&lt;=x&lt;=206: Apartment building next to no. 19 (top floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efdc"></span>EFDC</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $DF,$BA,$D2,$E1</td>
 <td class="comment-11" rowspan="1">207&lt;=x&lt;=222: No. 19 (roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efe0"></span>EFE0</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $EF,$CA,$E9,$EA</td>
 <td class="comment-11" rowspan="1">223&lt;=x&lt;=238: No. 17 (top floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efe4"></span>EFE4</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $FF,$EA,$F9,$FA</td>
 <td class="comment-11" rowspan="1">238&lt;=x&lt;=254: No. 15 (top floor)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="efe8"></span>
 <div class="comments">
 <div class="paragraph">
@@ -493,36 +553,42 @@ The next table corresponds to y-coordinates 2-7.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efe8"></span>EFE8</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $17,$5C,$0B,$14</td>
 <td class="comment-11" rowspan="1">0&lt;=x&lt;=22: Apartment building next to no. 74 (roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="efec"></span>EFEC</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $67,$9C,$58,$9D</td>
 <td class="comment-11" rowspan="1">23&lt;=x&lt;=102: No. 74 (roof) and hotel (top floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eff0"></span>EFF0</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $96,$6C,$89,$93</td>
 <td class="comment-11" rowspan="1">103&lt;=x&lt;=149: Police station (roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eff4"></span>EFF4</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $9F,$7C,$9C,$97</td>
 <td class="comment-11" rowspan="1">150&lt;=x&lt;=158: No. 27 (roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eff8"></span>EFF8</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $CF,$FC,$C3,$B6</td>
 <td class="comment-11" rowspan="1">159&lt;=x&lt;=206: Apartment building next to no. 19 (roof)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="effc"></span>EFFC</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $FF,$CC,$EC,$E2</td>
 <td class="comment-11" rowspan="1">207&lt;=x&lt;=254: No. 17 (roof) and no. 15 (roof)</td>
 </tr>
@@ -535,10 +601,10 @@ The next table corresponds to y-coordinates 2-7.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/61194.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/61194.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

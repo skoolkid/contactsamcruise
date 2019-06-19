@@ -23,7 +23,7 @@
 <div class="description">EBA0: Make a character move down</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="ECD7.html">ECD7</a>, <a href="F5AC.html">F5AC</a> and <a href="F600.html">F600</a> to attempt to move a character in the following ways, in the given order, depending on the directions that are available at the character's current location:
@@ -73,11 +73,12 @@ Used by the routines at <a href="ECD7.html">ECD7</a>, <a href="F5AC.html">F5AC</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="eba0"></span>EBA0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$A418</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the direction indicator table at <a href="A418.html">A418</a></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="eba3"></span>
 <div class="comments">
 <div class="paragraph">
@@ -89,36 +90,42 @@ This entry point is used by the routine at <a href="EB9B.html">EB9B</a> with <sp
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="eba3"></span>EBA3</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB85.html">$EB85</a></td>
 <td class="comment-11" rowspan="1">Make the character stand up if he's lying down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eba6"></span>EBA6</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if the character was lying down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eba7"></span>EBA7</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Is the character facing left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="eba9"></span>EBA9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,<a href="EBBB.html#ebd0">$EBD0</a></td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ebab"></span>EBAB</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1"><span class="register">DE</span>=<a href="A318.html">A318</a> or <a href="A518.html">A518</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="ebac"></span>EBAC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR <a href="EBBB.html#ebd0">$EBD0</a></td>
 <td class="comment-11" rowspan="1">Move the character and update the SRB accordingly</td>
 </tr>
@@ -131,10 +138,10 @@ This entry point is used by the routine at <a href="EB9B.html">EB9B</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/60320.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/60320.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

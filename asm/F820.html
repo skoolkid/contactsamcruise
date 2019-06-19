@@ -23,7 +23,7 @@
 <div class="description">F820: Make a character walk up and down for a while</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the command lists at <a href="FDA0.html">FDA0</a>, <a href="FDB4.html">FDB4</a>, <a href="FDC4.html">FDC4</a>, <a href="FDD0.html">FDD0</a>, <a href="FDEA.html">FDEA</a>, <a href="FDF8.html">FDF8</a>, <a href="FE14.html">FE14</a>, <a href="FE34.html">FE34</a>, <a href="FE49.html">FE49</a>, <a href="FE9A.html">FE9A</a> and <a href="FEA0.html">FEA0</a>.
@@ -49,30 +49,35 @@ Used by the command lists at <a href="FDA0.html">FDA0</a>, <a href="FDB4.html">F
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f820"></span>F820</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0B</td>
 <td class="comment-11" rowspan="2">Set the door identifier in byte 0x0B of the character's buffer to 0xA8 (which corresponds to no door, meaning the character will not be on door duty)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f822"></span>F822</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$A8</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f824"></span>F824</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="2">Set the walkabout duration counter in byte 0x0C of the character's buffer to 0xFF (meaning the character will walk up and down for a finite period instead of indefinitely)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f825"></span>F825</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$FF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f827"></span>F827</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F748.html#f74d">$F74D</a></td>
 <td class="comment-11" rowspan="1">Make the character begin walking up and down</td>
 </tr>
@@ -85,10 +90,10 @@ Used by the command lists at <a href="FDA0.html">FDA0</a>, <a href="FDB4.html">F
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/63520.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63520.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

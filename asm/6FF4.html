@@ -23,7 +23,7 @@
 <div class="description">6FF4: Update the telephone icon</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="7425.html">7425</a>. The main entry point is used to make the telephone appear to vibrate as if ringing.
@@ -46,23 +46,26 @@ Used by the routine at <a href="7425.html">7425</a>. The main entry point is use
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6ff4"></span>6FF4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7032</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the graphic data for the telephone when ringing (at <a href="7032.html">7032</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ff7"></span>6FF7</td>
+<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ff8"></span>6FF8</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $6FFD</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6ffa"></span>
 <div class="comments">
 <div class="paragraph">
@@ -74,144 +77,168 @@ This entry point is also used by the routine at <a href="7425.html">7425</a> to 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6ffa"></span>6FFA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7045</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the graphic data for the telephone when not ringing (at <a href="7045.html">7045</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6ffd"></span>6FFD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$50AE</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the display file address of the top pixel row of the top-left tile of the telephone icon</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7000"></span>7000</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$06</td>
 <td class="comment-11" rowspan="8">Update the top six pixel rows of the top two tiles of the telephone icon</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7002"></span>7002</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDI</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7004"></span>7004</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDI</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7006"></span>7006</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7007"></span>7007</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7008"></span>7008</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7009"></span>7009</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="700a"></span>700A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7002</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="700c"></span>700C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="6">Update the bottom two pixel rows of the top-left tile of the telephone icon</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="700d"></span>700D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="700e"></span>700E</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="700f"></span>700F</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7010"></span>7010</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7011"></span>7011</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7012"></span>7012</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$03</td>
 <td class="comment-11" rowspan="1">There are three more pixel rows to update</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7014"></span>7014</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$50CE</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the display file address of the top pixel row of the bottom-left tile of the telephone icon</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7017"></span>7017</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="5">Update the top three pixel rows of the bottom-left tile of the telephone icon</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7018"></span>7018</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7019"></span>7019</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="701a"></span>701A</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="701b"></span>701B</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $7017</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="701d"></span>701D</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -224,10 +251,10 @@ This entry point is also used by the routine at <a href="7425.html">7425</a> to 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20181020</div>
-<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/contact_sam_cruise/asm/28660.html">Switch to decimal</a>.</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/28660.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>
