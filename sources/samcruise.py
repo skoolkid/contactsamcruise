@@ -758,8 +758,8 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
 
     def _get_sprite_tile_img_fname(self, tile, state):
         if state & 127 in (7, 9, 10, 15, 23, 31, 39, 55, 63, 71, 79, 87, 95, 103, 111, 119):
-            return '{:x}_{}.{}'.format(tile.ref + 256 * tile.udg_page, state, self.default_image_format)
-        return '{:x}.{}'.format(tile.udg_addr, self.default_image_format)
+            return '{:x}_{}.png'.format(tile.ref + 256 * tile.udg_page, state)
+        return '{:x}.png'.format(tile.udg_addr)
 
     def _get_disguise_tile_data(self, disguise_id, ref_index):
         ref = self.snapshot[62 + ref_index + 256 * (223 + disguise_id)]
