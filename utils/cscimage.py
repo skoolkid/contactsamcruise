@@ -444,15 +444,14 @@ def run(snafile, imgfname, options):
     udg_array = game.get_play_area_udgs(x, y, width, height)
     frame = Frame(udg_array, options.scale)
     image_writer = ImageWriter()
-    image_format = 'gif' if imgfname.lower()[-4:] == '.gif' else 'png'
     with open(imgfname, "wb") as f:
-        image_writer.write_image([frame], f, image_format)
+        image_writer.write_image([frame], f)
 
 ###############################################################################
 # Begin
 ###############################################################################
 parser = argparse.ArgumentParser(
-    usage='cscimage.py [options] FILE.{png,gif}',
+    usage='cscimage.py [options] FILE.png',
     description="Create an image of the play area in Contact Sam Cruise.",
     formatter_class=argparse.RawTextHelpFormatter,
     add_help=False
