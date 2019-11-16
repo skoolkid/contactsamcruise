@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at F6A2</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F6A1.html">F6A1</a></span></td>
+<td class="prev">
+Prev: <a href="F6A1.html">F6A1</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f6a2">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F6B0.html">F6B0</a></span></td>
+<td class="next">
+Next: <a href="F6B0.html">F6B0</a>
+</td>
 </tr>
 </table>
 <div class="description">F6A2: Calculate the x-coordinate of the front column of a character's sprite</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="6CF4.html">6CF4</a>, <a href="7866.html">7866</a> and <a href="F6B0.html">F6B0</a>. Returns with <span class="register">C</span> holding the x-coordinate of the front column of a character's sprite (that is, the left column if he's facing left, or the right column if he's facing right), <span class="register">A</span> holding the remainder when <span class="register">C</span> is divided by 8, and the zero flag set if the remainder is 0.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,110 +41,81 @@ Used by the routines at <a href="6CF4.html">6CF4</a>, <a href="7866.html">7866</
 <td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f6a2"></span>F6A2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f6a4"></span>F6A4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f6a5"></span>F6A5</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="2">Set the carry flag if the character is facing left, reset it if he's facing right</td>
+<td class="comment-1" rowspan="2">Set the carry flag if the character is facing left, reset it if he's facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f6a6"></span>F6A6</td>
-<td class="bytes-0"></td>
 <td class="instruction">CCF</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f6a7"></span>F6A7</td>
-<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
-<td class="comment-11" rowspan="3">Now <span class="register">A</span>=0 if the character is facing left, or 2 if he's facing right</td>
+<td class="comment-1" rowspan="3">Now <span class="register">A</span>=0 if the character is facing left, or 2 if he's facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f6a8"></span>F6A8</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f6a9"></span>F6A9</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f6aa"></span>F6AA</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f6ab"></span>F6AB</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-11" rowspan="1">Add the character's x-coordinate</td>
+<td class="comment-1" rowspan="1">Add the character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f6ac"></span>F6AC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
-<td class="comment-11" rowspan="1"><span class="register">C</span>=x-coordinate of the front column of the character's sprite</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=x-coordinate of the front column of the character's sprite</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f6ad"></span>F6AD</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<span class="register">C</span>%8, with the zero flag if this is 0</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">C</span>%8, with the zero flag if this is 0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f6af"></span>F6AF</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F6A1.html">F6A1</a></span></td>
+<td class="prev">
+Prev: <a href="F6A1.html">F6A1</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f6a2">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F6B0.html">F6B0</a></span></td>
+<td class="next">
+Next: <a href="F6B0.html">F6B0</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/63138.html">Switch to decimal</a>.</div>
 </footer>
 </body>

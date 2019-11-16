@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at F100</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F0F9.html">F0F9</a></span></td>
+<td class="prev">
+Prev: <a href="F0F9.html">F0F9</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f100">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F144.html">F144</a></span></td>
+<td class="next">
+Next: <a href="F144.html">F144</a>
+</td>
 </tr>
 </table>
 <div class="description">F100: Open or close a door and update the screen refresh buffer</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="F144.html">F144</a> and <a href="F7CD.html">F7CD</a>. Updates the play area graphics for the door being opened or closed, and updates the <a href="7F00.html">screen refresh buffer</a> (SRB) accordingly.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,174 +41,114 @@ Used by the routines at <a href="F144.html">F144</a> and <a href="F7CD.html">F7C
 <td class="register-desc">Address of the door status flags (see <a href="7FF0.html">7FF0</a>)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f100"></span>F100</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0xF0-0xF9</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0xF0-0xF9</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f101"></span>F101</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB $3A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0xB6-0xBF</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0xB6-0xBF</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f103"></span>F103</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the relevant entry in the door locations table at <a href="FFB6.html">FFB6</a></td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the relevant entry in the door locations table at <a href="FFB6.html">FFB6</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f104"></span>F104</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$FF</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f106"></span>F106</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up the entry from the door locations table</td>
+<td class="comment-1" rowspan="1">Pick up the entry from the door locations table</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f107"></span>F107</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
-<td class="comment-11" rowspan="1">Discard bits 0-2 of the x-coordinate</td>
+<td class="comment-1" rowspan="1">Discard bits 0-2 of the x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f109"></span>F109</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1">Copy the result to <span class="register">E</span></td>
+<td class="comment-1" rowspan="1">Copy the result to <span class="register">E</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f10a"></span>F10A</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="3">Now divide the result by 8</td>
+<td class="comment-1" rowspan="3">Now divide the result by 8</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f10b"></span>F10B</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f10c"></span>F10C</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f10d"></span>F10D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the entry in the table of Z values at <a href="BD00.html">BD00</a> that corresponds to the door</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the entry in the table of Z values at <a href="BD00.html">BD00</a> that corresponds to the door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f10e"></span>F10E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$BD</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f110"></span>F110</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="3">Flip bit 2 of the Z value for y-coordinates 30-35 (set=closed, reset=open)</td>
+<td class="comment-1" rowspan="3">Flip bit 2 of the Z value for y-coordinates 30-35 (set=closed, reset=open)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f111"></span>F111</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR $04</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f113"></span>F113</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f114"></span>F114</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $03</td>
-<td class="comment-11" rowspan="1">Set the zero flag if this is a shop door</td>
+<td class="comment-1" rowspan="1">Set the zero flag if this is a shop door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f116"></span>F116</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$223C</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=34 (y-coordinate of the base of a house door), <span class="register">C</span>=60 (00111100)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=34 (y-coordinate of the base of a house door), <span class="register">C</span>=60 (00111100)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f119"></span>F119</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F123</td>
-<td class="comment-11" rowspan="1">Jump unless this is a shop door</td>
+<td class="comment-1" rowspan="1">Jump unless this is a shop door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f11b"></span>F11B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$24C0</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=36 (y-coordinate of the base of a shop door), <span class="register">C</span>=192 (11000000)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=36 (y-coordinate of the base of a shop door), <span class="register">C</span>=192 (11000000)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f11e"></span>F11E</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the entry in the table of Z values at <a href="BE00.html">BE00</a> that corresponds to the door</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the entry in the table of Z values at <a href="BE00.html">BE00</a> that corresponds to the door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f11f"></span>F11F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="3">Flip bits 2, 3 and 4 of the Z value for y-coordinates 36-41</td>
+<td class="comment-1" rowspan="3">Flip bits 2, 3 and 4 of the Z value for y-coordinates 36-41</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f120"></span>F120</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR $1C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f122"></span>F122</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -218,199 +161,145 @@ This entry point is used by the routine at <a href="FC25.html">FC25</a> with <sp
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f123"></span>F123</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FFE</td>
-<td class="comment-11" rowspan="1"><a href="7FFE.html">7FFE</a> holds X, the x-coordinate of the leftmost column of the play area on screen</td>
+<td class="comment-1" rowspan="1"><a href="7FFE.html">7FFE</a> holds X, the x-coordinate of the leftmost column of the play area on screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f126"></span>F126</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the door or rope (rounded down to the nearest multiple of 8)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x-coordinate of the door or rope (rounded down to the nearest multiple of 8)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f127"></span>F127</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB (HL)</td>
-<td class="comment-11" rowspan="1">Subtract X</td>
+<td class="comment-1" rowspan="1">Subtract X</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f128"></span>F128</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="3">Divide the result by 8</td>
+<td class="comment-1" rowspan="3">Divide the result by 8</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f129"></span>F129</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f12a"></span>F12A</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f12b"></span>F12B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $04</td>
-<td class="comment-11" rowspan="1">Is the door or rope off-screen to the left or right?</td>
+<td class="comment-1" rowspan="1">Is the door or rope off-screen to the left or right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f12d"></span>F12D</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f12e"></span>F12E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=0, 1, 2 or 3, denoting the 8-tile wide column of the screen that contains the door or rope</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=0, 1, 2 or 3, denoting the 8-tile wide column of the screen that contains the door or rope</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f12f"></span>F12F</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FFF.html">7FFF</a>, which holds Y, the y-coordinate of the topmost row of the play area on screen</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="7FFF.html">7FFF</a>, which holds Y, the y-coordinate of the topmost row of the play area on screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f130"></span>F130</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=10 (y-coordinate of the rope), 34 or 36 (y-coordinate of the base of the door)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=10 (y-coordinate of the rope), 34 or 36 (y-coordinate of the base of the door)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f131"></span>F131</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$06</td>
-<td class="comment-11" rowspan="1">Doors are at most 6 tiles high</td>
+<td class="comment-1" rowspan="1">Doors are at most 6 tiles high</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f133"></span>F133</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB (HL)</td>
-<td class="comment-11" rowspan="1">Subtract Y from the y-coordinate of the rope or base of the door</td>
+<td class="comment-1" rowspan="1">Subtract Y from the y-coordinate of the rope or base of the door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f134"></span>F134</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="2">Multiply by 4</td>
+<td class="comment-1" rowspan="2">Multiply by 4</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f135"></span>F135</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f136"></span>F136</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,E</td>
-<td class="comment-11" rowspan="1">Add <span class="register">E</span> (0-3)</td>
+<td class="comment-1" rowspan="1">Add <span class="register">E</span> (0-3)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f137"></span>F137</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at a byte of the <a href="7F00.html">screen refresh buffer</a> (SRB)</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at a byte of the <a href="7F00.html">screen refresh buffer</a> (SRB)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f138"></span>F138</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $60</td>
-<td class="comment-11" rowspan="1">Is this part of the door below the visible portion of the play area?</td>
+<td class="comment-1" rowspan="1">Is this part of the door below the visible portion of the play area?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f13a"></span>F13A</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f13b"></span>F13B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="3">Set the appropriate bits in the SRB byte for the rope or door</td>
+<td class="comment-1" rowspan="3">Set the appropriate bits in the SRB byte for the rope or door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f13c"></span>F13C</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f13d"></span>F13D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f13e"></span>F13E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="2">Compute the LSB of the address of the next SRB byte</td>
+<td class="comment-1" rowspan="2">Compute the LSB of the address of the next SRB byte</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f13f"></span>F13F</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$04</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f141"></span>F141</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $F137</td>
-<td class="comment-11" rowspan="1">Jump back to check whether this SRB byte needs updating</td>
+<td class="comment-1" rowspan="1">Jump back to check whether this SRB byte needs updating</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f143"></span>F143</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F0F9.html">F0F9</a></span></td>
+<td class="prev">
+Prev: <a href="F0F9.html">F0F9</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f100">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F144.html">F144</a></span></td>
+<td class="next">
+Next: <a href="F144.html">F144</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/61696.html">Switch to decimal</a>.</div>
 </footer>
 </body>

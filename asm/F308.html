@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at F308</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F304.html">F304</a></span></td>
+<td class="prev">
+Prev: <a href="F304.html">F304</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f308">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F336.html">F336</a></span></td>
+<td class="next">
+Next: <a href="F336.html">F336</a>
+</td>
 </tr>
 </table>
 <div class="description">F308: Deal with Sam when he has knocked on or is opening a door</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="74D8.html">74D8</a> when bit 6 at <a href="7FFC.html">7FFC</a> is set (by the routine at <a href="F2F0.html">F2F0</a>), indicating that Sam has knocked on or is opening a door.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,125 +41,84 @@ Used by the routine at <a href="74D8.html">74D8</a> when bit 6 at <a href="7FFC.
 <td class="register-desc">0xE6 (Sam)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f308"></span>F308</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="2">Clear Sam's status flags at <a href="7FFC.html">7FFC</a></td>
+<td class="comment-1" rowspan="2">Clear Sam's status flags at <a href="7FFC.html">7FFC</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f309"></span>F309</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($7FFC),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f30c"></span>F30C</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save Sam's character number (in <span class="register">H</span>) briefly</td>
+<td class="comment-1" rowspan="1">Save Sam's character number (in <span class="register">H</span>) briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f30d"></span>F30D</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB13.html">$EB13</a></td>
-<td class="comment-11" rowspan="1">Obtain descriptors for Sam's current location</td>
+<td class="comment-1" rowspan="1">Obtain descriptors for Sam's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f310"></span>F310</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore Sam's character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore Sam's character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f311"></span>F311</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $04</td>
-<td class="comment-11" rowspan="1">Is Sam standing behind or in front of a closed door?</td>
+<td class="comment-1" rowspan="1">Is Sam standing behind or in front of a closed door?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f313"></span>F313</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F324</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f315"></span>F315</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x04 of Sam's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x04 of Sam's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f317"></span>F317</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="1">Is Sam indoors?</td>
+<td class="comment-1" rowspan="1">Is Sam indoors?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f319"></span>F319</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F327</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f31b"></span>F31B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F2A8.html">$F2A8</a></td>
-<td class="comment-11" rowspan="1">Open the door if Sam has the key, or signal that he has knocked on the door</td>
+<td class="comment-1" rowspan="1">Open the door if Sam has the key, or signal that he has knocked on the door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f31e"></span>F31E</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $F324</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f320"></span>F320</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="3">These three instructions are never executed; but if the relative jump above were made only when the carry flag is reset (meaning Sam has opened the door), these instructions would set bit 5 of the door knock status flags for the door (see <a href="7FAA.html">7FAA</a>)</td>
+<td class="comment-1" rowspan="3">These three instructions are never executed; but if the relative jump above were made only when the carry flag is reset (meaning Sam has opened the door), these instructions would set bit 5 of the door knock status flags for the door (see <a href="7FAA.html">7FAA</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f321"></span>F321</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 5,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f323"></span>F323</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f324"></span>F324</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="EC7B.html">$EC7B</a></td>
-<td class="comment-11" rowspan="1">Lower Sam's arm and make a sound effect</td>
+<td class="comment-1" rowspan="1">Lower Sam's arm and make a sound effect</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -169,18 +131,14 @@ Sam is standing behind a closed door.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f327"></span>F327</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EC7B.html">$EC7B</a></td>
-<td class="comment-11" rowspan="1">Lower Sam's arm and make a sound effect</td>
+<td class="comment-1" rowspan="1">Lower Sam's arm and make a sound effect</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f32a"></span>F32A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$E6</td>
-<td class="comment-11" rowspan="1">0xE6=Sam</td>
+<td class="comment-1" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -193,59 +151,51 @@ This entry point is used by the routines at <a href="F600.html">F600</a> and <a 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f32c"></span>F32C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,H</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=character number</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=character number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f32d"></span>F32D</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F293.html">$F293</a></td>
-<td class="comment-11" rowspan="1">Check whether the door is open</td>
+<td class="comment-1" rowspan="1">Check whether the door is open</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f330"></span>F330</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f331"></span>F331</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if the door is open</td>
+<td class="comment-1" rowspan="1">Return if the door is open</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f332"></span>F332</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the door status flags</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the door status flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f333"></span>F333</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F2A8.html#f2b3">$F2B3</a></td>
-<td class="comment-11" rowspan="1">Open the door</td>
+<td class="comment-1" rowspan="1">Open the door</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F304.html">F304</a></span></td>
+<td class="prev">
+Prev: <a href="F304.html">F304</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f308">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F336.html">F336</a></span></td>
+<td class="next">
+Next: <a href="F336.html">F336</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/62216.html">Switch to decimal</a>.</div>
 </footer>
 </body>

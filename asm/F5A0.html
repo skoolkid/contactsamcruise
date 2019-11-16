@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at F5A0</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F500.html">F500</a></span></td>
+<td class="prev">
+Prev: <a href="F500.html">F500</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f5a0">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F5AC.html">F5AC</a></span></td>
+<td class="next">
+Next: <a href="F5AC.html">F5AC</a>
+</td>
 </tr>
 </table>
 <div class="description">F5A0: Make a character flip a light switch off occasionally</div>
@@ -29,7 +32,7 @@
 Used by the unused routine at <a href="F5F6.html">F5F6</a> and the routine at <a href="F600.html">F600</a>. If the character is standing next to a light switch, this routine makes him flip the switch off (if it's on and affects the lights in more than one window or window-pair), or consider flipping the switch off (if it's on and affects the lights in only one window or window-pair).
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,61 +41,49 @@ Used by the unused routine at <a href="F5F6.html">F5F6</a> and the routine at <a
 <td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f5a0"></span>F5A0</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F436.html">$F436</a></td>
-<td class="comment-11" rowspan="1">Is the character standing next to a light switch?</td>
+<td class="comment-1" rowspan="1">Is the character standing next to a light switch?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f5a3"></span>F5A3</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f5a4"></span>F5A4</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 5,A</td>
-<td class="comment-11" rowspan="1">Does the light switch affect the lights in more than one window or window pair?</td>
+<td class="comment-1" rowspan="1">Does the light switch affect the lights in more than one window or window pair?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f5a6"></span>F5A6</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="F485.html#f48d">$F48D</a></td>
-<td class="comment-11" rowspan="1">If not, flip the light switch off 109 times out of 256</td>
+<td class="comment-1" rowspan="1">If not, flip the light switch off 109 times out of 256</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f5a9"></span>F5A9</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F4E6.html#f4ec">$F4EC</a></td>
-<td class="comment-11" rowspan="1">Flip the light switch off</td>
+<td class="comment-1" rowspan="1">Flip the light switch off</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F500.html">F500</a></span></td>
+<td class="prev">
+Prev: <a href="F500.html">F500</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f5a0">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F5AC.html">F5AC</a></span></td>
+<td class="next">
+Next: <a href="F5AC.html">F5AC</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/62880.html">Switch to decimal</a>.</div>
 </footer>
 </body>

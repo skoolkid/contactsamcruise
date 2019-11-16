@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 24951</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="24925.html">24925</a></span></td>
+<td class="prev">
+Prev: <a href="24925.html">24925</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#24951">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="25019.html">25019</a></span></td>
+<td class="next">
+Next: <a href="25019.html">25019</a>
+</td>
 </tr>
 </table>
 <div class="description">24951: 'J' pressed - joystick</div>
@@ -29,124 +32,80 @@
 The address of this routine is found in the table of keypress handling routines at <a href="60672.html">60672</a>. It is called from the main loop at <a href="61483.html">61483</a> when 'J' is pressed.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24951"></span>24951</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,96</td>
-<td class="comment-11" rowspan="1">Message 96: newline</td>
+<td class="comment-1" rowspan="1">Message 96: newline</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24953"></span>24953</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (32722),A</td>
-<td class="comment-11" rowspan="1">Store this message number at <a href="32722.html">32722</a> so that it can be watched in the message queue</td>
+<td class="comment-1" rowspan="1">Store this message number at <a href="32722.html">32722</a> so that it can be watched in the message queue</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24956"></span>24956</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="30154.html">30154</a></td>
-<td class="comment-11" rowspan="1">Queue the message urgently</td>
+<td class="comment-1" rowspan="1">Queue the message urgently</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24959"></span>24959</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,97</td>
-<td class="comment-11" rowspan="1">Message <a href="24524.html">97</a>: 'JOYSTICK?'</td>
+<td class="comment-1" rowspan="1">Message <a href="24524.html">97</a>: 'JOYSTICK?'</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24961"></span>24961</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="30154.html">30154</a></td>
-<td class="comment-11" rowspan="1">Queue this message urgently</td>
+<td class="comment-1" rowspan="1">Queue this message urgently</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24964"></span>24964</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="30972.html">30972</a></td>
-<td class="comment-11" rowspan="2">Wait until message 96 (newline) has left the queue (and therefore 'JOYSTICK?' is displayed)</td>
+<td class="comment-1" rowspan="2">Wait until message 96 (newline) has left the queue (and therefore 'JOYSTICK?' is displayed)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24967"></span>24967</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,24964</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24969"></span>24969</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="60121.html">60121</a></td>
-<td class="comment-11" rowspan="2">Wait for a keypress and collect its ASCII code in <span class="register">A</span></td>
+<td class="comment-1" rowspan="2">Wait for a keypress and collect its ASCII code in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24972"></span>24972</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,24969</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24974"></span>24974</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 5,A</td>
-<td class="comment-11" rowspan="1">Convert the keypress to lower case</td>
+<td class="comment-1" rowspan="1">Convert the keypress to lower case</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24976"></span>24976</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,25019</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the keypress offset patch table at <a href="25019.html">25019</a></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the keypress offset patch table at <a href="25019.html">25019</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24979"></span>24979</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,49968</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the main <a href="49968.html">keypress offset table</a></td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the main <a href="49968.html">keypress offset table</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24982"></span>24982</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,10</td>
-<td class="comment-11" rowspan="1">There will be 10 bytes to copy</td>
+<td class="comment-1" rowspan="1">There will be 10 bytes to copy</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24985"></span>24985</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 107</td>
-<td class="comment-11" rowspan="1">Was 'k' pressed?</td>
+<td class="comment-1" rowspan="1">Was 'k' pressed?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24987"></span>24987</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,25001</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -159,60 +118,42 @@ Now <span class="register">HL</span> points at the appropriate keypress offset p
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24989"></span>24989</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the pointer to the keypress offset patch table briefly</td>
+<td class="comment-1" rowspan="1">Save the pointer to the keypress offset patch table briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24990"></span>24990</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,65530</td>
-<td class="comment-11" rowspan="2">Set the input device indicator for future games at <a href="65504.html#65530">65530</a></td>
+<td class="comment-1" rowspan="2">Set the input device indicator for future games at <a href="65504.html#65530">65530</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24993"></span>24993</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24994"></span>24994</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,127</td>
-<td class="comment-11" rowspan="2">Set the input device indicator for the current game at <a href="32762.html">32762</a></td>
+<td class="comment-1" rowspan="2">Set the input device indicator for the current game at <a href="32762.html">32762</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24996"></span>24996</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24997"></span>24997</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the address of the keypress offset patch table to <span class="register">HL</span></td>
+<td class="comment-1" rowspan="1">Restore the address of the keypress offset patch table to <span class="register">HL</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24998"></span>24998</td>
-<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
-<td class="comment-11" rowspan="1">Update the entries for keys 0-9 in the <a href="49968.html">keypress offset table</a></td>
+<td class="comment-1" rowspan="1">Update the entries for keys 0-9 in the <a href="49968.html">keypress offset table</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25000"></span>25000</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -225,80 +166,66 @@ Some key other than 'k' (Kempston) was pressed.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25001"></span>25001</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 99</td>
-<td class="comment-11" rowspan="1">Was 'c' (Cursor) pressed?</td>
+<td class="comment-1" rowspan="1">Was 'c' (Cursor) pressed?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25003"></span>25003</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,25013</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25005"></span>25005</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 110</td>
-<td class="comment-11" rowspan="1">Was 'n' (None) pressed?</td>
+<td class="comment-1" rowspan="1">Was 'n' (None) pressed?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25007"></span>25007</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,25013</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25009"></span>25009</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,197</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="25029.html">25029</a> (keypress offset patch table for Int2)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="25029.html">25029</a> (keypress offset patch table for Int2)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25011"></span>25011</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 105</td>
-<td class="comment-11" rowspan="1">Set the zero flag if 'i' was pressed</td>
+<td class="comment-1" rowspan="1">Set the zero flag if 'i' was pressed</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25013"></span>25013</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,0</td>
-<td class="comment-11" rowspan="1">0 indicates that we're not using the Kempston joystick</td>
+<td class="comment-1" rowspan="1">0 indicates that we're not using the Kempston joystick</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25015"></span>25015</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,24989</td>
-<td class="comment-11" rowspan="1">Jump if 'i' (Int2) was pressed</td>
+<td class="comment-1" rowspan="1">Jump if 'i' (Int2) was pressed</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25017"></span>25017</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 24969</td>
-<td class="comment-11" rowspan="1">Otherwise jump back to collect another keypress</td>
+<td class="comment-1" rowspan="1">Otherwise jump back to collect another keypress</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="24925.html">24925</a></span></td>
+<td class="prev">
+Prev: <a href="24925.html">24925</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#24951">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="25019.html">25019</a></span></td>
+<td class="next">
+Next: <a href="25019.html">25019</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/6177.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 710E</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="710C.html">710C</a></span></td>
+<td class="prev">
+Prev: <a href="710C.html">710C</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#710e">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="714B.html">714B</a></span></td>
+<td class="next">
+Next: <a href="714B.html">714B</a>
+</td>
 </tr>
 </table>
 <div class="description">710E: Check whether a character is close enough to Sam to pick him up</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="61F2.html">61F2</a> and <a href="72B1.html">72B1</a>. Returns with the carry flag set if the character is facing Sam and close enough to him to pick him up, and Sam is not already being carried.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,41 +41,27 @@ Used by the routines at <a href="61F2.html">61F2</a> and <a href="72B1.html">72B
 <td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="710e"></span>710E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFC)</td>
-<td class="comment-11" rowspan="1">Collect Sam's status flags from <a href="7FFC.html">7FFC</a></td>
+<td class="comment-1" rowspan="1">Collect Sam's status flags from <a href="7FFC.html">7FFC</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7111"></span>7111</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1">Now <span class="register">A</span>=0 if Sam's being carried at the moment</td>
+<td class="comment-1" rowspan="1">Now <span class="register">A</span>=0 if Sam's being carried at the moment</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7112"></span>7112</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Clear the carry flag, and set the zero flag if Sam's being carried</td>
+<td class="comment-1" rowspan="1">Clear the carry flag, and set the zero flag if Sam's being carried</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7113"></span>7113</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return with the carry flag reset if Sam's being carried</td>
+<td class="comment-1" rowspan="1">Return with the carry flag reset if Sam's being carried</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -85,123 +74,86 @@ Sam is not being carried at the moment. Compare his x- and y-coordinates with th
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7114"></span>7114</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7116"></span>7116</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6558.html">$6558</a></td>
-<td class="comment-11" rowspan="1">Collect Sam's x- and y-coordinates in <span class="register">E</span> and <span class="register">D</span></td>
+<td class="comment-1" rowspan="1">Collect Sam's x- and y-coordinates in <span class="register">E</span> and <span class="register">D</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7119"></span>7119</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="711a"></span>711A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="711b"></span>711B</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="3">Is the character more than one y-coordinate above or below Sam?</td>
+<td class="comment-1" rowspan="3">Is the character more than one y-coordinate above or below Sam?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="711c"></span>711C</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="711d"></span>711D</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $03</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="711f"></span>711F</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7120"></span>7120</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7121"></span>7121</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7122"></span>7122</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7123"></span>7123</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Is the character facing left?</td>
+<td class="comment-1" rowspan="1">Is the character facing left?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7125"></span>7125</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7129</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7127"></span>7127</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$02</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=2+character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=2+character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7129"></span>7129</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB E</td>
-<td class="comment-11" rowspan="2">Is the character facing Sam and no more than two x-coordinates away from him?</td>
+<td class="comment-1" rowspan="2">Is the character facing Sam and no more than two x-coordinates away from him?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="712a"></span>712A</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $03</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="712c"></span>712C</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -214,39 +166,27 @@ The character is facing Sam, no more than one y-coordinate above or below him, a
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="712d"></span>712D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($E604)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's z-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=Sam's z-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7130"></span>7130</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="2">Set the zero flag if the character's z-coordinate matches Sam's</td>
+<td class="comment-1" rowspan="2">Set the zero flag if the character's z-coordinate matches Sam's</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7132"></span>7132</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7133"></span>7133</td>
-<td class="bytes-0"></td>
 <td class="instruction">SCF</td>
-<td class="comment-11" rowspan="2">Return with the carry flag set if the character can pick up Sam at his current location</td>
+<td class="comment-1" rowspan="2">Return with the carry flag set if the character can pick up Sam at his current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7134"></span>7134</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -259,108 +199,86 @@ The z-coordinates don't match. However, the character will still be able to pick
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7135"></span>7135</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the character number briefly</td>
+<td class="comment-1" rowspan="1">Save the character number briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7136"></span>7136</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$E6</td>
-<td class="comment-11" rowspan="1">0xE6=Sam</td>
+<td class="comment-1" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7138"></span>7138</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB13.html">$EB13</a></td>
-<td class="comment-11" rowspan="1">Obtain descriptors for Sam's current location</td>
+<td class="comment-1" rowspan="1">Obtain descriptors for Sam's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="713b"></span>713B</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="713c"></span>713C</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $03</td>
-<td class="comment-11" rowspan="1">Is Sam standing at the open entrance to a building?</td>
+<td class="comment-1" rowspan="1">Is Sam standing at the open entrance to a building?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="713e"></span>713E</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7133</td>
-<td class="comment-11" rowspan="1">Jump if so (Sam can be picked up here)</td>
+<td class="comment-1" rowspan="1">Jump if so (Sam can be picked up here)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7140"></span>7140</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the character number briefly</td>
+<td class="comment-1" rowspan="1">Save the character number briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7141"></span>7141</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB13.html">$EB13</a></td>
-<td class="comment-11" rowspan="1">Obtain descriptors for the character's current location</td>
+<td class="comment-1" rowspan="1">Obtain descriptors for the character's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7144"></span>7144</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7145"></span>7145</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $03</td>
-<td class="comment-11" rowspan="1">Is the character standing at the open entrance to a building?</td>
+<td class="comment-1" rowspan="1">Is the character standing at the open entrance to a building?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7147"></span>7147</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7133</td>
-<td class="comment-11" rowspan="1">Jump if so (the character can pick Sam up here)</td>
+<td class="comment-1" rowspan="1">Jump if so (the character can pick Sam up here)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7149"></span>7149</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Clear the carry flag (Sam cannot be picked up)</td>
+<td class="comment-1" rowspan="1">Clear the carry flag (Sam cannot be picked up)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="714a"></span>714A</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="710C.html">710C</a></span></td>
+<td class="prev">
+Prev: <a href="710C.html">710C</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#710e">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="714B.html">714B</a></span></td>
+<td class="next">
+Next: <a href="714B.html">714B</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/28942.html">Switch to decimal</a>.</div>
 </footer>
 </body>

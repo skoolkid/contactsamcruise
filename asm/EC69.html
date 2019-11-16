@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at EC69</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="EC5A.html">EC5A</a></span></td>
+<td class="prev">
+Prev: <a href="EC5A.html">EC5A</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#ec69">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="EC7B.html">EC7B</a></span></td>
+<td class="next">
+Next: <a href="EC7B.html">EC7B</a>
+</td>
 </tr>
 </table>
 <div class="description">EC69: Make a sound effect</div>
@@ -29,109 +32,78 @@
 Used by the routines at <a href="64BD.html">64BD</a>, <a href="77D3.html">77D3</a>, <a href="790D.html">790D</a>, <a href="EC7B.html">EC7B</a>, <a href="ECE1.html">ECE1</a>, <a href="FADA.html">FADA</a> and <a href="FB52.html">FB52</a>. Makes the sound effect that is used when 'M' is pressed to toggle the message speed, and also by Sam when he is walking, finishes a roll or somersault, picks up the hook or budgie, picks up a telephone, is dialling a telephone number, hangs up a phone, changes disguise, lowers his arm, knocks on a door, blows a fuse, flips a light switch, raises or lowers a window blind, throws the hook, or is falling from the roof of a building.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ec69"></span>EC69</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ec6a"></span>EC6A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="1">BORDER 1 (blue)</td>
+<td class="comment-1" rowspan="1">BORDER 1 (blue)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ec6c"></span>EC6C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$07</td>
-<td class="comment-11" rowspan="1">Initialise the duration counter</td>
+<td class="comment-1" rowspan="1">Initialise the duration counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ec6e"></span>EC6E</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR $10</td>
-<td class="comment-11" rowspan="1">Flip bit 4 (the speaker bit)</td>
+<td class="comment-1" rowspan="1">Flip bit 4 (the speaker bit)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ec70"></span>EC70</td>
-<td class="bytes-0"></td>
 <td class="instruction">OUT ($FE),A</td>
-<td class="comment-11" rowspan="1">Change the speaker state</td>
+<td class="comment-1" rowspan="1">Change the speaker state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ec72"></span>EC72</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$C0</td>
-<td class="comment-11" rowspan="2">Perform the pitch delay</td>
+<td class="comment-1" rowspan="2">Perform the pitch delay</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ec74"></span>EC74</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $EC74</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ec76"></span>EC76</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
-<td class="comment-11" rowspan="1">Have we finished the sound effect yet?</td>
+<td class="comment-1" rowspan="1">Have we finished the sound effect yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ec77"></span>EC77</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EC6E</td>
-<td class="comment-11" rowspan="1">Jump back if not</td>
+<td class="comment-1" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ec79"></span>EC79</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ec7a"></span>EC7A</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="EC5A.html">EC5A</a></span></td>
+<td class="prev">
+Prev: <a href="EC5A.html">EC5A</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#ec69">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="EC7B.html">EC7B</a></span></td>
+<td class="next">
+Next: <a href="EC7B.html">EC7B</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/60521.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 61764</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="61696.html">61696</a></span></td>
+<td class="prev">
+Prev: <a href="61696.html">61696</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#61764">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="61790.html">61790</a></span></td>
+<td class="next">
+Next: <a href="61790.html">61790</a>
+</td>
 </tr>
 </table>
 <div class="description">61764: Close any doors that need closing</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="61440.html">61440</a>. Periodically checks whether any open doors need closing, and closes them.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,145 +41,109 @@ Used by the routine at <a href="61440.html">61440</a>. Periodically checks wheth
 <td class="register-desc"><a href="32681.html">32681</a> (main loop task timer)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61764"></span>61764</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Collect the current value of the main loop task timer from <a href="32681.html">32681</a></td>
+<td class="comment-1" rowspan="1">Collect the current value of the main loop task timer from <a href="32681.html">32681</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61765"></span>61765</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 15</td>
-<td class="comment-11" rowspan="1">Is it time to close any currently open doors?</td>
+<td class="comment-1" rowspan="1">Is it time to close any currently open doors?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61767"></span>61767</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61768"></span>61768</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,250</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span> will be used to index the door status flags at <a href="32752.html">32752</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span> will be used to index the door status flags at <a href="32752.html">32752</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61770"></span>61770</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the status flags for the next door</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the status flags for the next door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61771"></span>61771</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 4,L</td>
-<td class="comment-11" rowspan="1">Have we checked every door yet?</td>
+<td class="comment-1" rowspan="1">Have we checked every door yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61773"></span>61773</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61774"></span>61774</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up the status flags for this door</td>
+<td class="comment-1" rowspan="1">Pick up the status flags for this door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61775"></span>61775</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 7</td>
-<td class="comment-11" rowspan="1">Is the door currently closed?</td>
+<td class="comment-1" rowspan="1">Is the door currently closed?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61777"></span>61777</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,61770</td>
-<td class="comment-11" rowspan="1">If so, jump back to check the next door</td>
+<td class="comment-1" rowspan="1">If so, jump back to check the next door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61779"></span>61779</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement the door close delay timer in bits 0-2 of the status flags</td>
+<td class="comment-1" rowspan="1">Decrement the door close delay timer in bits 0-2 of the status flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61780"></span>61780</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1">Is it time to close the door?</td>
+<td class="comment-1" rowspan="1">Is it time to close the door?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61781"></span>61781</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,61770</td>
-<td class="comment-11" rowspan="1">If not, jump back to check the next door</td>
+<td class="comment-1" rowspan="1">If not, jump back to check the next door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61783"></span>61783</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the door status flags pointer</td>
+<td class="comment-1" rowspan="1">Save the door status flags pointer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61784"></span>61784</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61696.html">61696</a></td>
-<td class="comment-11" rowspan="1">Close the door and update the screen refresh buffer</td>
+<td class="comment-1" rowspan="1">Close the door and update the screen refresh buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61787"></span>61787</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the door status flags pointer to <span class="register">HL</span></td>
+<td class="comment-1" rowspan="1">Restore the door status flags pointer to <span class="register">HL</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61788"></span>61788</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 61770</td>
-<td class="comment-11" rowspan="1">Jump back to check the next door</td>
+<td class="comment-1" rowspan="1">Jump back to check the next door</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="61696.html">61696</a></span></td>
+<td class="prev">
+Prev: <a href="61696.html">61696</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#61764">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="61790.html">61790</a></span></td>
+<td class="next">
+Next: <a href="61790.html">61790</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F144.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

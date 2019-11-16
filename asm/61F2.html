@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 61F2</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="61EA.html">61EA</a></span></td>
+<td class="prev">
+Prev: <a href="61EA.html">61EA</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#61f2">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="61F9.html">61F9</a></span></td>
+<td class="next">
+Next: <a href="61F9.html">61F9</a>
+</td>
 </tr>
 </table>
 <div class="description">61F2: Check whether a gangster is close enough to Sam to pick him up</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="61F9.html">61F9</a> and <a href="7A82.html">7A82</a>. Makes the gangster start or continue running, and returns with the carry flag set if he is close enough to Sam to pick him up.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,47 +41,38 @@ Used by the routines at <a href="61F9.html">61F9</a> and <a href="7A82.html">7A8
 <td class="register-desc">Gangster's character number (0xD7-0xE0)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61f2"></span>61F2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
-<td class="comment-11" rowspan="2">Set bit 7 of byte 0x03 of the gangster's buffer to make him run</td>
+<td class="comment-1" rowspan="2">Set bit 7 of byte 0x03 of the gangster's buffer to make him run</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61f4"></span>61F4</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 7,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61f6"></span>61F6</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="710E.html">$710E</a></td>
-<td class="comment-11" rowspan="1">Check whether the gangster is close enough to Sam to pick him up</td>
+<td class="comment-1" rowspan="1">Check whether the gangster is close enough to Sam to pick him up</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="61EA.html">61EA</a></span></td>
+<td class="prev">
+Prev: <a href="61EA.html">61EA</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#61f2">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="61F9.html">61F9</a></span></td>
+<td class="next">
+Next: <a href="61F9.html">61F9</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/25074.html">Switch to decimal</a>.</div>
 </footer>
 </body>

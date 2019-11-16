@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 64131</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="64130.html">64130</a></span></td>
+<td class="prev">
+Prev: <a href="64130.html">64130</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#64131">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="64162.html">64162</a></span></td>
+<td class="next">
+Next: <a href="64162.html">64162</a>
+</td>
 </tr>
 </table>
 <div class="description">64131: Deal with a character who has nearly recovered from being knocked over</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="64005.html">64005</a>. Controls a character from the point where he has almost recovered from the daze of being knocked over.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,20 +41,12 @@ Used by the routine at <a href="64005.html">64005</a>. Controls a character from
 <td class="register-desc">Character number (215-229)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64131"></span>64131</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63994.html">63994</a></td>
-<td class="comment-11" rowspan="1">Place the address of the next instruction into bytes 18 and 19 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Place the address of the next instruction into bytes 18 and 19 of the character's buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -64,67 +59,47 @@ The apparent intention of the remainder of this routine is to make the character
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64134"></span>64134</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,21</td>
-<td class="comment-11" rowspan="2">Collect the character's pre-knockout x-coordinate from byte 21 of his buffer</td>
+<td class="comment-1" rowspan="2">Collect the character's pre-knockout x-coordinate from byte 21 of his buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64136"></span>64136</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64137"></span>64137</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,1</td>
-<td class="comment-11" rowspan="2">Does it match the character's current x-coordinate?</td>
+<td class="comment-1" rowspan="2">Does it match the character's current x-coordinate?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64139"></span>64139</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64140"></span>64140</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,64150</td>
-<td class="comment-11" rowspan="1">Jump if not (this is a <a href="../reference/bugs.html#pttd">bug</a>)</td>
+<td class="comment-1" rowspan="1">Jump if not (this is a <a href="../reference/bugs.html#pttd">bug</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64142"></span>64142</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,128</td>
-<td class="comment-11" rowspan="1">Bit 7 set, bit 6 reset: the character will move left</td>
+<td class="comment-1" rowspan="1">Bit 7 set, bit 6 reset: the character will move left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64144"></span>64144</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,<a href="64005.html#64080">64080</a></td>
-<td class="comment-11" rowspan="1">This jump is never made, but the intention was to make it if the character's current x-coordinate is greater than his pre-knockout x-coordinate</td>
+<td class="comment-1" rowspan="1">This jump is never made, but the intention was to make it if the character's current x-coordinate is greater than his pre-knockout x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64146"></span>64146</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,64</td>
-<td class="comment-11" rowspan="1">Bit 7 reset, bit 6 set: the character will move right</td>
+<td class="comment-1" rowspan="1">Bit 7 reset, bit 6 set: the character will move right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64148"></span>64148</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR <a href="64005.html#64080">64080</a></td>
-<td class="comment-11" rowspan="1">Move the character right</td>
+<td class="comment-1" rowspan="1">Move the character right</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -137,52 +112,45 @@ Restore the character's pre-knockout animatory state and terminate this subcomma
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64150"></span>64150</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="59848.html">59848</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64153"></span>64153</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,13</td>
-<td class="comment-11" rowspan="2">Collect the character's pre-knockout animatory state from byte 13 of his buffer</td>
+<td class="comment-1" rowspan="2">Collect the character's pre-knockout animatory state from byte 13 of his buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64155"></span>64155</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64156"></span>64156</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="59861.html">59861</a></td>
-<td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the character's animatory state and update the SRB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64159"></span>64159</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="62080.html#62088">62088</a></td>
-<td class="comment-11" rowspan="1">Terminate this uninterruptible subcommand</td>
+<td class="comment-1" rowspan="1">Terminate this uninterruptible subcommand</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="64130.html">64130</a></span></td>
+<td class="prev">
+Prev: <a href="64130.html">64130</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#64131">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="64162.html">64162</a></span></td>
+<td class="next">
+Next: <a href="64162.html">64162</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/FA83.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

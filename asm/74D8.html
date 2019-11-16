@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 74D8</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="74C8.html">74C8</a></span></td>
+<td class="prev">
+Prev: <a href="74C8.html">74C8</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#74d8">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7500.html">7500</a></span></td>
+<td class="next">
+Next: <a href="7500.html">7500</a>
+</td>
 </tr>
 </table>
 <div class="description">74D8: Deal with Sam</div>
@@ -29,138 +32,85 @@
 Called from the main loop at <a href="F02B.html">F02B</a> when one of Sam's status flags at <a href="7FFC.html">7FFC</a> is set, indicating that he is in the middle of an action. Returns with the zero flag set if Sam has finished the action by the end of the routine.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="74d8"></span>74D8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$E608</td>
-<td class="comment-11" rowspan="2">Decrement Sam's main action timer in byte 0x08 of his buffer</td>
+<td class="comment-1" rowspan="2">Decrement Sam's main action timer in byte 0x08 of his buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74db"></span>74DB</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74dc"></span>74DC</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return unless it's time to deal with Sam</td>
+<td class="comment-1" rowspan="1">Return unless it's time to deal with Sam</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74dd"></span>74DD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$74F3</td>
-<td class="comment-11" rowspan="2">We will continue at <a href="74D8.html#74f3">74F3</a> (below) after calling the routine to handle Sam</td>
+<td class="comment-1" rowspan="2">We will continue at <a href="74D8.html#74f3">74F3</a> (below) after calling the routine to handle Sam</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74e0"></span>74E0</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74e1"></span>74E1</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$C6</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=74C6</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=74C6</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74e3"></span>74E3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFC)</td>
-<td class="comment-11" rowspan="1">Pick up Sam's status flags from <a href="7FFC.html">7FFC</a></td>
+<td class="comment-1" rowspan="1">Pick up Sam's status flags from <a href="7FFC.html">7FFC</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="74e6"></span>74E6</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="4">Point <span class="register">HL</span> at one of the entries in the table of Sam-handling routine addresses at <a href="74C8.html">74C8</a></td>
+<td class="comment-1" rowspan="4">Point <span class="register">HL</span> at one of the entries in the table of Sam-handling routine addresses at <a href="74C8.html">74C8</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74e7"></span>74E7</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74e8"></span>74E8</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74e9"></span>74E9</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$74E6</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74eb"></span>74EB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-11" rowspan="3">Collect the routine address into <span class="register">BC</span></td>
+<td class="comment-1" rowspan="3">Collect the routine address into <span class="register">BC</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74ec"></span>74EC</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74ed"></span>74ED</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74ee"></span>74EE</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1">Push it onto the stack, ready for an indirect jump</td>
+<td class="comment-1" rowspan="1">Push it onto the stack, ready for an indirect jump</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74ef"></span>74EF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$E600</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of Sam's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of Sam's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74f2"></span>74F2</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Make an indirect jump to the Sam-handling routine</td>
+<td class="comment-1" rowspan="1">Make an indirect jump to the Sam-handling routine</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -173,80 +123,66 @@ We come here after the Sam-handling routine has returned.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="74f3"></span>74F3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FFC</td>
-<td class="comment-11" rowspan="1"><a href="7FFC.html">7FFC</a> holds Sam's status flags</td>
+<td class="comment-1" rowspan="1"><a href="7FFC.html">7FFC</a> holds Sam's status flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74f6"></span>74F6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick them up in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick them up in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74f7"></span>74F7</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Has Sam finished the action yet?</td>
+<td class="comment-1" rowspan="1">Has Sam finished the action yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74f8"></span>74F8</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+<td class="comment-1" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74f9"></span>74F9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($E608)</td>
-<td class="comment-11" rowspan="1">Collect Sam's main action timer from byte 0x08 of his buffer</td>
+<td class="comment-1" rowspan="1">Collect Sam's main action timer from byte 0x08 of his buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74fc"></span>74FC</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Did the Sam-handling routine set the action timer to a non-zero value (meaning that the action is still in progress)?</td>
+<td class="comment-1" rowspan="1">Did the Sam-handling routine set the action timer to a non-zero value (meaning that the action is still in progress)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74fd"></span>74FD</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return with the zero flag reset if so</td>
+<td class="comment-1" rowspan="1">Return with the zero flag reset if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74fe"></span>74FE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Otherwise clear all of Sam's status flags at <a href="7FFC.html">7FFC</a></td>
+<td class="comment-1" rowspan="1">Otherwise clear all of Sam's status flags at <a href="7FFC.html">7FFC</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="74ff"></span>74FF</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Return with the zero flag set</td>
+<td class="comment-1" rowspan="1">Return with the zero flag set</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="74C8.html">74C8</a></span></td>
+<td class="prev">
+Prev: <a href="74C8.html">74C8</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#74d8">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7500.html">7500</a></span></td>
+<td class="next">
+Next: <a href="7500.html">7500</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/29912.html">Switch to decimal</a>.</div>
 </footer>
 </body>

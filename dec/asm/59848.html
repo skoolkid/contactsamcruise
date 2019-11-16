@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 59848</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="59839.html">59839</a></span></td>
+<td class="prev">
+Prev: <a href="59839.html">59839</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#59848">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="59861.html">59861</a></span></td>
+<td class="next">
+Next: <a href="59861.html">59861</a>
+</td>
 </tr>
 </table>
 <div class="description">59848: Update the SRB for a character's current animatory state and location</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="25118.html">25118</a>, <a href="25420.html">25420</a>, <a href="25789.html">25789</a>, <a href="29149.html">29149</a>, <a href="30989.html">30989</a>, <a href="31204.html">31204</a>, <a href="31476.html">31476</a>, <a href="31670.html">31670</a>, <a href="60293.html">60293</a>, <a href="60347.html">60347</a>, <a href="60506.html">60506</a>, <a href="62264.html">62264</a>, <a href="62325.html">62325</a>, <a href="63281.html">63281</a>, <a href="63558.html">63558</a>, <a href="63954.html">63954</a>, <a href="64005.html">64005</a>, <a href="64131.html">64131</a>, <a href="64218.html">64218</a> and <a href="64227.html">64227</a>. Updates the <a href="32512.html">screen refresh buffer</a> (SRB) for a character's current animatory state and location. Returns with the character's current coordinates in <span class="register">DE</span> and animatory state in <span class="register">A</span>.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,96 +41,74 @@ Used by the routines at <a href="25118.html">25118</a>, <a href="25420.html">254
 <td class="register-desc">Character number (215-230)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="59848"></span>59848</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,2</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="59850"></span>59850</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=character's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=character's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="59851"></span>59851</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="59852"></span>59852</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="59853"></span>59853</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="59854"></span>59854</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1">Save the character's coordinates briefly</td>
+<td class="comment-1" rowspan="1">Save the character's coordinates briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="59855"></span>59855</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="59861.html#59868">59868</a></td>
-<td class="comment-11" rowspan="1">Set the appropriate bits in the SRB for the character's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Set the appropriate bits in the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="59858"></span>59858</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1">Restore the character's coordinates to <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Restore the character's coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="59859"></span>59859</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="59860"></span>59860</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="59839.html">59839</a></span></td>
+<td class="prev">
+Prev: <a href="59839.html">59839</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#59848">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="59861.html">59861</a></span></td>
+<td class="next">
+Next: <a href="59861.html">59861</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/E9C8.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

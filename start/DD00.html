@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at DD00</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="start-Asm-c">
 <table class="header">
@@ -15,9 +14,12 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="DB00.html">DB00</a></span></td>
+<td class="prev">
+Prev: <a href="DB00.html">DB00</a>
+</td>
 <td class="up">Up: <a href="start.html#dd00">Map</a></td>
-<td class="next"><span class="next-0">Next: <a href=""></a></span></td>
+<td class="next">
+</td>
 </tr>
 </table>
 <div class="description">DD00: Prepare the bottom 4 lines of the screen</div>
@@ -29,103 +31,59 @@
 Used by the routine at <a href="../asm/F0BE.html">F0BE</a>.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd00"></span>DD00</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd01"></span>DD01</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd02"></span>DD02</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd03"></span>DD03</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$50</td>
-<td class="comment-11" rowspan="9">Clear the bottom 4 lines (32 pixel rows) of the display file</td>
+<td class="comment-1" rowspan="9">Clear the bottom 4 lines (32 pixel rows) of the display file</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd05"></span>DD05</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$80</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd07"></span>DD07</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd08"></span>DD08</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd09"></span>DD09</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd0a"></span>DD0A</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$DD08</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd0c"></span>DD0C</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd0d"></span>DD0D</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd0f"></span>DD0F</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$DD05</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -166,179 +124,124 @@ Now the first 24 character squares on each of the bottom 3 lines (24 pixel rows)
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd11"></span>DD11</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$D700</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first byte to be copied to the screen</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the first byte to be copied to the screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd14"></span>DD14</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$50A0</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first display file location to be written</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the first display file location to be written</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd17"></span>DD17</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$18</td>
-<td class="comment-11" rowspan="1">There are 24 bytes per row of pixels</td>
+<td class="comment-1" rowspan="1">There are 24 bytes per row of pixels</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd19"></span>DD19</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1">Save the display file pointer</td>
+<td class="comment-1" rowspan="1">Save the display file pointer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd1a"></span>DD1A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$18</td>
-<td class="comment-11" rowspan="1">There are 24 rows of pixels to be drawn</td>
+<td class="comment-1" rowspan="1">There are 24 rows of pixels to be drawn</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd1c"></span>DD1C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up a byte to copy</td>
+<td class="comment-1" rowspan="1">Pick up a byte to copy</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd1d"></span>DD1D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-11" rowspan="1">Copy the byte to the screen</td>
+<td class="comment-1" rowspan="1">Copy the byte to the screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd1e"></span>DD1E</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Move <span class="register">HL</span> along to the next byte to copy</td>
+<td class="comment-1" rowspan="1">Move <span class="register">HL</span> along to the next byte to copy</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd1f"></span>DD1F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="2">Have we reached the end of a segment?</td>
+<td class="comment-1" rowspan="2">Have we reached the end of a segment?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd20"></span>DD20</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB $7E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd22"></span>DD22</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$DD26</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd24"></span>DD24</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the first byte in the next segment</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the first byte in the next segment</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd25"></span>DD25</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd26"></span>DD26</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the next pixel row down on the screen</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the next pixel row down on the screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd27"></span>DD27</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,D</td>
-<td class="comment-11" rowspan="1">Have we just copied a byte to the 8th or 16th row of pixels?</td>
+<td class="comment-1" rowspan="1">Have we just copied a byte to the 8th or 16th row of pixels?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd29"></span>DD29</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$DD31</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd2b"></span>DD2B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$50</td>
-<td class="comment-11" rowspan="4">Otherwise point <span class="register">DE</span> at the 9th or 17th row of pixels</td>
+<td class="comment-1" rowspan="4">Otherwise point <span class="register">DE</span> at the 9th or 17th row of pixels</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd2d"></span>DD2D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd2e"></span>DD2E</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$20</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd30"></span>DD30</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd31"></span>DD31</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $DD1C</td>
-<td class="comment-11" rowspan="1">Jump back until a column of 24 bytes has been copied</td>
+<td class="comment-1" rowspan="1">Jump back until a column of 24 bytes has been copied</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd33"></span>DD33</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1">Restore the display file pointer</td>
+<td class="comment-1" rowspan="1">Restore the display file pointer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd34"></span>DD34</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the top byte in the next column along</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the top byte in the next column along</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd35"></span>DD35</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
-<td class="comment-11" rowspan="1">Have we finished all 24 columns?</td>
+<td class="comment-1" rowspan="1">Have we finished all 24 columns?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd36"></span>DD36</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$DD19</td>
-<td class="comment-11" rowspan="1">Jump back if not</td>
+<td class="comment-1" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -351,192 +254,135 @@ Now that the bottom 4 lines of the display file are ready, it's time to prepare 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd38"></span>DD38</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5A80</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first attribute byte of the line where on-screen messages will be displayed</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the first attribute byte of the line where on-screen messages will be displayed</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd3b"></span>DD3B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$20</td>
-<td class="comment-11" rowspan="1">There are 32 attribute bytes in this line</td>
+<td class="comment-1" rowspan="1">There are 32 attribute bytes in this line</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd3d"></span>DD3D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$0F</td>
-<td class="comment-11" rowspan="3">Set each attribute byte to 0x0F (INK 7: PAPER 1)</td>
+<td class="comment-1" rowspan="3">Set each attribute byte to 0x0F (INK 7: PAPER 1)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd3f"></span>DD3F</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd40"></span>DD40</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $DD3D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd42"></span>DD42</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$03</td>
-<td class="comment-11" rowspan="1">There are 3 lines at the bottom of the screen that still need their attribute bytes set</td>
+<td class="comment-1" rowspan="1">There are 3 lines at the bottom of the screen that still need their attribute bytes set</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd44"></span>DD44</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$08</td>
-<td class="comment-11" rowspan="1">The first 8 bytes in each line correspond to the Contact Sam Cruise logo</td>
+<td class="comment-1" rowspan="1">The first 8 bytes in each line correspond to the Contact Sam Cruise logo</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd46"></span>DD46</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$17</td>
-<td class="comment-11" rowspan="3">Set these attribute bytes to 0x17 (INK 7: PAPER 2)</td>
+<td class="comment-1" rowspan="3">Set these attribute bytes to 0x17 (INK 7: PAPER 2)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd48"></span>DD48</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd49"></span>DD49</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $DD46</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd4b"></span>DD4B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$0C</td>
-<td class="comment-11" rowspan="1">The next 12 bytes in each line correspond to the icon panel</td>
+<td class="comment-1" rowspan="1">The next 12 bytes in each line correspond to the icon panel</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd4d"></span>DD4D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$36</td>
-<td class="comment-11" rowspan="3">Set these attribute bytes to 0x36 (INK 6: PAPER 6)</td>
+<td class="comment-1" rowspan="3">Set these attribute bytes to 0x36 (INK 6: PAPER 6)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd4f"></span>DD4F</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd50"></span>DD50</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $DD4D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd52"></span>DD52</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$09</td>
-<td class="comment-11" rowspan="1">The next 9 bytes in each line correspond to the score box</td>
+<td class="comment-1" rowspan="1">The next 9 bytes in each line correspond to the score box</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd54"></span>DD54</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$20</td>
-<td class="comment-11" rowspan="3">Set these attribute bytes to 0x20 (INK 0: PAPER 4)</td>
+<td class="comment-1" rowspan="3">Set these attribute bytes to 0x20 (INK 0: PAPER 4)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd56"></span>DD56</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd57"></span>DD57</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $DD54</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd59"></span>DD59</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$03</td>
-<td class="comment-11" rowspan="1">The last 3 bytes in each line correspond to the disguise box</td>
+<td class="comment-1" rowspan="1">The last 3 bytes in each line correspond to the disguise box</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="dd5b"></span>DD5B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$17</td>
-<td class="comment-11" rowspan="3">Set these attribute bytes to 0x17 (INK 7: PAPER 2)</td>
+<td class="comment-1" rowspan="3">Set these attribute bytes to 0x17 (INK 7: PAPER 2)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd5d"></span>DD5D</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd5e"></span>DD5E</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $DD5B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd60"></span>DD60</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
-<td class="comment-11" rowspan="1">Have we done all 3 lines at the bottom of the screen?</td>
+<td class="comment-1" rowspan="1">Have we done all 3 lines at the bottom of the screen?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd61"></span>DD61</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$DD44</td>
-<td class="comment-11" rowspan="1">Jump back to do the next line if not</td>
+<td class="comment-1" rowspan="1">Jump back to do the next line if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="dd63"></span>DD63</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="DB00.html">DB00</a></span></td>
+<td class="prev">
+Prev: <a href="DB00.html">DB00</a>
+</td>
 <td class="up">Up: <a href="start.html#dd00">Map</a></td>
-<td class="next"><span class="next-0">Next: <a href=""></a></span></td>
+<td class="next">
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/start/56576.html">Switch to decimal</a>.</div>
 </footer>
 </body>

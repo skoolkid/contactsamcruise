@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 63304</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63281.html">63281</a></span></td>
+<td class="prev">
+Prev: <a href="63281.html">63281</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63304">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63386.html">63386</a></span></td>
+<td class="next">
+Next: <a href="63386.html">63386</a>
+</td>
 </tr>
 </table>
 <div class="description">63304: Make a character walk up and down until somebody knocks on a door</div>
@@ -29,7 +32,7 @@
 Used by the command lists at <a href="64764.html">64764</a>, <a href="65059.html">65059</a>, <a href="65112.html">65112</a>, <a href="65143.html">65143</a> and <a href="65174.html">65174</a>. Makes the character start walking up or down towards his next walkabout destination, unless the character is on door duty and someone has knocked on the door (in which case this primary command terminates).
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,27 +41,16 @@ Used by the command lists at <a href="64764.html">64764</a>, <a href="65059.html
 <td class="register-desc">Character number (215-229)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63304"></span>63304</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,11</td>
-<td class="comment-11" rowspan="2">Copy the door identifier (168, 172, 173 or 179) and walkabout duration indicator (0 or 255) from the command list into bytes 11 and 12 of the character's buffer</td>
+<td class="comment-1" rowspan="2">Copy the door identifier (168, 172, 173 or 179) and walkabout duration indicator (0 or 255) from the command list into bytes 11 and 12 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63306"></span>63306</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61809.html">61809</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -71,81 +63,55 @@ This entry point is used by the routine at <a href="63520.html">63520</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63309"></span>63309</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61823.html">61823</a></td>
-<td class="comment-11" rowspan="3">Get a random number between 32 and 63 in <span class="register">A</span></td>
+<td class="comment-1" rowspan="3">Get a random number between 32 and 63 in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63312"></span>63312</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 31</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63314"></span>63314</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,32</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63316"></span>63316</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,13</td>
-<td class="comment-11" rowspan="2">Store this number in byte 13 of the character's buffer; it is the number of mini-walkabouts the character will perform (if the walkabout duration indicator in byte 12 is 255)</td>
+<td class="comment-1" rowspan="2">Store this number in byte 13 of the character's buffer; it is the number of mini-walkabouts the character will perform (if the walkabout duration indicator in byte 12 is 255)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63318"></span>63318</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63319"></span>63319</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,1</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63321"></span>63321</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63322"></span>63322</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,10</td>
-<td class="comment-11" rowspan="2">Copy this into byte 10 of the character's buffer (it will be the walkabout origin)</td>
+<td class="comment-1" rowspan="2">Copy this into byte 10 of the character's buffer (it will be the walkabout origin)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63324"></span>63324</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63325"></span>63325</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63409.html">63409</a></td>
-<td class="comment-11" rowspan="1">Change the character's primary command routine address to <a href="63304.html#63328">63328</a> (below)</td>
+<td class="comment-1" rowspan="1">Change the character's primary command routine address to <a href="63304.html#63328">63328</a> (below)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63328"></span>63328</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,63209</td>
-<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at the interruptible subcommand routine address at <a href="63209.html">63209</a></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the interruptible subcommand routine address at <a href="63209.html">63209</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -158,81 +124,55 @@ This entry point is used by the routine at <a href="31338.html">31338</a> with <
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63331"></span>63331</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,11</td>
-<td class="comment-11" rowspan="2">Collect the door identifier (168, 172, 173, 175 or 179) from byte 11 of the character's buffer</td>
+<td class="comment-1" rowspan="2">Collect the door identifier (168, 172, 173, 175 or 179) from byte 11 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63333"></span>63333</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63334"></span>63334</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,127</td>
-<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at <a href="32680.html">32680</a> (always 0) or the door knock status flags for the door in question (see <a href="32682.html">32682</a>)</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at <a href="32680.html">32680</a> (always 0) or the door knock status flags for the door in question (see <a href="32682.html">32682</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63336"></span>63336</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63337"></span>63337</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Has somebody knocked at the door?</td>
+<td class="comment-1" rowspan="1">Has somebody knocked at the door?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63339"></span>63339</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,63349</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63341"></span>63341</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,192</td>
-<td class="comment-11" rowspan="3">Reset bit 7 and set bit 6 of the door knock status flags to indicate that someone is going to answer the door</td>
+<td class="comment-1" rowspan="3">Reset bit 7 and set bit 6 of the door knock status flags to indicate that someone is going to answer the door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63343"></span>63343</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63344"></span>63344</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63345"></span>63345</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63346"></span>63346</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="62080.html">62080</a></td>
-<td class="comment-11" rowspan="1">Move to the next command in the command list (which will send the character to the door)</td>
+<td class="comment-1" rowspan="1">Move to the next command in the command list (which will send the character to the door)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -245,60 +185,42 @@ Either nobody has knocked on the door, or the character is not on door duty.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63349"></span>63349</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63350"></span>63350</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,12</td>
-<td class="comment-11" rowspan="2">Collect the walkabout duration indicator (0 or 255) from byte 12 of the character's buffer</td>
+<td class="comment-1" rowspan="2">Collect the walkabout duration indicator (0 or 255) from byte 12 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63352"></span>63352</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63353"></span>63353</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=13</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=13</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63354"></span>63354</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-11" rowspan="2">Decrement the walkabout counter in byte 13 of the character's buffer, or leave it unchanged</td>
+<td class="comment-1" rowspan="2">Decrement the walkabout counter in byte 13 of the character's buffer, or leave it unchanged</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63355"></span>63355</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63356"></span>63356</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,10</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 10 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 10 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63358"></span>63358</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,63373</td>
-<td class="comment-11" rowspan="1">Jump unless the walkabout counter is now 0</td>
+<td class="comment-1" rowspan="1">Jump unless the walkabout counter is now 0</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -311,67 +233,45 @@ The character has finished walking up and down. If the character is not on door 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63360"></span>63360</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Collect the door identifier (168, 172, 173, 175 or 179) from byte 11 of the character's buffer</td>
+<td class="comment-1" rowspan="2">Collect the door identifier (168, 172, 173, 175 or 179) from byte 11 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63361"></span>63361</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63362"></span>63362</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,87</td>
-<td class="comment-11" rowspan="1">Set the carry flag if it's &gt; 168 (meaning the character was on door duty)</td>
+<td class="comment-1" rowspan="1">Set the carry flag if it's &gt; 168 (meaning the character was on door duty)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63364"></span>63364</td>
-<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=6 if the character was on door duty, 0 otherwise</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=6 if the character was on door duty, 0 otherwise</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63365"></span>63365</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 6</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63367"></span>63367</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,22</td>
-<td class="comment-11" rowspan="3">Add 0 or 6 to the character's command list offset (in byte 22 of his buffer)</td>
+<td class="comment-1" rowspan="3">Add 0 or 6 to the character's command list offset (in byte 22 of his buffer)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63369"></span>63369</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63370"></span>63370</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63371"></span>63371</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 63346</td>
-<td class="comment-11" rowspan="1">Terminate this primary command</td>
+<td class="comment-1" rowspan="1">Terminate this primary command</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -384,66 +284,54 @@ It's time to set another walkabout destination for this character.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63373"></span>63373</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61823.html">61823</a></td>
-<td class="comment-11" rowspan="1">Get a random number in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Get a random number in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63376"></span>63376</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR 249</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=-6, -4, -2 or 0</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=-6, -4, -2 or 0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63378"></span>63378</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63379"></span>63379</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-11" rowspan="1">Add the walkabout origin x-coordinate</td>
+<td class="comment-1" rowspan="1">Add the walkabout origin x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63380"></span>63380</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,16</td>
-<td class="comment-11" rowspan="2">Store this x-coordinate in byte 16 of the character's buffer</td>
+<td class="comment-1" rowspan="2">Store this x-coordinate in byte 16 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63382"></span>63382</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63383"></span>63383</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="63403.html">63403</a></td>
-<td class="comment-11" rowspan="1">Copy the interruptible subcommand routine address (<a href="31319.html">31319</a> or <a href="63209.html">63209</a>) from <span class="register">BC</span> into bytes 14 and 15 of the character's buffer, and then jump to it</td>
+<td class="comment-1" rowspan="1">Copy the interruptible subcommand routine address (<a href="31319.html">31319</a> or <a href="63209.html">63209</a>) from <span class="register">BC</span> into bytes 14 and 15 of the character's buffer, and then jump to it</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63281.html">63281</a></span></td>
+<td class="prev">
+Prev: <a href="63281.html">63281</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63304">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63386.html">63386</a></span></td>
+<td class="next">
+Next: <a href="63386.html">63386</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F748.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 25618</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="25600.html">25600</a></span></td>
+<td class="prev">
+Prev: <a href="25600.html">25600</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#25618">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="25723.html">25723</a></span></td>
+<td class="next">
+Next: <a href="25723.html">25723</a>
+</td>
 </tr>
 </table>
 <div class="description">25618: Prepare sprite tiles used by Sam when somersaulting or rolling</div>
@@ -29,236 +32,135 @@
 Used by the routine at <a href="25789.html">25789</a>. Animatory states <a href="../graphics/as.html#9">9</a>, <a href="../graphics/as.html#10">10</a>, <a href="../graphics/as.html#15">15</a> and <a href="../graphics/as.html#31">31</a> - corresponding to the sprites of Sam rolling and somersaulting - use sprite tiles 239-247. These sprite tiles are initialised before Sam starts his acrobatic manoeuvre, and later rotated as he moves through each phase of animation.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25618"></span>25618</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,2</td>
-<td class="comment-11" rowspan="4">Copy sprite tiles 2-7 over sprite tiles 239-244</td>
+<td class="comment-1" rowspan="4">Copy sprite tiles 2-7 over sprite tiles 239-244</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25620"></span>25620</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,239</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25622"></span>25622</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,6</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25624"></span>25624</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25600.html">25600</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25627"></span>25627</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,242</td>
-<td class="comment-11" rowspan="4">Copy sprite tile 170 over sprite tile 242</td>
+<td class="comment-1" rowspan="4">Copy sprite tile 170 over sprite tile 242</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25629"></span>25629</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,170</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25631"></span>25631</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25632"></span>25632</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25600.html">25600</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25635"></span>25635</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,181</td>
-<td class="comment-11" rowspan="10">Copy sprite tiles 181, 189 and 197 from base page 215 over sprite tiles 245-247</td>
+<td class="comment-1" rowspan="10">Copy sprite tiles 181, 189 and 197 from base page 215 over sprite tiles 245-247</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25637"></span>25637</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,245</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25639"></span>25639</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25640"></span>25640</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,215</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25642"></span>25642</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25643"></span>25643</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25600.html#25602">25602</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25646"></span>25646</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25647"></span>25647</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,7</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25649"></span>25649</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 205</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25651"></span>25651</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,25639</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25653"></span>25653</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,8</td>
-<td class="comment-11" rowspan="13">Superimpose sprite tile 205 from base page 215 over sprite tile 243 (which is currently a copy of sprite tile 6, the centre tile of Sam's base animatory state); this makes Sam appear to bend his arms and hold his knees while performing the acrobatic feat, at the expense of losing some detail from his current disguise</td>
+<td class="comment-1" rowspan="13">Superimpose sprite tile 205 from base page 215 over sprite tile 243 (which is currently a copy of sprite tile 6, the centre tile of Sam's base animatory state); this makes Sam appear to bend his arms and hold his knees while performing the acrobatic feat, at the expense of losing some detail from his current disguise</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25655"></span>25655</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,55245</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25658"></span>25658</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,51187</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25661"></span>25661</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25662"></span>25662</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25663"></span>25663</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25664"></span>25664</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25665"></span>25665</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25666"></span>25666</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25667"></span>25667</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25668"></span>25668</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25669"></span>25669</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25670"></span>25670</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 25661</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -271,165 +173,103 @@ This entry point is used by the routine at <a href="25789.html">25789</a>. Here 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25672"></span>25672</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,239</td>
-<td class="comment-11" rowspan="1">Tile 239 is the first source tile</td>
+<td class="comment-1" rowspan="1">Tile 239 is the first source tile</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25674"></span>25674</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,L</td>
-<td class="comment-11" rowspan="2"><span class="register">E</span>=238 (the first target tile)</td>
+<td class="comment-1" rowspan="2"><span class="register">E</span>=238 (the first target tile)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25675"></span>25675</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25676"></span>25676</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,199</td>
-<td class="comment-11" rowspan="1">The base page for these tiles is 199</td>
+<td class="comment-1" rowspan="1">The base page for these tiles is 199</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25678"></span>25678</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,8</td>
-<td class="comment-11" rowspan="16">Rotate the source sprite tile 90 degrees anticlockwise and copy it over the target sprite tile</td>
+<td class="comment-1" rowspan="16">Rotate the source sprite tile 90 degrees anticlockwise and copy it over the target sprite tile</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25680"></span>25680</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,198</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25682"></span>25682</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,1</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25684"></span>25684</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25685"></span>25685</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25687"></span>25687</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25688"></span>25688</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25689"></span>25689</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25691"></span>25691</td>
-<td class="bytes-0"></td>
 <td class="instruction">RL C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25693"></span>25693</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,25684</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25695"></span>25695</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25696"></span>25696</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25697"></span>25697</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25698"></span>25698</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25699"></span>25699</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25700"></span>25700</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 25680</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25702"></span>25702</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Move to the next source sprite tile reference</td>
+<td class="comment-1" rowspan="1">Move to the next source sprite tile reference</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25703"></span>25703</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,L</td>
-<td class="comment-11" rowspan="1">Have we rotated sprite tiles 239-247 yet?</td>
+<td class="comment-1" rowspan="1">Have we rotated sprite tiles 239-247 yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25705"></span>25705</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,25674</td>
-<td class="comment-11" rowspan="1">Jump back if not</td>
+<td class="comment-1" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -442,87 +282,64 @@ Next we move sprite tiles 238-246 up to 239-247.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25707"></span>25707</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,16</td>
-<td class="comment-11" rowspan="1">There are 16 bytes of graphic and mask data in each tile</td>
+<td class="comment-1" rowspan="1">There are 16 bytes of graphic and mask data in each tile</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25709"></span>25709</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,247</td>
-<td class="comment-11" rowspan="8">Copy sprite tiles 238-246 into slots 239-247</td>
+<td class="comment-1" rowspan="8">Copy sprite tiles 238-246 into slots 239-247</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25711"></span>25711</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,246</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25713"></span>25713</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,9</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25715"></span>25715</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25716"></span>25716</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25717"></span>25717</td>
-<td class="bytes-0"></td>
 <td class="instruction">LDDR</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25719"></span>25719</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25720"></span>25720</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,25709</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25722"></span>25722</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Return with the zero flag set</td>
+<td class="comment-1" rowspan="1">Return with the zero flag set</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="25600.html">25600</a></span></td>
+<td class="prev">
+Prev: <a href="25600.html">25600</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#25618">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="25723.html">25723</a></span></td>
+<td class="next">
+Next: <a href="25723.html">25723</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/6412.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

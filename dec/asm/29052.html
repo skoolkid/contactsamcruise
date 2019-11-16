@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 29052</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="29051.html">29051</a></span></td>
+<td class="prev">
+Prev: <a href="29051.html">29051</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#29052">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="29068.html">29068</a></span></td>
+<td class="next">
+Next: <a href="29068.html">29068</a>
+</td>
 </tr>
 </table>
 <div class="description">29052: Make a policeman switch a light on if possible</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="29361.html">29361</a>.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,82 +41,64 @@ Used by the routine at <a href="29361.html">29361</a>.
 <td class="register-desc">222 or 223 (policeman)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29052"></span>29052</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="62518.html">62518</a></td>
-<td class="comment-11" rowspan="1">Is the policeman standing next to a light switch?</td>
+<td class="comment-1" rowspan="1">Is the policeman standing next to a light switch?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29055"></span>29055</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29056"></span>29056</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 5,A</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the light switch affects the light in only one window or window-pair</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the light switch affects the light in only one window or window-pair</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29058"></span>29058</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=window flags for the policeman's location</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=window flags for the policeman's location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29059"></span>29059</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="62597.html#62627">62627</a></td>
-<td class="comment-11" rowspan="1">Jump if the light switch affects the light in more than one window or window-pair</td>
+<td class="comment-1" rowspan="1">Jump if the light switch affects the light in more than one window or window-pair</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29062"></span>29062</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 5,A</td>
-<td class="comment-11" rowspan="1">Is the light switch here in the 'on' position?</td>
+<td class="comment-1" rowspan="1">Is the light switch here in the 'on' position?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29064"></span>29064</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29065"></span>29065</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="62597.html#62615">62615</a></td>
-<td class="comment-11" rowspan="1">Switch the light on</td>
+<td class="comment-1" rowspan="1">Switch the light on</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="29051.html">29051</a></span></td>
+<td class="prev">
+Prev: <a href="29051.html">29051</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#29052">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="29068.html">29068</a></span></td>
+<td class="next">
+Next: <a href="29068.html">29068</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/717C.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

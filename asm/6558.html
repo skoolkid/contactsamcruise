@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 6558</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="653E.html">653E</a></span></td>
+<td class="prev">
+Prev: <a href="653E.html">653E</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6558">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6585.html">6585</a></span></td>
+<td class="next">
+Next: <a href="6585.html">6585</a>
+</td>
 </tr>
 </table>
 <div class="description">6558: Determine Sam's location</div>
@@ -29,68 +32,41 @@
 Used by the routines at <a href="710E.html">710E</a>, <a href="7190.html">7190</a> and <a href="7222.html">7222</a>. Returns with Sam's x-, y- and z-coordinates (adjusted appropriately if Sam is falling, rolling, somersaulting or being carried) in <span class="register">E</span>, <span class="register">D</span> and <span class="register">A</span>.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6558"></span>6558</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,($E601)</td>
-<td class="comment-11" rowspan="1">Collect Sam's x- and y-coordinates in <span class="register">E</span> and <span class="register">D</span></td>
+<td class="comment-1" rowspan="1">Collect Sam's x- and y-coordinates in <span class="register">E</span> and <span class="register">D</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="655c"></span>655C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFC)</td>
-<td class="comment-11" rowspan="1">Pick up Sam's status flags from <a href="7FFC.html">7FFC</a></td>
+<td class="comment-1" rowspan="1">Pick up Sam's status flags from <a href="7FFC.html">7FFC</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="655f"></span>655F</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,A</td>
-<td class="comment-11" rowspan="1">Is Sam rolling or somersaulting?</td>
+<td class="comment-1" rowspan="1">Is Sam rolling or somersaulting?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6561"></span>6561</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$656F</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6563"></span>6563</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $81</td>
-<td class="comment-11" rowspan="1">Is Sam either being carried by a gangster or policeman, or falling from the roof of a building?</td>
+<td class="comment-1" rowspan="1">Is Sam either being carried by a gangster or policeman, or falling from the roof of a building?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6565"></span>6565</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($E604)</td>
-<td class="comment-11" rowspan="2">Return with <span class="register">A</span> holding Sam's z-coordinate if not</td>
+<td class="comment-1" rowspan="2">Return with <span class="register">A</span> holding Sam's z-coordinate if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6568"></span>6568</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -103,25 +79,19 @@ Sam is either being carried by a policeman, or falling from the roof of a buildi
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6569"></span>6569</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$02</td>
-<td class="comment-11" rowspan="1">2=behind people on the sidewalk</td>
+<td class="comment-1" rowspan="1">2=behind people on the sidewalk</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="656b"></span>656B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$26A8</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=38, <span class="register">E</span>=168 (out of reach)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=38, <span class="register">E</span>=168 (out of reach)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="656e"></span>656E</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -134,108 +104,83 @@ Sam is rolling or somersaulting.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="656f"></span>656F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($E600)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=Sam's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6572"></span>6572</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $7F</td>
-<td class="comment-11" rowspan="1">Discard bit 7 (the direction bit)</td>
+<td class="comment-1" rowspan="1">Discard bit 7 (the direction bit)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6574"></span>6574</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $0F</td>
-<td class="comment-11" rowspan="1">Is Sam horizontal at the moment (animatory state <a href="../graphics/as.html#15">0x0F</a> or <a href="../graphics/as.html#31">0x1F</a>)?</td>
+<td class="comment-1" rowspan="1">Is Sam horizontal at the moment (animatory state <a href="../graphics/as.html#15">0x0F</a> or <a href="../graphics/as.html#31">0x1F</a>)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6576"></span>6576</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$657A</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6578"></span>6578</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="2">Add 2 to Sam's x-coordinate if he's horizontal</td>
+<td class="comment-1" rowspan="2">Add 2 to Sam's x-coordinate if he's horizontal</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6579"></span>6579</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="657a"></span>657A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x+2 if Sam's horizontal, or x otherwise (where x is Sam's x-coordinate)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x+2 if Sam's horizontal, or x otherwise (where x is Sam's x-coordinate)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="657b"></span>657B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EAF8.html#eb05">$EB05</a></td>
-<td class="comment-11" rowspan="1">Reset the carry flag if Sam is on or above the sidewalk, or set it if he's on or above the road</td>
+<td class="comment-1" rowspan="1">Reset the carry flag if Sam is on or above the sidewalk, or set it if he's on or above the road</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="657e"></span>657E</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADC A,$22</td>
-<td class="comment-11" rowspan="3"><span class="register">D</span>=34 if Sam's on or above the sidewalk, 35 if he's on or above the road</td>
+<td class="comment-1" rowspan="3"><span class="register">D</span>=34 if Sam's on or above the sidewalk, 35 if he's on or above the road</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6580"></span>6580</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6581"></span>6581</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6582"></span>6582</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
-<td class="comment-11" rowspan="1">4=outside</td>
+<td class="comment-1" rowspan="1">4=outside</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6584"></span>6584</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="653E.html">653E</a></span></td>
+<td class="prev">
+Prev: <a href="653E.html">653E</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6558">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6585.html">6585</a></span></td>
+<td class="next">
+Next: <a href="6585.html">6585</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/25944.html">Switch to decimal</a>.</div>
 </footer>
 </body>

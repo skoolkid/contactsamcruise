@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at F79A</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F748.html">F748</a></span></td>
+<td class="prev">
+Prev: <a href="F748.html">F748</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f79a">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F7AB.html">F7AB</a></span></td>
+<td class="next">
+Next: <a href="F7AB.html">F7AB</a>
+</td>
 </tr>
 </table>
 <div class="description">F79A: Initialise a cat's interruptible subcommand</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="F82A.html">F82A</a>. Places the address of the interruptible subcommand routine at <a href="F846.html">F846</a> into bytes 0x0E and 0x0F of the cat's buffer, and then jumps to it.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -42,90 +45,56 @@ Used by the routine at <a href="F82A.html">F82A</a>. Places the address of the i
 <td class="register-desc">0xDA (Cat)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f79a"></span>F79A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0E</td>
-<td class="comment-11" rowspan="4">Copy the address of the interruptible subcommand routine at <a href="F846.html">F846</a> into bytes 0x0E and 0x0F of the cat's buffer</td>
+<td class="comment-1" rowspan="4">Copy the address of the interruptible subcommand routine at <a href="F846.html">F846</a> into bytes 0x0E and 0x0F of the cat's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f79c"></span>F79C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f79d"></span>F79D</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f79e"></span>F79E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f79f"></span>F79F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1">Save the character number in <span class="register">A</span> briefly</td>
+<td class="comment-1" rowspan="1">Save the character number in <span class="register">A</span> briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a0"></span>F7A0</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Drop the return address from the stack</td>
+<td class="comment-1" rowspan="1">Drop the return address from the stack</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a1"></span>F7A1</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1">Push the address of the interruptible subcommand routine onto the stack</td>
+<td class="comment-1" rowspan="1">Push the address of the interruptible subcommand routine onto the stack</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a2"></span>F7A2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,L</td>
-<td class="comment-11" rowspan="4">Set <span class="register">BC</span> to the original return address, and point <span class="register">HL</span> at byte 0x08 of the cat's buffer</td>
+<td class="comment-1" rowspan="4">Set <span class="register">BC</span> to the original return address, and point <span class="register">HL</span> at byte 0x08 of the cat's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a3"></span>F7A3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$08</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a5"></span>F7A5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a6"></span>F7A6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -138,45 +107,39 @@ This entry point is used by the routine at <a href="F7AB.html">F7AB</a> with an 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f7a7"></span>F7A7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-11" rowspan="3">Set the address of the character's primary command routine or interruptible subcommand routine</td>
+<td class="comment-1" rowspan="3">Set the address of the character's primary command routine or interruptible subcommand routine</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a8"></span>F7A8</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a9"></span>F7A9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7aa"></span>F7AA</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F748.html">F748</a></span></td>
+<td class="prev">
+Prev: <a href="F748.html">F748</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f79a">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F7AB.html">F7AB</a></span></td>
+<td class="next">
+Next: <a href="F7AB.html">F7AB</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/63386.html">Switch to decimal</a>.</div>
 </footer>
 </body>

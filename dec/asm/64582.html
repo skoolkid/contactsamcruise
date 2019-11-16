@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 64582</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="64579.html">64579</a></span></td>
+<td class="prev">
+Prev: <a href="64579.html">64579</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#64582">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="64599.html">64599</a></span></td>
+<td class="next">
+Next: <a href="64599.html">64599</a>
+</td>
 </tr>
 </table>
 <div class="description">64582: Generate the table of mirrored values of 0-255</div>
@@ -29,102 +32,72 @@
 Used by the routines at <a href="63662.html">63662</a> and <a href="64618.html">64618</a>. Generates the table of mirrored values of 0-255 at <a href="32256.html">32256</a>.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64582"></span>64582</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,32256</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first slot in the table</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the first slot in the table</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64585"></span>64585</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=byte that will be mirrored</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=byte that will be mirrored</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64586"></span>64586</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,2048</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=8, <span class="register">C</span>=0</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=8, <span class="register">C</span>=0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64589"></span>64589</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="3">Generate the mirror byte in <span class="register">C</span></td>
+<td class="comment-1" rowspan="3">Generate the mirror byte in <span class="register">C</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64590"></span>64590</td>
-<td class="bytes-0"></td>
 <td class="instruction">RR C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64592"></span>64592</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 64589</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64594"></span>64594</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-11" rowspan="1">Store the mirror byte</td>
+<td class="comment-1" rowspan="1">Store the mirror byte</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64595"></span>64595</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next slot in the table</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the next slot in the table</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64596"></span>64596</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,64585</td>
-<td class="comment-11" rowspan="1">Jump back until the table is complete</td>
+<td class="comment-1" rowspan="1">Jump back until the table is complete</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64598"></span>64598</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="64579.html">64579</a></span></td>
+<td class="prev">
+Prev: <a href="64579.html">64579</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#64582">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="64599.html">64599</a></span></td>
+<td class="next">
+Next: <a href="64599.html">64599</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/FC46.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

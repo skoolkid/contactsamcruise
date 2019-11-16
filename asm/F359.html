@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at F359</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F346.html">F346</a></span></td>
+<td class="prev">
+Prev: <a href="F346.html">F346</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f359">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F375.html">F375</a></span></td>
+<td class="next">
+Next: <a href="F375.html">F375</a>
+</td>
 </tr>
 </table>
 <div class="description">F359: Control a character who has knocked on a door and is waiting for an answer</div>
@@ -29,7 +32,7 @@
 The address of this interruptible subcommand routine is placed into bytes 0x0E and 0x0F of a character's buffer by the routine at <a href="F346.html">F346</a>. It makes the character continue to wait for someone to open the door, or give up and move on if he's already waited long enough.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,111 +41,75 @@ The address of this interruptible subcommand routine is placed into bytes 0x0E a
 <td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f359"></span>F359</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,H</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=character number</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=character number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f35a"></span>F35A</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F293.html">$F293</a></td>
-<td class="comment-11" rowspan="1">Check whether the door is open</td>
+<td class="comment-1" rowspan="1">Check whether the door is open</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f35d"></span>F35D</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=character number</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=character number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f35e"></span>F35E</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="F280.html#f284">$F284</a></td>
-<td class="comment-11" rowspan="1">Terminate this subcommand if the door is open</td>
+<td class="comment-1" rowspan="1">Terminate this subcommand if the door is open</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f361"></span>F361</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="2">Decrement the wait counter in byte 0x11 of the character's buffer</td>
+<td class="comment-1" rowspan="2">Decrement the wait counter in byte 0x11 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f363"></span>F363</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f364"></span>F364</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return unless it's now zero</td>
+<td class="comment-1" rowspan="1">Return unless it's now zero</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f365"></span>F365</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Set the wait counter in byte 0x11 to 0xFF; since it could just as well be left at 0, this instruction is redundant</td>
+<td class="comment-1" rowspan="1">Set the wait counter in byte 0x11 to 0xFF; since it could just as well be left at 0, this instruction is redundant</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f366"></span>F366</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x10</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x10</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f367"></span>F367</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="2">Point <span class="register">DE</span> at the door knock status flags for the door that the character knocked on</td>
+<td class="comment-1" rowspan="2">Point <span class="register">DE</span> at the door knock status flags for the door that the character knocked on</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f368"></span>F368</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$7F</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f36a"></span>F36A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1">Pick up the flags</td>
+<td class="comment-1" rowspan="1">Pick up the flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f36b"></span>F36B</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 6,A</td>
-<td class="comment-11" rowspan="1">Is somebody coming to answer the door?</td>
+<td class="comment-1" rowspan="1">Is somebody coming to answer the door?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f36d"></span>F36D</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -155,38 +122,35 @@ The character has waited long enough for someone to open the door, and will now 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f36e"></span>F36E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="2">Remove the address of this routine from bytes 0x0E and 0x0F of the character's buffer</td>
+<td class="comment-1" rowspan="2">Remove the address of this routine from bytes 0x0E and 0x0F of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f370"></span>F370</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f372"></span>F372</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F6DE.html">$F6DE</a></td>
-<td class="comment-11" rowspan="1">Restart the command list</td>
+<td class="comment-1" rowspan="1">Restart the command list</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F346.html">F346</a></span></td>
+<td class="prev">
+Prev: <a href="F346.html">F346</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f359">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F375.html">F375</a></span></td>
+<td class="next">
+Next: <a href="F375.html">F375</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/62297.html">Switch to decimal</a>.</div>
 </footer>
 </body>

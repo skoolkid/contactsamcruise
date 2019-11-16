@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at F1E3</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F1BA.html">F1BA</a></span></td>
+<td class="prev">
+Prev: <a href="F1BA.html">F1BA</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f1e3">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F1FC.html">F1FC</a></span></td>
+<td class="next">
+Next: <a href="F1FC.html">F1FC</a>
+</td>
 </tr>
 </table>
 <div class="description">F1E3: Check for keypresses when Sam is on the phone</div>
@@ -29,116 +32,83 @@
 Used by the routines at <a href="776F.html">776F</a> and <a href="77D3.html">77D3</a>. Returns with the zero flag set if no key with an ASCII code in the range 0x30-0x7F has been pressed. Otherwise returns with the ASCII code of the last keypress (converted to lower case) in <span class="register">A</span>, or hangs up if 'h' was pressed.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f1e3"></span>F1E3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$E608</td>
-<td class="comment-11" rowspan="2">Reset Sam's main action timer (in byte 0x08 of his buffer) to 4</td>
+<td class="comment-1" rowspan="2">Reset Sam's main action timer (in byte 0x08 of his buffer) to 4</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f1e6"></span>F1E6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$04</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f1e8"></span>F1E8</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EAD9.html">$EAD9</a></td>
-<td class="comment-11" rowspan="1">Collect the ASCII code of the last key pressed in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Collect the ASCII code of the last key pressed in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f1eb"></span>F1EB</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if no key with an ASCII code in the range 0x30-0x7F was pressed</td>
+<td class="comment-1" rowspan="1">Return if no key with an ASCII code in the range 0x30-0x7F was pressed</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f1ec"></span>F1EC</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 5,A</td>
-<td class="comment-11" rowspan="1">Convert the ASCII code to lower case</td>
+<td class="comment-1" rowspan="1">Convert the ASCII code to lower case</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f1ee"></span>F1EE</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $68</td>
-<td class="comment-11" rowspan="1">Was 'h' (hang up) pressed?</td>
+<td class="comment-1" rowspan="1">Was 'h' (hang up) pressed?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f1f0"></span>F1F0</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f1f1"></span>F1F1</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Drop the return address from the stack</td>
+<td class="comment-1" rowspan="1">Drop the return address from the stack</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f1f2"></span>F1F2</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f1f3"></span>F1F3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($7FFC),A</td>
-<td class="comment-11" rowspan="1">Clear all of Sam's status flags at <a href="7FFC.html">7FFC</a></td>
+<td class="comment-1" rowspan="1">Clear all of Sam's status flags at <a href="7FFC.html">7FFC</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f1f6"></span>F1F6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($7F9A),A</td>
-<td class="comment-11" rowspan="1">Clear the ID of the phone that Sam is calling at <a href="7F9A.html">7F9A</a></td>
+<td class="comment-1" rowspan="1">Clear the ID of the phone that Sam is calling at <a href="7F9A.html">7F9A</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f1f9"></span>F1F9</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="76FA.html#772a">$772A</a></td>
-<td class="comment-11" rowspan="1">Make a sound effect</td>
+<td class="comment-1" rowspan="1">Make a sound effect</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F1BA.html">F1BA</a></span></td>
+<td class="prev">
+Prev: <a href="F1BA.html">F1BA</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f1e3">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F1FC.html">F1FC</a></span></td>
+<td class="next">
+Next: <a href="F1FC.html">F1FC</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/61923.html">Switch to decimal</a>.</div>
 </footer>
 </body>

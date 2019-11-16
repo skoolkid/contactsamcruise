@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at F9FA</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F9ED.html">F9ED</a></span></td>
+<td class="prev">
+Prev: <a href="F9ED.html">F9ED</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f9fa">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="FA04.html">FA04</a></span></td>
+<td class="next">
+Next: <a href="FA04.html">FA04</a>
+</td>
 </tr>
 </table>
 <div class="description">F9FA: Initialise an uninterruptible subcommand</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="FA83.html">FA83</a>. Places the return address into bytes 0x12 and 0x13 of the character's buffer, thus making it the address of the character's uninterruptible subcommand routine.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,34 +41,22 @@ Used by the routine at <a href="FA83.html">FA83</a>. Places the return address i
 <td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f9fa"></span>F9FA</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Drop the return address from the stack into <span class="register">BC</span></td>
+<td class="comment-1" rowspan="1">Drop the return address from the stack into <span class="register">BC</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9fb"></span>F9FB</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1">Push the return address back onto the stack</td>
+<td class="comment-1" rowspan="1">Push the return address back onto the stack</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9fc"></span>F9FC</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1">Push the return address onto the stack again in preparation for the 'POP BC' below</td>
+<td class="comment-1" rowspan="1">Push the return address onto the stack again in preparation for the 'POP BC' below</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -78,59 +69,49 @@ This entry point is used by the routine at <a href="FA05.html">FA05</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f9fd"></span>F9FD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ff"></span>F9FF</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Drop the return address from the stack into <span class="register">BC</span></td>
+<td class="comment-1" rowspan="1">Drop the return address from the stack into <span class="register">BC</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa00"></span>FA00</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
-<td class="comment-11" rowspan="3">Copy the address from <span class="register">BC</span> into bytes 0x12 and 0x13 of the character's buffer, thus setting his uninterruptible subcommand</td>
+<td class="comment-1" rowspan="3">Copy the address from <span class="register">BC</span> into bytes 0x12 and 0x13 of the character's buffer, thus setting his uninterruptible subcommand</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa01"></span>FA01</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa02"></span>FA02</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa03"></span>FA03</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F9ED.html">F9ED</a></span></td>
+<td class="prev">
+Prev: <a href="F9ED.html">F9ED</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f9fa">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="FA04.html">FA04</a></span></td>
+<td class="next">
+Next: <a href="FA04.html">FA04</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/63994.html">Switch to decimal</a>.</div>
 </footer>
 </body>

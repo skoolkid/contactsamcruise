@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 28803</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="28760.html">28760</a></span></td>
+<td class="prev">
+Prev: <a href="28760.html">28760</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#28803">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="28841.html">28841</a></span></td>
+<td class="next">
+Next: <a href="28841.html">28841</a>
+</td>
 </tr>
 </table>
 <div class="description">28803: Check whether a character is on a roof with edges on each side</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="60812.html">60812</a>. Returns to the caller of that routine with <span class="register">A</span> holding 1 (go right), 2 (go left) or 3 (go up) if the character is on the roof of the police station or the apartment building next to no. 19 and is heading for the edge of that roof. Otherwise returns with the zero flag set if the character is standing outside the entrance to a shop or other building.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -46,90 +49,62 @@ Used by the routine at <a href="60812.html">60812</a>. Returns to the caller of 
 <td class="register-desc">12</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="28803"></span>28803</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 252</td>
-<td class="comment-11" rowspan="1">Is the character on the roof of the apartment building next to no. 19?</td>
+<td class="comment-1" rowspan="1">Is the character on the roof of the apartment building next to no. 19?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28805"></span>28805</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,28811</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28807"></span>28807</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 108</td>
-<td class="comment-11" rowspan="1">Is the character on the roof of the police station?</td>
+<td class="comment-1" rowspan="1">Is the character on the roof of the police station?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28809"></span>28809</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,28816</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="28811"></span>28811</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=109 (police station) or 253 (apartment building next to no. 19)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=109 (police station) or 253 (apartment building next to no. 19)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28812"></span>28812</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Is the character's destination on the edge of the roof of either the police station or the apartment building next to no. 19?</td>
+<td class="comment-1" rowspan="1">Is the character's destination on the edge of the roof of either the police station or the apartment building next to no. 19?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28813"></span>28813</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,28821</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28815"></span>28815</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=108 or 252</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=108 or 252</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="28816"></span>28816</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 15</td>
-<td class="comment-11" rowspan="1">Keep only bits 0-3 of the location identifier</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-3 of the location identifier</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28818"></span>28818</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 2</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the character is standing outside the entrance to a shop or other building</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the character is standing outside the entrance to a shop or other building</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28820"></span>28820</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -142,115 +117,89 @@ The character is on the roof of the apartment building next to no. 19 or on the 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="28821"></span>28821</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Drop the return address from the stack</td>
+<td class="comment-1" rowspan="1">Drop the return address from the stack</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28822"></span>28822</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,10</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 10 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 10 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28824"></span>28824</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's destination x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's destination x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28825"></span>28825</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,1</td>
-<td class="comment-11" rowspan="2">Compare this with the character's current x-coordinate</td>
+<td class="comment-1" rowspan="2">Compare this with the character's current x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28827"></span>28827</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28828"></span>28828</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28829"></span>28829</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the character is facing left</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the character is facing left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28831"></span>28831</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,3</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=3 (go up)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=3 (go up)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28833"></span>28833</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,28838</td>
-<td class="comment-11" rowspan="1">Jump if the character is to the right of his destination</td>
+<td class="comment-1" rowspan="1">Jump if the character is to the right of his destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28835"></span>28835</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return to the caller of <a href="60812.html">60812</a> with <span class="register">A</span>=3 (go up) if the character is to the left of his destination and facing right</td>
+<td class="comment-1" rowspan="1">Return to the caller of <a href="60812.html">60812</a> with <span class="register">A</span>=3 (go up) if the character is to the left of his destination and facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28836"></span>28836</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,1</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (go right)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=1 (go right)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="28838"></span>28838</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return to the caller of <a href="60812.html">60812</a> with <span class="register">A</span>=1 (go right) if the character is to the left of his destination and facing left, or with <span class="register">A</span>=3 (go up) if the character is to the right of his destination and facing left</td>
+<td class="comment-1" rowspan="1">Return to the caller of <a href="60812.html">60812</a> with <span class="register">A</span>=1 (go right) if the character is to the left of his destination and facing left, or with <span class="register">A</span>=3 (go up) if the character is to the right of his destination and facing left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28839"></span>28839</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="2">Return to the caller of <a href="60812.html">60812</a> with <span class="register">A</span>=2 (go left) if the character is to the right of his destination and facing right</td>
+<td class="comment-1" rowspan="2">Return to the caller of <a href="60812.html">60812</a> with <span class="register">A</span>=2 (go left) if the character is to the right of his destination and facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28840"></span>28840</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="28760.html">28760</a></span></td>
+<td class="prev">
+Prev: <a href="28760.html">28760</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#28803">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="28841.html">28841</a></span></td>
+<td class="next">
+Next: <a href="28841.html">28841</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/7083.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

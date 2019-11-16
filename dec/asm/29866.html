@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 29866</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="29854.html">29854</a></span></td>
+<td class="prev">
+Prev: <a href="29854.html">29854</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#29866">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="29894.html">29894</a></span></td>
+<td class="next">
+Next: <a href="29894.html">29894</a>
+</td>
 </tr>
 </table>
 <div class="description">29866: 'F' pressed - fuse</div>
@@ -29,7 +32,7 @@
 The address of this routine is found in the table of keypress handling routines at <a href="60672.html">60672</a>. It is called from the main loop at <a href="61483.html">61483</a> when 'F' is pressed.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,124 +41,89 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="register-desc">230 (Sam)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29866"></span>29866</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="30116.html">30116</a></td>
-<td class="comment-11" rowspan="1">Is Sam standing next to a fuse that has not yet been blown?</td>
+<td class="comment-1" rowspan="1">Is Sam standing next to a fuse that has not yet been blown?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29869"></span>29869</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,29891</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29871"></span>29871</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,32694</td>
-<td class="comment-11" rowspan="1"><a href="32694.html">32694</a> holds the fuse flags</td>
+<td class="comment-1" rowspan="1"><a href="32694.html">32694</a> holds the fuse flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29874"></span>29874</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="3">Indicate that this fuse has been blown by setting the relevant flag</td>
+<td class="comment-1" rowspan="3">Indicate that this fuse has been blown by setting the relevant flag</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29875"></span>29875</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29876"></span>29876</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29877"></span>29877</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,161</td>
-<td class="comment-11" rowspan="4">Point <span class="register">HL</span> at the relevant blown fuse delay counter in the table at <a href="32674.html">32674</a></td>
+<td class="comment-1" rowspan="4">Point <span class="register">HL</span> at the relevant blown fuse delay counter in the table at <a href="32674.html">32674</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29879"></span>29879</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29880"></span>29880</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRC C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29882"></span>29882</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,29879</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29884"></span>29884</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),96</td>
-<td class="comment-11" rowspan="1">Initialise the delay counter</td>
+<td class="comment-1" rowspan="1">Initialise the delay counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29886"></span>29886</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="62468.html#62484">62484</a></td>
-<td class="comment-11" rowspan="1">Switch off all the lights affected by the fuse</td>
+<td class="comment-1" rowspan="1">Switch off all the lights affected by the fuse</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29889"></span>29889</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,230</td>
-<td class="comment-11" rowspan="1">230=Sam</td>
+<td class="comment-1" rowspan="1">230=Sam</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29891"></span>29891</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="62212.html">62212</a></td>
-<td class="comment-11" rowspan="1">Raise Sam's arm and make a sound effect</td>
+<td class="comment-1" rowspan="1">Raise Sam's arm and make a sound effect</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="29854.html">29854</a></span></td>
+<td class="prev">
+Prev: <a href="29854.html">29854</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#29866">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="29894.html">29894</a></span></td>
+<td class="next">
+Next: <a href="29894.html">29894</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/74AA.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

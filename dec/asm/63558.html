@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 63558</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63530.html">63530</a></span></td>
+<td class="prev">
+Prev: <a href="63530.html">63530</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63558">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63614.html">63614</a></span></td>
+<td class="next">
+Next: <a href="63614.html">63614</a>
+</td>
 </tr>
 </table>
 <div class="description">63558: Make a cat run up or down</div>
@@ -29,7 +32,7 @@
 The address of this interruptible subcommand routine is placed into bytes 14 and 15 of a cat's buffer by the routine at <a href="63530.html">63530</a>. It makes a cat run up or down to his next walkabout destination, and then terminates.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,27 +41,17 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="register-desc">218 (Cat)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63558"></span>63558</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,0</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the cat's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0 of the cat's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63560"></span>63560</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="1">Is the cat in running phase 2 (animatory state <a href="../graphics/as.html#118">118/246</a>)?</td>
+<td class="comment-1" rowspan="1">Is the cat in running phase 2 (animatory state <a href="../graphics/as.html#118">118/246</a>)?</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -71,95 +64,64 @@ The cat's animatory state is <a href="../graphics/as.html#117">117 or 245</a> (r
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63562"></span>63562</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,63580</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63564"></span>63564</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="59848.html">59848</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the cat's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the cat's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63567"></span>63567</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#118">118/246</a> (cat running phase 2)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#118">118/246</a> (cat running phase 2)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63568"></span>63568</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save this animatory state briefly</td>
+<td class="comment-1" rowspan="1">Save this animatory state briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63569"></span>63569</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="5"><span class="register">A</span>=-1 if the cat is facing left, 1 if he's facing right</td>
+<td class="comment-1" rowspan="5"><span class="register">A</span>=-1 if the cat is facing left, 1 if he's facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63570"></span>63570</td>
-<td class="bytes-0"></td>
 <td class="instruction">CCF</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63571"></span>63571</td>
-<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63572"></span>63572</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63573"></span>63573</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63574"></span>63574</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,E</td>
-<td class="comment-11" rowspan="2">Adjust the cat's x-coordinate appropriately</td>
+<td class="comment-1" rowspan="2">Adjust the cat's x-coordinate appropriately</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63575"></span>63575</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63576"></span>63576</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the cat's next animatory state to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore the cat's next animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63577"></span>63577</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="59861.html">59861</a></td>
-<td class="comment-11" rowspan="1">Update the cat's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the cat's animatory state and location and update the SRB</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -172,143 +134,111 @@ The cat's animatory state is <a href="../graphics/as.html#118">118 or 246</a> (r
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63580"></span>63580</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,1</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the cat's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 1 of the cat's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63582"></span>63582</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=cat's current x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=cat's current x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63583"></span>63583</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,11</td>
-<td class="comment-11" rowspan="1">The cat's walkabout destination x-coordinate is stored in byte 11 of the cat's buffer</td>
+<td class="comment-1" rowspan="1">The cat's walkabout destination x-coordinate is stored in byte 11 of the cat's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63585"></span>63585</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Has the cat reached his walkabout destination?</td>
+<td class="comment-1" rowspan="1">Has the cat reached his walkabout destination?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63586"></span>63586</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="62080.html#62084">62084</a></td>
-<td class="comment-11" rowspan="1">Terminate this subcommand if so</td>
+<td class="comment-1" rowspan="1">Terminate this subcommand if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63589"></span>63589</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,255</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=-1 (which will set the cat's animatory state to running phase 1)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=-1 (which will set the cat's animatory state to running phase 1)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63591"></span>63591</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,0</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the cat's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0 of the cat's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63593"></span>63593</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the cat is facing left</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the cat is facing left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63595"></span>63595</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,63610</td>
-<td class="comment-11" rowspan="1">Jump if the cat is to the left of his walkabout destination</td>
+<td class="comment-1" rowspan="1">Jump if the cat is to the left of his walkabout destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63597"></span>63597</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,63601</td>
-<td class="comment-11" rowspan="1">Jump if the cat is facing left</td>
+<td class="comment-1" rowspan="1">Jump if the cat is facing left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63599"></span>63599</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,128</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=128 (which will turn the cat round)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=128 (which will turn the cat round)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63601"></span>63601</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1">Save the animatory state adjustment</td>
+<td class="comment-1" rowspan="1">Save the animatory state adjustment</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63602"></span>63602</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="59848.html">59848</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the cat's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the cat's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63605"></span>63605</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Restore the animatory state adjustment to <span class="register">B</span></td>
+<td class="comment-1" rowspan="1">Restore the animatory state adjustment to <span class="register">B</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63606"></span>63606</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=cat's next animatory state (running phase 1, or turned round)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=cat's next animatory state (running phase 1, or turned round)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63607"></span>63607</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="59861.html">59861</a></td>
-<td class="comment-11" rowspan="1">Update the cat's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the cat's animatory state and location and update the SRB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63610"></span>63610</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,63601</td>
-<td class="comment-11" rowspan="1">Jump if the cat is facing right</td>
+<td class="comment-1" rowspan="1">Jump if the cat is facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63612"></span>63612</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 63599</td>
-<td class="comment-11" rowspan="1">Turn the cat round</td>
+<td class="comment-1" rowspan="1">Turn the cat round</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63530.html">63530</a></span></td>
+<td class="prev">
+Prev: <a href="63530.html">63530</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63558">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63614.html">63614</a></span></td>
+<td class="next">
+Next: <a href="63614.html">63614</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F846.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

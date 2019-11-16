@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 6E00</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6DFF.html">6DFF</a></span></td>
+<td class="prev">
+Prev: <a href="6DFF.html">6DFF</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6e00">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6E1A.html">6E1A</a></span></td>
+<td class="next">
+Next: <a href="6E1A.html">6E1A</a>
+</td>
 </tr>
 </table>
 <div class="description">6E00: Print a message</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="6E1A.html">6E1A</a> and <a href="6EC5.html">6EC5</a>.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -42,180 +45,126 @@ Used by the routines at <a href="6E1A.html">6E1A</a> and <a href="6EC5.html">6EC
 <td class="register-desc">Message address</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6e00"></span>6E00</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up the ASCII code of the next character to print</td>
+<td class="comment-1" rowspan="1">Pick up the ASCII code of the next character to print</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e01"></span>6E01</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="1">Have we reached the end of the message?</td>
+<td class="comment-1" rowspan="1">Have we reached the end of the message?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e02"></span>6E02</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e03"></span>6E03</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e04"></span>6E04</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e05"></span>6E05</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next character in the message</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the next character in the message</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e06"></span>6E06</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save this pointer for now</td>
+<td class="comment-1" rowspan="1">Save this pointer for now</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e07"></span>6E07</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1">Save the display file address</td>
+<td class="comment-1" rowspan="1">Save the display file address</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e08"></span>6E08</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$0F</td>
-<td class="comment-11" rowspan="4">Point <span class="register">HL</span> at the base address of the graphic data for the font character (in the ROM)</td>
+<td class="comment-1" rowspan="4">Point <span class="register">HL</span> at the base address of the graphic data for the font character (in the ROM)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e0a"></span>6E0A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e0b"></span>6E0B</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e0c"></span>6E0C</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e0d"></span>6E0D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$08</td>
-<td class="comment-11" rowspan="6">Print the character on the screen</td>
+<td class="comment-1" rowspan="6">Print the character on the screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6e0f"></span>6E0F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e10"></span>6E10</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e11"></span>6E11</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e12"></span>6E12</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e13"></span>6E13</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $6E0F</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e15"></span>6E15</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1">Restore the display file address to <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Restore the display file address to <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e16"></span>6E16</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the pointer to the next character in the message</td>
+<td class="comment-1" rowspan="1">Restore the pointer to the next character in the message</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e17"></span>6E17</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the next display file location</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the next display file location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e18"></span>6E18</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $6E00</td>
-<td class="comment-11" rowspan="1">Jump back to print the next character</td>
+<td class="comment-1" rowspan="1">Jump back to print the next character</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6DFF.html">6DFF</a></span></td>
+<td class="prev">
+Prev: <a href="6DFF.html">6DFF</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6e00">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6E1A.html">6E1A</a></span></td>
+<td class="next">
+Next: <a href="6E1A.html">6E1A</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/28160.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 29952</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="29912.html">29912</a></span></td>
+<td class="prev">
+Prev: <a href="29912.html">29912</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#29952">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="30017.html">30017</a></span></td>
+<td class="next">
+Next: <a href="30017.html">30017</a>
+</td>
 </tr>
 </table>
 <div class="description">29952: Process the event table</div>
@@ -29,54 +32,31 @@
 Used by the routine at <a href="61568.html">61568</a>. Scans the event table at <a href="24544.html">24544</a> and processes every active entry.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29952"></span>29952</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,30051</td>
-<td class="comment-11" rowspan="2">Set the operand of the JP instruction at <a href="29952.html#29963">29963</a> (below) to <a href="30043.html#30051">30051</a> (RET)</td>
+<td class="comment-1" rowspan="2">Set the operand of the JP instruction at <a href="29952.html#29963">29963</a> (below) to <a href="30043.html#30051">30051</a> (RET)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29955"></span>29955</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (29964),HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29958"></span>29958</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,24544</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the event table at <a href="24544.html">24544</a></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the event table at <a href="24544.html">24544</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29961"></span>29961</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Collect the first byte of an entry</td>
+<td class="comment-1" rowspan="1">Collect the first byte of an entry</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29962"></span>29962</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1">Set the zero flag if it's 255</td>
+<td class="comment-1" rowspan="1">Set the zero flag if it's 255</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -113,179 +93,121 @@ The operand of the JP instruction that follows is changed (by this routine) usin
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29963"></span>29963</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="30043.html#30051">30051</a></td>
-<td class="comment-11" rowspan="1">Jump if we've reached the end of the event table</td>
+<td class="comment-1" rowspan="1">Jump if we've reached the end of the event table</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29966"></span>29966</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 2</td>
-<td class="comment-11" rowspan="1">Is this event active?</td>
+<td class="comment-1" rowspan="1">Is this event active?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29968"></span>29968</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,29989</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29970"></span>29970</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the event table entry pointer</td>
+<td class="comment-1" rowspan="1">Save the event table entry pointer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29971"></span>29971</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the third byte of the entry</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the third byte of the entry</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29972"></span>29972</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29973"></span>29973</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=number of conditions to check</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=number of conditions to check</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29974"></span>29974</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="4"><span class="register">DE</span>=address to check</td>
+<td class="comment-1" rowspan="4"><span class="register">DE</span>=address to check</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29975"></span>29975</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29976"></span>29976</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29977"></span>29977</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29978"></span>29978</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=opcode of the 'JR' instruction to place at <a href="29952.html#29986">29986</a> (below)</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=opcode of the 'JR' instruction to place at <a href="29952.html#29986">29986</a> (below)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29979"></span>29979</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29980"></span>29980</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the value to compare with (<span class="register">DE</span>)</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the value to compare with (<span class="register">DE</span>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29981"></span>29981</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (29986),A</td>
-<td class="comment-11" rowspan="1">Set the instruction at <a href="29952.html#29986">29986</a> (below) to 'JR Z', 'JR NZ', 'JR C' or 'JR NC' as appropriate</td>
+<td class="comment-1" rowspan="1">Set the instruction at <a href="29952.html#29986">29986</a> (below) to 'JR Z', 'JR NZ', 'JR C' or 'JR NC' as appropriate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29984"></span>29984</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="2">Check the condition</td>
+<td class="comment-1" rowspan="2">Check the condition</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29985"></span>29985</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29986"></span>29986</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 29996</td>
-<td class="comment-11" rowspan="1">This instruction is set to 'JR Z', 'JR NZ', 'JR C' or 'JR NC' above</td>
+<td class="comment-1" rowspan="1">This instruction is set to 'JR Z', 'JR NZ', 'JR C' or 'JR NC' above</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29988"></span>29988</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the event table entry pointer to <span class="register">HL</span></td>
+<td class="comment-1" rowspan="1">Restore the event table entry pointer to <span class="register">HL</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29989"></span>29989</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the second byte of the entry</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the second byte of the entry</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29990"></span>29990</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="3">Move <span class="register">HL</span> along to the first byte of the next entry</td>
+<td class="comment-1" rowspan="3">Move <span class="register">HL</span> along to the first byte of the next entry</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29991"></span>29991</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29993"></span>29993</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29994"></span>29994</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 29961</td>
-<td class="comment-11" rowspan="1">Jump back to examine the next entry</td>
+<td class="comment-1" rowspan="1">Jump back to examine the next entry</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29996"></span>29996</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 29974</td>
-<td class="comment-11" rowspan="1">Jump back to check the next condition in the entry</td>
+<td class="comment-1" rowspan="1">Jump back to check the next condition in the entry</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -298,74 +220,49 @@ If we get here, then every condition in the entry was satisfied.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29998"></span>29998</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="2"><span class="register">B</span>=number of POKEs in the entry</td>
+<td class="comment-1" rowspan="2"><span class="register">B</span>=number of POKEs in the entry</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29999"></span>29999</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="30000"></span>30000</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="4"><span class="register">DE</span>=address to POKE</td>
+<td class="comment-1" rowspan="4"><span class="register">DE</span>=address to POKE</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30001"></span>30001</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30002"></span>30002</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30003"></span>30003</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30004"></span>30004</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=byte to POKE</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=byte to POKE</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30005"></span>30005</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30006"></span>30006</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-11" rowspan="1">Do the POKE</td>
+<td class="comment-1" rowspan="1">Do the POKE</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30007"></span>30007</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 30000</td>
-<td class="comment-11" rowspan="1">Jump back until every POKE has been done</td>
+<td class="comment-1" rowspan="1">Jump back until every POKE has been done</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -378,52 +275,46 @@ The entry has been processed.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30009"></span>30009</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the event table entry pointer to <span class="register">HL</span></td>
+<td class="comment-1" rowspan="1">Restore the event table entry pointer to <span class="register">HL</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30010"></span>30010</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 6,(HL)</td>
-<td class="comment-11" rowspan="1">Should this entry be deactivated now?</td>
+<td class="comment-1" rowspan="1">Should this entry be deactivated now?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30012"></span>30012</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,29989</td>
-<td class="comment-11" rowspan="1">Move along to the next entry if not</td>
+<td class="comment-1" rowspan="1">Move along to the next entry if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30014"></span>30014</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-11" rowspan="1">Otherwise deactivate the entry by setting bit 0 of the first byte</td>
+<td class="comment-1" rowspan="1">Otherwise deactivate the entry by setting bit 0 of the first byte</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30015"></span>30015</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 29989</td>
-<td class="comment-11" rowspan="1">Move along to the next entry</td>
+<td class="comment-1" rowspan="1">Move along to the next entry</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="29912.html">29912</a></span></td>
+<td class="prev">
+Prev: <a href="29912.html">29912</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#29952">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="30017.html">30017</a></span></td>
+<td class="next">
+Next: <a href="30017.html">30017</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/7500.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

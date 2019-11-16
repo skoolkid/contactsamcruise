@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 63403</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63386.html">63386</a></span></td>
+<td class="prev">
+Prev: <a href="63386.html">63386</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63403">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63408.html">63408</a></span></td>
+<td class="next">
+Next: <a href="63408.html">63408</a>
+</td>
 </tr>
 </table>
 <div class="description">63403: Initialise and execute an interruptible subcommand</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="25307.html">25307</a> (to activate the sniper) and <a href="63304.html">63304</a> (to make a character start walking up or down to his next walkabout destination).
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -42,47 +45,38 @@ Used by the routines at <a href="25307.html">25307</a> (to activate the sniper) 
 <td class="register-desc">Character number (215-229)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63403"></span>63403</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1">Push the interruptible subcommand routine address onto the stack in preparation for an indirect jump</td>
+<td class="comment-1" rowspan="1">Push the interruptible subcommand routine address onto the stack in preparation for an indirect jump</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63404"></span>63404</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,14</td>
-<td class="comment-11" rowspan="2">Copy the interruptible subcommand routine address from <span class="register">BC</span> into bytes 14 and 15 of the character's buffer, and then jump to it</td>
+<td class="comment-1" rowspan="2">Copy the interruptible subcommand routine address from <span class="register">BC</span> into bytes 14 and 15 of the character's buffer, and then jump to it</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63406"></span>63406</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR <a href="63386.html#63399">63399</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63386.html">63386</a></span></td>
+<td class="prev">
+Prev: <a href="63386.html">63386</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63403">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63408.html">63408</a></span></td>
+<td class="next">
+Next: <a href="63408.html">63408</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F7AB.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

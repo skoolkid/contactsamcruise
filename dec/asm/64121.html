@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 64121</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="64005.html">64005</a></span></td>
+<td class="prev">
+Prev: <a href="64005.html">64005</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#64121">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="64130.html">64130</a></span></td>
+<td class="next">
+Next: <a href="64130.html">64130</a>
+</td>
 </tr>
 </table>
 <div class="description">64121: Check whether there are any messages remaining in the message queue</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="28357.html">28357</a>. Returns with the zero flag set if there are no messages remaining in the message queue.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,75 +41,56 @@ Used by the routine at <a href="28357.html">28357</a>. Returns with the zero fla
 <td class="register-desc">Address of the current message in the message queue (see <a href="32696.html">32696</a>)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64121"></span>64121</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="4">Point <span class="register">HL</span> at the next message in the message queue</td>
+<td class="comment-1" rowspan="4">Point <span class="register">HL</span> at the next message in the message queue</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64122"></span>64122</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB 7</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64124"></span>64124</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR 8</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64126"></span>64126</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64127"></span>64127</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up the number of the next message in the queue</td>
+<td class="comment-1" rowspan="1">Pick up the number of the next message in the queue</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64128"></span>64128</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Set the zero flag if it's zero (no message)</td>
+<td class="comment-1" rowspan="1">Set the zero flag if it's zero (no message)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64129"></span>64129</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="64005.html">64005</a></span></td>
+<td class="prev">
+Prev: <a href="64005.html">64005</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#64121">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="64130.html">64130</a></span></td>
+<td class="next">
+Next: <a href="64130.html">64130</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/FA79.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

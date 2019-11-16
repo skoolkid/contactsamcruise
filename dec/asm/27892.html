@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 27892</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="27872.html">27872</a></span></td>
+<td class="prev">
+Prev: <a href="27872.html">27872</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#27892">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="27904.html">27904</a></span></td>
+<td class="next">
+Next: <a href="27904.html">27904</a>
+</td>
 </tr>
 </table>
 <div class="description">27892: Check whether Sam is at the right place to pick up a telephone</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="29854.html">29854</a>. Returns with the zero flag reset if the x-coordinate of the front column of Sam's sprite is between 1 and 6 mod 8 (which is where telephones are located in rooms).
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,82 +41,62 @@ Used by the routine at <a href="29854.html">29854</a>. Returns with the zero fla
 <td class="register-desc">230 (Sam)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="27892"></span>27892</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63138.html">63138</a></td>
-<td class="comment-11" rowspan="1">Calculate the x-coordinate of the front column of Sam's sprite (x)</td>
+<td class="comment-1" rowspan="1">Calculate the x-coordinate of the front column of Sam's sprite (x)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="27895"></span>27895</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=x%8</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=x%8</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="27896"></span>27896</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="3">Set the zero flag if x is 0 or 7 mod 8 (telephones are located at x-coordinates between 1 and 6 mod 8)</td>
+<td class="comment-1" rowspan="3">Set the zero flag if x is 0 or 7 mod 8 (telephones are located at x-coordinates between 1 and 6 mod 8)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="27897"></span>27897</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 6</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="27899"></span>27899</td>
-<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="27900"></span>27900</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x%8</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x%8</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="27901"></span>27901</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,2</td>
-<td class="comment-11" rowspan="1">Bit 1 set: check for the presence of a telephone</td>
+<td class="comment-1" rowspan="1">Bit 1 set: check for the presence of a telephone</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="27903"></span>27903</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="27872.html">27872</a></span></td>
+<td class="prev">
+Prev: <a href="27872.html">27872</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#27892">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="27904.html">27904</a></span></td>
+<td class="next">
+Next: <a href="27904.html">27904</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/6CF4.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

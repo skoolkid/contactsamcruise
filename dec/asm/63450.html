@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 63450</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63437.html">63437</a></span></td>
+<td class="prev">
+Prev: <a href="63437.html">63437</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63450">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63472.html">63472</a></span></td>
+<td class="next">
+Next: <a href="63472.html">63472</a>
+</td>
 </tr>
 </table>
 <div class="description">63450: Collect the window flags for a play area location</div>
@@ -59,7 +62,7 @@ The window flags are also relevant for play area locations (41,33), (113,33), (1
 On exit, <span class="register">A</span> holds the window flags (with bit 5 set if the lights are out, reset otherwise), and the zero flag is reset if the play area location contains part of the right-hand window of a pair.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -72,138 +75,102 @@ On exit, <span class="register">A</span> holds the window flags (with bit 5 set 
 <td class="register-desc">Address of the window flags</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63450"></span>63450</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,A</td>
-<td class="comment-11" rowspan="1">Reset the zero flag if we're dealing with a tile for the right-hand window of a pair</td>
+<td class="comment-1" rowspan="1">Reset the zero flag if we're dealing with a tile for the right-hand window of a pair</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63452"></span>63452</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=window flags</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=window flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63453"></span>63453</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save the window flags briefly</td>
+<td class="comment-1" rowspan="1">Save the window flags briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63454"></span>63454</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 7,E</td>
-<td class="comment-11" rowspan="2">Point <span class="register">DE</span> at the entry in the table at <a href="65472.html">65472</a> that corresponds to the window's location</td>
+<td class="comment-1" rowspan="2">Point <span class="register">DE</span> at the entry in the table at <a href="65472.html">65472</a> that corresponds to the window's location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63456"></span>63456</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,255</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63458"></span>63458</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1">Pick up the entry from the table</td>
+<td class="comment-1" rowspan="1">Pick up the entry from the table</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63459"></span>63459</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="2">Point <span class="register">DE</span> at the blown fuse delay counter for the fuse that affects the window (if any; see <a href="32674.html">32674</a>)</td>
+<td class="comment-1" rowspan="2">Point <span class="register">DE</span> at the blown fuse delay counter for the fuse that affects the window (if any; see <a href="32674.html">32674</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63460"></span>63460</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,127</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63462"></span>63462</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1">Pick up the blown fuse delay counter</td>
+<td class="comment-1" rowspan="1">Pick up the blown fuse delay counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63463"></span>63463</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is the fuse currently blown?</td>
+<td class="comment-1" rowspan="1">Is the fuse currently blown?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63464"></span>63464</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,63470</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63466"></span>63466</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the window flags to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore the window flags to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63467"></span>63467</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 5,A</td>
-<td class="comment-11" rowspan="1">Signal: the lights are out (because the fuse is blown)</td>
+<td class="comment-1" rowspan="1">Signal: the lights are out (because the fuse is blown)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63469"></span>63469</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63470"></span>63470</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the window flags to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore the window flags to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63471"></span>63471</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63437.html">63437</a></span></td>
+<td class="prev">
+Prev: <a href="63437.html">63437</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63450">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63472.html">63472</a></span></td>
+<td class="next">
+Next: <a href="63472.html">63472</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F7DA.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

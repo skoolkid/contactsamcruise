@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 634C</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6333.html">6333</a></span></td>
+<td class="prev">
+Prev: <a href="6333.html">6333</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#634c">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63C3.html">63C3</a></span></td>
+<td class="next">
+Next: <a href="63C3.html">63C3</a>
+</td>
 </tr>
 </table>
 <div class="description">634C: Control a banknote</div>
@@ -29,7 +32,7 @@
 Used by the command list at <a href="FD78.html">FD78</a>. Calculates and sets the banknote's next animatory state and location. If the banknote is far enough off-screen to the left or right, it will be moved to a location just off-screen to the left.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,41 +41,26 @@ Used by the command list at <a href="FD78.html">FD78</a>. Calculates and sets th
 <td class="register-desc">0xE4 or 0xE5 (banknote)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="634c"></span>634C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FE9)</td>
-<td class="comment-11" rowspan="1"><a href="7FE9.html">7FE9</a> holds Sam's object inventory</td>
+<td class="comment-1" rowspan="1"><a href="7FE9.html">7FE9</a> holds Sam's object inventory</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="634f"></span>634F</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="2">Has Sam got the hook (bit 6 set)?</td>
+<td class="comment-1" rowspan="2">Has Sam got the hook (bit 6 set)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6350"></span>6350</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6351"></span>6351</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$635A</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -85,25 +73,19 @@ Sam's got the hook; we bring this banknote out of service so that its character 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6353"></span>6353</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the banknote's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the banknote's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6356"></span>6356</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F7B1.html">$F7B1</a></td>
-<td class="comment-11" rowspan="1">Change the banknote's primary command routine address to <a href="634C.html#6359">6359</a> (below)</td>
+<td class="comment-1" rowspan="1">Change the banknote's primary command routine address to <a href="634C.html#6359">6359</a> (below)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6359"></span>6359</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -116,39 +98,28 @@ This entry point is used by the command list at <a href="FD76.html">FD76</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="635a"></span>635A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="2">Collect byte 0x0A of the banknote's buffer</td>
+<td class="comment-1" rowspan="2">Collect byte 0x0A of the banknote's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="635c"></span>635C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="635d"></span>635D</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Reset the zero flag if Sam has just landed on this banknote</td>
+<td class="comment-1" rowspan="1">Reset the zero flag if Sam has just landed on this banknote</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="635e"></span>635E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-11" rowspan="1">Set byte 0x0A to zero</td>
+<td class="comment-1" rowspan="1">Set byte 0x0A to zero</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6360"></span>6360</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$6375</td>
-<td class="comment-11" rowspan="1">Jump if Sam has just landed on this banknote</td>
+<td class="comment-1" rowspan="1">Jump if Sam has just landed on this banknote</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -161,74 +132,54 @@ First we check whether the banknote is far off-screen to the left or right.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6362"></span>6362</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the banknote's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the banknote's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6364"></span>6364</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=X (the x-coordinate of the leftmost column of the play area on screen)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=X (the x-coordinate of the leftmost column of the play area on screen)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6367"></span>6367</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB $0C</td>
-<td class="comment-11" rowspan="1">Is X=0 or 8?</td>
+<td class="comment-1" rowspan="1">Is X=0 or 8?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6369"></span>6369</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$636E</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="636b"></span>636B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Is the banknote's x-coordinate greater than X-12?</td>
+<td class="comment-1" rowspan="1">Is the banknote's x-coordinate greater than X-12?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="636c"></span>636C</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6375</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="636e"></span>636E</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$3C</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=X+48</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=X+48</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6370"></span>6370</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$6385</td>
-<td class="comment-11" rowspan="1">Jump if X=0, 8, 208, 216 or 224</td>
+<td class="comment-1" rowspan="1">Jump if X=0, 8, 208, 216 or 224</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6372"></span>6372</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Is the banknote's x-coordinate greater than X+48?</td>
+<td class="comment-1" rowspan="1">Is the banknote's x-coordinate greater than X+48?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6373"></span>6373</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6385</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -241,60 +192,44 @@ The banknote is off-screen to the left by at least 12 x-coordinates, or it's off
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6375"></span>6375</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the banknote's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the banknote's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6378"></span>6378</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$22</td>
-<td class="comment-11" rowspan="1">Initialise the banknote's y-coordinate to 34</td>
+<td class="comment-1" rowspan="1">Initialise the banknote's y-coordinate to 34</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="637a"></span>637A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=X (the x-coordinate of the leftmost column of the play area on screen)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=X (the x-coordinate of the leftmost column of the play area on screen)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="637d"></span>637D</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB $0B</td>
-<td class="comment-11" rowspan="1">Is X&gt;8?</td>
+<td class="comment-1" rowspan="1">Is X&gt;8?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="637f"></span>637F</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6382</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6381"></span>6381</td>
-<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0xFF</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0xFF</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6382"></span>6382</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=0xFF (if X&lt;=8) or X-11</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=0xFF (if X&lt;=8) or X-11</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6383"></span>6383</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $6388</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -307,74 +242,53 @@ The banknote is on-screen or not far off it. Now we calculate the banknote's nex
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6385"></span>6385</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the banknote's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the banknote's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6388"></span>6388</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save the banknote's current animatory state briefly</td>
+<td class="comment-1" rowspan="1">Save the banknote's current animatory state briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6389"></span>6389</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F17F.html">$F17F</a></td>
-<td class="comment-11" rowspan="1">Get a random number in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Get a random number in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="638c"></span>638C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
-<td class="comment-11" rowspan="1">Copy it to <span class="register">C</span></td>
+<td class="comment-1" rowspan="1">Copy it to <span class="register">C</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="638d"></span>638D</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $88</td>
-<td class="comment-11" rowspan="1">Keep only bits 3 and 7</td>
+<td class="comment-1" rowspan="1">Keep only bits 3 and 7</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="638f"></span>638F</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$3E</td>
-<td class="comment-11" rowspan="2"><span class="register">B</span>=<a href="../graphics/as.html#62">0x3E</a>, <a href="../graphics/as.html#70">0x46</a>, <a href="../graphics/as.html#190">0xBE</a>, or <a href="../graphics/as.html#198">0xC6</a> (banknote animatory states)</td>
+<td class="comment-1" rowspan="2"><span class="register">B</span>=<a href="../graphics/as.html#62">0x3E</a>, <a href="../graphics/as.html#70">0x46</a>, <a href="../graphics/as.html#190">0xBE</a>, or <a href="../graphics/as.html#198">0xC6</a> (banknote animatory states)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6391"></span>6391</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6392"></span>6392</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the banknote's current animatory state to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore the banknote's current animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6393"></span>6393</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP B</td>
-<td class="comment-11" rowspan="1">Is it equal to <span class="register">B</span>?</td>
+<td class="comment-1" rowspan="1">Is it equal to <span class="register">B</span>?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6394"></span>6394</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$6388</td>
-<td class="comment-11" rowspan="1">Jump back to generate another animatory state if so</td>
+<td class="comment-1" rowspan="1">Jump back to generate another animatory state if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -387,248 +301,176 @@ At this point <span class="register">B</span> holds the banknote's next animator
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6396"></span>6396</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=banknote's next animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=banknote's next animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6397"></span>6397</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save this briefly</td>
+<td class="comment-1" rowspan="1">Save this briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6398"></span>6398</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EAF8.html#eb04">$EB04</a></td>
-<td class="comment-11" rowspan="1">Set the carry flag if the banknote is above the road (as opposed to the sidewalk)</td>
+<td class="comment-1" rowspan="1">Set the carry flag if the banknote is above the road (as opposed to the sidewalk)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="639b"></span>639B</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADC A,$2D</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=45 if the banknote is above the sidewalk, or 46 if it's above the road</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=45 if the banknote is above the sidewalk, or 46 if it's above the road</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="639d"></span>639D</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="639e"></span>639E</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB D</td>
-<td class="comment-11" rowspan="1">Subtract the banknote's current y-coordinate (32-35); now <span class="register">A</span>=11+G, where G (-1&lt;=G&lt;=3) is the height of the banknote above the ground</td>
+<td class="comment-1" rowspan="1">Subtract the banknote's current y-coordinate (32-35); now <span class="register">A</span>=11+G, where G (-1&lt;=G&lt;=3) is the height of the banknote above the ground</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="639f"></span>639F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
-<td class="comment-11" rowspan="5">Multiply this value by 5 and add 1 (<span class="register">A</span>=51, 56, 61, 66, or 71)</td>
+<td class="comment-1" rowspan="5">Multiply this value by 5 and add 1 (<span class="register">A</span>=51, 56, 61, 66, or 71)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63a0"></span>63A0</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63a1"></span>63A1</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63a2"></span>63A2</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63a3"></span>63A3</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63a4"></span>63A4</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the banknote's character number</td>
+<td class="comment-1" rowspan="1">Save the banknote's character number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63a5"></span>63A5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the entry in the banknote animation table at <a href="6333.html">6333</a> that corresponds to the banknote's height above the ground</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the entry in the banknote animation table at <a href="6333.html">6333</a> that corresponds to the banknote's height above the ground</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63a6"></span>63A6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$63</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63a8"></span>63A8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=random number generated earlier</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=random number generated earlier</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63a9"></span>63A9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0503</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=5 (number of bytes in the entry), <span class="register">C</span>=3</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=5 (number of bytes in the entry), <span class="register">C</span>=3</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63ac"></span>63AC</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="4">Find the first byte in the entry that is greater than <span class="register">A</span></td>
+<td class="comment-1" rowspan="4">Find the first byte in the entry that is greater than <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63ad"></span>63AD</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$63B2</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63af"></span>63AF</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63b0"></span>63B0</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $63AC</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63b2"></span>63B2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0-5</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0-5</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63b3"></span>63B3</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP C</td>
-<td class="comment-11" rowspan="1">Is <span class="register">A</span>&lt;3?</td>
+<td class="comment-1" rowspan="1">Is <span class="register">A</span>&lt;3?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63b4"></span>63B4</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$63B8</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63b6"></span>63B6</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1">Otherwise increment the banknote's x-coordinate</td>
+<td class="comment-1" rowspan="1">Otherwise increment the banknote's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63b7"></span>63B7</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB C</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0-2</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0-2</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63b8"></span>63B8</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0, 2 or 4</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0, 2 or 4</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63b9"></span>63B9</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$63BC</td>
-<td class="comment-11" rowspan="1">Jump if <span class="register">A</span>=0</td>
+<td class="comment-1" rowspan="1">Jump if <span class="register">A</span>=0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63bb"></span>63BB</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB C</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=-1 or 1</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=-1 or 1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63bc"></span>63BC</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
-<td class="comment-11" rowspan="2">Add -1, 0 or 1 to the banknote's current y-coordinate</td>
+<td class="comment-1" rowspan="2">Add -1, 0 or 1 to the banknote's current y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63bd"></span>63BD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63be"></span>63BE</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the banknote's character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the banknote's character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63bf"></span>63BF</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the banknote's next animatory state to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore the banknote's next animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63c0"></span>63C0</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="E9D5.html">$E9D5</a></td>
-<td class="comment-11" rowspan="1">Update the banknote's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the banknote's animatory state and location and update the SRB</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6333.html">6333</a></span></td>
+<td class="prev">
+Prev: <a href="6333.html">6333</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#634c">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63C3.html">63C3</a></span></td>
+<td class="next">
+Next: <a href="63C3.html">63C3</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/25420.html">Switch to decimal</a>.</div>
 </footer>
 </body>

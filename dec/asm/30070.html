@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 30070</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="30053.html">30053</a></span></td>
+<td class="prev">
+Prev: <a href="30053.html">30053</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#30070">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="30092.html">30092</a></span></td>
+<td class="next">
+Next: <a href="30092.html">30092</a>
+</td>
 </tr>
 </table>
 <div class="description">30070: 'L' pressed - light on/off</div>
@@ -29,7 +32,7 @@
 The address of this routine is found in the table of keypress handling routines at <a href="60672.html">60672</a>. It is called from the main loop at <a href="61483.html">61483</a> when 'L' is pressed.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,89 +41,69 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="register-desc">230 (Sam)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="30070"></span>30070</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="62518.html">62518</a></td>
-<td class="comment-11" rowspan="1">Is Sam standing next to a light switch?</td>
+<td class="comment-1" rowspan="1">Is Sam standing next to a light switch?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30073"></span>30073</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,30089</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30075"></span>30075</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 5,A</td>
-<td class="comment-11" rowspan="1">Does the light switch affect the light in only one window or window-pair?</td>
+<td class="comment-1" rowspan="1">Does the light switch affect the light in only one window or window-pair?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30077"></span>30077</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,30084</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30079"></span>30079</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="62597.html#62630">62630</a></td>
-<td class="comment-11" rowspan="1">Switch the lights on or off</td>
+<td class="comment-1" rowspan="1">Switch the lights on or off</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="30082"></span>30082</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 30087</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="30084"></span>30084</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="62597.html#62615">62615</a></td>
-<td class="comment-11" rowspan="1">Switch the light on or off</td>
+<td class="comment-1" rowspan="1">Switch the light on or off</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="30087"></span>30087</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,230</td>
-<td class="comment-11" rowspan="1">230=Sam</td>
+<td class="comment-1" rowspan="1">230=Sam</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="30089"></span>30089</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="62212.html">62212</a></td>
-<td class="comment-11" rowspan="1">Raise Sam's arm and make a sound effect</td>
+<td class="comment-1" rowspan="1">Raise Sam's arm and make a sound effect</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="30053.html">30053</a></span></td>
+<td class="prev">
+Prev: <a href="30053.html">30053</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#30070">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="30092.html">30092</a></span></td>
+<td class="next">
+Next: <a href="30092.html">30092</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/7576.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

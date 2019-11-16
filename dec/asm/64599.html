@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 64599</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="64582.html">64582</a></span></td>
+<td class="prev">
+Prev: <a href="64582.html">64582</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#64599">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="64618.html">64618</a></span></td>
+<td class="next">
+Next: <a href="64618.html">64618</a>
+</td>
 </tr>
 </table>
 <div class="description">64599: Hide the play area</div>
@@ -29,102 +32,67 @@
 Used by the routines at <a href="30822.html">30822</a> and <a href="64338.html">64338</a>. Hides the play area and clears the <a href="32512.html">screen refresh buffer</a> (SRB).
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64599"></span>64599</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,23167</td>
-<td class="comment-11" rowspan="5">Set the attribute bytes for the top 20 rows of the screen to 9 (INK 1: PAPER 1)</td>
+<td class="comment-1" rowspan="5">Set the attribute bytes for the top 20 rows of the screen to 9 (INK 1: PAPER 1)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64602"></span>64602</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),9</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64604"></span>64604</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64605"></span>64605</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64607"></span>64607</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,64602</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64609"></span>64609</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,32607</td>
-<td class="comment-11" rowspan="4">Set every byte in the SRB to 0</td>
+<td class="comment-1" rowspan="4">Set every byte in the SRB to 0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64612"></span>64612</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64614"></span>64614</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64615"></span>64615</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,64612</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64617"></span>64617</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="64582.html">64582</a></span></td>
+<td class="prev">
+Prev: <a href="64582.html">64582</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#64599">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="64618.html">64618</a></span></td>
+<td class="next">
+Next: <a href="64618.html">64618</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/FC57.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

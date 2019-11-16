@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 7CC8</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7CC7.html">7CC7</a></span></td>
+<td class="prev">
+Prev: <a href="7CC7.html">7CC7</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7cc8">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7CD8.html">7CD8</a></span></td>
+<td class="next">
+Next: <a href="7CD8.html">7CD8</a>
+</td>
 </tr>
 </table>
 <div class="description">7CC8: Collect a character's destination coordinates from a command list</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="F600.html">F600</a>. Copies the destination coordinates from the command list into bytes 0x0A and 0x0B of the character's buffer, and inserts the location identifier for the destination into byte 0x0C.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,89 +41,66 @@ Used by the routine at <a href="F600.html">F600</a>. Copies the destination coor
 <td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7cc8"></span>7CC8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="2">Copy the destination coordinates from the command list into bytes 0x0A and 0x0B of the character's buffer</td>
+<td class="comment-1" rowspan="2">Copy the destination coordinates from the command list into bytes 0x0A and 0x0B of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7cca"></span>7CCA</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F171.html">$F171</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ccd"></span>7CCD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-11" rowspan="3">Transfer the destination coordinates to <span class="register">DE</span></td>
+<td class="comment-1" rowspan="3">Transfer the destination coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7cce"></span>7CCE</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ccf"></span>7CCF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7cd0"></span>7CD0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$01</td>
-<td class="comment-11" rowspan="1">Assume a destination z-coordinate of 1 (indoors)</td>
+<td class="comment-1" rowspan="1">Assume a destination z-coordinate of 1 (indoors)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7cd2"></span>7CD2</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7190.html#7199">$7199</a></td>
-<td class="comment-11" rowspan="1">Obtain an identifier for the destination location and copy it into byte 0x0C of the character's buffer</td>
+<td class="comment-1" rowspan="1">Obtain an identifier for the destination location and copy it into byte 0x0C of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7cd5"></span>7CD5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$08</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x08 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x08 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7cd7"></span>7CD7</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7CC7.html">7CC7</a></span></td>
+<td class="prev">
+Prev: <a href="7CC7.html">7CC7</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7cc8">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7CD8.html">7CD8</a></span></td>
+<td class="next">
+Next: <a href="7CD8.html">7CD8</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/31944.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at FB4B</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="FB46.html">FB46</a></span></td>
+<td class="prev">
+Prev: <a href="FB46.html">FB46</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#fb4b">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="FB52.html">FB52</a></span></td>
+<td class="next">
+Next: <a href="FB52.html">FB52</a>
+</td>
 </tr>
 </table>
 <div class="description">FB4B: Control a character who has stepped off the roof of a building</div>
@@ -29,7 +32,7 @@
 The address of this uninterruptible subcommand routine is placed into bytes 0x12 and 0x13 of a character's buffer by the routine at <a href="FB52.html">FB52</a>. It controls the character throughout his descent from the roof until he lands.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,47 +41,39 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x12
 <td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fb4b"></span>FB4B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="FAE3.html">$FAE3</a></td>
-<td class="comment-11" rowspan="1">Move the character to the next point in his descent</td>
+<td class="comment-1" rowspan="1">Move the character to the next point in his descent</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fb4e"></span>FB4E</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return if the character has not landed yet</td>
+<td class="comment-1" rowspan="1">Return if the character has not landed yet</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fb4f"></span>FB4F</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F280.html#f288">$F288</a></td>
-<td class="comment-11" rowspan="1">Terminate this uninterruptible subcommand</td>
+<td class="comment-1" rowspan="1">Terminate this uninterruptible subcommand</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="FB46.html">FB46</a></span></td>
+<td class="prev">
+Prev: <a href="FB46.html">FB46</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#fb4b">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="FB52.html">FB52</a></span></td>
+<td class="next">
+Next: <a href="FB52.html">FB52</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/64331.html">Switch to decimal</a>.</div>
 </footer>
 </body>

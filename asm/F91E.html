@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at F91E</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F905.html">F905</a></span></td>
+<td class="prev">
+Prev: <a href="F905.html">F905</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f91e">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F928.html">F928</a></span></td>
+<td class="next">
+Next: <a href="F928.html">F928</a>
+</td>
 </tr>
 </table>
 <div class="description">F91E: Check whether a character should enter a building or knock first</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="ED8C.html">ED8C</a>. The character in question is standing at the entrance to a shop or other building, and his destination is somewhere inside. On entry, the zero flag is set if the entrance is open. Returns with <span class="register">A</span>=3 (go up) if the entrance is open, or <span class="register">A</span>=6 (knock or use a key) if it's closed.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -42,68 +45,52 @@ Used by the routine at <a href="ED8C.html">ED8C</a>. The character in question i
 <td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f91e"></span>F91E</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F925</td>
-<td class="comment-11" rowspan="1">Jump unless the entrance is open</td>
+<td class="comment-1" rowspan="1">Jump unless the entrance is open</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f920"></span>F920</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="2">Set the character's z-coordinate to 1 (he's indoors now)</td>
+<td class="comment-1" rowspan="2">Set the character's z-coordinate to 1 (he's indoors now)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f922"></span>F922</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$01</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f924"></span>F924</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Return to the caller of <a href="ED8C.html">ED8C</a> with <span class="register">A</span>=3 (go up)</td>
+<td class="comment-1" rowspan="1">Return to the caller of <a href="ED8C.html">ED8C</a> with <span class="register">A</span>=3 (go up)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f925"></span>F925</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$06</td>
-<td class="comment-11" rowspan="2">Return to the caller of <a href="ED8C.html">ED8C</a> with <span class="register">A</span>=6 (knock on the door or use a key)</td>
+<td class="comment-1" rowspan="2">Return to the caller of <a href="ED8C.html">ED8C</a> with <span class="register">A</span>=6 (knock on the door or use a key)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f927"></span>F927</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F905.html">F905</a></span></td>
+<td class="prev">
+Prev: <a href="F905.html">F905</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f91e">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F928.html">F928</a></span></td>
+<td class="next">
+Next: <a href="F928.html">F928</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/63774.html">Switch to decimal</a>.</div>
 </footer>
 </body>

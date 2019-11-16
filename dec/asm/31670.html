@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 31670</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="31642.html">31642</a></span></td>
+<td class="prev">
+Prev: <a href="31642.html">31642</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#31670">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="31713.html">31713</a></span></td>
+<td class="next">
+Next: <a href="31713.html">31713</a>
+</td>
 </tr>
 </table>
 <div class="description">31670: Control the hook while it's flying</div>
@@ -29,7 +32,7 @@
 The address of this uninterruptible subcommand routine is placed into bytes 18 and 19 of the hook's buffer by the routine at <a href="31713.html">31713</a>. It controls the hook until the end of its flight, at which point it places a rope above the roof of no. 19 if necessary, or else restores the hook to its original location on the top floor of no. 74.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,90 +41,60 @@ The address of this uninterruptible subcommand routine is placed into bytes 18 a
 <td class="register-desc">229 (hook)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31670"></span>31670</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="59848.html">59848</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the hook's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the hook's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31673"></span>31673</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,20</td>
-<td class="comment-11" rowspan="1">Byte 20 of the hook's buffer holds the distance remaining in the hook's flight</td>
+<td class="comment-1" rowspan="1">Byte 20 of the hook's buffer holds the distance remaining in the hook's flight</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31675"></span>31675</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrease this by 1</td>
+<td class="comment-1" rowspan="1">Decrease this by 1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31676"></span>31676</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,31688</td>
-<td class="comment-11" rowspan="1">Jump if the hook's flight has ended</td>
+<td class="comment-1" rowspan="1">Jump if the hook's flight has ended</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31678"></span>31678</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="2">Set the carry flag if the hook is flying rightwards</td>
+<td class="comment-1" rowspan="2">Set the carry flag if the hook is flying rightwards</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31679"></span>31679</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31680"></span>31680</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1">Decrement the hook's x-coordinate</td>
+<td class="comment-1" rowspan="1">Decrement the hook's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31681"></span>31681</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,31685</td>
-<td class="comment-11" rowspan="1">Jump if the hook is flying leftwards</td>
+<td class="comment-1" rowspan="1">Jump if the hook is flying leftwards</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31683"></span>31683</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="2">Otherwise increment the hook's x-coordinate</td>
+<td class="comment-1" rowspan="2">Otherwise increment the hook's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31684"></span>31684</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31685"></span>31685</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="59861.html">59861</a></td>
-<td class="comment-11" rowspan="1">Update the hook's animatory state and location and update the SRB (unless the hook has flown off the edge of the play area)</td>
+<td class="comment-1" rowspan="1">Update the hook's animatory state and location and update the SRB (unless the hook has flown off the edge of the play area)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -134,129 +107,97 @@ The hook's flight has ended (either naturally or by escaping the play area). Che
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31688"></span>31688</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=19</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=19</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31689"></span>31689</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="2">Remove the address of this routine from bytes 18 and 19 of the hook's buffer</td>
+<td class="comment-1" rowspan="2">Remove the address of this routine from bytes 18 and 19 of the hook's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31690"></span>31690</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31691"></span>31691</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,3</td>
-<td class="comment-11" rowspan="2">Clear all flags in byte 3 of the hook's buffer</td>
+<td class="comment-1" rowspan="2">Clear all flags in byte 3 of the hook's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31693"></span>31693</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31694"></span>31694</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="2">Set the hook's y-coordinate to 50 (out of sight)</td>
+<td class="comment-1" rowspan="2">Set the hook's y-coordinate to 50 (out of sight)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31695"></span>31695</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),50</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31697"></span>31697</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=hook's y-coordinate while it was flying</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=hook's y-coordinate while it was flying</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31698"></span>31698</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 9</td>
-<td class="comment-11" rowspan="1">Was it greater than 9?</td>
+<td class="comment-1" rowspan="1">Was it greater than 9?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31700"></span>31700</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,31708</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31702"></span>31702</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the hook at the end of its flight</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x-coordinate of the hook at the end of its flight</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31703"></span>31703</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 223</td>
-<td class="comment-11" rowspan="1">Did the hook reach the roof of no. 17?</td>
+<td class="comment-1" rowspan="1">Did the hook reach the roof of no. 17?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31705"></span>31705</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NC,<a href="64549.html">64549</a></td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31708"></span>31708</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,32028</td>
-<td class="comment-11" rowspan="2">Reactivate the entry for the hook in the object table at <a href="32028.html">32028</a></td>
+<td class="comment-1" rowspan="2">Reactivate the entry for the hook in the object table at <a href="32028.html">32028</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31711"></span>31711</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31712"></span>31712</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="31642.html">31642</a></span></td>
+<td class="prev">
+Prev: <a href="31642.html">31642</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#31670">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="31713.html">31713</a></span></td>
+<td class="next">
+Next: <a href="31713.html">31713</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/7BB6.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

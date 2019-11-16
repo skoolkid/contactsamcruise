@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at EAF8</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="EAF2.html">EAF2</a></span></td>
+<td class="prev">
+Prev: <a href="EAF2.html">EAF2</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#eaf8">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="EB13.html">EB13</a></span></td>
+<td class="next">
+Next: <a href="EB13.html">EB13</a>
+</td>
 </tr>
 </table>
 <div class="description">EAF8: Check whether a character is on the sidewalk or road</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="64BD.html">64BD</a> and <a href="EB13.html">EB13</a>. Returns with the carry flag reset if the character has both feet on the ground (the sidewalk or road), and with the carry flag set otherwise.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,48 +41,32 @@ Used by the routines at <a href="64BD.html">64BD</a> and <a href="EB13.html">EB1
 <td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="eaf8"></span>EAF8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eafa"></span>EAFA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eafb"></span>EAFB</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eafc"></span>EAFC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=character's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=character's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eafd"></span>EAFD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -92,32 +79,24 @@ This entry point is used by the routines at <a href="64BD.html">64BD</a> and <a 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="eaff"></span>EAFF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate for comparison</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=y-coordinate for comparison</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eb00"></span>EB00</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $22</td>
-<td class="comment-11" rowspan="1">34 is the y-coordinate of a character on the sidewalk</td>
+<td class="comment-1" rowspan="1">34 is the y-coordinate of a character on the sidewalk</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eb02"></span>EB02</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return with the carry flag set if the character is above the level of the sidewalk (<span class="register">A</span>&lt;=33)</td>
+<td class="comment-1" rowspan="1">Return with the carry flag set if the character is above the level of the sidewalk (<span class="register">A</span>&lt;=33)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eb03"></span>EB03</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return with the carry flag reset if the character is on the road (<span class="register">A</span>=35)</td>
+<td class="comment-1" rowspan="1">Return with the carry flag reset if the character is on the road (<span class="register">A</span>=35)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -130,11 +109,9 @@ This entry point is used by the routine at <a href="634C.html">634C</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="eb04"></span>EB04</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate for comparison</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x-coordinate for comparison</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -147,87 +124,69 @@ This entry point is used by the routines at <a href="6558.html">6558</a>, <a hre
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="eb05"></span>EB05</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $07</td>
-<td class="comment-11" rowspan="1">Is <span class="register">A</span>&lt;=6 (where there is sidewalk)?</td>
+<td class="comment-1" rowspan="1">Is <span class="register">A</span>&lt;=6 (where there is sidewalk)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eb07"></span>EB07</td>
-<td class="bytes-0"></td>
 <td class="instruction">CCF</td>
-<td class="comment-11" rowspan="2">Return with the carry flag reset if so</td>
+<td class="comment-1" rowspan="2">Return with the carry flag reset if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eb08"></span>EB08</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eb09"></span>EB09</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $0F</td>
-<td class="comment-11" rowspan="1">Is 7&lt;=<span class="register">A</span>&lt;=14 (where there is no sidewalk)?</td>
+<td class="comment-1" rowspan="1">Is 7&lt;=<span class="register">A</span>&lt;=14 (where there is no sidewalk)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eb0b"></span>EB0B</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return with the carry flag set if so</td>
+<td class="comment-1" rowspan="1">Return with the carry flag set if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eb0c"></span>EB0C</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $A4</td>
-<td class="comment-11" rowspan="1">Is 15&lt;=<span class="register">A</span>&lt;=163 (where there is sidewalk)?</td>
+<td class="comment-1" rowspan="1">Is 15&lt;=<span class="register">A</span>&lt;=163 (where there is sidewalk)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eb0e"></span>EB0E</td>
-<td class="bytes-0"></td>
 <td class="instruction">CCF</td>
-<td class="comment-11" rowspan="2">Return with the carry flag reset if so</td>
+<td class="comment-1" rowspan="2">Return with the carry flag reset if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eb0f"></span>EB0F</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eb10"></span>EB10</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $C7</td>
-<td class="comment-11" rowspan="1">Set the carry flag if 164&lt;=<span class="register">A</span>&lt;=198 (where there is no sidewalk), or reset it if <span class="register">A</span>&gt;=199 (where there is sidewalk)</td>
+<td class="comment-1" rowspan="1">Set the carry flag if 164&lt;=<span class="register">A</span>&lt;=198 (where there is no sidewalk), or reset it if <span class="register">A</span>&gt;=199 (where there is sidewalk)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eb12"></span>EB12</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="EAF2.html">EAF2</a></span></td>
+<td class="prev">
+Prev: <a href="EAF2.html">EAF2</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#eaf8">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="EB13.html">EB13</a></span></td>
+<td class="next">
+Next: <a href="EB13.html">EB13</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/60152.html">Switch to decimal</a>.</div>
 </footer>
 </body>

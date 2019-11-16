@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 7058</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7056.html">7056</a></span></td>
+<td class="prev">
+Prev: <a href="7056.html">7056</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7058">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7083.html">7083</a></span></td>
+<td class="next">
+Next: <a href="7083.html">7083</a>
+</td>
 </tr>
 </table>
 <div class="description">7058: Initialise the icon panel, score box and message line</div>
@@ -29,158 +32,106 @@
 Used by the routine at <a href="F8AE.html">F8AE</a>.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7058"></span>7058</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5AA8</td>
-<td class="comment-11" rowspan="9">Set the attribute bytes of the icon panel to 0x36 (INK 6: PAPER 6), thus hiding every icon</td>
+<td class="comment-1" rowspan="9">Set the attribute bytes of the icon panel to 0x36 (INK 6: PAPER 6), thus hiding every icon</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="705b"></span>705B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,$03</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="705d"></span>705D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0C14</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7060"></span>7060</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$36</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7062"></span>7062</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7063"></span>7063</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $7060</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7065"></span>7065</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7066"></span>7066</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7067"></span>7067</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$705D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7069"></span>7069</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,($FFEC)</td>
-<td class="comment-11" rowspan="1">Collect the high score from <a href="FFE0.html#ffec">FFEC</a></td>
+<td class="comment-1" rowspan="1">Collect the high score from <a href="FFE0.html#ffec">FFEC</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="706c"></span>706C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$50B8</td>
-<td class="comment-11" rowspan="1"><span class="register">DE</span>=display file address</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=display file address</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="706f"></span>706F</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6E1A.html">$6E1A</a></td>
-<td class="comment-11" rowspan="1">Print the high score</td>
+<td class="comment-1" rowspan="1">Print the high score</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7072"></span>7072</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$0000</td>
-<td class="comment-11" rowspan="1">The score starts at 0</td>
+<td class="comment-1" rowspan="1">The score starts at 0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7075"></span>7075</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$50D8</td>
-<td class="comment-11" rowspan="1"><span class="register">DE</span>=display file address</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=display file address</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7078"></span>7078</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6E1A.html">$6E1A</a></td>
-<td class="comment-11" rowspan="1">Print the score</td>
+<td class="comment-1" rowspan="1">Print the score</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="707b"></span>707B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$32</td>
-<td class="comment-11" rowspan="1">Sam's cash supply starts at $50</td>
+<td class="comment-1" rowspan="1">Sam's cash supply starts at $50</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="707d"></span>707D</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6E87.html#6e92">$6E92</a></td>
-<td class="comment-11" rowspan="1">Set and print the number of bucks</td>
+<td class="comment-1" rowspan="1">Set and print the number of bucks</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7080"></span>7080</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7414.html">$7414</a></td>
-<td class="comment-11" rowspan="1">Clear the message line and display 8 first aid kits</td>
+<td class="comment-1" rowspan="1">Clear the message line and display 8 first aid kits</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7056.html">7056</a></span></td>
+<td class="prev">
+Prev: <a href="7056.html">7056</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7058">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7083.html">7083</a></span></td>
+<td class="next">
+Next: <a href="7083.html">7083</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/28760.html">Switch to decimal</a>.</div>
 </footer>
 </body>

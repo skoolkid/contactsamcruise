@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 71AC</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="71A0.html">71A0</a></span></td>
+<td class="prev">
+Prev: <a href="71A0.html">71A0</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#71ac">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="71DD.html">71DD</a></span></td>
+<td class="next">
+Next: <a href="71DD.html">71DD</a>
+</td>
 </tr>
 </table>
 <div class="description">71AC: Send a policeman to Sam's last known whereabouts</div>
@@ -29,7 +32,7 @@
 Continues from the routine at <a href="7377.html">7377</a>. The policeman recently spotted Sam while he was wearing a disguise unknown to the police; this routine sends that policeman back to where he first spotted Sam when the disguise becomes known.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,125 +41,84 @@ Continues from the routine at <a href="7377.html">7377</a>. The policeman recent
 <td class="register-desc">0xDE or 0xDF (policeman)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="71ac"></span>71AC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$1F</td>
-<td class="comment-11" rowspan="2">Pick up byte 0x1F of the policeman's buffer</td>
+<td class="comment-1" rowspan="2">Pick up byte 0x1F of the policeman's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71ae"></span>71AE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71af"></span>71AF</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $3F</td>
-<td class="comment-11" rowspan="2"><span class="register">D</span>=Sam's y-coordinate when he was spotted by the policeman while wearing a disguise unknown to the police</td>
+<td class="comment-1" rowspan="2"><span class="register">D</span>=Sam's y-coordinate when he was spotted by the policeman while wearing a disguise unknown to the police</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71b1"></span>71B1</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71b2"></span>71B2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up byte 0x1F again</td>
+<td class="comment-1" rowspan="1">Pick up byte 0x1F again</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71b3"></span>71B3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$04</td>
-<td class="comment-11" rowspan="1">Initialise the destination z-coordinate to 4</td>
+<td class="comment-1" rowspan="1">Initialise the destination z-coordinate to 4</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71b5"></span>71B5</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $C0</td>
-<td class="comment-11" rowspan="1">Was Sam's z-coordinate 4 (on the sidewalk or road) when he was spotted?</td>
+<td class="comment-1" rowspan="1">Was Sam's z-coordinate 4 (on the sidewalk or road) when he was spotted?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71b7"></span>71B7</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$71BC</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71b9"></span>71B9</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="2">Move bits 6 and 7 of <span class="register">A</span> into bits 0 and 1</td>
+<td class="comment-1" rowspan="2">Move bits 6 and 7 of <span class="register">A</span> into bits 0 and 1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71ba"></span>71BA</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71bb"></span>71BB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
-<td class="comment-11" rowspan="1"><span class="register">C</span>=Sam's z-coordinate when he was spotted</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=Sam's z-coordinate when he was spotted</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="71bc"></span>71BC</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x1E</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x1E</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71bd"></span>71BD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=Sam's x-coordinate when he was spotted</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=Sam's x-coordinate when he was spotted</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71be"></span>71BE</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7190.html#7194">$7194</a></td>
-<td class="comment-11" rowspan="1">Set the policeman's destination coordinates to (<span class="register">E</span>,<span class="register">D</span>)</td>
+<td class="comment-1" rowspan="1">Set the policeman's destination coordinates to (<span class="register">E</span>,<span class="register">D</span>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71c1"></span>71C1</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="71A0.html#71a3">$71A3</a></td>
-<td class="comment-11" rowspan="1">Copy the destination coordinates and location identifier to <a href="7FDB.html">7FDB</a></td>
+<td class="comment-1" rowspan="1">Copy the destination coordinates and location identifier to <a href="7FDB.html">7FDB</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71c4"></span>71C4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x1D of the policeman's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x1D of the policeman's buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -169,122 +131,89 @@ This entry point is used by the routine at <a href="7222.html">7222</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="71c6"></span>71C6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up byte 0x1D of the policeman's buffer</td>
+<td class="comment-1" rowspan="1">Pick up byte 0x1D of the policeman's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71c7"></span>71C7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-11" rowspan="1">Set byte 0x1D of the policeman's buffer to 0 now that the disguise Sam was wearing is known to the police</td>
+<td class="comment-1" rowspan="1">Set byte 0x1D of the policeman's buffer to 0 now that the disguise Sam was wearing is known to the police</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71c9"></span>71C9</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="3">Move bits 5-7 of <span class="register">A</span> (which hold the ID of the disguise that Sam was wearing) into bits 0-2</td>
+<td class="comment-1" rowspan="3">Move bits 5-7 of <span class="register">A</span> (which hold the ID of the disguise that Sam was wearing) into bits 0-2</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71ca"></span>71CA</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71cb"></span>71CB</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71cc"></span>71CC</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
-<td class="comment-11" rowspan="1">Keep only bits 0-2</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-2</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71ce"></span>71CE</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$A0</td>
-<td class="comment-11" rowspan="4">Now <span class="register">A</span>=0x40, 0x20, 0x10, 0x08, 0x04, 0x02, or 0x01, with the set bit corresponding to the disguise that Sam was wearing</td>
+<td class="comment-1" rowspan="4">Now <span class="register">A</span>=0x40, 0x20, 0x10, 0x08, 0x04, 0x02, or 0x01, with the set bit corresponding to the disguise that Sam was wearing</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71d0"></span>71D0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71d1"></span>71D1</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,$15</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71d3"></span>71D3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71d4"></span>71D4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$7FE8</td>
-<td class="comment-11" rowspan="1"><a href="7FE8.html">7FE8</a> holds the disguise status flags</td>
+<td class="comment-1" rowspan="1"><a href="7FE8.html">7FE8</a> holds the disguise status flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71d7"></span>71D7</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="3">Set the appropriate bit at <a href="7FE8.html">7FE8</a>, making the disguise known to the police</td>
+<td class="comment-1" rowspan="3">Set the appropriate bit at <a href="7FE8.html">7FE8</a>, making the disguise known to the police</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71d8"></span>71D8</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71d9"></span>71D9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="71da"></span>71DA</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7D09.html">$7D09</a></td>
-<td class="comment-11" rowspan="1">Set the attribute bytes for Sam's current disguise in the bottom right corner of the screen</td>
+<td class="comment-1" rowspan="1">Set the attribute bytes for Sam's current disguise in the bottom right corner of the screen</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="71A0.html">71A0</a></span></td>
+<td class="prev">
+Prev: <a href="71A0.html">71A0</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#71ac">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="71DD.html">71DD</a></span></td>
+<td class="next">
+Next: <a href="71DD.html">71DD</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/29100.html">Switch to decimal</a>.</div>
 </footer>
 </body>

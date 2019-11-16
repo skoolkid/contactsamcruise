@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 26224</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="26222.html">26222</a></span></td>
+<td class="prev">
+Prev: <a href="26222.html">26222</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#26224">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="26328.html">26328</a></span></td>
+<td class="next">
+Next: <a href="26328.html">26328</a>
+</td>
 </tr>
 </table>
 <div class="description">26224: Update the sniper's sprite tile references</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="25118.html">25118</a>. Updates the sprite tile references for animatory states <a href="../graphics/as.html#54">54/182</a>. On entry, the carry flag is set if the sniper is firing, in which case a new bullet will be initialised.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -50,83 +53,54 @@ Used by the routine at <a href="25118.html">25118</a>. Updates the sprite tile r
 <td class="register-desc">227 (sniper)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26224"></span>26224</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save the sniper's animatory state</td>
+<td class="comment-1" rowspan="1">Save the sniper's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26225"></span>26225</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=sniper's next y-coordinate (34-37)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=sniper's next y-coordinate (34-37)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26226"></span>26226</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26227"></span>26227</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save the sniper's next y-coordinate</td>
+<td class="comment-1" rowspan="1">Save the sniper's next y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26228"></span>26228</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,3</td>
-<td class="comment-11" rowspan="1">There are three columns in the sniper's sprite</td>
+<td class="comment-1" rowspan="1">There are three columns in the sniper's sprite</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26230"></span>26230</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB 33</td>
-<td class="comment-11" rowspan="2"><span class="register">E'</span>=1 (sniper is at full height), 2 (sniper is at half-height), 3 (only the sniper's head is visible), or 4 (the sniper has ducked out of sight)</td>
+<td class="comment-1" rowspan="2"><span class="register">E'</span>=1 (sniper is at full height), 2 (sniper is at half-height), 3 (only the sniper's head is visible), or 4 (the sniper has ducked out of sight)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26232"></span>26232</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26233"></span>26233</td>
-<td class="bytes-0"></td>
 <td class="instruction">CPL</td>
-<td class="comment-11" rowspan="3"><span class="register">D'</span>=5-<span class="register">E'</span> (number of rows of the sniper's sprite that will be filled with non-blank tiles)</td>
+<td class="comment-1" rowspan="3"><span class="register">D'</span>=5-<span class="register">E'</span> (number of rows of the sniper's sprite that will be filled with non-blank tiles)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26234"></span>26234</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,6</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26236"></span>26236</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -139,137 +113,95 @@ The next section of code modifies the sprite tile references for animatory state
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26237"></span>26237</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,215</td>
-<td class="comment-11" rowspan="1">215 is the base page for sprite tile references</td>
+<td class="comment-1" rowspan="1">215 is the base page for sprite tile references</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26239"></span>26239</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,D</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=number of non-blank tiles to initialise in this column</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=number of non-blank tiles to initialise in this column</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26240"></span>26240</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,162</td>
-<td class="comment-11" rowspan="1">Animatory state <a href="../graphics/as.html#34">162</a> (gangster) will be used as a template for the sniper's sprite</td>
+<td class="comment-1" rowspan="1">Animatory state <a href="../graphics/as.html#34">162</a> (gangster) will be used as a template for the sniper's sprite</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26242"></span>26242</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Collect a sprite tile reference from the template</td>
+<td class="comment-1" rowspan="1">Collect a sprite tile reference from the template</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26243"></span>26243</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,182</td>
-<td class="comment-11" rowspan="2">Copy the sprite tile reference into place</td>
+<td class="comment-1" rowspan="2">Copy the sprite tile reference into place</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26245"></span>26245</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26246"></span>26246</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1">Move down a row</td>
+<td class="comment-1" rowspan="1">Move down a row</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26247"></span>26247</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 26240</td>
-<td class="comment-11" rowspan="1">Jump back until all non-blank rows in this column have been done</td>
+<td class="comment-1" rowspan="1">Jump back until all non-blank rows in this column have been done</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26249"></span>26249</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=number of blank rows in the sniper's sprite (1-4)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=number of blank rows in the sniper's sprite (1-4)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26250"></span>26250</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Are there any?</td>
+<td class="comment-1" rowspan="1">Are there any?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26251"></span>26251</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,26259</td>
-<td class="comment-11" rowspan="1">Jump if not (this jump is never made)</td>
+<td class="comment-1" rowspan="1">Jump if not (this jump is never made)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26253"></span>26253</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,E</td>
-<td class="comment-11" rowspan="4">Fill the remaining slots in this column with blank tiles</td>
+<td class="comment-1" rowspan="4">Fill the remaining slots in this column with blank tiles</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26254"></span>26254</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26256"></span>26256</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26257"></span>26257</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 26254</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26259"></span>26259</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
-<td class="comment-11" rowspan="1">Have we done all three columns yet?</td>
+<td class="comment-1" rowspan="1">Have we done all three columns yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26260"></span>26260</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,26239</td>
-<td class="comment-11" rowspan="1">Jump back if not</td>
+<td class="comment-1" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26262"></span>26262</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the sniper's next y-coordinate (34-37) to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore the sniper's next y-coordinate (34-37) to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26263"></span>26263</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,26323</td>
-<td class="comment-11" rowspan="1">Jump unless the sniper is firing</td>
+<td class="comment-1" rowspan="1">Jump unless the sniper is firing</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -282,46 +214,31 @@ The sniper is firing, so some further modifications to the sniper's sprite are r
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26265"></span>26265</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,217</td>
-<td class="comment-11" rowspan="2">Set the reference for tile 2 to 234</td>
+<td class="comment-1" rowspan="2">Set the reference for tile 2 to 234</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26267"></span>26267</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),234</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26269"></span>26269</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="2">Set the reference for tile 3 to 0 (blank tile)</td>
+<td class="comment-1" rowspan="2">Set the reference for tile 3 to 0 (blank tile)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26270"></span>26270</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26272"></span>26272</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,222</td>
-<td class="comment-11" rowspan="2">Set the reference for tile 7 to 235</td>
+<td class="comment-1" rowspan="2">Set the reference for tile 7 to 235</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26274"></span>26274</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),235</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -334,276 +251,199 @@ Now we initialise a bullet.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26276"></span>26276</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,32706</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at the third byte of bullet buffer 1 (at <a href="32704.html">32704</a>)</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL'</span> at the third byte of bullet buffer 1 (at <a href="32704.html">32704</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26279"></span>26279</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB 18</td>
-<td class="comment-11" rowspan="2"><span class="register">D</span>=16 or 17 (bullet's initial screen y-coordinate)</td>
+<td class="comment-1" rowspan="2"><span class="register">D</span>=16 or 17 (bullet's initial screen y-coordinate)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26281"></span>26281</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26282"></span>26282</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="2">Is bullet buffer 1 at <a href="32704.html">32704</a> already being used?</td>
+<td class="comment-1" rowspan="2">Is bullet buffer 1 at <a href="32704.html">32704</a> already being used?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26283"></span>26283</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26284"></span>26284</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,26288</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26286"></span>26286</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,198</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at the third byte of bullet buffer 2</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL'</span> at the third byte of bullet buffer 2</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26288"></span>26288</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),D</td>
-<td class="comment-11" rowspan="1">Store the bullet's initial screen y-coordinate</td>
+<td class="comment-1" rowspan="1">Store the bullet's initial screen y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26289"></span>26289</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(32766)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the leftmost column of the play area on screen</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x-coordinate of the leftmost column of the play area on screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26292"></span>26292</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
-<td class="comment-11" rowspan="1">Copy this to <span class="register">B'</span></td>
+<td class="comment-1" rowspan="1">Copy this to <span class="register">B'</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26293"></span>26293</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at the fourth byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL'</span> at the fourth byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26294"></span>26294</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61823.html">61823</a></td>
-<td class="comment-11" rowspan="1">Get a random number in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Get a random number in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26297"></span>26297</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 112</td>
-<td class="comment-11" rowspan="1">Keep only bits 4-6</td>
+<td class="comment-1" rowspan="1">Keep only bits 4-6</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26299"></span>26299</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,4</td>
-<td class="comment-11" rowspan="1">The initial pixel row at which the bullet will be drawn inside a cell is 4</td>
+<td class="comment-1" rowspan="1">The initial pixel row at which the bullet will be drawn inside a cell is 4</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26301"></span>26301</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Initialise bits 0-6 of the fourth byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Initialise bits 0-6 of the fourth byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26302"></span>26302</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the sniper's animatory state to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore the sniper's animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26303"></span>26303</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save the animatory state again</td>
+<td class="comment-1" rowspan="1">Save the animatory state again</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26304"></span>26304</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 128</td>
-<td class="comment-11" rowspan="1">Keep only bit 7 (the direction bit)</td>
+<td class="comment-1" rowspan="1">Keep only bit 7 (the direction bit)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26306"></span>26306</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR (HL)</td>
-<td class="comment-11" rowspan="2">Initialise bit 7 of the fourth byte of the bullet buffer (the bullet's direction bit)</td>
+<td class="comment-1" rowspan="2">Initialise bit 7 of the fourth byte of the bullet buffer (the bullet's direction bit)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26307"></span>26307</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26308"></span>26308</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="4">Store the x-coordinate of the leftmost column of the play area on screen in the first byte of the bullet buffer</td>
+<td class="comment-1" rowspan="4">Store the x-coordinate of the leftmost column of the play area on screen in the first byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26309"></span>26309</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26310"></span>26310</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26311"></span>26311</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26312"></span>26312</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at the second byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL'</span> at the second byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26313"></span>26313</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26314"></span>26314</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="1">Set the carry flag if the sniper is facing right</td>
+<td class="comment-1" rowspan="1">Set the carry flag if the sniper is facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26315"></span>26315</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=sniper's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=sniper's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26316"></span>26316</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26317"></span>26317</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,26321</td>
-<td class="comment-11" rowspan="1">Jump if the sniper is facing left</td>
+<td class="comment-1" rowspan="1">Jump if the sniper is facing left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26319"></span>26319</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="2">Add 2 to the sniper's x-coordinate</td>
+<td class="comment-1" rowspan="2">Add 2 to the sniper's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26320"></span>26320</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26321"></span>26321</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB B</td>
-<td class="comment-11" rowspan="1">Subtract the x-coordinate of the leftmost column of the play area on screen to obtain the bullet's initial screen x-coordinate</td>
+<td class="comment-1" rowspan="1">Subtract the x-coordinate of the leftmost column of the play area on screen to obtain the bullet's initial screen x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26322"></span>26322</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Store this in the second byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Store this in the second byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26323"></span>26323</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26324"></span>26324</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the sniper's animatory state to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore the sniper's animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26325"></span>26325</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="59861.html">59861</a></td>
-<td class="comment-11" rowspan="1">Update the sniper's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the sniper's animatory state and location and update the SRB</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="26222.html">26222</a></span></td>
+<td class="prev">
+Prev: <a href="26222.html">26222</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#26224">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="26328.html">26328</a></span></td>
+<td class="next">
+Next: <a href="26328.html">26328</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/6670.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

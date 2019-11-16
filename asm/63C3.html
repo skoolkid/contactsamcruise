@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 63C3</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="634C.html">634C</a></span></td>
+<td class="prev">
+Prev: <a href="634C.html">634C</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63c3">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6400.html">6400</a></span></td>
+<td class="next">
+Next: <a href="6400.html">6400</a>
+</td>
 </tr>
 </table>
 <div class="description">63C3: Check whether Sam has somersaulted onto a banknote</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="64BD.html">64BD</a>. Compares Sam's location with those of the two banknotes. If there's a match, and Sam has just finished a somersault, the banknote is added to Sam's cash supply.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,139 +41,94 @@ Used by the routine at <a href="64BD.html">64BD</a>. Compares Sam's location wit
 <td class="register-desc">E60C (byte 0x0C of Sam's buffer)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63c3"></span>63C3</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 5,(HL)</td>
-<td class="comment-11" rowspan="1">Byte 0x0C of Sam's buffer holds the LSB of the current roll/somersault animation phase table entry</td>
+<td class="comment-1" rowspan="1">Byte 0x0C of Sam's buffer holds the LSB of the current roll/somersault animation phase table entry</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63c5"></span>63C5</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if Sam was rolling</td>
+<td class="comment-1" rowspan="1">Return if Sam was rolling</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63c6"></span>63C6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="4">Collect Sam's x- and y-coordinates in <span class="register">E</span> and <span class="register">D</span></td>
+<td class="comment-1" rowspan="4">Collect Sam's x- and y-coordinates in <span class="register">E</span> and <span class="register">D</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63c8"></span>63C8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63c9"></span>63C9</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63ca"></span>63CA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63cb"></span>63CB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,L</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=2 (there are 2 banknotes)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=2 (there are 2 banknotes)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63cc"></span>63CC</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC H</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=0xE4 or 0xE5</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=0xE4 or 0xE5</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63cd"></span>63CD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=Sam's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63ce"></span>63CE</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Compare it with the banknote's y-coordinate</td>
+<td class="comment-1" rowspan="1">Compare it with the banknote's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63cf"></span>63CF</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the banknote's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the banknote's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63d0"></span>63D0</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$63D6</td>
-<td class="comment-11" rowspan="1">Jump unless Sam's y-coordinate matches the banknote's</td>
+<td class="comment-1" rowspan="1">Jump unless Sam's y-coordinate matches the banknote's</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63d2"></span>63D2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=Sam's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63d3"></span>63D3</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Has Sam landed on a banknote?</td>
+<td class="comment-1" rowspan="1">Has Sam landed on a banknote?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63d4"></span>63D4</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$63DA</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63d6"></span>63D6</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the banknote's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the banknote's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63d7"></span>63D7</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $63CC</td>
-<td class="comment-11" rowspan="1">Jump back until both banknotes have been checked</td>
+<td class="comment-1" rowspan="1">Jump back until both banknotes have been checked</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63d9"></span>63D9</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -183,53 +141,39 @@ Sam has landed on something that is using one of the banknote buffers. Here we c
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63da"></span>63DA</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63db"></span>63DB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=banknote's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=banknote's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63dc"></span>63DC</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $7F</td>
-<td class="comment-11" rowspan="1">Discard bit 7</td>
+<td class="comment-1" rowspan="1">Discard bit 7</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63de"></span>63DE</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB $3E</td>
-<td class="comment-11" rowspan="1">Is the banknote's animatory state <a href="../graphics/as.html#62">0x3E or 0xBE</a>?</td>
+<td class="comment-1" rowspan="1">Is the banknote's animatory state <a href="../graphics/as.html#62">0x3E or 0xBE</a>?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63e0"></span>63E0</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$63E5</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63e2"></span>63E2</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB $08</td>
-<td class="comment-11" rowspan="1">Is the banknote's animatory state <a href="../graphics/as.html#70">0x46 or 0xC6</a>?</td>
+<td class="comment-1" rowspan="1">Is the banknote's animatory state <a href="../graphics/as.html#70">0x46 or 0xC6</a>?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63e4"></span>63E4</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not (this never happens)</td>
+<td class="comment-1" rowspan="1">Return if not (this never happens)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -242,25 +186,18 @@ Sam has landed on something that looks like a banknote.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63e5"></span>63E5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="2">Set byte 0x0A of the banknote's buffer to 1 to indicate that Sam's just landed on it (see <a href="634C.html">634C</a>)</td>
+<td class="comment-1" rowspan="2">Set byte 0x0A of the banknote's buffer to 1 to indicate that Sam's just landed on it (see <a href="634C.html">634C</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63e7"></span>63E7</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63e8"></span>63E8</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61CF.html">$61CF</a></td>
-<td class="comment-11" rowspan="1">Add 1, 5, 10 or 20 bucks to Sam's total</td>
+<td class="comment-1" rowspan="1">Add 1, 5, 10 or 20 bucks to Sam's total</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -273,108 +210,84 @@ Finally we make an appropriate sound effect.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63eb"></span>63EB</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="2">Prepare the sound effect parameters: <span class="register">A</span>=0x00 (initial border colour), <span class="register">D</span>=0x05 (duration), <span class="register">E</span>=0xF9 (initial pitch)</td>
+<td class="comment-1" rowspan="2">Prepare the sound effect parameters: <span class="register">A</span>=0x00 (initial border colour), <span class="register">D</span>=0x05 (duration), <span class="register">E</span>=0xF9 (initial pitch)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63ec"></span>63EC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$05F9</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63ef"></span>63EF</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1">Increment the border colour</td>
+<td class="comment-1" rowspan="1">Increment the border colour</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63f0"></span>63F0</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR $10</td>
-<td class="comment-11" rowspan="1">Flip bit 4 of <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Flip bit 4 of <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63f2"></span>63F2</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $17</td>
-<td class="comment-11" rowspan="1">Retain only bits 0-2 (border colour) and 4 (speaker state)</td>
+<td class="comment-1" rowspan="1">Retain only bits 0-2 (border colour) and 4 (speaker state)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63f4"></span>63F4</td>
-<td class="bytes-0"></td>
 <td class="instruction">OUT ($FE),A</td>
-<td class="comment-11" rowspan="1">Change the border colour and speaker state</td>
+<td class="comment-1" rowspan="1">Change the border colour and speaker state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63f6"></span>63F6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,E</td>
-<td class="comment-11" rowspan="2">Perform the pitch delay</td>
+<td class="comment-1" rowspan="2">Perform the pitch delay</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63f7"></span>63F7</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $63F7</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63f9"></span>63F9</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1">Decrement the pitch delay</td>
+<td class="comment-1" rowspan="1">Decrement the pitch delay</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63fa"></span>63FA</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$63EF</td>
-<td class="comment-11" rowspan="1">Jump back unless it's zero</td>
+<td class="comment-1" rowspan="1">Jump back unless it's zero</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63fc"></span>63FC</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
-<td class="comment-11" rowspan="1">Decrement the duration counter</td>
+<td class="comment-1" rowspan="1">Decrement the duration counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63fd"></span>63FD</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$63EF</td>
-<td class="comment-11" rowspan="1">Jump back unless it's zero</td>
+<td class="comment-1" rowspan="1">Jump back unless it's zero</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63ff"></span>63FF</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="634C.html">634C</a></span></td>
+<td class="prev">
+Prev: <a href="634C.html">634C</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63c3">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6400.html">6400</a></span></td>
+<td class="next">
+Next: <a href="6400.html">6400</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/25539.html">Switch to decimal</a>.</div>
 </footer>
 </body>

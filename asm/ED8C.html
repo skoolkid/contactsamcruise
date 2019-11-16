@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at ED8C</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="ED8A.html">ED8A</a></span></td>
+<td class="prev">
+Prev: <a href="ED8A.html">ED8A</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#ed8c">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="EF02.html">EF02</a></span></td>
+<td class="next">
+Next: <a href="EF02.html">EF02</a>
+</td>
 </tr>
 </table>
 <div class="description">ED8C: Determine the next move a character should make to reach his destination</div>
@@ -65,7 +68,7 @@ Used by the routines at <a href="72B1.html">72B1</a>, <a href="7996.html">7996</
 </table>
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -74,76 +77,51 @@ Used by the routines at <a href="72B1.html">72B1</a>, <a href="7996.html">7996</
 <td class="register-desc">Character number (0xD7-0xE6)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ed8c"></span>ED8C</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7C40.html">$7C40</a></td>
-<td class="comment-11" rowspan="1">Deal with the case where the character will soon be entering or leaving the hotel; otherwise return here</td>
+<td class="comment-1" rowspan="1">Deal with the case where the character will soon be entering or leaving the hotel; otherwise return here</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ed8f"></span>ED8F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0D</td>
-<td class="comment-11" rowspan="2">Initialise the location/destination indicator in byte 0x0D of the character's buffer to 0</td>
+<td class="comment-1" rowspan="2">Initialise the location/destination indicator in byte 0x0D of the character's buffer to 0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ed91"></span>ED91</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ed93"></span>ED93</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is the character on the sidewalk or the road?</td>
+<td class="comment-1" rowspan="1">Is the character on the sidewalk or the road?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ed94"></span>ED94</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EDD3</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ed96"></span>ED96</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0C</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x0C</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ed97"></span>ED97</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=destination location identifier (see <a href="ED36.html">ED36</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=destination location identifier (see <a href="ED36.html">ED36</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ed98"></span>ED98</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is the character's destination on the sidewalk or the road?</td>
+<td class="comment-1" rowspan="1">Is the character's destination on the sidewalk or the road?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ed99"></span>ED99</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EDAA</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -156,81 +134,56 @@ The next section of code deals with the case where the character can reach his d
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ed9b"></span>ED9B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x0A of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x0A of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ed9d"></span>ED9D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=destination x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=destination x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ed9e"></span>ED9E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1">Copy this to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Copy this to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ed9f"></span>ED9F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="2">Does the character's x-coordinate match the destination x-coordinate?</td>
+<td class="comment-1" rowspan="2">Does the character's x-coordinate match the destination x-coordinate?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eda1"></span>EDA1</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eda2"></span>EDA2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$00</td>
-<td class="comment-11" rowspan="2">Return with <span class="register">A</span>=0 (do nothing) if so</td>
+<td class="comment-1" rowspan="2">Return with <span class="register">A</span>=0 (do nothing) if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eda4"></span>EDA4</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eda5"></span>EDA5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="2">Return with <span class="register">A</span>=1 (go right) if the character's x-coordinate is less than the destination x-coordinate</td>
+<td class="comment-1" rowspan="2">Return with <span class="register">A</span>=1 (go right) if the character's x-coordinate is less than the destination x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eda7"></span>EDA7</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eda8"></span>EDA8</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=2 (go left)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=2 (go left)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eda9"></span>EDA9</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -243,214 +196,149 @@ The character is on the sidewalk or the road, and his destination is somewhere o
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="edaa"></span>EDAA</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $F0</td>
-<td class="comment-11" rowspan="1">Keep only the region identifier bits (bits 4-7) of the destination</td>
+<td class="comment-1" rowspan="1">Keep only the region identifier bits (bits 4-7) of the destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edac"></span>EDAC</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="3">Shift them into bits 1-4</td>
+<td class="comment-1" rowspan="3">Shift them into bits 1-4</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edad"></span>EDAD</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edae"></span>EDAE</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edaf"></span>EDAF</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$96</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0x98+2n (n=0x00-0x0B, 0x0D or 0x0E)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0x98+2n (n=0x00-0x0B, 0x0D or 0x0E)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edb1"></span>EDB1</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
-<td class="comment-11" rowspan="2">Point <span class="register">BC</span> at the entry in the table of building entrance x-coordinates at <a href="FF98.html">FF98</a> that corresponds to the character's destination</td>
+<td class="comment-1" rowspan="2">Point <span class="register">BC</span> at the entry in the table of building entrance x-coordinates at <a href="FF98.html">FF98</a> that corresponds to the character's destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edb2"></span>EDB2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$FF</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edb4"></span>EDB4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edb6"></span>EDB6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-11" rowspan="1">Pick up the lower x-coordinate of the building entrance</td>
+<td class="comment-1" rowspan="1">Pick up the lower x-coordinate of the building entrance</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edb7"></span>EDB7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1">Copy it to <span class="register">E</span></td>
+<td class="comment-1" rowspan="1">Copy it to <span class="register">E</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edb8"></span>EDB8</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Compare it with the character's x-coordinate</td>
+<td class="comment-1" rowspan="1">Compare it with the character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edb9"></span>EDB9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (go right)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=1 (go right)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edba"></span>EDBA</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EDC1</td>
-<td class="comment-11" rowspan="1">Jump unless the x-coordinates match</td>
+<td class="comment-1" rowspan="1">Jump unless the x-coordinates match</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edbc"></span>EDBC</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edbd"></span>EDBD</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Is the character facing right?</td>
+<td class="comment-1" rowspan="1">Is the character facing right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edbf"></span>EDBF</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EDCD</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="edc1"></span>EDC1</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return with <span class="register">A</span>=1 (go right)</td>
+<td class="comment-1" rowspan="1">Return with <span class="register">A</span>=1 (go right)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edc2"></span>EDC2</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC C</td>
-<td class="comment-11" rowspan="2">Pick up the upper x-coordinate of the building entrance</td>
+<td class="comment-1" rowspan="2">Pick up the upper x-coordinate of the building entrance</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edc3"></span>EDC3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edc4"></span>EDC4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1">Copy it to <span class="register">E</span></td>
+<td class="comment-1" rowspan="1">Copy it to <span class="register">E</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edc5"></span>EDC5</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Compare it with the character's x-coordinate</td>
+<td class="comment-1" rowspan="1">Compare it with the character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edc6"></span>EDC6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$02</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=2 (go left)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=2 (go left)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edc8"></span>EDC8</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return unless the x-coordinates match</td>
+<td class="comment-1" rowspan="1">Return unless the x-coordinates match</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edc9"></span>EDC9</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edca"></span>EDCA</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Is the character facing right?</td>
+<td class="comment-1" rowspan="1">Is the character facing right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edcc"></span>EDCC</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return with <span class="register">A</span>=2 (go left) if so</td>
+<td class="comment-1" rowspan="1">Return with <span class="register">A</span>=2 (go left) if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="edcd"></span>EDCD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0D</td>
-<td class="comment-11" rowspan="2">Set byte 0x0D of the character's buffer to 1 (indicating that the character is no longer on the sidewalk or the road, and is in the same region as his destination)</td>
+<td class="comment-1" rowspan="2">Set byte 0x0D of the character's buffer to 1 (indicating that the character is no longer on the sidewalk or the road, and is in the same region as his destination)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edcf"></span>EDCF</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edd0"></span>EDD0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$03</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=3 (go up)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=3 (go up)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edd2"></span>EDD2</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -463,32 +351,24 @@ The character is on neither the sidewalk nor the road.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="edd3"></span>EDD3</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-11" rowspan="1">Set byte 0x0D of the character's buffer to 1 (indicating that the character is on neither the sidewalk nor the road)</td>
+<td class="comment-1" rowspan="1">Set byte 0x0D of the character's buffer to 1 (indicating that the character is on neither the sidewalk nor the road)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edd4"></span>EDD4</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0C</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x0C</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edd5"></span>EDD5</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1">Is the character on the fire escape of the apartment building next to no. 19?</td>
+<td class="comment-1" rowspan="1">Is the character on the fire escape of the apartment building next to no. 19?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edd6"></span>EDD6</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EDFD</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -501,116 +381,84 @@ The character is on the fire escape of the apartment building next to no. 19.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edd8"></span>EDD8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=destination location identifier (see <a href="ED36.html">ED36</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=destination location identifier (see <a href="ED36.html">ED36</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edd9"></span>EDD9</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the destination is on the fire escape</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the destination is on the fire escape</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edda"></span>EDDA</td>
-<td class="bytes-0"></td>
 <td class="instruction">SCF</td>
-<td class="comment-11" rowspan="1">Set the carry flag: the character will go back up the fire escape (if his destination is not on the fire escape)</td>
+<td class="comment-1" rowspan="1">Set the carry flag: the character will go back up the fire escape (if his destination is not on the fire escape)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eddb"></span>EDDB</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EDE4</td>
-<td class="comment-11" rowspan="1">Jump if the destination is not on the fire escape</td>
+<td class="comment-1" rowspan="1">Jump if the destination is not on the fire escape</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eddd"></span>EDDD</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0B</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x0B</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edde"></span>EDDE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's destination y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's destination y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eddf"></span>EDDF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ede1"></span>EDE1</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Does the character's y-coordinate match that of his destination?</td>
+<td class="comment-1" rowspan="1">Does the character's y-coordinate match that of his destination?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ede2"></span>EDE2</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$ED9B</td>
-<td class="comment-11" rowspan="1">If so, move the character left or right towards his destination</td>
+<td class="comment-1" rowspan="1">If so, move the character left or right towards his destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ede4"></span>EDE4</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save the carry flag briefly</td>
+<td class="comment-1" rowspan="1">Save the carry flag briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ede5"></span>EDE5</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the character number briefly</td>
+<td class="comment-1" rowspan="1">Save the character number briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ede6"></span>EDE6</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB13.html">$EB13</a></td>
-<td class="comment-11" rowspan="1">Obtain descriptors for the character's current location</td>
+<td class="comment-1" rowspan="1">Obtain descriptors for the character's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ede9"></span>EDE9</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edea"></span>EDEA</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the carry flag</td>
+<td class="comment-1" rowspan="1">Restore the carry flag</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edeb"></span>EDEB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
-<td class="comment-11" rowspan="1">Copy the direction descriptor bits (see <a href="EB13.html">EB13</a>) to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Copy the direction descriptor bits (see <a href="EB13.html">EB13</a>) to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edec"></span>EDEC</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$EDF5</td>
-<td class="comment-11" rowspan="1">Jump if the character's y-coordinate is less than that of his destination</td>
+<td class="comment-1" rowspan="1">Jump if the character's y-coordinate is less than that of his destination</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -623,39 +471,29 @@ The character is on the fire escape of the apartment building next to no. 19, an
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edee"></span>EDEE</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $10</td>
-<td class="comment-11" rowspan="1">Set the zero flag unless the character is next to a step going up to the right</td>
+<td class="comment-1" rowspan="1">Set the zero flag unless the character is next to a step going up to the right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edf0"></span>EDF0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$03</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=3 (go up)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=3 (go up)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edf2"></span>EDF2</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if the character is next to a step going up to the right</td>
+<td class="comment-1" rowspan="1">Return if the character is next to a step going up to the right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edf3"></span>EDF3</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=2 (go left)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=2 (go left)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edf4"></span>EDF4</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -668,39 +506,29 @@ The character is on the fire escape of the apartment building next to no. 19, an
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="edf5"></span>EDF5</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $08</td>
-<td class="comment-11" rowspan="1">Set the zero flag unless the character is next to a step going down to the left</td>
+<td class="comment-1" rowspan="1">Set the zero flag unless the character is next to a step going down to the left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edf7"></span>EDF7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=4 (go down)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=4 (go down)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edf9"></span>EDF9</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if the character is next to a step going down to the left</td>
+<td class="comment-1" rowspan="1">Return if the character is next to a step going down to the left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edfa"></span>EDFA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (go right)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=1 (go right)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edfc"></span>EDFC</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -713,60 +541,44 @@ The character is on neither the sidewalk nor the road, nor on the fire escape of
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="edfd"></span>EDFD</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=identifier for the character's current location (see <a href="ED36.html">ED36</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=identifier for the character's current location (see <a href="ED36.html">ED36</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edfe"></span>EDFE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=destination location identifier (see <a href="ED36.html">ED36</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=destination location identifier (see <a href="ED36.html">ED36</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="edff"></span>EDFF</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="1">Is the destination on the fire escape of the apartment building next to no. 19?</td>
+<td class="comment-1" rowspan="1">Is the destination on the fire escape of the apartment building next to no. 19?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee00"></span>EE00</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EE09</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee02"></span>EE02</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $FD</td>
-<td class="comment-11" rowspan="1">Is the character on the rim of the roof of the apartment building next to no. 19?</td>
+<td class="comment-1" rowspan="1">Is the character on the rim of the roof of the apartment building next to no. 19?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee04"></span>EE04</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EE09</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee06"></span>EE06</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=4 (go down)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=4 (go down)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee08"></span>EE08</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -779,53 +591,39 @@ The character is on neither the sidewalk nor the road, nor on the fire escape of
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ee09"></span>EE09</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=identifier for the character's current location (see <a href="ED36.html">ED36</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=identifier for the character's current location (see <a href="ED36.html">ED36</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee0a"></span>EE0A</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $F0</td>
-<td class="comment-11" rowspan="1">Keep only the region identifier bits (bits 4-7)</td>
+<td class="comment-1" rowspan="1">Keep only the region identifier bits (bits 4-7)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee0c"></span>EE0C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
-<td class="comment-11" rowspan="1">Copy them to <span class="register">C</span></td>
+<td class="comment-1" rowspan="1">Copy them to <span class="register">C</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee0d"></span>EE0D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Collect the destination location identifier from byte 0x0C of the character's buffer</td>
+<td class="comment-1" rowspan="1">Collect the destination location identifier from byte 0x0C of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee0e"></span>EE0E</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $F0</td>
-<td class="comment-11" rowspan="1">Keep only the region identifier bits (bits 4-7)</td>
+<td class="comment-1" rowspan="1">Keep only the region identifier bits (bits 4-7)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee10"></span>EE10</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP C</td>
-<td class="comment-11" rowspan="1">Is the character in the same region as his destination?</td>
+<td class="comment-1" rowspan="1">Is the character in the same region as his destination?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee11"></span>EE11</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,$EEAC</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -838,25 +636,19 @@ The character is in the same region as his destination.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee14"></span>EE14</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=identifier for the character's current location (see <a href="ED36.html">ED36</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=identifier for the character's current location (see <a href="ED36.html">ED36</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee15"></span>EE15</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Compare it with the identifier for the character's destination</td>
+<td class="comment-1" rowspan="1">Compare it with the identifier for the character's destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee16"></span>EE16</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EE26</td>
-<td class="comment-11" rowspan="1">Jump unless they match</td>
+<td class="comment-1" rowspan="1">Jump unless they match</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -869,67 +661,47 @@ The character is in the same region as his destination, and also on the same flo
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee18"></span>EE18</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=character's destination y-coordinate</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=character's destination y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee1a"></span>EE1A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee1b"></span>EE1B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="2">Compare this with the character's current y-coordinate</td>
+<td class="comment-1" rowspan="2">Compare this with the character's current y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee1d"></span>EE1D</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee1e"></span>EE1E</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,$ED9B</td>
-<td class="comment-11" rowspan="1">If they match, move the character left or right towards his destination</td>
+<td class="comment-1" rowspan="1">If they match, move the character left or right towards his destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee21"></span>EE21</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$03</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=3 (go up)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=3 (go up)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee23"></span>EE23</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return if the character's current y-coordinate is greater than that of his destination</td>
+<td class="comment-1" rowspan="1">Return if the character's current y-coordinate is greater than that of his destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee24"></span>EE24</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=4 (go down)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=4 (go down)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee25"></span>EE25</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -942,256 +714,182 @@ The character is in the same region as his destination, but either on a differen
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ee26"></span>EE26</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$EE6C</td>
-<td class="comment-11" rowspan="1">Jump if the character is below his destination</td>
+<td class="comment-1" rowspan="1">Jump if the character is below his destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee28"></span>EE28</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $0F</td>
-<td class="comment-11" rowspan="1">Keep only bits 0-3 of the identifier for the character's current location</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-3 of the identifier for the character's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee2a"></span>EE2A</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $04</td>
-<td class="comment-11" rowspan="1">Is the character in a shop or on the first floor of a building (inside)?</td>
+<td class="comment-1" rowspan="1">Is the character in a shop or on the first floor of a building (inside)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee2c"></span>EE2C</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EE5E</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee2e"></span>EE2E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=destination location identifier</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=destination location identifier</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee2f"></span>EE2F</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $0F</td>
-<td class="comment-11" rowspan="1">Keep only bits 0-3</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-3</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee31"></span>EE31</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $02</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the destination is outside the entrance</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the destination is outside the entrance</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee33"></span>EE33</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee35"></span>EE35</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EE49</td>
-<td class="comment-11" rowspan="1">Jump unless the destination is outside the entrance</td>
+<td class="comment-1" rowspan="1">Jump unless the destination is outside the entrance</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee37"></span>EE37</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee38"></span>EE38</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="2">Does it match the destination x-coordinate?</td>
+<td class="comment-1" rowspan="2">Does it match the destination x-coordinate?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee3a"></span>EE3A</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee3b"></span>EE3B</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EE47</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee3d"></span>EE3D</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1">Save the staircase endpoint x-coordinates briefly</td>
+<td class="comment-1" rowspan="1">Save the staircase endpoint x-coordinates briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee3e"></span>EE3E</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the character number briefly</td>
+<td class="comment-1" rowspan="1">Save the character number briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee3f"></span>EE3F</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB13.html">$EB13</a></td>
-<td class="comment-11" rowspan="1">Obtain descriptors for the character's current location</td>
+<td class="comment-1" rowspan="1">Obtain descriptors for the character's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee42"></span>EE42</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee43"></span>EE43</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1">Restore the staircase endpoint x-coordinates to <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Restore the staircase endpoint x-coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee44"></span>EE44</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB $03</td>
-<td class="comment-11" rowspan="1">Is the character standing at the (open) entrance to a building?</td>
+<td class="comment-1" rowspan="1">Is the character standing at the (open) entrance to a building?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee46"></span>EE46</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return with <span class="register">A</span>=0 (do nothing) if so</td>
+<td class="comment-1" rowspan="1">Return with <span class="register">A</span>=0 (do nothing) if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ee47"></span>EE47</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ee49"></span>EE49</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee4a"></span>EE4A</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP D</td>
-<td class="comment-11" rowspan="1">Is the character standing at the top of the steps down to the sidewalk or the floor below?</td>
+<td class="comment-1" rowspan="1">Is the character standing at the top of the steps down to the sidewalk or the floor below?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee4b"></span>EE4B</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EE59</td>
-<td class="comment-11" rowspan="1">If not, send the character towards the top of the steps</td>
+<td class="comment-1" rowspan="1">If not, send the character towards the top of the steps</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee4d"></span>EE4D</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the character number briefly</td>
+<td class="comment-1" rowspan="1">Save the character number briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee4e"></span>EE4E</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB13.html">$EB13</a></td>
-<td class="comment-11" rowspan="1">Obtain descriptors for the character's current location</td>
+<td class="comment-1" rowspan="1">Obtain descriptors for the character's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee51"></span>EE51</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee52"></span>EE52</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="2">Is the character standing next to the open entrance to a building?</td>
+<td class="comment-1" rowspan="2">Is the character standing next to the open entrance to a building?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee53"></span>EE53</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $04</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee55"></span>EE55</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return with <span class="register">A</span>=4 (go down) if so</td>
+<td class="comment-1" rowspan="1">Return with <span class="register">A</span>=4 (go down) if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee56"></span>EE56</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$05</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=5 (open the door)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=5 (open the door)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee58"></span>EE58</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ee59"></span>EE59</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (go right)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=1 (go right)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee5b"></span>EE5B</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee5c"></span>EE5C</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=2 (go left)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=2 (go left)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee5d"></span>EE5D</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -1204,67 +902,49 @@ Either the character is in the same region as his destination, but above it, and
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ee5e"></span>EE5E</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-11" rowspan="1">Set the zero flag unless the character is on a staircase between floors</td>
+<td class="comment-1" rowspan="1">Set the zero flag unless the character is on a staircase between floors</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee60"></span>EE60</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=4 (go down)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=4 (go down)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee62"></span>EE62</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if the character is on a staircase between floors</td>
+<td class="comment-1" rowspan="1">Return if the character is on a staircase between floors</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee63"></span>EE63</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee65"></span>EE65</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee66"></span>EE66</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP D</td>
-<td class="comment-11" rowspan="1">Compare it with the x-coordinate of the top of the staircase leading down to the floor below</td>
+<td class="comment-1" rowspan="1">Compare it with the x-coordinate of the top of the staircase leading down to the floor below</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee67"></span>EE67</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=4 (go down)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=4 (go down)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee69"></span>EE69</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if the character is standing at the top of the staircase leading down to the floor below</td>
+<td class="comment-1" rowspan="1">Return if the character is standing at the top of the staircase leading down to the floor below</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee6a"></span>EE6A</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $EE59</td>
-<td class="comment-11" rowspan="1">Send the character towards the top of the staircase</td>
+<td class="comment-1" rowspan="1">Send the character towards the top of the staircase</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -1277,144 +957,103 @@ The character is in the same region as his destination, but below it.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ee6c"></span>EE6C</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7083.html">$7083</a></td>
-<td class="comment-11" rowspan="1">Deal with the case where the character is on the roof of the police station or the apartment building next to no. 19 and is destined for the edge of that roof; otherwise return here</td>
+<td class="comment-1" rowspan="1">Deal with the case where the character is on the roof of the police station or the apartment building next to no. 19 and is destined for the edge of that roof; otherwise return here</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee6f"></span>EE6F</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee70"></span>EE70</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EE9C</td>
-<td class="comment-11" rowspan="1">Jump unless the character is standing outside the entrance to a shop or other building</td>
+<td class="comment-1" rowspan="1">Jump unless the character is standing outside the entrance to a shop or other building</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee72"></span>EE72</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=destination location identifier (see <a href="ED36.html">ED36</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=destination location identifier (see <a href="ED36.html">ED36</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee73"></span>EE73</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $0F</td>
-<td class="comment-11" rowspan="1">Keep only bits 0-3</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-3</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee75"></span>EE75</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $04</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the destination is inside the shop or on the first floor of the building outside the entrance to which the character is standing</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the destination is inside the shop or on the first floor of the building outside the entrance to which the character is standing</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee77"></span>EE77</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee79"></span>EE79</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EE8B</td>
-<td class="comment-11" rowspan="1">Jump unless the destination is inside the shop or on the first floor of the building outside the entrance to which the character is standing</td>
+<td class="comment-1" rowspan="1">Jump unless the destination is inside the shop or on the first floor of the building outside the entrance to which the character is standing</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee7b"></span>EE7B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee7c"></span>EE7C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="2">Compare this with the destination x-coordinate</td>
+<td class="comment-1" rowspan="2">Compare this with the destination x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee7e"></span>EE7E</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee7f"></span>EE7F</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EE8B</td>
-<td class="comment-11" rowspan="1">Jump unless they match</td>
+<td class="comment-1" rowspan="1">Jump unless they match</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee81"></span>EE81</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1">Save the staircase endpoint x-coordinates briefly</td>
+<td class="comment-1" rowspan="1">Save the staircase endpoint x-coordinates briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee82"></span>EE82</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the character number briefly</td>
+<td class="comment-1" rowspan="1">Save the character number briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee83"></span>EE83</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB13.html">$EB13</a></td>
-<td class="comment-11" rowspan="1">Obtain descriptors for the character's current location</td>
+<td class="comment-1" rowspan="1">Obtain descriptors for the character's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee86"></span>EE86</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee87"></span>EE87</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1">Restore the staircase endpoint x-coordinates to <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Restore the staircase endpoint x-coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee88"></span>EE88</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB $03</td>
-<td class="comment-11" rowspan="1">Is the entrance next to which the character is standing open?</td>
+<td class="comment-1" rowspan="1">Is the entrance next to which the character is standing open?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee8a"></span>EE8A</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return with <span class="register">A</span>=0 (do nothing) if so</td>
+<td class="comment-1" rowspan="1">Return with <span class="register">A</span>=0 (do nothing) if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ee8b"></span>EE8B</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -1427,60 +1066,44 @@ The character is standing outside the entrance to a shop or other building, and 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee8c"></span>EE8C</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F905.html">$F905</a></td>
-<td class="comment-11" rowspan="1">Is the character standing at the right spot to enter the building or knock on the door?</td>
+<td class="comment-1" rowspan="1">Is the character standing at the right spot to enter the building or knock on the door?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee8f"></span>EE8F</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EEA8</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee91"></span>EE91</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the character number briefly</td>
+<td class="comment-1" rowspan="1">Save the character number briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee92"></span>EE92</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB13.html">$EB13</a></td>
-<td class="comment-11" rowspan="1">Obtain descriptors for the character's current location</td>
+<td class="comment-1" rowspan="1">Obtain descriptors for the character's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee95"></span>EE95</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee96"></span>EE96</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $03</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the entrance is open</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the entrance is open</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee98"></span>EE98</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F91E.html">$F91E</a></td>
-<td class="comment-11" rowspan="1">Check whether the character should enter the building or knock first</td>
+<td class="comment-1" rowspan="1">Check whether the character should enter the building or knock first</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee9b"></span>EE9B</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1">This instruction is never executed</td>
+<td class="comment-1" rowspan="1">This instruction is never executed</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -1493,88 +1116,62 @@ If we get here, then either the character is in the same region as his destinati
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="ee9c"></span>EE9C</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-11" rowspan="1">Bit 0 of <span class="register">A</span> is set if the character is on a staircase</td>
+<td class="comment-1" rowspan="1">Bit 0 of <span class="register">A</span> is set if the character is on a staircase</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ee9e"></span>EE9E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$03</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=3 (go up)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=3 (go up)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eea0"></span>EEA0</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if the character is on a staircase</td>
+<td class="comment-1" rowspan="1">Return if the character is on a staircase</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eea1"></span>EEA1</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eea3"></span>EEA3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eea4"></span>EEA4</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP E</td>
-<td class="comment-11" rowspan="1">Compare this with the x-coordinate of the bottom of the staircase leading to the floor above</td>
+<td class="comment-1" rowspan="1">Compare this with the x-coordinate of the bottom of the staircase leading to the floor above</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eea5"></span>EEA5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$03</td>
-<td class="comment-11" rowspan="2">Return with <span class="register">A</span>=3 (go up) if the character is at the bottom of the staircase leading to the floor above</td>
+<td class="comment-1" rowspan="2">Return with <span class="register">A</span>=3 (go up) if the character is at the bottom of the staircase leading to the floor above</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eea7"></span>EEA7</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="eea8"></span>EEA8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="2">Return with <span class="register">A</span>=1 (go right) if the character is to the left of either the bottom of the staircase leading to the floor above, or the correct spot at which to enter the building or knock on the door</td>
+<td class="comment-1" rowspan="2">Return with <span class="register">A</span>=1 (go right) if the character is to the left of either the bottom of the staircase leading to the floor above, or the correct spot at which to enter the building or knock on the door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eea9"></span>EEA9</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeaa"></span>EEAA</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=2 (go left)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=2 (go left)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeab"></span>EEAB</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -1587,53 +1184,38 @@ The character is not in the same region as his destination.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="eeac"></span>EEAC</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Set byte 0x0D of the character's buffer to 2 (to indicate that the character is not on the sidewalk or the road, and is heading for some region other than the one he's in)</td>
+<td class="comment-1" rowspan="2">Set byte 0x0D of the character's buffer to 2 (to indicate that the character is not on the sidewalk or the road, and is heading for some region other than the one he's in)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eead"></span>EEAD</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeae"></span>EEAE</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0C</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x0C</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeaf"></span>EEAF</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $60</td>
-<td class="comment-11" rowspan="1">Is the character going to the police station?</td>
+<td class="comment-1" rowspan="1">Is the character going to the police station?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeb1"></span>EEB1</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$EEBE</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeb3"></span>EEB3</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $70</td>
-<td class="comment-11" rowspan="1">Is the character going to no. 27?</td>
+<td class="comment-1" rowspan="1">Is the character going to no. 27?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeb5"></span>EEB5</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EECA</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -1646,32 +1228,24 @@ The character is going to no. 27, and is not in the same region as that building
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeb7"></span>EEB7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=region identifier for the character's current location</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=region identifier for the character's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeb8"></span>EEB8</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $60</td>
-<td class="comment-11" rowspan="1">Is the character inside or on the roof of the police station?</td>
+<td class="comment-1" rowspan="1">Is the character inside or on the roof of the police station?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeba"></span>EEBA</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EECA</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eebc"></span>EEBC</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $EEC3</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -1684,25 +1258,19 @@ The character is going to the police station, and is not in the same region as t
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="eebe"></span>EEBE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=region identifier for the character's current location</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=region identifier for the character's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eebf"></span>EEBF</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $70</td>
-<td class="comment-11" rowspan="1">Is the character inside or on the roof of no. 27?</td>
+<td class="comment-1" rowspan="1">Is the character inside or on the roof of no. 27?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eec1"></span>EEC1</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EECA</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -1715,39 +1283,29 @@ The character is either inside or on the roof of no. 27 and heading for the poli
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="eec3"></span>EEC3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=identifier for the character's current location (0x60-0x6D if it's the police station, or 0x70-0x7D if it's no. 27; see <a href="ED36.html">ED36</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=identifier for the character's current location (0x60-0x6D if it's the police station, or 0x70-0x7D if it's no. 27; see <a href="ED36.html">ED36</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eec4"></span>EEC4</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-11" rowspan="1">Add the destination location identifier</td>
+<td class="comment-1" rowspan="1">Add the destination location identifier</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eec5"></span>EEC5</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $E1</td>
-<td class="comment-11" rowspan="1">Reset the carry flag if it would be quicker to go via the roofs than back down to the sidewalk</td>
+<td class="comment-1" rowspan="1">Reset the carry flag if it would be quicker to go via the roofs than back down to the sidewalk</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eec7"></span>EEC7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=identifier for the character's current location (see <a href="ED36.html">ED36</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=identifier for the character's current location (see <a href="ED36.html">ED36</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eec8"></span>EEC8</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$EE9C</td>
-<td class="comment-11" rowspan="1">Jump if it would be quicker to go via the roofs than back down to the sidewalk</td>
+<td class="comment-1" rowspan="1">Jump if it would be quicker to go via the roofs than back down to the sidewalk</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -1760,46 +1318,34 @@ The character is not in the same region as his destination. Figure out his next 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="eeca"></span>EECA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=identifier for the character's current location (see <a href="ED36.html">ED36</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=identifier for the character's current location (see <a href="ED36.html">ED36</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eecb"></span>EECB</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $0F</td>
-<td class="comment-11" rowspan="1">Keep only bits 0-3</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-3</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eecd"></span>EECD</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $04</td>
-<td class="comment-11" rowspan="1">Is the character inside a shop or on the first floor of a building (inside)?</td>
+<td class="comment-1" rowspan="1">Is the character inside a shop or on the first floor of a building (inside)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eecf"></span>EECF</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,$EE47</td>
-<td class="comment-11" rowspan="1">If so, send him towards the entrance</td>
+<td class="comment-1" rowspan="1">If so, send him towards the entrance</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eed2"></span>EED2</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $01</td>
-<td class="comment-11" rowspan="1">Is the character on the front steps of a building below the first floor?</td>
+<td class="comment-1" rowspan="1">Is the character on the front steps of a building below the first floor?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eed4"></span>EED4</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,$EE5E</td>
-<td class="comment-11" rowspan="1">If not, send the character towards the top of the staircase leading down to the floor below</td>
+<td class="comment-1" rowspan="1">If not, send the character towards the top of the staircase leading down to the floor below</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -1812,192 +1358,145 @@ The character is not in the same region as his destination, and is on the front 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eed7"></span>EED7</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the character number briefly</td>
+<td class="comment-1" rowspan="1">Save the character number briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eed8"></span>EED8</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB13.html">$EB13</a></td>
-<td class="comment-11" rowspan="1">Obtain descriptors for the character's current location</td>
+<td class="comment-1" rowspan="1">Obtain descriptors for the character's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eedb"></span>EEDB</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eedc"></span>EEDC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eede"></span>EEDE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eedf"></span>EEDF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="2">Compare this with the character's destination x-coordinate</td>
+<td class="comment-1" rowspan="2">Compare this with the character's destination x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eee1"></span>EEE1</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eee2"></span>EEE2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
-<td class="comment-11" rowspan="1">Copy the direction descriptor bits (see <a href="EB13.html">EB13</a>) to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Copy the direction descriptor bits (see <a href="EB13.html">EB13</a>) to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eee3"></span>EEE3</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$EEF5</td>
-<td class="comment-11" rowspan="1">Jump if the character's x-coordinate is greater than or equal to the destination x-coordinate</td>
+<td class="comment-1" rowspan="1">Jump if the character's x-coordinate is greater than or equal to the destination x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eee5"></span>EEE5</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $04</td>
-<td class="comment-11" rowspan="1">Is the character next to a step going down to the right?</td>
+<td class="comment-1" rowspan="1">Is the character next to a step going down to the right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eee7"></span>EEE7</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EEEC</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="eee9"></span>EEE9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=4 (go down)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=4 (go down)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeeb"></span>EEEB</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="eeec"></span>EEEC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeee"></span>EEEE</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Is the character facing right?</td>
+<td class="comment-1" rowspan="1">Is the character facing right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eef0"></span>EEF0</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$EEE9</td>
-<td class="comment-11" rowspan="1">Jump if so to set <span class="register">A</span>=4 (go down)</td>
+<td class="comment-1" rowspan="1">Jump if so to set <span class="register">A</span>=4 (go down)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eef2"></span>EEF2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (go right)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=1 (go right)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eef4"></span>EEF4</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="eef5"></span>EEF5</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $08</td>
-<td class="comment-11" rowspan="1">Is the character standing next to a step going down to the left?</td>
+<td class="comment-1" rowspan="1">Is the character standing next to a step going down to the left?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eef7"></span>EEF7</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$EEE9</td>
-<td class="comment-11" rowspan="1">Jump if not to set <span class="register">A</span>=4 (go down)</td>
+<td class="comment-1" rowspan="1">Jump if not to set <span class="register">A</span>=4 (go down)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eef9"></span>EEF9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eefb"></span>EEFB</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Is the character facing left?</td>
+<td class="comment-1" rowspan="1">Is the character facing left?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eefd"></span>EEFD</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$EEE9</td>
-<td class="comment-11" rowspan="1">Jump if so to set <span class="register">A</span>=4 (go down)</td>
+<td class="comment-1" rowspan="1">Jump if so to set <span class="register">A</span>=4 (go down)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="eeff"></span>EEFF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$02</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=2 (go left)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=2 (go left)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ef01"></span>EF01</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="ED8A.html">ED8A</a></span></td>
+<td class="prev">
+Prev: <a href="ED8A.html">ED8A</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#ed8c">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="EF02.html">EF02</a></span></td>
+<td class="next">
+Next: <a href="EF02.html">EF02</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/60812.html">Switch to decimal</a>.</div>
 </footer>
 </body>

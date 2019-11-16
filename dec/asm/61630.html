@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 61630</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="61618.html">61618</a></span></td>
+<td class="prev">
+Prev: <a href="61618.html">61618</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#61630">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="61689.html">61689</a></span></td>
+<td class="next">
+Next: <a href="61689.html">61689</a>
+</td>
 </tr>
 </table>
 <div class="description">61630: End a cutscene</div>
@@ -29,89 +32,53 @@
 Used by the routine at <a href="30989.html">30989</a>. Ends the cutscene by entering demo mode or resuming the game in the next mode.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61630"></span>61630</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="60121.html">60121</a></td>
-<td class="comment-11" rowspan="1">Check the keyboard (to flush any recent keypress)</td>
+<td class="comment-1" rowspan="1">Check the keyboard (to flush any recent keypress)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61633"></span>61633</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,(32670)</td>
-<td class="comment-11" rowspan="1"><a href="32670.html">32670</a> holds the number of bucks Sam has left</td>
+<td class="comment-1" rowspan="1"><a href="32670.html">32670</a> holds the number of bucks Sam has left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61636"></span>61636</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="2">Has Sam's cash supply run out?</td>
+<td class="comment-1" rowspan="2">Has Sam's cash supply run out?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61637"></span>61637</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61638"></span>61638</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,61651</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61640"></span>61640</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,32607</td>
-<td class="comment-11" rowspan="4">Set every bit of the <a href="32512.html">screen refresh buffer</a> so that the entire display will be updated</td>
+<td class="comment-1" rowspan="4">Set every bit of the <a href="32512.html">screen refresh buffer</a> so that the entire display will be updated</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61643"></span>61643</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),255</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61645"></span>61645</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61646"></span>61646</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,61643</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61648"></span>61648</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="60032.html">60032</a></td>
-<td class="comment-11" rowspan="1">Update the display</td>
+<td class="comment-1" rowspan="1">Update the display</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -124,46 +91,34 @@ Sam is out of money, so it must be the end of the game. Time to check for a new 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61651"></span>61651</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,(65516)</td>
-<td class="comment-11" rowspan="1">Collect the old high score from <a href="65504.html#65516">65516</a></td>
+<td class="comment-1" rowspan="1">Collect the old high score from <a href="65504.html#65516">65516</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61654"></span>61654</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,(32668)</td>
-<td class="comment-11" rowspan="1">Collect the score from <a href="32668.html">32668</a></td>
+<td class="comment-1" rowspan="1">Collect the score from <a href="32668.html">32668</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61658"></span>61658</td>
-<td class="bytes-0"></td>
 <td class="instruction">SBC HL,DE</td>
-<td class="comment-11" rowspan="1">Do we have a new high score?</td>
+<td class="comment-1" rowspan="1">Do we have a new high score?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61660"></span>61660</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,61671</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61662"></span>61662</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (65516),DE</td>
-<td class="comment-11" rowspan="1">Otherwise set the new high score</td>
+<td class="comment-1" rowspan="1">Otherwise set the new high score</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61666"></span>61666</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 61671</td>
-<td class="comment-11" rowspan="1">Jump forward to enter demo mode</td>
+<td class="comment-1" rowspan="1">Jump forward to enter demo mode</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -176,25 +131,19 @@ This entry point is used by the routine at <a href="61600.html">61600</a> and by
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61668"></span>61668</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL 56576</td>
-<td class="comment-11" rowspan="1">This <a href="../start/56576.html">startup routine</a> prepares the bottom 4 lines of the screen just after the game has loaded</td>
+<td class="comment-1" rowspan="1">This <a href="../start/56576.html">startup routine</a> prepares the bottom 4 lines of the screen just after the game has loaded</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61671"></span>61671</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0 (demo mode)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0 (demo mode)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61672"></span>61672</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 61676</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -207,59 +156,51 @@ This entry point is used by the routine at <a href="31126.html">31126</a> to sta
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61674"></span>61674</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,1</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (new game)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=1 (new game)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61676"></span>61676</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (65518),A</td>
-<td class="comment-11" rowspan="1">Store the game mode (0 or 1) at <a href="65504.html#65518">65518</a>, from where it will be copied to <a href="32750.html">32750</a></td>
+<td class="comment-1" rowspan="1">Store the game mode (0 or 1) at <a href="65504.html#65518">65518</a>, from where it will be copied to <a href="32750.html">32750</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61679"></span>61679</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD SP,23898</td>
-<td class="comment-11" rowspan="1">Reset the stack pointer</td>
+<td class="comment-1" rowspan="1">Reset the stack pointer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61682"></span>61682</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61683"></span>61683</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63662.html">63662</a></td>
-<td class="comment-11" rowspan="1">Prepare for demo mode or a new game</td>
+<td class="comment-1" rowspan="1">Prepare for demo mode or a new game</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61686"></span>61686</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="61483.html#61503">61503</a></td>
-<td class="comment-11" rowspan="1">Enter the main loop</td>
+<td class="comment-1" rowspan="1">Enter the main loop</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="61618.html">61618</a></span></td>
+<td class="prev">
+Prev: <a href="61618.html">61618</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#61630">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="61689.html">61689</a></span></td>
+<td class="next">
+Next: <a href="61689.html">61689</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F0BE.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

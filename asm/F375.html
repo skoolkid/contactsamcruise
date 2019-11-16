@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at F375</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F359.html">F359</a></span></td>
+<td class="prev">
+Prev: <a href="F359.html">F359</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f375">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F383.html">F383</a></span></td>
+<td class="next">
+Next: <a href="F383.html">F383</a>
+</td>
 </tr>
 </table>
 <div class="description">F375: Control a character who is knocking on or opening a door (2)</div>
@@ -29,7 +32,7 @@
 Continues from the routine at <a href="F346.html">F346</a>. Lowers the character's arm and then hands control over to the interruptible subcommand routine at <a href="F383.html">F383</a>.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -42,34 +45,21 @@ Continues from the routine at <a href="F346.html">F346</a>. Lowers the character
 <td class="register-desc">0x10</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f375"></span>F375</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$14</td>
-<td class="comment-11" rowspan="1">Initialise the counter in byte 0x10 of the character's buffer to 0x14; this determines how long a policeman will keep knocking before busting the door open</td>
+<td class="comment-1" rowspan="1">Initialise the counter in byte 0x10 of the character's buffer to 0x14; this determines how long a policeman will keep knocking before busting the door open</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f377"></span>F377</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0E</td>
-<td class="comment-11" rowspan="2">Change the address of the interruptible subcommand routine in bytes 0x0E and 0x0F of the character's buffer to <a href="F383.html">F383</a></td>
+<td class="comment-1" rowspan="2">Change the address of the interruptible subcommand routine in bytes 0x0E and 0x0F of the character's buffer to <a href="F383.html">F383</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f379"></span>F379</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$83</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -82,38 +72,36 @@ This entry point is used by the routines at <a href="F346.html">F346</a>, <a hre
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f37b"></span>F37B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f37e"></span>F37E</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f380"></span>F380</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="E9D5.html">$E9D5</a></td>
-<td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the character's animatory state and location and update the SRB</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F359.html">F359</a></span></td>
+<td class="prev">
+Prev: <a href="F359.html">F359</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f375">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F383.html">F383</a></span></td>
+<td class="next">
+Next: <a href="F383.html">F383</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/62325.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at FA05</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="FA04.html">FA04</a></span></td>
+<td class="prev">
+Prev: <a href="FA04.html">FA04</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#fa05">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="FA79.html">FA79</a></span></td>
+<td class="next">
+Next: <a href="FA79.html">FA79</a>
+</td>
 </tr>
 </table>
 <div class="description">FA05: Deal with a character who has been knocked over</div>
@@ -29,7 +32,7 @@
 The address of this uninterruptible subcommand routine is placed into bytes 0x12 and 0x13 of a character's buffer (by the routine at <a href="FAA2.html">FAA2</a>) when he's been hit on the head by a falling character with an x-coordinate that differs from his by 1. It controls the character from the moment he is knocked over until he has finished staggering from being dazed by the collision.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,27 +41,17 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x12
 <td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fa05"></span>FA05</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$8A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0x0A (short knockout delay) + 0x80 (quick recovery)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0x0A (short knockout delay) + 0x80 (quick recovery)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa07"></span>FA07</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $FA0B</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -71,95 +64,66 @@ The address of this entry point is placed into bytes 0x12 and 0x13 of a characte
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa09"></span>FA09</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$14</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0x14 (long knockout delay) + 0x00 (slow recovery)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0x14 (long knockout delay) + 0x00 (slow recovery)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fa0b"></span>FA0B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Initialise the character's knockout delay counter in byte 0x14 of his buffer</td>
+<td class="comment-1" rowspan="2">Initialise the character's knockout delay counter in byte 0x14 of his buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa0d"></span>FA0D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa0e"></span>FA0E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa10"></span>FA10</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=character's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=character's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa11"></span>FA11</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa12"></span>FA12</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa13"></span>FA13</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0D</td>
-<td class="comment-11" rowspan="2">Store the character's pre-knockout animatory state in byte 0x0D of his buffer</td>
+<td class="comment-1" rowspan="2">Store the character's pre-knockout animatory state in byte 0x0D of his buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa15"></span>FA15</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa16"></span>FA16</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$15</td>
-<td class="comment-11" rowspan="2">Store the character's current x-coordinate in byte 0x15 of his buffer</td>
+<td class="comment-1" rowspan="2">Store the character's current x-coordinate in byte 0x15 of his buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa18"></span>FA18</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa19"></span>FA19</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F9D2.html">$F9D2</a></td>
-<td class="comment-11" rowspan="1">Knock the character over</td>
+<td class="comment-1" rowspan="1">Knock the character over</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa1c"></span>FA1C</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F9FA.html#f9fd">$F9FD</a></td>
-<td class="comment-11" rowspan="1">Place the address of the following instruction into bytes 0x12 and 0x13 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Place the address of the following instruction into bytes 0x12 and 0x13 of the character's buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -172,88 +136,64 @@ This entry point is used after the character has been knocked over and until he 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa1f"></span>FA1F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="1">Byte 0x14 of the character's buffer holds the knockout delay counter</td>
+<td class="comment-1" rowspan="1">Byte 0x14 of the character's buffer holds the knockout delay counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa21"></span>FA21</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement it</td>
+<td class="comment-1" rowspan="1">Decrement it</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa22"></span>FA22</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up the current value in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick up the current value in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa23"></span>FA23</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $7F</td>
-<td class="comment-11" rowspan="1">Is it time for the character to stand up?</td>
+<td class="comment-1" rowspan="1">Is it time for the character to stand up?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa25"></span>FA25</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa26"></span>FA26</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=20</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=20</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa27"></span>FA27</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Is bit 7 of the knockout delay counter set?</td>
+<td class="comment-1" rowspan="1">Is bit 7 of the knockout delay counter set?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa29"></span>FA29</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FA2C</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa2b"></span>FA2B</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=40</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=40</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fa2c"></span>FA2C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Initialise the recovery delay counter (in byte 0x14 of the character's buffer) to 40 (if the character was hit by another with the same x-coordinate) or 20</td>
+<td class="comment-1" rowspan="1">Initialise the recovery delay counter (in byte 0x14 of the character's buffer) to 40 (if the character was hit by another with the same x-coordinate) or 20</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa2d"></span>FA2D</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB85.html#eb8c">$EB8C</a></td>
-<td class="comment-11" rowspan="1">Make the character stand up</td>
+<td class="comment-1" rowspan="1">Make the character stand up</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa30"></span>FA30</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F9FA.html#f9fd">$F9FD</a></td>
-<td class="comment-11" rowspan="1">Place the address of the following instruction into bytes 0x12 and 0x13 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Place the address of the following instruction into bytes 0x12 and 0x13 of the character's buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -266,116 +206,83 @@ This entry point is used after the character has stood up again and while he is 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa33"></span>FA33</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Decrement the recovery delay counter</td>
+<td class="comment-1" rowspan="2">Decrement the recovery delay counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa35"></span>FA35</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa36"></span>FA36</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,<a href="FA83.html">$FA83</a></td>
-<td class="comment-11" rowspan="1">Jump if it has reached 0</td>
+<td class="comment-1" rowspan="1">Jump if it has reached 0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa38"></span>FA38</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa3a"></span>FA3A</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="1">Is the character facing right?</td>
+<td class="comment-1" rowspan="1">Is the character facing right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa3c"></span>FA3C</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FA4B</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa3e"></span>FA3E</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the character number briefly</td>
+<td class="comment-1" rowspan="1">Save the character number briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa3f"></span>FA3F</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="EB13.html">$EB13</a></td>
-<td class="comment-11" rowspan="1">Obtain descriptors for the character's current location</td>
+<td class="comment-1" rowspan="1">Obtain descriptors for the character's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa42"></span>FA42</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa43"></span>FA43</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,C</td>
-<td class="comment-11" rowspan="1">Can the character move left?</td>
+<td class="comment-1" rowspan="1">Can the character move left?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa45"></span>FA45</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$FA50</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa47"></span>FA47</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 6,C</td>
-<td class="comment-11" rowspan="1">Can the character move right?</td>
+<td class="comment-1" rowspan="1">Can the character move right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa49"></span>FA49</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$FA50</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fa4b"></span>FA4B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F17F.html">$F17F</a></td>
-<td class="comment-11" rowspan="1">Get a random number in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Get a random number in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa4e"></span>FA4E</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="1">Rotate bit 0 into bit 7 for no apparent reason</td>
+<td class="comment-1" rowspan="1">Rotate bit 0 into bit 7 for no apparent reason</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa4f"></span>FA4F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
-<td class="comment-11" rowspan="1">Bit 7 of <span class="register">C</span> will be used to decide whether the character should move left next</td>
+<td class="comment-1" rowspan="1">Bit 7 of <span class="register">C</span> will be used to decide whether the character should move left next</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -388,60 +295,43 @@ This entry point is used by the routine at <a href="FA83.html">FA83</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fa50"></span>FA50</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$E9D5</td>
-<td class="comment-11" rowspan="2">Load the address of the routine at <a href="E9D5.html">E9D5</a> onto the stack</td>
+<td class="comment-1" rowspan="2">Load the address of the routine at <a href="E9D5.html">E9D5</a> onto the stack</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa53"></span>FA53</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa54"></span>FA54</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1">Save the direction descriptor (in <span class="register">C</span>)</td>
+<td class="comment-1" rowspan="1">Save the direction descriptor (in <span class="register">C</span>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa55"></span>FA55</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9C8.html">$E9C8</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa58"></span>FA58</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Restore the direction descriptor to <span class="register">C</span></td>
+<td class="comment-1" rowspan="1">Restore the direction descriptor to <span class="register">C</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa59"></span>FA59</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLC C</td>
-<td class="comment-11" rowspan="1">Set the carry flag if the character is going to move left</td>
+<td class="comment-1" rowspan="1">Set the carry flag if the character is going to move left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa5b"></span>FA5B</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,A</td>
-<td class="comment-11" rowspan="1">Is the character facing right?</td>
+<td class="comment-1" rowspan="1">Is the character facing right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa5d"></span>FA5D</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FA6D</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -454,11 +344,9 @@ The character is facing left.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa5f"></span>FA5F</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$FA6F</td>
-<td class="comment-11" rowspan="1">Jump if the character is going to move right (take a step backwards)</td>
+<td class="comment-1" rowspan="1">Jump if the character is going to move right (take a step backwards)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -471,25 +359,19 @@ The character is going to take a step forwards.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fa61"></span>FA61</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's next animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's next animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa62"></span>FA62</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-11" rowspan="1">Is it midstride?</td>
+<td class="comment-1" rowspan="1">Is it midstride?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa64"></span>FA64</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return (to <a href="E9D5.html">E9D5</a>) if so</td>
+<td class="comment-1" rowspan="1">Return (to <a href="E9D5.html">E9D5</a>) if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -502,46 +384,33 @@ The character has just moved from the midstride position. Adjust his x-coordinat
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fa65"></span>FA65</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=x-1 (where x is the character's x-coordinate)</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=x-1 (where x is the character's x-coordinate)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa66"></span>FA66</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$FA6A</td>
-<td class="comment-11" rowspan="1">Jump if the character is moving left</td>
+<td class="comment-1" rowspan="1">Jump if the character is moving left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa68"></span>FA68</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="2"><span class="register">E</span>=x+1 (the character is moving right)</td>
+<td class="comment-1" rowspan="2"><span class="register">E</span>=x+1 (the character is moving right)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa69"></span>FA69</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fa6a"></span>FA6A</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $FB</td>
-<td class="comment-11" rowspan="1">Make sure that bit 2 of the character's animatory state is reset</td>
+<td class="comment-1" rowspan="1">Make sure that bit 2 of the character's animatory state is reset</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa6c"></span>FA6C</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">To <a href="E9D5.html">E9D5</a>, to update the character's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">To <a href="E9D5.html">E9D5</a>, to update the character's animatory state and location and update the SRB</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -554,11 +423,9 @@ The character is facing right.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fa6d"></span>FA6D</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$FA61</td>
-<td class="comment-11" rowspan="1">Jump if the character is going to move right (take a step forwards)</td>
+<td class="comment-1" rowspan="1">Jump if the character is going to move right (take a step forwards)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -571,73 +438,58 @@ The character is going to take a step backwards.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fa6f"></span>FA6F</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's next animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's next animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa70"></span>FA70</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-11" rowspan="1">Is it midstride?</td>
+<td class="comment-1" rowspan="1">Is it midstride?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa72"></span>FA72</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return (to <a href="E9D5.html">E9D5</a>) if not</td>
+<td class="comment-1" rowspan="1">Return (to <a href="E9D5.html">E9D5</a>) if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa73"></span>FA73</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="4">Add 4 to <span class="register">A</span> (without affecting the carry flag) to obtain the correct midstride animatory state (though bit 2 may need to be reset)</td>
+<td class="comment-1" rowspan="4">Add 4 to <span class="register">A</span> (without affecting the carry flag) to obtain the correct midstride animatory state (though bit 2 may need to be reset)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa74"></span>FA74</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa75"></span>FA75</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa76"></span>FA76</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fa77"></span>FA77</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $FA65</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="FA04.html">FA04</a></span></td>
+<td class="prev">
+Prev: <a href="FA04.html">FA04</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#fa05">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="FA79.html">FA79</a></span></td>
+<td class="next">
+Next: <a href="FA79.html">FA79</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/64005.html">Switch to decimal</a>.</div>
 </footer>
 </body>

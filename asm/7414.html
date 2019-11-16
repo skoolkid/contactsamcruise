@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 7414</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="73E4.html">73E4</a></span></td>
+<td class="prev">
+Prev: <a href="73E4.html">73E4</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7414">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7423.html">7423</a></span></td>
+<td class="next">
+Next: <a href="7423.html">7423</a>
+</td>
 </tr>
 </table>
 <div class="description">7414: Clear the message line and display the first aid kits</div>
@@ -29,26 +32,12 @@
 Used by the routine at <a href="7058.html">7058</a>.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7414"></span>7414</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6EC5.html#6f29">$6F29</a></td>
-<td class="comment-11" rowspan="1">Clear the message line</td>
+<td class="comment-1" rowspan="1">Clear the message line</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -61,45 +50,41 @@ This entry point is used by the routine at <a href="6592.html">6592</a> to displ
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7417"></span>7417</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FEF)</td>
-<td class="comment-11" rowspan="1"><a href="7FEF.html">7FEF</a> holds the number of first aid kits</td>
+<td class="comment-1" rowspan="1"><a href="7FEF.html">7FEF</a> holds the number of first aid kits</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="741a"></span>741A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5AE8</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the attribute byte for the leftmost first aid kit in the icon panel</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the attribute byte for the leftmost first aid kit in the icon panel</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="741d"></span>741D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0832</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=0x08, <span class="register">C</span>=0x32 (INK 2: PAPER 6)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=0x08, <span class="register">C</span>=0x32 (INK 2: PAPER 6)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7420"></span>7420</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7603.html#76b2">$76B2</a></td>
-<td class="comment-11" rowspan="1">Set the attribute bytes for the first aid kits</td>
+<td class="comment-1" rowspan="1">Set the attribute bytes for the first aid kits</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="73E4.html">73E4</a></span></td>
+<td class="prev">
+Prev: <a href="73E4.html">73E4</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7414">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7423.html">7423</a></span></td>
+<td class="next">
+Next: <a href="7423.html">7423</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/29716.html">Switch to decimal</a>.</div>
 </footer>
 </body>

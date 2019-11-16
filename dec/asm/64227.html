@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 64227</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="64218.html">64218</a></span></td>
+<td class="prev">
+Prev: <a href="64218.html">64218</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#64227">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="64323.html">64323</a></span></td>
+<td class="next">
+Next: <a href="64323.html">64323</a>
+</td>
 </tr>
 </table>
 <div class="description">64227: Move a falling character to the next point in his descent</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="64331.html">64331</a> and <a href="64338.html">64338</a>. Moves the character to the next point in his descent from the roof of a building. Returns with the carry flag reset if the character has landed, and then with the zero flag reset if he was knocked out by the landing.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,97 +41,65 @@ Used by the routines at <a href="64331.html">64331</a> and <a href="64338.html">
 <td class="register-desc">Character number (215-230)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64227"></span>64227</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,2</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64229"></span>64229</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64230"></span>64230</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,21</td>
-<td class="comment-11" rowspan="1">Byte 21 of the character's buffer holds his landing y-coordinate</td>
+<td class="comment-1" rowspan="1">Byte 21 of the character's buffer holds his landing y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64232"></span>64232</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Has the character landed yet?</td>
+<td class="comment-1" rowspan="1">Has the character landed yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64233"></span>64233</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,64246</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64235"></span>64235</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,13</td>
-<td class="comment-11" rowspan="2">Is the character Sam, and should he be knocked out upon landing?</td>
+<td class="comment-1" rowspan="2">Is the character Sam, and should he be knocked out upon landing?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64237"></span>64237</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64239"></span>64239</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return with the carry flag reset (the character has landed) and the zero flag set (he was not knocked out) if not</td>
+<td class="comment-1" rowspan="1">Return with the carry flag reset (the character has landed) and the zero flag set (he was not knocked out) if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64240"></span>64240</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63954.html">63954</a></td>
-<td class="comment-11" rowspan="1">Knock Sam out</td>
+<td class="comment-1" rowspan="1">Knock Sam out</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64243"></span>64243</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="2">Reset the carry flag (Sam has landed) and the zero flag (he was knocked out upon landing)</td>
+<td class="comment-1" rowspan="2">Reset the carry flag (Sam has landed) and the zero flag (he was knocked out upon landing)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64244"></span>64244</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64245"></span>64245</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -141,200 +112,138 @@ The character has not landed yet.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64246"></span>64246</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,3</td>
-<td class="comment-11" rowspan="2">Set the zero flag if the character is at the right height above the roof or ground to hit another character</td>
+<td class="comment-1" rowspan="2">Set the zero flag if the character is at the right height above the roof or ground to hit another character</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64248"></span>64248</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64249"></span>64249</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the character number briefly</td>
+<td class="comment-1" rowspan="1">Save the character number briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64250"></span>64250</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL Z,<a href="64162.html">64162</a></td>
-<td class="comment-11" rowspan="1">Check whether the character has landed on someone</td>
+<td class="comment-1" rowspan="1">Check whether the character has landed on someone</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64253"></span>64253</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64254"></span>64254</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,64260</td>
-<td class="comment-11" rowspan="1">Jump unless the character has landed on someone</td>
+<td class="comment-1" rowspan="1">Jump unless the character has landed on someone</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64256"></span>64256</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,13</td>
-<td class="comment-11" rowspan="2">Set byte 13 of the character's buffer to 0: he will not be knocked out upon landing</td>
+<td class="comment-1" rowspan="2">Set byte 13 of the character's buffer to 0: he will not be knocked out upon landing</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64258"></span>64258</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64260"></span>64260</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,13</td>
-<td class="comment-11" rowspan="2">Is the character Sam, and was he dropped from a great enough height that he could be knocked out upon landing?</td>
+<td class="comment-1" rowspan="2">Is the character Sam, and was he dropped from a great enough height that he could be knocked out upon landing?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64262"></span>64262</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64264"></span>64264</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,64269</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64266"></span>64266</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,4</td>
-<td class="comment-11" rowspan="2">Set Sam's z-coordinate to 4 (outside)</td>
+<td class="comment-1" rowspan="2">Set Sam's z-coordinate to 4 (outside)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64268"></span>64268</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64269"></span>64269</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,20</td>
-<td class="comment-11" rowspan="2">Pick up byte 20 of the character's buffer; this will be non-zero if the character is still moving to the left or right just after stepping off the roof of a building</td>
+<td class="comment-1" rowspan="2">Pick up byte 20 of the character's buffer; this will be non-zero if the character is still moving to the left or right just after stepping off the roof of a building</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64271"></span>64271</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64272"></span>64272</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Set the zero flag if byte 20 is zero</td>
+<td class="comment-1" rowspan="1">Set the zero flag if byte 20 is zero</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64273"></span>64273</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,256</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=1 (default y-coordinate increment), <span class="register">E</span>=0 (default x-coordinate increment)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=1 (default y-coordinate increment), <span class="register">E</span>=0 (default x-coordinate increment)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64276"></span>64276</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,64302</td>
-<td class="comment-11" rowspan="1">Jump if the character is falling straight downwards now</td>
+<td class="comment-1" rowspan="1">Jump if the character is falling straight downwards now</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64278"></span>64278</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement byte 20 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Decrement byte 20 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64279"></span>64279</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="2">Set the carry flag if byte 20 is less than 5</td>
+<td class="comment-1" rowspan="2">Set the carry flag if byte 20 is less than 5</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64280"></span>64280</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 5</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64282"></span>64282</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,E</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64283"></span>64283</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,64295</td>
-<td class="comment-11" rowspan="1">Jump if byte 20 of the character's buffer is less than 5</td>
+<td class="comment-1" rowspan="1">Jump if byte 20 of the character's buffer is less than 5</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64285"></span>64285</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,0</td>
-<td class="comment-11" rowspan="1">Set the y-coordinate increment to 0</td>
+<td class="comment-1" rowspan="1">Set the y-coordinate increment to 0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64287"></span>64287</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,64295</td>
-<td class="comment-11" rowspan="1">Jump if byte 20 of the character's buffer is 5</td>
+<td class="comment-1" rowspan="1">Jump if byte 20 of the character's buffer is 5</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64289"></span>64289</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="59848.html">59848</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64292"></span>64292</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's next animatory state (midstride)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's next animatory state (midstride)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64293"></span>64293</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 64317</td>
-<td class="comment-11" rowspan="1">Make the character take the first step off the edge of the roof</td>
+<td class="comment-1" rowspan="1">Make the character take the first step off the edge of the roof</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -347,32 +256,24 @@ The character is midstride on the edge of the roof. The next step (to the left o
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64295"></span>64295</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=1</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64296"></span>64296</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Is the character facing right?</td>
+<td class="comment-1" rowspan="1">Is the character facing right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64298"></span>64298</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,64302</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64300"></span>64300</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,255</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=-1</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=-1</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -385,88 +286,60 @@ Now <span class="register">D</span> holds the y-coordinate increment (0 or 1), a
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64302"></span>64302</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1">Save the x- and y-coordinate increments</td>
+<td class="comment-1" rowspan="1">Save the x- and y-coordinate increments</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64303"></span>64303</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="59848.html">59848</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64306"></span>64306</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 248</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64308"></span>64308</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1">Copy this to <span class="register">L</span></td>
+<td class="comment-1" rowspan="1">Copy this to <span class="register">L</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64309"></span>64309</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Restore the x- and y-coordinate increments to <span class="register">C</span> and <span class="register">B</span></td>
+<td class="comment-1" rowspan="1">Restore the x- and y-coordinate increments to <span class="register">C</span> and <span class="register">B</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64310"></span>64310</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="3"><span class="register">D</span>=character's next y-coordinate</td>
+<td class="comment-1" rowspan="3"><span class="register">D</span>=character's next y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64311"></span>64311</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64312"></span>64312</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64313"></span>64313</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
-<td class="comment-11" rowspan="3"><span class="register">E</span>=character's next x-coordinate</td>
+<td class="comment-1" rowspan="3"><span class="register">E</span>=character's next x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64314"></span>64314</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64315"></span>64315</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64316"></span>64316</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -479,45 +352,41 @@ Now <span class="register">A</span>, <span class="register">E</span> and <span c
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64317"></span>64317</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="59861.html">59861</a></td>
-<td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the character's animatory state and location and update the SRB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64320"></span>64320</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (215-230)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character number (215-230)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64321"></span>64321</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="1">Set the carry flag (the character has not landed yet)</td>
+<td class="comment-1" rowspan="1">Set the carry flag (the character has not landed yet)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64322"></span>64322</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="64218.html">64218</a></span></td>
+<td class="prev">
+Prev: <a href="64218.html">64218</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#64227">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="64323.html">64323</a></span></td>
+<td class="next">
+Next: <a href="64323.html">64323</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/FAE3.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

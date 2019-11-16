@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 615D</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="615C.html">615C</a></span></td>
+<td class="prev">
+Prev: <a href="615C.html">615C</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#615d">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6177.html">6177</a></span></td>
+<td class="next">
+Next: <a href="6177.html">6177</a>
+</td>
 </tr>
 </table>
 <div class="description">615D: Reset a gangster's location and restart the command list</div>
@@ -29,7 +32,7 @@
 Used by the command list at <a href="61EA.html">61EA</a>. Makes the gangster at no. 15 return to no. 15 instantly after dropping Sam off the roof of no. 19, and restarts his command list.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,34 +41,22 @@ Used by the command list at <a href="61EA.html">61EA</a>. Makes the gangster at 
 <td class="register-desc">0xE0 (Gangster)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="615d"></span>615D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$19F8</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=248, <span class="register">D</span>=25 (coordinates of the spot where the gangster at no. 15 waits for Sam)</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=248, <span class="register">D</span>=25 (coordinates of the spot where the gangster at no. 15 waits for Sam)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6160"></span>6160</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="1">1=z-coordinate (indoors)</td>
+<td class="comment-1" rowspan="1">1=z-coordinate (indoors)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6162"></span>6162</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $6169</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -78,101 +69,75 @@ This entry point is used by the command list at <a href="FD86.html">FD86</a>; it
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6164"></span>6164</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$2293</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=147, <span class="register">D</span>=34 (coordinates of the base location of the gangster who watches for Sam outside the police station)</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=147, <span class="register">D</span>=34 (coordinates of the base location of the gangster who watches for Sam outside the police station)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6167"></span>6167</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
-<td class="comment-11" rowspan="1">4=z-coordinate (on the sidewalk)</td>
+<td class="comment-1" rowspan="1">4=z-coordinate (on the sidewalk)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6169"></span>6169</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x04 of the gangster's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x04 of the gangster's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="616b"></span>616B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="6">Set the gangster's x-, y- and z-coordinates</td>
+<td class="comment-1" rowspan="6">Set the gangster's x-, y- and z-coordinates</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="616c"></span>616C</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="616d"></span>616D</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="616e"></span>616E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="616f"></span>616F</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6170"></span>6170</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6171"></span>6171</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="2">Set the gangster's animatory state to <a href="../graphics/as.html#160">0xA0</a></td>
+<td class="comment-1" rowspan="2">Set the gangster's animatory state to <a href="../graphics/as.html#160">0xA0</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6172"></span>6172</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$A0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6174"></span>6174</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F6DE.html">$F6DE</a></td>
-<td class="comment-11" rowspan="1">Restart the gangster's command list</td>
+<td class="comment-1" rowspan="1">Restart the gangster's command list</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="615C.html">615C</a></span></td>
+<td class="prev">
+Prev: <a href="615C.html">615C</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#615d">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6177.html">6177</a></span></td>
+<td class="next">
+Next: <a href="6177.html">6177</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/24925.html">Switch to decimal</a>.</div>
 </footer>
 </body>

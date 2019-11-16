@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 63530</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63520.html">63520</a></span></td>
+<td class="prev">
+Prev: <a href="63520.html">63520</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63530">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63558.html">63558</a></span></td>
+<td class="next">
+Next: <a href="63558.html">63558</a>
+</td>
 </tr>
 </table>
 <div class="description">63530: Control a cat</div>
@@ -29,7 +32,7 @@
 Used by the command list at <a href="65170.html">65170</a>. Makes the cat run up and down for ever.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,55 +41,35 @@ Used by the command list at <a href="65170.html">65170</a>. Makes the cat run up
 <td class="register-desc">218 (Cat)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63530"></span>63530</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,1</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the cat's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 1 of the cat's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63532"></span>63532</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=cat's initial x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=cat's initial x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63533"></span>63533</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,3</td>
-<td class="comment-11" rowspan="2">Set bit 7 of byte 3 of the cat's buffer (cats always run)</td>
+<td class="comment-1" rowspan="2">Set bit 7 of byte 3 of the cat's buffer (cats always run)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63535"></span>63535</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),128</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63537"></span>63537</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,10</td>
-<td class="comment-11" rowspan="2">The cat's initial x-coordinate will be its walkabout origin; store it in byte 10 of the cat's buffer</td>
+<td class="comment-1" rowspan="2">The cat's initial x-coordinate will be its walkabout origin; store it in byte 10 of the cat's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63539"></span>63539</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -99,80 +82,62 @@ The following loop controls the cat from now on.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63540"></span>63540</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61823.html">61823</a></td>
-<td class="comment-11" rowspan="2">Get a random number between 0 and 15 in <span class="register">A</span></td>
+<td class="comment-1" rowspan="2">Get a random number between 0 and 15 in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63543"></span>63543</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 15</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63545"></span>63545</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,10</td>
-<td class="comment-11" rowspan="2">Add the x-coordinate of the cat's walkabout origin to get the next walkabout destination x-coordinate</td>
+<td class="comment-1" rowspan="2">Add the x-coordinate of the cat's walkabout origin to get the next walkabout destination x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63547"></span>63547</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63548"></span>63548</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Store this in byte 11 of the cat's buffer</td>
+<td class="comment-1" rowspan="2">Store this in byte 11 of the cat's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63549"></span>63549</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63550"></span>63550</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,63558</td>
-<td class="comment-11" rowspan="2">Copy the address of the interruptible subcommand routine at <a href="63558.html">63558</a> into bytes 14 and 15 of the cat's buffer, and change the address of the primary command routine to <a href="63530.html#63556">63556</a> (below)</td>
+<td class="comment-1" rowspan="2">Copy the address of the interruptible subcommand routine at <a href="63558.html">63558</a> into bytes 14 and 15 of the cat's buffer, and change the address of the primary command routine to <a href="63530.html#63556">63556</a> (below)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63553"></span>63553</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63386.html">63386</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63556"></span>63556</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 63540</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63520.html">63520</a></span></td>
+<td class="prev">
+Prev: <a href="63520.html">63520</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63530">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63558.html">63558</a></span></td>
+<td class="next">
+Next: <a href="63558.html">63558</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F82A.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

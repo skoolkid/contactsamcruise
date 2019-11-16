@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 72AA</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7294.html">7294</a></span></td>
+<td class="prev">
+Prev: <a href="7294.html">7294</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#72aa">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="72B1.html">72B1</a></span></td>
+<td class="next">
+Next: <a href="72B1.html">72B1</a>
+</td>
 </tr>
 </table>
 <div class="description">72AA: Control a policeman (1)</div>
@@ -29,7 +32,7 @@
 Used by the command list at <a href="FCF4.html">FCF4</a>. Makes the policeman begin patrol duty, and chase and pick up Sam when appropriate.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,47 +41,38 @@ Used by the command list at <a href="FCF4.html">FCF4</a>. Makes the policeman be
 <td class="register-desc">0xDE or 0xDF (policeman)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="72aa"></span>72AA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$08</td>
-<td class="comment-11" rowspan="2">Change the address of the primary command routine in bytes 0x08 and 0x09 of the policeman's buffer to <a href="72B1.html">72B1</a></td>
+<td class="comment-1" rowspan="2">Change the address of the primary command routine in bytes 0x08 and 0x09 of the policeman's buffer to <a href="72B1.html">72B1</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="72ac"></span>72AC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$B1</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="72ae"></span>72AE</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="72B1.html#7360">$7360</a></td>
-<td class="comment-11" rowspan="1">Send the policeman to a randomly chosen spot on the sidewalk or road</td>
+<td class="comment-1" rowspan="1">Send the policeman to a randomly chosen spot on the sidewalk or road</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7294.html">7294</a></span></td>
+<td class="prev">
+Prev: <a href="7294.html">7294</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#72aa">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="72B1.html">72B1</a></span></td>
+<td class="next">
+Next: <a href="72B1.html">72B1</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/29354.html">Switch to decimal</a>.</div>
 </footer>
 </body>

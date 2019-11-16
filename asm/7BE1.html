@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 7BE1</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7BB6.html">7BB6</a></span></td>
+<td class="prev">
+Prev: <a href="7BB6.html">7BB6</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7be1">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7C3F.html">7C3F</a></span></td>
+<td class="next">
+Next: <a href="7C3F.html">7C3F</a>
+</td>
 </tr>
 </table>
 <div class="description">7BE1: 'C' pressed - use hook</div>
@@ -29,180 +32,122 @@
 The address of this routine is found in the table of keypress handling routines at <a href="ED00.html">ED00</a>. It is called from the main loop at <a href="F02B.html">F02B</a> when 'C' is pressed.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7be1"></span>7BE1</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FE9)</td>
-<td class="comment-11" rowspan="1">Collect the object inventory flags from <a href="7FE9.html">7FE9</a></td>
+<td class="comment-1" rowspan="1">Collect the object inventory flags from <a href="7FE9.html">7FE9</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7be4"></span>7BE4</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 6,A</td>
-<td class="comment-11" rowspan="1">Has Sam got the hook?</td>
+<td class="comment-1" rowspan="1">Has Sam got the hook?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7be6"></span>7BE6</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7be7"></span>7BE7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($E604)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's z-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=Sam's z-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7bea"></span>7BEA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,($E601)</td>
-<td class="comment-11" rowspan="1">Collect Sam's x- and y-coordinates in <span class="register">L</span> and <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Collect Sam's x- and y-coordinates in <span class="register">L</span> and <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7bed"></span>7BED</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="1">Is Sam's z-coordinate 1 (indoors)?</td>
+<td class="comment-1" rowspan="1">Is Sam's z-coordinate 1 (indoors)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7bee"></span>7BEE</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$7C0B</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7bf0"></span>7BF0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x (Sam's x-coordinate)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x (Sam's x-coordinate)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7bf1"></span>7BF1</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $DE</td>
-<td class="comment-11" rowspan="1">Is Sam in no. 17 or no. 15 (x&gt;=222)?</td>
+<td class="comment-1" rowspan="1">Is Sam in no. 17 or no. 15 (x&gt;=222)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7bf3"></span>7BF3</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7bf4"></span>7BF4</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $CF</td>
-<td class="comment-11" rowspan="1">Is Sam in no. 19 (207&lt;=x&lt;222)?</td>
+<td class="comment-1" rowspan="1">Is Sam in no. 19 (207&lt;=x&lt;222)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7bf6"></span>7BF6</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$7C07</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7bf8"></span>7BF8</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $7A</td>
-<td class="comment-11" rowspan="1">Is Sam in the police station, no. 27, or the apartments next to no. 19 (122&lt;=x&lt;207)?</td>
+<td class="comment-1" rowspan="1">Is Sam in the police station, no. 27, or the apartments next to no. 19 (122&lt;=x&lt;207)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7bfa"></span>7BFA</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$7C03</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7bfc"></span>7BFC</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $67</td>
-<td class="comment-11" rowspan="1">Is Sam in no. 31 (103&lt;=x&lt;122)?</td>
+<td class="comment-1" rowspan="1">Is Sam in no. 31 (103&lt;=x&lt;122)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7bfe"></span>7BFE</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$7C07</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c00"></span>7C00</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $19</td>
-<td class="comment-11" rowspan="1">Is Sam in no. 74 or the hotel (25&lt;=x&lt;103)?</td>
+<td class="comment-1" rowspan="1">Is Sam in no. 74 or the hotel (25&lt;=x&lt;103)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c02"></span>7C02</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7c03"></span>7C03</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$07</td>
-<td class="comment-11" rowspan="1">7 is the y-coordinate of the roof of the police station, no. 27, and the apartment building next to no. 19</td>
+<td class="comment-1" rowspan="1">7 is the y-coordinate of the roof of the police station, no. 27, and the apartment building next to no. 19</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c05"></span>7C05</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $7C09</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7c07"></span>7C07</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$0D</td>
-<td class="comment-11" rowspan="1">13 is the y-coordinate of the roofs of no. 19 and no. 31</td>
+<td class="comment-1" rowspan="1">13 is the y-coordinate of the roofs of no. 19 and no. 31</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7c09"></span>7C09</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP H</td>
-<td class="comment-11" rowspan="1">Is Sam on the roof of a building?</td>
+<td class="comment-1" rowspan="1">Is Sam on the roof of a building?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c0a"></span>7C0A</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -215,81 +160,58 @@ Sam is in a location that is amenable to hook-throwing.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7c0b"></span>7C0B</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=1+Sam's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=1+Sam's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c0c"></span>7C0C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($E600)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=Sam's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=Sam's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c0f"></span>7C0F</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $80</td>
-<td class="comment-11" rowspan="1">Keep only the direction bit (bit 7)</td>
+<td class="comment-1" rowspan="1">Keep only the direction bit (bit 7)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c11"></span>7C11</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7C14</td>
-<td class="comment-11" rowspan="1">Jump if Sam is facing left</td>
+<td class="comment-1" rowspan="1">Jump if Sam is facing left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c13"></span>7C13</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1+Sam's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=1+Sam's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7c14"></span>7C14</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$79</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#121">0x79/0xF9</a> (hook)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#121">0x79/0xF9</a> (hook)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c16"></span>7C16</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"><span class="register">DE</span>=hook's initial coordinates</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=hook's initial coordinates</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c17"></span>7C17</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$E513</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of character buffer 0xE5</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of character buffer 0xE5</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c1a"></span>7C1A</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-11" rowspan="2">Is the current owner of character buffer 0xE5 (the hook or a banknote) under the control of an uninterruptible subcommand routine?</td>
+<td class="comment-1" rowspan="2">Is the current owner of character buffer 0xE5 (the hook or a banknote) under the control of an uninterruptible subcommand routine?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c1b"></span>7C1B</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c1c"></span>7C1C</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if so (the hook must currently be in flight, which is unlikely)</td>
+<td class="comment-1" rowspan="1">Return if so (the hook must currently be in flight, which is unlikely)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -302,164 +224,116 @@ The hook will be thrown. Prepare it for launch now.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c1d"></span>7C1D</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Initialise the distance remaining for the hook to fly (stored in byte 0x14 of the hook's buffer)</td>
+<td class="comment-1" rowspan="2">Initialise the distance remaining for the hook to fly (stored in byte 0x14 of the hook's buffer)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c1e"></span>7C1E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$14</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c20"></span>7C20</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="7BB6.html">7BB6</a> into bytes 0x12 and 0x13 of the hook's buffer</td>
+<td class="comment-1" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="7BB6.html">7BB6</a> into bytes 0x12 and 0x13 of the hook's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c21"></span>7C21</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$7B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c23"></span>7C23</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c24"></span>7C24</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$B6</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c26"></span>7C26</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="2">Set the hook's z-coordinate to 4</td>
+<td class="comment-1" rowspan="2">Set the hook's z-coordinate to 4</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c28"></span>7C28</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c29"></span>7C29</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="2">Set bit 7 of byte 0x03 of the hook's buffer, thus making the hook fly as fast as possible</td>
+<td class="comment-1" rowspan="2">Set bit 7 of byte 0x03 of the hook's buffer, thus making the hook fly as fast as possible</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c2a"></span>7C2A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$80</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c2c"></span>7C2C</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="4">Initialise the hook's x- and y-coordinates</td>
+<td class="comment-1" rowspan="4">Initialise the hook's x- and y-coordinates</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c2d"></span>7C2D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c2e"></span>7C2E</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c2f"></span>7C2F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c30"></span>7C30</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="2">Initialise the hook's animatory state</td>
+<td class="comment-1" rowspan="2">Initialise the hook's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c31"></span>7C31</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c32"></span>7C32</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E9D5.html">$E9D5</a></td>
-<td class="comment-11" rowspan="1">Update the hook's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the hook's animatory state and location and update the SRB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c35"></span>7C35</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FE9</td>
-<td class="comment-11" rowspan="1">The object inventory flags are stored at <a href="7FE9.html">7FE9</a></td>
+<td class="comment-1" rowspan="1">The object inventory flags are stored at <a href="7FE9.html">7FE9</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c38"></span>7C38</td>
-<td class="bytes-0"></td>
 <td class="instruction">RES 6,(HL)</td>
-<td class="comment-11" rowspan="1">Clear bit 6, thus removing the hook from Sam's possession</td>
+<td class="comment-1" rowspan="1">Clear bit 6, thus removing the hook from Sam's possession</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c3a"></span>7C3A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$E6</td>
-<td class="comment-11" rowspan="1">0xE6=Sam</td>
+<td class="comment-1" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7c3c"></span>7C3C</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F304.html">$F304</a></td>
-<td class="comment-11" rowspan="1">Raise Sam's arm and make a sound effect</td>
+<td class="comment-1" rowspan="1">Raise Sam's arm and make a sound effect</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7BB6.html">7BB6</a></span></td>
+<td class="prev">
+Prev: <a href="7BB6.html">7BB6</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7be1">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7C3F.html">7C3F</a></span></td>
+<td class="next">
+Next: <a href="7C3F.html">7C3F</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/31713.html">Switch to decimal</a>.</div>
 </footer>
 </body>

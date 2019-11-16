@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 29854</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="29851.html">29851</a></span></td>
+<td class="prev">
+Prev: <a href="29851.html">29851</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#29854">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="29866.html">29866</a></span></td>
+<td class="next">
+Next: <a href="29866.html">29866</a>
+</td>
 </tr>
 </table>
 <div class="description">29854: Check whether Sam is standing next to a telephone</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="29733.html">29733</a> and <a href="30458.html">30458</a>. Returns with the zero flag reset if Sam is standing next to a telephone, and the carry flag reset as well if the telephone is ringing.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,68 +41,54 @@ Used by the routines at <a href="29733.html">29733</a> and <a href="30458.html">
 <td class="register-desc">230 (Sam)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29854"></span>29854</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="27892.html">27892</a></td>
-<td class="comment-11" rowspan="1">Is the x-coordinate of the front column of Sam's sprite between 1 and 6 mod 8 (where phones can be picked up)?</td>
+<td class="comment-1" rowspan="1">Is the x-coordinate of the front column of Sam's sprite between 1 and 6 mod 8 (where phones can be picked up)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29857"></span>29857</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29858"></span>29858</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29859"></span>29859</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="62518.html#62548">62548</a></td>
-<td class="comment-11" rowspan="1">Is Sam standing next to a telephone?</td>
+<td class="comment-1" rowspan="1">Is Sam standing next to a telephone?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29862"></span>29862</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29863"></span>29863</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="30429.html">30429</a></td>
-<td class="comment-11" rowspan="1">Check whether the phone is ringing</td>
+<td class="comment-1" rowspan="1">Check whether the phone is ringing</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="29851.html">29851</a></span></td>
+<td class="prev">
+Prev: <a href="29851.html">29851</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#29854">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="29866.html">29866</a></span></td>
+<td class="next">
+Next: <a href="29866.html">29866</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/749E.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

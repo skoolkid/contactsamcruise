@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 65DB</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6592.html">6592</a></span></td>
+<td class="prev">
+Prev: <a href="6592.html">6592</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#65db">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="666E.html">666E</a></span></td>
+<td class="next">
+Next: <a href="666E.html">666E</a>
+</td>
 </tr>
 </table>
 <div class="description">65DB: Move and draw the bullets</div>
@@ -29,89 +32,55 @@
 Used by the routine at <a href="F080.html">F080</a>. For each bullet currently in flight, calculates the bullet's next location and draws it there (unless it has hit Sam).
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="65db"></span>65DB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FE7</td>
-<td class="comment-11" rowspan="1"><a href="7FE7.html">7FE7</a> holds the bullet timer</td>
+<td class="comment-1" rowspan="1"><a href="7FE7.html">7FE7</a> holds the bullet timer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65de"></span>65DE</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Is it time to move and redraw the bullets?</td>
+<td class="comment-1" rowspan="1">Is it time to move and redraw the bullets?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65df"></span>65DF</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65e0"></span>65E0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7F9F)</td>
-<td class="comment-11" rowspan="1">Collect the MSB of Sam's cash supply</td>
+<td class="comment-1" rowspan="1">Collect the MSB of Sam's cash supply</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65e3"></span>65E3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$03</td>
-<td class="comment-11" rowspan="2">Keep only bits 0 and 1 of the MSB</td>
+<td class="comment-1" rowspan="2">Keep only bits 0 and 1 of the MSB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65e5"></span>65E5</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65e6"></span>65E6</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR C</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=6-<span class="register">A</span></td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=6-<span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65e7"></span>65E7</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65e8"></span>65E8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Reinitialise the bullet timer at <a href="7FE7.html">7FE7</a> to 3, 4, 5 or 6</td>
+<td class="comment-1" rowspan="1">Reinitialise the bullet timer at <a href="7FE7.html">7FE7</a> to 3, 4, 5 or 6</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65e9"></span>65E9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$C0</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FC0.html">7FC0</a> (first byte of bullet buffer 1)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="7FC0.html">7FC0</a> (first byte of bullet buffer 1)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -124,144 +93,102 @@ The following loop checks each bullet to see whether it is in flight or has flow
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="65eb"></span>65EB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,($7FFE)</td>
-<td class="comment-11" rowspan="1">Collect the x- and y-coordinates of the top-left tile of the play area on screen in <span class="register">E</span> and <span class="register">D</span></td>
+<td class="comment-1" rowspan="1">Collect the x- and y-coordinates of the top-left tile of the play area on screen in <span class="register">E</span> and <span class="register">D</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65ef"></span>65EF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the leftmost column of the play area that was on screen the last time the bullet was drawn</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x-coordinate of the leftmost column of the play area that was on screen the last time the bullet was drawn</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65f0"></span>65F0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),E</td>
-<td class="comment-11" rowspan="1">Replace that x-coordinate with the current value</td>
+<td class="comment-1" rowspan="1">Replace that x-coordinate with the current value</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65f1"></span>65F1</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB E</td>
-<td class="comment-11" rowspan="3"><span class="register">A</span>=bullet's current screen x-coordinate</td>
+<td class="comment-1" rowspan="3"><span class="register">A</span>=bullet's current screen x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65f2"></span>65F2</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65f3"></span>65F3</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65f4"></span>65F4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1">Copy this to <span class="register">E</span></td>
+<td class="comment-1" rowspan="1">Copy this to <span class="register">E</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65f5"></span>65F5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Also store it in the bullet buffer</td>
+<td class="comment-1" rowspan="1">Also store it in the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65f6"></span>65F6</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the third byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the third byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65f7"></span>65F7</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $20</td>
-<td class="comment-11" rowspan="1">Has the bullet flown off screen to the right?</td>
+<td class="comment-1" rowspan="1">Has the bullet flown off screen to the right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65f9"></span>65F9</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$65FF</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65fb"></span>65FB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=bullet's current screen y-coordinate (or 0 if the bullet is not in flight)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=bullet's current screen y-coordinate (or 0 if the bullet is not in flight)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65fc"></span>65FC</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is the bullet in flight at the moment?</td>
+<td class="comment-1" rowspan="1">Is the bullet in flight at the moment?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="65fd"></span>65FD</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$6608</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="65ff"></span>65FF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-11" rowspan="1">Set the third byte of the bullet's buffer to 0, indicating that it is not in flight</td>
+<td class="comment-1" rowspan="1">Set the third byte of the bullet's buffer to 0, indicating that it is not in flight</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6601"></span>6601</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the last byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the last byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6602"></span>6602</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first byte of the next bullet buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the first byte of the next bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6603"></span>6603</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,L</td>
-<td class="comment-11" rowspan="1">Have we dealt with both bullets yet?</td>
+<td class="comment-1" rowspan="1">Have we dealt with both bullets yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6605"></span>6605</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$65EB</td>
-<td class="comment-11" rowspan="1">Jump back if not</td>
+<td class="comment-1" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6607"></span>6607</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -274,179 +201,125 @@ This bullet is currently in flight.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6608"></span>6608</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the topmost row of the play area on screen</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=y-coordinate of the topmost row of the play area on screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6609"></span>6609</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $14</td>
-<td class="comment-11" rowspan="1">Is the sidewalk on screen at the moment?</td>
+<td class="comment-1" rowspan="1">Is the sidewalk on screen at the moment?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="660b"></span>660B</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$65FF</td>
-<td class="comment-11" rowspan="1">Terminate the bullet if not</td>
+<td class="comment-1" rowspan="1">Terminate the bullet if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="660d"></span>660D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=bullet's current screen y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=bullet's current screen y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="660e"></span>660E</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the pointer to the bullet buffer</td>
+<td class="comment-1" rowspan="1">Save the pointer to the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="660f"></span>660F</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1">Transfer the bullet's screen x- and y-coordinates to <span class="register">L</span> and <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Transfer the bullet's screen x- and y-coordinates to <span class="register">L</span> and <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6610"></span>6610</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E70C.html">$E70C</a></td>
-<td class="comment-11" rowspan="1">Print the play area tile at these coordinates, thus erasing the bullet</td>
+<td class="comment-1" rowspan="1">Print the play area tile at these coordinates, thus erasing the bullet</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6613"></span>6613</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the bullet buffer pointer to <span class="register">HL</span></td>
+<td class="comment-1" rowspan="1">Restore the bullet buffer pointer to <span class="register">HL</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6614"></span>6614</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the fourth byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the fourth byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6615"></span>6615</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$20</td>
-<td class="comment-11" rowspan="3">Flip bit 5 of this byte</td>
+<td class="comment-1" rowspan="3">Flip bit 5 of this byte</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6617"></span>6617</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6618"></span>6618</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6619"></span>6619</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC HL</td>
-<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the second byte of the bullet buffer (which holds the bullet's screen x-coordinate)</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the second byte of the bullet buffer (which holds the bullet's screen x-coordinate)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="661a"></span>661A</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="661b"></span>661B</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement the bullet's screen x-coordinate</td>
+<td class="comment-1" rowspan="1">Decrement the bullet's screen x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="661c"></span>661C</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="1">Is the bullet flying leftwards?</td>
+<td class="comment-1" rowspan="1">Is the bullet flying leftwards?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="661d"></span>661D</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6621</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="661f"></span>661F</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-11" rowspan="2">Otherwise increment the bullet's x-coordinate</td>
+<td class="comment-1" rowspan="2">Otherwise increment the bullet's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6620"></span>6620</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6621"></span>6621</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=bullet's next screen x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=bullet's next screen x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6622"></span>6622</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the third byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the third byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6623"></span>6623</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 5,E</td>
-<td class="comment-11" rowspan="1">Would the bullet now be off-screen to the left or right?</td>
+<td class="comment-1" rowspan="1">Would the bullet now be off-screen to the left or right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6625"></span>6625</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$65FF</td>
-<td class="comment-11" rowspan="1">Terminate the bullet if so</td>
+<td class="comment-1" rowspan="1">Terminate the bullet if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6627"></span>6627</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="1">Is the bullet flying perfectly horizontally?</td>
+<td class="comment-1" rowspan="1">Is the bullet flying perfectly horizontally?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6628"></span>6628</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$664C</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -459,46 +332,34 @@ The bullet is flying at an angle towards the ground or the sky.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="662a"></span>662A</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="1">Push what was bit 5 of the fourth byte of the bullet buffer into the carry flag (and ignore it)</td>
+<td class="comment-1" rowspan="1">Push what was bit 5 of the fourth byte of the bullet buffer into the carry flag (and ignore it)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="662b"></span>662B</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="662c"></span>662C</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="662d"></span>662D</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="1">Set the carry flag if the bullet is flying towards the sky</td>
+<td class="comment-1" rowspan="1">Set the carry flag if the bullet is flying towards the sky</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="662e"></span>662E</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the fourth byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the fourth byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="662f"></span>662F</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$6642</td>
-<td class="comment-11" rowspan="1">Jump if the bullet is flying towards the sky</td>
+<td class="comment-1" rowspan="1">Jump if the bullet is flying towards the sky</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -511,81 +372,59 @@ The bullet is flying at an angle towards the ground.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6631"></span>6631</td>
-<td class="bytes-0"></td>
 <td class="instruction">RES 3,(HL)</td>
-<td class="comment-11" rowspan="1">Reset bit 3 to prevent overflow (which would affect bits 4-7)</td>
+<td class="comment-1" rowspan="1">Reset bit 3 to prevent overflow (which would affect bits 4-7)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6633"></span>6633</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-11" rowspan="1">Increment the pixel row counter in bits 0-2</td>
+<td class="comment-1" rowspan="1">Increment the pixel row counter in bits 0-2</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6634"></span>6634</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up the fourth byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Pick up the fourth byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6635"></span>6635</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
-<td class="comment-11" rowspan="1">Keep only bits 0-2 (the pixel row counter)</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-2 (the pixel row counter)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6637"></span>6637</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the third byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the third byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6638"></span>6638</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$664C</td>
-<td class="comment-11" rowspan="1">Jump unless the pixel row counter rolled over from 7 to 0</td>
+<td class="comment-1" rowspan="1">Jump unless the pixel row counter rolled over from 7 to 0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="663a"></span>663A</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-11" rowspan="1">Increment the bullet's screen y-coordinate</td>
+<td class="comment-1" rowspan="1">Increment the bullet's screen y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="663b"></span>663B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=bullet's next screen y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=bullet's next screen y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="663c"></span>663C</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $14</td>
-<td class="comment-11" rowspan="1">Has the bullet flown off the bottom of the screen?</td>
+<td class="comment-1" rowspan="1">Has the bullet flown off the bottom of the screen?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="663e"></span>663E</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$65FF</td>
-<td class="comment-11" rowspan="1">Terminate it if so</td>
+<td class="comment-1" rowspan="1">Terminate it if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6640"></span>6640</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $664C</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -598,60 +437,44 @@ The bullet is flying at an angle towards the sky.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6642"></span>6642</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 3,(HL)</td>
-<td class="comment-11" rowspan="1">Set bit 3 to prevent underflow (which would affect bits 4-7)</td>
+<td class="comment-1" rowspan="1">Set bit 3 to prevent underflow (which would affect bits 4-7)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6644"></span>6644</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up the fourth byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Pick up the fourth byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6645"></span>6645</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement the pixel row counter in bits 0-2</td>
+<td class="comment-1" rowspan="1">Decrement the pixel row counter in bits 0-2</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6646"></span>6646</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=previous value of the pixel row counter (0-7)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=previous value of the pixel row counter (0-7)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6648"></span>6648</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the third byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the third byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6649"></span>6649</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$664C</td>
-<td class="comment-11" rowspan="1">Jump unless the pixel row counter rolled over from 0 to 7</td>
+<td class="comment-1" rowspan="1">Jump unless the pixel row counter rolled over from 0 to 7</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="664b"></span>664B</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement the bullet's screen y-coordinate</td>
+<td class="comment-1" rowspan="1">Decrement the bullet's screen y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="664c"></span>664C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=bullet's next screen y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=bullet's next screen y-coordinate</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -664,18 +487,14 @@ Having calculated where the bullet is going next, we check whether it would hit 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="664d"></span>664D</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6592.html">$6592</a></td>
-<td class="comment-11" rowspan="1">Would the bullet hit Sam?</td>
+<td class="comment-1" rowspan="1">Would the bullet hit Sam?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6650"></span>6650</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$65FF</td>
-<td class="comment-11" rowspan="1">Terminate the bullet if so</td>
+<td class="comment-1" rowspan="1">Terminate the bullet if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -688,164 +507,114 @@ The bullet has not flown off the screen or hit Sam, so now we draw it.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6652"></span>6652</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=bullet's next screen y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=bullet's next screen y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6653"></span>6653</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
-<td class="comment-11" rowspan="10">Point <span class="register">DE</span> at the top pixel row of the screen cell in which the bullet will be drawn</td>
+<td class="comment-1" rowspan="10">Point <span class="register">DE</span> at the top pixel row of the screen cell in which the bullet will be drawn</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6655"></span>6655</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6656"></span>6656</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6657"></span>6657</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6658"></span>6658</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6659"></span>6659</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="665a"></span>665A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="665b"></span>665B</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $18</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="665d"></span>665D</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$40</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="665f"></span>665F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6660"></span>6660</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the fourth byte of the bullet buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the fourth byte of the bullet buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6661"></span>6661</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="4">Point <span class="register">DE</span> at the exact pixel row of the screen cell in which the bullet will be drawn</td>
+<td class="comment-1" rowspan="4">Point <span class="register">DE</span> at the exact pixel row of the screen cell in which the bullet will be drawn</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6662"></span>6662</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6664"></span>6664</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6665"></span>6665</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6666"></span>6666</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1">Pick up the current pixel row from the display file</td>
+<td class="comment-1" rowspan="1">Pick up the current pixel row from the display file</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6667"></span>6667</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR $3C</td>
-<td class="comment-11" rowspan="1">Set bits 2-5</td>
+<td class="comment-1" rowspan="1">Set bits 2-5</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6669"></span>6669</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $BD</td>
-<td class="comment-11" rowspan="1">Reset bits 6 and 1</td>
+<td class="comment-1" rowspan="1">Reset bits 6 and 1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="666b"></span>666B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-11" rowspan="1">Draw the bullet</td>
+<td class="comment-1" rowspan="1">Draw the bullet</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="666c"></span>666C</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $6602</td>
-<td class="comment-11" rowspan="1">Jump back to deal with the next bullet</td>
+<td class="comment-1" rowspan="1">Jump back to deal with the next bullet</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6592.html">6592</a></span></td>
+<td class="prev">
+Prev: <a href="6592.html">6592</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#65db">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="666E.html">666E</a></span></td>
+<td class="next">
+Next: <a href="666E.html">666E</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/26075.html">Switch to decimal</a>.</div>
 </footer>
 </body>

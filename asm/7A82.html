@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 7A82</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7A6A.html">7A6A</a></span></td>
+<td class="prev">
+Prev: <a href="7A6A.html">7A6A</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7a82">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7AB5.html">7AB5</a></span></td>
+<td class="next">
+Next: <a href="7AB5.html">7AB5</a>
+</td>
 </tr>
 </table>
 <div class="description">7A82: Make a gangster chase and pick up Sam</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="6329.html">6329</a>. Makes a gangster start or continue chasing Sam if appropriate. Whether the gangster continues to chase Sam depends on Sam's and the gangster's locations relative to the two regions defined in the gangster's region definition table. If Sam has left the first region, the gangster gives up the chase and restarts his command list; if the gangster has already chased Sam to the boundary of the second region, he will stand on guard there; and if the gangster is close enough to Sam to pick him up, he will do so and move to the next command in the command list.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,139 +41,94 @@ Used by the routine at <a href="6329.html">6329</a>. Makes a gangster start or c
 <td class="register-desc">Gangster's character number (0xD7-0xE0)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a82"></span>7A82</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61F2.html">$61F2</a></td>
-<td class="comment-11" rowspan="1">Is the gangster close enough to Sam to pick him up?</td>
+<td class="comment-1" rowspan="1">Is the gangster close enough to Sam to pick him up?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a85"></span>7A85</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP C,<a href="71DD.html">$71DD</a></td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a88"></span>7A88</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F698.html">$F698</a></td>
-<td class="comment-11" rowspan="1">Exit now if the gangster is midstride</td>
+<td class="comment-1" rowspan="1">Exit now if the gangster is midstride</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a8b"></span>7A8B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$17</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x17 of the gangster's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x17 of the gangster's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a8d"></span>7A8D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="3">Collect the command list start address in <span class="register">DE</span></td>
+<td class="comment-1" rowspan="3">Collect the command list start address in <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a8e"></span>7A8E</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a8f"></span>7A8F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a90"></span>7A90</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,H</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=gangster's character number</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=gangster's character number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a91"></span>7A91</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$FFF6</td>
-<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the relevant table of region definitions (<a href="FD0C.html">FD0C</a>, <a href="FD26.html">FD26</a>, <a href="FD44.html">FD44</a>, <a href="FD64.html">FD64</a> or <a href="FD7C.html">FD7C</a>)</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the relevant table of region definitions (<a href="FD0C.html">FD0C</a>, <a href="FD26.html">FD26</a>, <a href="FD44.html">FD44</a>, <a href="FD64.html">FD64</a> or <a href="FD7C.html">FD7C</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a94"></span>7A94</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a95"></span>7A95</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$E6</td>
-<td class="comment-11" rowspan="1">0xE6=Sam</td>
+<td class="comment-1" rowspan="1">0xE6=Sam</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a97"></span>7A97</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="738A.html">$738A</a></td>
-<td class="comment-11" rowspan="1">Check whether Sam is inside the first region</td>
+<td class="comment-1" rowspan="1">Check whether Sam is inside the first region</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a9a"></span>7A9A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,B</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=gangster's character number</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=gangster's character number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a9b"></span>7A9B</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=gangster's character number</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=gangster's character number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a9c"></span>7A9C</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP C,<a href="F6DE.html">$F6DE</a></td>
-<td class="comment-11" rowspan="1">Restart the command list if Sam is outside the first region</td>
+<td class="comment-1" rowspan="1">Restart the command list if Sam is outside the first region</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a9f"></span>7A9F</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=gangster's character number</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=gangster's character number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aa0"></span>7AA0</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="738A.html">$738A</a></td>
-<td class="comment-11" rowspan="1">Check whether the gangster is inside the second region</td>
+<td class="comment-1" rowspan="1">Check whether the gangster is inside the second region</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aa3"></span>7AA3</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return if he's outside the second region</td>
+<td class="comment-1" rowspan="1">Return if he's outside the second region</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -183,73 +141,61 @@ Sam is inside the first region, and the gangster hasn't reached the boundary of 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aa4"></span>7AA4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,B</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=gangster's character number</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=gangster's character number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aa5"></span>7AA5</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7190.html">$7190</a></td>
-<td class="comment-11" rowspan="1">Set the gangster's destination to Sam's current location</td>
+<td class="comment-1" rowspan="1">Set the gangster's destination to Sam's current location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aa8"></span>7AA8</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="ED8C.html">$ED8C</a></td>
-<td class="comment-11" rowspan="1">Determine the next move the gangster should make to reach Sam</td>
+<td class="comment-1" rowspan="1">Determine the next move the gangster should make to reach Sam</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aab"></span>7AAB</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $05</td>
-<td class="comment-11" rowspan="1">Is the gangster standing next to a closed door?</td>
+<td class="comment-1" rowspan="1">Is the gangster standing next to a closed door?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aad"></span>7AAD</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NC,<a href="F600.html#f67c">$F67C</a></td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ab0"></span>7AB0</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Has the gangster reached his destination?</td>
+<td class="comment-1" rowspan="1">Has the gangster reached his destination?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ab1"></span>7AB1</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ab2"></span>7AB2</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F600.html#f63c">$F63C</a></td>
-<td class="comment-11" rowspan="1">Move the gangster one step closer to Sam</td>
+<td class="comment-1" rowspan="1">Move the gangster one step closer to Sam</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7A6A.html">7A6A</a></span></td>
+<td class="prev">
+Prev: <a href="7A6A.html">7A6A</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7a82">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7AB5.html">7AB5</a></span></td>
+<td class="next">
+Next: <a href="7AB5.html">7AB5</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/31362.html">Switch to decimal</a>.</div>
 </footer>
 </body>

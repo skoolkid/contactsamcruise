@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Data at FFE0</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-b">
 <table class="header">
@@ -15,9 +14,12 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="FFC0.html">FFC0</a></span></td>
+<td class="prev">
+Prev: <a href="FFC0.html">FFC0</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#ffe0">Map</a></td>
-<td class="next"><span class="next-0">Next: <a href=""></a></span></td>
+<td class="next">
+</td>
 </tr>
 </table>
 <div class="description">FFE0: Game status buffer template</div>
@@ -29,151 +31,107 @@
 Before demo mode or a new game starts, the data here is copied into the last 32 bytes of the game status buffer by the routine at <a href="F8AE.html">F8AE</a>.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ffe0"></span>FFE0</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00,$00,$08,$10,$10,$30,$00</td>
-<td class="comment-11" rowspan="1"><a href="7FE0.html">7FE0</a> (unused)</td>
+<td class="comment-1" rowspan="1"><a href="7FE0.html">7FE0</a> (unused)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ffe7"></span>FFE7</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $0A</td>
-<td class="comment-11" rowspan="1">Bullet timer (<a href="7FE7.html">7FE7</a>)</td>
+<td class="comment-1" rowspan="1">Bullet timer (<a href="7FE7.html">7FE7</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ffe8"></span>FFE8</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $80</td>
-<td class="comment-11" rowspan="1">Disguise status flags (<a href="7FE8.html">7FE8</a>)</td>
+<td class="comment-1" rowspan="1">Disguise status flags (<a href="7FE8.html">7FE8</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ffe9"></span>FFE9</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">Object inventory (<a href="7FE9.html">7FE9</a>)</td>
+<td class="comment-1" rowspan="1">Object inventory (<a href="7FE9.html">7FE9</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ffea"></span>FFEA</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">Key inventory (<a href="7FEA.html">7FEA</a>)</td>
+<td class="comment-1" rowspan="1">Key inventory (<a href="7FEA.html">7FEA</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ffeb"></span>FFEB</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">Police flags (<a href="7FEB.html">7FEB</a>)</td>
+<td class="comment-1" rowspan="1">Police flags (<a href="7FEB.html">7FEB</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ffec"></span>FFEC</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFW $0000</td>
-<td class="comment-11" rowspan="1">High score (<a href="7FEC.html">7FEC</a>); this is set by the routine at <a href="F0BE.html">F0BE</a></td>
+<td class="comment-1" rowspan="1">High score (<a href="7FEC.html">7FEC</a>); this is set by the routine at <a href="F0BE.html">F0BE</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ffee"></span>FFEE</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">Game mode indicator (<a href="7FEE.html">7FEE</a>); this is set by the routine at <a href="F0BE.html">F0BE</a></td>
+<td class="comment-1" rowspan="1">Game mode indicator (<a href="7FEE.html">7FEE</a>); this is set by the routine at <a href="F0BE.html">F0BE</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ffef"></span>FFEF</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $FF</td>
-<td class="comment-11" rowspan="1">First aid (<a href="7FEF.html">7FEF</a>)</td>
+<td class="comment-1" rowspan="1">First aid (<a href="7FEF.html">7FEF</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fff0"></span>FFF0</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00,$00,$08,$10,$20,$80,$00,$00</td>
-<td class="comment-11" rowspan="2">Door status flags (<a href="7FF0.html">7FF0</a>)</td>
+<td class="comment-1" rowspan="2">Door status flags (<a href="7FF0.html">7FF0</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fff8"></span>FFF8</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00,$40</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fffa"></span>FFFA</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">Input device indicator (<a href="7FFA.html">7FFA</a>); this value is changed by the routine at <a href="6177.html">6177</a></td>
+<td class="comment-1" rowspan="1">Input device indicator (<a href="7FFA.html">7FFA</a>); this value is changed by the routine at <a href="6177.html">6177</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fffb"></span>FFFB</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $D7</td>
-<td class="comment-11" rowspan="1">Number of the character just moved (<a href="7FFB.html">7FFB</a>)</td>
+<td class="comment-1" rowspan="1">Number of the character just moved (<a href="7FFB.html">7FFB</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fffc"></span>FFFC</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">Sam's status flags (<a href="7FFC.html">7FFC</a>)</td>
+<td class="comment-1" rowspan="1">Sam's status flags (<a href="7FFC.html">7FFC</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fffd"></span>FFFD</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">Last key pressed (<a href="7FFD.html">7FFD</a>)</td>
+<td class="comment-1" rowspan="1">Last key pressed (<a href="7FFD.html">7FFD</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fffe"></span>FFFE</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">x-coordinate of the leftmost column of the play area on screen (<a href="7FFE.html">7FFE</a>); this value is not used</td>
+<td class="comment-1" rowspan="1">x-coordinate of the leftmost column of the play area on screen (<a href="7FFE.html">7FFE</a>); this value is not used</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="ffff"></span>FFFF</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $14</td>
-<td class="comment-11" rowspan="1">y-coordinate of the topmost row of the play area on screen (<a href="7FFF.html">7FFF</a>); this value is not used</td>
+<td class="comment-1" rowspan="1">y-coordinate of the topmost row of the play area on screen (<a href="7FFF.html">7FFF</a>); this value is not used</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="FFC0.html">FFC0</a></span></td>
+<td class="prev">
+Prev: <a href="FFC0.html">FFC0</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#ffe0">Map</a></td>
-<td class="next"><span class="next-0">Next: <a href=""></a></span></td>
+<td class="next">
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/65504.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 25039</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="25029.html">25029</a></span></td>
+<td class="prev">
+Prev: <a href="25029.html">25029</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#25039">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="25066.html">25066</a></span></td>
+<td class="next">
+Next: <a href="25066.html">25066</a>
+</td>
 </tr>
 </table>
 <div class="description">25039: Add a random number of bucks to Sam's total</div>
@@ -29,123 +32,83 @@
 Used by the routine at <a href="25539.html">25539</a>. Adds $1, $5, $10 or $20 to Sam's cash supply, and prints the new total.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25039"></span>25039</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61823.html">61823</a></td>
-<td class="comment-11" rowspan="1">Get a random number in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Get a random number in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25042"></span>25042</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,1</td>
-<td class="comment-11" rowspan="3">Sam will get $1 if <span class="register">A</span>&lt;=127</td>
+<td class="comment-1" rowspan="3">Sam will get $1 if <span class="register">A</span>&lt;=127</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25044"></span>25044</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 128</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25046"></span>25046</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,25062</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25048"></span>25048</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,5</td>
-<td class="comment-11" rowspan="3">Sam will get $5 if 128&lt;=<span class="register">A</span>&lt;=209</td>
+<td class="comment-1" rowspan="3">Sam will get $5 if 128&lt;=<span class="register">A</span>&lt;=209</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25050"></span>25050</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 210</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25052"></span>25052</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,25062</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25054"></span>25054</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 248</td>
-<td class="comment-11" rowspan="3">Sam will get $10 if 210&lt;=<span class="register">A</span>&lt;=247</td>
+<td class="comment-1" rowspan="3">Sam will get $10 if 210&lt;=<span class="register">A</span>&lt;=247</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25056"></span>25056</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,10</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25058"></span>25058</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,25062</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25060"></span>25060</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,20</td>
-<td class="comment-11" rowspan="1">Sam will get $20 if <span class="register">A</span>&gt;=248</td>
+<td class="comment-1" rowspan="1">Sam will get $20 if <span class="register">A</span>&gt;=248</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25062"></span>25062</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=1, 5, 10 or 20</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=1, 5, 10 or 20</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25063"></span>25063</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="28295.html#28306">28306</a></td>
-<td class="comment-11" rowspan="1">Add this number of bucks to Sam's total and print the new total</td>
+<td class="comment-1" rowspan="1">Add this number of bucks to Sam's total and print the new total</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="25029.html">25029</a></span></td>
+<td class="prev">
+Prev: <a href="25029.html">25029</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#25039">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="25066.html">25066</a></span></td>
+<td class="next">
+Next: <a href="25066.html">25066</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/61CF.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

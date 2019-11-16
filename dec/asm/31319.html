@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 31319</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="31289.html">31289</a></span></td>
+<td class="prev">
+Prev: <a href="31289.html">31289</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#31319">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="31338.html">31338</a></span></td>
+<td class="next">
+Next: <a href="31338.html">31338</a>
+</td>
 </tr>
 </table>
 <div class="description">31319: Make a gangster walk up or down until Sam arrives</div>
@@ -29,7 +32,7 @@
 The address of this interruptible subcommand routine is placed into bytes 14 and 15 of a gangster's buffer by the primary command routine at <a href="31338.html">31338</a>. It makes the gangster start or continue walking up or down a few paces unless he spots Sam, in which case the subcommand and current primary command are terminated.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,82 +41,62 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="register-desc">Gangster's character number (215-224)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31319"></span>31319</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63118.html">63118</a></td>
-<td class="comment-11" rowspan="1">Abort now if the gangster is midstride or has his arm up</td>
+<td class="comment-1" rowspan="1">Abort now if the gangster is midstride or has his arm up</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31322"></span>31322</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="29597.html">29597</a></td>
-<td class="comment-11" rowspan="1">Is Sam nearby, and should the gangster go after him?</td>
+<td class="comment-1" rowspan="1">Is Sam nearby, and should the gangster go after him?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31325"></span>31325</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP C,<a href="63209.html#63217">63217</a></td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31328"></span>31328</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,22</td>
-<td class="comment-11" rowspan="2">Copy the command list offset (from the gangster's region definition table) into byte 22 of the gangster's buffer</td>
+<td class="comment-1" rowspan="2">Copy the command list offset (from the gangster's region definition table) into byte 22 of the gangster's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31330"></span>31330</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31331"></span>31331</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,15</td>
-<td class="comment-11" rowspan="2">Remove the address of this interruptible subcommand routine from bytes 14 and 15 of the gangster's buffer</td>
+<td class="comment-1" rowspan="2">Remove the address of this interruptible subcommand routine from bytes 14 and 15 of the gangster's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31333"></span>31333</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31335"></span>31335</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="62080.html">62080</a></td>
-<td class="comment-11" rowspan="1">Terminate the current primary command, and move to the portion of the command list that deals with catching Sam</td>
+<td class="comment-1" rowspan="1">Terminate the current primary command, and move to the portion of the command list that deals with catching Sam</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="31289.html">31289</a></span></td>
+<td class="prev">
+Prev: <a href="31289.html">31289</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#31319">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="31338.html">31338</a></span></td>
+<td class="next">
+Next: <a href="31338.html">31338</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/7A57.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

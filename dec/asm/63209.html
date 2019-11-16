@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 63209</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63205.html">63205</a></span></td>
+<td class="prev">
+Prev: <a href="63205.html">63205</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63209">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63281.html">63281</a></span></td>
+<td class="next">
+Next: <a href="63281.html">63281</a>
+</td>
 </tr>
 </table>
 <div class="description">63209: Make a character walk up or down</div>
@@ -29,7 +32,7 @@
 The address of this interruptible subcommand routine is placed into bytes 14 and 15 of a character's buffer by the routine at <a href="63304.html">63304</a>. It makes a character start or continue walking up or down towards his walkabout destination, stopping occasionally on the way to flip a light switch or raise or lower a window blind.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,34 +41,22 @@ The address of this interruptible subcommand routine is placed into bytes 14 and
 <td class="register-desc">Character number (215-229)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63209"></span>63209</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63128.html">63128</a></td>
-<td class="comment-11" rowspan="1">Exit now if the character is midstride</td>
+<td class="comment-1" rowspan="1">Exit now if the character is midstride</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63212"></span>63212</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 2,(HL)</td>
-<td class="comment-11" rowspan="1">Is the character's arm raised?</td>
+<td class="comment-1" rowspan="1">Is the character's arm raised?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63214"></span>63214</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="62325.html#62331">62331</a></td>
-<td class="comment-11" rowspan="1">Lower his arm if so</td>
+<td class="comment-1" rowspan="1">Lower his arm if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -78,46 +69,34 @@ This entry point is used by the routine at <a href="31319.html">31319</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63217"></span>63217</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,17</td>
-<td class="comment-11" rowspan="1">The counter in byte 17 of the character's buffer determines the delay until the character will next consider flipping a light switch or raising or lowering a window blind</td>
+<td class="comment-1" rowspan="1">The counter in byte 17 of the character's buffer determines the delay until the character will next consider flipping a light switch or raising or lowering a window blind</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63219"></span>63219</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement that counter</td>
+<td class="comment-1" rowspan="1">Decrement that counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63220"></span>63220</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,63266</td>
-<td class="comment-11" rowspan="1">Jump unless the counter has reached 0</td>
+<td class="comment-1" rowspan="1">Jump unless the counter has reached 0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63222"></span>63222</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),4</td>
-<td class="comment-11" rowspan="1">Reset the counter to 4 (in case the character is not standing next to a light switch or window blind at the moment)</td>
+<td class="comment-1" rowspan="1">Reset the counter to 4 (in case the character is not standing next to a light switch or window blind at the moment)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63224"></span>63224</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63152.html">63152</a></td>
-<td class="comment-11" rowspan="1">Is the character standing next to a light switch or window blind?</td>
+<td class="comment-1" rowspan="1">Is the character standing next to a light switch or window blind?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63227"></span>63227</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,63266</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -130,130 +109,91 @@ The character is standing next to a light switch or window blind.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63229"></span>63229</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 64</td>
-<td class="comment-11" rowspan="1">Is the character standing next to a window blind?</td>
+<td class="comment-1" rowspan="1">Is the character standing next to a window blind?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63231"></span>63231</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,63242</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63233"></span>63233</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=fixture location flags</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=fixture location flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63234"></span>63234</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 5,A</td>
-<td class="comment-11" rowspan="1">Does the light switch affect the lights in more than one window or window pair?</td>
+<td class="comment-1" rowspan="1">Does the light switch affect the lights in more than one window or window pair?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63236"></span>63236</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,63266</td>
-<td class="comment-11" rowspan="1">Jump if so (the character will not flip the switch)</td>
+<td class="comment-1" rowspan="1">Jump if so (the character will not flip the switch)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63238"></span>63238</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,32</td>
-<td class="comment-11" rowspan="1">Bit 5 set: light switch toggle</td>
+<td class="comment-1" rowspan="1">Bit 5 set: light switch toggle</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63240"></span>63240</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 63250</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63242"></span>63242</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 8</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the character standing next to the right-hand window of a pair</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the character standing next to the right-hand window of a pair</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63244"></span>63244</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,1</td>
-<td class="comment-11" rowspan="1">Bit 0 set: right-hand window blind toggle</td>
+<td class="comment-1" rowspan="1">Bit 0 set: right-hand window blind toggle</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63246"></span>63246</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,63250</td>
-<td class="comment-11" rowspan="1">Jump if the character is standing next to the right-hand window of a pair</td>
+<td class="comment-1" rowspan="1">Jump if the character is standing next to the right-hand window of a pair</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63248"></span>63248</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,64</td>
-<td class="comment-11" rowspan="1">Bit 6 set: left-hand window blind toggle</td>
+<td class="comment-1" rowspan="1">Bit 6 set: left-hand window blind toggle</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63250"></span>63250</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="62597.html#62617">62617</a></td>
-<td class="comment-11" rowspan="1">Flip the light switch, or raise or lower the window blind</td>
+<td class="comment-1" rowspan="1">Flip the light switch, or raise or lower the window blind</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63253"></span>63253</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61823.html">61823</a></td>
-<td class="comment-11" rowspan="3">Get a random number between 32 and 159 in <span class="register">A</span></td>
+<td class="comment-1" rowspan="3">Get a random number between 32 and 159 in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63256"></span>63256</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 127</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63258"></span>63258</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,32</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63260"></span>63260</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,17</td>
-<td class="comment-11" rowspan="2">Reset the counter in byte 17 of the character's buffer to this number</td>
+<td class="comment-1" rowspan="2">Reset the counter in byte 17 of the character's buffer to this number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63262"></span>63262</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63263"></span>63263</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="62264.html#62268">62268</a></td>
-<td class="comment-11" rowspan="1">Raise the character's arm</td>
+<td class="comment-1" rowspan="1">Raise the character's arm</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -266,66 +206,55 @@ The character will not be flipping any light switches or raising or lowering any
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63266"></span>63266</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,1</td>
-<td class="comment-11" rowspan="2">Collect the character's x-coordinate from byte 1 of his buffer</td>
+<td class="comment-1" rowspan="2">Collect the character's x-coordinate from byte 1 of his buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63268"></span>63268</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63269"></span>63269</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,16</td>
-<td class="comment-11" rowspan="1">Byte 16 of the character's buffer holds his walkabout destination x-coordinate</td>
+<td class="comment-1" rowspan="1">Byte 16 of the character's buffer holds his walkabout destination x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63271"></span>63271</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Has the character reached his walkabout destination?</td>
+<td class="comment-1" rowspan="1">Has the character reached his walkabout destination?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63272"></span>63272</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="62080.html#62084">62084</a></td>
-<td class="comment-11" rowspan="1">Terminate this subcommand if so</td>
+<td class="comment-1" rowspan="1">Terminate this subcommand if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63275"></span>63275</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP C,<a href="60334.html">60334</a></td>
-<td class="comment-11" rowspan="1">Move the character right if he's still to the left of his destination</td>
+<td class="comment-1" rowspan="1">Move the character right if he's still to the left of his destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63278"></span>63278</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="60347.html">60347</a></td>
-<td class="comment-11" rowspan="1">Otherwise move him left</td>
+<td class="comment-1" rowspan="1">Otherwise move him left</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63205.html">63205</a></span></td>
+<td class="prev">
+Prev: <a href="63205.html">63205</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63209">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63281.html">63281</a></span></td>
+<td class="next">
+Next: <a href="63281.html">63281</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F6E9.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

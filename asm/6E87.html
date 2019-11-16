@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 6E87</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6E84.html">6E84</a></span></td>
+<td class="prev">
+Prev: <a href="6E84.html">6E84</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6e87">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6EAE.html">6EAE</a></span></td>
+<td class="next">
+Next: <a href="6EAE.html">6EAE</a>
+</td>
 </tr>
 </table>
 <div class="description">6E87: Adjust Sam's cash supply and print the new amount</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="7B6A.html">7B6A</a>, <a href="7B9A.html">7B9A</a> and <a href="FB52.html">FB52</a>. Returns with the zero flag set if Sam has run out of money.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,48 +41,28 @@ Used by the routines at <a href="7B6A.html">7B6A</a>, <a href="7B9A.html">7B9A</
 <td class="register-desc">N/10 (N=number of bucks to subtract)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6e87"></span>6E87</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="5"><span class="register">A</span>=N</td>
+<td class="comment-1" rowspan="5"><span class="register">A</span>=N</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e88"></span>6E88</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e89"></span>6E89</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e8a"></span>6E8A</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e8b"></span>6E8B</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -92,25 +75,19 @@ This entry point is used by the routine at <a href="76FA.html">76FA</a> with <sp
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6e8c"></span>6E8C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$FF</td>
-<td class="comment-11" rowspan="1">Prepare <span class="register">DE</span> for subtraction</td>
+<td class="comment-1" rowspan="1">Prepare <span class="register">DE</span> for subtraction</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e8e"></span>6E8E</td>
-<td class="bytes-0"></td>
 <td class="instruction">NEG</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=-N</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=-N</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e90"></span>6E90</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $6E94</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -123,18 +100,14 @@ This entry point is used by the routines at <a href="61CF.html">61CF</a>, <a hre
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6e92"></span>6E92</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$00</td>
-<td class="comment-11" rowspan="1">Prepare <span class="register">DE</span> for addition</td>
+<td class="comment-1" rowspan="1">Prepare <span class="register">DE</span> for addition</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6e94"></span>6E94</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1">Now <span class="register">DE</span>=number of bucks to add (may be negative)</td>
+<td class="comment-1" rowspan="1">Now <span class="register">DE</span>=number of bucks to add (may be negative)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -147,115 +120,90 @@ This entry point is used by the routine at <a href="6EB1.html">6EB1</a> with <sp
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6e95"></span>6E95</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,($7F9E)</td>
-<td class="comment-11" rowspan="1">Collect the current number of bucks from <a href="7F9E.html">7F9E</a></td>
+<td class="comment-1" rowspan="1">Collect the current number of bucks from <a href="7F9E.html">7F9E</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e98"></span>6E98</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-11" rowspan="1">Adjust the number</td>
+<td class="comment-1" rowspan="1">Adjust the number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e99"></span>6E99</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1">Is the result negative?</td>
+<td class="comment-1" rowspan="1">Is the result negative?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e9a"></span>6E9A</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$6E9F</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6e9c"></span>6E9C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$0100</td>
-<td class="comment-11" rowspan="1">Set <span class="register">HL</span> up so that the next instruction reduces it to 0</td>
+<td class="comment-1" rowspan="1">Set <span class="register">HL</span> up so that the next instruction reduces it to 0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6e9f"></span>6E9F</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC H</td>
-<td class="comment-11" rowspan="1">Restore the value of <span class="register">HL</span> (if it was non-negative), or set it to 0 (if it was negative)</td>
+<td class="comment-1" rowspan="1">Restore the value of <span class="register">HL</span> (if it was non-negative), or set it to 0 (if it was negative)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6ea0"></span>6EA0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="2">Set the zero flag if the number of bucks is now 0</td>
+<td class="comment-1" rowspan="2">Set the zero flag if the number of bucks is now 0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6ea1"></span>6EA1</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6ea2"></span>6EA2</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save the zero flag temporarily</td>
+<td class="comment-1" rowspan="1">Save the zero flag temporarily</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6ea3"></span>6EA3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($7F9E),HL</td>
-<td class="comment-11" rowspan="1">Store the new amount at <a href="7F9E.html">7F9E</a></td>
+<td class="comment-1" rowspan="1">Store the new amount at <a href="7F9E.html">7F9E</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6ea6"></span>6EA6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$50F8</td>
-<td class="comment-11" rowspan="1"><span class="register">DE</span>=display file address</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=display file address</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6ea9"></span>6EA9</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6E1A.html">$6E1A</a></td>
-<td class="comment-11" rowspan="1">Print the number of bucks</td>
+<td class="comment-1" rowspan="1">Print the number of bucks</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6eac"></span>6EAC</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the zero flag</td>
+<td class="comment-1" rowspan="1">Restore the zero flag</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6ead"></span>6EAD</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6E84.html">6E84</a></span></td>
+<td class="prev">
+Prev: <a href="6E84.html">6E84</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6e87">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6EAE.html">6EAE</a></span></td>
+<td class="next">
+Next: <a href="6EAE.html">6EAE</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/28295.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at E8B7</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="E8B4.html">E8B4</a></span></td>
+<td class="prev">
+Prev: <a href="E8B4.html">E8B4</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#e8b7">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="E8F0.html">E8F0</a></span></td>
+<td class="next">
+Next: <a href="E8F0.html">E8F0</a>
+</td>
 </tr>
 </table>
 <div class="description">E8B7: Scroll the screen down 6 rows</div>
@@ -29,61 +32,35 @@
 Used by the routine at <a href="EC7B.html">EC7B</a>.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="e8b7"></span>E8B7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$E7EC</td>
-<td class="comment-11" rowspan="2">Set the instruction at <a href="E7E8.html#e7eb">E7EB</a> to 'LD BC,$0020'</td>
+<td class="comment-1" rowspan="2">Set the instruction at <a href="E7E8.html#e7eb">E7EB</a> to 'LD BC,$0020'</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8ba"></span>E8BA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$20</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8bc"></span>E8BC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$EF</td>
-<td class="comment-11" rowspan="2">Set the instruction at <a href="E7E8.html#e7ee">E7EE</a> to 'LDIR'</td>
+<td class="comment-1" rowspan="2">Set the instruction at <a href="E7E8.html#e7ee">E7EE</a> to 'LDIR'</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8be"></span>E8BE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$B0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8c0"></span>E8C0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$06</td>
-<td class="comment-11" rowspan="1">6 rows will be scrolled on</td>
+<td class="comment-1" rowspan="1">6 rows will be scrolled on</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="e8c2"></span>E8C2</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1">Save the primary screen row counter</td>
+<td class="comment-1" rowspan="1">Save the primary screen row counter</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -96,199 +73,150 @@ This entry point is used by the routine at <a href="FC6A.html">FC6A</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="e8c3"></span>E8C3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$13</td>
-<td class="comment-11" rowspan="1">There are 19 screen rows to move down</td>
+<td class="comment-1" rowspan="1">There are 19 screen rows to move down</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8c5"></span>E8C5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$5A60</td>
-<td class="comment-11" rowspan="1"><span class="register">DE</span>=destination attribute file address (bottom row)</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=destination attribute file address (bottom row)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8c8"></span>E8C8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5A40</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=source attribute file address (second row from the bottom)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=source attribute file address (second row from the bottom)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="e8cb"></span>E8CB</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1">Save the secondary screen row counter</td>
+<td class="comment-1" rowspan="1">Save the secondary screen row counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8cc"></span>E8CC</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the source attribute file address</td>
+<td class="comment-1" rowspan="1">Save the source attribute file address</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8cd"></span>E8CD</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1">Save the destination attribute file address</td>
+<td class="comment-1" rowspan="1">Save the destination attribute file address</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8ce"></span>E8CE</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E7E8.html">$E7E8</a></td>
-<td class="comment-11" rowspan="1">Move one screen row down</td>
+<td class="comment-1" rowspan="1">Move one screen row down</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8d1"></span>E8D1</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=source attribute file address</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=source attribute file address</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8d2"></span>E8D2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$FFE0</td>
-<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the next row up in the attribute file</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the next row up in the attribute file</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8d5"></span>E8D5</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8d6"></span>E8D6</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1">Transfer this address to <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Transfer this address to <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8d7"></span>E8D7</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=destination attribute file address</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=destination attribute file address</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8d8"></span>E8D8</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next row up in the attribute file</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the next row up in the attribute file</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8d9"></span>E8D9</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Restore the secondary screen row counter to <span class="register">B</span></td>
+<td class="comment-1" rowspan="1">Restore the secondary screen row counter to <span class="register">B</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8da"></span>E8DA</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $E8CB</td>
-<td class="comment-11" rowspan="1">Jump back until all 19 screen rows have been moved down</td>
+<td class="comment-1" rowspan="1">Jump back until all 19 screen rows have been moved down</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8dc"></span>E8DC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FFF</td>
-<td class="comment-11" rowspan="1"><a href="7FFF.html">7FFF</a> holds the y-coordinate of the topmost row of the play area on screen</td>
+<td class="comment-1" rowspan="1"><a href="7FFF.html">7FFF</a> holds the y-coordinate of the topmost row of the play area on screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8df"></span>E8DF</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement this</td>
+<td class="comment-1" rowspan="1">Decrement this</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8e0"></span>E8E0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$001F</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=31 (rightmost screen column), <span class="register">H</span>=0 (top row of the screen)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=31 (rightmost screen column), <span class="register">H</span>=0 (top row of the screen)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="e8e3"></span>E8E3</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the screen coordinates briefly</td>
+<td class="comment-1" rowspan="1">Save the screen coordinates briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8e4"></span>E8E4</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E70C.html">$E70C</a></td>
-<td class="comment-11" rowspan="1">Print a tile at screen coordinates (<span class="register">L</span>,0)</td>
+<td class="comment-1" rowspan="1">Print a tile at screen coordinates (<span class="register">L</span>,0)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8e7"></span>E8E7</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the screen coordinates to <span class="register">HL</span></td>
+<td class="comment-1" rowspan="1">Restore the screen coordinates to <span class="register">HL</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8e8"></span>E8E8</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1">Have we printed every tile in the row yet?</td>
+<td class="comment-1" rowspan="1">Have we printed every tile in the row yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8e9"></span>E8E9</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP P,$E8E3</td>
-<td class="comment-11" rowspan="1">Jump back if not</td>
+<td class="comment-1" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8ec"></span>E8EC</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Restore the primary screen row counter to <span class="register">B</span></td>
+<td class="comment-1" rowspan="1">Restore the primary screen row counter to <span class="register">B</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8ed"></span>E8ED</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $E8C2</td>
-<td class="comment-11" rowspan="1">Jump back until 6 rows have been scrolled on</td>
+<td class="comment-1" rowspan="1">Jump back until 6 rows have been scrolled on</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e8ef"></span>E8EF</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="E8B4.html">E8B4</a></span></td>
+<td class="prev">
+Prev: <a href="E8B4.html">E8B4</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#e8b7">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="E8F0.html">E8F0</a></span></td>
+<td class="next">
+Next: <a href="E8F0.html">E8F0</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/59575.html">Switch to decimal</a>.</div>
 </footer>
 </body>

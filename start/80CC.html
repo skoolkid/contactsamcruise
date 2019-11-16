@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 80CC</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="start-Asm-c">
 <table class="header">
@@ -15,9 +14,12 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-0">Prev: <a href=""></a></span></td>
+<td class="prev">
+</td>
 <td class="up">Up: <a href="start.html#80cc">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="81C8.html">81C8</a></span></td>
+<td class="next">
+Next: <a href="81C8.html">81C8</a>
+</td>
 </tr>
 </table>
 <div class="description">80CC: Copy data from a row of the screen</div>
@@ -29,7 +31,7 @@
 Used by the routine at <a href="81C8.html">81C8</a>. Copies 256 bytes of data from a row of the screen to its destination, in eight 32-byte blocks.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -42,82 +44,63 @@ Used by the routine at <a href="81C8.html">81C8</a>. Copies 256 bytes of data fr
 <td class="register-desc">Destination (5D60 or 5E60)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="80cc"></span>80CC</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="80cd"></span>80CD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0020</td>
-<td class="comment-11" rowspan="1">There are 32 bytes per block (row of pixels)</td>
+<td class="comment-1" rowspan="1">There are 32 bytes per block (row of pixels)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="80d0"></span>80D0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
-<td class="comment-11" rowspan="1">Copy 32 bytes to the destination</td>
+<td class="comment-1" rowspan="1">Copy 32 bytes to the destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="80d2"></span>80D2</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="80d3"></span>80D3</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next block of 32 bytes to copy</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the next block of 32 bytes to copy</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="80d4"></span>80D4</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,H</td>
-<td class="comment-11" rowspan="1">Have we copied 8 blocks yet?</td>
+<td class="comment-1" rowspan="1">Have we copied 8 blocks yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="80d6"></span>80D6</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$80CC</td>
-<td class="comment-11" rowspan="1">Jump back if not</td>
+<td class="comment-1" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="80d8"></span>80D8</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-0">Prev: <a href=""></a></span></td>
+<td class="prev">
+</td>
 <td class="up">Up: <a href="start.html#80cc">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="81C8.html">81C8</a></span></td>
+<td class="next">
+Next: <a href="81C8.html">81C8</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/start/32972.html">Switch to decimal</a>.</div>
 </footer>
 </body>

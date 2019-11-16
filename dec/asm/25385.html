@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 25385</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="25307.html">25307</a></span></td>
+<td class="prev">
+Prev: <a href="25307.html">25307</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#25385">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="25394.html">25394</a></span></td>
+<td class="next">
+Next: <a href="25394.html">25394</a>
+</td>
 </tr>
 </table>
 <div class="description">25385: Make a gangster chase Sam</div>
@@ -29,7 +32,7 @@
 Used by the command lists at <a href="64790.html">64790</a>, <a href="64816.html">64816</a>, <a href="64846.html">64846</a>, <a href="64878.html">64878</a> and <a href="64902.html">64902</a>. Makes a gangster start or continue chasing Sam (unless Sam is already being carried or is falling from the roof of a building).
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,54 +41,44 @@ Used by the command lists at <a href="64790.html">64790</a>, <a href="64816.html
 <td class="register-desc">Gangster's character number (215-224)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25385"></span>25385</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(32764)</td>
-<td class="comment-11" rowspan="1">Collect Sam's status flags from <a href="32764.html">32764</a></td>
+<td class="comment-1" rowspan="1">Collect Sam's status flags from <a href="32764.html">32764</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25388"></span>25388</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 129</td>
-<td class="comment-11" rowspan="1">Is Sam already being carried, or falling from the roof of a building?</td>
+<td class="comment-1" rowspan="1">Is Sam already being carried, or falling from the roof of a building?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25390"></span>25390</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="31362.html">31362</a></td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25393"></span>25393</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="25307.html">25307</a></span></td>
+<td class="prev">
+Prev: <a href="25307.html">25307</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#25385">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="25394.html">25394</a></span></td>
+<td class="next">
+Next: <a href="25394.html">25394</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/6329.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

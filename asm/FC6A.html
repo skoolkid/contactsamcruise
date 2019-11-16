@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at FC6A</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="FC57.html">FC57</a></span></td>
+<td class="prev">
+Prev: <a href="FC57.html">FC57</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#fc6a">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="FCE2.html">FCE2</a></span></td>
+<td class="next">
+Next: <a href="FCE2.html">FCE2</a>
+</td>
 </tr>
 </table>
 <div class="description">FC6A: Scroll the screen up and down 7 times</div>
@@ -29,445 +32,285 @@
 Used by the routine at <a href="FB52.html">FB52</a> to scroll the screen up and down a row 7 times when Sam hits the ground after being dropped from the roof of a building by a gangster.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fc6a"></span>FC6A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$E8A0</td>
-<td class="comment-11" rowspan="2">Change the instruction at <a href="E87C.html#e8a0">E8A0</a> to RET</td>
+<td class="comment-1" rowspan="2">Change the instruction at <a href="E87C.html#e8a0">E8A0</a> to RET</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc6d"></span>FC6D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$C9</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc6f"></span>FC6F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$DC</td>
-<td class="comment-11" rowspan="2">Change the instruction at <a href="E8B7.html#e8dc">E8DC</a> to RET</td>
+<td class="comment-1" rowspan="2">Change the instruction at <a href="E8B7.html#e8dc">E8DC</a> to RET</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc71"></span>FC71</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$C9</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc73"></span>FC73</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$E7EC</td>
-<td class="comment-11" rowspan="2">Set the instruction at <a href="E7E8.html#e7eb">E7EB</a> to 'LD BC,$0020'</td>
+<td class="comment-1" rowspan="2">Set the instruction at <a href="E7E8.html#e7eb">E7EB</a> to 'LD BC,$0020'</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc76"></span>FC76</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$20</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc78"></span>FC78</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$EF</td>
-<td class="comment-11" rowspan="2">Set the instruction at <a href="E7E8.html#e7ee">E7EE</a> to 'LDIR'</td>
+<td class="comment-1" rowspan="2">Set the instruction at <a href="E7E8.html#e7ee">E7EE</a> to 'LDIR'</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc7a"></span>FC7A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$B0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc7c"></span>FC7C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$07</td>
-<td class="comment-11" rowspan="1">We will scroll the screen up and down a row 7 times</td>
+<td class="comment-1" rowspan="1">We will scroll the screen up and down a row 7 times</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fc7e"></span>FC7E</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the scroll counter</td>
+<td class="comment-1" rowspan="1">Save the scroll counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc7f"></span>FC7F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$4000</td>
-<td class="comment-11" rowspan="10">Save the top 8 rows of pixels on the screen in <a href="7E00.html">page 0x7E</a></td>
+<td class="comment-1" rowspan="10">Save the top 8 rows of pixels on the screen in <a href="7E00.html">page 0x7E</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc82"></span>FC82</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$7E00</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc85"></span>FC85</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0020</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc88"></span>FC88</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$08</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fc8a"></span>FC8A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc8c"></span>FC8C</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc8d"></span>FC8D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc8e"></span>FC8E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$20</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc90"></span>FC90</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc91"></span>FC91</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FC8A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc93"></span>FC93</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$58</td>
-<td class="comment-11" rowspan="2">Save the top row of attribute bytes (5800-581F) in the first 32 bytes of the screen refresh buffer at <a href="7F00.html">7F00</a></td>
+<td class="comment-1" rowspan="2">Save the top row of attribute bytes (5800-581F) in the first 32 bytes of the screen refresh buffer at <a href="7F00.html">7F00</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc95"></span>FC95</td>
-<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc97"></span>FC97</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E87C.html#e888">$E888</a></td>
-<td class="comment-11" rowspan="1">Scroll the screen up a row</td>
+<td class="comment-1" rowspan="1">Scroll the screen up a row</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc9a"></span>FC9A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5060</td>
-<td class="comment-11" rowspan="5">Fill the top line of bytes on the 20th row of the screen with 9s; this is a <a href="../reference/bugs.html#missingBlueLine">bug</a></td>
+<td class="comment-1" rowspan="5">Fill the top line of bytes on the 20th row of the screen with 9s; this is a <a href="../reference/bugs.html#missingBlueLine">bug</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fc9d"></span>FC9D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$20</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fc9f"></span>FC9F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$09</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fca1"></span>FCA1</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fca2"></span>FCA2</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $FC9F</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fca4"></span>FCA4</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the scroll counter (1-7) to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the scroll counter (1-7) to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fca5"></span>FCA5</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the scroll counter again</td>
+<td class="comment-1" rowspan="1">Save the scroll counter again</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fca6"></span>FCA6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="3">Prepare the sound effect parameters</td>
+<td class="comment-1" rowspan="3">Prepare the sound effect parameters</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fca7"></span>FCA7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$0180</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcaa"></span>FCAA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$C0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcac"></span>FCAC</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="FCE4.html">$FCE4</a></td>
-<td class="comment-11" rowspan="1">Make a sound effect</td>
+<td class="comment-1" rowspan="1">Make a sound effect</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcaf"></span>FCAF</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E8B7.html#e8c3">$E8C3</a></td>
-<td class="comment-11" rowspan="1">Scroll the screen down a row</td>
+<td class="comment-1" rowspan="1">Scroll the screen down a row</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcb2"></span>FCB2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7E00</td>
-<td class="comment-11" rowspan="10">Restore the top 8 rows of pixels on the screen from <a href="7E00.html">page 0x7E</a></td>
+<td class="comment-1" rowspan="10">Restore the top 8 rows of pixels on the screen from <a href="7E00.html">page 0x7E</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcb5"></span>FCB5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$4000</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcb8"></span>FCB8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$08</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcba"></span>FCBA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$20</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="fcbc"></span>FCBC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcbe"></span>FCBE</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcbf"></span>FCBF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcc0"></span>FCC0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$20</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcc2"></span>FCC2</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcc3"></span>FCC3</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FCBC</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcc5"></span>FCC5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$58</td>
-<td class="comment-11" rowspan="2">Restore the top row of attribute bytes (5800-581F) from where they were saved earlier</td>
+<td class="comment-1" rowspan="2">Restore the top row of attribute bytes (5800-581F) from where they were saved earlier</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcc7"></span>FCC7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcc9"></span>FCC9</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the scroll counter (1-7) to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the scroll counter (1-7) to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcca"></span>FCCA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$0100</td>
-<td class="comment-11" rowspan="3">Prepare the sound effect parameters</td>
+<td class="comment-1" rowspan="3">Prepare the sound effect parameters</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fccd"></span>FCCD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$60</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fccf"></span>FCCF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcd0"></span>FCD0</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="FCE4.html">$FCE4</a></td>
-<td class="comment-11" rowspan="1">Make a sound effect</td>
+<td class="comment-1" rowspan="1">Make a sound effect</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcd3"></span>FCD3</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC H</td>
-<td class="comment-11" rowspan="1">Decrement the scroll counter</td>
+<td class="comment-1" rowspan="1">Decrement the scroll counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcd4"></span>FCD4</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FC7E</td>
-<td class="comment-11" rowspan="1">Jump back until we've scrolled the screen up and down 7 times</td>
+<td class="comment-1" rowspan="1">Jump back until we've scrolled the screen up and down 7 times</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcd6"></span>FCD6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$E8A0</td>
-<td class="comment-11" rowspan="2">Change the instruction at <a href="E87C.html#e8a0">E8A0</a> back to 'LD HL,$7FFF'</td>
+<td class="comment-1" rowspan="2">Change the instruction at <a href="E87C.html#e8a0">E8A0</a> back to 'LD HL,$7FFF'</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcd9"></span>FCD9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$21</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcdb"></span>FCDB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$DC</td>
-<td class="comment-11" rowspan="2">Change the instruction at <a href="E8B7.html#e8dc">E8DC</a> back to 'LD HL,$7FFF'</td>
+<td class="comment-1" rowspan="2">Change the instruction at <a href="E8B7.html#e8dc">E8DC</a> back to 'LD HL,$7FFF'</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcdd"></span>FCDD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$21</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="fcdf"></span>FCDF</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="FC46.html">$FC46</a></td>
-<td class="comment-11" rowspan="1">Regenerate the table of mirrored values of 0x00-0xFF at <a href="7E00.html">7E00</a></td>
+<td class="comment-1" rowspan="1">Regenerate the table of mirrored values of 0x00-0xFF at <a href="7E00.html">7E00</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="FC57.html">FC57</a></span></td>
+<td class="prev">
+Prev: <a href="FC57.html">FC57</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#fc6a">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="FCE2.html">FCE2</a></span></td>
+<td class="next">
+Next: <a href="FCE2.html">FCE2</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/64618.html">Switch to decimal</a>.</div>
 </footer>
 </body>

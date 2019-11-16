@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 60506</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="60504.html">60504</a></span></td>
+<td class="prev">
+Prev: <a href="60504.html">60504</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#60506">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="60521.html">60521</a></span></td>
+<td class="next">
+Next: <a href="60521.html">60521</a>
+</td>
 </tr>
 </table>
 <div class="description">60506: Move a character from the midstride or mid-action position and update the SRB</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="29149.html">29149</a>, <a href="60539.html">60539</a>, <a href="62892.html">62892</a>, <a href="62926.html">62926</a> and <a href="63128.html">63128</a>. Updates the character's animatory state and location, and updates the <a href="32512.html">screen refresh buffer</a> (SRB) accordingly.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,89 +41,66 @@ Used by the routines at <a href="29149.html">29149</a>, <a href="60539.html">605
 <td class="register-desc">Character number (215-230)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="60506"></span>60506</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="59848.html">59848</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="60509"></span>60509</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,5</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 5 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 5 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="60511"></span>60511</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">A=character's post-midstride/post-action animatory state</td>
+<td class="comment-1" rowspan="1">A=character's post-midstride/post-action animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="60512"></span>60512</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="4">Collect the character's post-midstride/post-action coordinates in <span class="register">DE</span> from bytes 6 and 7 of his buffer</td>
+<td class="comment-1" rowspan="4">Collect the character's post-midstride/post-action coordinates in <span class="register">DE</span> from bytes 6 and 7 of his buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="60513"></span>60513</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="60514"></span>60514</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="60515"></span>60515</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="60516"></span>60516</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),0</td>
-<td class="comment-11" rowspan="1">Set byte 7 of the character's buffer to 0 (to indicate that he is neither midstride nor mid-action now)</td>
+<td class="comment-1" rowspan="1">Set byte 7 of the character's buffer to 0 (to indicate that he is neither midstride nor mid-action now)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="60518"></span>60518</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="59861.html">59861</a></td>
-<td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the character's animatory state and location and update the SRB</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="60504.html">60504</a></span></td>
+<td class="prev">
+Prev: <a href="60504.html">60504</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#60506">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="60521.html">60521</a></span></td>
+<td class="next">
+Next: <a href="60521.html">60521</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/EC5A.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

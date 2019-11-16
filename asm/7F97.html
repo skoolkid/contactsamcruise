@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Game status buffer entry at 7F97</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-g">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7F92.html">7F92</a></span></td>
+<td class="prev">
+Prev: <a href="7F92.html">7F92</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7f97">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7F99.html">7F99</a></span></td>
+<td class="next">
+Next: <a href="7F99.html">7F99</a>
+</td>
 </tr>
 </table>
 <div class="description">7F97: Phone table entry address</div>
@@ -29,39 +32,29 @@
 Used by the routines at <a href="776F.html">776F</a> and <a href="77A3.html">77A3</a>. Holds either the address of the second byte of the entry in the phone message table at <a href="6B4B.html">6B4B</a> or <a href="6B72.html">6B72</a> that corresponds to the phone that Sam is calling (if the person on the other end has a message for him) or picking up a call from, or the address of the final byte of the phone table at <a href="6B72.html">6B72</a> (if the person Sam's calling has no message to give); this address contains the number of the message corresponding to the name that Sam must give in order to receive the telephone message, or 0x00 if no name is required to receive the message, or 0xFF if the person Sam's calling will respond with message <a href="6A44.html">0x2E</a> (I DUNNO NO {name}).
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7f97"></span>7F97</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFW $0000</td>
-<td class="comment-10" rowspan="1"></td>
+<td class="comment-0" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7F92.html">7F92</a></span></td>
+<td class="prev">
+Prev: <a href="7F92.html">7F92</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7f97">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7F99.html">7F99</a></span></td>
+<td class="next">
+Next: <a href="7F99.html">7F99</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/32663.html">Switch to decimal</a>.</div>
 </footer>
 </body>

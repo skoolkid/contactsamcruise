@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 31998</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="31960.html">31960</a></span></td>
+<td class="prev">
+Prev: <a href="31960.html">31960</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#31998">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="32009.html">32009</a></span></td>
+<td class="next">
+Next: <a href="32009.html">32009</a>
+</td>
 </tr>
 </table>
 <div class="description">31998: Check whether Sam should be chased by the police</div>
@@ -29,74 +32,54 @@
 Used by the routine at <a href="29361.html">29361</a>. Returns with the <a href="32747.html">police flags</a> in <span class="register">A</span> if Sam is neither falling from the roof of a building nor being carried by a gangster or policeman; otherwise returns with <span class="register">A</span>=0.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31998"></span>31998</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(32764)</td>
-<td class="comment-11" rowspan="1">Collect Sam's status flags from <a href="32764.html">32764</a></td>
+<td class="comment-1" rowspan="1">Collect Sam's status flags from <a href="32764.html">32764</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="32001"></span>32001</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 129</td>
-<td class="comment-11" rowspan="1">Keep only bits 0 and 7</td>
+<td class="comment-1" rowspan="1">Keep only bits 0 and 7</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="32003"></span>32003</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(32747)</td>
-<td class="comment-11" rowspan="1">Collect the police flags from <a href="32747.html">32747</a></td>
+<td class="comment-1" rowspan="1">Collect the police flags from <a href="32747.html">32747</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="32006"></span>32006</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return unless Sam is being carried by a gangster or policeman, or is falling from a building</td>
+<td class="comment-1" rowspan="1">Return unless Sam is being carried by a gangster or policeman, or is falling from a building</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="32007"></span>32007</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="32008"></span>32008</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="31960.html">31960</a></span></td>
+<td class="prev">
+Prev: <a href="31960.html">31960</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#31998">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="32009.html">32009</a></span></td>
+<td class="next">
+Next: <a href="32009.html">32009</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/7CFE.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

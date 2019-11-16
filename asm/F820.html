@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at F820</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F81F.html">F81F</a></span></td>
+<td class="prev">
+Prev: <a href="F81F.html">F81F</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f820">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F82A.html">F82A</a></span></td>
+<td class="next">
+Next: <a href="F82A.html">F82A</a>
+</td>
 </tr>
 </table>
 <div class="description">F820: Make a character walk up and down for a while</div>
@@ -29,7 +32,7 @@
 Used by the command lists at <a href="FDA0.html">FDA0</a>, <a href="FDB4.html">FDB4</a>, <a href="FDC4.html">FDC4</a>, <a href="FDD0.html">FDD0</a>, <a href="FDEA.html">FDEA</a>, <a href="FDF8.html">FDF8</a>, <a href="FE14.html">FE14</a>, <a href="FE34.html">FE34</a>, <a href="FE49.html">FE49</a>, <a href="FE9A.html">FE9A</a> and <a href="FEA0.html">FEA0</a>.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,61 +41,47 @@ Used by the command lists at <a href="FDA0.html">FDA0</a>, <a href="FDB4.html">F
 <td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f820"></span>F820</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2">Set the door identifier in byte 0x0B of the character's buffer to 0xA8 (which corresponds to no door, meaning the character will not be on door duty)</td>
+<td class="comment-1" rowspan="2">Set the door identifier in byte 0x0B of the character's buffer to 0xA8 (which corresponds to no door, meaning the character will not be on door duty)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f822"></span>F822</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$A8</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f824"></span>F824</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Set the walkabout duration counter in byte 0x0C of the character's buffer to 0xFF (meaning the character will walk up and down for a finite period instead of indefinitely)</td>
+<td class="comment-1" rowspan="2">Set the walkabout duration counter in byte 0x0C of the character's buffer to 0xFF (meaning the character will walk up and down for a finite period instead of indefinitely)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f825"></span>F825</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$FF</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f827"></span>F827</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F748.html#f74d">$F74D</a></td>
-<td class="comment-11" rowspan="1">Make the character begin walking up and down</td>
+<td class="comment-1" rowspan="1">Make the character begin walking up and down</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F81F.html">F81F</a></span></td>
+<td class="prev">
+Prev: <a href="F81F.html">F81F</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f820">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F82A.html">F82A</a></span></td>
+<td class="next">
+Next: <a href="F82A.html">F82A</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/63520.html">Switch to decimal</a>.</div>
 </footer>
 </body>

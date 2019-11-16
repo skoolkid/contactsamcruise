@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 75A4</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="75A3.html">75A3</a></span></td>
+<td class="prev">
+Prev: <a href="75A3.html">75A3</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#75a4">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="75C2.html">75C2</a></span></td>
+<td class="next">
+Next: <a href="75C2.html">75C2</a>
+</td>
 </tr>
 </table>
 <div class="description">75A4: Check whether Sam is standing next to a fuse that has not been blown yet</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="7425.html">7425</a> and <a href="74AA.html">74AA</a>. Returns with the zero flag set if Sam is standing next to a fuse that has not been blown yet.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,159 +41,119 @@ Used by the routines at <a href="7425.html">7425</a> and <a href="74AA.html">74A
 <td class="register-desc">0xE6 (Sam)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="75a4"></span>75A4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$73C3</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the fuse location table at <a href="73C3.html">73C3</a></td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the fuse location table at <a href="73C3.html">73C3</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75a7"></span>75A7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of Sam's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of Sam's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75a9"></span>75A9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0601</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=6 (there are six fuses), <span class="register">C</span>=1 (fuse identifier)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=6 (there are six fuses), <span class="register">C</span>=1 (fuse identifier)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="75ac"></span>75AC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of a fuse</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=y-coordinate of a fuse</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75ad"></span>75AD</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC DE</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the x-coordinate of the fuse</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the x-coordinate of the fuse</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75ae"></span>75AE</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Does the fuse's y-coordinate match Sam's y-coordinate?</td>
+<td class="comment-1" rowspan="1">Does the fuse's y-coordinate match Sam's y-coordinate?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75af"></span>75AF</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$75BC</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75b1"></span>75B1</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of Sam's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of Sam's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75b2"></span>75B2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the fuse</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x-coordinate of the fuse</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75b3"></span>75B3</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Compare it with Sam's x-coordinate</td>
+<td class="comment-1" rowspan="1">Compare it with Sam's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75b4"></span>75B4</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> back at byte 0x02 of Sam's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> back at byte 0x02 of Sam's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75b5"></span>75B5</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$75BC</td>
-<td class="comment-11" rowspan="1">Jump unless Sam is standing next to the fuse</td>
+<td class="comment-1" rowspan="1">Jump unless Sam is standing next to the fuse</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75b7"></span>75B7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FB6)</td>
-<td class="comment-11" rowspan="1">Collect the fuse flags from <a href="7FB6.html">7FB6</a></td>
+<td class="comment-1" rowspan="1">Collect the fuse flags from <a href="7FB6.html">7FB6</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75ba"></span>75BA</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND C</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the fuse has not been blown yet</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the fuse has not been blown yet</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75bb"></span>75BB</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="75bc"></span>75BC</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLC C</td>
-<td class="comment-11" rowspan="1">Move the fuse identifier bit in <span class="register">C</span> leftwards</td>
+<td class="comment-1" rowspan="1">Move the fuse identifier bit in <span class="register">C</span> leftwards</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75be"></span>75BE</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC DE</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the next entry in the fuse location table</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the next entry in the fuse location table</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75bf"></span>75BF</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $75AC</td>
-<td class="comment-11" rowspan="1">Jump back until all fuse locations have been checked</td>
+<td class="comment-1" rowspan="1">Jump back until all fuse locations have been checked</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75c1"></span>75C1</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="75A3.html">75A3</a></span></td>
+<td class="prev">
+Prev: <a href="75A3.html">75A3</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#75a4">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="75C2.html">75C2</a></span></td>
+<td class="next">
+Next: <a href="75C2.html">75C2</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/30116.html">Switch to decimal</a>.</div>
 </footer>
 </body>

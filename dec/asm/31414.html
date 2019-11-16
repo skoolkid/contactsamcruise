@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 31414</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="31413.html">31413</a></span></td>
+<td class="prev">
+Prev: <a href="31413.html">31413</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#31414">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="31458.html">31458</a></span></td>
+<td class="next">
+Next: <a href="31458.html">31458</a>
+</td>
 </tr>
 </table>
 <div class="description">31414: Increment the score and decrement Sam's cash supply at regular intervals</div>
@@ -29,117 +32,76 @@
 Used by the routine at <a href="61440.html">61440</a>. Increments the score and decrements Sam's cash supply every 5.12s. Displays the endgame cutscene and enters demo mode if Sam runs out of money.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31414"></span>31414</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(32750)</td>
-<td class="comment-11" rowspan="1">Collect the current game mode (0-4) from <a href="32750.html">32750</a></td>
+<td class="comment-1" rowspan="1">Collect the current game mode (0-4) from <a href="32750.html">32750</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31417"></span>31417</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is it demo mode?</td>
+<td class="comment-1" rowspan="1">Is it demo mode?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31418"></span>31418</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31419"></span>31419</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,(23672)</td>
-<td class="comment-11" rowspan="1">Collect the two least significant bytes of the system variable FRAMES in <span class="register">HL</span></td>
+<td class="comment-1" rowspan="1">Collect the two least significant bytes of the system variable FRAMES in <span class="register">HL</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31422"></span>31422</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,(32724)</td>
-<td class="comment-11" rowspan="1"><span class="register">DE</span>=two least significant bytes of the system variable FRAMES as they were the last time the score was incremented</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=two least significant bytes of the system variable FRAMES as they were the last time the score was incremented</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31426"></span>31426</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,65280</td>
-<td class="comment-11" rowspan="1"><span class="register">BC</span>=-256</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=-256</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31429"></span>31429</td>
-<td class="bytes-0"></td>
 <td class="instruction">SBC HL,DE</td>
-<td class="comment-11" rowspan="2">Was the score last incremented at least 5.12s ago?</td>
+<td class="comment-1" rowspan="2">Was the score last incremented at least 5.12s ago?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31431"></span>31431</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31432"></span>31432</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31433"></span>31433</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,(23672)</td>
-<td class="comment-11" rowspan="1">Collect the two least significant bytes of the system variable FRAMES in <span class="register">HL</span></td>
+<td class="comment-1" rowspan="1">Collect the two least significant bytes of the system variable FRAMES in <span class="register">HL</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31436"></span>31436</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (32724),HL</td>
-<td class="comment-11" rowspan="1">Store these bytes at <a href="32724.html">32724</a> for comparison next time</td>
+<td class="comment-1" rowspan="1">Store these bytes at <a href="32724.html">32724</a> for comparison next time</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31439"></span>31439</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="28337.html">28337</a></td>
-<td class="comment-11" rowspan="1">Increment the score and decrement Sam's cash supply</td>
+<td class="comment-1" rowspan="1">Increment the score and decrement Sam's cash supply</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31442"></span>31442</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return unless Sam has no money left</td>
+<td class="comment-1" rowspan="1">Return unless Sam has no money left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31443"></span>31443</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,34</td>
-<td class="comment-11" rowspan="1">Message <a href="27026.html">34</a>: 'I WAS BROKE AGAIN...'</td>
+<td class="comment-1" rowspan="1">Message <a href="27026.html">34</a>: 'I WAS BROKE AGAIN...'</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -152,25 +114,18 @@ This entry point is used by the routines at <a href="24832.html">24832</a>, <a h
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31445"></span>31445</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save the message number briefly</td>
+<td class="comment-1" rowspan="1">Save the message number briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31446"></span>31446</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,57</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=57, <span class="register">D</span>=8, <span class="register">E</span>=216: the top-left corner of the cutscene window will be at (224,19), with Sam at (229,19) (in his office)</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=57, <span class="register">D</span>=8, <span class="register">E</span>=216: the top-left corner of the cutscene window will be at (224,19), with Sam at (229,19) (in his office)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31448"></span>31448</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,2264</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -183,38 +138,36 @@ This entry point is used by the routines at <a href="31642.html">31642</a> and <
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31451"></span>31451</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="30822.html">30822</a></td>
-<td class="comment-11" rowspan="1">Prepare for the cutscene</td>
+<td class="comment-1" rowspan="1">Prepare for the cutscene</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31454"></span>31454</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the cutscene message number to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore the cutscene message number to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31455"></span>31455</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="30989.html">30989</a></td>
-<td class="comment-11" rowspan="1">Display the cutscene</td>
+<td class="comment-1" rowspan="1">Display the cutscene</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="31413.html">31413</a></span></td>
+<td class="prev">
+Prev: <a href="31413.html">31413</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#31414">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="31458.html">31458</a></span></td>
+<td class="next">
+Next: <a href="31458.html">31458</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/7AB6.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

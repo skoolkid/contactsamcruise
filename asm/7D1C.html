@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Data at 7D1C</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-b">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7D09.html">7D09</a></span></td>
+<td class="prev">
+Prev: <a href="7D09.html">7D09</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7d1c">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7D59.html">7D59</a></span></td>
+<td class="next">
+Next: <a href="7D59.html">7D59</a>
+</td>
 </tr>
 </table>
 <div class="description">7D1C: Object/key/cash/message location table</div>
@@ -68,40 +71,22 @@ The second and third bytes contain the coordinates of the object. The contents o
 The first entry in this table is for the hook. It is active from the beginning of the game, deactivated (by the routine at <a href="7603.html">7603</a>) when the hook is picked up, and reactivated (by the routine at <a href="7BB6.html">7BB6</a>) after the hook has been thrown and finished flying.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d1c"></span>7D1C</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $40</td>
-<td class="comment-11" rowspan="1">Bit 6 set: object that must be picked up</td>
+<td class="comment-1" rowspan="1">Bit 6 set: object that must be picked up</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d1d"></span>7D1D</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $33,$0D</td>
-<td class="comment-11" rowspan="1">Location (top floor of no. 74)</td>
+<td class="comment-1" rowspan="1">Location (top floor of no. 74)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d1f"></span>7D1F</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $40</td>
-<td class="comment-11" rowspan="1">Bit 6 set (see <a href="7FE9.html">7FE9</a>)</td>
+<td class="comment-1" rowspan="1">Bit 6 set (see <a href="7FE9.html">7FE9</a>)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -114,25 +99,19 @@ The next entry is for the budgie. It is activated by the routine at <a href="750
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d20"></span>7D20</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $C1</td>
-<td class="comment-11" rowspan="1">Bit 6 set: object that must be picked up</td>
+<td class="comment-1" rowspan="1">Bit 6 set: object that must be picked up</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d21"></span>7D21</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $E1,$0D</td>
-<td class="comment-11" rowspan="1">Location (room above Sam's office)</td>
+<td class="comment-1" rowspan="1">Location (room above Sam's office)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d23"></span>7D23</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $80</td>
-<td class="comment-11" rowspan="1">Bit 7 set (see <a href="7FE9.html">7FE9</a>)</td>
+<td class="comment-1" rowspan="1">Bit 7 set (see <a href="7FE9.html">7FE9</a>)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -145,25 +124,19 @@ The next entry is for the key to no. 74. It is activated by the routine at <a hr
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d24"></span>7D24</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $91</td>
-<td class="comment-11" rowspan="1">Bit 4 set: key</td>
+<td class="comment-1" rowspan="1">Bit 4 set: key</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d25"></span>7D25</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $22,$0D</td>
-<td class="comment-11" rowspan="1">Location (in the room past the catwalk)</td>
+<td class="comment-1" rowspan="1">Location (in the room past the catwalk)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d27"></span>7D27</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $08</td>
-<td class="comment-11" rowspan="1">Bit 3 set (see <a href="7FEA.html">7FEA</a>)</td>
+<td class="comment-1" rowspan="1">Bit 3 set (see <a href="7FEA.html">7FEA</a>)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -176,25 +149,19 @@ The next entry is for the key to no. 31. It is active from the beginning of the 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d28"></span>7D28</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $10</td>
-<td class="comment-11" rowspan="1">Bit 4 set: key</td>
+<td class="comment-1" rowspan="1">Bit 4 set: key</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d29"></span>7D29</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $FC,$0D</td>
-<td class="comment-11" rowspan="1">Location (top floor of no. 15)</td>
+<td class="comment-1" rowspan="1">Location (top floor of no. 15)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d2b"></span>7D2B</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $10</td>
-<td class="comment-11" rowspan="1">Bit 4 set (see <a href="7FEA.html">7FEA</a>)</td>
+<td class="comment-1" rowspan="1">Bit 4 set (see <a href="7FEA.html">7FEA</a>)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -207,25 +174,19 @@ The next entry is for the key to no. 27. It is activated by the routine at <a hr
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d2c"></span>7D2C</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $91</td>
-<td class="comment-11" rowspan="1">Bit 4 set: key</td>
+<td class="comment-1" rowspan="1">Bit 4 set: key</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d2d"></span>7D2D</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $AA,$23</td>
-<td class="comment-11" rowspan="1">Location (middle of the road next to no. 27)</td>
+<td class="comment-1" rowspan="1">Location (middle of the road next to no. 27)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d2f"></span>7D2F</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $20</td>
-<td class="comment-11" rowspan="1">Bit 5 set (see <a href="7FEA.html">7FEA</a>)</td>
+<td class="comment-1" rowspan="1">Bit 5 set (see <a href="7FEA.html">7FEA</a>)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -238,25 +199,19 @@ The next entry is for the key to no. 15. It is active from the beginning of the 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d30"></span>7D30</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $10</td>
-<td class="comment-11" rowspan="1">Bit 4 set: key</td>
+<td class="comment-1" rowspan="1">Bit 4 set: key</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d31"></span>7D31</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $6A,$19</td>
-<td class="comment-11" rowspan="1">Location (second floor of no. 31)</td>
+<td class="comment-1" rowspan="1">Location (second floor of no. 31)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d33"></span>7D33</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $40</td>
-<td class="comment-11" rowspan="1">Bit 6 set (see <a href="7FEA.html">7FEA</a>)</td>
+<td class="comment-1" rowspan="1">Bit 6 set (see <a href="7FEA.html">7FEA</a>)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -269,25 +224,19 @@ The next entry is for the dead man's body on the top floor of the hotel. It is a
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d34"></span>7D34</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $20</td>
-<td class="comment-11" rowspan="1">Bit 5 set: message</td>
+<td class="comment-1" rowspan="1">Bit 5 set: message</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d35"></span>7D35</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $40,$07</td>
-<td class="comment-11" rowspan="1">Location (top floor of the hotel)</td>
+<td class="comment-1" rowspan="1">Location (top floor of the hotel)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d37"></span>7D37</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $35</td>
-<td class="comment-11" rowspan="1">Message <a href="6AB3.html">0x35</a>: 'THERE'S A MAN'S BODY ON THE FLOOR'</td>
+<td class="comment-1" rowspan="1">Message <a href="6AB3.html">0x35</a>: 'THERE'S A MAN'S BODY ON THE FLOOR'</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -300,25 +249,19 @@ The next entry is for where someone growls 'NO KEY EH!'. It is active from the b
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d38"></span>7D38</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $20</td>
-<td class="comment-11" rowspan="1">Bit 5 set: message</td>
+<td class="comment-1" rowspan="1">Bit 5 set: message</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d39"></span>7D39</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $F9,$1B</td>
-<td class="comment-11" rowspan="1">Location (stairs up to the second floor of no. 15)</td>
+<td class="comment-1" rowspan="1">Location (stairs up to the second floor of no. 15)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d3b"></span>7D3B</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $3D</td>
-<td class="comment-11" rowspan="1">Message <a href="7D9B.html">0x3D</a>: 'SOMEONE GROWLED 'NO KEY EH!''</td>
+<td class="comment-1" rowspan="1">Message <a href="7D9B.html">0x3D</a>: 'SOMEONE GROWLED 'NO KEY EH!''</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -331,25 +274,19 @@ The next entry is for where there's a safe with four locks. It is active from th
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d3c"></span>7D3C</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $20</td>
-<td class="comment-11" rowspan="1">Bit 5 set: message</td>
+<td class="comment-1" rowspan="1">Bit 5 set: message</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d3d"></span>7D3D</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $E4,$0D</td>
-<td class="comment-11" rowspan="1">Location (room above Sam's office)</td>
+<td class="comment-1" rowspan="1">Location (room above Sam's office)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d3f"></span>7D3F</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $47</td>
-<td class="comment-11" rowspan="1">Message <a href="5BE8.html">0x47</a>: 'THERES A SAFE WITH 4 LOCKS'</td>
+<td class="comment-1" rowspan="1">Message <a href="5BE8.html">0x47</a>: 'THERES A SAFE WITH 4 LOCKS'</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -362,25 +299,19 @@ The next entry is for where someone below says 'CRUISE WAS DRESSED AS THE OIL MA
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d40"></span>7D40</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $20</td>
-<td class="comment-11" rowspan="1">Bit 5 set: message</td>
+<td class="comment-1" rowspan="1">Bit 5 set: message</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d41"></span>7D41</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $D6,$06</td>
-<td class="comment-11" rowspan="1">Location (on the rope above no. 19)</td>
+<td class="comment-1" rowspan="1">Location (on the rope above no. 19)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d43"></span>7D43</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $46</td>
-<td class="comment-11" rowspan="1">Message <a href="5BBB.html">0x46</a>: 'SOMEONE BELOW SAID 'CRUISE WAS DRESSED AS THE OIL MAN. DONT LET ANYONE PAST''</td>
+<td class="comment-1" rowspan="1">Message <a href="5BBB.html">0x46</a>: 'SOMEONE BELOW SAID 'CRUISE WAS DRESSED AS THE OIL MAN. DONT LET ANYONE PAST''</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -393,25 +324,19 @@ The next entry is for the cash bonus on the top floor of the hotel. It is deacti
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d44"></span>7D44</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">Bits 4-6 reset: cash</td>
+<td class="comment-1" rowspan="1">Bits 4-6 reset: cash</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d45"></span>7D45</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $3A,$07</td>
-<td class="comment-11" rowspan="1">Location</td>
+<td class="comment-1" rowspan="1">Location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d47"></span>7D47</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $64</td>
-<td class="comment-11" rowspan="1">$100</td>
+<td class="comment-1" rowspan="1">$100</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -424,25 +349,19 @@ The next entry is for the cash bonus on the first floor of no. 19. It is deactiv
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d48"></span>7D48</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">Bits 4-6 reset: cash</td>
+<td class="comment-1" rowspan="1">Bits 4-6 reset: cash</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d49"></span>7D49</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $DC,$1F</td>
-<td class="comment-11" rowspan="1">Location</td>
+<td class="comment-1" rowspan="1">Location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d4b"></span>7D4B</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $32</td>
-<td class="comment-11" rowspan="1">$50</td>
+<td class="comment-1" rowspan="1">$50</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -455,25 +374,19 @@ The next entry is for the cash bonus on the second floor of no. 15. It is deacti
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d4c"></span>7D4C</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">Bits 4-6 reset: cash</td>
+<td class="comment-1" rowspan="1">Bits 4-6 reset: cash</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d4d"></span>7D4D</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $F2,$19</td>
-<td class="comment-11" rowspan="1">Location</td>
+<td class="comment-1" rowspan="1">Location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d4f"></span>7D4F</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $64</td>
-<td class="comment-11" rowspan="1">$100</td>
+<td class="comment-1" rowspan="1">$100</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -486,25 +399,19 @@ The next entry is for the cash bonus on the top floor of no. 74. It is deactivat
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d50"></span>7D50</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">Bits 4-6 reset: cash</td>
+<td class="comment-1" rowspan="1">Bits 4-6 reset: cash</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d51"></span>7D51</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $28,$0D</td>
-<td class="comment-11" rowspan="1">Location</td>
+<td class="comment-1" rowspan="1">Location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d53"></span>7D53</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $64</td>
-<td class="comment-11" rowspan="1">$100</td>
+<td class="comment-1" rowspan="1">$100</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -517,25 +424,19 @@ The last entry is for the cash bonus in the room above Sam's office. It is deact
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d54"></span>7D54</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">Bits 4-6 reset: cash</td>
+<td class="comment-1" rowspan="1">Bits 4-6 reset: cash</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d55"></span>7D55</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $E2,$0D</td>
-<td class="comment-11" rowspan="1">Location</td>
+<td class="comment-1" rowspan="1">Location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d57"></span>7D57</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $C8</td>
-<td class="comment-11" rowspan="1">$200</td>
+<td class="comment-1" rowspan="1">$200</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -548,24 +449,26 @@ And finally the end marker.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d58"></span>7D58</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $FF</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7D09.html">7D09</a></span></td>
+<td class="prev">
+Prev: <a href="7D09.html">7D09</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7d1c">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7D59.html">7D59</a></span></td>
+<td class="next">
+Next: <a href="7D59.html">7D59</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/32028.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at 63281</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63209.html">63209</a></span></td>
+<td class="prev">
+Prev: <a href="63209.html">63209</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63281">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63304.html">63304</a></span></td>
+<td class="next">
+Next: <a href="63304.html">63304</a>
+</td>
 </tr>
 </table>
 <div class="description">63281: Make a character drop Sam</div>
@@ -29,7 +32,7 @@
 Used by the command lists at <a href="64756.html">64756</a>, <a href="64790.html">64790</a>, <a href="64816.html">64816</a>, <a href="64846.html">64846</a> and <a href="64878.html">64878</a>. Makes the character drop Sam and stop running, and restarts the command list.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,96 +41,73 @@ Used by the command lists at <a href="64756.html">64756</a>, <a href="64790.html
 <td class="register-desc">Character number (215-229)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63281"></span>63281</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="59848.html">59848</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63284"></span>63284</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 242</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the character in phase 1 or 3 of his walking animation</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=animatory state of the character in phase 1 or 3 of his walking animation</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63286"></span>63286</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="59861.html">59861</a></td>
-<td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the character's animatory state and location and update the SRB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63289"></span>63289</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63290"></span>63290</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 112</td>
-<td class="comment-11" rowspan="1">Keep only bits 4-6</td>
+<td class="comment-1" rowspan="1">Keep only bits 4-6</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63292"></span>63292</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 16</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#16">16</a>: Is this character a policeman?</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#16">16</a>: Is this character a policeman?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63294"></span>63294</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,63301</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63296"></span>63296</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,128</td>
-<td class="comment-11" rowspan="2">Set bit 7 at <a href="32747.html">32747</a>: Sam is in jail</td>
+<td class="comment-1" rowspan="2">Set bit 7 at <a href="32747.html">32747</a>: Sam is in jail</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63298"></span>63298</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (32747),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63301"></span>63301</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="63110.html">63110</a></td>
-<td class="comment-11" rowspan="1">Make the character stop running and restart the command list</td>
+<td class="comment-1" rowspan="1">Make the character stop running and restart the command list</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63209.html">63209</a></span></td>
+<td class="prev">
+Prev: <a href="63209.html">63209</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63281">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63304.html">63304</a></span></td>
+<td class="next">
+Next: <a href="63304.html">63304</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F731.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

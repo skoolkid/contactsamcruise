@@ -4,7 +4,6 @@
 <title>Contact Sam Cruise: Routine at F600</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F5FB.html">F5FB</a></span></td>
+<td class="prev">
+Prev: <a href="F5FB.html">F5FB</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f600">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F686.html">F686</a></span></td>
+<td class="next">
+Next: <a href="F686.html">F686</a>
+</td>
 </tr>
 </table>
 <div class="description">F600: Make a character go to a location</div>
@@ -29,7 +32,7 @@
 Used by many command lists to make a character go to a specified place.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,27 +41,17 @@ Used by many command lists to make a character go to a specified place.
 <td class="register-desc">Character number (0xD7-0xE5)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f600"></span>F600</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7CC8.html">$7CC8</a></td>
-<td class="comment-11" rowspan="1">Collect the destination coordinates from the command list</td>
+<td class="comment-1" rowspan="1">Collect the destination coordinates from the command list</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f603"></span>F603</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $F616</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -71,53 +64,39 @@ This entry point is used by the command lists at <a href="61EA.html">61EA</a>, <
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f605"></span>F605</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7CC8.html">$7CC8</a></td>
-<td class="comment-11" rowspan="1">Collect the destination coordinates from the command list</td>
+<td class="comment-1" rowspan="1">Collect the destination coordinates from the command list</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f608"></span>F608</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$0A</td>
-<td class="comment-11" rowspan="1">Change the address of the primary command routine in bytes 0x08 and 0x09 of the character's buffer to <a href="F600.html#f60a">F60A</a> (below)</td>
+<td class="comment-1" rowspan="1">Change the address of the primary command routine in bytes 0x08 and 0x09 of the character's buffer to <a href="F600.html#f60a">F60A</a> (below)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f60a"></span>F60A</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F698.html">$F698</a></td>
-<td class="comment-11" rowspan="1">Exit now if the character is midstride</td>
+<td class="comment-1" rowspan="1">Exit now if the character is midstride</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f60d"></span>F60D</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="ED8C.html">$ED8C</a></td>
-<td class="comment-11" rowspan="1">Determine the next move the character should make to reach his destination</td>
+<td class="comment-1" rowspan="1">Determine the next move the character should make to reach his destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f610"></span>F610</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Has the character reached his destination?</td>
+<td class="comment-1" rowspan="1">Has the character reached his destination?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f611"></span>F611</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F61F</td>
-<td class="comment-11" rowspan="1">Move to the next command in the command list if so</td>
+<td class="comment-1" rowspan="1">Move to the next command in the command list if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f613"></span>F613</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="72B1.html#7327">$7327</a></td>
-<td class="comment-11" rowspan="1">Move the character one step towards his destination</td>
+<td class="comment-1" rowspan="1">Move the character one step towards his destination</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -130,151 +109,104 @@ The character is not carrying Sam.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f616"></span>F616</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$18</td>
-<td class="comment-11" rowspan="1">Change the address of the primary command routine in bytes 0x08 and 0x09 of the character's buffer to <a href="F600.html#f618">F618</a> (below)</td>
+<td class="comment-1" rowspan="1">Change the address of the primary command routine in bytes 0x08 and 0x09 of the character's buffer to <a href="F600.html#f618">F618</a> (below)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f618"></span>F618</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F698.html">$F698</a></td>
-<td class="comment-11" rowspan="1">Exit now if the character is midstride</td>
+<td class="comment-1" rowspan="1">Exit now if the character is midstride</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f61b"></span>F61B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="ED8C.html">$ED8C</a></td>
-<td class="comment-11" rowspan="1">Determine the next move the character should make to reach his destination</td>
+<td class="comment-1" rowspan="1">Determine the next move the character should make to reach his destination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f61e"></span>F61E</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Has the character reached his destination?</td>
+<td class="comment-1" rowspan="1">Has the character reached his destination?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f61f"></span>F61F</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="F280.html">$F280</a></td>
-<td class="comment-11" rowspan="1">Move to the next command in the command list if so</td>
+<td class="comment-1" rowspan="1">Move to the next command in the command list if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f622"></span>F622</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $05</td>
-<td class="comment-11" rowspan="1">Is the character standing next to a closed door?</td>
+<td class="comment-1" rowspan="1">Is the character standing next to a closed door?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f624"></span>F624</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$F67C</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f626"></span>F626</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save the direction indicator</td>
+<td class="comment-1" rowspan="1">Save the direction indicator</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f627"></span>F627</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$F5CE</td>
-<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at the interruptible subcommand routine at <a href="F5CE.html">F5CE</a></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the interruptible subcommand routine at <a href="F5CE.html">F5CE</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f62a"></span>F62A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0D</td>
-<td class="comment-11" rowspan="2">Pick up the location/destination indicator from byte 0x0D of the character's buffer</td>
+<td class="comment-1" rowspan="2">Pick up the location/destination indicator from byte 0x0D of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f62c"></span>F62C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f62d"></span>F62D</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is the character on the sidewalk or the road (or on the front steps of the hotel but heading somewhere other than the hotel)?</td>
+<td class="comment-1" rowspan="1">Is the character on the sidewalk or the road (or on the front steps of the hotel but heading somewhere other than the hotel)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f62e"></span>F62E</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F64B</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f630"></span>F630</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$F5FB</td>
-<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at the interruptible subcommand routine at <a href="F5FB.html">F5FB</a></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the interruptible subcommand routine at <a href="F5FB.html">F5FB</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f633"></span>F633</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="2">Place the x- or y-coordinate of the character's intermediate destination into byte 0x10 of his buffer</td>
+<td class="comment-1" rowspan="2">Place the x- or y-coordinate of the character's intermediate destination into byte 0x10 of his buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f635"></span>F635</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f636"></span>F636</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="4">Copy the interruptible subcommand routine address in <span class="register">BC</span> (<a href="F5AC.html">F5AC</a>, <a href="F5CE.html">F5CE</a> or <a href="F5FB.html">F5FB</a>) into bytes 0x0E and 0x0F of the character's buffer</td>
+<td class="comment-1" rowspan="4">Copy the interruptible subcommand routine address in <span class="register">BC</span> (<a href="F5AC.html">F5AC</a>, <a href="F5CE.html">F5CE</a> or <a href="F5FB.html">F5FB</a>) into bytes 0x0E and 0x0F of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f638"></span>F638</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f639"></span>F639</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f63a"></span>F63A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f63b"></span>F63B</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the direction indicator (1-4) to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore the direction indicator (1-4) to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -287,53 +219,39 @@ This entry point is used by the routines at <a href="72B1.html">72B1</a> and <a 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f63c"></span>F63C</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1">Does the character need to move right next to reach his destination?</td>
+<td class="comment-1" rowspan="1">Does the character need to move right next to reach his destination?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f63d"></span>F63D</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="EBAE.html">$EBAE</a></td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f640"></span>F640</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1">Does the character need to move left?</td>
+<td class="comment-1" rowspan="1">Does the character need to move left?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f641"></span>F641</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="EBBB.html">$EBBB</a></td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f644"></span>F644</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1">Does the character need to move up?</td>
+<td class="comment-1" rowspan="1">Does the character need to move up?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f645"></span>F645</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="EB9B.html">$EB9B</a></td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f648"></span>F648</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="EBA0.html">$EBA0</a></td>
-<td class="comment-11" rowspan="1">Make the character move down</td>
+<td class="comment-1" rowspan="1">Make the character move down</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -346,102 +264,73 @@ The character is not on the sidewalk or road.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f64b"></span>F64B</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1">Is the character's destination in a region other than the one he's in at the moment?</td>
+<td class="comment-1" rowspan="1">Is the character's destination in a region other than the one he's in at the moment?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f64c"></span>F64C</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F66B</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f64e"></span>F64E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="2">Collect the character's y-coordinate from byte 0x02 of his buffer</td>
+<td class="comment-1" rowspan="2">Collect the character's y-coordinate from byte 0x02 of his buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f650"></span>F650</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f651"></span>F651</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $1F</td>
-<td class="comment-11" rowspan="1">Is the character on or below the level of the first floor?</td>
+<td class="comment-1" rowspan="1">Is the character on or below the level of the first floor?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f653"></span>F653</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$F662</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f655"></span>F655</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x0A of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x0A of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f657"></span>F657</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=character's destination x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=character's destination x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f658"></span>F658</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0B</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x0B</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f659"></span>F659</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Is the character's y-coordinate the same as that of his destination?</td>
+<td class="comment-1" rowspan="1">Is the character's y-coordinate the same as that of his destination?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f65a"></span>F65A</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F633</td>
-<td class="comment-11" rowspan="1">If so, send the character to his destination x-coordinate (on the same floor)</td>
+<td class="comment-1" rowspan="1">If so, send the character to his destination x-coordinate (on the same floor)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f65c"></span>F65C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=character's destination y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=character's destination y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f65d"></span>F65D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$F5AC</td>
-<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at the interruptible subcommand routine at <a href="F5AC.html">F5AC</a></td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the interruptible subcommand routine at <a href="F5AC.html">F5AC</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f660"></span>F660</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $F633</td>
-<td class="comment-11" rowspan="1">Send the character up or down the stairs towards his destination</td>
+<td class="comment-1" rowspan="1">Send the character up or down the stairs towards his destination</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -454,32 +343,24 @@ The character is in the same region as his destination, and on or below the leve
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f662"></span>F662</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="1">Byte 0x04 of the character's buffer holds his z-coordinate</td>
+<td class="comment-1" rowspan="1">Byte 0x04 of the character's buffer holds his z-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f664"></span>F664</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="1">Is the character indoors (z=1)?</td>
+<td class="comment-1" rowspan="1">Is the character indoors (z=1)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f666"></span>F666</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL NZ,<a href="F485.html">$F485</a></td>
-<td class="comment-11" rowspan="1">If so, make him consider flipping a light switch</td>
+<td class="comment-1" rowspan="1">If so, make him consider flipping a light switch</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f669"></span>F669</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $F63B</td>
-<td class="comment-11" rowspan="1">Move the character one step closer to his destination</td>
+<td class="comment-1" rowspan="1">Move the character one step closer to his destination</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -492,67 +373,48 @@ The character's destination is in a region other than the one he's in at the mom
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f66b"></span>F66B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="2">Collect the character's y-coordinate from byte 0x02 of his buffer</td>
+<td class="comment-1" rowspan="2">Collect the character's y-coordinate from byte 0x02 of his buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f66d"></span>F66D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f66e"></span>F66E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,$1F</td>
-<td class="comment-11" rowspan="1">This is the y-coordinate of the first floor</td>
+<td class="comment-1" rowspan="1">This is the y-coordinate of the first floor</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f670"></span>F670</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP E</td>
-<td class="comment-11" rowspan="1">Is the character above the first floor?</td>
+<td class="comment-1" rowspan="1">Is the character above the first floor?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f671"></span>F671</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$F65D</td>
-<td class="comment-11" rowspan="1">Jump if so to send him down to the first floor</td>
+<td class="comment-1" rowspan="1">Jump if so to send him down to the first floor</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f673"></span>F673</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="1">Byte 0x04 of the character's buffer holds his z-coordinate</td>
+<td class="comment-1" rowspan="1">Byte 0x04 of the character's buffer holds his z-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f675"></span>F675</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="1">Is the character indoors (z=1)?</td>
+<td class="comment-1" rowspan="1">Is the character indoors (z=1)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f677"></span>F677</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL NZ,<a href="F5A0.html">$F5A0</a></td>
-<td class="comment-11" rowspan="1">If so, make him consider flipping a light switch off before leaving</td>
+<td class="comment-1" rowspan="1">If so, make him consider flipping a light switch off before leaving</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f67a"></span>F67A</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $F63B</td>
-<td class="comment-11" rowspan="1">Move the character one step closer to his destination</td>
+<td class="comment-1" rowspan="1">Move the character one step closer to his destination</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -565,45 +427,40 @@ The character is standing next to a closed door. This entry point is used by the
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f67c"></span>F67C</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="F308.html#f32c">$F32C</a></td>
-<td class="comment-11" rowspan="1">Jump if the character is standing behind a closed door</td>
+<td class="comment-1" rowspan="1">Jump if the character is standing behind a closed door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f67f"></span>F67F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="2">Prepare the MSB of the address of the interruptible subcommand routine at <a href="F346.html">F346</a> in byte 0x0F of the character's buffer</td>
+<td class="comment-1" rowspan="2">Prepare the MSB of the address of the interruptible subcommand routine at <a href="F346.html">F346</a> in byte 0x0F of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f681"></span>F681</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$F3</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f683"></span>F683</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F338.html">$F338</a></td>
-<td class="comment-11" rowspan="1">Prepare the LSB and raise the character's arm</td>
+<td class="comment-1" rowspan="1">Prepare the LSB and raise the character's arm</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F5FB.html">F5FB</a></span></td>
+<td class="prev">
+Prev: <a href="F5FB.html">F5FB</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f600">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F686.html">F686</a></span></td>
+<td class="next">
+Next: <a href="F686.html">F686</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Contact Sam Cruise RAM disassembly 20190619</div>
+<div class="release">The complete Contact Sam Cruise RAM disassembly 20191116</div>
 <div class="copyright">&#169; 1986 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/62976.html">Switch to decimal</a>.</div>
 </footer>
 </body>
