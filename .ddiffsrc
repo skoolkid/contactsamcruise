@@ -1,5 +1,6 @@
-# rc file for disassembly-diff, skooldiff and write-files
+# rc file for check-asms, check-bins, disassembly-diff, skooldiff, write-files
 
 OLD_VERSION=20191116
 SK_OLD_VERSION=8.0
+SKOOL2BIN_START=20637
 SNAPSHOT=$CONTACTSAMCRUISE_HOME/build/contact_sam_cruise.z80
