@@ -1,4 +1,4 @@
-; Copyright 2010-2019 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2020 Richard Dymond (rjdymond@gmail.com)
 
 @start
 @defb=20648:8,136,31,252,3,128,1,192,0,12,0,8,144
@@ -63,7 +63,7 @@
 ; https://skoolkit.ca
 ;
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2019 Richard Dymond (this disassembly)
+; Copyright 2010-2020 Richard Dymond (this disassembly)
 @bfix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -886,6 +886,7 @@ s24819 DEFS 13
 ; immobilised after meeting Lana in his office.
 ;
 ; H #b230 (Sam)
+@refs=29912
 @label=SAMLANA
 c24832 LD L,8        ; {Set Sam's main action timer (in byte #b8 of his buffer)
  24834 LD (HL),L     ; to 8}
@@ -974,6 +975,7 @@ s24924 DEFB 0
 ; command list.
 ;
 ; H #b224 (Gangster)
+@refs=61948
 @label=RESETHOOD
 c24925 LD DE,6648    ; #REGe=248, #REGd=25 (coordinates of the spot where the
                      ; gangster at no. 15 waits for Sam)
@@ -1003,6 +1005,7 @@ c24925 LD DE,6648    ; #REGe=248, #REGd=25 (coordinates of the spot where the
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R60672. It is called from the main loop at #R61483 when 'J' is
 ; pressed.
+@refs=61483
 @label=JOYSTICK
 c24951 LD A,96       ; Message #b96: newline
  24953 LD (32722),A  ; Store this message number at #R32722 so that it can be
@@ -1143,6 +1146,7 @@ c25074 LD L,3        ; {Set bit 7 of byte #b3 of the gangster's buffer to make
 ; Used by the command list at #R25066.
 ;
 ; H #b224 (Gangster)
+@refs=61948
 @label=WAITFORSAM
 c25081 CALL 25074    ; Is the gangster close enough to Sam to pick him up?
  25084 RET NC        ; Return if not
@@ -1214,6 +1218,7 @@ c25113 LD L,16       ; {Increment byte #b16 of the sniper's buffer to 1
 ; the sniper from the moment he appears until he hides again.
 ;
 ; H #b227 (sniper)
+@refs=61948
 @label=MVSNIPER2
 c25118 LD L,2        ; {#REGa=sniper's y-coordinate
  25120 LD A,(HL)     ; }
@@ -1376,6 +1381,7 @@ s25306 DEFB 0
 ; interruptible subcommand routine at #R25118.
 ;
 ; H #b227 (sniper)
+@refs=61948
 @label=MVSNIPER1
 c25307 LD A,(32767)  ; #R32767 holds the y-coordinate of the topmost row of the
                      ; play area on screen
@@ -1438,6 +1444,7 @@ c25307 LD A,(32767)  ; #R32767 holds the y-coordinate of the topmost row of the
 ; carried or is falling from the roof of a building).
 ;
 ; H Gangster's character number (#b215-#b224)
+@refs=61948
 @label=HOODTOSAM1
 c25385 LD A,(32764)  ; Collect Sam's status flags from #R32764
  25388 AND 129       ; Is Sam already being carried, or falling from the roof
@@ -1524,6 +1531,7 @@ b25395 DEFB 0,192,192,192,255   ; J will be 1 (with probability 3/4), 4
 ; left or right, it will be moved to a location just off-screen to the left.
 ;
 ; H #b228 or #b229 (banknote)
+@refs=61948
 @label=MVBANKNOTE
 c25420 LD A,(32745)  ; #R32745 holds Sam's object inventory
  25423 RLCA          ; {Has Sam got the hook (bit 6 set)?
@@ -1898,6 +1906,7 @@ b25748 DEFB 0        ; x-coordinate increment (if facing left)
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R60672. It is called from the main loop at #R61483 when 'R' is
 ; pressed.
+@refs=61483
 @label=ROLL
 c25784 LD HL,25724   ; The animation phase table for Sam when rolling is at
                      ; #R25724
@@ -1908,6 +1917,7 @@ c25784 LD HL,25724   ; The animation phase table for Sam when rolling is at
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R60672. It is called from the main loop at #R61483 when 'S' is
 ; pressed.
+@refs=61483
 @label=SOMERSAULT
 c25789 LD HL,25748   ; The animation phase table for Sam when somersaulting is
                      ; at #R25748
@@ -1924,7 +1934,7 @@ c25789 LD HL,25748   ; The animation phase table for Sam when somersaulting is
                      ; #b12 and #b13 of Sam's buffer
 ; This entry point is used by the routine at #R29912 when bit 3 at #R32764 is
 ; set (by this routine - see above).
-@label=*
+@refs=29912
 @ssub=LD HL,58880+8
 *25805 LD HL,58888   ; {Reset Sam's main action timer (in byte #b8 of his
  25808 LD (HL),6     ; buffer) to 6}
@@ -4607,6 +4617,7 @@ c28616 LD C,A        ; {Point #REGbc at the relevant last used message number
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R60672. It is called from the main loop at #R61483 when 'M' is
 ; pressed.
+@refs=61483
 @label=MSGSPEED
 c28635 LD A,(28612)  ; {Toggle the message display interval at #R28612 between
  28638 XOR 3         ; 4 (fast) and 7 (slow)
@@ -5414,6 +5425,7 @@ c29332 LD A,(32713)  ; #REGa=Sam's current disguise ID (0-7)
 ; and chase and pick up Sam when appropriate.
 ;
 ; H #b222 or #b223 (policeman)
+@refs=61948
 @label=MVCOP1
 c29354 LD L,8        ; {Change the address of the primary command routine in
 @ssub=LD (HL),29361%256
@@ -5428,6 +5440,7 @@ c29354 LD L,8        ; {Change the address of the primary command routine in
 ; continue patrol duty, and chase and pick up Sam when appropriate.
 ;
 ; H #b222 or #b223 (policeman)
+@refs=61948
 @label=MVCOP2
 c29361 CALL 63128    ; Exit now if the policeman is midstride
  29364 CALL 31998    ; {Is Sam wanted by the police at the moment?
@@ -5879,6 +5892,7 @@ c29854 CALL 27892    ; Is the x-coordinate of the front column of Sam's sprite
 ; pressed.
 ;
 ; H #b230 (Sam)
+@refs=61483
 @label=FUSE
 c29866 CALL 30116    ; Is Sam standing next to a fuse that has not yet been
                      ; blown?
@@ -6111,6 +6125,7 @@ c30053 PUSH DE       ; Save the duration
 ; pressed.
 ;
 ; H #b230 (Sam)
+@refs=61483
 @label=LIGHT
 c30070 CALL 62518    ; Is Sam standing next to a light switch?
  30073 JR Z,30089    ; Jump if not
@@ -6131,6 +6146,7 @@ c30070 CALL 62518    ; Is Sam standing next to a light switch?
 ; pressed.
 ;
 ; H #b230 (Sam)
+@refs=61483
 @label=BLIND
 c30092 CALL 63152    ; Is Sam standing next to a light switch or a window
                      ; blind?
@@ -6184,6 +6200,7 @@ c30116 LD DE,29635   ; Point #REGde at the fuse location table at #R29635
 ; blowing a fuse, switching a light on or off, raising or lowering a blind, or
 ; throwing the hook (and therefore has his arm raised), or is picking up an
 ; object (and therefore has his knees bent).
+@refs=29912
 @label=ARMDOWN
 c30146 XOR A         ; {Clear all of Sam's status flags at #R32764
  30147 LD (32764),A  ; }
@@ -6498,6 +6515,7 @@ s30457 DEFB 0
 ; pressed.
 ;
 ; H #b230 (Sam)
+@refs=61483
 @label=PHONE
 c30458 CALL 29854    ; Is Sam standing next to a telephone?
  30461 RET Z         ; Return if not
@@ -6714,6 +6732,7 @@ c30627 LD E,A        ; #REGe=telephone identifier
 ;
 ; Used by the routine at #R29912 when bit 4 at #R32764 is set (by the routine
 ; at #R30458), indicating that Sam is on the phone.
+@refs=29912
 @label=ONPHONE
 c30675 LD HL,32667   ; The telephone call status flags are stored at #R32667
  30678 BIT 6,(HL)    ; Has someone asked Sam 'WHO'S THERE?'
@@ -7119,6 +7138,7 @@ c31126 LD A,(32750)  ; #REGa=current game mode (0-4)
 ; pressed.
 ;
 ; H #b230 (Sam)
+@refs=61483
 @label=GETOBJECT
 c31204 LD A,32       ; {Set bit 5 of Sam's status flags at #R32764
  31206 LD (32764),A  ; }
@@ -7236,6 +7256,7 @@ c31289 LD C,A        ; #REGc=door status flags
 ; command are terminated.
 ;
 ; H Gangster's character number (#b215-#b224)
+@refs=61948
 @label=HOODWALK
 c31319 CALL 63118    ; Abort now if the gangster is midstride or has his arm up
  31322 CALL 29597    ; Is Sam nearby, and should the gangster go after him?
@@ -7254,6 +7275,7 @@ c31319 CALL 63118    ; Abort now if the gangster is midstride or has his arm up
 ; Used by the command lists at #R64790, #R64816, #R64846 and #R64902.
 ;
 ; H Gangster's character number (#b215-#b224)
+@refs=61948
 @label=AWAITSAM
 c31338 LD L,11       ; {Copy the door identifier (#b168 or #b175) and walkabout
  31340 CALL 61809    ; duration indicator (always 0) from the command list into
@@ -7377,6 +7399,7 @@ c31458 LD HL,27544   ; The phone initialisation data is at #R27544 and #R27557
 ;
 ; Used by the routine at #R29912 when bit 0 at #R32764 is set (by the routine
 ; at #R29149), indicating that Sam is being carried by a gangster or policeman.
+@refs=29912
 @label=CARRIED
 c31476 LD HL,1       ; {Set Sam's main action timer to 1 (so that we come here
 @ssub=LD (58880+8),HL
@@ -7464,6 +7487,7 @@ s31578 DEFS 2
 ; imprisoned there.
 ;
 ; H Character number (#b215-#b230)
+@refs=60347
 @label=BYJAILDOOR
 c31580 LD A,H        ; #REGa=character number
 @ssub=CP 58880/256
@@ -7483,6 +7507,7 @@ c31580 LD A,H        ; #REGa=character number
 ; of jail.
 ;
 ; H #b219 (Jailer)
+@refs=61948
 @label=FREESAM
 c31594 XOR A         ; {Remove the address of this primary command routine from
  31595 LD L,9        ; bytes #b8 and #b9 of the jailer's buffer, triggering a
@@ -7552,6 +7577,7 @@ c31642 PUSH HL       ; Save the policeman's character number
 ; location on the top floor of no. 74.
 ;
 ; H #b229 (hook)
+@refs=61948
 @label=MVHOOK
 c31670 CALL 59848    ; Update the SRB for the hook's current animatory state
                      ; and location
@@ -7592,6 +7618,7 @@ c31670 CALL 59848    ; Update the SRB for the hook's current animatory state
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R60672. It is called from the main loop at #R61483 when 'C' is
 ; pressed.
+@refs=61483
 @label=USEHOOK
 c31713 LD A,(32745)  ; Collect the object inventory flags from #R32745
  31716 BIT 6,A       ; Has Sam got the hook?
@@ -18535,8 +18562,9 @@ c59136 LD DE,40990   ; The first byte of the back buffer is at #R40990
 ; The address of this entry point is placed into bytes #b8 and #b9 of a
 ; policeman's buffer by the routine at #R24832, and is also found in the
 ; command lists at #R64940 and #R65172.
+@refs=61948
 @label=DONOWT
- 59147 RET           ;
+*59147 RET           ;
 
 ; Print a tile
 ;
@@ -20003,6 +20031,7 @@ c60347 CALL 60293    ; Make the character stand up if he's lying down
 ; #R31580 and #R64512. The address of this entry point is also found at
 ; #R40982; it is used to handle a character who is moving from one of a set of
 ; certain special locations, but it does not actually do anything special.
+@refs=60347
 *60423 LD L,0        ; Point #REGhl at byte #b0 of the character's buffer
  60425 LD C,5        ; {Point #REGbc at byte #b5 of the character's buffer
  60427 LD B,H        ; }
@@ -20205,6 +20234,7 @@ s60624 DEFS 2
 ; pressed.
 ;
 ; H #b230 (Sam)
+@refs=61483
 @label=UP
 c60626 CALL 60315    ; Move Sam up (or in the next best direction) if possible
  60629 JR 60644      ; Reset Sam's action timers and make a sound effect
@@ -20216,6 +20246,7 @@ c60626 CALL 60315    ; Move Sam up (or in the next best direction) if possible
 ; pressed.
 ;
 ; H #b230 (Sam)
+@refs=61483
 @label=DOWN
 c60631 CALL 60320    ; Move Sam down (or in the next best direction) if
                      ; possible
@@ -20228,6 +20259,7 @@ c60631 CALL 60320    ; Move Sam down (or in the next best direction) if
 ; pressed.
 ;
 ; H #b230 (Sam)
+@refs=61483
 @label=RIGHT
 c60636 CALL 60334    ; Move Sam right (or in the next best direction) if
                      ; possible
@@ -20240,6 +20272,7 @@ c60636 CALL 60334    ; Move Sam right (or in the next best direction) if
 ; pressed.
 ;
 ; H #b230 (Sam)
+@refs=61483
 @label=LEFT
 c60641 CALL 60347    ; Move Sam left (or in the next best direction) if
                      ; possible
@@ -21815,6 +21848,7 @@ b62177 DEFB 8        ; Character #R55040(#b215) (bit 3 set: key to no. 74)
 ; pressed.
 ;
 ; H #b230 (Sam)
+@refs=61483
 @label=KNOCK
 c62192 LD A,64       ; Set bit 6 of #REGa
 ; This entry point is used by the routine at #R62212 with #REGa=32 (bit 5 set).
@@ -21842,6 +21876,7 @@ c62212 LD A,32       ; Set bit 5 of #REGa
 ; at #R62192), indicating that Sam has knocked on or is opening a door.
 ;
 ; H #b230 (Sam)
+@refs=29912
 @label=SAMBYDOOR
 c62216 XOR A         ; {Clear Sam's status flags at #R32764
  62217 LD (32764),A  ; }
@@ -21903,6 +21938,7 @@ c62264 LD L,14       ; {Set the address of the interruptible subcommand routine
 ; character open the door if he can, or knock and begin waiting for an answer.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=BYDOOR1
 c62278 CALL 62120    ; Check whether the character can open the door, and open
                      ; it if so
@@ -21931,6 +21967,7 @@ c62278 CALL 62120    ; Check whether the character can open the door, and open
 ; on if he's already waited long enough.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=DOORWAIT
 c62297 LD D,H        ; #REGd=character number
  62298 CALL 62099    ; Check whether the door is open
@@ -21988,6 +22025,7 @@ c62325 LD (HL),20    ; Initialise the counter in byte #b16 of the character's
 ; case he must be a policeman).
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=BYDOOR3
 c62339 LD L,0        ; Point #REGhl at byte #b0 of the character's buffer
  62341 BIT 2,(HL)    ; Does the character have his arm raised?
@@ -22355,6 +22393,7 @@ c62597 CALL 62518    ; Is the character standing next to a light switch?
 ; window-pair).
 ;
 ; H Character number (#b215-#b229)
+@refs=62926
 @label=LSWITCH2
 c62694 CALL 62518    ; Is the character standing next to a light switch?
  62697 RET Z         ; Return if not
@@ -22491,6 +22530,7 @@ c62880 CALL 62518    ; Is the character standing next to a light switch?
 ; heading for.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=UPDOWNSC
 c62892 LD L,0        ; Point #REGhl at byte #b0 of the character's buffer
  62894 BIT 0,(HL)    ; Is the character midstride?
@@ -22523,6 +22563,7 @@ s62925 DEFB 0
 ; destination.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=WALKFLOOR
 @nowarn
 c62926 LD BC,62694   ; Point #REGbc at the routine at #R62694
@@ -22568,6 +22609,7 @@ c62966 LD BC,62880   ; Point #REGbc at the routine at #R62880
 ; destination.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=WALKSTREET
 @nowarn
 c62971 LD BC,62958   ; Point #REGbc at the #S/RET/ instruction at #R62958
@@ -22578,6 +22620,7 @@ c62971 LD BC,62958   ; Point #REGbc at the #S/RET/ instruction at #R62958
 ; Used by many command lists to make a character go to a specified place.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=GOTO
 c62976 CALL 31944    ; Collect the destination coordinates from the command
                      ; list
@@ -22813,6 +22856,7 @@ s63196 DEFS 2
 ; #R65097, #R65112, #R65143 and #R65184.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=RESTART
 c63198 LD L,22       ; Byte #b22 of the character's buffer holds the offset of
                      ; the point reached in the command list (relative to the
@@ -22833,6 +22877,7 @@ s63205 DEFS 4
 ; or lower a window blind.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=WALK
 c63209 CALL 63128    ; Exit now if the character is midstride
  63212 BIT 2,(HL)    ; Is the character's arm raised?
@@ -22891,6 +22936,7 @@ c63209 CALL 63128    ; Exit now if the character is midstride
 ; Makes the character drop Sam and stop running, and restarts the command list.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=DROPSAM
 c63281 CALL 59848    ; Update the SRB for the character's current animatory
                      ; state and location
@@ -22915,6 +22961,7 @@ c63281 CALL 59848    ; Update the SRB for the character's current animatory
 ; the door (in which case this primary command terminates).
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=DOORDUTY
 c63304 LD L,11       ; {Copy the door identifier (#b168, #b172, #b173 or #b179)
  63306 CALL 61809    ; and walkabout duration indicator (#b0 or #b255) from the
@@ -23062,6 +23109,7 @@ c63409 EX DE,HL      ; {Collect the return address from the stack into #REGde
 ; before going to answer the door.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=ANSWERDOOR
 c63423 PUSH HL       ; Save the character number briefly
  63424 CALL 62252    ; Open the door
@@ -23193,6 +23241,7 @@ s63519 DEFB 0
 ; #R65016, #R65044, #R65076, #R65097, #R65178 and #R65184.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=WALKABOUT
 c63520 LD L,11       ; {Set the door identifier in byte #b11 of the character's
  63522 LD (HL),168   ; buffer to #b168 (which corresponds to no door, meaning
@@ -23208,6 +23257,7 @@ c63520 LD L,11       ; {Set the door identifier in byte #b11 of the character's
 ; Used by the command list at #R65170. Makes the cat run up and down for ever.
 ;
 ; H #b218 (Cat)
+@refs=61948
 @label=MVCAT
 c63530 LD L,1        ; Point #REGhl at byte #b1 of the cat's buffer
  63532 LD A,(HL)     ; #REGa=cat's initial x-coordinate
@@ -23237,6 +23287,7 @@ c63530 LD L,1        ; Point #REGhl at byte #b1 of the cat's buffer
 ; up or down to his next walkabout destination, and then terminates.
 ;
 ; H #b218 (Cat)
+@refs=61948
 @label=CATRUN
 c63558 LD L,0        ; Point #REGhl at byte #b0 of the cat's buffer
  63560 BIT 0,(HL)    ; Is the cat in running phase 2 (animatory state
@@ -23740,6 +23791,7 @@ s64004 DEFB 0
 ; until he has finished staggering from being dazed by the collision.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=KNOCKED1
 c64005 LD A,138      ; #REGa=#b10 (short knockout delay) + #b128 (quick
                      ; recovery)
@@ -23874,7 +23926,8 @@ c64131 CALL 63994    ; Place the address of the next instruction into bytes
 ; '#S/JR NZ/' instruction below, which should be a '#S/JR Z/' instead.|The
 ; remainder of this routine makes the character return (by walking backwards or
 ; forwards as required) to the spot where he was hit.||
- 64134 LD L,21       ; {Collect the character's pre-knockout x-coordinate from
+@refs=61948
+*64134 LD L,21       ; {Collect the character's pre-knockout x-coordinate from
  64136 LD A,(HL)     ; byte #b21 of his buffer}
  64137 LD L,1        ; {Does it match the character's current x-coordinate?
  64139 CP (HL)       ; }
@@ -23970,6 +24023,7 @@ s64216 DEFS 2
 ; pressed.
 ;
 ; H #b230 (Sam)
+@refs=61483
 @label=DISGUISE
 c64218 CALL 59848    ; Update the SRB for Sam's current animatory state and
                      ; location
@@ -24097,6 +24151,7 @@ b64326 DEFB 13       ; Landing y-coordinate when stepping off the right edge of
 ; the character throughout his descent from the roof until he lands.
 ;
 ; H Character number (#b215-#b229)
+@refs=61948
 @label=OFFROOF
 c64331 CALL 64227    ; Move the character to the next point in his descent
  64334 RET C         ; Return if the character has not landed yet
@@ -24132,6 +24187,7 @@ c64331 CALL 64227    ; Move the character to the next point in his descent
 ;
 ; B Location indicator (2-6)
 ; H Character number (#b215-#b230)
+@refs=60347
 @label=ROOFEDGE
 c64338 CALL 64512    ; Deal with the case where #REGb=2 and the character is
                      ; standing on the edge of the roof of no. 17 or the
@@ -24195,7 +24251,7 @@ c64338 CALL 64512    ; Deal with the case where #REGb=2 and the character is
  64400 LD (32764),A  ; that he's falling from the roof of a building}
 ; This entry point is used by the routine at #R29912 when bit 7 at #R32764 is
 ; set (by this routine - see above).
-@label=*
+@refs=29912
 *64403 CALL 60521    ; Make a sound effect
  64406 LD L,20       ; {Collect byte #b20 of Sam's buffer
  64408 LD A,(HL)     ; }
