@@ -51,6 +51,7 @@
 @defb=23264:23,23,23,23,23,23,23,23,50,50,50,50,50,50,50,50,48,48,48,48
 @defs=23284:9,32
 @remote=save:33010,33148
+@expand=#DEFINE2,1(LOGO,#UDGARRAY(8,#IF({0}||{1}==0)(23,16),2,256,tindex=3,alpha=#IF({1})(0,255));20640-20647;20672-20679;20704-20711({{ImagePath}}/{2}|Contact Sam Cruise))
 @replace=/#BUG(?![A-Z])/#LINK:Bugs
 @replace=/#FACT(?![A-Z])/#LINK:Facts
 @replace=/#POKE(?![A-Z])/#LINK:Pokes
