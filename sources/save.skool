@@ -1,4 +1,5 @@
-; Copyright 2010-2013, 2015, 2017-2019 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2013, 2015, 2017-2019, 2021 Richard Dymond
+; (rjdymond@gmail.com)
 
 @defb=00258:24,60,0,60,64,126,60,124,0,60,8,8,24,8,0,0,64,60,60,120
 @defb=00279:36,36,60,60,120,126,0,0,0,64,60,60,120,0,36,36,60,60,120,126
@@ -51,11 +52,12 @@
 @defb=06880:184
 @start
 @writer=:samcruise.ContactSamCruiseAsmWriter
+@expand=#DEFINE0(S,#FORMAT({{mode[case]}}))
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2013, 2015, 2017-2019 Richard Dymond (this disassembly)
+; Copyright 2010-2013, 2015, 2017-2019, 2021 Richard Dymond (this disassembly)
 @org
 
 ; Save Contact Sam Cruise to tape

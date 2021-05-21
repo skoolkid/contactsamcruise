@@ -1,4 +1,4 @@
-# Copyright 2008-2015, 2017-2019 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2015, 2017-2019, 2021 Richard Dymond (rjdymond@gmail.com)
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -18,7 +18,7 @@ import html
 from skoolkit.graphics import Frame, Udg as BaseUdg
 from skoolkit.skoolhtml import HtmlWriter, join
 from skoolkit.skoolasm import AsmWriter
-from skoolkit.skoolmacro import (parse_ints, parse_brackets, parse_image_macro, parse_strings,
+from skoolkit.skoolmacro import (parse_ints, parse_brackets, parse_image_macro,
                                  MacroParsingError, UnsupportedMacroError)
 
 # Sniper's animatory state
@@ -28,10 +28,6 @@ def parse_as(text, index):
     end, state = parse_ints(text, index, 1, (None,))
     end, link_text = parse_brackets(text, end, '#N({},,,1)(0x)'.format(state))
     return end, state, link_text
-
-def parse_s(text, index, case):
-    end, s = parse_strings(text, index, 1)
-    return end, s.lower() if case == 1 else s
 
 class ContactSamCruiseHtmlWriter(HtmlWriter):
     def init(self):
@@ -800,10 +796,6 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         frame = Frame(udgs, scale, 0, *crop_rect, name=frame)
         return end, self.handle_image(frame, fname, cwd, alt, 'UDGImagePath')
 
-    def expand_s(self, text, index, cwd):
-        # #S/text/
-        return parse_s(text, index, self.case)
-
     def _build_segment(self, x, y):
         self.push_snapshot()
         self._adjust_lights_and_blinds(1, 1)
@@ -830,10 +822,6 @@ class ContactSamCruiseAsmWriter(AsmWriter):
 
     def expand_disguise(self, text, index):
         raise UnsupportedMacroError()
-
-    def expand_s(self, text, index):
-        # #S/text/
-        return parse_s(text, index, self.case)
 
     def expand_segment(self, text, index):
         raise UnsupportedMacroError()

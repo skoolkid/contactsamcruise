@@ -1,4 +1,5 @@
-; Copyright 2010-2013, 2015, 2017-2018 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2013, 2015, 2017-2018, 2021 Richard Dymond
+; (rjdymond@gmail.com)
 
 @defb=00259:60,0,124,60,66,120,60,66,62,126,126,0,66,60,124
 @defb=00275:60,60,126,60,8,0,0,124,126,66,0,0,16,0,62,126
@@ -121,13 +122,14 @@ c24055 JP 23831      ; Jump to where it really starts
  23858 JP (HL)       ; Jump to #R32815
 
 @start
+@expand=#DEFINE0(S,#FORMAT({{mode[case]}}))
 @replace=/#BUG(?![A-Z])/#LINK:Bugs
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 @writer=:samcruise.ContactSamCruiseAsmWriter
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2013, 2015, 2017-2019 Richard Dymond (this disassembly)
+; Copyright 2010-2013, 2015, 2017-2019, 2021 Richard Dymond (this disassembly)
 @org
 
 ; Collect one bit from tape
