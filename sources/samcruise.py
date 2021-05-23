@@ -24,11 +24,6 @@ from skoolkit.skoolmacro import (parse_ints, parse_brackets, parse_image_macro,
 # Sniper's animatory state
 SNIPER_AS = 54
 
-def parse_as(text, index):
-    end, state = parse_ints(text, index, 1, (None,))
-    end, link_text = parse_brackets(text, end, '#N({},,,1)(0x)'.format(state))
-    return end, state, link_text
-
 class ContactSamCruiseHtmlWriter(HtmlWriter):
     def init(self):
         self.char_buf_descs = self.get_sections('CharBuf', True)
@@ -765,14 +760,6 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         addr = ref + 55040
         return self.snapshot[addr:addr + 4096:512]
 
-    def expand_as(self, text, index, cwd):
-        # #AS[state][(link text)]
-        end, state, link_text = parse_as(text, index)
-        as_file = self.relpath(cwd, self.paths['AnimatoryStates'])
-        anchor = '#{}'.format(state) if state is not None else ''
-        link = self.format_link(as_file + anchor, link_text)
-        return end, link
-
     def _build_disguise(self, disguise_id):
         attr = 79
         ref_reps = self.snapshot[56894:56909]
@@ -815,11 +802,6 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         return end, self.handle_image(frame, fname, cwd, alt, 'ScreenshotImagePath')
 
 class ContactSamCruiseAsmWriter(AsmWriter):
-    def expand_as(self, text, index):
-        # #AS[state][(link text)]
-        end, state, link_text = parse_as(text, index)
-        return end, link_text
-
     def expand_disguise(self, text, index):
         raise UnsupportedMacroError()
 
