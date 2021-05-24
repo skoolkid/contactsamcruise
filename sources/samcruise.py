@@ -16,10 +16,8 @@
 import html
 
 from skoolkit.graphics import Frame, Udg as BaseUdg
-from skoolkit.skoolhtml import HtmlWriter, join
-from skoolkit.skoolasm import AsmWriter
-from skoolkit.skoolmacro import (parse_ints, parse_brackets, parse_image_macro,
-                                 MacroParsingError, UnsupportedMacroError)
+from skoolkit.skoolhtml import HtmlWriter
+from skoolkit.skoolmacro import parse_image_macro, MacroParsingError
 
 # Sniper's animatory state
 SNIPER_AS = 54
@@ -800,13 +798,6 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         udgs = self._build_segment(x, y)
         frame = Frame(udgs, scale, 0, *crop_rect, name=frame)
         return end, self.handle_image(frame, fname, cwd, alt, 'ScreenshotImagePath')
-
-class ContactSamCruiseAsmWriter(AsmWriter):
-    def expand_disguise(self, text, index):
-        raise UnsupportedMacroError()
-
-    def expand_segment(self, text, index):
-        raise UnsupportedMacroError()
 
 class Udg(BaseUdg):
     def __init__(self, attr, data, mask=None, attr_addr=None, ref_addr=None, ref=None, udg_page=None, x=None, y=None, fg_udg=None):

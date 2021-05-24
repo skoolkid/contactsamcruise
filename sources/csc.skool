@@ -61,7 +61,6 @@
 @replace=/#nn\i/#N(\1,4,,1)($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
-@writer=:samcruise.ContactSamCruiseAsmWriter
 ; Contact Sam Cruise disassembly
 ; https://skoolkit.ca
 ;

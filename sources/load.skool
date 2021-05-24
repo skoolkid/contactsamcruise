@@ -127,7 +127,6 @@ c24055 JP 23831      ; Jump to where it really starts
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
-@writer=:samcruise.ContactSamCruiseAsmWriter
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
 ; Copyright 2010-2013, 2015, 2017-2019, 2021 Richard Dymond (this disassembly)
 @org
