@@ -57,8 +57,8 @@
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
 ; Copyright 2010-2013, 2015, 2017-2019, 2021 Richard Dymond (this disassembly)
-@org
 
+@org
 ; Save Contact Sam Cruise to tape
 ;
 @ignoreua

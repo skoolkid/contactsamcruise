@@ -129,8 +129,8 @@ c24055 JP 23831      ; Jump to where it really starts
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
 ; Copyright 2010-2013, 2015, 2017-2019, 2021 Richard Dymond (this disassembly)
-@org
 
+@org
 ; Collect one bit from tape
 ;
 ; Used by the routine at #R32815.

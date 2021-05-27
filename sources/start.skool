@@ -1,4 +1,5 @@
-; Copyright 2010-2013, 2015, 2017, 2018 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2013, 2015, 2017, 2018, 2021 Richard Dymond
+; (rjdymond@gmail.com)
 
 @start
 @remote=main:61600
@@ -6,9 +7,9 @@
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2013, 2015, 2017, 2018 Richard Dymond (this disassembly)
-@org
+; Copyright 2010-2013, 2015, 2017, 2018, 2021 Richard Dymond (this disassembly)
 
+@org
 ; Copy data from a row of the screen
 ;
 ; Used by the routine at #R33224. Copies 256 bytes of data from a row of the
@@ -27,7 +28,6 @@ c32972 PUSH HL       ;
  32984 RET           ;
 
 @org
-
 ; Start
 ;
 ; We jump here from the load routine at #R32815@load. Before the game starts,
