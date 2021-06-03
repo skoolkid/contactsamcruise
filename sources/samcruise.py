@@ -71,18 +71,6 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         if self.case == 1:
             self.b_fmt = self.b_fmt.lower()
 
-    def init_page(self, skoolkit, game):
-        if 'alt_base' in game:
-            path = skoolkit['path']
-            page_id = skoolkit['page_id']
-            if page_id.startswith(('Asm', 'load-Asm', 'save-Asm', 'start-Asm')):
-                addr_str = path.rsplit('/', 1)[-1][:-5]
-                if game['alt_base'] == 'decimal':
-                    path = path.replace(addr_str, str(int(addr_str, 16)))
-                else:
-                    path = path.replace(addr_str, '{:04X}'.format(int(addr_str)))
-            skoolkit['Path'] = skoolkit['index_href'][:-10] + game['alt_dir'] + path
-
     def _get_sprite_udg(self, state, attr, ref_page, udg_page):
         ref_addr = state + 256 * ref_page
         ref = self.snapshot[ref_addr]
