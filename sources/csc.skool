@@ -56,7 +56,7 @@
 @expand=#DEFINE0(FACT,#LINK:Facts)
 @expand=#DEFINE0(POKE,#LINK:Pokes)
 @expand=#DEFINE0(S,#FORMAT({{mode[case]}}))
-@expand=#DEFINE1,1,3(-1)(#N({0},,,1)(0x))(AS,#LINK#(:AnimatoryStates#IF({0}>=0)(#{0}))({1}))
+@expand=#DEF(#AS(s=-1)(t=#N($s,,,1)(0x)) #LINK#(:AnimatoryStates#IF($s>=0)(#$s))($t))
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#nn\i/#N(\1,4,,1)($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
