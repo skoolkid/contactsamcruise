@@ -51,11 +51,11 @@
 @defb=23264:23,23,23,23,23,23,23,23,50,50,50,50,50,50,50,50,48,48,48,48
 @defs=23284:9,32
 @remote=save:33010,33148
-@expand=#DEFINE2,1(LOGO,#UDGARRAY(8,#IF({0}||{1}==0)(23,16),2,256,tindex=3,alpha=#IF({1})(0,255));20640-20647;20672-20679;20704-20711({{ImagePath}}/{2}|Contact Sam Cruise))
-@expand=#DEFINE0(BUG,#LINK:Bugs)
-@expand=#DEFINE0(FACT,#LINK:Facts)
-@expand=#DEFINE0(POKE,#LINK:Pokes)
-@expand=#DEFINE0(S,#FORMAT({{mode[case]}}))
+@expand=#DEF(#LOGO(dark,trans)(fname) #UDGARRAY(8,23-7*($trans-$dark),2,256,tindex=3,alpha=(1-$trans)*255);20640-20647;20672-20679;20704-20711({ImagePath}/$fname|Contact Sam Cruise))
+@expand=#DEF(#BUG #LINK:Bugs)
+@expand=#DEF(#FACT #LINK:Facts)
+@expand=#DEF(#POKE #LINK:Pokes)
+@expand=#DEF(#S #FORMAT({mode[case]}))
 @expand=#DEF(#AS(s=-1)(t=#N($s,,,1)(0x)) #LINK#(:AnimatoryStates#IF($s>=0)(#$s))($t))
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#nn\i/#N(\1,4,,1)($)

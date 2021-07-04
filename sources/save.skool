@@ -51,7 +51,7 @@
 @defs=06144:768,56
 @defb=06880:184
 @start
-@expand=#DEFINE0(S,#FORMAT({{mode[case]}}))
+@expand=#DEF(#S #FORMAT({mode[case]}))
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)

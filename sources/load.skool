@@ -122,7 +122,7 @@ c24055 JP 23831      ; Jump to where it really starts
  23858 JP (HL)       ; Jump to #R32815
 
 @start
-@expand=#DEFINE0(S,#FORMAT({{mode[case]}}))
+@expand=#DEF(#S #FORMAT({mode[case]}))
 @replace=/#BUG(?![A-Z])/#LINK:Bugs
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
