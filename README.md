@@ -11,8 +11,11 @@ to browse the latest release:
 * [Contact Sam Cruise disassembly](https://skoolkid.github.io/contactsamcruise/) (hexadecimal; mirror [here](https://skoolkid.gitlab.io/contactsamcruise/))
 * [Contact Sam Cruise disassembly](https://skoolkid.github.io/contactsamcruise/dec/) (decimal; mirror [here](https://skoolkid.gitlab.io/contactsamcruise/dec/))
 
-To build the current development version, first either install SkoolKit, or
-make a clone of the [SkoolKit repository](https://github.com/skoolkid/skoolkit)
-and point the environment variable SKOOLKIT_HOME at it. Then:
+To build the current development version of the disassembly, first obtain the
+development version of [SkoolKit](https://github.com/skoolkid/skoolkit). Then:
 
-    $ utils/mkhtml.py
+    $ skool2html.py sources/csc.skool
+
+To build an assembly language source file that can be fed to an assembler:
+
+    $ skool2asm.py sources/csc.skool > csc.asm
