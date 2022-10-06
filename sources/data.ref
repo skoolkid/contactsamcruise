@@ -1,4 +1,4 @@
-; Copyright 2010-2012, 2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2012, 2017, 2022 Richard Dymond (rjdymond@gmail.com)
 
 [AnimatoryStates]
 0=Sam standing/walking (phase 1)
@@ -328,3 +328,6 @@ disguise unknown to the police (see #R29100, #R29218)
 Sam's y-coordinate (bits 0-5) and z-coordinate (bits 6-7) when he was last
 spotted by the policeman while wearing a disguise unknown to the police (see
 #R29100, #R29218)
+
+[Bonus]
+ [1905]*255, 2006, [[1476]*255, 1577, [241]*255, 342]*9, [1476]*255

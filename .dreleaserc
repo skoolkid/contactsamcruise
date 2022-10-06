@@ -1,3 +1,4 @@
 GAME=csc
 SRCFILES=$(echo {csc,load,save,start}.skool {csc,bugs,changelog,data,facts,glossary,graphics,pages,pokes}.ref {csc,dark,green,plum}.css tiles.js samcruise.py COPYING)
 SKOOL2BINOPTS=-i
+WAVCONVERT="bonus.wav"
