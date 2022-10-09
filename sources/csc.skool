@@ -61,6 +61,7 @@
 @replace=/#nn\i/#N(\1,4,,1)($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
+@set-handle-unsupported-macros=1
 ; Contact Sam Cruise disassembly
 ; https://skoolkit.ca
 ;
@@ -6100,7 +6101,7 @@ u30052 DEFB 244
 ;
 ; Used by the routine at #R30211.
 ; .
-; #HTML(#AUDIO2(bonus.wav)(#INCLUDE(Bonus)))
+; #AUDIO2(bonus.wav)(#INCLUDE(Bonus))
 ;
 ; A #b2 (initial border colour)
 ; C #b144 (pitch)
@@ -20156,6 +20157,8 @@ c60506 CALL 59848    ; Update the SRB for the character's current animatory
 ; a telephone number, hangs up a phone, changes disguise, lowers his arm,
 ; knocks on a door, blows a fuse, flips a light switch, raises or lowers a
 ; window blind, throws the hook, or is falling from the roof of a building.
+; .
+; #AUDIO2(beep.wav)([2532]*6)
 @label=SNDEFFECT2
 c60521 PUSH BC       ;
  60522 LD A,1        ; BORDER 1 (blue)
