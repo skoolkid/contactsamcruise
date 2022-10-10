@@ -24453,6 +24453,8 @@ c64599 LD HL,23167   ; {Set the attribute bytes for the top 20 rows of the
 ; Used by the routine at #R64338 to scroll the screen up and down a row 7 times
 ; when Sam hits the ground after being dropped from the roof of a building by a
 ; gangster.
+; .
+; #AUDIO2(dropped.wav)(#FOR(1,7,,3)//h/[2529]*127,141511,[1281]*255/141511//)
 @label=SCRUPDOWN7
 @nowarn
 c64618 LD HL,59552   ; {Change the instruction at #R59552 to #S/RET/
