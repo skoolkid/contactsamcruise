@@ -24302,6 +24302,8 @@ c64338 CALL 64512    ; Deal with the case where #REGb=2 and the character is
  64467 CALL 31960    ; Take the hook and budgie from Sam (if he has them)
 ; Now we reveal the play area one row of tiles at a time from the bottom up,
 ; with accompanying sound effects.
+; .
+; #AUDIO2(wake.wav)(#INCLUDE(WakeUp))
 @ssub=LD HL,32512+96
  64470 LD HL,32608   ; Point #REGhl at one byte past the end of the
                      ; #R32512(screen refresh buffer) (SRB), which is currently
