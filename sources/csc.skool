@@ -1680,6 +1680,9 @@ c25539 BIT 5,(HL)    ; Byte #b12 of Sam's buffer holds the LSB of the current
  25575 INC (HL)      ; that Sam's just landed on it (see #R25420)}
  25576 CALL 25039    ; Add 1, 5, 10 or 20 bucks to Sam's total
 ; Finally we make an appropriate sound effect.
+; .
+; #AUDIO7(banknote.wav)(25579,25599)
+@assemble=2
  25579 XOR A         ; {Prepare the sound effect parameters: #REGa=#b0 (initial
  25580 LD DE,1529    ; border colour), #REGd=#b5 (duration), #REGe=#b249
                      ; (initial pitch)}
@@ -1694,6 +1697,7 @@ c25539 BIT 5,(HL)    ; Byte #b12 of Sam's buffer holds the LSB of the current
  25594 JR NZ,25583   ; Jump back unless it's zero
  25596 DEC D         ; Decrement the duration counter
  25597 JR NZ,25583   ; Jump back unless it's zero
+@assemble=1
  25599 RET           ;
 
 ; Copy source sprite tiles over target sprite tiles
