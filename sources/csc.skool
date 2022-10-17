@@ -2460,6 +2460,8 @@ c26328 LD L,1        ; Point #REGhl at byte #b1 of the sniper's buffer
 ; Make the sound effect of Sam being hit by a bullet
 ;
 ; Used by the routine at #R26002.
+; .
+; #AUDIO3(shot.wav)(#FOR(765,6,-3,1)(n,56+13*(n%256)))
 @label=SHOTSOUND
 @keep
 c26352 LD DE,65021   ; {Prepare the sound effect parameters: #REGe=#b253
@@ -4634,6 +4636,8 @@ c28635 LD A,(28612)  ; {Toggle the message display interval at #R28612 between
 ; Make the sound effect of a sniper firing
 ;
 ; Used by the routine at #R25118.
+; .
+; #AUDIO3(sniper.wav)(#FOR(162,254,,1)(n,56+13*n))
 @label=FIRESOUND
 c28646 LD DE,418     ; Prepare the sound effect parameters: #REGe=#b162
                      ; (initial pitch), #REGd=#b1 (pitch adjustment)
