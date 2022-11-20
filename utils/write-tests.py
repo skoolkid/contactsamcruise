@@ -16,7 +16,7 @@ SKOOL = 'csc.skool'
 
 SNAPSHOT = 'build/contact_sam_cruise.z80'
 
-OUTPUT = """Using ref files: csc.ref, bugs.ref, changelog.ref, data.ref, facts.ref, glossary.ref, graphics.ref, pages.ref, pokes.ref
+OUTPUT = """Using ref files: csc.ref, bugs.ref, changelog.ref, data.ref, facts.ref, glossary.ref, graphics.ref, pages.ref, pokes.ref, sound.ref
 Parsing csc.skool
 Output directory: {odir}/contact_sam_cruise
 Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to skoolkit.css
@@ -48,6 +48,7 @@ Writing buffers/cbuffer.html
 Writing tables/keys.html
 Writing maps/command_lists.html
 Writing reference/walkthrough.html
+Writing sound/sound.html
 Parsing load.skool
 Writing load/load.html
 Writing disassembly files in load

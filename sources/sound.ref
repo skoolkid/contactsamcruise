@@ -1,0 +1,50 @@
+; Copyright 2022 Richard Dymond (rjdymond@gmail.com)
+
+[Page:Sound]
+SectionPrefix=Audio
+
+[Audio:banknote:Banknote]
+This sound effect is produced when Sam somersaults onto a banknote (see
+#R25579).
+
+#AUDIO7(banknote.wav)(25579,25599)
+
+[Audio:sniper:Sniper]
+This sound effect is produced by the routine at #R28646 when a sniper fires at
+Sam.
+
+#AUDIO3(sniper.wav)(#FOR(162,254,,1)(n,56+13*n))
+
+[Audio:shot:Shot]
+This sound effect is produced by the routine at #R26352 when Sam is shot by a
+sniper.
+
+#AUDIO3(shot.wav)(#FOR(765,6,-3,1)(n,56+13*(n%256)))
+
+[Audio:bonus:Cash bonus/key]
+This sound effect is produced by the routine at #R30053 when Sam finds some
+cash or a key in a building.
+
+#AUDIO2(bonus.wav)(#INCLUDE(Bonus))
+
+[Audio:beep:Beep]
+This sound effect is produced by the routine at #R60521 when 'M' is pressed to
+toggle the message speed, and also by Sam when he is walking, finishes a roll
+or somersault, picks up the hook or budgie, picks up a telephone, is dialling a
+telephone number, hangs up a phone, changes disguise, lowers his arm, knocks on
+a door, blows a fuse, flips a light switch, raises or lowers a window blind,
+throws the hook, or is falling from a building's roof or fire escape.
+
+#AUDIO2(beep.wav)([2532]*6)
+
+[Audio:fallen:Hit the ground]
+This sound effect is produced by the routine at #R64618 when Sam hits the
+ground after falling from a great height.
+
+#AUDIO2(dropped.wav)(#FOR(1,7,,3)//h/[2529]*127,141511,[1281]*255/141511//)
+
+[Audio:wakeup:Come to]
+This sound effect is produced when Sam comes to after falling from a great
+height (see #R64470).
+
+#AUDIO2(wake.wav)(#INCLUDE(WakeUp))
