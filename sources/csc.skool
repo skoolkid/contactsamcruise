@@ -1,4 +1,4 @@
-; Copyright 2010-2022 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2023 Richard Dymond (rjdymond@gmail.com)
 
 @start
 @defb=20648:8,136,31,252,3,128,1,192,0,12,0,8,144
@@ -65,7 +65,7 @@
 ; https://skoolkit.ca
 ;
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2022 Richard Dymond (this disassembly)
+; Copyright 2010-2023 Richard Dymond (this disassembly)
 @bfix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -297,7 +297,7 @@ i23561 DEFB 35       ; Set REPDEL to 35
 i23563 DEFS 48
 
 ; System variable FLAGS
-i23611 DEFB 8        ; Set bit 3 so that the keyboard is read in 'L' mode
+i23611 DEFB 205      ; Bit 3 is set so that the keyboard is read in 'L' mode
 
 @defs=23612:292
 i23612 DEFS 292
@@ -3347,6 +3347,7 @@ b27467 DEFB 7        ; Hotel Royale (top floor, left-hand room)
 ; The next entry is activated by the routine at #R29952 (using the event entry
 ; at #R24586).
 @label=RINGPHONE3
+@defb=0 ; Deactivate phone message
  27473 DEFB 0        ; This becomes 94 (third floor, no. 15) when activated
  27474 DEFB 0
  27475 DEFB 63       ; Message #R23904(#b63): 'DAISY SAID 'SAM - A GANGSTER'S
@@ -3354,6 +3355,7 @@ b27467 DEFB 7        ; Hotel Royale (top floor, left-hand room)
 ; The next entry is activated by the routine at #R29952 (using the event entry
 ; at #R24586).
 @label=RINGPHONE4
+@defb=0 ; Deactivate phone message
  27476 DEFB 0        ; This becomes 94 (third floor, no. 15) when activated
  27477 DEFB 0
  27478 DEFB 64       ; Message #R23984(#b64): 'A VOICE SAID 'OK FATS THE HOOK'S
@@ -3361,6 +3363,7 @@ b27467 DEFB 7        ; Hotel Royale (top floor, left-hand room)
 ; The next entry is activated by the routine at #R29952 (using the event entry
 ; at #R24666).
 @label=RINGPHONE5
+@defb=0 ; Deactivate phone message
  27479 DEFB 0        ; This becomes #b44 (hotel's right-hand green room) when
                      ; activated
  27480 DEFB 0
@@ -3400,6 +3403,7 @@ b27506 DEFB 92       ; Location: Sam's office (7337)
 ; The next entry is activated by the routine at #R29952 (using the event entry
 ; at #R24569).
 @label=PHONEMSG2
+@defb=0 ; Deactivate phone message
  27509 DEFB 0        ; This becomes #b92 (Sam's office: 7337) when activated
  27510 DEFB 0
  27511 DEFB 58       ; Message #R23441(#b58): 'DAISY SAID 'LANA RANG - HER NEW
@@ -3407,6 +3411,7 @@ b27506 DEFB 92       ; Location: Sam's office (7337)
 ; The next entry is activated by the routine at #R29952 (using the event entry
 ; at #R24569).
 @label=PHONEMSG3
+@defb=0 ; Deactivate phone message
  27512 DEFB 0        ; This becomes #b36 (Lana: 7162) when activated
  27513 DEFB 111      ; Message #R26676(#b111): 'SAM'
  27514 DEFB 59       ; Message #R32089(#b59): 'LANA ANSWERED 'OOH SAM! THEY
@@ -3414,6 +3419,7 @@ b27506 DEFB 92       ; Location: Sam's office (7337)
 ; The next entry is activated by the routine at #R29952 (using the event entry
 ; at #R24569).
 @label=PHONEMSG4
+@defb=0 ; Deactivate phone message
  27515 DEFB 0        ; This becomes #b36 (Lana: 7162) when activated
  27516 DEFB 0
  27517 DEFB 60       ; Message #R32122(#b60): 'LANA ANSWERED 'OOH SAM! THAT
@@ -3421,6 +3427,7 @@ b27506 DEFB 92       ; Location: Sam's office (7337)
 ; The next entry is activated by the routine at #R29952 (using the event entry
 ; at #R24586).
 @label=PHONEMSG5
+@defb=0 ; Deactivate phone message
  27518 DEFB 0        ; This becomes #b92 (Sam's office: 7337) when activated
  27519 DEFB 0
  27520 DEFB 76       ; Message #R23954(#b76): 'DAISY SAID 'LANA RANG - THAT FAT
@@ -3428,6 +3435,7 @@ b27506 DEFB 92       ; Location: Sam's office (7337)
 ; The next entry is activated by the routine at #R29952 (using the event entry
 ; at #R24586).
 @label=PHONEMSG6
+@defb=0 ; Deactivate phone message
  27521 DEFB 0        ; This becomes #b36 (Lana: 7162) when activated
  27522 DEFB 0
  27523 DEFB 65       ; Message #R27569(#b65): 'LANA ANSWERED 'OOH SAM! BUD SAID
@@ -3435,6 +3443,7 @@ b27506 DEFB 92       ; Location: Sam's office (7337)
 ; The next entry is activated by the routine at #R29952 (using the event entry
 ; at #R24695).
 @label=PHONEMSG7
+@defb=0 ; Deactivate phone message
  27524 DEFB 0        ; This becomes #b92 (Sam's office: 7337) when activated
  27525 DEFB 0
  27526 DEFB 68       ; Message #R24161(#b68): 'DAISY SAID 'ALS NUMBER'S 6124''
@@ -3442,6 +3451,7 @@ b27506 DEFB 92       ; Location: Sam's office (7337)
 ; at #R24752) when Sam gets the budgie, and deactivated by the routine at
 ; #R29952 (using the event entry at #R24763) if Sam loses the budgie.
 @label=PHONEMSG8
+@defb=0 ; Deactivate phone message
  27527 DEFB 0        ; This becomes #b36 (Lana: 7162) when activated
  27528 DEFB 0
  27529 DEFB 72       ; Message #R24230(#b72): 'LANA ANSWERED 'OOH SAM! YOUVE
@@ -7962,6 +7972,7 @@ b32028 DEFB 64       ; Bit 6 set: object that must be picked up
 ; (using the event entry at #R24727), and deactivated (by the routine at
 ; #R30211) when the budgie is picked up.
 @label=BUDGIE
+@defb=193 ; Deactivate budgie
  32032 DEFB 193      ; Bit 6 set: object that must be picked up
  32033 DEFB 225,13   ; Location (room above Sam's office)
  32035 DEFB 128      ; Bit 7 set (see #R32745)
@@ -7969,6 +7980,7 @@ b32028 DEFB 64       ; Bit 6 set: object that must be picked up
 ; #R29952 (using the event entry at #R24666), and deactivated (by the routine
 ; at #R30211) when the key is found.
 @label=KEY74
+@defb=145 ; Deactivate key
  32036 DEFB 145      ; Bit 4 set: key
  32037 DEFB 34,13    ; Location (in the room past the catwalk)
  32039 DEFB 8        ; Bit 3 set (see #R32746)
@@ -7982,6 +7994,7 @@ b32028 DEFB 64       ; Bit 6 set: object that must be picked up
 ; #R29952 (using the event entry at #R24716), and deactivated (by the routine
 ; at #R30211) when the key is found.
 @label=KEY27
+@defb=145 ; Deactivate key
  32044 DEFB 145      ; Bit 4 set: key
  32045 DEFB 170,35   ; Location (middle of the road next to no. 27)
  32047 DEFB 32       ; Bit 5 set (see #R32746)
@@ -8272,6 +8285,7 @@ g32667 DEFB 0
 @label=SCORE
 g32668 DEFW 0
 
+@defw=50
 ; Bucks
 ;
 ; Checked by the routines at #R31594, #R31642 and #R61630, and updated by the
@@ -8519,6 +8533,7 @@ g32731 DEFB 0        ; x-coordinate
 @label=SAMLOCID
  32733 DEFB 0        ; Location identifier (see #R60726)
 
+@defw=65041
 ; Random number seed
 ;
 ; Used by the routine at #R61823.
@@ -8526,6 +8541,7 @@ g32731 DEFB 0        ; x-coordinate
 @keep
 g32734 DEFW 65041    ; This is the initial value of the seed
 
+@defs=7
 ; Unused
 ;
 ; Data is copied here from the game status buffer template at #R65504, but is
@@ -8533,12 +8549,14 @@ g32734 DEFW 65041    ; This is the initial value of the seed
 @label=XUNKNOWN
 g32736 DEFS 7
 
+@defb=0
 ; Bullet timer
 ;
 ; Used by the routine at #R26075.
 @label=BTIMER
 g32743 DEFB 0
 
+@defb=0
 ; Disguise status flags
 ;
 ; Modified by the routine at #R29100, and checked by the routine at #R29332.
@@ -8559,6 +8577,7 @@ g32743 DEFB 0
 @label=GUISEFLAGS
 g32744 DEFB 0
 
+@defb=0
 ; Object inventory
 ;
 ; Changed by the routine at #R30211, and checked by the routines at #R25420,
@@ -8632,6 +8651,7 @@ g32748 DEFW 0
 @label=GAMEMODE
 g32750 DEFB 0
 
+@defb=0
 ; Lives (first aid kits)
 ;
 ; Used by the routines at #R26002 and #R29716. A first aid kit will be
@@ -8657,13 +8677,18 @@ g32751 DEFB 0
 @label=DOORFLAGS
 g32752 DEFB 0        ; Shop at the far left of town
  32753 DEFB 0        ; Right-hand shop under the apartments next to no. 74
+@defb=8
  32754 DEFB 8        ; No. 74
+@defb=16
  32755 DEFB 16       ; No. 31
+@defb=32
  32756 DEFB 32       ; No. 27
+@defb=128
  32757 DEFB 128      ; No. 19
  32758 DEFB 0        ; Shop under no. 17
  32759 DEFB 0        ; No. 17
  32760 DEFB 0        ; Shop under no. 15
+@defb=64
  32761 DEFB 64       ; No. 15
 
 ; Input device indicator
@@ -8673,6 +8698,7 @@ g32752 DEFB 0        ; Shop at the far left of town
 @label=KEMPSTON
 g32762 DEFB 0
 
+@defb=0
 ; Number of the character just moved (#b215-#b229)
 ;
 ; Used by the routine at #R61948.
@@ -8716,6 +8742,7 @@ g32765 DEFB 0
 @label=LEFTCOL
 g32766 DEFB 0
 
+@defb=0
 ; y-coordinate of the topmost row of the play area on screen
 ;
 ; Checked by many routines, and modified by the routines at #R59516 and
@@ -11141,6 +11168,7 @@ b47936 DEFB 60,0,190        ; 0<=x<24: apartment building next to no. 74
  47956 DEFB 0,0             ; 160<=x<176: no windows here
  47958 DEFB 56,255,0,95     ; 176<=x<208: apartment building next to no. 19
  47962 DEFB 72,72           ; 208<=x<224: no. 19
+@defb=158,23 ; Raise blind of Sam's office window
  47964 DEFB 158,23          ; 224<=x<240: no. 17
  47966 DEFB 223,52          ; 240<=x<256: no. 15
 
