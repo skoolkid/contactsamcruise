@@ -1,4 +1,4 @@
-; Copyright 2010-2014, 2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2014, 2017, 2024 Richard Dymond (rjdymond@gmail.com)
 
 [GraphicGlitch:samsCoat:Sam's coat]
 There is a misplaced transparent pixel at the base of Sam's coat when he's
@@ -14,7 +14,7 @@ To fix these pixels:
 #POKES51223,247;51225,247
 #UDGTABLE(gallery)
 { #CALL:as_img(1,4) | #CALL:as_img(3,4) }
-{ POKE 51223,247 | POKE 51225,247 }
+{ #WRITEPOKE(sc[0]) | #WRITEPOKE(sc[1]) }
 TABLE#
 #POPS
 
@@ -37,7 +37,7 @@ To make these pixels blank:
 { #CALL:as_img(16,4) | #CALL:as_img(56,4) |
   #CALL:as_img(104,4) | #CALL:as_img(112,4) |
   #CALL:as_img(19,4) | #CALL:as_img(107,4) | #CALL:as_img(115,4) }
-{ =c4 POKE 54830,253 | =c3 POKE 54859,223 }
+{ =c4 #WRITEPOKE(ms[0]) | =c3 #WRITEPOKE(ms[1]) }
 TABLE#
 #POPS
 
@@ -55,7 +55,7 @@ To fix these pixels:
 #POKES51819,233
 #UDGTABLE(gallery)
 { #CALL:as_img(35,4) }
-{ POKE 51819,233 }
+{ #WRITEPOKE(gk) }
 TABLE#
 #POPS
 
@@ -73,7 +73,7 @@ To fix these pixels:
 #POKES54144,124;55988,0
 #UDGTABLE(gallery)
 { #CALL:as_img(52,4) }
-{ <div>POKE 54144,124</div><div>POKE 55988,0</div> }
+{ #WRITEPOKES(lw) }
 TABLE#
 #POPS
 
@@ -90,7 +90,7 @@ To move this pixel to the right spot:
 #POKES53300,211
 #UDGTABLE(gallery)
 { #CALL:as_img(57,4) }
-{ POKE 53300,211 }
+{ #WRITEPOKE(fmw) }
 TABLE#
 #POPS
 
@@ -107,7 +107,7 @@ To make this pixel blank:
 #POKES51789,131
 #UDGTABLE(gallery)
 { #CALL:as_img(72,4) | #CALL:as_img(76,4) }
-{ =c2 POKE 51789,131 }
+{ =c2 #WRITEPOKE(dh) }
 TABLE#
 #POPS
 
@@ -125,7 +125,7 @@ To fix these pixels:
 #POKES51284,233;51287,233
 #UDGTABLE(gallery)
 { #CALL:as_img(73,4) | #CALL:as_img(75,4) }
-{ POKE 51284,233 | POKE 51287,233 }
+{ #WRITEPOKE(dh2[0]) | #WRITEPOKE(dh2[1]) }
 TABLE#
 #POPS
 
@@ -144,7 +144,7 @@ To make these pixels blank:
 #POKES52871,203;54408,37
 #UDGTABLE(gallery)
 { #CALL:as_img(76,4) | #CALL:as_img(100,4) }
-{ =c2 <div>POKE 52871,203</div><div>POKE 54408,37</div> }
+{ =c2 #WRITEPOKES(la) }
 TABLE#
 #POPS
 
@@ -164,7 +164,7 @@ To remove these blank pixels:
 #UDGTABLE(gallery)
 { #CALL:as_img(73,4) | #CALL:as_img(75,4) |
   #CALL:as_img(97,4) | #CALL:as_img(99,4) }
-{ =c4 POKE 54354,250 }
+{ =c4 #WRITEPOKE(lw) }
 TABLE#
 #POPS
 
@@ -182,7 +182,7 @@ To fix these pixels:
 #POKES53444,241;53956,233
 #UDGTABLE(gallery)
 { #CALL:as_img(113,4) | #CALL:as_img(115,4) }
-{ =c2 <div>POKE 53444,241</div><div>POKE 53956,233</div> }
+{ =c2 #WRITEPOKES(bcmf) }
 TABLE#
 #POPS
 
@@ -190,7 +190,7 @@ TABLE#
 In the open doorways of no. 74, no. 31 and no. 19, a line of blank pixels can
 be seen running through the banister at the bottom of the staircase:
 
-#PUSHS
+#PUSHSbb
 #POKES48389,82
 #POKES48398,82
 #POKES48410,82
@@ -207,7 +207,7 @@ To fix these pixels:
 { #CALL:play_area(banister_74_fixed,40,29,7,8,4) |
   #CALL:play_area(banister_31_fixed,112,29,7,8,4) |
   #CALL:play_area(banister_19_fixed,208,29,7,8,4) }
-{ =c3 POKE 39254,137 }
+{ =c3 #WRITEPOKE(bb[3]) }
 TABLE#
 #POPS
 

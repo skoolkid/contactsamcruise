@@ -1,4 +1,4 @@
-; Copyright 2010-2020, 2022 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2020, 2022, 2024 Richard Dymond (rjdymond@gmail.com)
 
 [Config]
 Expand=#INCLUDE(Expand)
@@ -141,6 +141,9 @@ Includes=32658,32720
 #DEF(#LOGO(dark,trans)(fname)
   #UDGARRAY(8,23-7*($trans-$dark),2,256,tindex=3,alpha=(1-$trans)*255);20640-20647;20672-20679;20704-20711({ImagePath}/$fname|Contact Sam Cruise)
 )
+
+#DEF(#WRITEPOKE()(name) #FOREACH(POKE$name)(p,p))
+#DEF(#WRITEPOKES()(name) #FOREACH(POKE$name)(p,#HTML(<div>p</div>)))
 
 [WakeUp]
  [137]*159, 200000, [189]*150, 200000, [241]*143, 200000, [293]*134, 200000,
