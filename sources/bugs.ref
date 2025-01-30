@@ -1,4 +1,4 @@
-; Copyright 2010-2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2017, 2025 Richard Dymond (rjdymond@gmail.com)
 
 [Bug:troubleHiding:The trouble with hiding]
 When Sam is wanted by the police, he is supposed to be able to hide inside
@@ -20,10 +20,10 @@ building next to no. 74. As soon as Sam reaches that spot - at coordinates
 head for the top floor of the hotel instead.
 
 #PUSHS
-#CALL:place_char(222,17,7,1,17)
-#CALL:place_char(230,23,6,1,128)
+#CALL(place_char(222,17,7,1,17))
+#CALL(place_char(230,23,6,1,128))
 #UDGTABLE
-{ #CALL:play_area(hiding_in_plain_sight,16,5,16,10,2,1,,,2) }
+{ #CALL(play_area(hiding_in_plain_sight,16,5,16,10,2,1,,,2)) }
 TABLE#
 #POPS
 
@@ -36,11 +36,11 @@ In addition, when the cops reach the top floor of the hotel, they will proceed
 to the wall of the room on the far right and then freeze.
 
 #PUSHS
-#CALL:place_char(215,0,,,,2)
-#CALL:place_char(222,100,7,1,144)
-#CALL:place_char(230,97,7,1,128)
+#CALL(place_char(215,0,,,,2))
+#CALL(place_char(222,100,7,1,144))
+#CALL(place_char(230,97,7,1,128))
 #UDGTABLE
-{ #CALL:play_area(hiding_in_plain_sight2,92,5,14,6,2,1) }
+{ #CALL(play_area(hiding_in_plain_sight2,92,5,14,6,2,1)) }
 TABLE#
 #POPS
 
@@ -61,10 +61,10 @@ the room above Sam's office. Instead of following Sam there, the police will go
 to Sam's office instead and run up and down continuously.
 
 #PUSHS
-#CALL:place_char(230,229,13,1,0)
-#CALL:place_char(222,236,19,1,144)
+#CALL(place_char(230,229,13,1,0))
+#CALL(place_char(222,236,19,1,144))
 #UDGTABLE
-{ #CALL:play_area(hiding_in_the_ceiling,222,10,20,14,2,1) }
+{ #CALL(play_area(hiding_in_the_ceiling,222,10,20,14,2,1)) }
 TABLE#
 #POPS
 
@@ -81,9 +81,9 @@ hook: POKE #R32745(32745),64) and turn round to face right; part of Sam's
 sprite will appear outside the room.
 
 #PUSHS
-#CALL:place_char(230,223,13,1,128)
+#CALL(place_char(230,223,13,1,128))
 #UDGTABLE
-{ #CALL:play_area(inside_and_out,216,11,16,6,2,1) }
+{ #CALL(play_area(inside_and_out,216,11,16,6,2,1)) }
 TABLE#
 #POPS
 
@@ -97,9 +97,9 @@ back to the roof of the apartment building.
 
 #PUSHS
 #POKES47386,9;47387,9
-#CALL:place_char(230,215,7,1,0)
+#CALL(place_char(230,215,7,1,0))
 #UDGTABLE
-{ #CALL:play_area(under_the_rope,206,6,20,7,2,1) }
+{ #CALL(play_area(under_the_rope,206,6,20,7,2,1)) }
 TABLE#
 #POPS
 
@@ -122,9 +122,9 @@ eventually get stuck at the right end, next to the edge of the roof of no. 17.
 
 #PUSHS
 #POKES47386,9;47387,9
-#CALL:place_char(222,222,7,1,144)
+#CALL(place_char(222,222,7,1,144))
 #UDGTABLE
-{ #CALL:play_area(potnap1_1,216,6,16,7,2,1) }
+{ #CALL(play_area(potnap1_1,216,6,16,7,2,1)) }
 TABLE#
 #POPS
 
@@ -142,10 +142,10 @@ again and head for Sam's location).
 
 #PUSHS
 #POKES47386,9;47387,9
-#CALL:place_char(222,200,7,1,17)
-#CALL:place_char(230,206,6,1,129)
+#CALL(place_char(222,200,7,1,17))
+#CALL(place_char(230,206,6,1,129))
 #UDGTABLE
-{ #CALL:play_area(potnap1_2,196,6,16,7,2,1) }
+{ #CALL(play_area(potnap1_2,196,6,16,7,2,1)) }
 TABLE#
 #POPS
 
@@ -205,10 +205,10 @@ the spot just to the left of the edge of the roof (which makes a chasing
 policeman turn round again and head for Sam's location).
 
 #PUSHS
-#CALL:place_char(222,17,7,1,17)
-#CALL:place_char(230,22,6,1,129)
+#CALL(place_char(222,17,7,1,17))
+#CALL(place_char(230,22,6,1,129))
 #UDGTABLE
-{ #CALL:play_area(potnap2,16,5,16,10,2,1,,,2) }
+{ #CALL(play_area(potnap2,16,5,16,10,2,1,,,2)) }
 TABLE#
 #POPS
 
@@ -245,10 +245,10 @@ the phone in the third-floor magenta room in the apartments next to no. 74
 while the room past the catwalk is on-screen, no one answers.
 
 #PUSHS
-#CALL:place_char(230,21,19,1,0)
-#CALL:place_char(219,27,13,1,32,0)
+#CALL(place_char(230,21,19,1,0))
+#CALL(place_char(219,27,13,1,32,0))
 #UDGTABLE
-{ #CALL:play_area(lana_no_answer,16,11,24,12,2,1) }
+{ #CALL(play_area(lana_no_answer,16,11,24,12,2,1)) }
 TABLE#
 #POPS
 
@@ -377,12 +377,12 @@ floor of the apartments next to no. 19, and position Sam so that the doorsteps
 of no. 19 are visible on the left side of the screen.
 
 #PUSHS
-#CALL:place_char(230,194,31,1,0)
-#CALL:place_char(227,207,34,2,54)
+#CALL(place_char(230,194,31,1,0))
+#CALL(place_char(227,207,34,2,54))
 #POKES55478,109;55734,5;55990,112
 #POKES56758,110;57014,111;57270,113
 #UDGTABLE
-{ #CALL:play_area(persistent_sniper1,192,30,24,10,2,1) }
+{ #CALL(play_area(persistent_sniper1,192,30,24,10,2,1)) }
 TABLE#
 
 When the sniper appears on the left side of the doorsteps, move Sam left so
@@ -390,9 +390,9 @@ that the screen scrolls right. The brim of the sniper's hat and maybe also his
 gun will remain visible at the right edge of the screen until wiped away by
 other characters passing by on the sidewalk.
 
-#CALL:place_char(230,193)
+#CALL(place_char(230,193))
 #UDGTABLE
-{ #CALL:play_area(persistent_sniper2,184,30,24,10,2,1) }
+{ #CALL(play_area(persistent_sniper2,184,30,24,10,2,1)) }
 TABLE#
 #POPS
 
@@ -420,18 +420,18 @@ achieve this feat, proceed to no. 19 and stand on the right edge of the front
 doorstep.
 
 #PUSHS
-#CALL:place_char(230,212,31,2,0)
+#CALL(place_char(230,212,31,2,0))
 #UDGTABLE
-{ #CALL:play_area(no_19_lockout1,208,30,8,9,2,1) }
+{ #CALL(play_area(no_19_lockout1,208,30,8,9,2,1)) }
 TABLE#
 
 When the door opens, the gangsters will walk out onto the doorstep and then
 freeze, as if uncertain where to go next to grab Sam.
 
 #POKES48410,82
-#CALL:place_char(215,210,32,2,32,4)
+#CALL(place_char(215,210,32,2,32,4))
 #UDGTABLE
-{ #CALL:play_area(no_19_lockout2,208,30,8,9,2,1) }
+{ #CALL(play_area(no_19_lockout2,208,30,8,9,2,1)) }
 TABLE#
 #POPS
 
@@ -470,10 +470,10 @@ To see this, Sam first needs to get to the right edge of the police station
 steps, just above the sidewalk:
 
 #PUSHS
-#CALL:place_char(230,139,33,2,128)
-#CALL:place_char(224,134,34,4,32)
+#CALL(place_char(230,139,33,2,128))
+#CALL(place_char(224,134,34,4,32))
 #UDGTABLE
-{ #CALL:play_area(frozen_gangster1,132,30,12,10,2,1) }
+{ #CALL(play_area(frozen_gangster1,132,30,12,10,2,1)) }
 TABLE#
 
 (Sam can get here without being caught by the gangster either by going via the
@@ -483,10 +483,10 @@ the left edge of the police station steps, step down onto the sidewalk, and
 then quickly back up onto the police station steps. The gangster will follow
 Sam onto the first step above the sidewalk and then freeze:
 
-#CALL:place_char(230,139,33,2,0)
-#CALL:place_char(224,135,33,2,160)
+#CALL(place_char(230,139,33,2,0))
+#CALL(place_char(224,135,33,2,160))
 #UDGTABLE
-{ #CALL:play_area(frozen_gangster2,132,30,12,10,2,1) }
+{ #CALL(play_area(frozen_gangster2,132,30,12,10,2,1)) }
 TABLE#
 #POPS
 
@@ -522,8 +522,8 @@ The knocked-out sprites for certain characters contain blank tiles that should
 be transparent:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(39) | #CALL:as_img(55) | #CALL:as_img(79) |
-  #CALL:as_img(87) | #CALL:as_img(95) | #CALL:as_img(103) }
+{ #CALL(as_img(39)) | #CALL(as_img(55)) | #CALL(as_img(79)) |
+  #CALL(as_img(87)) | #CALL(as_img(95)) | #CALL(as_img(103)) }
 TABLE#
 
 The reason for this is that the routine at #R63784, which prepares the tiles
@@ -543,10 +543,10 @@ other characters) behind the stunned character, as shown here where Sam has
 just landed on Daisy after being dropped from the roof of no. 19:
 
 #PUSHS
-#CALL:place_char(230,216,34,4,128)
-#CALL:place_char(226,215,36,4,207)
+#CALL(place_char(230,216,34,4,128))
+#CALL(place_char(226,215,36,4,207))
 #UDGTABLE
-{ #CALL:play_area(daisy_ko,212,33,12,7,2,1) }
+{ #CALL(play_area(daisy_ko,212,33,12,7,2,1)) }
 TABLE#
 #POPS
 
@@ -568,8 +568,8 @@ sprites to #b0:
 #PUSHSbtbh
 #POKES55463,0;55479,0;57783,0;55503,0;55511,0;55519,0;57823,0;55527,0
 #UDGTABLE(gallery)
-{ #CALL:as_img(39) | #CALL:as_img(55) | #CALL:as_img(79) | #CALL:as_img(87) |
-  #CALL:as_img(95) | #CALL:as_img(103) }
+{ #CALL(as_img(39)) | #CALL(as_img(55)) | #CALL(as_img(79)) |
+  #CALL(as_img(87)) | #CALL(as_img(95)) | #CALL(as_img(103)) }
 { POKE 55463,0 | <div>POKE 55479,0</div><div>POKE 57783,0</div> |
   POKE 55503,0 | POKE 55511,0 |
   <div>POKE 55519,0</div><div>POKE 57823,0</div> | POKE 55527,0 }
@@ -646,10 +646,10 @@ walking past on the sidewalk below will be drawn behind him instead of in front
 of him:
 
 #PUSHS
-#CALL:place_char(230,236,33,4,0)
-#CALL:place_char(218,236,34,4,81,4)
+#CALL(place_char(230,236,33,4,0))
+#CALL(place_char(218,236,34,4,81,4))
 #UDGTABLE
-{ #CALL:play_area(z_confusion,232,32,8,8,2,1) }
+{ #CALL(play_area(z_confusion,232,32,8,8,2,1)) }
 TABLE#
 #POPS
 
@@ -681,10 +681,10 @@ moving right once would make the gangster starting chasing Sam (who is shown
 outside here for clarity):
 
 #PUSHS
-#CALL:place_char(230,19,13,4,128)
-#CALL:place_char(219,27,13,1,32,0)
+#CALL(place_char(230,19,13,4,128))
+#CALL(place_char(219,27,13,1,32,0))
 #UDGTABLE
-{ #CALL:play_area(run_gangster_run,16,11,24,9,2,1) }
+{ #CALL(play_area(run_gangster_run,16,11,24,9,2,1)) }
 TABLE#
 #POPS
 
@@ -697,7 +697,7 @@ The first entry in the data table at #R33064@load in the loader code results in
 #w33149 being POKEd with #b134 (replacing the original contents: #b124); but
 #w33149 is in the data table itself, and corresponds to address #w54144, which
 means that #w54144 ends up being POKEd with #b134 instead of #b124, thus
-leading to the graphic glitch #LINK:GraphicGlitches#lanasWaist(Lana's waist).
+leading to the graphic glitch #LINK(GraphicGlitches#lanasWaist)(Lana's waist).
 
 POKEing #w33149 with #b134 is actually redundant, since #w33149 is in an area
 of memory that is overwritten soon after loading (#w33149 contains the LSB of
@@ -747,10 +747,10 @@ away by another character moving past it, or until the screen scrolls right and
 the lady starts moving again.</div>
 
 #PUSHS
-#CALL:place_char(230,21,19,1,128)
-#CALL:place_char(215,7,19,1,208,0)
+#CALL(place_char(230,21,19,1,128))
+#CALL(place_char(215,7,19,1,208,0))
 #UDGTABLE
-{ #CALL:play_area(displaced_dame,0,17,25,7,2,1) }
+{ #CALL(play_area(displaced_dame,0,17,25,7,2,1)) }
 TABLE#
 #POPS
 
@@ -772,9 +772,9 @@ traffic lights and the left side of no. 27 into view).</div>
 through the window.</div>
 
 #PUSHS
-#CALL:place_char(230,178,35,4,0)
-#CALL:place_char(221,185,25,1,104,3)
+#CALL(place_char(230,178,35,4,0))
+#CALL(place_char(221,185,25,1,104,3))
 #UDGTABLE
-{ #CALL:play_area(displaced_dude,168,23,28,17,2,1) }
+{ #CALL(play_area(displaced_dude,168,23,28,17,2,1)) }
 TABLE#
 #POPS

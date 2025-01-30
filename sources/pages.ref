@@ -1,81 +1,82 @@
-; Copyright 2010, 2012-2015, 2017, 2019 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010, 2012-2015, 2017, 2019, 2025
+; Richard Dymond (rjdymond@gmail.com)
 
 [Page:PlayArea]
-PageContent=<div>#CALL:play_area(play_area,0,2,256,38,2,0,8,,0,0)</div>
+PageContent=<div>#CALL(play_area(play_area,0,2,256,38,2,0,8,,0,0))</div>
 
 [Page:InitialAnimatoryStates0]
 PageContent=#INCLUDE(InitialAnimatoryStates0)
 
 [InitialAnimatoryStates0]
 <ul class="contents">
-<li>#LINK:InitialAnimatoryStates1()</li>
-<li>#LINK:InitialAnimatoryStates2()</li>
-<li>#LINK:InitialAnimatoryStates3()</li>
-<li>#LINK:InitialAnimatoryStates4()</li>
+<li>#LINK(InitialAnimatoryStates1)()</li>
+<li>#LINK(InitialAnimatoryStates2)()</li>
+<li>#LINK(InitialAnimatoryStates3)()</li>
+<li>#LINK(InitialAnimatoryStates4)()</li>
 </ul>
-<div>#CALL:play_area(initial_as0,0,2,256,38,2,1,8,0)</div>
+<div>#CALL(play_area(initial_as0,0,2,256,38,2,1,8,0))</div>
 
 [Page:InitialAnimatoryStates1]
 PageContent=#INCLUDE(InitialAnimatoryStates1)
 
 [InitialAnimatoryStates1]
 <ul class="contents">
-<li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo
+<li>#LINK(InitialAnimatoryStates0)(Initial animatory states and locations (demo
 mode))</li>
-<li>#LINK:InitialAnimatoryStates2()</li>
-<li>#LINK:InitialAnimatoryStates3()</li>
-<li>#LINK:InitialAnimatoryStates4()</li>
+<li>#LINK(InitialAnimatoryStates2)()</li>
+<li>#LINK(InitialAnimatoryStates3)()</li>
+<li>#LINK(InitialAnimatoryStates4)()</li>
 </ul>
-<div>#CALL:play_area(initial_as1,0,2,256,38,2,1,8,1)</div>
+<div>#CALL(play_area(initial_as1,0,2,256,38,2,1,8,1))</div>
 
 [Page:InitialAnimatoryStates2]
 PageContent=#INCLUDE(InitialAnimatoryStates2)
 
 [InitialAnimatoryStates2]
 <ul class="contents">
-<li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo
+<li>#LINK(InitialAnimatoryStates0)(Initial animatory states and locations (demo
 mode))</li>
-<li>#LINK:InitialAnimatoryStates1()</li>
-<li>#LINK:InitialAnimatoryStates3()</li>
-<li>#LINK:InitialAnimatoryStates4()</li>
+<li>#LINK(InitialAnimatoryStates1)()</li>
+<li>#LINK(InitialAnimatoryStates3)()</li>
+<li>#LINK(InitialAnimatoryStates4)()</li>
 </ul>
-<div>#CALL:play_area(initial_as2,0,2,256,38,2,1,8,2)</div>
+<div>#CALL(play_area(initial_as2,0,2,256,38,2,1,8,2))</div>
 
 [Page:InitialAnimatoryStates3]
 PageContent=#INCLUDE(InitialAnimatoryStates3)
 
 [InitialAnimatoryStates3]
 <ul class="contents">
-<li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo
+<li>#LINK(InitialAnimatoryStates0)(Initial animatory states and locations (demo
 mode))</li>
-<li>#LINK:InitialAnimatoryStates1()</li>
-<li>#LINK:InitialAnimatoryStates2()</li>
-<li>#LINK:InitialAnimatoryStates4()</li>
+<li>#LINK(InitialAnimatoryStates1)()</li>
+<li>#LINK(InitialAnimatoryStates2)()</li>
+<li>#LINK(InitialAnimatoryStates4)()</li>
 </ul>
-<div>#CALL:play_area(initial_as3,0,2,256,38,2,1,8,3)</div>
+<div>#CALL(play_area(initial_as3,0,2,256,38,2,1,8,3))</div>
 
 [Page:InitialAnimatoryStates4]
 PageContent=#INCLUDE(InitialAnimatoryStates4)
 
 [InitialAnimatoryStates4]
 <ul class="contents">
-<li>#LINK:InitialAnimatoryStates0(Initial animatory states and locations (demo
+<li>#LINK(InitialAnimatoryStates0)(Initial animatory states and locations (demo
 mode))</li>
-<li>#LINK:InitialAnimatoryStates1()</li>
-<li>#LINK:InitialAnimatoryStates2()</li>
-<li>#LINK:InitialAnimatoryStates3()</li>
+<li>#LINK(InitialAnimatoryStates1)()</li>
+<li>#LINK(InitialAnimatoryStates2)()</li>
+<li>#LINK(InitialAnimatoryStates3)()</li>
 </ul>
-<div>#CALL:play_area(initial_as4,0,2,256,38,2,1,8,4)</div>
+<div>#CALL(play_area(initial_as4,0,2,256,38,2,1,8,4))</div>
 
 [Page:PlayAreaObjects]
-PageContent=<div>#CALL:play_area_objects(play_area_objects)</div>
+PageContent=<div>#CALL(play_area_objects(play_area_objects))</div>
 
 [Page:AnimatoryStates]
 PageContent=#INCLUDE(AnimatoryStatesPage)
 
 [AnimatoryStatesPage]
 <table class="animatoryStates">
-#CALL:animatory_states()
+#CALL(animatory_states())
 </table>
 
 [Template:animatory_state_row]
@@ -253,7 +254,7 @@ state N-#b128 (see #R59635).
 </p>
 </div>
 <table class="asTiles">
-#CALL:astiles()
+#CALL(astiles())
 </table>
 
 [Template:astiles_row]
@@ -385,8 +386,8 @@ next or previous character in the group. See the routines at #R61838 and
 #R61882.</p>
 <p>The buffers in pages #b222-#b230 are used mostly by the principal
 characters, depending on the current #R32750(game mode) (0-4).</p>
-#CALL:cast()
-#CALL:cbuffer()
+#CALL(cast())
+#CALL(cbuffer())
 
 [Template:cast]
 #TABLE(cbuffer,cbufPage,cbufAddress,cbufCharacter,transparent,cbufPage,cbufAddress,cbufCharacter,transparent,cbufPage,cbufAddress,cbufCharacter)
@@ -449,7 +450,7 @@ Lookup = Offset + #w60671 (points to an entry in the table at #R60672)
 <th>Routine</th>
 <th>Purpose</th>
 </tr>
-#CALL:keypress_table_rows()
+#CALL(keypress_table_rows())
 </table>
 
 [Template:keypress_table_row]
@@ -472,7 +473,7 @@ PageContent=#INCLUDE(CommandLists)
 <th>Address</th>
 <th>Description</th>
 </tr>
-#CALL:command_lists()
+#CALL(command_lists())
 </table>
 
 [Template:command_list]
@@ -598,8 +599,8 @@ Leave no. 15, go to the roof of the apartment building next to no. 19, and walk
 down to the bottom of the fire escape:
 <div>
 #PUSHS
-#CALL:place_char(230,177,28,2,0)
-#CALL:play_area(wt_fire_escape1,170,26,16,10,2,1)
+#CALL(place_char(230,177,28,2,0))
+#CALL(play_area(wt_fire_escape1,170,26,16,10,2,1))
 #POPS
 </div>
 </li>
@@ -608,9 +609,9 @@ Wait until the Fat Man approaches and then, at the right moment, step off the
 fire escape and down onto the Fat Man's head:
 <div>
 #PUSHS
-#CALL:place_char(230,177,28,2,1)
-#CALL:place_char(225,170,35,4,184)
-#CALL:play_area(wt_fire_escape2,168,26,16,14,2,1)
+#CALL(place_char(230,177,28,2,1))
+#CALL(place_char(225,170,35,4,184))
+#CALL(play_area(wt_fire_escape2,168,26,16,14,2,1))
 #POPS
 </div>
 </li>
@@ -652,8 +653,8 @@ ON THE PHONE ?''</p>
 Stand on the right edge of the roof of the apartment building next to no. 74:
 <div>
 #PUSHS
-#CALL:place_char(230,23,6,1,128)
-#CALL:play_area(wt_catwalk1,16,5,16,10,2,1,,,2)
+#CALL(place_char(230,23,6,1,128))
+#CALL(play_area(wt_catwalk1,16,5,16,10,2,1,,,2))
 #POPS
 </div>
 </li>
@@ -662,9 +663,9 @@ At the right moment, step off the roof and down onto the gangster pacing the
 catwalk:
 <div>
 #PUSHS
-#CALL:place_char(230,23,6,1,129)
-#CALL:place_char(219,27,13,1,160,0)
-#CALL:play_area(wt_catwalk2,16,5,16,14,2,1,,,2)
+#CALL(place_char(230,23,6,1,129))
+#CALL(place_char(219,27,13,1,160,0))
+#CALL(play_area(wt_catwalk2,16,5,16,14,2,1,,,2))
 #POPS
 </div>
 </li>
@@ -713,8 +714,8 @@ Go to the roof of the apartment building next to no. 19 and stand on the right
 edge, facing right:
 <div>
 #PUSHS
-#CALL:place_char(230,206,6,1,128)
-#CALL:play_area(wt_roof,200,5,16,8,2,1)
+#CALL(place_char(230,206,6,1,128))
+#CALL(play_area(wt_roof,200,5,16,8,2,1))
 #POPS
 </div>
 </li>
@@ -749,10 +750,10 @@ then pick up the phone and dial 999:
 <div>
 #PUSHS
 #POKES48221,128
-#CALL:place_char(226,242)
-#CALL:place_char(225,233,25,1,176)
-#CALL:place_char(230,228,19,1,128)
-#CALL:play_area(wt_awaiting_lana,224,18,16,12,2,1)
+#CALL(place_char(226,242))
+#CALL(place_char(225,233,25,1,176))
+#CALL(place_char(230,228,19,1,128))
+#CALL(play_area(wt_awaiting_lana,224,18,16,12,2,1))
 #POPS
 </div>
 </li>

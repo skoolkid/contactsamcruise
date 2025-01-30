@@ -1,4 +1,4 @@
-; Copyright 2010-2013, 2015, 2017-2018, 2021 Richard Dymond
+; Copyright 2010-2013, 2015, 2017-2018, 2021, 2025 Richard Dymond
 ; (rjdymond@gmail.com)
 
 @defb=00259:60,0,124,60,66,120,60,66,62,126,126,0,66,60,124
@@ -123,12 +123,13 @@ c24055 JP 23831      ; Jump to where it really starts
 
 @start
 @expand=#DEF(#S #FORMAT({mode[case]}))
-@replace=/#BUG(?![A-Z])/#LINK:Bugs
+@replace=/#BUG\(([^(]*)\)/#LINK(Bugs#\1)
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2013, 2015, 2017-2019, 2021 Richard Dymond (this disassembly)
+; Copyright 2010-2013, 2015, 2017-2019, 2021, 2025 Richard Dymond (this
+; disassembly)
 
 @org
 ; Collect one bit from tape
@@ -427,7 +428,7 @@ c33046 EXX           ; {Set #REGhl' to the first destination address (minus
 ; #w33149-#w65506 (step 247) after the fast code block has loaded. Note that
 ; the first entry in this table leads to the value #b134 being copied into
 ; address #w33149, which corrupts the table entry at that address; this is a
-; #BUG#selfModifyingDataTable(bug).
+; #BUG(selfModifyingDataTable)(bug).
 b33064 DEFB 134,0,127,0,0,162,255,143,31,8,216,0,1,127,152,51
  33080 DEFB 84,0,255,25,0,0,84,255,248,255,34,0,23,176,170,240
  33096 DEFB 3,194,0,222,3,194,3,0,80,104,40,72,69,64,128,2

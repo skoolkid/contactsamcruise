@@ -1,4 +1,4 @@
-; Copyright 2010-2013, 2015, 2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2013, 2015, 2017, 2025 Richard Dymond (rjdymond@gmail.com)
 
 [Fact:hiddenSky:Hidden sky]
 The play area is 42 character squares high, but only the middle 38
@@ -11,14 +11,14 @@ most part they are the same as the third and fourth rows. The only exception is
 the area above the Hotel Royale. Normally that area looks like this:
 
 #UDGTABLE
-{ #CALL:play_area(hidden_sky1,80,2,24,8) }
+{ #CALL(play_area(hidden_sky1,80,2,24,8)) }
 TABLE#
 
 But if you could see all the way up to the top row (y=0), it would look like
 this:
 
 #UDGTABLE
-{ #CALL:play_area(hidden_sky2,80,0,24,10) }
+{ #CALL(play_area(hidden_sky2,80,0,24,10)) }
 TABLE#
 
 [Fact:hiddenGround:Hidden ground]
@@ -34,16 +34,16 @@ staircases leading up into the apartment buildings next to no. 74 and
 no. 19. Normally those areas looks like this:
 
 #UDGTABLE {
-  #CALL:play_area(hidden_ground1a,4,28,16,12) |
-  #CALL:play_area(hidden_ground1b,188,28,16,12)
+  #CALL(play_area(hidden_ground1a,4,28,16,12)) |
+  #CALL(play_area(hidden_ground1b,188,28,16,12))
 } TABLE#
 
 But if you could see all the way down to the bottom row (y=41), they would look
 like this:
 
 #UDGTABLE {
-  #CALL:play_area(hidden_ground2a,4,28,16,14) |
-  #CALL:play_area(hidden_ground2b,188,28,16,14)
+  #CALL(play_area(hidden_ground2a,4,28,16,14)) |
+  #CALL(play_area(hidden_ground2b,188,28,16,14))
 } TABLE#
 
 [Fact:46OrBust:$46 or bust]
@@ -74,14 +74,14 @@ sidewalk, he can get there by going to (252,34) first, going up a step to
 (253,33), and then going down a step.
 
 #PUSHS
-#CALL:hide_chars()
+#CALL(hide_chars())
 #UDGTABLE(gallery)
-{ #CALL:place_char(230,252,34,4,128)
-  #CALL:play_area(edge_of_town1,248,32,8,8,2,1) |
-  #CALL:place_char(230,253,33,4,128)
-  #CALL:play_area(edge_of_town2,248,32,8,8,2,1) |
-  #CALL:place_char(230,254,34,4,128)
-  #CALL:play_area(edge_of_town3,248,32,8,8,2,1) }
+{ #CALL(place_char(230,252,34,4,128))
+  #CALL(play_area(edge_of_town1,248,32,8,8,2,1)) |
+  #CALL(place_char(230,253,33,4,128))
+  #CALL(play_area(edge_of_town2,248,32,8,8,2,1)) |
+  #CALL(place_char(230,254,34,4,128))
+  #CALL(play_area(edge_of_town3,248,32,8,8,2,1)) }
 { (252,34) | (253,33) | (254,34) }
 TABLE#
 #POPS
@@ -93,8 +93,8 @@ before he starts dialling (see #R30458).
 [Fact:telephonicDistribution:Telephonic distribution]
 No. 27 is the only building that does not contain a telephone; the building
 with the most telephones is no. 74, which has four (if you count the room past
-the catwalk as part of no. 74). See the #LINK:PlayAreaObjects(play area objects
-page) for the location of every telephone in the city.
+the catwalk as part of no. 74). See the #LINK(PlayAreaObjects)(play area
+objects page) for the location of every telephone in the city.
 
 POKE #R62784(62803),34 places a telephone on the third floor of no. 27; the
 phone will have no number itself but can be used to make outgoing calls.
@@ -124,7 +124,7 @@ POKE #R62864(62866),128
 #PUSHS
 #POKES48466,72
 #UDGTABLE
-{ #CALL:play_area(dark_room,140,29,16,10,2) }
+{ #CALL(play_area(dark_room,140,29,16,10,2)) }
 TABLE#
 #POPS
 
@@ -155,8 +155,8 @@ To save memory, phases 1 and 3 of each character's walking animation are
 identical; for example, here are Daisy's walking animation phases:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(200) | #CALL:as_img(201) |
-  #CALL:as_img(202) | #CALL:as_img(203) }
+{ #CALL(as_img(200)) | #CALL(as_img(201)) |
+  #CALL(as_img(202)) | #CALL(as_img(203)) }
 { 1 | 2 | 3 | 4 }
 TABLE#
 
@@ -165,8 +165,8 @@ memory-saving effort by having phases 2 and 4 of her walking animation
 identical too:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(176) | #CALL:as_img(177) |
-  #CALL:as_img(178) | #CALL:as_img(179) }
+{ #CALL(as_img(176)) | #CALL(as_img(177)) |
+  #CALL(as_img(178)) | #CALL(as_img(179)) }
 { 1 | 2 | 3 | 4 }
 TABLE#
 
@@ -204,10 +204,10 @@ and then running away - he will run to the left edge of the police station and
 then freeze:
 
 #PUSHS
-#CALL:place_char(230,120,34,4,128)
-#CALL:place_char(224,124,34,4,32)
+#CALL(place_char(230,120,34,4,128))
+#CALL(place_char(224,124,34,4,32))
 #UDGTABLE
-{ #CALL:play_area(glutton_for_punishment,116,30,16,10,2,1) }
+{ #CALL(play_area(glutton_for_punishment,116,30,16,10,2,1)) }
 TABLE#
 #POPS
 
@@ -216,7 +216,7 @@ up to the roof, and walk off the edge - Sam will land on the gangster's head
 and knock him out. Move a few steps to the left, wait for the gangster to
 recover and return to the knockout location, and do it all over again.
 
-Note that because of a #BUG#pttd(bug) in the routine that controls a character
+Note that because of a #BUG(pttd)(bug) in the routine that controls a character
 who's been knocked over, the gangster may, after recovering, freeze in a
 location that is to the left of the knockout location. In that case, Sam won't
 land on his head by jumping off the roof of no. 31. However, after Sam has
@@ -324,7 +324,7 @@ states #AS118 and #AS117) in which the tail is always pointing upwards at an
 angle:
 
 #UDGTABLE
-{ #CALL:as_img(246) | #CALL:as_img(245) }
+{ #CALL(as_img(246)) | #CALL(as_img(245)) }
 TABLE#
 
 But sprite tiles #b215 and #b216 (which are unused) also look like the body and
@@ -333,7 +333,7 @@ have been used as an alternative second phase (or additional phase) of
 animation for that creature:
 
 #UDGTABLE
-{ #UDGARRAY2,120,,512,,1;51159:51415;51160:51416(cat) }
+{ #UDGARRAY2,120,,512,,1(51159:51415;51160:51416)(cat) }
 TABLE#
 
 To modify animatory state #AS118 to show this phase:
@@ -343,7 +343,7 @@ POKE 58614,0: POKE 57590,215: POKE 58870,216
 #PUSHSact
 #POKES58614,0;57590,215;58870,216
 #UDGTABLE
-{ #CALL:as_img(246) | #CALL:as_img(245) }
+{ #CALL(as_img(246)) | #CALL(as_img(245)) }
 TABLE#
 #POPS
 
@@ -352,8 +352,8 @@ The graphic data contains unused sprites (animatory states
 #AS64(#b64-#b68/#b192-#b196)) of a skinny man wearing a hat:
 
 #UDGTABLE {
-  #CALL:as_img(192) | #CALL:as_img(193) | #CALL:as_img(194) |
-  #CALL:as_img(195) | #CALL:as_img(196)
+  #CALL(as_img(192)) | #CALL(as_img(193)) | #CALL(as_img(194)) |
+  #CALL(as_img(195)) | #CALL(as_img(196))
 }
 TABLE#
 
@@ -374,8 +374,8 @@ on the far left of the first floor of the apartment building next to no. 19
 her emerge, call her (on 7162) using the phone in that location.
 
 #PUSHS
-#CALL:place_char(230,189,31,1,0)
+#CALL(place_char(230,189,31,1,0))
 #UDGTABLE
-{ #CALL:play_area(lurking_lana,180,29,16,7,2,1) }
+{ #CALL(play_area(lurking_lana,180,29,16,7,2,1)) }
 TABLE#
 #POPS

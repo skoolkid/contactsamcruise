@@ -1,4 +1,4 @@
-; Copyright 2010-2023 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2023, 2025 Richard Dymond (rjdymond@gmail.com)
 
 @start
 @defb=20648:8,136,31,252,3,128,1,192,0,12,0,8,144
@@ -51,11 +51,11 @@
 @defb=23264:23,23,23,23,23,23,23,23,50,50,50,50,50,50,50,50,48,48,48,48
 @defs=23284:9,32
 @remote=save:33010,33148
-@expand=#DEF(#BUG #LINK:Bugs)
-@expand=#DEF(#FACT #LINK:Facts)
-@expand=#DEF(#POKE #LINK:Pokes)
+@expand=#DEF(#BUG()(a) #LINK(Bugs#$a))
+@expand=#DEF(#FACT()(a) #LINK(Facts#$a))
+@expand=#DEF(#POKE()(a) #LINK(Pokes#$a))
 @expand=#DEF(#S #FORMAT({mode[case]}))
-@expand=#DEF(#AS(s=-1)(t=#N($s,,,1)(0x)) #LINK#(:AnimatoryStates#IF($s>=0)(#$s))($t))
+@expand=#DEF(#AS(s=-1)(t=#N($s,,,1)(0x)) #LINK#((AnimatoryStates#IF($s>=0)(#$s)))($t))
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#nn\i/#N(\1,4,,1)($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
@@ -65,7 +65,7 @@
 ; https://skoolkit.ca
 ;
 ; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2023 Richard Dymond (this disassembly)
+; Copyright 2010-2023, 2025 Richard Dymond (this disassembly)
 @bfix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -818,7 +818,7 @@ b24544 DEFB 0
 @bfix=DEFB 56        ; #S/JR C/ (for the instruction at #R29986)
  24768 DEFB 32       ; #S/JR NZ/ (for the instruction at #R29986)
  24769 DEFB 128      ; Bit 7 set: Sam has the budgie#IF({fix}<2)// (and only
-                     ; the budgie; this is a #BUG#hookVBird(bug))//
+                     ; the budgie; this is a #BUG(hookVBird)(bug))//
  24770 DEFB 1        ; 1 POKE follows
  24771 DEFW 27527    ; {Disable phone message #R24230(#b72): 'LANA ANSWERED
  24773 DEFB 0        ; 'OOH SAM! YOUVE GOT THE BIRD. SEE YOU IN YOUR OFFICE''}
@@ -832,7 +832,7 @@ b24544 DEFB 0
 @bfix=DEFB 48        ; #S/JR NC/ (for the instruction at #R29986)
  24779 DEFB 40       ; #S/JR Z/ (for the instruction at #R29986)
  24780 DEFB 128      ; Bit 7 set: Sam has the budgie #IF({fix}<2)//(and only
-                     ; the budgie; this is a #BUG#hookVBird(bug))//
+                     ; the budgie; this is a #BUG(hookVBird)(bug))//
  24781 DEFW 27527    ; This is the entry for phone message #R24230(#b72) for
                      ; Sam
  24783 DEFB 40       ; #S/JR Z/ (for the instruction at #R29986)
@@ -1279,7 +1279,7 @@ c25118 LD L,2        ; {#REGa=sniper's y-coordinate
 ; terminate this subcommand; however, if the sniper is not already out of
 ; sight, he will duck briefly but remain in view, and byte #b16 will be
 ; decremented to #b255 on the next pass through this routine. This is a
-; #BUG#conspicuousSniper(bug)./Byte #b16 of the sniper's buffer has been
+; #BUG(conspicuousSniper)(bug)./Byte #b16 of the sniper's buffer has been
 ; decremented to zero, which means he should start or continue to duck out of
 ; sight.//
  25185 CALL 59848    ; Update the SRB for the sniper's current animatory state
@@ -1541,7 +1541,7 @@ c25420 LD A,(32745)  ; #R32745 holds Sam's object inventory
  25425 JR NC,25434   ; Jump if not
 ; Sam's got the hook; we bring this banknote out of service so that its
 ; character buffer is available for use by the hook when it's thrown. However,
-; the banknote is not removed from view, which is a #BUG#frozenFiver(bug).
+; the banknote is not removed from view, which is a #BUG(frozenFiver)(bug).
  25427 CALL 59848    ; Update the SRB for the banknote's current animatory
                      ; state and location
  25430 CALL 63409    ; Change the banknote's primary command routine address to
@@ -4758,7 +4758,7 @@ b28722 DEFB 129,194  ; {Top six pixel rows of the top two tiles of the
 ;
 ; These bytes are probably remnants of the graphic data for the telephone when
 ; ringing (see #R28722). That these bytes are unused may be a
-; #BUG#extendedEarpiece(bug).
+; #BUG(extendedEarpiece)(bug).
 @bfix=!28739
 u28739 DEFB 28,0
 
@@ -4786,7 +4786,7 @@ b28741 DEFB 1,192    ; {Top six pixel rows of the top two tiles of the
 ;
 ; These bytes are probably remnants of the graphic data for the telephone when
 ; not ringing (see #R28741). That these bytes are unused may be a
-; #BUG#extendedEarpiece(bug).
+; #BUG(extendedEarpiece)(bug).
 @bfix=!28758
 u28758 DEFB 28,28
 
@@ -4975,7 +4975,7 @@ c28886 LD L,4        ; Point #REGhl at byte #b4 of the character's buffer
 ; character's y-coordinate to see whether he's on the roof of a building (as
 ; opposed to inside it), but because of the erroneous '#S/DEC L/' instruction
 ; above, it instead compares #REGa with the character's animatory state. This
-; is a #BUG#troubleHiding(bug).||
+; is a #BUG(troubleHiding)(bug).||
 @bfix=               ; Compare #REGa (8 or 14) with the character's
 @bfix=               ; y-coordinate
 *28936 CP (HL)       ; Compare #REGa (8 or 14) with the character's animatory
@@ -6268,7 +6268,7 @@ c30160 LD A,(30153)  ; Collect the urgent message number from #R30153
  30182 INC HL        ; Move #REGhl along to the next slot in the message queue
                      ; (or past the end of the queue and into the bullet
                      ; buffers at #R32704 and #R32708, which is a
-                     ; #BUG#anUrgentMessageDelayed(bug))
+                     ; #BUG(anUrgentMessageDelayed)(bug))
  30183 JR NZ,30188   ; Jump unless the urgent message is at this position in
                      ; the queue
  30185 LD A,1        ; Set #REGa=1 so that the next message is displayed as
@@ -7553,7 +7553,7 @@ c31594 XOR A         ; {Remove the address of this primary command routine from
  31623 SBC HL,DE     ; Subtract Sam's cash supply from this number
  31625 JR NC,31610   ; Jump back to generate another bail amount if Sam's cash
                      ; supply is too small (which could lead to an
-                     ; #BUG#lifeSentence(infinite loop))
+                     ; #BUG(lifeSentence)(infinite loop))
  31627 LD A,C        ; {#REGa=ASCII code for the tens digit of the bail amount
  31628 ADD A,48      ; }
  31630 LD (32720),A  ; Store this at #R32720
@@ -8756,7 +8756,7 @@ g32767 DEFB 0
 ; are unused: tiles #b184 and #b185 are blank (all 0s); tiles #b215, #b216 and
 ; #b229 would be used at play area locations (83,0), (83,1) and (98,0) (above
 ; the roof of the hotel), but the two rows of tiles at y-coordinates 0 and 1
-; are #FACT#hiddenSky(never displayed).
+; are #FACT(hiddenSky)(never displayed).
 ; .
 ; #UDGTABLE(gallery)
 ; { #UDG32983,43,,256(tile0xD7) | #UDG32984,43,,256(tile0xD8) |
@@ -9161,7 +9161,7 @@ b36864 DEFB 127,254,255,6,204,121,255,248,32,130,15,251,223,248,31,251
 ; Used by the routine at #R59148. Tiles #b209 and #b210 are unused; tile #b209
 ; would be used at play area locations (9,40) and (193,40), and tile #b210
 ; would be used at play area locations (14,40) and (198,40), but the row of
-; tiles at y-coordinate 40 is #FACT#hiddenGround(never displayed).
+; tiles at y-coordinate 40 is #FACT(hiddenGround)(never displayed).
 ; .
 ; #UDGTABLE(gallery)
 ; { #UDG39121,,,256(tile0xD1) | #UDG39122,,,256(tile0xD2) }
@@ -9937,7 +9937,7 @@ b43520 DEFB 43
                                      ; used by the 16 tiles in the top two rows
                                      ; of the play area between x-coordinates
                                      ; 80 and 87, but those tiles are
-                                     ; #FACT#hiddenSky(never displayed)
+                                     ; #FACT(hiddenSky)(never displayed)
  43522 DEFB 40,40,56,40,48,104,40,40
  43530 DEFB 0                        ; Unused
  43531 DEFB 40
@@ -10376,7 +10376,7 @@ b47168 DEFS 32
 ; between the third and fourth floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(66,15,4,128,64,15) | #CALL:ld_img(66,17,4,0,64,15) }
+; { #CALL(ld_img(66,15,4,128,64,15)) | #CALL(ld_img(66,17,4,0,64,15)) }
 ; TABLE#
 @label=LOCDESCS66
 b47200 DEFB 22,24    ; y=15, z=1; up/right, down/left
@@ -10394,7 +10394,7 @@ u47205 DEFB 220,255
 ; between the third and fourth floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(67,14,4,128,65,14,,10) | #CALL:ld_img(67,18,4,0,65,14,,10) }
+; { #CALL(ld_img(67,14,4,128,65,14,,10)) | #CALL(ld_img(67,18,4,0,65,14,,10)) }
 ; TABLE#
 @label=LOCDESCS67
 b47207 DEFB 20,72    ; y=14, z=1; right, down/left
@@ -10416,7 +10416,7 @@ u47212 DEFB 76
 ; fourth floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(68,14,1,128,66,14,,9) | #CALL:ld_img(68,19,1,0,66,14,,9) }
+; { #CALL(ld_img(68,14,1,128,66,14,,9)) | #CALL(ld_img(68,19,1,0,66,14,,9)) }
 ; TABLE#
 @label=LOCDESCS68
 b47216 DEFB 20,144   ; y=14, z=1; left, up/right
@@ -10426,7 +10426,7 @@ b47216 DEFB 20,144   ; y=14, z=1; left, up/right
 ; hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(68,33,2,0) }
+; { #CALL(ld_img(68,33,2,0)) }
 ; TABLE#
  47220 DEFB 122,28   ; y=33, z=2; up/right, down/left, down/right
  47222 DEFB 255      ; End marker
@@ -10444,7 +10444,7 @@ u47223 DEFB 200,255
 ; third and fourth floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(69,13,1,0) }
+; { #CALL(ld_img(69,13,1,0)) }
 ; TABLE#
 @label=LOCDESCS69
 b47225 DEFB 18,200   ; y=13, z=1; left, right, down/left
@@ -10452,7 +10452,7 @@ b47225 DEFB 18,200   ; y=13, z=1; left, right, down/left
 ; hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(69,32,2,0) }
+; { #CALL(ld_img(69,32,2,0)) }
 ; TABLE#
  47227 DEFB 120,72   ; y=32, z=2; right, down/left
  47229 DEFB 255      ; End marker
@@ -10484,7 +10484,7 @@ b47232 DEFB 255,254,251,245,241,241,241,232,228,222,221,218,217,216,212,216
 ; (x=197).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(13,11,1,0,11,11,5) | #CALL:ld_img(13,13,1,128,11,11,5) }
+; { #CALL(ld_img(13,11,1,0,11,11,5)) | #CALL(ld_img(13,13,1,128,11,11,5)) }
 ; TABLE#
 @label=LOCDESCS13
 b47334 DEFB 14,36    ; y=11, z=1; up/left, down/right
@@ -10494,7 +10494,7 @@ b47334 DEFB 14,36    ; y=11, z=1; up/left, down/right
 ; (x=197).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(13,17,1,0,11,17,5) | #CALL:ld_img(13,19,1,128,11,17,5) }
+; { #CALL(ld_img(13,17,1,0,11,17,5)) | #CALL(ld_img(13,19,1,128,11,17,5)) }
 ; TABLE#
  47338 DEFB 26,36    ; y=17, z=1; up/left, down/right
  47340 DEFB 30,208   ; y=19, z=1; left, right, up/right
@@ -10503,7 +10503,7 @@ b47334 DEFB 14,36    ; y=11, z=1; up/left, down/right
 ; (x=197).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(13,23,1,0,11,23,5) | #CALL:ld_img(13,25,1,128,11,23,5) }
+; { #CALL(ld_img(13,23,1,0,11,23,5)) | #CALL(ld_img(13,25,1,128,11,23,5)) }
 ; TABLE#
  47342 DEFB 38,36    ; y=23, z=1; up/left, down/right
  47344 DEFB 42,208   ; y=25, z=1; left, right, up/right
@@ -10512,7 +10512,7 @@ b47334 DEFB 14,36    ; y=11, z=1; up/left, down/right
 ; (x=197).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(13,29,1,0,11,29,5) | #CALL:ld_img(13,31,1,128,11,29,5) }
+; { #CALL(ld_img(13,29,1,0,11,29,5)) | #CALL(ld_img(13,31,1,128,11,29,5)) }
 ; TABLE#
  47346 DEFB 50,36    ; y=29, z=1; up/left, down/right
  47348 DEFB 54,208   ; y=31, z=1; left, right, up/right
@@ -10524,7 +10524,7 @@ b47334 DEFB 14,36    ; y=11, z=1; up/left, down/right
 ; the room past the catwalk.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(38,13,4,128,30,,12) }
+; { #CALL(ld_img(38,13,4,128,30,,12)) }
 ; TABLE#
 @label=LOCDESCS38
 b47351 DEFB 18,128   ; y=13, z=1; left (no access to no. 74)
@@ -10538,7 +10538,7 @@ b47351 DEFB 18,128   ; y=13, z=1; left (no access to no. 74)
 ; separates it from the room past the catwalk (x=40).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(40,13,1,0,30,12,14) }
+; { #CALL(ld_img(40,13,1,0,30,12,14)) }
 ; TABLE#
 @label=LOCDESCS40
 b47354 DEFB 18,64    ; y=13, z=1; right (no access to the room past the
@@ -10547,8 +10547,8 @@ b47354 DEFB 18,64    ; y=13, z=1; right (no access to the room past the
 ; (x=112) and no. 19 (x=208).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(40,32,2,0) | #CALL:ld_img(112,32,2,0) |
-; #CALL:ld_img(208,32,2,0) }
+; { #CALL(ld_img(40,32,2,0)) | #CALL(ld_img(112,32,2,0)) |
+; #CALL(ld_img(208,32,2,0)) }
 ; TABLE#
 @label=LOCDESCS112
  47356 DEFB 120,84   ; y=32, z=2; right, up/right, down/right
@@ -10556,8 +10556,8 @@ b47354 DEFB 18,64    ; y=13, z=1; right (no access to the room past the
 ; 31 (x=112) and no. 19 (x=208).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(40,33,2,0,38,31) | #CALL:ld_img(112,33,2,0,110,31) |
-; #CALL:ld_img(208,33,2,0,206,31) }
+; { #CALL(ld_img(40,33,2,0,38,31)) | #CALL(ld_img(112,33,2,0,110,31)) |
+; #CALL(ld_img(208,33,2,0,206,31)) }
 ; TABLE#
  47358 DEFB 122,92   ; y=33, z=2; right, up/right, down/left, down/right
 ; This block of location descriptors is implicitly terminated by the page
@@ -10629,7 +10629,7 @@ b47424 DEFB 0,0,0,0,0,0,0   ; 0<=x<56: no windows here
 ; top floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(91,9,4,0,89,9) | #CALL:ld_img(91,11,4,128,89,9) }
+; { #CALL(ld_img(91,9,4,0,89,9)) | #CALL(ld_img(91,11,4,128,89,9)) }
 ; TABLE#
 @label=LOCDESCS91
 b47456 DEFB 10,36    ; y=9, z=1; up/left, down/right
@@ -10638,7 +10638,7 @@ b47456 DEFB 10,36    ; y=9, z=1; up/left, down/right
 ; third floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(91,21,4,0,89,21) | #CALL:ld_img(91,23,4,128,89,21) }
+; { #CALL(ld_img(91,21,4,0,89,21)) | #CALL(ld_img(91,23,4,128,89,21)) }
 ; TABLE#
  47460 DEFB 34,36    ; y=21, z=1; up/left, down/right
  47462 DEFB 38,24    ; y=23, z=1; up/right, down/left
@@ -10657,7 +10657,7 @@ u47465 DEFB 236,255
 ; top floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(90,8,4,0,88,8,,10) | #CALL:ld_img(90,12,4,128,88,8,,10) }
+; { #CALL(ld_img(90,8,4,0,88,8,,10)) | #CALL(ld_img(90,12,4,128,88,8,,10)) }
 ; TABLE#
 @label=LOCDESCS90
 b47467 DEFB 8,132    ; y=8, z=1; left, down/right
@@ -10666,7 +10666,7 @@ b47467 DEFB 8,132    ; y=8, z=1; left, down/right
 ; third floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(90,20,4,0,88,20,,10) | #CALL:ld_img(90,24,4,128,88,20,,10) }
+; { #CALL(ld_img(90,20,4,0,88,20,,10)) | #CALL(ld_img(90,24,4,128,88,20,,10)) }
 ; TABLE#
  47471 DEFB 32,132   ; y=20, z=1; left, down/right
  47473 DEFB 40,24    ; y=24, z=1; up/right, down/left
@@ -10685,7 +10685,7 @@ u47476 DEFB 140
 ; near the entrance to the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(76,31,2,0,74,30) | #CALL:ld_img(76,32,2,0,74,30) }
+; { #CALL(ld_img(76,31,2,0,74,30)) | #CALL(ld_img(76,32,2,0,74,30)) }
 ; TABLE#
 @label=LOCDESCS76
 b47480 DEFB 219,204,192 ; y=31, z=1 or 2; left, right, down/left, down/right
@@ -10717,7 +10717,7 @@ b47488 DEFB 255,253,250,244,241,241,241,232,228,222,220,218,216,216,211,209
 ; police station (x=149).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(149,5,1,128) }
+; { #CALL(ld_img(149,5,1,128)) }
 ; TABLE#
 @label=LOCDESCS149
 b47590 DEFB 2,12     ; y=5, z=1; down/left, down/right
@@ -10727,8 +10727,8 @@ b47590 DEFB 2,12     ; y=5, z=1; down/left, down/right
 ; floor of the apartment building next to no. 19 (x=205)//.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(149,13,4,128) | #CALL:ld_img(205,13,1,128) |
-; #CALL:ld_img(222,13,1,128) }
+; { #CALL(ld_img(149,13,4,128)) | #CALL(ld_img(205,13,1,128)) |
+; #CALL(ld_img(222,13,1,128)) }
 ; TABLE#
 @label=LOCDESCS205
  47592 DEFB 18,128   ; y=13, z=1; left
@@ -10738,8 +10738,8 @@ b47590 DEFB 2,12     ; y=5, z=1; down/left, down/right
 ; (x=205)//.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(149,31,4,128) | #CALL:ld_img(205,31,1,128) |
-; #CALL:ld_img(222,31,4,128) }
+; { #CALL(ld_img(149,31,4,128)) | #CALL(ld_img(205,31,1,128)) |
+; #CALL(ld_img(222,31,4,128)) }
 ; TABLE#
  47594 DEFB 54,128   ; y=31, z=1; left
 ; The next descriptor corresponds to the spot just to the left of the top-right
@@ -10752,8 +10752,8 @@ b47590 DEFB 2,12     ; y=5, z=1; down/left, down/right
 ; (x,y,z)=(149,6,1) is not accessible//.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(22,6,1,128,,,,9) | #CALL:ld_img(205,6,1,128,,,,9) | #PUSHS
-; #POKES47386,9;47387,9 #CALL:ld_img(222,6,1,128,221,,,9) #POPS }
+; { #CALL(ld_img(22,6,1,128,,,,9)) | #CALL(ld_img(205,6,1,128,,,,9)) | #PUSHS
+; #POKES47386,9;47387,9 #CALL(ld_img(222,6,1,128,221,,,9)) #POPS }
 ; TABLE#
 @label=LOCDESCS22
  47596 DEFB 4,72     ; y=6, z=1; right, down/left
@@ -10766,8 +10766,8 @@ b47590 DEFB 2,12     ; y=5, z=1; down/left, down/right
 ; (x,y,z)=(149,7,1) is not accessible//.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(22,7,1,128,,5,,9) | #CALL:ld_img(205,7,1,128,,5,,9) | #PUSHS
-; #POKES47386,9;47387,9 #CALL:ld_img(222,7,1,128,221,5,,9) #POPS }
+; { #CALL(ld_img(22,7,1,128,,5,,9)) | #CALL(ld_img(205,7,1,128,,5,,9)) | #PUSHS
+; #POKES47386,9;47387,9 #CALL(ld_img(222,7,1,128,221,5,,9)) #POPS }
 ; TABLE#
  47598 DEFB 6,128    ; y=7, z=1; left
 ; The next descriptor corresponds to the rightmost edges on the third floor of
@@ -10776,8 +10776,8 @@ b47590 DEFB 2,12     ; y=5, z=1; down/left, down/right
 ; (x=222)/and the apartment building next to no. 19 (x=205)//.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(22,19,4,128,,17) | #CALL:ld_img(149,19,4,128,,17) |
-; #CALL:ld_img(205,19,1,128,,17) | #CALL:ld_img(222,19,4,128,,17) }
+; { #CALL(ld_img(22,19,4,128,,17)) | #CALL(ld_img(149,19,4,128,,17)) |
+; #CALL(ld_img(205,19,1,128,,17)) | #CALL(ld_img(222,19,4,128,,17)) }
 ; TABLE#
  47600 DEFB 30,128   ; y=19, z=1; left
 ; The next descriptor corresponds to the rightmost edges on the second floor of
@@ -10786,8 +10786,8 @@ b47590 DEFB 2,12     ; y=5, z=1; down/left, down/right
 ; (x=222)/and the apartment building next to no. 19 (x=205)//.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(22,25,4,128,,23) | #CALL:ld_img(149,25,4,128,,23) |
-; #CALL:ld_img(205,25,1,128,,23) | #CALL:ld_img(222,25,4,128,,23) }
+; { #CALL(ld_img(22,25,4,128,,23)) | #CALL(ld_img(149,25,4,128,,23)) |
+; #CALL(ld_img(205,25,1,128,,23)) | #CALL(ld_img(222,25,4,128,,23)) }
 ; TABLE#
  47602 DEFB 42,128   ; y=25, z=1; left
 ; The next descriptor corresponds to the rightmost edge of the right-hand shop
@@ -10796,7 +10796,7 @@ b47590 DEFB 2,12     ; y=5, z=1; down/left, down/right
 ; are not accessible.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(22,33,1,128) }
+; { #CALL(ld_img(22,33,1,128)) }
 ; TABLE#
  47604 DEFB 58,128   ; y=33, z=1; left
  47606 DEFB 255      ; End marker
@@ -10810,7 +10810,7 @@ b47590 DEFB 2,12     ; y=5, z=1; down/left, down/right
 ; and therefore these descriptors are redundant.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(39,19,4,0,,19,,14) | #CALL:ld_img(39,25,4,0,,19,,14) }
+; { #CALL(ld_img(39,19,4,0,,19,,14)) | #CALL(ld_img(39,25,4,0,,19,,14)) }
 ; TABLE#
 @label=LOCDESCS39
 b47607 DEFB 143,194,1 ; y=19, z=1; left, right (third floor)
@@ -10886,7 +10886,7 @@ b47680 DEFB 159,0,254           ; 0<=x<24: apartment building next to no. 74
 ; steps of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(74,32,2,0) }
+; { #CALL(ld_img(74,32,2,0)) }
 ; TABLE#
 @label=LOCDESCS74
 b47712 DEFB 220,208,144 ; y=32, z=1 or 2; left, right, up/right
@@ -10900,14 +10900,14 @@ b47712 DEFB 220,208,144 ; y=32, z=1 or 2; left, right, up/right
 ; of the staircase leading up to the second floor.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(77,31,2,128) }
+; { #CALL(ld_img(77,31,2,128)) }
 ; TABLE#
 @label=LOCDESCS77
 b47716 DEFB 219,208,80 ; y=31, z=1 or 2; left, right, up/right
 ; The next descriptor corresponds to the front steps of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(77,32,2,0,,30) }
+; { #CALL(ld_img(77,32,2,0,,30)) }
 ; TABLE#
  47719 DEFB 120,224    ; y=32, z=2; left, right, up/left
  47721 DEFB 255        ; End marker
@@ -10920,14 +10920,14 @@ b47716 DEFB 219,208,80 ; y=31, z=1 or 2; left, right, up/right
 ; first and second floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(81,25,1,0) }
+; { #CALL(ld_img(81,25,1,0)) }
 ; TABLE#
 @label=LOCDESCS81
 b47722 DEFB 42,200      ; y=25, z=1; left, right, down/left
 ; The next two descriptors correspond to the entrance to the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(81,31,1,0,,30) | #CALL:ld_img(81,32,2,128,,30) }
+; { #CALL(ld_img(81,31,1,0,,30)) | #CALL(ld_img(81,32,2,128,,30)) }
 ; TABLE#
  47724 DEFB 219,204,192 ; y=31, z=1 or 2; left, right, down/left, down/right
  47727 DEFB 120,208     ; y=32, z=2; left, right, up/right
@@ -10939,7 +10939,7 @@ b47722 DEFB 42,200      ; y=25, z=1; left, right, down/left
 ; between the first and second floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(78,28,4,128,,28) | #CALL:ld_img(78,30,4,128,,28) }
+; { #CALL(ld_img(78,28,4,128,,28)) | #CALL(ld_img(78,30,4,128,,28)) }
 ; TABLE#
 @label=LOCDESCS78
 b47730 DEFB 48,20    ; y=28, z=1; up/right, down/right
@@ -10959,7 +10959,7 @@ u47735 DEFB 120,200  ; y=32, z=2; left, right, down/left
 ; These descriptors correspond to the entrance to the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(82,31,1,0,,30) | #CALL:ld_img(82,32,2,0,,30) }
+; { #CALL(ld_img(82,31,1,0,,30)) | #CALL(ld_img(82,32,2,0,,30)) }
 ; TABLE#
 @label=LOCDESCS82
 b47738 DEFB 219,140,128 ; y=31, z=1 or 2; left, down/left, down/right
@@ -10987,7 +10987,7 @@ b47744 DEFB 255,252,250,243,241,241,241,232,227,222,219,218,216,216,211,218
 ; no. 27 (x=150).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(125,6,1,0) | #CALL:ld_img(150,6,1,0) }
+; { #CALL(ld_img(125,6,1,0)) | #CALL(ld_img(150,6,1,0)) }
 ; TABLE#
 @label=LOCDESCS125
 b47846 DEFB 4,36     ; y=6, z=1; up/left, down/right
@@ -10996,8 +10996,8 @@ b47846 DEFB 4,36     ; y=6, z=1; up/left, down/right
 ; the left edge of the roof of no. 27 (x=150).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(57,7,1,0) | #CALL:ld_img(125,7,1,0) | #CALL:ld_img(150,7,1,0)
-; }
+; { #CALL(ld_img(57,7,1,0)) | #CALL(ld_img(125,7,1,0)) |
+; #CALL(ld_img(150,7,1,0)) }
 ; TABLE#
 @label=LOCDESCS57
  47848 DEFB 6,64     ; y=7, z=1; right
@@ -11007,9 +11007,9 @@ b47846 DEFB 4,36     ; y=6, z=1; up/left, down/right
 ; top floor of no. 27 (x=150), and the left edge of the roof of no. 19 (x=207).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(57,13,1,0) | #CALL:ld_img(103,13,1,0) |
-; #CALL:ld_img(125,13,4,0) | #CALL:ld_img(150,13,4,0) |
-; #CALL:ld_img(207,13,4,0) }
+; { #CALL(ld_img(57,13,1,0)) | #CALL(ld_img(103,13,1,0)) |
+; #CALL(ld_img(125,13,4,0)) | #CALL(ld_img(150,13,4,0)) |
+; #CALL(ld_img(207,13,4,0)) }
 ; TABLE#
 @label=LOCDESCS103
  47850 DEFB 18,64    ; y=13, z=1; right
@@ -11018,9 +11018,9 @@ b47846 DEFB 4,36     ; y=6, z=1; up/left, down/right
 ; no. 27 (x=150), and no. 19 (x=207).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(32,19,1,0) | #CALL:ld_img(57,19,1,0) |
-; #CALL:ld_img(103,19,4,0) | #CALL:ld_img(125,19,4,0) |
-; #CALL:ld_img(150,19,4,0) | #CALL:ld_img(207,19,4,0) }
+; { #CALL(ld_img(32,19,1,0)) | #CALL(ld_img(57,19,1,0)) |
+; #CALL(ld_img(103,19,4,0)) | #CALL(ld_img(125,19,4,0)) |
+; #CALL(ld_img(150,19,4,0)) | #CALL(ld_img(207,19,4,0)) }
 ; TABLE#
 @label=LOCDESCS32
  47852 DEFB 30,64    ; y=19, z=1; right
@@ -11029,9 +11029,9 @@ b47846 DEFB 4,36     ; y=6, z=1; up/left, down/right
 ; no. 27 (x=150), and no. 19 (x=207).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(32,25,1,0)) | #CALL:ld_img(57,25,1,0) |
-; #CALL:ld_img(103,25,4,0) | #CALL:ld_img(125,25,4,0) |
-; #CALL:ld_img(150,25,4,0) | #CALL:ld_img(207,25,4,0) }
+; { #CALL(ld_img(32,25,1,0))) | #CALL(ld_img(57,25,1,0)) |
+; #CALL(ld_img(103,25,4,0)) | #CALL(ld_img(125,25,4,0)) |
+; #CALL(ld_img(150,25,4,0)) | #CALL(ld_img(207,25,4,0)) }
 ; TABLE#
  47854 DEFB 42,64    ; y=25, z=1; right
 ; The next descriptor corresponds to the far left wall on the first floor of
@@ -11042,9 +11042,9 @@ b47846 DEFB 4,36     ; y=6, z=1; up/left, down/right
 ; the far left wall on the first floor of no. 19 (x=207).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(32,31,1,0) | #CALL:ld_img(57,31,4,0) |
-; #CALL:ld_img(103,31,4,0) | #CALL:ld_img(125,31,4,0) |
-; #CALL:ld_img(150,31,4,0) | #CALL:ld_img(207,31,4,0) }
+; { #CALL(ld_img(32,31,1,0)) | #CALL(ld_img(57,31,4,0)) |
+; #CALL(ld_img(103,31,4,0)) | #CALL(ld_img(125,31,4,0)) |
+; #CALL(ld_img(150,31,4,0)) | #CALL(ld_img(207,31,4,0)) }
 ; TABLE#
  47856 DEFB 54,64    ; y=31, z=1; right
  47858 DEFB 255      ; End marker
@@ -11060,7 +11060,7 @@ u47859 DEFB 0
 ; (x=254) which is not accessible; this descriptor is therefore redundant.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(254,33,2,0) }
+; { #CALL(ld_img(254,33,2,0)) }
 ; TABLE#
 @label=LOCDESCS254
 b47860 DEFB 122,168  ; y=33, z=2; left, up/left, down/left
@@ -11068,7 +11068,7 @@ b47860 DEFB 122,168  ; y=33, z=2; left, up/left, down/left
 ; hotel (x=100), and the rightmost edge of the roof of no. 15 (x=254).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(100,7,1,128) | #CALL:ld_img(254,7,1,128) }
+; { #CALL(ld_img(100,7,1,128)) | #CALL(ld_img(254,7,1,128)) }
 ; TABLE#
 @label=LOCDESCS100
  47862 DEFB 6,128    ; y=7, z=1; left
@@ -11076,8 +11076,8 @@ b47860 DEFB 122,168  ; y=33, z=2; left, up/left, down/left
 ; no. 74 (x=53), the hotel (x=100), and no. 15 (x=254).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(53,13,1,128) | #CALL:ld_img(100,13,1,128) |
-; #CALL:ld_img(254,13,4,128) }
+; { #CALL(ld_img(53,13,1,128)) | #CALL(ld_img(100,13,1,128)) |
+; #CALL(ld_img(254,13,4,128)) }
 ; TABLE#
 @label=LOCDESCS53
  47864 DEFB 18,128   ; y=13, z=1; left
@@ -11085,16 +11085,16 @@ b47860 DEFB 122,168  ; y=33, z=2; left, up/left, down/left
 ; no. 74 (x=53), the hotel (x=100), and no. 15 (x=254).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(53,19,1,0) | #CALL:ld_img(100,19,1,0) |
-; #CALL:ld_img(254,19,4,0) }
+; { #CALL(ld_img(53,19,1,0)) | #CALL(ld_img(100,19,1,0)) |
+; #CALL(ld_img(254,19,4,0)) }
 ; TABLE#
  47866 DEFB 30,128   ; y=19, z=1; left
 ; The next descriptor corresponds to the far right walls on the second floor of
 ; no. 74 (x=53), the hotel (x=100), and no. 15 (x=254).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(53,25,1,128) | #CALL:ld_img(100,25,1,128) |
-; #CALL:ld_img(254,25,4,128) }
+; { #CALL(ld_img(53,25,1,128)) | #CALL(ld_img(100,25,1,128)) |
+; #CALL(ld_img(254,25,4,128)) }
 ; TABLE#
  47868 DEFB 42,128   ; y=25, z=1; left
 ; The next descriptor corresponds to the far right wall on the first floor of
@@ -11104,8 +11104,8 @@ b47860 DEFB 122,168  ; y=33, z=2; left, up/left, down/left
 ; far right wall on the first floor of no. 15 (x=254).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(53,31,1,128) | #CALL:ld_img(62,31,4,128) |
-; #CALL:ld_img(100,31,1,128) | #CALL:ld_img(254,31,4,128) }
+; { #CALL(ld_img(53,31,1,128)) | #CALL(ld_img(62,31,4,128)) |
+; #CALL(ld_img(100,31,1,128)) | #CALL(ld_img(254,31,4,128)) }
 ; TABLE#
 @label=LOCDESCS62
  47870 DEFB 54,128   ; y=31, z=1; left
@@ -11185,7 +11185,7 @@ u47968 DEFB 12,40    ; y=10, z=1; up/left, down/left
 ; floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(92,10,4,0) }
+; { #CALL(ld_img(92,10,4,0)) }
 ; TABLE#
 @label=LOCDESCS92
 b47970 DEFB 12,40    ; y=10, z=1; up/left, down/left
@@ -11193,7 +11193,7 @@ b47970 DEFB 12,40    ; y=10, z=1; up/left, down/left
 ; floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(92,22,4,0) }
+; { #CALL(ld_img(92,22,4,0)) }
 ; TABLE#
  47972 DEFB 36,40    ; y=22, z=1; up/left, down/left
  47974 DEFB 255      ; End marker
@@ -11214,7 +11214,7 @@ u47975 DEFB 204,255,193,1
 ; steps of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(83,32,2,0) }
+; { #CALL(ld_img(83,32,2,0)) }
 ; TABLE#
 @label=LOCDESCS83
 b47992 DEFB 220,224,96 ; y=32, z=1 or 2; left, right, up/left
@@ -11226,7 +11226,7 @@ b47992 DEFB 220,224,96 ; y=32, z=1 or 2; left, right, up/left
 ; steps of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(86,32,1,128) }
+; { #CALL(ld_img(86,32,1,128)) }
 ; TABLE#
 @label=LOCDESCS86
 b47996 DEFB 220,192,128 ; y=32, z=1 or 2; left, right
@@ -11253,8 +11253,8 @@ b48000 DEFB 255,252,250,242,240,238,241,232,226,222,218,218,216,216,211,218
 ; 31 (x=115), and the staircase leading up to the roof of no. 19 (x=211).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(43,16,4,0) | #CALL:ld_img(115,16,4,0) |
-; #CALL:ld_img(211,16,4,0) }
+; { #CALL(ld_img(43,16,4,0)) | #CALL(ld_img(115,16,4,0)) |
+; #CALL(ld_img(211,16,4,0)) }
 ; TABLE#
 @label=LOCDESCS43
 b48102 DEFB 24,36       ; y=16, z=1; up/left, down/right
@@ -11265,24 +11265,24 @@ b48102 DEFB 24,36       ; y=16, z=1; up/left, down/right
 ; third floors of no. 74 (x=43), no. 31 (x=115), and no. 19 (x=211).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(43,22,4,0) | #CALL:ld_img(115,22,4,0) |
-; #CALL:ld_img(211,22,4,0) }
+; { #CALL(ld_img(43,22,4,0)) | #CALL(ld_img(115,22,4,0)) |
+; #CALL(ld_img(211,22,4,0)) }
 ; TABLE#
  48106 DEFB 36,24       ; y=22, z=1; up/right, down/left
 ; The next descriptor corresponds to the tops of the staircases between the
 ; first and second floors of no. 74 (x=43), no. 31 (x=115), and no. 19 (x=211).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(43,25,4,0) | #CALL:ld_img(115,25,4,0) |
-; #CALL:ld_img(211,25,4,0) }
+; { #CALL(ld_img(43,25,4,0)) | #CALL(ld_img(115,25,4,0)) |
+; #CALL(ld_img(211,25,4,0)) }
 ; TABLE#
  48108 DEFB 42,196      ; y=25, z=1; left, right, down/right
 ; The next three descriptors correspond to the front doors of no. 74 (x=43),
 ; no. 31 (x=115) and no. 19 (x=211).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(43,31,2,0) | #CALL:ld_img(115,31,2,0) |
-; #CALL:ld_img(211,31,2,0) }
+; { #CALL(ld_img(43,31,2,0)) | #CALL(ld_img(115,31,2,0)) |
+; #CALL(ld_img(211,31,2,0)) }
 ; TABLE#
  48110 DEFB 219,220,209 ; y=31, z=1 or 2; left, right, up/right, down/left,
                         ; down/right (door open)
@@ -11294,8 +11294,8 @@ b48102 DEFB 24,36       ; y=16, z=1; up/left, down/right
 ; (x=115) and no. 19 (x=211).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(43,32,2,0) | #CALL:ld_img(115,32,2,0) |
-; #CALL:ld_img(211,32,2,0) }
+; { #CALL(ld_img(43,32,2,0)) | #CALL(ld_img(115,32,2,0)) |
+; #CALL(ld_img(211,32,2,0)) }
 ; TABLE#
  48117 DEFB 120,252     ; y=32, z=2; left, right, up/left, up/right, down/left,
                         ; down/right
@@ -11303,8 +11303,8 @@ b48102 DEFB 24,36       ; y=16, z=1; up/left, down/right
 ; 31 (x=115) and no. 19 (x=211).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(43,33,2,0) | #CALL:ld_img(115,33,2,0) |
-; #CALL:ld_img(211,33,2,0) }
+; { #CALL(ld_img(43,33,2,0)) | #CALL(ld_img(115,33,2,0)) |
+; #CALL(ld_img(211,33,2,0)) }
 ; TABLE#
  48119 DEFB 122,252     ; y=33, z=2; left, right, up/left, up/right, down/left,
                         ; down/right
@@ -11393,7 +11393,7 @@ u48224 DEFB 46,24    ; y=27, z=1; up/right, down/left
 ; to the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(75,31,2,0,,30) | #CALL:ld_img(75,32,2,128,,30) }
+; { #CALL(ld_img(75,31,2,0,,30)) | #CALL(ld_img(75,32,2,128,,30)) }
 ; TABLE#
 @label=LOCDESCS75
 b48238 DEFB 219,76,64 ; y=31, z=1 or 2; right, down/left, down/right
@@ -11434,8 +11434,8 @@ b48256 DEFB 255,252,249,241,239,237,241,232,225,222,218,218,216,216,216,218
 ; roof of no. 19 (x=210).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(42,13,4,0) | #CALL:ld_img(114,13,1,0) |
-; #CALL:ld_img(210,13,4,0) }
+; { #CALL(ld_img(42,13,4,0)) | #CALL(ld_img(114,13,1,0)) |
+; #CALL(ld_img(210,13,4,0)) }
 ; TABLE#
 @label=LOCDESCS42
 b48358 DEFB 18,200      ; y=13, z=1; left, right, down/left
@@ -11444,24 +11444,24 @@ b48358 DEFB 18,200      ; y=13, z=1; left, right, down/left
 ; (x=114), and the staircase leading up to the roof of no. 19 (x=210).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(42,15,4,0) | #CALL:ld_img(114,15,4,0) |
-; #CALL:ld_img(210,15,4,0) }
+; { #CALL(ld_img(42,15,4,0)) | #CALL(ld_img(114,15,4,0)) |
+; #CALL(ld_img(210,15,4,0)) }
 ; TABLE#
  48360 DEFB 22,36       ; y=15, z=1; up/left, down/right
 ; The next descriptor corresponds to the staircases between the second and
 ; third floors of no. 74 (x=42), no. 31 (x=114), and no. 19 (x=210).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(42,23,4,0) | #CALL:ld_img(114,23,4,0) |
-; #CALL:ld_img(210,23,4,0) }
+; { #CALL(ld_img(42,23,4,0)) | #CALL(ld_img(114,23,4,0)) |
+; #CALL(ld_img(210,23,4,0)) }
 ; TABLE#
  48362 DEFB 38,24       ; y=23, z=1; up/right, down/left
 ; The next two descriptors correspond to the front doors of no. 74 (x=42), no.
 ; 31 (x=114) and no. 19 (x=210).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(42,31,2,0) | #CALL:ld_img(114,31,2,0) |
-; #CALL:ld_img(210,31,2,0) }
+; { #CALL(ld_img(42,31,2,0)) | #CALL(ld_img(114,31,2,0)) |
+; #CALL(ld_img(210,31,2,0)) }
 ; TABLE#
  48364 DEFB 219,204,193 ; y=31, z=1 or 2; left, right, down/left, down/right
                         ; (door open)
@@ -11471,8 +11471,8 @@ b48358 DEFB 18,200      ; y=13, z=1; left, right, down/left
 ; (x=114) and no. 19 (x=210).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(42,32,2,0) | #CALL:ld_img(114,32,2,0) |
-; #CALL:ld_img(210,32,2,0) }
+; { #CALL(ld_img(42,32,2,0)) | #CALL(ld_img(114,32,2,0)) |
+; #CALL(ld_img(210,32,2,0)) }
 ; TABLE#
  48369 DEFB 120,252     ; y=32, z=2; left, right, up/left, up/right, down/left,
                         ; down/right
@@ -11480,8 +11480,8 @@ b48358 DEFB 18,200      ; y=13, z=1; left, right, down/left
 ; 31 (x=114) and no. 19 (x=210).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(42,33,2,0) | #CALL:ld_img(114,33,2,0) |
-; #CALL:ld_img(210,33,2,0) }
+; { #CALL(ld_img(42,33,2,0)) | #CALL(ld_img(114,33,2,0)) |
+; #CALL(ld_img(210,33,2,0)) }
 ; TABLE#
  48371 DEFB 122,252     ; y=33, z=2; left, right, up/left, up/right, down/left,
                         ; down/right
@@ -11489,8 +11489,8 @@ b48358 DEFB 18,200      ; y=13, z=1; left, right, down/left
 ; second and third floors of no. 74 (x=42), no. 31 (x=114), and no. 19 (x=210).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(42,25,4,0) | #CALL:ld_img(114,25,4,0) |
-; #CALL:ld_img(210,25,4,0) }
+; { #CALL(ld_img(42,25,4,0)) | #CALL(ld_img(114,25,4,0)) |
+; #CALL(ld_img(210,25,4,0)) }
 ; TABLE#
  48373 DEFB 42,224      ; y=25, z=1; left, right, up/left
  48375 DEFB 255         ; End marker
@@ -11506,7 +11506,7 @@ u48376 DEFB 252,255,252,255
 ; steps of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(71,32,1,0) }
+; { #CALL(ld_img(71,32,1,0)) }
 ; TABLE#
 @label=LOCDESCS71
 b48380 DEFB 220,192,64 ; y=32, z=1 or 2; left, right
@@ -11586,8 +11586,8 @@ b48448 DEFB 12,0,44         ; 0<=x<24: apartment building next to no. 74
 ; building next to no. 19 (x=182).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(182,6,1,0) | #CALL:ld_img(182,11,2,0) |
-; #CALL:ld_img(182,17,2,0) | #CALL:ld_img(182,23,2,0) }
+; { #CALL(ld_img(182,6,1,0)) | #CALL(ld_img(182,11,2,0)) |
+; #CALL(ld_img(182,17,2,0)) | #CALL(ld_img(182,23,2,0)) }
 ; TABLE#
 @label=LOCDESCS182
 b48480 DEFB 4,140    ; y=6, z=1; left, down/left, down/right (roof)
@@ -11600,8 +11600,8 @@ b48480 DEFB 4,140    ; y=6, z=1; left, down/left, down/right (roof)
 ; the roof of the apartment building next to no. 19 (x=182, 183).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(126,7,1,0) | #CALL:ld_img(151,7,1,0) | #CALL:ld_img(182,7,1,0)
-; | #CALL:ld_img(183,7,1,0) }
+; { #CALL(ld_img(126,7,1,0)) | #CALL(ld_img(151,7,1,0)) |
+; #CALL(ld_img(182,7,1,0)) | #CALL(ld_img(183,7,1,0)) }
 ; TABLE#
 @label=LOCDESCS126
  48488 DEFB 6,224    ; y=7, z=1; left, right, up/left
@@ -11624,7 +11624,7 @@ u48491 DEFB 42,200   ; y=25, z=1; left, right, down/left
 ; off the roof (see #R42006).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(118,11,1,128) }
+; { #CALL(ld_img(118,11,1,128)) }
 ; TABLE#
 @label=LOCDESCS118
 b48501 DEFB 135,73,5 ; y=11, z=1; right, down/left
@@ -11642,7 +11642,7 @@ u48505 DEFB 172,255
 ; going to step off the roof (see #R41750).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(124,5,1,0) }
+; { #CALL(ld_img(124,5,1,0)) }
 ; TABLE#
 @label=LOCDESCS124
 b48507 DEFB 129,134,4 ; y=5, z=1; left, down/right
@@ -11672,8 +11672,8 @@ b48512 DEFB 255,252,248,241,239,236,241,231,224,222,218,218,215,216,216,218
 ; 31 (x=113), and the staircase leading up to the roof of no. 19 (x=209).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(41,14,4,128) | #CALL:ld_img(113,14,4,128) |
-; #CALL:ld_img(209,14,4,128) }
+; { #CALL(ld_img(41,14,4,128)) | #CALL(ld_img(113,14,4,128)) |
+; #CALL(ld_img(209,14,4,128)) }
 ; TABLE#
 @label=LOCDESCS41
 b48614 DEFB 20,20    ; y=14, z=1; up/right, down/right
@@ -11681,24 +11681,24 @@ b48614 DEFB 20,20    ; y=14, z=1; up/right, down/right
 ; (x=41), no. 31 (x=113) and no. 19 (x=209).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(41,31,2,128) | #CALL:ld_img(113,31,2,128) |
-; #CALL:ld_img(209,31,2,128) }
+; { #CALL(ld_img(41,31,2,128)) | #CALL(ld_img(113,31,2,128)) |
+; #CALL(ld_img(209,31,2,128)) }
 ; TABLE#
  48616 DEFB 118,76   ; y=31, z=2; right, down/left, down/right
 ; The next descriptor corresponds to the front steps of no. 74 (x=41), no. 31
 ; (x=113) and no. 19 (x=209).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(41,32,2,128) | #CALL:ld_img(113,32,2,128) |
-; #CALL:ld_img(209,32,2,128) }
+; { #CALL(ld_img(41,32,2,128)) | #CALL(ld_img(113,32,2,128)) |
+; #CALL(ld_img(209,32,2,128)) }
 ; TABLE#
  48618 DEFB 120,220  ; y=32, z=2; left, right, up/right, down/left, down/right
 ; The next descriptor also corresponds to the front steps of no. 74 (x=41), no.
 ; 31 (x=113) and no. 19 (x=209).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(41,33,2,128,,31) | #CALL:ld_img(113,33,2,128,,31) |
-; #CALL:ld_img(209,33,2,128,,31) }
+; { #CALL(ld_img(41,33,2,128,,31)) | #CALL(ld_img(113,33,2,128,,31)) |
+; #CALL(ld_img(209,33,2,128,,31)) }
 ; TABLE#
  48620 DEFB 122,252  ; y=33, z=2; left, right, up/left, up/right, down/left,
                      ; down/right
@@ -11706,8 +11706,8 @@ b48614 DEFB 20,20    ; y=14, z=1; up/right, down/right
 ; third floors of no. 74 (x=41), no. 31 (x=113), and no. 19 (x=209).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(41,24,4,128) | #CALL:ld_img(113,24,4,128) |
-; #CALL:ld_img(209,24,4,128) }
+; { #CALL(ld_img(41,24,4,128)) | #CALL(ld_img(113,24,4,128)) |
+; #CALL(ld_img(209,24,4,128)) }
 ; TABLE#
  48622 DEFB 40,20    ; y=24, z=1; up/right, down/right
  48624 DEFB 255      ; End marker
@@ -11782,15 +11782,15 @@ b48704 DEFS 32
 ; of the roof of no. 31 (x=117).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(117,12,1,128) }
+; { #CALL(ld_img(117,12,1,128)) }
 ; TABLE#
 @label=LOCDESCS117
 b48736 DEFB 16,24    ; y=12, z=1; up/right, down/left
 ; The next four descriptors correspond to the far right side of no. 31 (x=117).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(117,13,1,128) | #CALL:ld_img(117,19,1,128) |
-; #CALL:ld_img(117,25,1,128) | #CALL:ld_img(117,31,4,128) }
+; { #CALL(ld_img(117,13,1,128)) | #CALL(ld_img(117,19,1,128)) |
+; #CALL(ld_img(117,25,1,128)) | #CALL(ld_img(117,31,4,128)) }
 ; TABLE#
  48738 DEFB 18,128   ; y=13, z=1; left (roof)
  48740 DEFB 30,128   ; y=19, z=1; left (top floor)
@@ -11801,8 +11801,8 @@ b48736 DEFB 16,24    ; y=12, z=1; up/right, down/left
 ; (x=117), and the staircase leading up to the roof of no. 19 (x=213).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(45,18,4,128) | #CALL:ld_img(117,18,4,128) |
-; #CALL:ld_img(213,18,4,128) }
+; { #CALL(ld_img(45,18,4,128)) | #CALL(ld_img(117,18,4,128)) |
+; #CALL(ld_img(213,18,4,128)) }
 ; TABLE#
 @label=LOCDESCS45
  48746 DEFB 28,40    ; y=18, z=1; up/left, down/left
@@ -11810,40 +11810,40 @@ b48736 DEFB 16,24    ; y=12, z=1; up/right, down/left
 ; third floors of no. 74 (x=45), no. 31 (x=117) and no. 19 (x=213).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(45,20,4,128) | #CALL:ld_img(117,20,4,128) |
-; #CALL:ld_img(213,20,4,128) }
+; { #CALL(ld_img(45,20,4,128)) | #CALL(ld_img(117,20,4,128)) |
+; #CALL(ld_img(213,20,4,128)) }
 ; TABLE#
  48748 DEFB 32,40    ; y=20, z=1; up/left, down/left
 ; The next descriptor corresponds to the staircases between the first and
 ; second floors of no. 74 (x=45), no. 31 (x=117) and no. 19 (x=213).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(45,27,4,128) | #CALL:ld_img(117,27,4,128) |
-; #CALL:ld_img(213,27,4,128) }
+; { #CALL(ld_img(45,27,4,128)) | #CALL(ld_img(117,27,4,128)) |
+; #CALL(ld_img(213,27,4,128)) }
 ; TABLE#
  48750 DEFB 46,40    ; y=27, z=1; up/left, down/left
 ; The next descriptor also corresponds to the staircases between the first and
 ; second floors of no. 74 (x=45), no. 31 (x=117) and no. 19 (x=213).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(45,29,4,128) | #CALL:ld_img(117,29,4,128) |
-; #CALL:ld_img(213,29,4,128) }
+; { #CALL(ld_img(45,29,4,128)) | #CALL(ld_img(117,29,4,128)) |
+; #CALL(ld_img(213,29,4,128)) }
 ; TABLE#
  48752 DEFB 50,40    ; y=29, z=1; up/left, down/left
 ; The next descriptor corresponds to the front steps of no. 74 (x=45), no. 31
 ; (x=117) and no. 19 (x=213).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(45,32,2,128) | #CALL:ld_img(117,32,2,128) |
-; #CALL:ld_img(213,32,2,128) }
+; { #CALL(ld_img(45,32,2,128)) | #CALL(ld_img(117,32,2,128)) |
+; #CALL(ld_img(213,32,2,128)) }
 ; TABLE#
  48754 DEFB 120,168  ; y=32, z=2; left, up/left, down/left
 ; The next descriptor also corresponds to the front steps of no. 74 (x=45), no.
 ; 31 (x=117) and no. 19 (x=213).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(45,33,2,128,,31) | #CALL:ld_img(117,33,2,128,,31) |
-; #CALL:ld_img(213,33,2,128,,31) }
+; { #CALL(ld_img(45,33,2,128,,31)) | #CALL(ld_img(117,33,2,128,,31)) |
+; #CALL(ld_img(213,33,2,128,,31)) }
 ; TABLE#
  48756 DEFB 122,172  ; y=33, z=2; left, up/left, down/left, down/right
  48758 DEFB 255      ; End marker
@@ -11856,7 +11856,7 @@ b48736 DEFB 16,24    ; y=12, z=1; up/right, down/left
 ; second floors of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(135,29,4,128) }
+; { #CALL(ld_img(135,29,4,128)) }
 ; TABLE#
 @label=LOCDESCS135
 b48759 DEFB 50,20    ; y=29, z=1; up/right, down/right
@@ -11864,13 +11864,13 @@ b48759 DEFB 50,20    ; y=29, z=1; up/right, down/right
 ; police station that is not accessible; it is therefore redundant.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(135,31,2,128,,30,,10) }
+; { #CALL(ld_img(135,31,2,128,,30,,10)) }
 ; TABLE#
  48761 DEFB 118,68   ; y=31, z=2; right, down/right
 ; The next two descriptors correspond to the front steps of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(135,32,2,128,,30,,10) | #CALL:ld_img(135,33,2,128,,30,,10) }
+; { #CALL(ld_img(135,32,2,128,,30,,10)) | #CALL(ld_img(135,33,2,128,,30,,10)) }
 ; TABLE#
  48763 DEFB 120,68   ; y=32, z=2; right, down/right
  48765 DEFB 122,92   ; y=33, z=2; right, up/right, down/left, down/right
@@ -11896,7 +11896,7 @@ b48768 DEFB 255,252,247,241,241,235,234,230,223,222,218,218,214,216,216,218
 ; top-right edge of the roof of no. 31 (x=116).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(116,13,1,128) }
+; { #CALL(ld_img(116,13,1,128)) }
 ; TABLE#
 @label=LOCDESCS116
 b48870 DEFB 18,208   ; y=13, z=1; left, right, up/right
@@ -11905,8 +11905,8 @@ b48870 DEFB 18,208   ; y=13, z=1; left, right, up/right
 ; (x=116), and the staircase leading up to the roof of no. 19 (x=212).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(44,17,4,0) | #CALL:ld_img(116,17,4,0) |
-; #CALL:ld_img(212,17,4,0) }
+; { #CALL(ld_img(44,17,4,0)) | #CALL(ld_img(116,17,4,0)) |
+; #CALL(ld_img(212,17,4,0)) }
 ; TABLE#
 @label=LOCDESCS44
  48872 DEFB 26,36    ; y=17, z=1; up/left, down/right
@@ -11916,16 +11916,16 @@ b48870 DEFB 18,208   ; y=13, z=1; left, right, up/right
 ; to the roof of no. 19 (x=212).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(44,19,4,128) | #CALL:ld_img(116,19,4,128) |
-; #CALL:ld_img(212,19,4,128) }
+; { #CALL(ld_img(44,19,4,128)) | #CALL(ld_img(116,19,4,128)) |
+; #CALL(ld_img(212,19,4,128)) }
 ; TABLE#
  48874 DEFB 30,212   ; y=19, z=1; left, right, up/right, down/right
 ; The next descriptor corresponds to the staircases between the second and
 ; third floors of no. 74 (x=44), no. 31 (x=116), and no. 19 (x=212).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(44,21,4,128) | #CALL:ld_img(116,21,4,128) |
-; #CALL:ld_img(212,21,4,128) }
+; { #CALL(ld_img(44,21,4,128)) | #CALL(ld_img(116,21,4,128)) |
+; #CALL(ld_img(212,21,4,128)) }
 ; TABLE#
  48876 DEFB 34,24    ; y=21, z=1; up/right, down/left
 ; The next descriptor is identical to the one above, and is therefore
@@ -11935,48 +11935,48 @@ b48870 DEFB 18,208   ; y=13, z=1; left, right, up/right
 ; second floors of no. 74 (x=44), no. 31 (x=116), and no. 19 (x=212).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(44,26,4,128) | #CALL:ld_img(116,26,4,128) |
-; #CALL:ld_img(212,26,4,128) }
+; { #CALL(ld_img(44,26,4,128)) | #CALL(ld_img(116,26,4,128)) |
+; #CALL(ld_img(212,26,4,128)) }
 ; TABLE#
  48880 DEFB 44,36    ; y=26, z=1; up/left, down/right
 ; The next descriptor also corresponds to the staircases between the first and
 ; second floors of no. 74 (x=44), no. 31 (x=116), and no. 19 (x=212).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(44,28,4,128) | #CALL:ld_img(116,28,4,128) |
-; #CALL:ld_img(212,28,4,128) }
+; { #CALL(ld_img(44,28,4,128)) | #CALL(ld_img(116,28,4,128)) |
+; #CALL(ld_img(212,28,4,128)) }
 ; TABLE#
  48882 DEFB 48,20    ; y=28, z=1; up/right, down/right
 ; The next descriptor also corresponds to the staircases between the first and
 ; second floors of no. 74 (x=44), no. 31 (x=116), and no. 19 (x=212).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(44,30,4,128) | #CALL:ld_img(116,30,4,128) |
-; #CALL:ld_img(212,30,4,128) }
+; { #CALL(ld_img(44,30,4,128)) | #CALL(ld_img(116,30,4,128)) |
+; #CALL(ld_img(212,30,4,128)) }
 ; TABLE#
  48884 DEFB 52,24    ; y=30, z=1; up/right, down/left
 ; The next descriptor corresponds to the top of the front steps of no. 74
 ; (x=44), no. 31 (x=116) and no. 19 (x=212).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(44,31,2,0) | #CALL:ld_img(116,31,2,0) |
-; #CALL:ld_img(212,31,2,0) }
+; { #CALL(ld_img(44,31,2,0)) | #CALL(ld_img(116,31,2,0)) |
+; #CALL(ld_img(212,31,2,0)) }
 ; TABLE#
  48886 DEFB 118,140  ; y=31, z=2; left, down/left, down/right
 ; The next descriptor corresponds to the front steps of no. 74 (x=44), no. 31
 ; (x=116) and no. 19 (x=212).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(44,32,2,0) | #CALL:ld_img(116,32,2,0) |
-; #CALL:ld_img(212,32,2,0) }
+; { #CALL(ld_img(44,32,2,0)) | #CALL(ld_img(116,32,2,0)) |
+; #CALL(ld_img(212,32,2,0)) }
 ; TABLE#
  48888 DEFB 120,236  ; y=32, z=2; left, right, up/left, down/left, down/right
 ; The next descriptor also corresponds to the front steps of no. 74 (x=44), no.
 ; 31 (x=116) and no. 19 (x=212).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(44,33,2,0) | #CALL:ld_img(116,33,2,0) |
-; #CALL:ld_img(212,33,2,0) }
+; { #CALL(ld_img(44,33,2,0)) | #CALL(ld_img(116,33,2,0)) |
+; #CALL(ld_img(212,33,2,0)) }
 ; TABLE#
  48890 DEFB 122,252  ; y=33, z=2; left, right, up/left, up/right, down/left,
                      ; down/right
@@ -11990,7 +11990,7 @@ b48870 DEFB 18,208   ; y=13, z=1; left, right, up/right
 ; #R42518).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(133,31,4,128) }
+; { #CALL(ld_img(133,31,4,128)) }
 ; TABLE#
 @label=LOCDESCS133
 b48893 DEFB 155,193,7 ; y=31, z=1; left, right
@@ -12527,7 +12527,7 @@ b48896 DEFB 255
 ; between the first and second floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(80,26,4,128) }
+; { #CALL(ld_img(80,26,4,128)) }
 ; TABLE#
 @label=LOCDESCS80
 b48998 DEFB 44,24    ; y=26, z=1; up/right, down/left
@@ -12544,7 +12544,7 @@ u49001 DEFB 255
 ; between the second and third floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(65,16,4,128) }
+; { #CALL(ld_img(65,16,4,128)) }
 ; TABLE#
 @label=LOCDESCS65
 b49002 DEFB 24,20    ; y=16, z=1; up/right, down/right
@@ -12565,8 +12565,8 @@ u49005 DEFB 204,255,194,1
 ; and therefore these descriptors are redundant.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(190,13,4,0) | #CALL:ld_img(190,19,4,0) |
-; #CALL:ld_img(190,25,4,0) | #CALL:ld_img(190,31,4,0) }
+; { #CALL(ld_img(190,13,4,0)) | #CALL(ld_img(190,19,4,0)) |
+; #CALL(ld_img(190,25,4,0)) | #CALL(ld_img(190,31,4,0)) }
 ; TABLE#
 @label=LOCDESCS190
 b49009 DEFB 137,194,1 ; y=13, z=1; left, right (top floor)
@@ -12600,7 +12600,7 @@ b49024 DEFB 255,252,246,241,241,241,233,229,255,222,218,218,213,216,210,208
 ; fourth and top floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(88,7,1,128) }
+; { #CALL(ld_img(88,7,1,128)) }
 ; TABLE#
 @label=LOCDESCS88
 b49126 DEFB 6,196    ; y=7, z=1; left, right, down/right
@@ -12608,13 +12608,13 @@ b49126 DEFB 6,196    ; y=7, z=1; left, right, down/right
 ; second and third floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(88,19,1,128) }
+; { #CALL(ld_img(88,19,1,128)) }
 ; TABLE#
  49128 DEFB 30,196   ; y=19, z=1; left, right, down/right
 ; The next descriptor corresponds to the front steps of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(88,32,2,128) }
+; { #CALL(ld_img(88,32,2,128)) }
 ; TABLE#
  49130 DEFB 120,132  ; y=32, z=2; left, down/right
  49132 DEFB 255      ; End marker
@@ -12627,7 +12627,7 @@ b49126 DEFB 6,196    ; y=7, z=1; left, right, down/right
 ; top floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(89,8,4,128,86) | #CALL:ld_img(89,13,1,128,86) }
+; { #CALL(ld_img(89,8,4,128,86)) | #CALL(ld_img(89,13,1,128,86)) }
 ; TABLE#
 @label=LOCDESCS89
 b49133 DEFB 8,96     ; y=8, z=1; right, up/left
@@ -12637,7 +12637,7 @@ b49133 DEFB 8,96     ; y=8, z=1; right, up/left
 ; third floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(89,20,4,128,86) | #CALL:ld_img(89,25,1,128,86) }
+; { #CALL(ld_img(89,20,4,128,86)) | #CALL(ld_img(89,25,1,128,86)) }
 ; TABLE#
  49137 DEFB 32,96    ; y=20, z=1; right, up/left
  49139 DEFB 42,208   ; y=25, z=1; left, right, up/right (bottom of the
@@ -12645,7 +12645,7 @@ b49133 DEFB 8,96     ; y=8, z=1; right, up/left
 ; The next descriptor corresponds to the front steps of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(89,33,2,128) }
+; { #CALL(ld_img(89,33,2,128)) }
 ; TABLE#
  49141 DEFB 122,44   ; y=33, z=2; up/left, down/left, down/right
  49143 DEFB 255      ; End marker
@@ -12661,7 +12661,7 @@ u49144 DEFB 196,255
 ; between the first and second floors of the hotel.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(79,27,4,128,,27) | #CALL:ld_img(79,29,4,0,,27) }
+; { #CALL(ld_img(79,27,4,128,,27)) | #CALL(ld_img(79,29,4,0,,27)) }
 ; TABLE#
 @label=LOCDESCS79
 b49146 DEFB 46,24    ; y=27, z=1; up/right, down/left
@@ -12737,7 +12737,7 @@ u49662 DEFB 0,0,8
 ; the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(136,8,4,128) }
+; { #CALL(ld_img(136,8,4,128)) }
 ; TABLE#
 @label=LOCDESCS136
 b49665 DEFB 8,20     ; y=8, z=1; up/right, down/right
@@ -12745,22 +12745,22 @@ b49665 DEFB 8,20     ; y=8, z=1; up/right, down/right
 ; floors of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(136,14,1,128) }
+; { #CALL(ld_img(136,14,1,128)) }
 ; TABLE#
  49667 DEFB 20,20    ; y=14, z=1; up/right, down/right
 ; The next descriptor corresponds to the staircase between the second and third
 ; floors of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(136,20,1,128) }
+; { #CALL(ld_img(136,20,1,128)) }
 ; TABLE#
  49669 DEFB 32,20    ; y=20, z=1; up/right, down/right
 ; The next three descriptors correspond to the staircase between the first and
 ; second floors of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(136,26,4,128,,26,,10) | #CALL:ld_img(136,28,4,128,,26,,10) |
-; #CALL:ld_img(136,30,4,0,,26,,10) }
+; { #CALL(ld_img(136,26,4,128,,26,,10)) | #CALL(ld_img(136,28,4,128,,26,,10)) |
+; #CALL(ld_img(136,30,4,0,,26,,10)) }
 ; TABLE#
  49671 DEFB 44,20    ; y=26, z=1; up/right, down/right
  49673 DEFB 48,24    ; y=28, z=1; up/right, down/left
@@ -12769,13 +12769,13 @@ b49665 DEFB 8,20     ; y=8, z=1; up/right, down/right
 ; police station that is not accessible; it is therefore redundant.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(136,31,2,128) }
+; { #CALL(ld_img(136,31,2,128)) }
 ; TABLE#
  49677 DEFB 118,204  ; y=31, z=2; left, right, down/left, down/right
 ; The next two descriptors correspond to the front steps of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(136,32,2,0) | #CALL:ld_img(136,33,2,0,,31) }
+; { #CALL(ld_img(136,32,2,0)) | #CALL(ld_img(136,33,2,0,,31)) }
 ; TABLE#
  49679 DEFB 120,220  ; y=32, z=2; left, right, up/right, down/left, down/right
  49681 DEFB 122,252  ; y=33, z=2; left, right, up/left, up/right, down/left,
@@ -12790,8 +12790,8 @@ b49665 DEFB 8,20     ; y=8, z=1; up/right, down/right
 ; roof of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(137,7,1,128,,7,,12) | #CALL:ld_img(137,9,4,0,,7,,12) |
-; #CALL:ld_img(137,13,1,128,,7,,12) }
+; { #CALL(ld_img(137,7,1,128,,7,,12)) | #CALL(ld_img(137,9,4,0,,7,,12)) |
+; #CALL(ld_img(137,13,1,128,,7,,12)) }
 ; TABLE#
 @label=LOCDESCS137
 b49684 DEFB 6,200       ; y=7, z=1; left, right, down/left (top of the
@@ -12803,7 +12803,7 @@ b49684 DEFB 6,200       ; y=7, z=1; left, right, down/left (top of the
 ; fourth floors of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(137,15,1,0,,15,,10) | #CALL:ld_img(137,19,1,128,,15,,10) }
+; { #CALL(ld_img(137,15,1,0,,15,,10)) | #CALL(ld_img(137,19,1,128,,15,,10)) }
 ; TABLE#
  49690 DEFB 22,36       ; y=15, z=1; up/left, down/right
  49692 DEFB 30,216      ; y=19, z=1; left, right, up/right, down/left (bottom
@@ -12812,7 +12812,7 @@ b49684 DEFB 6,200       ; y=7, z=1; left, right, down/left (top of the
 ; third floors of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(137,21,1,0,,21,,10) | #CALL:ld_img(137,25,1,128,,21,,10) }
+; { #CALL(ld_img(137,21,1,0,,21,,10)) | #CALL(ld_img(137,25,1,128,,21,,10)) }
 ; TABLE#
  49694 DEFB 34,36       ; y=21, z=1; up/left, down/right
  49696 DEFB 42,216      ; y=25, z=1; left, right, up/right, down/left (bottom
@@ -12821,7 +12821,7 @@ b49684 DEFB 6,200       ; y=7, z=1; left, right, down/left (top of the
 ; second floors of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(137,27,4,0,,27,,10) | #CALL:ld_img(137,31,1,128,,27,,10) }
+; { #CALL(ld_img(137,27,4,0,,27,,10)) | #CALL(ld_img(137,31,1,128,,27,,10)) }
 ; TABLE#
  49698 DEFB 46,40       ; y=27, z=1; up/left, down/left
  49700 DEFB 219,236,224 ; y=31, z=1 or 2; left, right, up/left, down/left,
@@ -12829,7 +12829,7 @@ b49684 DEFB 6,200       ; y=7, z=1; left, right, down/left (top of the
 ; The next two descriptors correspond to the front steps of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(137,32,2,0,,31) | #CALL:ld_img(137,33,2,0,,31) }
+; { #CALL(ld_img(137,32,2,0,,31)) | #CALL(ld_img(137,33,2,0,,31)) }
 ; TABLE#
  49703 DEFB 120,200     ; y=32, z=2; left, right, down/left
  49705 DEFB 122,252     ; y=33, z=2; left, right, up/left, up/right, down/left,
@@ -12847,7 +12847,7 @@ u49708 DEFB 0,0
 ; of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(138,10,4,0,,10) | #CALL:ld_img(138,12,1,128,,10) }
+; { #CALL(ld_img(138,10,4,0,,10)) | #CALL(ld_img(138,12,1,128,,10)) }
 ; TABLE#
 @label=LOCDESCS138
 b49710 DEFB 12,36       ; y=10, z=1; up/left, down/right
@@ -12856,7 +12856,7 @@ b49710 DEFB 12,36       ; y=10, z=1; up/left, down/right
 ; fourth floors of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(138,16,1,0,,16) | #CALL:ld_img(138,18,1,128,,16) }
+; { #CALL(ld_img(138,16,1,0,,16)) | #CALL(ld_img(138,18,1,128,,16)) }
 ; TABLE#
  49714 DEFB 24,36       ; y=16, z=1; up/left, down/right
  49716 DEFB 28,24       ; y=18, z=1; up/right, down/left
@@ -12864,7 +12864,7 @@ b49710 DEFB 12,36       ; y=10, z=1; up/left, down/right
 ; third floors of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(138,22,1,0,,22) | #CALL:ld_img(138,24,1,128,,22) }
+; { #CALL(ld_img(138,22,1,0,,22)) | #CALL(ld_img(138,24,1,128,,22)) }
 ; TABLE#
  49718 DEFB 36,36       ; y=22, z=1; up/left, down/right
  49720 DEFB 40,24       ; y=24, z=1; up/right, down/left
@@ -12872,8 +12872,8 @@ b49710 DEFB 12,36       ; y=10, z=1; up/left, down/right
 ; station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(138,31,1,0,,31) | #CALL:ld_img(138,32,2,0,,31) |
-; #CALL:ld_img(138,33,2,0,,31) }
+; { #CALL(ld_img(138,31,1,0,,31)) | #CALL(ld_img(138,32,2,0,,31)) |
+; #CALL(ld_img(138,33,2,0,,31)) }
 ; TABLE#
  49722 DEFB 219,204,192 ; y=31, z=1 or 2; left, right, down/left, down/right
  49725 DEFB 120,236     ; y=32, z=2; left, right, up/left, down/left,
@@ -12893,7 +12893,7 @@ u49730 DEFB 0
 ; the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(139,11,4,0) }
+; { #CALL(ld_img(139,11,4,0)) }
 ; TABLE#
 @label=LOCDESCS139
 b49731 DEFB 14,40    ; y=11, z=1; up/left, down/left
@@ -12901,20 +12901,20 @@ b49731 DEFB 14,40    ; y=11, z=1; up/left, down/left
 ; floors of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(139,17,1,0) }
+; { #CALL(ld_img(139,17,1,0)) }
 ; TABLE#
  49733 DEFB 26,40    ; y=17, z=1; up/left, down/left
 ; The next descriptor corresponds to the staircase between the second and third
 ; floors of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(139,23,1,0) }
+; { #CALL(ld_img(139,23,1,0)) }
 ; TABLE#
  49735 DEFB 38,40    ; y=23, z=1; up/left, down/left
 ; The next two descriptors correspond to the front steps of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(139,32,2,0,,31) | #CALL:ld_img(139,33,2,0,,31) }
+; { #CALL(ld_img(139,32,2,0,,31)) | #CALL(ld_img(139,33,2,0,,31)) }
 ; TABLE#
  49737 DEFB 120,168  ; y=32, z=2; left, up/left, down/left
  49739 DEFB 122,172  ; y=33, z=2; left, up/left, down/left, down/right
@@ -12939,7 +12939,7 @@ u49742 DEFB 0
 ; of the roof of the police station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(148,6,1,128) }
+; { #CALL(ld_img(148,6,1,128)) }
 ; TABLE#
 @label=LOCDESCS148
 b49752 DEFB 4,24     ; y=6, z=1; up/right, down/left
@@ -12947,7 +12947,7 @@ b49752 DEFB 4,24     ; y=6, z=1; up/right, down/left
 ; station.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(148,7,1,128) }
+; { #CALL(ld_img(148,7,1,128)) }
 ; TABLE#
  49754 DEFB 6,128    ; y=7, z=1; left
  49756 DEFB 255      ; End marker
@@ -12960,7 +12960,7 @@ b49752 DEFB 4,24     ; y=6, z=1; up/right, down/left
 ; fourth floors of no. 27 (x=152) and no. 15 (x=248).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(152,14,4,128) | #CALL:ld_img(248,14,4,128) }
+; { #CALL(ld_img(152,14,4,128)) | #CALL(ld_img(248,14,4,128)) }
 ; TABLE#
 @label=LOCDESCS152
 b49757 DEFB 20,20    ; y=14, z=1; up/right, down/right
@@ -12968,8 +12968,8 @@ b49757 DEFB 20,20    ; y=14, z=1; up/right, down/right
 ; third floors of no. 27 (x=152), no. 17 (x=232) and no. 15 (x=248).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(152,26,4,128) | #CALL:ld_img(232,26,4,128) |
-; #CALL:ld_img(248,26,4,128) }
+; { #CALL(ld_img(152,26,4,128)) | #CALL(ld_img(232,26,4,128)) |
+; #CALL(ld_img(248,26,4,128)) }
 ; TABLE#
 @label=LOCDESCS232
  49759 DEFB 44,20    ; y=26, z=1; up/right, down/right
@@ -12986,9 +12986,9 @@ u49762 DEFB 0,0
 ; and fourth floors of no. 27 (x=153) and no. 15 (x=249).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(153,13,4,128,,13,,10) | #CALL:ld_img(153,15,4,0,,13,,10) |
-; #CALL:ld_img(153,17,4,128,,13,,10) | #CALL:ld_img(249,13,4,128,,13,,10) |
-; #CALL:ld_img(249,15,4,0,,13,,10) | #CALL:ld_img(249,17,4,128,,13,,10) }
+; { #CALL(ld_img(153,13,4,128,,13,,10)) | #CALL(ld_img(153,15,4,0,,13,,10)) |
+; #CALL(ld_img(153,17,4,128,,13,,10)) | #CALL(ld_img(249,13,4,128,,13,,10)) |
+; #CALL(ld_img(249,15,4,0,,13,,10)) | #CALL(ld_img(249,17,4,128,,13,,10)) }
 ; TABLE#
 @label=LOCDESCS153
 b49764 DEFB 18,200   ; y=13, z=1; left, right, down/left (top of the staircase)
@@ -12998,8 +12998,8 @@ b49764 DEFB 18,200   ; y=13, z=1; left, right, down/left (top of the staircase)
 ; first and second floors of no. 27 (x=153), no. 17 (x=233) and no. 15 (x=249).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(153,25,4,128) | #CALL:ld_img(233,25,4,128) |
-; #CALL:ld_img(249,25,4,128) }
+; { #CALL(ld_img(153,25,4,128)) | #CALL(ld_img(233,25,4,128)) |
+; #CALL(ld_img(249,25,4,128)) }
 ; TABLE#
 @label=LOCDESCS233
  49770 DEFB 42,200   ; y=25, z=1; left, right, down/left
@@ -13007,9 +13007,9 @@ b49764 DEFB 18,200   ; y=13, z=1; left, right, down/left (top of the staircase)
 ; second floors of no. 27 (x=153), no. 17 (x=233) and no. 15 (x=249).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(153,27,4,0,,27,,10) | #CALL:ld_img(153,29,4,128,,27,,10) |
-; #CALL:ld_img(233,27,4,0,,27,,10) | #CALL:ld_img(233,29,4,128,,27,,10) |
-; #CALL:ld_img(249,27,4,0,,27,,10) | #CALL:ld_img(249,29,4,128,,27,,10) }
+; { #CALL(ld_img(153,27,4,0,,27,,10)) | #CALL(ld_img(153,29,4,128,,27,,10)) |
+; #CALL(ld_img(233,27,4,0,,27,,10)) | #CALL(ld_img(233,29,4,128,,27,,10)) |
+; #CALL(ld_img(249,27,4,0,,27,,10)) | #CALL(ld_img(249,29,4,128,,27,,10)) }
 ; TABLE#
  49772 DEFB 46,36    ; y=27, z=1; up/left, down/right
  49774 DEFB 50,20    ; y=29, z=1; up/right, down/right
@@ -13026,7 +13026,7 @@ u49777 DEFB 0
 ; to the roofs of no. 27 (x=154) and no. 17 (x=234).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(154,13,4,128) | #CALL:ld_img(234,13,4,128) }
+; { #CALL(ld_img(154,13,4,128)) | #CALL(ld_img(234,13,4,128)) }
 ; TABLE#
 @label=LOCDESCS154
 b49778 DEFB 18,208   ; y=13, z=1; left, right, up/right
@@ -13036,9 +13036,9 @@ b49778 DEFB 18,208   ; y=13, z=1; left, right, up/right
 ; fourth floors of no. 15 (x=250).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(154,16,4,0,,16) | #CALL:ld_img(154,18,4,0,,16) |
-; #CALL:ld_img(234,16,4,0,,16) | #CALL:ld_img(234,18,4,0,,16) |
-; #CALL:ld_img(250,16,4,0,,16) | #CALL:ld_img(250,18,4,0,,16) }
+; { #CALL(ld_img(154,16,4,0,,16)) | #CALL(ld_img(154,18,4,0,,16)) |
+; #CALL(ld_img(234,16,4,0,,16)) | #CALL(ld_img(234,18,4,0,,16)) |
+; #CALL(ld_img(250,16,4,0,,16)) | #CALL(ld_img(250,18,4,0,,16)) }
 ; TABLE#
 @label=LOCDESCS250
  49780 DEFB 24,40    ; y=16, z=1; up/left, down/left
@@ -13047,17 +13047,17 @@ b49778 DEFB 18,208   ; y=13, z=1; left, right, up/right
 ; second and third floors of no. 27 (x=154), no. 17 (x=234) and no. 15 (x=250).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(154,25,4,128) | #CALL:ld_img(234,25,4,128) |
-; #CALL:ld_img(250,25,4,128) }
+; { #CALL(ld_img(154,25,4,128)) | #CALL(ld_img(234,25,4,128)) |
+; #CALL(ld_img(250,25,4,128)) }
 ; TABLE#
  49784 DEFB 42,208   ; y=25, z=1; left, right, up/right
 ; The next two descriptors correspond to the staircases between the first and
 ; second floors of no. 27 (x=154), no. 17 (x=234) and no. 15 (x=250).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(154,28,4,0,,28,,10) | #CALL:ld_img(154,30,4,0,,28,,10) |
-; #CALL:ld_img(234,28,4,0,,28,,10) | #CALL:ld_img(234,30,4,0,,28,,10) |
-; #CALL:ld_img(250,28,4,0,,28,,10) | #CALL:ld_img(250,30,4,0,,28,,10) }
+; { #CALL(ld_img(154,28,4,0,,28,,10)) | #CALL(ld_img(154,30,4,0,,28,,10)) |
+; #CALL(ld_img(234,28,4,0,,28,,10)) | #CALL(ld_img(234,30,4,0,,28,,10)) |
+; #CALL(ld_img(250,28,4,0,,28,,10)) | #CALL(ld_img(250,30,4,0,,28,,10)) }
 ; TABLE#
  49786 DEFB 48,40    ; y=28, z=1; up/left, down/left
  49788 DEFB 52,36    ; y=30, z=1; up/left, down/right
@@ -13077,7 +13077,7 @@ u49791 DEFB 92
 ; floor (x=235).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(235,19,4,0) }
+; { #CALL(ld_img(235,19,4,0)) }
 ; TABLE#
 @label=LOCDESCS235
 b49792 DEFB 30,192      ; y=19, z=1; left, right
@@ -13085,8 +13085,8 @@ b49792 DEFB 30,192      ; y=19, z=1; left, right
 ; of no. 27 (x=155) and no. 17 (x=235).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(155,10,4,128,,10) | #CALL:ld_img(155,12,4,128,,10) |
-; #CALL:ld_img(235,10,4,128,,10) | #CALL:ld_img(235,12,4,128,,10) }
+; { #CALL(ld_img(155,10,4,128,,10)) | #CALL(ld_img(155,12,4,128,,10)) |
+; #CALL(ld_img(235,10,4,128,,10)) | #CALL(ld_img(235,12,4,128,,10)) }
 ; TABLE#
 @label=LOCDESCS155
  49794 DEFB 12,20       ; y=10, z=1; up/right, down/right
@@ -13097,7 +13097,7 @@ b49792 DEFB 30,192      ; y=19, z=1; left, right
 ; dealt with by the first descriptor in this block.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(155,19,4,0) | #CALL:ld_img(235,19,4,0) }
+; { #CALL(ld_img(155,19,4,0)) | #CALL(ld_img(235,19,4,0)) }
 ; TABLE#
 @label=LOCDESCS251
  49798 DEFB 30,224      ; y=19, z=1; left, right, up/left
@@ -13105,9 +13105,9 @@ b49792 DEFB 30,192      ; y=19, z=1; left, right
 ; third floors of no. 27 (x=155), no. 17 (x=235) and no. 15 (x=251).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(155,22,4,128,,22) | #CALL:ld_img(155,24,4,128,,22) |
-; #CALL:ld_img(235,22,4,128,,22) | #CALL:ld_img(235,24,4,128,,22) |
-; #CALL:ld_img(251,22,4,128,,22) | #CALL:ld_img(251,24,4,128,,22) }
+; { #CALL(ld_img(155,22,4,128,,22)) | #CALL(ld_img(155,24,4,128,,22)) |
+; #CALL(ld_img(235,22,4,128,,22)) | #CALL(ld_img(235,24,4,128,,22)) |
+; #CALL(ld_img(251,22,4,128,,22)) | #CALL(ld_img(251,24,4,128,,22)) }
 ; TABLE#
  49800 DEFB 36,20       ; y=22, z=1; up/right, down/right
  49802 DEFB 40,24       ; y=24, z=1; up/right, down/left
@@ -13115,8 +13115,8 @@ b49792 DEFB 30,192      ; y=19, z=1; left, right
 ; no. 17 (x=235) and no. 15 (x=251).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(155,31,2,0) | #CALL:ld_img(235,31,2,0) |
-; #CALL:ld_img(251,31,2,0) }
+; { #CALL(ld_img(155,31,2,0)) | #CALL(ld_img(235,31,2,0)) |
+; #CALL(ld_img(251,31,2,0)) }
 ; TABLE#
  49804 DEFB 219,228,225 ; y=31, z=1 or 2; left, right, up/left, down/right
                         ; (door open)
@@ -13126,9 +13126,9 @@ b49792 DEFB 30,192      ; y=19, z=1; left, right
 ; 17 (x=235) and no. 15 (x=251).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(155,32,2,0,,31) | #CALL:ld_img(155,33,2,0,,31) |
-; #CALL:ld_img(235,32,2,0,,31) | #CALL:ld_img(235,33,2,0,,31) |
-; #CALL:ld_img(251,32,2,0,,31) | #CALL:ld_img(251,33,2,0,,31) }
+; { #CALL(ld_img(155,32,2,0,,31)) | #CALL(ld_img(155,33,2,0,,31)) |
+; #CALL(ld_img(235,32,2,0,,31)) | #CALL(ld_img(235,33,2,0,,31)) |
+; #CALL(ld_img(251,32,2,0,,31)) | #CALL(ld_img(251,33,2,0,,31)) }
 ; TABLE#
  49811 DEFB 120,84      ; y=32, z=2; right, up/right, down/right
  49813 DEFB 122,92      ; y=33, z=2; right, up/right, down/left, down/right
@@ -13145,9 +13145,9 @@ u49816 DEFB 0
 ; roofs of no. 27 (x=156) and no. 17 (x=236).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(156,7,1,0,,7,,10) | #CALL:ld_img(156,9,4,128,,7,,10) |
-; #CALL:ld_img(156,11,4,0,,7,,10) | #CALL:ld_img(236,7,1,0,,7,,10) |
-; #CALL:ld_img(236,9,4,128,,7,,10) | #CALL:ld_img(236,11,4,0,,7,,10) }
+; { #CALL(ld_img(156,7,1,0,,7,,10)) | #CALL(ld_img(156,9,4,128,,7,,10)) |
+; #CALL(ld_img(156,11,4,0,,7,,10)) | #CALL(ld_img(236,7,1,0,,7,,10)) |
+; #CALL(ld_img(236,9,4,128,,7,,10)) | #CALL(ld_img(236,11,4,0,,7,,10)) }
 ; TABLE#
 @label=LOCDESCS156
 b49817 DEFB 6,196       ; y=7, z=1; left, right, down/right (top of the
@@ -13161,8 +13161,8 @@ b49817 DEFB 6,196       ; y=7, z=1; left, right, down/right (top of the
 ; second and third floors of no. 27 (x=156), no. 17 (x=236) and no. 15 (x=252).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(156,19,4,0) | #CALL:ld_img(236,19,4,0) |
-; #CALL:ld_img(252,19,4,0) }
+; { #CALL(ld_img(156,19,4,0)) | #CALL(ld_img(236,19,4,0)) |
+; #CALL(ld_img(252,19,4,0)) }
 ; TABLE#
 @label=LOCDESCS252
  49825 DEFB 30,196      ; y=19, z=1; left, right, down/right (top of the
@@ -13171,9 +13171,9 @@ b49817 DEFB 6,196       ; y=7, z=1; left, right, down/right (top of the
 ; third floors of no. 27 (x=156), no. 17 (x=236) and no. 15 (x=252).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(156,21,4,128,,21) | #CALL:ld_img(156,23,4,0,,21) |
-; #CALL:ld_img(236,21,4,128,,21) | #CALL:ld_img(236,23,4,0,,21) |
-; #CALL:ld_img(252,21,4,128,,21) | #CALL:ld_img(252,23,4,0,,21) | }
+; { #CALL(ld_img(156,21,4,128,,21)) | #CALL(ld_img(156,23,4,0,,21)) |
+; #CALL(ld_img(236,21,4,128,,21)) | #CALL(ld_img(236,23,4,0,,21)) |
+; #CALL(ld_img(252,21,4,128,,21)) | #CALL(ld_img(252,23,4,0,,21)) | }
 ; TABLE#
  49827 DEFB 34,24       ; y=21, z=1; up/right, down/left
  49829 DEFB 38,40       ; y=23, z=1; up/left, down/left
@@ -13181,8 +13181,8 @@ b49817 DEFB 6,196       ; y=7, z=1; left, right, down/right (top of the
 ; 17 (x=236) and no. 15 (x=252).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(156,31,2,0) | #CALL:ld_img(236,31,2,0) |
-; #CALL:ld_img(252,31,2,0) }
+; { #CALL(ld_img(156,31,2,0)) | #CALL(ld_img(236,31,2,0)) |
+; #CALL(ld_img(252,31,2,0)) }
 ; TABLE#
  49831 DEFB 219,204,193 ; y=31, z=1 or 2; left, right, down/left, down/right
                         ; (door open)
@@ -13192,9 +13192,9 @@ b49817 DEFB 6,196       ; y=7, z=1; left, right, down/right (top of the
 ; 17 (x=236) and no. 15 (x=252).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(156,32,2,0,,31) | #CALL:ld_img(156,33,2,0,,31) |
-; #CALL:ld_img(236,32,2,0,,31) | #CALL:ld_img(236,33,2,0,,31) |
-; #CALL:ld_img(252,32,2,0,,31) | #CALL:ld_img(252,33,2,0,,31) }
+; { #CALL(ld_img(156,32,2,0,,31)) | #CALL(ld_img(156,33,2,0,,31)) |
+; #CALL(ld_img(236,32,2,0,,31)) | #CALL(ld_img(236,33,2,0,,31)) |
+; #CALL(ld_img(252,32,2,0,,31)) | #CALL(ld_img(252,33,2,0,,31)) }
 ; TABLE#
  49836 DEFB 120,236     ; y=32, z=2; left, right, up/left, down/left,
                         ; down/right
@@ -13213,7 +13213,7 @@ u49841 DEFB 0
 ; roofs of no. 27 (x=157) and no. 17 (x=237).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(157,8,1,0) | #CALL:ld_img(237,8,1,0) }
+; { #CALL(ld_img(157,8,1,0)) | #CALL(ld_img(237,8,1,0)) }
 ; TABLE#
 @label=LOCDESCS157
 b49842 DEFB 8,40     ; y=8, z=1; up/left, down/left
@@ -13221,8 +13221,8 @@ b49842 DEFB 8,40     ; y=8, z=1; up/left, down/left
 ; third floors of no. 27 (x=157), no. 17 (x=237) and no. 15 (x=253).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(157,20,4,0) | #CALL:ld_img(237,20,4,0) |
-; #CALL:ld_img(253,20,4,0) }
+; { #CALL(ld_img(157,20,4,0)) | #CALL(ld_img(237,20,4,0)) |
+; #CALL(ld_img(253,20,4,0)) }
 ; TABLE#
 @label=LOCDESCS253
  49844 DEFB 32,40    ; y=20, z=1; up/left, down/left
@@ -13230,9 +13230,9 @@ b49842 DEFB 8,40     ; y=8, z=1; up/left, down/left
 ; 17 (x=237) and no. 15 (x=253).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(157,32,2,0,,31) | #CALL:ld_img(157,33,2,0,,31) |
-; #CALL:ld_img(237,32,2,0,,31) | #CALL:ld_img(237,33,2,0,,31) |
-; #CALL:ld_img(253,32,2,0,,31) | #CALL:ld_img(253,33,2,0,,31) }
+; { #CALL(ld_img(157,32,2,0,,31)) | #CALL(ld_img(157,33,2,0,,31)) |
+; #CALL(ld_img(237,32,2,0,,31)) | #CALL(ld_img(237,33,2,0,,31)) |
+; #CALL(ld_img(253,32,2,0,,31)) | #CALL(ld_img(253,33,2,0,,31)) }
 ; TABLE#
  49846 DEFB 120,168  ; y=32, z=2; left, up/left, down/left
  49848 DEFB 122,172  ; y=33, z=2; left, up/left, down/left, down/right
@@ -13246,7 +13246,7 @@ b49842 DEFB 8,40     ; y=8, z=1; up/left, down/left
 ; (x=158).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(158,7,1,128) }
+; { #CALL(ld_img(158,7,1,128)) }
 ; TABLE#
 @label=LOCDESCS158
 b49851 DEFB 6,128    ; y=7, z=1; left
@@ -13254,7 +13254,7 @@ b49851 DEFB 6,128    ; y=7, z=1; left
 ; no. 27 (x=158) and no. 17 (x=238).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(158,13,4,128) | #CALL:ld_img(238,13,4,128) }
+; { #CALL(ld_img(158,13,4,128)) | #CALL(ld_img(238,13,4,128)) }
 ; TABLE#
 @label=LOCDESCS238
  49853 DEFB 18,128   ; y=13, z=1; left
@@ -13262,21 +13262,21 @@ b49851 DEFB 6,128    ; y=7, z=1; left
 ; no. 27 (x=158) and no. 17 (x=238).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(158,19,4,128) | #CALL:ld_img(238,19,4,128) }
+; { #CALL(ld_img(158,19,4,128)) | #CALL(ld_img(238,19,4,128)) }
 ; TABLE#
  49855 DEFB 30,128   ; y=19, z=1; left
 ; The next descriptor corresponds to the far right wall on the second floors of
 ; no. 27 (x=158) and no. 17 (x=238).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(158,25,4,128) | #CALL:ld_img(238,25,4,128) }
+; { #CALL(ld_img(158,25,4,128)) | #CALL(ld_img(238,25,4,128)) }
 ; TABLE#
  49857 DEFB 42,128   ; y=25, z=1; left
 ; The next descriptor corresponds to the far right wall on the first floors of
 ; no. 27 (x=158) and no. 17 (x=238).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(158,31,4,128) | #CALL:ld_img(238,31,4,128) }
+; { #CALL(ld_img(158,31,4,128)) | #CALL(ld_img(238,31,4,128)) }
 ; TABLE#
  49859 DEFB 54,128   ; y=31, z=1; left
  49861 DEFB 255      ; End marker
@@ -13292,9 +13292,9 @@ u49862 DEFB 236,255
 ; escape on the apartment building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(181,6,1,0) | #CALL:ld_img(181,7,1,0) |
-; #CALL:ld_img(181,12,2,0) | #CALL:ld_img(181,18,2,0) |
-; #CALL:ld_img(181,24,2,0) }
+; { #CALL(ld_img(181,6,1,0)) | #CALL(ld_img(181,7,1,0)) |
+; #CALL(ld_img(181,12,2,0)) | #CALL(ld_img(181,18,2,0)) |
+; #CALL(ld_img(181,24,2,0)) }
 ; TABLE#
 @label=LOCDESCS181
 b49864 DEFB 194,204,196 ; y=6, z=1 or 2; left, right, down/left, down/right
@@ -13316,7 +13316,7 @@ b49864 DEFB 194,204,196 ; y=6, z=1 or 2; left, right, down/left, down/right
 ; apartment building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(175,6,1,0) }
+; { #CALL(ld_img(175,6,1,0)) }
 ; TABLE#
 @label=LOCDESCS175
 b49876 DEFB 130,194,3 ; y=6, z=1; left, right
@@ -13324,8 +13324,8 @@ b49876 DEFB 130,194,3 ; y=6, z=1; left, right
 ; the top, third and second floors of the apartment building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(175,11,2,0) | #CALL:ld_img(175,17,2,0) |
-; #CALL:ld_img(175,23,2,0) }
+; { #CALL(ld_img(175,11,2,0)) | #CALL(ld_img(175,17,2,0)) |
+; #CALL(ld_img(175,23,2,0)) }
 ; TABLE#
  49879 DEFB 167,194,3 ; y=11, z=2; left, right (top floor)
  49882 DEFB 173,194,3 ; y=17, z=2; left, right (third floor)
@@ -13343,7 +13343,7 @@ u49889 DEFB 0
 ; roof of the apartment building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(177,7,1,0) }
+; { #CALL(ld_img(177,7,1,0)) }
 ; TABLE#
 @label=LOCDESCS177
 b49890 DEFB 6,224     ; y=7, z=1; left, right, up/left
@@ -13351,8 +13351,8 @@ b49890 DEFB 6,224     ; y=7, z=1; left, right, up/left
 ; building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(177,10,2,0) | #CALL:ld_img(177,16,2,0) |
-; #CALL:ld_img(177,22,2,0) }
+; { #CALL(ld_img(177,10,2,0)) | #CALL(ld_img(177,16,2,0)) |
+; #CALL(ld_img(177,22,2,0)) }
 ; TABLE#
  49892 DEFB 76,24     ; y=10, z=2; up/right, down/left
  49894 DEFB 88,24     ; y=16, z=2; up/right, down/left
@@ -13363,7 +13363,7 @@ b49890 DEFB 6,224     ; y=7, z=1; left, right, up/left
 ; #R42262).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(177,28,2,0) }
+; { #CALL(ld_img(177,28,2,0)) }
 ; TABLE#
 @label=FIREESCAPE
  49898 DEFB 184,146,6 ; y=28, z=2; left, up/right
@@ -13378,8 +13378,8 @@ u49902 DEFB 0
 ; escape on the apartment building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(178,9,2,0) | #CALL:ld_img(178,15,2,0) |
-; #CALL:ld_img(178,21,2,0) | #CALL:ld_img(178,27,2,0) }
+; { #CALL(ld_img(178,9,2,0)) | #CALL(ld_img(178,15,2,0)) |
+; #CALL(ld_img(178,21,2,0)) | #CALL(ld_img(178,27,2,0)) }
 ; TABLE#
 @label=LOCDESCS178
 b49903 DEFB 74,24    ; y=9, z=2; up/right, down/left
@@ -13397,7 +13397,7 @@ u49912 DEFB 0
 ; of the right-hand shop under the apartments next to no. 74.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(15,33,2,128) }
+; { #CALL(ld_img(15,33,2,128)) }
 ; TABLE#
 @label=LOCDESCS15
 b49913 DEFB 221,68,65 ; y=33, z=1 or 2; right, down/right (door open)
@@ -13419,7 +13419,7 @@ u49920 DEFB 6
 ; escape on the roof of the apartment building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(179,7,1,128) }
+; { #CALL(ld_img(179,7,1,128)) }
 ; TABLE#
 @label=LOCDESCS179
 b49921 DEFB 6,208    ; y=7, z=1; left, right, up/right
@@ -13427,8 +13427,8 @@ b49921 DEFB 6,208    ; y=7, z=1; left, right, up/right
 ; building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(179,8,2,0) | #CALL:ld_img(179,14,2,0) |
-; #CALL:ld_img(179,20,2,0) | #CALL:ld_img(179,26,2,0) }
+; { #CALL(ld_img(179,8,2,0)) | #CALL(ld_img(179,14,2,0)) |
+; #CALL(ld_img(179,20,2,0)) | #CALL(ld_img(179,26,2,0)) }
 ; TABLE#
  49923 DEFB 72,24    ; y=8, z=2; up/right, down/left
  49925 DEFB 84,24    ; y=14, z=2; up/right, down/left
@@ -13444,7 +13444,7 @@ b49921 DEFB 6,208    ; y=7, z=1; left, right, up/right
 ; escape on the roof of the apartment building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(180,6,1,0) | #CALL:ld_img(180,7,1,128) }
+; { #CALL(ld_img(180,6,1,0)) | #CALL(ld_img(180,7,1,128)) }
 ; TABLE#
 @label=LOCDESCS180
 b49932 DEFB 4,72     ; y=6, z=1; right, down/left
@@ -13453,8 +13453,8 @@ b49932 DEFB 4,72     ; y=6, z=1; right, down/left
 ; building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(180,7,2,0) | #CALL:ld_img(180,13,2,0) |
-; #CALL:ld_img(180,19,2,0) | #CALL:ld_img(180,25,2,0) }
+; { #CALL(ld_img(180,7,2,0)) | #CALL(ld_img(180,13,2,0)) |
+; #CALL(ld_img(180,19,2,0)) | #CALL(ld_img(180,25,2,0)) }
 ; TABLE#
  49936 DEFB 70,24    ; y=7, z=2; up/right, down/left
  49938 DEFB 82,24    ; y=13, z=2; up/right, down/left
@@ -13468,8 +13468,8 @@ b49932 DEFB 4,72     ; y=6, z=1; right, down/left
 ; edges of the fire escape on the apartment building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(184,11,2,0) | #CALL:ld_img(184,17,2,0) |
-; #CALL:ld_img(184,23,2,0) }
+; { #CALL(ld_img(184,11,2,0)) | #CALL(ld_img(184,17,2,0)) |
+; #CALL(ld_img(184,23,2,0)) }
 ; TABLE#
 @label=LOCDESCS184
 b49945 DEFB 78,128   ; y=11, z=2; left (top floor)
@@ -13486,8 +13486,8 @@ b49945 DEFB 78,128   ; y=11, z=2; left (top floor)
 ; building on the top, third and second floors (x=0).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(0,7,1,0) | #CALL:ld_img(0,13,1,0) | #CALL:ld_img(0,19,1,0) |
-; #CALL:ld_img(0,25,1,0) }
+; { #CALL(ld_img(0,7,1,0)) | #CALL(ld_img(0,13,1,0)) | #CALL(ld_img(0,19,1,0))
+; | #CALL(ld_img(0,25,1,0)) }
 ; TABLE#
 @label=LOCDESCS0
 b49952 DEFB 6,64      ; y=7, z=1; right (roof)
@@ -13498,7 +13498,7 @@ b49952 DEFB 6,64      ; y=7, z=1; right (roof)
 ; left of town (x=0).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(0,33,2,128) }
+; { #CALL(ld_img(0,33,2,128)) }
 ; TABLE#
  49960 DEFB 221,68,65 ; y=33, z=1 or 2; right, down/right (door open)
  49963 DEFB 58,64     ; y=33, z=1; right (inside, door closed)
@@ -13644,7 +13644,7 @@ b49968 DEFB 19       ; '0': Knock on or open a door
 ; away from the edge of the roof (see #R41238).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(223,6,1,0) }
+; { #CALL(ld_img(223,6,1,0)) }
 ; TABLE#
 @label=LOCDESCS223
 b50048 DEFB 130,195,2 ; y=6, z=1; left, right
@@ -13652,9 +13652,9 @@ b50048 DEFB 130,195,2 ; y=6, z=1; left, right
 ; and no. 15 (x=239).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(223,13,4,0) | #CALL:ld_img(223,19,4,0) |
-; #CALL:ld_img(223,25,4,0) | #CALL:ld_img(239,13,4,0) |
-; #CALL:ld_img(239,19,4,0) | #CALL:ld_img(239,25,4,0) }
+; { #CALL(ld_img(223,13,4,0)) | #CALL(ld_img(223,19,4,0)) |
+; #CALL(ld_img(223,25,4,0)) | #CALL(ld_img(239,13,4,0)) |
+; #CALL(ld_img(239,19,4,0)) | #CALL(ld_img(239,25,4,0)) }
 ; TABLE#
 @label=LOCDESCS239
  50051 DEFB 18,64     ; y=13, z=1; right (top floor)
@@ -13664,7 +13664,7 @@ b50048 DEFB 130,195,2 ; y=6, z=1; left, right
 ; 17 (x=223) and no. 15 (x=239).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(223,33,2,128) | #CALL:ld_img(239,33,2,128) }
+; { #CALL(ld_img(223,33,2,128)) | #CALL(ld_img(239,33,2,128)) }
 ; TABLE#
  50057 DEFB 221,76,65 ; y=33, z=1 or 2; right, down/left, down/right (door
                       ; open)
@@ -13679,7 +13679,7 @@ b50048 DEFB 130,195,2 ; y=6, z=1; left, right
 ; from the top edge of the roof of no. 17.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(225,6,1,128) }
+; { #CALL(ld_img(225,6,1,128)) }
 ; TABLE#
 @label=LOCDESCS225
 b50065 DEFB 4,132    ; y=6, z=1; left, down/right
@@ -13691,7 +13691,7 @@ b50065 DEFB 4,132    ; y=6, z=1; left, down/right
 ; the top edge of the roof of no. 17.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(226,7,1,0) }
+; { #CALL(ld_img(226,7,1,0)) }
 ; TABLE#
 @label=LOCDESCS226
 b50068 DEFB 6,96     ; y=7, z=1; right, up/left
@@ -13718,8 +13718,8 @@ u50071 DEFB 255
 ; windows from the left on the top floor of no. 15 (x=247).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(7,13,4,0) | #CALL:ld_img(231,13,4,0) |
-; #CALL:ld_img(247,13,4,0) }
+; { #CALL(ld_img(7,13,4,0)) | #CALL(ld_img(231,13,4,0)) |
+; #CALL(ld_img(247,13,4,0)) }
 ; TABLE#
 @label=LOCDESCS7
 b50072 DEFB 137,194,1 ; y=13, z=1; left, right
@@ -13730,8 +13730,8 @@ b50072 DEFB 137,194,1 ; y=13, z=1; left, right
 ; windows from the left on the third floor of no. 15 (x=247).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(7,19,4,0) | #CALL:ld_img(231,19,4,0) |
-; #CALL:ld_img(247,19,4,0) }
+; { #CALL(ld_img(7,19,4,0)) | #CALL(ld_img(231,19,4,0)) |
+; #CALL(ld_img(247,19,4,0)) }
 ; TABLE#
  50075 DEFB 143,194,1 ; y=19, z=1; left, right
 ; The next descriptor corresponds to locations between the stairwell and the
@@ -13741,8 +13741,8 @@ b50072 DEFB 137,194,1 ; y=13, z=1; left, right
 ; and third windows from the left on the second floor of no. 15 (x=247).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(7,25,4,0) | #CALL:ld_img(231,25,4,0) |
-; #CALL:ld_img(247,25,4,0) }
+; { #CALL(ld_img(7,25,4,0)) | #CALL(ld_img(231,25,4,0)) |
+; #CALL(ld_img(247,25,4,0)) }
 ; TABLE#
  50078 DEFB 149,194,1 ; y=25, z=1; left, right (second floor)
 ; The next descriptor corresponds to the right sides of the walls between the
@@ -13751,8 +13751,8 @@ b50072 DEFB 137,194,1 ; y=13, z=1; left, right
 ; between no. 15 and the shop under no. 15 (x=247).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(7,31,1,0) | #CALL:ld_img(231,31,4,0) |
-; #CALL:ld_img(247,31,4,0) }
+; { #CALL(ld_img(7,31,1,0)) | #CALL(ld_img(231,31,4,0)) |
+; #CALL(ld_img(247,31,4,0)) }
 ; TABLE#
  50081 DEFB 54,64     ; y=31, z=1; right
  50083 DEFB 255       ; End marker
@@ -13764,8 +13764,8 @@ b50072 DEFB 137,194,1 ; y=13, z=1; left, right
 ; (x=230), and the shop under no. 15 (x=246).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(6,33,1,128) | #CALL:ld_img(230,33,1,128) |
-; #CALL:ld_img(246,33,1,128) }
+; { #CALL(ld_img(6,33,1,128)) | #CALL(ld_img(230,33,1,128)) |
+; #CALL(ld_img(246,33,1,128)) }
 ; TABLE#
 @label=LOCDESCS6
 b50084 DEFB 58,128   ; y=33, z=1; left
@@ -13779,7 +13779,7 @@ b50084 DEFB 58,128   ; y=33, z=1; left
 ; the apartment building next to no. 74 (x=193).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(9,34,2,128) | #CALL:ld_img(193,34,2,128) }
+; { #CALL(ld_img(9,34,2,128)) | #CALL(ld_img(193,34,2,128)) }
 ; TABLE#
 @label=LOCDESCS9
 b50087 DEFB 124,24   ; y=34, z=2; up/right, down/left
@@ -13794,8 +13794,8 @@ b50087 DEFB 124,24   ; y=34, z=2; up/right, down/left
 ; apartment building next to no. 19 (x=195).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(11,7,1,0,,7) | #CALL:ld_img(11,9,4,0,,7) |
-; #CALL:ld_img(195,7,1,0,,7) | #CALL:ld_img(195,9,4,0,,7) }
+; { #CALL(ld_img(11,7,1,0,,7)) | #CALL(ld_img(11,9,4,0,,7)) |
+; #CALL(ld_img(195,7,1,0,,7)) | #CALL(ld_img(195,9,4,0,,7)) }
 ; TABLE#
 @label=LOCDESCS11
 b50090 DEFB 6,200     ; y=7, z=1; left, right, down/left
@@ -13805,8 +13805,8 @@ b50090 DEFB 6,200     ; y=7, z=1; left, right, down/left
 ; building next to no. 19 (x=195).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(11,13,1,0,,13) | #CALL:ld_img(11,15,1,0,,13) |
-; #CALL:ld_img(195,13,1,0,,13) | #CALL:ld_img(195,15,1,0,,13) }
+; { #CALL(ld_img(11,13,1,0,,13)) | #CALL(ld_img(11,15,1,0,,13)) |
+; #CALL(ld_img(195,13,1,0,,13)) | #CALL(ld_img(195,15,1,0,,13)) }
 ; TABLE#
  50094 DEFB 18,200    ; y=13, z=1; left, right, down/left
  50096 DEFB 22,36     ; y=15, z=1; up/left, down/right
@@ -13815,8 +13815,8 @@ b50090 DEFB 6,200     ; y=7, z=1; left, right, down/left
 ; apartment building next to no. 19 (x=195).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(11,19,1,0,,19) | #CALL:ld_img(11,21,1,0,,19) |
-; #CALL:ld_img(195,19,1,0,,19) | #CALL:ld_img(195,21,1,0,,19) }
+; { #CALL(ld_img(11,19,1,0,,19)) | #CALL(ld_img(11,21,1,0,,19)) |
+; #CALL(ld_img(195,19,1,0,,19)) | #CALL(ld_img(195,21,1,0,,19)) }
 ; TABLE#
  50098 DEFB 30,200    ; y=19, z=1; left, right, down/left
  50100 DEFB 34,36     ; y=21, z=1; up/left, down/right
@@ -13825,8 +13825,8 @@ b50090 DEFB 6,200     ; y=7, z=1; left, right, down/left
 ; apartment building next to no. 19 (x=195).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(11,25,1,0,,25) | #CALL:ld_img(11,27,1,0,,25) |
-; #CALL:ld_img(195,25,1,0,,25) | #CALL:ld_img(195,27,1,0,,25) }
+; { #CALL(ld_img(11,25,1,0,,25)) | #CALL(ld_img(11,27,1,0,,25)) |
+; #CALL(ld_img(195,25,1,0,,25)) | #CALL(ld_img(195,27,1,0,,25)) }
 ; TABLE#
  50102 DEFB 42,200    ; y=25, z=1; left, right, down/left
  50104 DEFB 46,36     ; y=27, z=1; up/left, down/right
@@ -13835,7 +13835,7 @@ b50090 DEFB 6,200     ; y=7, z=1; left, right, down/left
 ; to no. 19 (x=195).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(11,32,2,128) | #CALL:ld_img(195,32,2,128) }
+; { #CALL(ld_img(11,32,2,128)) | #CALL(ld_img(195,32,2,128)) }
 ; TABLE#
  50106 DEFB 220,24,16 ; y=32, z=1 or 2; up/right, down/left
  50109 DEFB 255       ; End marker
@@ -13849,7 +13849,7 @@ b50090 DEFB 6,200     ; y=7, z=1; left, right, down/left
 ; building next to no. 19 (x=194).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(10,8,4,128) | #CALL:ld_img(194,8,4,128) }
+; { #CALL(ld_img(10,8,4,128)) | #CALL(ld_img(194,8,4,128)) }
 ; TABLE#
 @label=LOCDESCS10
 b50110 DEFB 8,20     ; y=8, z=1; up/right, down/right
@@ -13858,7 +13858,7 @@ b50110 DEFB 8,20     ; y=8, z=1; up/right, down/right
 ; building next to no. 19 (x=194).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(10,14,1,128) | #CALL:ld_img(194,14,1,128) }
+; { #CALL(ld_img(10,14,1,128)) | #CALL(ld_img(194,14,1,128)) }
 ; TABLE#
  50112 DEFB 20,20    ; y=14, z=1; up/right, down/right
 ; The next descriptor corresponds to the staircases between the second and
@@ -13866,7 +13866,7 @@ b50110 DEFB 8,20     ; y=8, z=1; up/right, down/right
 ; apartment building next to no. 19 (x=194).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(10,20,1,128) | #CALL:ld_img(194,20,1,128) }
+; { #CALL(ld_img(10,20,1,128)) | #CALL(ld_img(194,20,1,128)) }
 ; TABLE#
  50114 DEFB 32,20    ; y=20, z=1; up/right, down/right
 ; The next descriptor corresponds to the staircases between the first and
@@ -13874,7 +13874,7 @@ b50110 DEFB 8,20     ; y=8, z=1; up/right, down/right
 ; apartment building next to no. 19 (x=194).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(10,26,1,128) | #CALL:ld_img(194,26,1,128) }
+; { #CALL(ld_img(10,26,1,128)) | #CALL(ld_img(194,26,1,128)) }
 ; TABLE#
  50116 DEFB 44,20    ; y=26, z=1; up/right, down/right
 ; The next descriptor corresponds to the steps leading up to the first floor of
@@ -13882,7 +13882,7 @@ b50110 DEFB 8,20     ; y=8, z=1; up/right, down/right
 ; to no. 19 (x=194).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(10,33,2,128) | #CALL:ld_img(194,33,2,128) }
+; { #CALL(ld_img(10,33,2,128)) | #CALL(ld_img(194,33,2,128)) }
 ; TABLE#
  50118 DEFB 122,24   ; y=33, z=2; up/right, down/left
  50120 DEFB 255      ; End marker
@@ -13896,7 +13896,7 @@ b50110 DEFB 8,20     ; y=8, z=1; up/right, down/right
 ; building next to no. 19 (x=196).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(12,10,1,128) | #CALL:ld_img(196,10,1,128) }
+; { #CALL(ld_img(12,10,1,128)) | #CALL(ld_img(196,10,1,128)) }
 ; TABLE#
 @label=LOCDESCS12
 b50121 DEFB 12,36       ; y=10, z=1; up/left, down/right
@@ -13905,7 +13905,7 @@ b50121 DEFB 12,36       ; y=10, z=1; up/left, down/right
 ; building next to no. 19 (x=196).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(12,16,1,128) | #CALL:ld_img(196,16,1,128) }
+; { #CALL(ld_img(12,16,1,128)) | #CALL(ld_img(196,16,1,128)) }
 ; TABLE#
  50123 DEFB 24,36       ; y=16, z=1; up/left, down/right
 ; The next descriptor corresponds to the staircases between the second and
@@ -13913,7 +13913,7 @@ b50121 DEFB 12,36       ; y=10, z=1; up/left, down/right
 ; apartment building next to no. 19 (x=196).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(12,22,1,128) | #CALL:ld_img(196,22,1,128) }
+; { #CALL(ld_img(12,22,1,128)) | #CALL(ld_img(196,22,1,128)) }
 ; TABLE#
  50125 DEFB 36,36       ; y=22, z=1; up/left, down/right
 ; The next descriptor corresponds to the staircases between the first and
@@ -13921,7 +13921,7 @@ b50121 DEFB 12,36       ; y=10, z=1; up/left, down/right
 ; apartment building next to no. 19 (x=196).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(12,28,1,128) | #CALL:ld_img(196,28,1,128) }
+; { #CALL(ld_img(12,28,1,128)) | #CALL(ld_img(196,28,1,128)) }
 ; TABLE#
  50127 DEFB 48,36       ; y=28, z=1; up/left, down/right
 ; The next descriptor corresponds to the steps leading down from the first
@@ -13929,7 +13929,7 @@ b50121 DEFB 12,36       ; y=10, z=1; up/left, down/right
 ; building next to no. 19 (x=196).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(12,31,2,0) | #CALL:ld_img(196,31,2,0) }
+; { #CALL(ld_img(12,31,2,0)) | #CALL(ld_img(196,31,2,0)) }
 ; TABLE#
  50129 DEFB 219,200,192 ; y=31, z=1 or 2; left, right, down/left
  50132 DEFB 255         ; End marker
@@ -13941,8 +13941,8 @@ b50121 DEFB 12,36       ; y=10, z=1; up/left, down/right
 ; under no. 17 (x=224), and the shop under no. 15 (x=240).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(16,33,2,0) | #CALL:ld_img(224,33,2,0) |
-; #CALL:ld_img(240,33,2,0) }
+; { #CALL(ld_img(16,33,2,0)) | #CALL(ld_img(224,33,2,0)) |
+; #CALL(ld_img(240,33,2,0)) }
 ; TABLE#
 @label=LOCDESCS16
 b50133 DEFB 221,204,65 ; y=33, z=1 or 2; left, right, down/left, down/right
@@ -13960,7 +13960,7 @@ b50133 DEFB 221,204,65 ; y=33, z=1 or 2; left, right, down/left, down/right
 ; of that building (x=14).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(14,31,4,128) }
+; { #CALL(ld_img(14,31,4,128)) }
 ; TABLE#
 @label=LOCDESCS14
 b50139 DEFB 54,128    ; y=31, z=1; left
@@ -13969,7 +13969,7 @@ b50139 DEFB 54,128    ; y=31, z=1; left
 ; to no. 19 (x=198).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(14,12,4,0) | #CALL:ld_img(198,12,4,0) }
+; { #CALL(ld_img(14,12,4,0)) | #CALL(ld_img(198,12,4,0)) }
 ; TABLE#
 @label=LOCDESCS198
  50141 DEFB 16,40     ; y=12, z=1; up/left, down/left
@@ -13982,7 +13982,7 @@ b50139 DEFB 54,128    ; y=31, z=1; left
 ; dealt with by the first descriptor above.)
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(198,31,4,128) }
+; { #CALL(ld_img(198,31,4,128)) }
 ; TABLE#
  50143 DEFB 155,193,1 ; y=31, z=1; left, right
 ; The next descriptor corresponds to the staircases between the third and top
@@ -13990,7 +13990,7 @@ b50139 DEFB 54,128    ; y=31, z=1; left
 ; building next to no. 19 (x=198).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(14,18,4,0) | #CALL:ld_img(198,18,4,0) }
+; { #CALL(ld_img(14,18,4,0)) | #CALL(ld_img(198,18,4,0)) }
 ; TABLE#
  50146 DEFB 28,40     ; y=18, z=1; up/left, down/left
 ; The next descriptor corresponds to the location between the stairwell and the
@@ -14003,7 +14003,7 @@ b50139 DEFB 54,128    ; y=31, z=1; left
 ; special, and therefore the descriptor is redundant.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(14,19,4,128) | #CALL:ld_img(198,19,4,128) }
+; { #CALL(ld_img(14,19,4,128)) | #CALL(ld_img(198,19,4,128)) }
 ; TABLE#
  50148 DEFB 143,193,1 ; y=19, z=1; left, right
 ; The next descriptor corresponds to the staircases between the second and
@@ -14011,7 +14011,7 @@ b50139 DEFB 54,128    ; y=31, z=1; left
 ; apartment building next to no. 19 (x=198).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(14,24,4,0) | #CALL:ld_img(198,24,4,0) }
+; { #CALL(ld_img(14,24,4,0)) | #CALL(ld_img(198,24,4,0)) }
 ; TABLE#
  50151 DEFB 40,40     ; y=24, z=1; up/left, down/left
 ; The next descriptor corresponds to the location between the stairwell and the
@@ -14024,7 +14024,7 @@ b50139 DEFB 54,128    ; y=31, z=1; left
 ; special, and therefore the descriptor is redundant.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(14,25,4,128) | #CALL:ld_img(198,25,4,128) }
+; { #CALL(ld_img(14,25,4,128)) | #CALL(ld_img(198,25,4,128)) }
 ; TABLE#
  50153 DEFB 149,193,1 ; y=25, z=1; left, right
 ; The next descriptor corresponds to the staircases between the first and
@@ -14032,7 +14032,7 @@ b50139 DEFB 54,128    ; y=31, z=1; left
 ; apartment building next to no. 19 (x=198).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(14,30,4,0) | #CALL:ld_img(198,30,4,0) }
+; { #CALL(ld_img(14,30,4,0)) | #CALL(ld_img(198,30,4,0)) }
 ; TABLE#
  50156 DEFB 52,40     ; y=30, z=1; up/left, down/left
 ; The next descriptor corresponds to the location between the stairwell and the
@@ -14045,8 +14045,8 @@ b50139 DEFB 54,128    ; y=31, z=1; left
 ; does nothing special, and therefore the descriptor is redundant.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(14,13,4,128) | #CALL:ld_img(30,13,1,128) |
-; #CALL:ld_img(198,13,4,128) }
+; { #CALL(ld_img(14,13,4,128)) | #CALL(ld_img(30,13,1,128)) |
+; #CALL(ld_img(198,13,4,128)) }
 ; TABLE#
 @label=LOCDESCS30
  50158 DEFB 137,193,1 ; y=13, z=1; left, right
@@ -14061,8 +14061,8 @@ b50139 DEFB 54,128    ; y=31, z=1; left
 ; apartment building next to no. 19 (x=204).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(21,7,1,128) | #CALL:ld_img(147,7,1,128) |
-; #CALL:ld_img(204,7,1,128) }
+; { #CALL(ld_img(21,7,1,128)) | #CALL(ld_img(147,7,1,128)) |
+; #CALL(ld_img(204,7,1,128)) }
 ; TABLE#
 @label=LOCDESCS21
 b50162 DEFB 6,208    ; y=7, z=1; left, right, up/right
@@ -14076,7 +14076,7 @@ b50162 DEFB 6,208    ; y=7, z=1; left, right, up/right
 ; character is going to step off the roof (see #R41238).
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(23,6,1,128) | #CALL:ld_img(206,6,1,128) }
+; { #CALL(ld_img(23,6,1,128)) | #CALL(ld_img(206,6,1,128)) }
 ; TABLE#
 @label=LOCDESCS23
 b50165 DEFB 130,193,2 ; y=6, z=1; left, right
@@ -14098,7 +14098,7 @@ u50169 DEFB 44,36    ; y=26, z=1; up/left, down/right
 ; the far left of town.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(0,7) }
+; { #CALL(ldz4_img(0,7)) }
 ; TABLE#
 @label=LOCDESCSZ4
 b50176 DEFB 64       ; x=0; right
@@ -14112,7 +14112,7 @@ b50176 DEFB 64       ; x=0; right
 ; steps leading up to the first floor of the apartment building next to no. 74.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(7,8) }
+; { #CALL(ldz4_img(7,8)) }
 ; TABLE#
  50183 DEFB 98       ; x=7; right, up/left
  50184 DEFB 208      ; x=8; left, right, up/right
@@ -14127,7 +14127,7 @@ b50176 DEFB 64       ; x=0; right
 ; no. 74.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(15,24) }
+; { #CALL(ldz4_img(15,24)) }
 ; TABLE#
  50191 DEFB 90       ; x=15; right, up/right, down/left
  50192 DEFB 224      ; x=16; left, right, up/left
@@ -14157,7 +14157,7 @@ b50176 DEFB 64       ; x=0; right
 ; of no. 74.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(39,8) }
+; { #CALL(ldz4_img(39,8)) }
 ; TABLE#
  50215 DEFB 208      ; x=39; left, right, up/right
  50216 DEFB 208      ; x=40; left, right, up/right
@@ -14171,7 +14171,7 @@ b50176 DEFB 64       ; x=0; right
 ; no. 74 and the entrance to the hotel.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(47,20) }
+; { #CALL(ldz4_img(47,20)) }
 ; TABLE#
  50223 DEFB 192      ; x=47; left, right
  50224 DEFB 192      ; x=48; left, right
@@ -14197,7 +14197,7 @@ b50176 DEFB 64       ; x=0; right
 ; entrance to the hotel.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(67,3) }
+; { #CALL(ldz4_img(67,3)) }
 ; TABLE#
  50243 DEFB 208      ; x=67; left, right, up/right
  50244 DEFB 192      ; x=68; left, right
@@ -14206,7 +14206,7 @@ b50176 DEFB 64       ; x=0; right
 ; the hotel.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(70,18) }
+; { #CALL(ldz4_img(70,18)) }
 ; TABLE#
  50246 DEFB 192      ; x=70; left, right
  50247 DEFB 192      ; x=71; left, right
@@ -14230,7 +14230,7 @@ b50176 DEFB 64       ; x=0; right
 ; entrance to the hotel.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(88,3) }
+; { #CALL(ldz4_img(88,3)) }
 ; TABLE#
  50264 DEFB 208      ; x=88; left, right, up/right
  50265 DEFB 192      ; x=89; left, right
@@ -14239,7 +14239,7 @@ b50176 DEFB 64       ; x=0; right
 ; entrance to the hotel and the front steps of no. 31.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(91,20) }
+; { #CALL(ldz4_img(91,20)) }
 ; TABLE#
  50267 DEFB 192      ; x=91; left, right
  50268 DEFB 192      ; x=92; left, right
@@ -14265,7 +14265,7 @@ b50176 DEFB 64       ; x=0; right
 ; of no. 31.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(111,8) }
+; { #CALL(ldz4_img(111,8)) }
 ; TABLE#
  50287 DEFB 208      ; x=111; left, right, up/right
  50288 DEFB 208      ; x=112; left, right, up/right
@@ -14279,7 +14279,7 @@ b50176 DEFB 64       ; x=0; right
 ; no. 31 and the front steps of the police station.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(119,15) }
+; { #CALL(ldz4_img(119,15)) }
 ; TABLE#
  50295 DEFB 192      ; x=119; left, right
  50296 DEFB 192      ; x=120; left, right
@@ -14300,7 +14300,7 @@ b50176 DEFB 64       ; x=0; right
 ; of the police station.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(134,7) }
+; { #CALL(ldz4_img(134,7)) }
 ; TABLE#
  50310 DEFB 208      ; x=134; left, right, up/right
  50311 DEFB 208      ; x=135; left, right, up/right
@@ -14313,7 +14313,7 @@ b50176 DEFB 64       ; x=0; right
 ; the police station and the front steps of no. 27.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(141,13) }
+; { #CALL(ldz4_img(141,13)) }
 ; TABLE#
  50317 DEFB 192      ; x=141; left, right
  50318 DEFB 192      ; x=142; left, right
@@ -14332,7 +14332,7 @@ b50176 DEFB 64       ; x=0; right
 ; of no. 27.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(154,5) }
+; { #CALL(ldz4_img(154,5)) }
 ; TABLE#
  50330 DEFB 208      ; x=154; left, right, up/right
  50331 DEFB 208      ; x=155; left, right, up/right
@@ -14343,7 +14343,7 @@ b50176 DEFB 64       ; x=0; right
 ; front steps of no. 27.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(159,5) }
+; { #CALL(ldz4_img(159,5)) }
 ; TABLE#
  50335 DEFB 192      ; x=159; left, right
  50336 DEFB 192      ; x=160; left, right
@@ -14354,7 +14354,7 @@ b50176 DEFB 64       ; x=0; right
 ; right-hand side of the apartment building next to no. 19.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(164,35) }
+; { #CALL(ldz4_img(164,35)) }
 ; TABLE#
  50340 DEFB 98       ; x=164; right, up/left
  50341 DEFB 192      ; x=165; left, right
@@ -14395,7 +14395,7 @@ b50176 DEFB 64       ; x=0; right
 ; side of the apartment building next to no. 19.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(199,8) }
+; { #CALL(ldz4_img(199,8)) }
 ; TABLE#
  50375 DEFB 74       ; x=199; right, down/left
  50376 DEFB 192      ; x=200; left, right
@@ -14409,7 +14409,7 @@ b50176 DEFB 64       ; x=0; right
 ; of no. 19.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(207,8) }
+; { #CALL(ldz4_img(207,8)) }
 ; TABLE#
  50383 DEFB 208      ; x=207; left, right, up/right
  50384 DEFB 208      ; x=208; left, right, up/right
@@ -14423,7 +14423,7 @@ b50176 DEFB 64       ; x=0; right
 ; of no. 19 and the shop under no. 17.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(215,7) }
+; { #CALL(ldz4_img(215,7)) }
 ; TABLE#
  50391 DEFB 192      ; x=215; left, right
  50392 DEFB 192      ; x=216; left, right
@@ -14436,7 +14436,7 @@ b50176 DEFB 64       ; x=0; right
 ; shop under no. 17.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(222,4) }
+; { #CALL(ldz4_img(222,4)) }
 ; TABLE#
  50398 DEFB 208      ; x=222; left, right, up/right
  50399 DEFB 208      ; x=223; left, right, up/right
@@ -14446,7 +14446,7 @@ b50176 DEFB 64       ; x=0; right
 ; shop under no. 17 and the front steps of no. 17.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(226,8) }
+; { #CALL(ldz4_img(226,8)) }
 ; TABLE#
  50402 DEFB 192      ; x=226; left, right
  50403 DEFB 192      ; x=227; left, right
@@ -14460,7 +14460,7 @@ b50176 DEFB 64       ; x=0; right
 ; of no. 17 and the door to the shop under no. 15.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(234,8) }
+; { #CALL(ldz4_img(234,8)) }
 ; TABLE#
  50410 DEFB 208      ; x=234; left, right, up/right
  50411 DEFB 208      ; x=235; left, right, up/right
@@ -14474,7 +14474,7 @@ b50176 DEFB 64       ; x=0; right
 ; shop under no. 15 and the front steps of no. 15.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(242,8) }
+; { #CALL(ldz4_img(242,8)) }
 ; TABLE#
  50418 DEFB 192      ; x=242; left, right
  50419 DEFB 192      ; x=243; left, right
@@ -14488,7 +14488,7 @@ b50176 DEFB 64       ; x=0; right
 ; of no. 15.
 ; .
 ; #UDGTABLE
-; { #CALL:ldz4_img(250,5) }
+; { #CALL(ldz4_img(250,5)) }
 ; TABLE#
  50426 DEFB 208      ; x=250; left, right, up/right
  50427 DEFB 208      ; x=251; left, right, up/right
@@ -15542,8 +15542,8 @@ b50688 DEFB 195      ; x=0: #R49952
 ; .
 ; Tile #b0 is unused by design (and would appear completely blank if it were
 ; used). Tiles #b91-#b97, #b99-#b102, #b105 and #b106 belong exclusively to the
-; unused sprites of the #FACT#skinnyMan(Skinny Man) character. Tiles #b215 and
-; #b216 are unused, but resemble the #FACT#aCatsTale(body and tail of a cat).
+; unused sprites of the #FACT(skinnyMan)(Skinny Man) character. Tiles #b215 and
+; #b216 are unused, but resemble the #FACT(aCatsTale)(body and tail of a cat).
 ; Tiles #b238-#b247 are used for Sam's sprite when he's rolling or
 ; somersaulting (see #R25618); tiles #b248-#b255 are used by the sprites of
 ; characters when they are lying down (see #R63784).
@@ -15820,8 +15820,9 @@ b50944 DEFB 0,0,0,60,0,0,192,128,1,9,128,0,255,0,0,0
 @defs=55040:125
 ; Character buffers for character group #b215
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffers are used. These buffers belong to the following characters:
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffers are used. These buffers belong to the following
+; characters:
 ; .
 ; #TABLE(default,,:w)<wrapalign>
 ; { =h Character          | =h Initial location }
@@ -15976,8 +15977,9 @@ b55166 DEFB 0,64,3              ; Graphic data for sprite tiles #b126-#b128
 @defs=55296:125
 ; Character buffers for character group #b216
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffers are used. These buffers belong to the following characters:
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffers are used. These buffers belong to the following
+; characters:
 ; .
 ; #TABLE(default,,:w)<wrapalign>
 ; { =h Character          | =h Initial location }
@@ -16141,8 +16143,9 @@ b55422 DEFB 254,64,251              ; Graphic data for sprite tiles #b126-#b128
 @defs=55552:125
 ; Character buffers for character group #b217
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffers are used.  These buffers belong to the following characters:
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffers are used. These buffers belong to the following
+; characters:
 ; .
 ; #TABLE(default)
 ; { =h Character          | =h Initial location }
@@ -16299,8 +16302,9 @@ b55678 DEFB 0,160,2                 ; Graphic data for sprite tiles #b126-#b128
 @defs=55808:125
 ; Character buffers for character group #b218
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffers are used. These buffers belong to the following characters:
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffers are used. These buffers belong to the following
+; characters:
 ; .
 ; #TABLE(default,,:w)<wrapalign>
 ; { =h Character          | =h Initial location }
@@ -16460,8 +16464,9 @@ b55934 DEFB 254,160,242               ; Graphic data for sprite tiles
 @defs=56064:125
 ; Character buffers for character group #b219
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffers are used. These buffers belong to the following characters:
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffers are used. These buffers belong to the following
+; characters:
 ; .
 ; #TABLE(default,,:w)<wrapalign>
 ; { =h Character          | =h Initial location }
@@ -16619,8 +16624,9 @@ s56312 DEFS 8
 @defs=56320:125
 ; Character buffers for character group #b220
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffers are used. These buffers belong to the following characters:
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffers are used. These buffers belong to the following
+; characters:
 ; .
 ; #TABLE(default,,:w)<wrapalign>
 ; { =h Character          | =h Initial location }
@@ -16788,8 +16794,9 @@ b56568 DEFB 18,128 ; y=13, z=1; left (roof)
 @defs=56576:125
 ; Character buffers for character group #b221
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffers are used. These buffers belong to the following characters:
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffers are used. These buffers belong to the following
+; characters:
 ; .
 ; #TABLE(default,,:w)<wrapalign>
 ; { =h Character          | =h Initial location }
@@ -16939,8 +16946,8 @@ s56824 DEFS 8
 @defs=56832:32
 ; Character buffer for character #b222
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffer is used. This buffer is used by one of the two policemen in
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffer is used. This buffer is used by one of the two policemen in
 ; demo mode and game modes 1-3, and is unused in game mode 4. See #R56864 for
 ; more details.
 @label=CBUFCOP1
@@ -17125,8 +17132,8 @@ s57080 DEFS 8
 @defs=57088:32
 ; Character buffer for character #b223
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffer is used. This buffer is used by one of the two policemen in
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffer is used. This buffer is used by one of the two policemen in
 ; game modes 1-3, and is unused in demo mode and game mode 4. See #R57120 for
 ; more details.
 b57088 DEFS 32
@@ -17314,8 +17321,8 @@ s57336 DEFS 8
 @defs=57344:32
 ; Character buffer for character #b224
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffer is used. This buffer is used by the following characters:
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffer is used. This buffer is used by the following characters:
 ; .
 ; #TABLE(default,centre)
 ; { =h Game mode(s) | =h Character }
@@ -17506,8 +17513,8 @@ s57592 DEFS 8
 @defs=57600:32
 ; Character buffer for character #b225
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffer is used. This buffer is used by the Fat Man in game mode 2,
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffer is used. This buffer is used by the Fat Man in game mode 2,
 ; and by Lana in game mode 3; it is unused in demo mode and game modes 1 and 4.
 ; See #R57632 for more details.
 @label=CBUF225
@@ -17684,8 +17691,8 @@ s57848 DEFS 8
 @defs=57856:32
 ; Character buffer for character #b226
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffer is used. This buffer is used by Daisy in demo mode and game
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffer is used. This buffer is used by Daisy in demo mode and game
 ; modes 1-3, and is unused in game mode 4. See #R57888 for more details.
 b57856 DEFS 32
 
@@ -17860,9 +17867,9 @@ s58104 DEFS 8
 @defs=58112:32
 ; Character buffer for character #b227
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffer is used. This buffer is used by the sniper in game modes 1-4,
-; and is unused in demo mode. See #R58144 for more details.
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffer is used. This buffer is used by the sniper in game modes
+; 1-4, and is unused in demo mode. See #R58144 for more details.
 b58112 DEFS 32
 
 ; Initialisation parameters for character #b227
@@ -18033,9 +18040,9 @@ s58360 DEFS 8
 @defs=58368:32
 ; Character buffer for character #b228
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffer is used. This buffer is used by a banknote in all game modes.
-; See #R58400 for more details.
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffer is used. This buffer is used by a banknote in all game
+; modes. See #R58400 for more details.
 b58368 DEFS 32
 
 ; Initialisation parameters for character #b228
@@ -18207,10 +18214,10 @@ s58616 DEFS 8
 @defs=58624:32
 ; Character buffer for character #b229
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffer is used. This buffer is used by a banknote in all game modes
-; (see #R58656 for more details), but is also reserved for use by the hook when
-; necessary (see #R25420).
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffer is used. This buffer is used by a banknote in all game
+; modes (see #R58656 for more details), but is also reserved for use by the
+; hook when necessary (see #R25420).
 @label=CBUF229
 b58624 DEFS 32
 
@@ -18387,8 +18394,8 @@ s58872 DEFS 8
 @defs=58880:32
 ; Character buffer for Sam
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how the buffer is used. This buffer is used by Sam in all game modes. See
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how the buffer is used. This buffer is used by Sam in all game modes. See
 ; #R58912 for more details.
 @label=SAMCBUF
 b58880 DEFS 32
@@ -23974,7 +23981,7 @@ c64131 CALL 63994    ; Place the address of the next instruction into bytes
  64137 LD L,1        ; {Does it match the character's current x-coordinate?
  64139 CP (HL)       ; }
 @bfix=JR Z,64150     ; Jump if so
- 64140 JR NZ,64150   ; Jump if not (this is a #BUG#pttd(bug))
+ 64140 JR NZ,64150   ; Jump if not (this is a #BUG(pttd)(bug))
  64142 LD C,128      ; Bit 7 set, bit 6 reset: the character will move left
 @bfix=               ; Jump if the character's current x-coordinate is greater
 @bfix=/              ; than his pre-knockout x-coordinate
@@ -24524,7 +24531,7 @@ c64618 LD HL,59552   ; {Change the instruction at #R59552 to #S/RET/
 @bfix=LD HL,23136    ; {Fill the 20th row of the screen with solid blue squares
  64666 LD HL,20576   ; {Fill the top line of bytes on the 20th row of the
 @bfix=               ;
- 64669 LD B,32       ; screen with 9s; this is a #BUG#missingBlueLine(bug)
+ 64669 LD B,32       ; screen with 9s; this is a #BUG(missingBlueLine)(bug)
 *64671 LD (HL),9     ;
  64673 INC L         ;
  64674 DJNZ 64671    ; }
@@ -25357,7 +25364,7 @@ b65378 DEFB 160      ; Animatory state (#AS160: gangster)
 ; top-left edge of the roof of the apartment building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(176,6,1,0) }
+; { #CALL(ld_img(176,6,1,0)) }
 ; TABLE#
 @label=LOCDESCS176
 b65408 DEFB 4,132    ; y=6, z=1; left, down/right
@@ -25365,15 +25372,15 @@ b65408 DEFB 4,132    ; y=6, z=1; left, down/right
 ; edge of the roof of the apartment building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(176,7,1,0) }
+; { #CALL(ld_img(176,7,1,0)) }
 ; TABLE#
  65410 DEFB 6,64     ; y=7, z=1; right
 ; The next three descriptors correspond to the fire escape on the apartment
 ; building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(176,11,2,0) | #CALL:ld_img(176,17,2,0) |
-; #CALL:ld_img(176,23,2,0) }
+; { #CALL(ld_img(176,11,2,0)) | #CALL(ld_img(176,17,2,0)) |
+; #CALL(ld_img(176,23,2,0)) }
 ; TABLE#
  65412 DEFB 78,208   ; y=11, z=2; left, right, up/right (top floor)
  65414 DEFB 90,208   ; y=17, z=2; left, right, up/right (third floor)
@@ -25382,8 +25389,8 @@ b65408 DEFB 4,132    ; y=6, z=1; left, down/right
 ; apartment building next to no. 19.
 ; .
 ; #UDGTABLE(locdesc)
-; { #CALL:ld_img(176,13,1,0) | #CALL:ld_img(176,19,1,0) |
-; #CALL:ld_img(176,25,1,0) | #CALL:ld_img(176,31,4,0) }
+; { #CALL(ld_img(176,13,1,0)) | #CALL(ld_img(176,19,1,0)) |
+; #CALL(ld_img(176,25,1,0)) | #CALL(ld_img(176,31,4,0)) }
 ; TABLE#
  65418 DEFB 18,64    ; y=13, z=1; right (top floor)
  65420 DEFB 30,64    ; y=19, z=1; right (third floor)

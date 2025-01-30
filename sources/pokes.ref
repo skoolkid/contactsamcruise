@@ -1,4 +1,4 @@
-; Copyright 2010-2013, 2015, 2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2010-2013, 2015, 2017, 2025 Richard Dymond (rjdymond@gmail.com)
 
 [Poke:infiniteMoney:Infinite money]
 To prevent Sam's supply of money from running out:
@@ -87,9 +87,9 @@ Now Sam can enter either one of these rooms by first going to the hotel
 entrance and then walking left or right until he passes through the wall.
 
 #PUSHS
-#CALL:place_char(230,97,31,1,128)
+#CALL(place_char(230,97,31,1,128))
 #UDGTABLE
-{ #CALL:play_area(private_rooms,88,29,16,8,2,1) }
+{ #CALL(play_area(private_rooms,88,29,16,8,2,1)) }
 TABLE#
 #POPS
 
