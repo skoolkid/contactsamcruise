@@ -1,6 +1,7 @@
-; Copyright 2010-2023, 2025 Richard Dymond (rjdymond@gmail.com)
+; © 2010-2023, 2025, 2026 Richard Dymond (rjdymond@gmail.com)
 
 @start
+@rom
 @defb=20648:8,136,31,252,3,128,1,192,0,12,0,8,144
 @defb=20674:100,128,0,0,0,0,69,20,23,116,9,32,10,192,24,8,4,14,240
 @defb=20702:60,0,2,112,2,245,68,57,40,92
@@ -64,8 +65,8 @@
 ; Contact Sam Cruise disassembly
 ; https://skoolkit.ca
 ;
-; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2023, 2025 Richard Dymond (this disassembly)
+; © 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
+; © 2010-2023, 2025, 2026 Richard Dymond (this disassembly)
 @bfix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -1680,7 +1681,7 @@ c25539 BIT 5,(HL)    ; Byte #b12 of Sam's buffer holds the LSB of the current
  25576 CALL 25039    ; Add 1, 5, 10 or 20 bucks to Sam's total
 ; Finally we make an appropriate sound effect.
 ; .
-; #AUDIO7(banknote.wav)(25579,25599)
+; #AUDIO1,25579,25599,2,1(banknote.wav)
 @assemble=2
  25579 XOR A         ; {Prepare the sound effect parameters: #REGa=#b0 (initial
  25580 LD DE,1529    ; border colour), #REGd=#b5 (duration), #REGe=#b249
@@ -2460,7 +2461,7 @@ c26328 LD L,1        ; Point #REGhl at byte #b1 of the sniper's buffer
 ;
 ; Used by the routine at #R26002.
 ; .
-; #AUDIO3(shot.wav)(#FOR(765,6,-3,1)(n,56+13*(n%256)))
+; #AUDIO0,,,1,1(shot.wav)(#FOR(765,6,-3,1)(n,56+13*(n%256)))
 @label=SHOTSOUND
 @keep
 c26352 LD DE,65021   ; {Prepare the sound effect parameters: #REGe=#b253
@@ -4646,7 +4647,7 @@ c28635 LD A,(28612)  ; {Toggle the message display interval at #R28612 between
 ;
 ; Used by the routine at #R25118.
 ; .
-; #AUDIO3(sniper.wav)(#FOR(162,254,,1)(n,56+13*n))
+; #AUDIO0,,,1,1(sniper.wav)(#FOR(162,254,,1)(n,56+13*n))
 @label=FIRESOUND
 c28646 LD DE,418     ; Prepare the sound effect parameters: #REGe=#b162
                      ; (initial pitch), #REGd=#b1 (pitch adjustment)
@@ -6118,7 +6119,7 @@ u30052 DEFB 244
 ;
 ; Used by the routine at #R30211.
 ; .
-; #AUDIO2(bonus.wav)(#INCLUDE(Bonus))
+; #AUDIO0,,,1(bonus.wav)(#INCLUDE(Bonus))
 ;
 ; A #b2 (initial border colour)
 ; C #b144 (pitch)
@@ -20200,7 +20201,7 @@ c60506 CALL 59848    ; Update the SRB for the character's current animatory
 ; knocks on a door, blows a fuse, flips a light switch, raises or lowers a
 ; window blind, throws the hook, or is falling from the roof of a building.
 ; .
-; #AUDIO2(beep.wav)([2532]*6)
+; #AUDIO0,,,1(beep.wav)([2532]*6)
 @label=SNDEFFECT2
 c60521 PUSH BC       ;
  60522 LD A,1        ; BORDER 1 (blue)
@@ -24345,7 +24346,7 @@ c64338 CALL 64512    ; Deal with the case where #REGb=2 and the character is
 ; Now we reveal the play area one row of tiles at a time from the bottom up,
 ; with accompanying sound effects.
 ; .
-; #AUDIO2(wake.wav)(#INCLUDE(WakeUp))
+; #AUDIO0,,,1(wake.wav)(#INCLUDE(WakeUp))
 @ssub=LD HL,32512+96
  64470 LD HL,32608   ; Point #REGhl at one byte past the end of the
                      ; #R32512(screen refresh buffer) (SRB), which is currently
@@ -24498,7 +24499,7 @@ c64599 LD HL,23167   ; {Set the attribute bytes for the top 20 rows of the
 ; when Sam hits the ground after being dropped from the roof of a building by a
 ; gangster.
 ; .
-; #AUDIO2(dropped.wav)(#FOR(1,7,,3)//h/[2529]*127,141511,[1281]*255/141511//)
+; #AUDIO0,,,1(dropped.wav)(#FOR(1,7,,3)//h/[2529]*127,141511,[1281]*255/141511//)
 @label=SCRUPDOWN7
 @nowarn
 c64618 LD HL,59552   ; {Change the instruction at #R59552 to #S/RET/
