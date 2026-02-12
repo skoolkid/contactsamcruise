@@ -71,6 +71,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         if self.case == 1:
             self.b_fmt = self.b_fmt.lower()
         self.sprite_data = None
+        self.ld_img_data = None
 
     def _save_sprite_data(self):
         self.sprite_data = self.snapshot[50944:59121]
@@ -78,6 +79,19 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
     def _restore_sprite_data(self):
         self.snapshot[50944:59121] = self.sprite_data
         self.sprite_data = None
+
+    def _save_ld_img_data(self):
+        self.ld_img_data = (
+            self.snapshot[47424:48480], # Window flags
+            self.snapshot[56864:58912], # Characters 222-230
+            self.snapshot[65198:65406]  # Character groups 215-221
+        )
+
+    def _restore_ld_img_data(self):
+        self.snapshot[47424:48480] = self.ld_img_data[0]
+        self.snapshot[56864:58912] = self.ld_img_data[1]
+        self.snapshot[65198:65406] = self.ld_img_data[2]
+        self.ld_img_data = None
 
     def _get_sprite_udg(self, state, attr, ref_page, udg_page):
         ref_addr = state + 256 * ref_page
@@ -497,7 +511,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         return self.handle_image(frame, fname, cwd, path_id='PlayAreaImagePath')
 
     def ld_img(self, cwd, sam_x=None, sam_y=None, sam_z=None, sam_as=None, x=None, y=None, w=None, h=None):
-        self.push_snapshot()
+        self._save_ld_img_data()
         self.hide_chars()
         self.place_char(cwd, 230, sam_x, sam_y, sam_z, sam_as)
         sam_x, sam_y = self.snapshot[58881:58883]
@@ -507,11 +521,11 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         x = min(max(sam_x - 2, 0), 256 - w) if x is None else x
         y = min(max(sam_y - 1, 0), 40 - h) if y is None else y
         html = self._write_ld_img(cwd, ld_img_fname, x, y, w, h)
-        self.pop_snapshot()
+        self._restore_ld_img_data()
         return html
 
     def ldz4_img(self, cwd, x0, w):
-        self.push_snapshot()
+        self._save_ld_img_data()
         self.hide_chars()
         y0 = self._get_y_coord(x0)
         self.place_char(cwd, 230, x0, y0, 4, 128)
@@ -521,7 +535,7 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         ldz4_img_fname = 'ld-x{0}-x{1}-4'.format(x0, x1)
         width = min(w + 2, 256 - x0)
         html = self._write_ld_img(cwd, ldz4_img_fname, x0, 31, width, 9)
-        self.pop_snapshot()
+        self._restore_ld_img_data()
         return html
 
     def _get_y_coord(self, x):
