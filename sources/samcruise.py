@@ -1,4 +1,4 @@
-# Copyright 2008-2015, 2017-2019, 2021 Richard Dymond (rjdymond@gmail.com)
+# © 2008-2015, 2017-2019, 2021, 2026 Richard Dymond (rjdymond@gmail.com)
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -70,6 +70,14 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         self.b_fmt = '0x{:02X}' if self.base == 16 else '{}'
         if self.case == 1:
             self.b_fmt = self.b_fmt.lower()
+        self.sprite_data = None
+
+    def _save_sprite_data(self):
+        self.sprite_data = self.snapshot[50944:59121]
+
+    def _restore_sprite_data(self):
+        self.snapshot[50944:59121] = self.sprite_data
+        self.sprite_data = None
 
     def _get_sprite_udg(self, state, attr, ref_page, udg_page):
         ref_addr = state + 256 * ref_page
@@ -427,20 +435,16 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         tile_num = col * height + row
         ref_page = 215 + tile_num
 
-        do_pop = False
         if state & 1919 in self.sniper_states:
-            do_pop = True
-            self.push_snapshot()
+            self._save_sprite_data()
             phase = self.sniper_states.index(state & 1919)
             self._prep_sniper_sprite(phase, tile_num)
             state = SNIPER_AS + (state & 128)
         elif state & 127 in (7, 23, 39, 55, 63, 71, 79, 87, 95, 103, 111, 119):
-            do_pop = True
-            self.push_snapshot()
+            self._save_sprite_data()
             self._prep_knocked_out_sprite(state, tile_num)
         elif state & 127 in (9, 10, 15, 31):
-            do_pop = True
-            self.push_snapshot()
+            self._save_sprite_data()
             self._prep_sam_sprite(state, tile_num)
 
         as_norm = (state if state & 7 else state + 2) | 128
@@ -448,8 +452,8 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         if state & 128:
             udg.flip()
 
-        if do_pop:
-            self.pop_snapshot()
+        if self.sprite_data:
+            self._restore_sprite_data()
         return udg
 
     def get_font_bitmap(self, character):
