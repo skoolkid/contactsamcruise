@@ -497,13 +497,23 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         return '\n'.join(rows)
 
     def _play_area_udgs(self, x, y, w, h, show_chars, show_x, game_mode, lights, blinds):
-        self.push_snapshot()
+        self.window_flags = None
+        self.chars = None
         if show_chars and game_mode is not None:
+            self.chars = (
+                self.snapshot[56864:58912], # Characters 222-230
+                self.snapshot[65198:65406]  # Character groups 215-221
+            )
             self._initialise_characters(game_mode)
         if lights or blinds:
+            self.window_flags = self.snapshot[47424:48480]
             self._adjust_lights_and_blinds(lights, blinds)
         udgs = self.get_play_area_udgs(x, y, w, h, show_chars, show_x)
-        self.pop_snapshot()
+        if self.chars:
+            self.snapshot[56864:58912] = self.chars[0]
+            self.snapshot[65198:65406] = self.chars[1]
+        if self.window_flags:
+            self.snapshot[47424:48480] = self.window_flags
         return udgs
 
     def play_area(self, cwd, fname, x, y, w=1, h=1, scale=2, show_chars=0, show_x=0, game_mode=None, lights=1, blinds=1):
