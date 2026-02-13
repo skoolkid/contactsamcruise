@@ -788,10 +788,10 @@ class ContactSamCruiseHtmlWriter(HtmlWriter):
         return end, self.handle_image(frame, fname, cwd, alt, 'UDGImagePath')
 
     def _build_segment(self, x, y):
-        self.push_snapshot()
+        window_flags = self.snapshot[47424:48480]
         self._adjust_lights_and_blinds(1, 1)
         udgs = self.get_play_area_udgs(x, y, 8, 6)
-        self.pop_snapshot()
+        self.snapshot[47424:48480] = window_flags
         return udgs
 
     def expand_segment(self, text, index, cwd):
