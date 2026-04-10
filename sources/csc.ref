@@ -1,4 +1,4 @@
-; Copyright 2010-2020, 2022, 2024, 2025 Richard Dymond (rjdymond@gmail.com)
+; © 2010-2020, 2022, 2024-2026 Richard Dymond (rjdymond@gmail.com)
 
 [Config]
 Expand=#INCLUDE(Expand)
@@ -10,8 +10,8 @@ GameDir=contact_sam_cruise
 Game=Contact Sam Cruise
 Logo=#LOGO0,0(logo)
 StyleSheet=skoolkit.css;csc.css
-Release=The complete Contact Sam Cruise RAM disassembly 20221122
-Copyright=&#169; 1986 Microsphere Computer Services Ltd. &#169; 2022 Richard Dymond.
+Release=The complete Contact Sam Cruise RAM disassembly 20260410
+Copyright=&#169; 1986 Microsphere Computer Services Ltd. &#169; 2026 Richard Dymond.
 AddressAnchor={address#IF({base}==16)(:04x)}
 
 [Links]
