@@ -1,4 +1,4 @@
-; Copyright 2010-2013, 2015, 2017, 2025 Richard Dymond (rjdymond@gmail.com)
+; © 2010-2013, 2015, 2017, 2025, 2026 Richard Dymond (rjdymond@gmail.com)
 
 [Fact:hiddenSky:Hidden sky]
 The play area is 42 character squares high, but only the middle 38
@@ -31,7 +31,7 @@ However, the bottom two rows of the play area are not very interesting; the
 very bottom row (y=41) is completely blank, and the next row up (y=40) is
 mostly blank, except for some extra minor detail at the bottom of the
 staircases leading up into the apartment buildings next to no. 74 and
-no. 19. Normally those areas looks like this:
+no. 19. Normally those areas look like this:
 
 #UDGTABLE {
   #CALL(play_area(hidden_ground1a,4,28,16,12)) |
@@ -232,7 +232,7 @@ sniper will rear his head and start shooting (see #R25307).
 As Sam gets more money, the snipers' bullets fly faster through the air (see
 #R26075).
 
-The bullets are slowest when Sam has less than $256; they are bit faster when
+The bullets are slowest when Sam has less than $256; they are a bit faster when
 Sam has between $256 and $511; they are a bit faster still when Sam has between
 $512 and $767; and they are fastest when Sam has between $768 and $1023 (twice
 as fast as when Sam has less than $256, in fact).

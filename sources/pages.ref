@@ -1,5 +1,4 @@
-; Copyright 2010, 2012-2015, 2017, 2019, 2025
-; Richard Dymond (rjdymond@gmail.com)
+; © 2010, 2012-2015, 2017, 2019, 2025, 2026 Richard Dymond (rjdymond@gmail.com)
 
 [Page:PlayArea]
 PageContent=<div>#CALL(play_area(play_area,0,2,256,38,2,0,8,,0,0))</div>
@@ -137,7 +136,7 @@ animatory state is divisible by 8, <i>n</i>=0 otherwise)</li>
 </ul>
 <p>
 The graphic for an animatory state is made up of 4 or 15 tiles in a 2x2, 3x5 or
-5x3, grid:
+5x3 grid:
 </p>
 <table>
 <tr>
@@ -492,7 +491,7 @@ important events in a logical order, and includes every cash bonus and phone
 message that it's possible to receive.</p>
 
 <p>Before the game starts, a cutscene is displayed: '...THE PHONE RANG. IT WAS
-A DAMED NAMED LANA. SHE SAID TO MEET HER ON THE TOP FLOOR OF THE HOTEL ROYALE.
+A DAME NAMED LANA. SHE SAID TO MEET HER ON THE TOP FLOOR OF THE HOTEL ROYALE.
 SO BEGAN THE CASE OF THE BALI BUDGIE'</p>
 
 <div class="box box-1">
@@ -627,7 +626,7 @@ is watching for you outside the police station)
 </li>
 <li>
 Go down to the ground floor of no. 31, leave through the front door, and go to
-the right hand green room on the fourth floor of the hotel
+the right-hand green room on the fourth floor of the hotel
 </li>
 <li>Change into the female disguise (press 'D' four times):
 <div>#DISGUISE4,2(disguise4)</div>

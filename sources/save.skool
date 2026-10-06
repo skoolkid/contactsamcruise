@@ -55,8 +55,8 @@
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
-; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2013, 2015, 2017-2019, 2021 Richard Dymond (this disassembly)
+; © 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
+; © 2010-2013, 2015, 2017-2019, 2021, 2026 Richard Dymond (this disassembly)
 
 @org
 ; Save Contact Sam Cruise to tape
@@ -126,7 +126,7 @@ c33010 LD SP,23806   ;
  33079 JP 33091      ; Jump forward to save the flag byte
 ; This is the main byte-saving loop.
 @label=B1_LOOP
-*33082 LD A,D        ; {In the analagous ROM routine, the second instruction
+*33082 LD A,D        ; {In the analogous ROM routine, the second instruction
  33083 LD A,D        ; here is '#S/OR E/', to check whether it's time to save
                      ; the last byte (the parity byte)}
  33084 JR Z,33098    ; This jump (to save the parity byte) is never made

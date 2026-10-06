@@ -128,8 +128,8 @@ c24055 JP 23831      ; Jump to where it really starts
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
-; Copyright 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
-; Copyright 2010-2013, 2015, 2017-2019, 2021, 2025 Richard Dymond (this
+; © 1986 Microsphere Computer Services Ltd (Contact Sam Cruise)
+; © 2010-2013, 2015, 2017-2019, 2021, 2025, 2026 Richard Dymond (this
 ; disassembly)
 
 @org
@@ -316,7 +316,7 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
  32949 LD A,H        ; {Update the (ultimately unused) parity byte against the
  32950 XOR L         ; byte just read from the tape
  32951 LD H,A        ; }
- 32952 LD A,D        ; {Set the zero flag if the the byte counter has reached 0
+ 32952 LD A,D        ; {Set the zero flag if the byte counter has reached 0
  32953 OR E          ; (which never happens)}
  32954 JR NZ,32907   ; Jump back to load another byte from the tape
 @end

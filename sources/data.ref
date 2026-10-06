@@ -1,4 +1,4 @@
-; Copyright 2010-2012, 2017, 2022 Richard Dymond (rjdymond@gmail.com)
+; © 2010-2012, 2017, 2022, 2026 Richard Dymond (rjdymond@gmail.com)
 
 [AnimatoryStates]
 0=Sam standing/walking (phase 1)
@@ -11,7 +11,7 @@
 7=Sam lying on his back
 8=Unused
 9=Sam rolling (phase 3) or somersaulting (phase 4)
-10=Sam rolling (phase 5) somersaulting (phase 6)
+10=Sam rolling (phase 5) or somersaulting (phase 6)
 11=Unused
 12=Unused
 13=Unused
@@ -191,10 +191,10 @@ sidewalk or road; 8=invisible
 Post-midstride animatory state (see #R60347, #R60506)
 
 [CharBuf:6]
-Post-midstride x-coordinate  (see #R60347, #R60506)
+Post-midstride x-coordinate (see #R60347, #R60506)
 
 [CharBuf:7]
-Post-midstride y-coordinate  (see #R60347, #R60506, #R60641, #R64338)
+Post-midstride y-coordinate (see #R60347, #R60506, #R60641, #R64338)
 
 [CharBuf:8]
 LSB of the primary command routine address (see #R61948)
@@ -252,7 +252,7 @@ destination; 0 if the character is on the sidewalk or the road, or on the front
 steps of the hotel but heading somewhere other than the hotel (see #R31808,
 #R60812, #R62976)
 
-1 if Sam has stepped off or been dropped off the the roof of a building to the
+1 if Sam has stepped off or been dropped off the roof of a building to the
 ground from a great enough height that he could be knocked out when he lands; 0
 otherwise (see #R64227, #R64338)
 

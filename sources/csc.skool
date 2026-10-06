@@ -838,7 +838,7 @@ b24544 DEFB 0
                      ; Sam
  24783 DEFB 40       ; #S/JR Z/ (for the instruction at #R29986)
  24784 DEFB 0        ; 0 means the phone message has been received by Sam
- 24785 DEFB 2        ; 2 POKES follow
+ 24785 DEFB 2        ; 2 POKEs follow
  24786 DEFW 24792    ; {Activate the entry at #R24792 (below)
  24788 DEFB 128      ; }
 @ssub=DEFW 57600+9
@@ -1305,7 +1305,7 @@ c25118 LD L,2        ; {#REGa=sniper's y-coordinate
 *25210 CALL 26328    ; Compare the sniper's coordinates with Sam's
  25213 JR Z,25227    ; Jump if the sniper is on screen and at least 8
                      ; x-coordinates away from Sam
- 25215 JR NC,25193   ; Terminate this subcommand if the sniper if off screen
+ 25215 JR NC,25193   ; Terminate this subcommand if the sniper is off screen
  25217 CALL 59848    ; Update the SRB for the sniper's current animatory state
                      ; and location
  25220 LD A,D        ; #REGa=sniper's y-coordinate
@@ -3812,8 +3812,8 @@ t27854 DEFB 127      ; #R26876(#b127): 'ING'
 
 ; Message #b31: 'THAT'
 ;
-; Used as a submessage of messages #R23296(#b55), #R32122(#b60), #R24069(#b67)
-; and #R24263(#b73) and #R23954(#b76).
+; Used as a submessage of messages #R23296(#b55), #R32122(#b60), #R24069(#b67),
+; #R24263(#b73) and #R23954(#b76).
 @label=MSG031
 t27857 DEFM "THAT"
  27861 DEFB 0        ; End marker
@@ -5500,7 +5500,7 @@ c29361 CALL 63128    ; Exit now if the policeman is midstride
  29409 DEC E         ; #REGde=#R32731
  29410 LD BC,3       ; {Copy the coordinates and location identifier of the
  29413 LD L,10       ; spot to which the police should be heading to get Sam
- 29415 EX DE,HL      ; into byte #b10-#b12 of the policeman's buffer, thus
+ 29415 EX DE,HL      ; into bytes #b10-#b12 of the policeman's buffer, thus
  29416 LDIR          ; making it his destination
  29418 EX DE,HL      ; }
 *29419 LD L,3        ; {Set bit 7 of byte #b3 of the policeman's buffer (to
@@ -6591,7 +6591,7 @@ c30511 LD HL,32666   ; #R32666 holds the identifier of the telephone that Sam
                      ; is calling
  30514 LD A,(HL)     ; Pick this up in #REGa
  30515 AND 31        ; {#REGe=x-coordinate of the leftmost column of the
- 30517 ADD A,A       ; 8-tile-wide segment of the play area that contains the
+ 30517 ADD A,A       ; 8-tile wide segment of the play area that contains the
  30518 ADD A,A       ; telephone (0, 8, 16,...248)
  30519 ADD A,A       ;
  30520 LD E,A        ; }
@@ -6636,7 +6636,7 @@ c30511 LD HL,32666   ; #R32666 holds the identifier of the telephone that Sam
  30562 LD A,(HL)     ; #REGa=character's x-coordinate
  30563 INC L         ; #REGl=#b2
  30564 AND 248       ; {Set the zero flag if the character is in the same
- 30566 CP E          ; 8-tile-wide segment of the play area as the telephone}
+ 30566 CP E          ; 8-tile wide segment of the play area as the telephone}
  30567 SCF           ; Set the carry flag
  30568 RET Z         ; Return with the carry flag set if the character is close
                      ; to the telephone
@@ -6940,7 +6940,7 @@ c30822 PUSH DE       ; Save the play area coordinates briefly
 *30936 BIT 1,A       ; Is there a right-hand window here with a blind?
  30938 JR Z,30942    ; Jump if not
  30940 RES 0,A       ; Reset bit 0: blind raised in the right-hand window
-*30942 BIT 7,A       ; Is there a left-land or single window here with a blind?
+*30942 BIT 7,A       ; Is there a left-hand or single window here with a blind?
  30944 JR Z,30948    ; Jump if not
  30946 RES 6,A       ; Reset bit 6: blind raised in the left-hand or only
                      ; window
@@ -8250,8 +8250,8 @@ g32663 DEFW 0
 ; Time that Sam last lifted a ringing telephone
 ;
 ; Checked by the routine at #R30429 and set by the routine at #R30458 (to the
-; value of the second byte of the the system variable FRAMES, which is
-; incremented every 5.12s).
+; value of the second byte of the system variable FRAMES, which is incremented
+; every 5.12s).
 @label=RPHONETIME
 g32665 DEFB 0
 
@@ -11620,7 +11620,7 @@ u48491 DEFB 42,200   ; y=25, z=1; left, right, down/left
 
 ; Location descriptor (x-coordinate 118)
 ;
-; Used by the routine at #R60179.  This descriptor corresponds to the top-right
+; Used by the routine at #R60179. This descriptor corresponds to the top-right
 ; edge of the roof of no. 31. It is used to check whether Sam is going to step
 ; off the roof (see #R42006).
 ; .
@@ -14072,7 +14072,7 @@ b50162 DEFB 6,208    ; y=7, z=1; left, right, up/right
 ; Location descriptor (x-coordinates 23, 206)
 ;
 ; Used by the routine at #R60179. This descriptor corresponds to the top right
-; edges of the roofs the apartment building next to no. 74 (x=23) and the
+; edges of the roofs of the apartment building next to no. 74 (x=23) and the
 ; apartment building next to no. 19 (x=206). It is used to check whether a
 ; character is going to step off the roof (see #R41238).
 ; .
@@ -14123,7 +14123,7 @@ b50176 DEFB 64       ; x=0; right
  50188 DEFB 192      ; x=12; left, right
  50189 DEFB 192      ; x=13; left, right
  50190 DEFB 145      ; x=14; left, up/right
-; The next 24 descriptors correspond to the sidewalk from the doorway of the
+; The next 24 descriptors correspond to the sidewalk between the doorway of the
 ; right-hand shop under the apartments next to no. 74 and the front steps of
 ; no. 74.
 ; .
@@ -21793,7 +21793,7 @@ c62099 LD L,1        ; Point #REGhl at byte #b1 of the character's buffer
  62107 JR NC,62105   ; }
  62109 LD A,L        ; #REGa=LSB of the entry (#b182-#b191)
  62110 ADD A,58      ; {Point #REGhl at one of the 10 door status flag bytes at
- 62112 LD L,A        ; at #R32752
+ 62112 LD L,A        ; #R32752
 @ssub=LD H,32752/256
  62113 LD H,127      ; }
  62115 LD A,(HL)     ; Pick up the door status flags
@@ -22383,8 +22383,8 @@ c62597 CALL 62518    ; Is the character standing next to a light switch?
  62636 CP 72         ; Are we dealing with a window that is second from the
                      ; left in the hotel?
  62638 JR NZ,62657   ; Jump if not
-; A light switch that affects the lights in the the four central windows on one
-; of the floors of the hotel has been flipped.
+; A light switch that affects the lights in the four central windows on one of
+; the floors of the hotel has been flipped.
 *62640 LD L,72       ; Point #REGhl at the window flags for the leftmost of the
                      ; four central windows
 *62642 PUSH HL       ; Save the window flags pointer
@@ -22853,7 +22853,7 @@ c63138 LD L,0        ; Point #REGhl at byte #b0 of the character's buffer
  63147 ADD A,(HL)    ; Add the character's x-coordinate
  63148 LD C,A        ; #REGc=x-coordinate of the front column of the
                      ; character's sprite
- 63149 AND 7         ; #REGa=#REGc%8, with the zero flag if this is 0
+ 63149 AND 7         ; #REGa=#REGc%8, with the zero flag set if this is 0
  63151 RET           ;
 
 ; Check whether a character is standing next to a light switch or window blind
@@ -22954,8 +22954,8 @@ c63209 CALL 63128    ; Exit now if the character is midstride
  63236 JR NZ,63266   ; Jump if so (the character will not flip the switch)
  63238 LD A,32       ; Bit 5 set: light switch toggle
  63240 JR 63250      ;
-*63242 CP 8          ; Set the zero flag if the character standing next to the
-                     ; right-hand window of a pair
+*63242 CP 8          ; Set the zero flag if the character is standing next to
+                     ; the right-hand window of a pair
  63244 LD A,1        ; Bit 0 set: right-hand window blind toggle
  63246 JR Z,63250    ; Jump if the character is standing next to the right-hand
                      ; window of a pair
@@ -23428,7 +23428,7 @@ c63614 LD C,A        ; {Point #REGhl at the last byte in the set of
                      ; byte #b4 of the character's buffer
  63650 LD (DE),A     ; Reset all flags in byte #b3 of the character's buffer
  63651 DEC E         ; Point #REGde at byte #b2 of the character's buffer
- 63652 LDDR          ; Copy the x- and y-coordinates and animatory state  (or,
+ 63652 LDDR          ; Copy the x- and y-coordinates and animatory state (or,
                      ; if dealing with Sam, the x-coordinate of the leftmost
                      ; column of the play area on screen, 32 or 34, and 0) into
                      ; bytes #b0-#b2 of the character's buffer
@@ -24180,7 +24180,7 @@ s64323 DEFS 3
 b64326 DEFB 13       ; Landing y-coordinate when stepping off the right edge of
                      ; the roof of the apartment building next to no. 74, the
                      ; right edge of the roof of the apartment building next
-                     ; next to no. 19, or the left edge of the roof of no. 17
+                     ; to no. 19, or the left edge of the roof of no. 17
  64327 DEFB 35       ; Landing y-coordinate (road) when stepping off the left
                      ; edge of the roof of the apartment building next to no.
                      ; 19, or off the fire escape on that building from the
@@ -24403,7 +24403,7 @@ c64512 LD A,B        ; #REGa=location indicator
                      ; next to no. 74)?
  64521 RET C         ; Return if so
  64522 JR NZ,64534   ; Jump unless the character's x-coordinate is 206
-; The character is standing on the right edge of the roof the apartment
+; The character is standing on the right edge of the roof of the apartment
 ; building next to no. 19, or the left edge of the roof of no. 17.
 @nowarn
 *64524 LD A,(47386)  ; Collect the Z value for 208<=x<=215, 6<=y<=11 from the
@@ -24737,7 +24737,7 @@ w64878 DEFW 25385    ; Chase and pick up Sam
 
 ; Command list: Control a banknote
 ;
-; Used by banknotes (see #R58400, #R58406, #R58412, #R58418).
+; Used by banknotes (see #R58400, #R58406, #R58412 and #R58418).
 @label=CLIST08
 w64886 DEFW 25434    ; Control a banknote
 

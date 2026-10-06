@@ -1,4 +1,4 @@
-; Copyright 2010-2017, 2025 Richard Dymond (rjdymond@gmail.com)
+; © 2010-2017, 2025, 2026 Richard Dymond (rjdymond@gmail.com)
 
 [Bug:troubleHiding:The trouble with hiding]
 When Sam is wanted by the police, he is supposed to be able to hide inside
@@ -58,7 +58,7 @@ room in the apartments next to no. 19, call the police, hang up, go to the
 right edge of the roof of the apartments, throw the hook over the roof of
 no. 19, make your way across the rope to the roof of no. 17, and go down into
 the room above Sam's office. Instead of following Sam there, the police will go
-to Sam's office instead and run up and down continuously.
+to Sam's office and run up and down continuously.
 
 #PUSHS
 #CALL(place_char(230,229,13,1,0))
@@ -320,7 +320,7 @@ down to let Sam out. Unlikely, but certainly possible.
 When Sam knocks a character over by landing on his head from above, that
 character is supposed to:
 
-<div>(1) drop to the the floor and remain there for a brief period</div>
+<div>(1) drop to the floor and remain there for a brief period</div>
 <div>(2) stand up and stagger around for another brief period</div>
 <div>(3) walk back to the spot where he was hit on the head</div>
 <div>(4) resume whatever he was doing at the time he was struck</div>
@@ -478,7 +478,7 @@ TABLE#
 
 (Sam can get here without being caught by the gangster either by going via the
 roof of no. 27 - assuming he has the key to that house - or by calling the
-police and enduring a brief stint in jail first.)  When the gangster is beyond
+police and enduring a brief stint in jail first.) When the gangster is beyond
 the left edge of the police station steps, step down onto the sidewalk, and
 then quickly back up onto the police station steps. The gangster will follow
 Sam onto the first step above the sidewalk and then freeze:
@@ -677,7 +677,7 @@ banknote from view.
 
 [Bug:runGangsterRun:Run, gangster, run]
 Approach the gangster on the catwalk from the left, and stop at the point where
-moving right once would make the gangster starting chasing Sam (who is shown
+moving right once would make the gangster start chasing Sam (who is shown
 outside here for clarity):
 
 #PUSHS
