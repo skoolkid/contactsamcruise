@@ -7889,7 +7889,7 @@ c31960 LD HL,32028   ; Point #REGhl at the object location table at #R32028
  31967 INC HL        ;
  31968 INC HL        ; }
  31969 RRCA          ; Is the entry active?
- 31970 JR C,31995    ; Jump to the next entry if not
+ 31970 JR C,31995    ; Jump to the next entry if so
  31972 AND 32        ; Is the entry for the hook or budgie?
  31974 JR Z,31995    ; Jump to the next entry if not
  31976 LD A,(32745)  ; Collect the object inventory flags from #R32745
@@ -23888,7 +23888,7 @@ c64005 LD A,138      ; #REGa=#b10 (short knockout delay) + #b128 (quick
  64053 DEC (HL)      ; }
  64054 JR Z,64131    ; Jump if it has reached 0
  64056 LD L,0        ; Point #REGhl at byte #b0 of the character's buffer
- 64058 BIT 0,(HL)    ; Is the character facing right?
+ 64058 BIT 0,(HL)    ; Is the character midstride?
  64060 JR NZ,64075   ; Jump if so
  64062 PUSH HL       ; Save the character number briefly
  64063 CALL 60179    ; Obtain descriptors for the character's current location
